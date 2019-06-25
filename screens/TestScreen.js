@@ -1,20 +1,67 @@
 import React from 'react';
-import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
-import { TestComponent } from './../components/AppComponents';
+import { ScrollView, StyleSheet, Text, View, TextInput, Button, Linking, Alert, } from 'react-native';
+import { TestComponent, PhoneButton } from './../components/AppComponents';
+import * as firebase from 'firebase';
 
-export default function TestScreen() {
-  return (
-    <View style={{paddingTop:20}}>
-      <Text>Hello</Text>
-      <TestComponent />
-    </View>
-  );
+export default class TestScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPassword: "",
+      newPassword: "",
+      newEmail: "",
+    };
+  }
+
+  // Occurs when signout is pressed...
+  onSignoutPress = () => {
+    firebase.auth().signOut();
+  }
+
+  // Reauthenticates the current user and returns a promise...
+  reauthenticate = (currentPassword) => {
+    var user = firebase.auth().currentUser;
+    var cred = firebase.auth.EmailAuthProvider.credential(user.email, currentPassword);
+    return user.reauthenticateWithCredential(cred);
+  }
+
+  // Changes user's password...
+  onChangePasswordPress = () => {
+    this.reauthenticate(this.state.currentPassword).then(() => {
+      var user = firebase.auth().currentUser;
+      user.updatePassword(this.state.newPassword).then(() => {
+        Alert.alert("Password was changed");
+      }).catch((error) => { console.log(error.message); });
+    }).catch((error) => { console.log(error.message) });
+  }
+
+  // Changes user's email...
+  onChangeEmailPress = () => {
+    this.reauthenticate(this.state.currentPassword).then(() => {
+      var user = firebase.auth().currentUser;
+      user.updateEmail(this.state.newEmail).then(() => {
+        Alert.alert("Email was changed");
+      }).catch((error) => { console.log(error.message); });
+    }).catch((error) => { console.log(error.message) });
+  }
+  
+  render() {
+    return (
+      <ScrollView style={{flex: 1, flexDirection: "column", paddingVertical: 50, paddingHorizontal: 10,}}>
+        <Text>Yolo WELCOME BACK</Text>
+        
+        <Button title="Sign out" onPress={this.onSignoutPress} />
+
+      </ScrollView>
+    );
+  }
 }
 
-TestScreen.navigationOptions = {
-  header: null,
-};
-
 const styles = StyleSheet.create({
-  
+  text: { color: "white", fontWeight: "bold", textAlign: "center", fontSize: 20, },
+  textInput: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:40, alignSelf: "stretch", fontSize: 18, },
 });

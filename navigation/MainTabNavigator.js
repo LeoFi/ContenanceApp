@@ -1,31 +1,23 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-} from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
-import TabBarIcon from '../components/TabBarIcon';
 import TestScreen from '../screens/TestScreen';
 
-const TestStack = createStackNavigator({
-  Test: TestScreen,
-});
 
-TestStack.navigationOptions = {
-  tabBarLabel: 'Test',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-};
+const RootStack = createStackNavigator(
+  {
+    Test: TestScreen,
+  },
+  {
+    initialRouteName: 'Test',
+  }
+);
 
-export default createBottomTabNavigator({
-  TestStack,
-});
+const AppContainer = createAppContainer(RootStack);
+
+export default class MainNavigator extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
