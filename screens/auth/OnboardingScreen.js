@@ -1,7 +1,6 @@
-import { Alert, StatusBar, Image } from 'react-native';
+import { StyleSheet, Alert, StatusBar, Image, View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-import { Button, Icon } from 'react-native-elements';
 import Onboarding from 'react-native-onboarding-swiper';
 
 
@@ -32,34 +31,29 @@ export default class WithCTA extends React.Component {
     onSkip={() => Alert.alert('Skipped')}
     pages={[
       {
-        title: 'Hey!',
-        subtitle: 'Welcome to $App!',
+        title: '',
+        subtitle: 'You can probably relate to my situation, {username}: I love my smartphone. It opens up a whole new world right at my fingertips, just like a big ocean full of great possibilities.',
         backgroundColor: '#F4F1DE',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
       {
-        title: 'Send Messages',
-        subtitle: 'You can reach everybody with us',
+        title: '',
+        subtitle: 'But the ocean is not calm. There are lots of stormy waves of impulses that pull you underwater. Sometimes, I feel like almost drowning. And I’m not alone: many people feel that way.',
         backgroundColor: '#F4F1DE',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
       {
-        title: 'Get Notified',
-        subtitle: 'We will send you notification as soon as something happened',
-        backgroundColor: '#F4F1DE',
-        image: <Image source={require('./../../assets/images/placeholder.png')} />,
-      },
-      {
-        title: "That's Enough",
+        title: 'This program is about mastering the waves.',
         subtitle: (
-          <Button
-            title={'Get Started'}
-            containerViewStyle={{ marginTop: 20 }}
-            backgroundColor={'white'}
-            borderRadius={5}
-            textStyle={{ color: '#003c8f' }}
-            onPress={ this.onCreateAccountPress }
-          />
+          <View style={{flex: 1}}>
+            <Text>In 21 days, you will learn how to develop a healthy relationship to your smartphone. One exercise per day. No more feelings of drowning.</Text>
+            <TouchableOpacity
+              style={styles.button_primary}
+              onPress={this.onCreateAccountPress}
+            >
+              <Text style={styles.button_text_primary}>Next</Text>
+             </TouchableOpacity>
+          </View>
         ),
         backgroundColor: '#F4F1DE',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
@@ -70,3 +64,43 @@ export default class WithCTA extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button_primary: {
+      backgroundColor: '#2C3B51',
+      borderRadius: 99,
+      overflow: 'hidden',
+      padding: 20,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignSelf: 'stretch',
+      marginBottom:15,
+  },
+  button_secondary: {
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      borderRadius: 99,
+      overflow: 'hidden',
+      padding: 20,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignSelf: 'stretch',
+      marginBottom:15,
+  },
+  button_text_primary: {
+      color: '#F4F1DE',
+      fontSize: 17,
+      textAlign:'center',
+      fontFamily: 'roboto-black',
+      textTransform: 'uppercase',
+      letterSpacing: 2,
+  },
+  button_text_secondary: {
+      color: '#2C3B51',
+      fontSize: 17,
+      textAlign:'center',
+      fontFamily: 'roboto-black',
+      textTransform: 'uppercase',
+      letterSpacing: 2,
+  },
+});

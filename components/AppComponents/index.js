@@ -1,3 +1,5 @@
 import TestComponent from './TestComponent';
+import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
-export { TestComponent };
+export { TestComponent, PrimaryButton, SecondaryButton };

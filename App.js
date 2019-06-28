@@ -45,7 +45,7 @@ export default class App extends React.Component {
         <Provider store={store}>
           <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-            {Platform.OS === 'android' && <View />}
+            {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
             {(this.state.isAuthenticated) ? <MainTabNavigator /> : <AppNavigator />}
           </View>
         </Provider>

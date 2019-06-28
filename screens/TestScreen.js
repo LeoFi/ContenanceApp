@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View, TextInput, Button, Linking, Alert, } from 'react-native';
-import { TestComponent, PhoneButton } from './../components/AppComponents';
+import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Button } from 'react-native';
+import { TestComponent, PrimaryButton, SecondaryButton } from './../components/AppComponents';
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
 import { setFavoriteAnimal, watchPersonData } from './../redux/app-redux';
@@ -33,7 +33,6 @@ class TestScreen extends React.Component {
     this.props.watchPersonData();
   }
 
-  // Occurs when signout is pressed...
   onSignoutPress = () => {
     firebase.auth().signOut();
   }
@@ -41,30 +40,37 @@ class TestScreen extends React.Component {
   onSetFavoriteAnimalPress = () => {
     this.props.setFavoriteAnimal(this.state.favoriteAnimal);
   }
-  
+
+  onSetFirstNamePress = () => {
+    this.props.watchPersonData(this.state.favoriteAnimal);
+  }
+
   render() {
     return (
-      <ScrollView style={{flex: 1, flexDirection: "column", paddingVertical: 50, paddingHorizontal: 10,}}>
-        <Text>THIS IS THE HOME PAGE</Text>
+      <View style={{paddingTop:20}}>
+
+        <PrimaryButton />
+        <SecondaryButton title="Hello"/>
+
+        <Button title="Signout" onPress={this.onSignoutPress} />
+
 
         <Text>{this.props.favoriteAnimal}</Text>
-
         <TextInput style={{borderWidth:1, width: 200, height: 40}}
           value={this.state.favoriteAnimal}
           onChangeText={(text) => { this.setState({favoriteAnimal: text}) }}
         />
         <Button title="Set Favorite Animal" onPress={this.onSetFavoriteAnimalPress} />
-        
-        <Button title="Sign out" onPress={this.onSignoutPress} />
 
-      </ScrollView>
+        <Text>{this.props.personData.firstName}</Text>
+        <Text>{this.props.personData.lastName}</Text>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  text: { color: "white", fontWeight: "bold", textAlign: "center", fontSize: 20, },
-  textInput: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:40, alignSelf: "stretch", fontSize: 18, },
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestScreen);

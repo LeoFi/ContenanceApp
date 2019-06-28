@@ -1,4 +1,3 @@
-
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import * as firebase from 'firebase';
@@ -8,7 +7,7 @@ import * as firebase from 'firebase';
 //
 
 const initialState = {
-    favoriteAnimal: "",
+    favoriteAnimal: "duck",
     personData: { },
 };
 
@@ -50,7 +49,7 @@ const setFavoriteAnimal = (favoriteAnimal) => {
 const setPersonData = (personData) => {
     return {
         type: "setPersonData",
-        value: personData
+        value: personData,
     };
 }
 
@@ -59,7 +58,9 @@ const watchPersonData = () => {
         firebase.database().ref("person").on("value", function(snapshot) {
             var personData = snapshot.val();
             dispatch(setPersonData(personData));
-        }, function(error) { });
+        }, function(error) { 
+            //throw error
+        });
     };
 }
 
