@@ -4,6 +4,10 @@ import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 
 export default class SecurityAgreements extends React.Component {
 
+    static navigationOptions = {
+        header: null,
+    };
+    
     constructor(props) {
         super(props);
         this.state = {

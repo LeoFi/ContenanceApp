@@ -1,11 +1,15 @@
 
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, Button, Alert, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, Alert, Image, TouchableOpacity } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
 export default class LoginScreen extends React.Component {
 
+    static navigationOptions = {
+        header: null,
+    };
+      
     constructor(props) {
         super(props);
         this.state = { 
@@ -29,10 +33,10 @@ export default class LoginScreen extends React.Component {
 
     render() {
         return (
-            <View style={{paddingTop:50, alignItems:"center"}}>
+            <View style={styles.view}>
 
-                <Text h1>Not less</Text>
-                <Text h2>But Better</Text>
+                <Text style={styles.logo_top}>Not less</Text>
+                <Text style={styles.logo_bottom}>But Better</Text>
 
                 <Image source={require('./../../assets/images/placeholder.png')} />
                 
@@ -60,9 +64,19 @@ export default class LoginScreen extends React.Component {
                 />
                 */}
 
-                <Button title="Create An Account" onPress={this.onCreateAccountPress} />
-                
-                <Button title="I Have An Account" onPress={this.onLoginPress} />
+                <TouchableOpacity
+                    style={styles.button_primary}
+                    onPress={this.onCreateAccountPress}
+                >
+                    <Text style={styles.button_text_primary}>Create An Account</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.button_secondary}
+                    onPress={this.onLoginPress}
+                >
+                    <Text style={styles.button_text_secondary}>I Have An Account</Text>
+                </TouchableOpacity>
                 
                 {/*
                 <Button title="Forgot Password..." onPress={this.onForgotPasswordPress} />
@@ -73,5 +87,61 @@ export default class LoginScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
+    view: {
+        paddingTop:50,
+        paddingLeft:30,
+        paddingRight:30,
+        alignItems:"center",
+        flex: 1
+    },
+    logo_top: {
+        fontFamily: 'heebo-thin',
+        textTransform: 'uppercase',
+        fontSize: 47,
+        marginBottom: -13,
+        color: '#2C3B51',
+    },
+    logo_bottom: {
+        fontFamily: 'heebo-black',
+        textTransform: 'uppercase',
+        fontSize: 35,
+        color: '#2C3B51',
+    },
+    button_primary: {
+        backgroundColor: '#2C3B51',
+        borderRadius: 99,
+        overflow: 'hidden',
+        padding: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignSelf: 'stretch',
+        marginBottom:15,
+    },
+    button_secondary: {
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderRadius: 99,
+        overflow: 'hidden',
+        padding: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignSelf: 'stretch',
+        marginBottom:15,
+    },
+    button_text_primary: {
+        color: '#F4F1DE',
+        fontSize: 17,
+        textAlign:'center',
+        fontFamily: 'roboto-black',
+        textTransform: 'uppercase',
+        letterSpacing: 2,
+    },
+    button_text_secondary: {
+        color: '#2C3B51',
+        fontSize: 17,
+        textAlign:'center',
+        fontFamily: 'roboto-black',
+        textTransform: 'uppercase',
+        letterSpacing: 2,
+    },
 });

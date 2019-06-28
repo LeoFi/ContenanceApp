@@ -5,6 +5,10 @@ import * as firebase from 'firebase';
 
 export default class ForgotPasswordScreen extends React.Component {
 
+    static navigationOptions = {
+        header: null,
+    };
+    
     constructor(props) {
         super(props);
         this.state = { 

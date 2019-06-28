@@ -7,6 +7,10 @@ import Onboarding from 'react-native-onboarding-swiper';
 
 export default class WithCTA extends React.Component {
 
+  static navigationOptions = {
+    header: null,
+  };
+
   constructor(props) {
     super(props);
     this.state = { 
@@ -30,19 +34,19 @@ export default class WithCTA extends React.Component {
       {
         title: 'Hey!',
         subtitle: 'Welcome to $App!',
-        backgroundColor: '#003c8f',
+        backgroundColor: '#F4F1DE',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
       {
         title: 'Send Messages',
         subtitle: 'You can reach everybody with us',
-        backgroundColor: '#5e92f3',
+        backgroundColor: '#F4F1DE',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
       {
         title: 'Get Notified',
         subtitle: 'We will send you notification as soon as something happened',
-        backgroundColor: '#1565c0',
+        backgroundColor: '#F4F1DE',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
       {
@@ -57,7 +61,7 @@ export default class WithCTA extends React.Component {
             onPress={ this.onCreateAccountPress }
           />
         ),
-        backgroundColor: '#003c8f',
+        backgroundColor: '#F4F1DE',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
     ]}
