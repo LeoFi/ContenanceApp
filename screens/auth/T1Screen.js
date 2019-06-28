@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 
-export default class SecurityAgreements extends React.Component {
+export default class T1Screen extends React.Component {
 
     constructor(props) {
         super(props);

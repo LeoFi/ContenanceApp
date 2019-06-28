@@ -34,9 +34,7 @@ export default class LoginScreen extends React.Component {
                 <Text h1>Not less</Text>
                 <Text h2>But Better</Text>
 
-                <Image
-                source={require('./../../assets/images/placeholder.png')}
-                />
+                <Image source={require('./../../assets/images/placeholder.png')} />
                 
                 {/*
                 <Text>Login</Text> 

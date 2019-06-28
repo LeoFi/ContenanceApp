@@ -52,7 +52,7 @@ export default class TestScreen extends React.Component {
   render() {
     return (
       <ScrollView style={{flex: 1, flexDirection: "column", paddingVertical: 50, paddingHorizontal: 10,}}>
-        <Text>Yolo WELCOME BACK</Text>
+        <Text>THIS IS THE HOME PAGE</Text>
         
         <Button title="Sign out" onPress={this.onSignoutPress} />
 

@@ -8,16 +8,18 @@ import OnboardingScreen from '../screens/auth/OnboardingScreen';
 import StartScreen from '../screens/auth/StartScreen';
 import LoginScreen from '../screens/auth/LoginScreen';
 import SignupScreen from '../screens/auth/SignupScreen';
+import T1Screen from '../screens/auth/T1Screen';
 import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 
 
 ///this is the code that makes the navigation happen
 
 const IntroStack = createStackNavigator({
-  Onboarding: OnboardingScreen,
   Start: StartScreen,
+  Onboarding: OnboardingScreen,
   Login: LoginScreen,
   Signup: SignupScreen,
+  T1:  T1Screen,
   Forgot:  ForgotPasswordScreen,
 
 });

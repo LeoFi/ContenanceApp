@@ -15,7 +15,8 @@ export default class SignupScreen extends React.Component {
         };
     }
 
-    onSignupPress = () => {
+    /*
+        onSignupPress = () => {
         if (this.state.password !== this.state.passwordConfirm) {
             Alert.alert("Passwords do not match");
             return;
@@ -23,6 +24,11 @@ export default class SignupScreen extends React.Component {
 
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => { }, (error) => { Alert.alert(error.message); });
+    }
+    */
+
+    onSignupPress = () => {
+        this.props.navigation.navigate('Onboarding');
     }
 
     onBackToLoginPress = () => {

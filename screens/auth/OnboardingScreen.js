@@ -1,109 +1,68 @@
-import { Image, View } from 'react-native';
+import { Alert, StatusBar, Image } from 'react-native';
 import React from 'react';
-import { Button } from 'react-native-elements';
-import { NavigationActions } from 'react-navigation';
 
+import { Button, Icon } from 'react-native-elements';
 import Onboarding from 'react-native-onboarding-swiper';
 
-const Square = ({ isLight, selected }) => {
-  let backgroundColor;
-  if (isLight) {
-    backgroundColor = selected ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.3)';
-  } else {
-    backgroundColor = selected ? '#fff' : 'rgba(255, 255, 255, 0.5)';
+
+export default class WithCTA extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { 
+        email: "",
+        password: "",
+        username: "",
+    };
   }
-  return (
-    <View
-      style={{
-        width: 6,
-        height: 6,
-        marginHorizontal: 3,
-        backgroundColor,
-      }}
-    />
-  );
-};
 
-const backgroundColor = isLight => (isLight ? 'blue' : 'lightblue');
-const color = isLight => backgroundColor(!isLight);
+  onCreateAccountPress = () => {
+    this.props.navigation.navigate('T1');
+  }
 
-const Done = ({ isLight, ...props }) => (
-  <Button
-    title={'Done'}
-    buttonStyle={{
-      backgroundColor: backgroundColor(isLight),
-    }}
-    containerViewStyle={{
-      marginVertical: 10,
-      width: 70,
-      backgroundColor: backgroundColor(isLight),
-    }}
-    textStyle={{ color: color(isLight) }}
-  />
-);
+  render() {
+    return (
 
-const Skip = ({ isLight, skipLabel, ...props }) => (
-  <Button
-    title={'Skip'}
-    buttonStyle={{
-      backgroundColor: backgroundColor(isLight),
-    }}
-    containerViewStyle={{
-      marginVertical: 10,
-      width: 70,
-    }}
-    textStyle={{ color: color(isLight) }}
-    {...props}
-  >
-    {skipLabel}
-  </Button>
-);
-
-const Next = ({ isLight, ...props }) => (
-  <Button
-    title={'Next'}
-    buttonStyle={{
-      backgroundColor: backgroundColor(isLight),
-    }}
-    containerViewStyle={{
-      marginVertical: 10,
-      width: 70,
-      backgroundColor: backgroundColor(isLight),
-    }}
-    textStyle={{ color: color(isLight) }}
-    {...props}
-  />
-);
-
-const CustomButtons = () => (
-  <Onboarding
-    DotComponent={Square}
-    NextButtonComponent={Next}
-    SkipButtonComponent={Skip}
-    DoneButtonComponent={Done}
-    titleStyles={{ color: 'blue' }} // set default color for the title
+    <Onboarding
+    showDone={false}
+    onSkip={() => Alert.alert('Skipped')}
     pages={[
       {
-        backgroundColor: '#fff',
+        title: 'Hey!',
+        subtitle: 'Welcome to $App!',
+        backgroundColor: '#003c8f',
         image: <Image source={require('./../../assets/images/placeholder.png')} />,
-        title: 'A twisted relationship',
-        subtitle: 'Leo really loves his smartphone. But sometimes, he feels distracted and overwhelmed by it ',
-        titleStyles: { color: 'red' }, // overwrite default color
       },
       {
-        backgroundColor: '#fe6e58',
-        image: <Image source={require('./../../assets/images/square.png')} />,
-        title: 'The Title',
-        subtitle: 'This is the subtitle that sumplements the title.',
+        title: 'Send Messages',
+        subtitle: 'You can reach everybody with us',
+        backgroundColor: '#5e92f3',
+        image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
       {
-        backgroundColor: '#999',
-        image: <Image source={require('./../../assets/images/triangle.png')} />,
-        title: 'Triangle',
-        subtitle: "Beautiful, isn't it?",
+        title: 'Get Notified',
+        subtitle: 'We will send you notification as soon as something happened',
+        backgroundColor: '#1565c0',
+        image: <Image source={require('./../../assets/images/placeholder.png')} />,
+      },
+      {
+        title: "That's Enough",
+        subtitle: (
+          <Button
+            title={'Get Started'}
+            containerViewStyle={{ marginTop: 20 }}
+            backgroundColor={'white'}
+            borderRadius={5}
+            textStyle={{ color: '#003c8f' }}
+            onPress={ this.onCreateAccountPress }
+          />
+        ),
+        backgroundColor: '#003c8f',
+        image: <Image source={require('./../../assets/images/placeholder.png')} />,
       },
     ]}
   />
-);
 
-export default CustomButtons;
+    );
+  }
+}
