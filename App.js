@@ -11,6 +11,7 @@ import * as firebase from 'firebase';
 import { Provider } from 'react-redux';
 import { store } from './redux/app-redux';
 
+
 export default class App extends React.Component {
   
   constructor(props) {

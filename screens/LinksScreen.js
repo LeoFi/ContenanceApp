@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import { PrimaryButton, SecondaryButton } from './../components/AppComponents';
 
 export default function LinksScreen() {
   return (
@@ -10,6 +11,9 @@ export default function LinksScreen() {
        * we just wanted to provide you with some helpful links.
        */}
       <ExpoLinksView />
+      <SecondaryButton label='Home' onPress={() => {
+            this.props.navigation.navigate('Test');
+          }} />
     </ScrollView>
   );
 }

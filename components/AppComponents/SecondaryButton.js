@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default class SecondaryButton extends React.Component {
+export default class SecondaryButton extends Component {
 
-    onLoginPress = () => {
-        this.props.navigation.navigate('Login');
-    }
-    
     render() {
-        return <TouchableOpacity
+        return (
+            <TouchableOpacity
             style={styles.button_secondary}
-            onPress={this.onLoginPress}
-        >
-            <Text {...this.props}
-            style={styles.button_text_secondary}></Text>
-        </TouchableOpacity>
+            onPress={this.props.onPress}>
+                <Text style={styles.button_text_secondary}>
+                    {this.props.label}
+                </Text>
+            </TouchableOpacity>
+        )
     }
 }
 
