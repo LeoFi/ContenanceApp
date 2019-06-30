@@ -1,15 +1,15 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
 import { Ionicons } from '@expo/vector-icons';
-import AppNavigator from './navigation/AppNavigator';
-import MainTabNavigator from './navigation/MainTabNavigator';
 import ApiKeys from './constants/ApiKeys';
 import * as firebase from 'firebase';
 import { Provider } from 'react-redux';
 import { store } from './redux/app-redux';
+import AppNavigator from './navigation/AppNavigator';
+import MainTabNavigator from './navigation/MainTabNavigator';
 
 
 export default class App extends React.Component {
@@ -65,8 +65,8 @@ export default class App extends React.Component {
         ...Ionicons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
         'roboto-black': require('./assets/fonts/Roboto-Black.ttf'),
+        'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
         'heebo-black': require('./assets/fonts/Heebo-Black.ttf'),
         'heebo-thin': require('./assets/fonts/Heebo-Thin.ttf'),
       }),

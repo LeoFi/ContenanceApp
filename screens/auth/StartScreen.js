@@ -1,10 +1,11 @@
 
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, Button, Alert, Image, TouchableOpacity } from 'react-native';
+import { PrimaryButton, SecondaryButton } from './../../components/AppComponents';
 import { NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
-export default class LoginScreen extends React.Component {
+export default class StartScreen extends React.Component {
 
     static navigationOptions = {
         header: null,
@@ -19,18 +20,6 @@ export default class LoginScreen extends React.Component {
         };
     }
 
-    onLoginPress = () => {
-        this.props.navigation.navigate('Login');
-    }
-
-    onCreateAccountPress = () => {
-        this.props.navigation.navigate('Signup');
-    }
-
-    onForgotPasswordPress = () => {
-        this.props.navigation.navigate('Forgot');
-    }
-
     render() {
         return (
             <View style={styles.view}>
@@ -39,48 +28,19 @@ export default class LoginScreen extends React.Component {
                 <Text style={styles.logo_bottom}>But Better</Text>
 
                 <Image source={require('./../../assets/images/placeholder.png')} />
-                
-                {/*
-                <Text>Login</Text> 
+               
+                <PrimaryButton 
+                label='Create An Account' 
+                onPress={() => {
+                    this.props.navigation.navigate('Signup');
+                }} />
 
-                <TextInput style={{width: 200, height: 40, borderWidth: 1}}
-                    value={this.state.email}
-                    onChangeText={(text) => { this.setState({email: text}) }}
-                    placeholder="Email"
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                />
+                <SecondaryButton 
+                label='I Have An Account' 
+                onPress={() => {
+                    this.props.navigation.navigate('Login');
+                }} />
 
-                <View style={{paddingTop:10}} />
-
-                <TextInput style={{width: 200, height: 40, borderWidth: 1}}
-                    value={this.state.password}
-                    onChangeText={(text) => { this.setState({password: text}) }}
-                    placeholder="Password"
-                    secureTextEntry={true}
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                />
-                */}
-
-                <TouchableOpacity
-                    style={styles.button_primary}
-                    onPress={this.onCreateAccountPress}
-                >
-                    <Text style={styles.button_text_primary}>Create An Account</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.button_secondary}
-                    onPress={this.onLoginPress}
-                >
-                    <Text style={styles.button_text_secondary}>I Have An Account</Text>
-                </TouchableOpacity>
-                
-                {/*
-                <Button title="Forgot Password..." onPress={this.onForgotPasswordPress} />
-                */}
             </View>
         );
     }
@@ -106,42 +66,5 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 35,
         color: '#2C3B51',
-    },
-    button_primary: {
-        backgroundColor: '#2C3B51',
-        borderRadius: 99,
-        overflow: 'hidden',
-        padding: 20,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignSelf: 'stretch',
-        marginBottom:15,
-    },
-    button_secondary: {
-        backgroundColor: 'transparent',
-        borderWidth: 2,
-        borderRadius: 99,
-        overflow: 'hidden',
-        padding: 20,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignSelf: 'stretch',
-        marginBottom:15,
-    },
-    button_text_primary: {
-        color: '#F4F1DE',
-        fontSize: 17,
-        textAlign:'center',
-        fontFamily: 'roboto-black',
-        textTransform: 'uppercase',
-        letterSpacing: 2,
-    },
-    button_text_secondary: {
-        color: '#2C3B51',
-        fontSize: 17,
-        textAlign:'center',
-        fontFamily: 'roboto-black',
-        textTransform: 'uppercase',
-        letterSpacing: 2,
     },
 });

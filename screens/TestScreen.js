@@ -51,12 +51,13 @@ class TestScreen extends React.Component {
       <View style={{ flex: 1 }}>
         <View style={{ paddingTop: 20 }}>
 
+
           <PrimaryButton label='Login' onPress={() => {
             this.props.navigation.navigate('Login');
           }} />
 
-          <SecondaryButton label='Ola' onPress={() => {
-            this.props.navigation.navigate('Signup');
+          <SecondaryButton label='Exercice' onPress={() => {
+            this.props.navigation.navigate('Exercice');
           }} />
 
           <Button title="Signout" onPress={this.onSignoutPress} />

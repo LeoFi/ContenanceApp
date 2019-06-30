@@ -1,6 +1,7 @@
 import TestComponent from './TestComponent';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
-import Toggle from './Toggle';
+import SwitchButton from './SwitchButton';
+//import SwitchButtonANDText from './SwitchButtonANDText';
 
-export { TestComponent, PrimaryButton, SecondaryButton, Toggle };
+export { TestComponent, PrimaryButton, SecondaryButton, SwitchButton };

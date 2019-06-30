@@ -1,22 +1,44 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+//import { defaultStyle } from './style'
 
 export default class SecondaryButton extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            switch: false,
+            switchValue: false,
+            switchValueOn: "",
+            switchValueOff: "",
+        };
+    }
+
     render() {
+
         return (
-            <TouchableOpacity
-            style={styles.button_secondary}
-            onPress={this.props.onPress}>
-                <Text style={styles.button_text_secondary}>
-                    {this.props.label}
-                </Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                    //style={this.props.style}
+                    style={styles.button_secondary}
+                    onPress={this.props.onPress}
+                    disabled={this.props.disabled}>
+                    <Text style={styles.button_text_secondary}>
+                        {this.props.label}
+                    </Text>
+                </TouchableOpacity>
         )
     }
 }
 
+
 const styles = StyleSheet.create({
+    bottom: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        flexDirection: 'column',
+        marginBottom: 56,
+        alignSelf: 'stretch',
+    },
     button_secondary: {
         backgroundColor: 'transparent',
         borderWidth: 2,
@@ -36,4 +58,4 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         letterSpacing: 2,
     },
-});
+});    

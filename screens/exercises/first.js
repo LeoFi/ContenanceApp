@@ -1,45 +1,18 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View, StyleSheet } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
-class FirstScreen extends React.Component {
+export default class ExerciseScreen extends React.Component {
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home!</Text>
-                <Button
-                    title="Tap Anywhere To Continue 1"
-                    onPress={() => this.props.navigation.navigate('SecondScreen')}
-                />
-            </View>
-        );
+            <View style={styles.container}><Text style={{ color: '#e93766', fontSize: 40 }}>ExerciseScreen</Text><ActivityIndicator color='#e93766' size="large" /></View>
+        )
     }
 }
-
-class SecondScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
-                <Button
-                    title="Tap Anywhere To Continue 2"
-                    onPress={() => this.props.navigation.navigate('ThirdScreen')}
-                />
-            </View>
-        );
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
-}
-
-class ThirdScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
-                <Button
-                    title="Tap Anywhere To Continue 3"
-                    onPress={() => this.props.navigation.navigate('FourthScreen')}
-                />
-            </View>
-        );
-    }
-}
+})

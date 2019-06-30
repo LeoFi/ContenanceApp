@@ -6,21 +6,20 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TestScreen from '../screens/TestScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import GreenScreen from "../screens/TestScreen";
-import RedScreen from "../screens/LinksScreen";
-import YellowScreen from "../screens/SettingsScreen";
+import ExerciseScreen from '../screens/exercises/first';
 
 
 const TestTab = createStackNavigator({
-  First: TestScreen
+  First: { screen: TestScreen },
+  Exercice: { screen: ExerciseScreen },
 });
 
 const LinksTab = createStackNavigator({
-  Second: LinksScreen
+  Second: { screen: LinksScreen },
 });
 
 const SettingsTab = createStackNavigator({
-  Third: YellowScreen
+  Third: { screen: SettingsScreen },
 });
 
 const Tabs = createBottomTabNavigator({
@@ -38,7 +37,8 @@ const Tabs = createBottomTabNavigator({
       }
     }),
     tabBarOptions: {
-      showLabel: false
+      showLabel: true,
+      showIcon: false
     },
   });
 export default createAppContainer(Tabs);
