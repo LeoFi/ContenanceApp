@@ -74,19 +74,6 @@ class TestScreen extends React.Component {
           <Text>{this.props.personData.lastName}</Text>
 
         </View>
-
-        <View
-          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <SecondaryButton label='Home' onPress={() => {
-            this.props.navigation.navigate('Test');
-          }} />
-          <SecondaryButton label='Journey' onPress={() => {
-            this.props.navigation.navigate('Links');
-          }} />
-          <SecondaryButton label='Settings' onPress={() => {
-            this.props.navigation.navigate('Settings');
-          }} />
-        </View>
       </View>
     );
   }

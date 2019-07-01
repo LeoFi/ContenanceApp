@@ -10,10 +10,10 @@ export default class StartScreen extends React.Component {
     static navigationOptions = {
         header: null,
     };
-      
+
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             email: "",
             password: "",
             username: "",
@@ -22,24 +22,28 @@ export default class StartScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.view}>
+            <View style={styles.container}>
 
                 <Text style={styles.logo_top}>Not less</Text>
                 <Text style={styles.logo_bottom}>But Better</Text>
 
                 <Image source={require('./../../assets/images/placeholder.png')} />
-               
-                <PrimaryButton 
-                label='Create An Account' 
-                onPress={() => {
-                    this.props.navigation.navigate('Signup');
-                }} />
 
-                <SecondaryButton 
-                label='I Have An Account' 
-                onPress={() => {
-                    this.props.navigation.navigate('Login');
-                }} />
+                <View style={styles.bottom}>
+                    <PrimaryButton
+                        label='Create An Account'
+                        isBottom={false}
+                        onPress={() => {
+                            this.props.navigation.navigate('UP_First');
+                        }} />
+
+                    <SecondaryButton
+                        label='I Have An Account'
+                        isBottom={true}
+                        onPress={() => {
+                            this.props.navigation.navigate('Login');
+                        }} />
+                </View>
 
             </View>
         );
@@ -47,12 +51,19 @@ export default class StartScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    view: {
-        paddingTop:50,
-        paddingLeft:30,
-        paddingRight:30,
-        alignItems:"center",
-        flex: 1
+    container: {
+        paddingTop: 50,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+        flex: 1,
+        alignItems: "center",
+        alignSelf: "stretch",
+    },
+    bottom: {
+        flex: 1,
+        alignSelf: "stretch",
+        justifyContent: 'flex-end',
     },
     logo_top: {
         fontFamily: 'heebo-thin',

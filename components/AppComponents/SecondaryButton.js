@@ -7,25 +7,45 @@ export default class SecondaryButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            switch: false,
-            switchValue: false,
-            switchValueOn: "",
-            switchValueOff: "",
         };
     }
 
     render() {
 
+        const buttonPropsSecondary = {
+            label: this.props.label,
+            disabled: false,
+            onPress: this.props.onPress,
+            isBottom: this.props.isBottom,
+            style: this.props.style,
+        }
+
         return (
-                <TouchableOpacity
-                    //style={this.props.style}
-                    style={styles.button_secondary}
-                    onPress={this.props.onPress}
-                    disabled={this.props.disabled}>
-                    <Text style={styles.button_text_secondary}>
-                        {this.props.label}
-                    </Text>
-                </TouchableOpacity>
+            <TouchableOpacity
+                //style={this.props.style}
+                style={[
+                    styles.button_secondary,
+                    {
+                        backgroundColor: buttonPropsSecondary.disabled ? 'grey' : 'transparent',
+                        borderColor: buttonPropsSecondary.disabled ? 'grey' : '#2C3B51',
+                        marginBottom: buttonPropsSecondary.isBottom ? 0 : 15,
+                    },
+                    buttonPropsSecondary.style
+                ]}
+                onPress={buttonPropsSecondary.onPress}
+                disabled={buttonPropsSecondary.disabled}
+                isBottom={buttonPropsSecondary.isBottom}>
+                <Text
+                style={[
+                    styles.button_text_secondary,
+                    {
+                        color: buttonPropsSecondary.disabled ? 'white' : '#2C3B51',
+                    },
+                    buttonPropsSecondary.style
+                ]}>
+                    {buttonPropsSecondary.label}
+                </Text>
+            </TouchableOpacity>
         )
     }
 }
@@ -48,7 +68,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignSelf: 'stretch',
-        marginBottom: 15,
+        marginBottom: 0,
     },
     button_text_secondary: {
         color: '#2C3B51',

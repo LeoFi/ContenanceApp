@@ -1,7 +1,7 @@
 import React from 'react';
 import { Notifications } from 'expo';
 import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
-import { fromRight } from 'react-navigation-transitions';
+import { fromRight, fromTop, fromBottom } from 'react-navigation-transitions';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import MainTabNavigator from './MainTabNavigator';
 
@@ -44,16 +44,28 @@ const SignUpStack = createStackNavigator(
   },
 );
 
+const SignUpUPStack = createStackNavigator(
+  {
+    UP_First: { screen: FirstScreen },
+    UP_Second: { screen: SecondScreen },
+  },
+  {
+    transitionConfig: () => fromBottom(500),
+    headerBackTitleVisible: 'false',
+    cardStyle: { backgroundColor: '#F4F1DE' },
+  },
+);
+
 
 
 const MainStack = createStackNavigator(
   {
     Intro: { screen: IntroStack },
     SignUp: { screen: SignUpStack },
+    Up: { screen: SignUpUPStack },
     Main: { screen: MainTabNavigator },
   },
   {
-    transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: '#F4F1DE' },
     headerMode: 'none',
   },

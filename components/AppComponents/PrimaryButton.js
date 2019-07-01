@@ -7,23 +7,43 @@ export default class PrimaryButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            switch: false,
-            switchValue: false,
-            switchValueOn: "",
-            switchValueOff: "",
         };
     }
 
     render() {
 
+        const buttonProps = {
+            label: this.props.label,
+            disabled: this.props.disabled,
+            onPress: this.props.onPress,
+            isBottom: this.props.isBottom,
+            style: this.props.style,
+        }
+
         return (
                 <TouchableOpacity
                     //style={this.props.style}
-                    style={styles.button_primary}
-                    onPress={this.props.onPress}
-                    disabled={this.props.disabled}>
-                    <Text style={styles.button_text_primary}>
-                        {this.props.label}
+                    style={[
+                        styles.button_primary,
+                        {
+                            backgroundColor: buttonProps.disabled ? '#E0DFD0' : '#2C3B51',
+                            borderColor: buttonProps.disabled ? '#E0DFD0' : '#2C3B51',
+                            marginBottom: buttonProps.isBottom ? 0 : 15,
+                        },
+                        buttonProps.style
+                    ]}
+                    onPress={buttonProps.onPress}
+                    disabled={buttonProps.disabled}>
+                    <Text 
+                    style={[
+                        styles.button_text_primary,
+                        {
+                            color: buttonProps.disabled ? 'rgba(44, 59, 81, 0.3)' : '#F4F1DE',
+                        },
+                        buttonProps.style
+                    ]}
+                    >
+                        {buttonProps.label}
                     </Text>
                 </TouchableOpacity>
         )
@@ -49,7 +69,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignSelf: 'stretch',
-        marginBottom: 15,
+        marginBottom: 0,
     },
     button_text_primary: {
         color: '#F4F1DE',

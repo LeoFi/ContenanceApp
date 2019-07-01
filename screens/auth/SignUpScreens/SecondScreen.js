@@ -56,7 +56,7 @@ export default class Second extends React.Component {
                 />
 
                 <PrimaryButton label='Sign Up' onPress={() => {
-                    this.props.navigation.navigate('Signup_Third');
+                    this.props.navigation.navigate('UP_Second');
                 }} />
 
             </View>

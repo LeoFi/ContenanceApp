@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Switch } from 'react-native';
-import { PrimaryButton } from '.';
+import PrimaryButton from './PrimaryButton';
+import LinkText from './LinkText';
 
 export default class SwitchButton extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            switch: false,
-            switchValue: false,
-            buttonDisable: '',
-            isbuttonDisabled: true,
-            switchValueOn: "",
-            switchValueOff: "",
         };
 
     }
     toggleSwitch = (value) => {
 
-        this.setState({ disabled: value });
-        //onValueChange of the switch this function will be called
         this.setState({ switchValue: value })
-        console.log(value);
+        //console.log(value);
 
         //console.log(buttonDisable);
         //state changes according to switch
@@ -30,56 +23,68 @@ export default class SwitchButton extends Component {
 
     render() {
 
+        const buttonProps = {
+            label: this.props.label,
+            disabled: this.state.switchValue ? false : true,
+            isBottom: this.props.isBottom,
+            onPress: this.props.onPress,
+            linkOnPress: this.props.linkOnPress,
+            linkLabel: this.props.linkLabel,
+            textLabel: this.props.textLabel,
+        }
+
+        // const overrideButtonProps = {
+        //     ...buttonProps,
+        //     label: 'override',
+        // }
+
+
+
         return (
-            <View>
-                <View>
-                    <Text>{this.state.switchValue ? this.props.switchValueOn : this.props.switchValueOff}</Text>
+            <View style={styles.container}>
+                <View style={styles.inline}>
+                    <LinkText
+                        style={styles.link_text}
+                        linkLabel={buttonProps.linkLabel}
+                        textLabel={buttonProps.textLabel}
+                        linkOnPress={buttonProps.linkOnPress}
+                    />
                     <Switch
-                        style={{ marginTop: 30 }}
                         onValueChange={this.toggleSwitch}
                         value={this.state.switchValue}
                     />
-                    <TouchableOpacity
-                        //style={this.props.style}
-                        //style={{ backgroundColor: this.state.switchValue != true ? 'rgba(44, 59, 81, 0.3)' : '#2C3B51' }}
-                        style={styles.button_primary}
-                        onPress={this.props.onPress}
-                        disabled={this.state.switchValue ? false : true}
-                        activeOpacity={this.state.switchValue ? 1 : 0.7}
-                    >
-                        <Text style={styles.button_text_primary}>
-                            {this.props.label}
-                        </Text>
-                    </TouchableOpacity>
                 </View>
+                <View>
+                    <PrimaryButton
+                        label={buttonProps.label}
+                        disabled={buttonProps.disabled}
+                        isBottom={buttonProps.isBottom}
+                        onPress={buttonProps.onPress}
+                    />
+                </View>
+                {/* <PrimaryButton
+                        {...overrideButtonProps}
+                    />                     */}
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    bottom: {
+    container: {
         flex: 1,
         justifyContent: 'flex-end',
         flexDirection: 'column',
-        marginBottom: 56,
         alignSelf: 'stretch',
+        paddingTop: 30,
+        //textAlign: 'left',
     },
-    button_primary: {
-        backgroundColor: '#2C3B51',
-        borderWidth: 2,
-        borderColor: '#2C3B51',
-        borderRadius: 99,
-        overflow: 'hidden',
-        padding: 20,
-        justifyContent: 'center',
-    },
-    button_text_primary: {
-        color: '#F4F1DE',
-        fontSize: 17,
-        textAlign: 'center',
-        fontFamily: 'roboto-black',
-        textTransform: 'uppercase',
-        letterSpacing: 2,
-    },
+    inline: {
+        flex: 1,
+        flexDirection:'row-reverse', 
+        justifyContent: 'flex-end',
+        //flexDirection: 'column',
+        alignSelf: 'stretch',
+        //flexWrap:'wrap',
+    }
 });

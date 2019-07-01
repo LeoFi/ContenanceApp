@@ -1,57 +1,71 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Switch } from 'react-native';
-import { PrimaryButton, SecondaryButton } from '.';
+import PrimaryButton from './PrimaryButton';
+import LinkText from './LinkText';
 
 export default class SwitchButtonANDText extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            switch: false,
-            switchValue: false,
-            buttonDisable: '',
-            isbuttonDisabled: true,
-            switchValueOn: "",
-            switchValueOff: "",
         };
-    }
 
+    }
     toggleSwitch = (value) => {
 
-        this.setState({ disabled: value });
-        //onValueChange of the switch this function will be called
         this.setState({ switchValue: value })
+        //console.log(value);
+
+        //console.log(buttonDisable);
         //state changes according to switch
         //which will result in re-render the text
     }
 
     render() {
+
+        const buttonProps = {
+            label: this.props.label,
+            disabled: this.state.switchValue ? false : true,
+            isBottom: this.props.isBottom,
+            onPress: this.props.onPress,
+            link: this.props.link,
+        }
+
+        // const overrideButtonProps = {
+        //     ...buttonProps,
+        //     label: 'override',
+        // }
+
+
+
         return (
-            <View style={styles.bottom}>
+            <View style={styles.container}>
                 <Text>{this.state.switchValue ? this.props.switchValueOn : this.props.switchValueOff}</Text>
                 <Switch
-                    style={{ marginTop: 30 }}
                     onValueChange={this.toggleSwitch}
                     value={this.state.switchValue}
                 />
-                <PrimaryButton
-                    label={this.props.label}
-                    //disabled={this.state.buttonDisable ? this.props.switchValueOn : this.props.switchValueOff}
-                    disabled={this.state.switchValue ? false : true}
-                    activeOpacity={this.state.switchValue ? 1 : 0.7}
-                    onPress={this.props.onPress}
-                />
+                <View>
+                    <PrimaryButton
+                        label={buttonProps.label}
+                        disabled={buttonProps.disabled}
+                        isBottom={buttonProps.isBottom}
+                        onPress={buttonProps.onPress}
+                    />
+                </View>
+                {/* <PrimaryButton
+                        {...overrideButtonProps}
+                    />                     */}
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    bottom: {
+    container: {
         flex: 1,
         justifyContent: 'flex-end',
         flexDirection: 'column',
-        marginBottom: 56,
         alignSelf: 'stretch',
     },
     button_primary: {

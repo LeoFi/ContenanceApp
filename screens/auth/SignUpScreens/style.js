@@ -2,11 +2,25 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop:80,
-        paddingLeft:30,
-        paddingRight:30,
-        alignItems:"center",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
         flex: 1,
+        alignItems: "center",
+        alignSelf: "stretch",
+    },
+    center: {
+        flex: 1,
+        justifyContent: 'flex-end',
+    },
+    bottom: {
+        flex: 1,
+        justifyContent: 'flex-end',
+    },
+    keyboard_view: {
+        flex: 1,
+        alignSelf: "stretch",
     },
     header: {
         color: '#2C3B51',
@@ -25,9 +39,7 @@ const styles = StyleSheet.create({
     },
     usernameInput: {
         marginTop: 43,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignSelf: 'stretch',
+
         textAlign: 'center',
         height: 40,
         fontSize: 19,
