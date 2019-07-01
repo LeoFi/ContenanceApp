@@ -5,20 +5,33 @@ import { PrimaryButton, SecondaryButton, SwitchButton } from './../../../compone
 import { styles } from './style'
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
-import { setFavoriteAnimal, watchPersonData } from './../../../redux/app-redux';
+import { setFavoriteAnimal, checkCode, watchcheckCode, watchPersonData } from './../../../redux/app-redux';
 
+const mapStateToProps = (state) => {
+    return {
+        isCodeTrue: state.isCodeTrue,
+    };
+}
 
-export default class FirstScreen extends React.Component {
+const mapDispatchToProps = (dispatch) => {
+    return {
+        checkCode: (text) => { dispatch(checkCode(text)) },
+        watchcheckCode: () => { dispatch(watchcheckCode()) },
+    };
+}
+
+class FirstScreen extends React.Component {
 
     static navigationOptions = {
         header: null,
-        currentUser: null,
     };
 
     constructor(props) {
         super(props);
         this.state = {
+            isCodeTrue: this.props.isCodeTrue,
         }
+        this.props.watchcheckCode();
 
 
         // firebase.database().ref('users/0003').set({
@@ -29,49 +42,50 @@ export default class FirstScreen extends React.Component {
         //     //console.log(firebase.auth().currentUser.uid)
         // }).catch((error) => {
         //     console.log(error);
-        // })
+        // // })
 
         // firebase.database().ref("codes").orderByChild("ID").equalTo("000001").once("value", snapshot => {
         //     if (snapshot.exists()) {
-        //         const userData = snapshot.val();
+        //         //const userData = snapshot.val();
         //         //console.log("exists!", userData);
-        //         //console.log(firebase.database().ref('codes'));
+        //         console.log("exists!");
         //     }
         //     else {
-        //         //console.log(snapshot);
+        //         console.log(snapshot);
         //     }
         // });
 
+        // firebase.database().ref(`codes/000000001`).once("value", snapshot => {
+        //     if (snapshot.exists() && ) {
+        //         console.log("THE CODE EXISTS");
+        //         // const email = snapshot.val();
+        //         firebase.database().ref("codes/000000001").orderByChild("isTaken").equalTo(false).once("value", snapshot => {
+        //             if (snapshot.exists()) {
+        //                 console.log("AND AVAILABLE");
+        //                 // const email = snapshot.val();
+        //                 firebase.database().ref('codes/000000001').set({isTaken: true})
+        //             }
+        //             else {
+        //                 console.log("NOT AVAILABLE");
+        //             }
+        //         });
+        //     }
+        //     else {
+        //         console.log("THE CODE DOESN'T EXISTS");
+        //     }
+        // });
 
-        // function writeUserData(userId, name, email, imageUrl) {
-        //     firebase.database().ref('users/' + userId).set({
-        //         username: name,
-        //         email: email,
-        //         profile_picture: imageUrl
-        //     });
-        // }
-    }
-
-    isCodeTrue = () => {
-        firebase.database().ref().orderByChild("ID").equalTo("000002").once("value", function (snapshot) {
-            // var personData = snapshot.val();
-            // dispatch(setPersonData(personData));
-            //console.log("exists!");
-            if (snapshot.exists()) {
-                console.log("exists!");
-                this.props.navigation.navigate('Signup_Second');
-            }
-        }, function (error) {
-            console.log(error);
-        });
     }
 
     onSetFavoriteAnimalPress = () => {
         this.props.setFavoriteAnimal(this.state.favoriteAnimal);
     }
 
+    onIsCodeTrue = () => {
+        this.props.checkCode(this.state.isCodeTrue);
+    }
+
     render() {
-        const { currentUser } = this.state
 
         return (
 
@@ -83,8 +97,8 @@ export default class FirstScreen extends React.Component {
 
                     <View style={styles.center}>
                         <TextInput style={styles.usernameInput}
-                            value={this.state.password}
-                            onChangeText={(text) => { this.setState({ password: text }) }}
+                            value={this.state.isCodeTrue}
+                            onChangeText={(text) => { this.setState({ isCodeTrue: text }) }}
                             placeholder="Enter Code"
                             placeholderTextColor="rgba(44, 59, 81, 0.3)"
                             secureTextEntry={true}
@@ -97,11 +111,14 @@ export default class FirstScreen extends React.Component {
                             textLabel="Accept "
                             linkLabel="security agreement"
                             isBottom={true}
-                            onPress={this.isCodeTrue}
+                            onPress={this.onIsCodeTrue}
                             linkOnPress={() => {
                                 this.props.navigation.navigate('UP_Second');
                             }}
                         />
+
+
+
                     </View>
 
 
@@ -110,3 +127,5 @@ export default class FirstScreen extends React.Component {
         );
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(FirstScreen);

@@ -16,6 +16,14 @@ import T1Screen from '../screens/auth/T1Screen';
 import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 
 
+import TestScreen from '../screens/TestScreen';
+import Exercice_1_Intro_Phase from '../screens/exercices/Exercice_1/Intro_Phase_Observe';
+import Exercice_1_Intro from '../screens/exercices/Exercice_1/Intro';
+import Exercice_1_1 from '../screens/exercices/Exercice_1/1';
+import Exercice_1_2 from '../screens/exercices/Exercice_1/2';
+import Exercice_1_3 from '../screens/exercices/Exercice_1/3';
+
+
 ///this is the code that makes the navigation happen
 
 const IntroStack = createStackNavigator(
@@ -25,6 +33,7 @@ const IntroStack = createStackNavigator(
     Signup: { screen: FirstScreen },
     T1: { screen: T1Screen },
     Forgot: { screen: ForgotPasswordScreen },
+    Home: { screen: TestScreen },
   },
   {
     transitionConfig: () => fromRight(500),
@@ -44,7 +53,7 @@ const SignUpStack = createStackNavigator(
   },
 );
 
-const SignUpUPStack = createStackNavigator(
+const FromBottomStack = createStackNavigator(
   {
     UP_First: { screen: FirstScreen },
     UP_Second: { screen: SecondScreen },
@@ -56,14 +65,29 @@ const SignUpUPStack = createStackNavigator(
   },
 );
 
+const HomeTab = createStackNavigator(
+  {
+    Home: { screen: MainTabNavigator },
+    Intro_Phase_Observe: { screen: Exercice_1_Intro_Phase },
+    Exercice_1_Intro: { screen: Exercice_1_Intro },
+    Exercice_1_1: { screen: Exercice_1_1 },
+    Exercice_1_2: { screen: Exercice_1_2 },
+    Exercice_1_3: { screen: Exercice_1_3 },
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    cardStyle: { backgroundColor: '#F4F1DE' },
+  },
+);
+
 
 
 const MainStack = createStackNavigator(
   {
     Intro: { screen: IntroStack },
     SignUp: { screen: SignUpStack },
-    Up: { screen: SignUpUPStack },
-    Main: { screen: MainTabNavigator },
+    Up: { screen: FromBottomStack },
+    Main: { screen: HomeTab },
   },
   {
     cardStyle: { backgroundColor: '#F4F1DE' },

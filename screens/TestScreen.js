@@ -3,11 +3,12 @@ import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, 
 import { PrimaryButton, SecondaryButton } from './../components/AppComponents';
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
-import { setFavoriteAnimal, watchPersonData } from './../redux/app-redux';
+import { setFavoriteAnimal, checkCode, watchPersonData } from './../redux/app-redux';
 
 const mapStateToProps = (state) => {
   return {
     favoriteAnimal: state.favoriteAnimal,
+    isCodeTrue: state.isCodeTrue,
     personData: state.personData,
   };
 }
@@ -15,9 +16,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setFavoriteAnimal: (text) => { dispatch(setFavoriteAnimal(text)) },
+    checkCode: (text) => { dispatch(checkCode(text)) },
     watchPersonData: () => { dispatch(watchPersonData()) },
   };
 }
+
 
 class TestScreen extends React.Component {
   static navigationOptions = {
@@ -28,6 +31,7 @@ class TestScreen extends React.Component {
     super(props);
     this.state = {
       favoriteAnimal: this.props.favoriteAnimal,
+      isCodeTrue: this.props.isCodeTrue,
     }
     this.props.watchPersonData();
   }
@@ -38,6 +42,10 @@ class TestScreen extends React.Component {
 
   onSetFavoriteAnimalPress = () => {
     this.props.setFavoriteAnimal(this.state.favoriteAnimal);
+  }
+
+  onIsCodeTrue = () => {
+    this.props.checkCode(this.state.isCodeTrue);
   }
 
   onCreateAccountPress = () => {
@@ -52,12 +60,8 @@ class TestScreen extends React.Component {
         <View style={{ paddingTop: 20 }}>
 
 
-          <PrimaryButton label='Login' onPress={() => {
-            this.props.navigation.navigate('Login');
-          }} />
-
-          <SecondaryButton label='Exercice' onPress={() => {
-            this.props.navigation.navigate('Exercice');
+          <PrimaryButton label='Exercice 1' onPress={() => {
+            this.props.navigation.navigate('Intro_Phase_Observe');
           }} />
 
           <Button title="Signout" onPress={this.onSignoutPress} />
@@ -70,8 +74,11 @@ class TestScreen extends React.Component {
           />
           <Button title="Set Favorite Animal" onPress={this.onSetFavoriteAnimalPress} />
 
-          <Text>{this.props.personData.firstName}</Text>
-          <Text>{this.props.personData.lastName}</Text>
+
+
+
+          {/* <Text>{this.props.personData.firstName}</Text>
+          <Text>{this.props.personData.lastName}</Text> */}
 
         </View>
       </View>

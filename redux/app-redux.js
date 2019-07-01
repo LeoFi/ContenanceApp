@@ -8,7 +8,8 @@ import * as firebase from 'firebase';
 
 const initialState = {
     favoriteAnimal: "duck",
-    personData: { },
+    personData: {},
+    isCodeTrue: {},
 };
 
 //
@@ -16,14 +17,18 @@ const initialState = {
 //
 
 const reducer = (state = initialState, action) => {
-    switch(action.type) {
-        case "setFavoriteAnimal": 
+    switch (action.type) {
+        case "setFavoriteAnimal":
             return { ...state, favoriteAnimal: action.value };
+
+        case "checkCode":
+            return { ...state, isCodeTrue: action.value };
+
 
         case "setPersonData":
             return { ...state, personData: action.value };
 
-        default: 
+        default:
             return state;
     }
 };
@@ -46,6 +51,13 @@ const setFavoriteAnimal = (favoriteAnimal) => {
     };
 }
 
+const checkCode = (isCodeTrue) => {
+    return {
+        type: "checkCode",
+        value: isCodeTrue,
+    };
+}
+
 const setPersonData = (personData) => {
     return {
         type: "setPersonData",
@@ -54,14 +66,26 @@ const setPersonData = (personData) => {
 }
 
 const watchPersonData = () => {
-    return function(dispatch) {
-        firebase.database().ref("person").on("value", function(snapshot) {
+    return function (dispatch) {
+        firebase.database().ref("codes").on("value", function (snapshot) {
             var personData = snapshot.val();
             dispatch(setPersonData(personData));
-        }, function(error) { 
+        }, function (error) {
             //throw error
         });
     };
 }
 
-export { setFavoriteAnimal, setPersonData, watchPersonData };
+const watchcheckCode = () => {
+    return function (dispatch) {
+        firebase.database().ref("codes").on("value", function (snapshot) {
+            var personData = snapshot.val();
+            dispatch(checkCode(personData));
+        }, function (error) {
+            //throw error
+        });
+    };
+}
+
+
+export { setFavoriteAnimal, checkCode, watchcheckCode, setPersonData, watchPersonData };

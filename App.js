@@ -6,14 +6,13 @@ import { Asset } from 'expo-asset';
 import { Ionicons } from '@expo/vector-icons';
 import ApiKeys from './constants/ApiKeys';
 import * as firebase from 'firebase';
-import withFirebaseAuth from 'react-with-firebase-auth'
 import { Provider } from 'react-redux';
 import { store } from './redux/app-redux';
 import AppNavigator from './navigation/AppNavigator';
 import MainTabNavigator from './navigation/MainTabNavigator';
 
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -101,5 +100,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#F4F1DE',
   },
 });
-
-export default withFirebaseAuth({providers,firebaseAppAuth,})(App);
