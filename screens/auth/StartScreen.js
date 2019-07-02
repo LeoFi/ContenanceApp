@@ -32,7 +32,7 @@ export default class StartScreen extends React.Component {
                 <View style={styles.bottom}>
                     <PrimaryButton
                         label='Access Your Account'
-                        isBottom={false}
+                        isBottom={true}
                         onPress={() => {
                             this.props.navigation.navigate('AccountAccess');
                         }} />

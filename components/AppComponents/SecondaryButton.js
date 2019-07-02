@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         borderWidth: 2,
         borderRadius: 99,
-        overflow: 'hidden',
         padding: 20,
         flexDirection: 'row',
         justifyContent: 'center',

@@ -28,6 +28,7 @@ export default class App extends React.Component {
     }
 
     firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
+
   }
 
   onAuthStateChanged = (user) => {

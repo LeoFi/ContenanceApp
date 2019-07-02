@@ -8,6 +8,7 @@ import * as firebase from 'firebase';
 
 const initialState = {
     favoriteAnimal: "duck",
+    nickname: "",
     personData: {},
     isCodeTrue: {},
 };
@@ -21,9 +22,11 @@ const reducer = (state = initialState, action) => {
         case "setFavoriteAnimal":
             return { ...state, favoriteAnimal: action.value };
 
+        case "setNickname":
+            return { ...state, nickname: action.value };
+
         case "checkCode":
             return { ...state, isCodeTrue: action.value };
-
 
         case "setPersonData":
             return { ...state, personData: action.value };
@@ -48,6 +51,13 @@ const setFavoriteAnimal = (favoriteAnimal) => {
     return {
         type: "setFavoriteAnimal",
         value: favoriteAnimal,
+    };
+}
+
+const setNickname = (nickname) => {
+    return {
+        type: "setNickname",
+        value: nickname,
     };
 }
 
@@ -88,4 +98,4 @@ const watchcheckCode = () => {
 }
 
 
-export { setFavoriteAnimal, checkCode, watchcheckCode, setPersonData, watchPersonData };
+export { setFavoriteAnimal, setNickname, checkCode, watchcheckCode, setPersonData, watchPersonData };

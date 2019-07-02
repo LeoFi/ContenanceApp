@@ -10,8 +10,10 @@ import StartScreen from '../screens/auth/StartScreen';
 //import AccountAccessScreen from '../screens/auth/LoginScreen';
 import AccountAccessScreen from '../screens/auth/SignUpScreens/AccountAccessScreen';
 import IntroOnboardingScreen from '../screens/auth/SignUpScreens/IntroOnboardingScreen';
-import OnboardingScreen from '../screens/auth/OnboardingScreen';
-import SecondScreen from '../screens/auth/SignUpScreens/SecondScreen';
+import OnboardingScreen from '../screens/auth/SignUpScreens/OnboardingScreen';
+import SecondScreen from '../screens/auth/SignUpScreens/SecurityAgreementsScreen';
+import AllowNotificationsScreen from '../screens/auth/SignUpScreens/AllowNotificationsScreen';
+import SecurityAgreementsScreen from '../screens/auth/SignUpScreens/SecurityAgreementsScreen';
 import ThirdScreen from '../screens/auth/SignUpScreens/ThirdScreen';
 import ResetPasswordScreen from '../screens/auth/ResetPasswordScreen';
 import T1Screen from '../screens/auth/T1Screen';
@@ -34,6 +36,8 @@ const IntroStack = createStackNavigator(
       }
     },
     Onboarding: { screen: OnboardingScreen },
+    AllowNotifications: { screen: AllowNotificationsScreen },
+    //SecurityAgreements: { screen: SecurityAgreementsScreen },
     Signup: { screen: AccountAccessScreen },
     T1: { screen: T1Screen },
     Forgot: { screen: ForgotPasswordScreen },
@@ -70,7 +74,7 @@ const FromBottomStack = createStackNavigator(
 
 const MYTRIES = createStackNavigator(
   {
-    IntroOnboarding: { screen: IntroOnboardingScreen },
+    AllowNotifications: { screen: AllowNotificationsScreen },
   },
   {
     transitionConfig: () => fromRight(500),
@@ -93,7 +97,7 @@ const MainStack = createStackNavigator(
   },
 );
 
-const AppContainer = createAppContainer(MainStack);
+const AppContainer = createAppContainer(MYTRIES);
 
 export default class RootNavigation extends React.Component {
   render() {

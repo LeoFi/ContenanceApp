@@ -28,7 +28,3 @@ export default class SecurityAgreements extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-
-});

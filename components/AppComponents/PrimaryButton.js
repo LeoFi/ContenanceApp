@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     button_text_primary: {
         color: '#F4F1DE',
         fontSize: 17,
+        lineHeight: 23,
         textAlign: 'center',
         fontFamily: 'roboto-black',
         textTransform: 'uppercase',
