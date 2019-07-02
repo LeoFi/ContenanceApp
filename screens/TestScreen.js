@@ -25,6 +25,7 @@ const mapDispatchToProps = (dispatch) => {
 class TestScreen extends React.Component {
   static navigationOptions = {
     header: null,
+    headerBackTitle: null,
   };
 
   constructor(props) {

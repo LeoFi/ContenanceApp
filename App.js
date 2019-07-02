@@ -27,15 +27,6 @@ export default class App extends React.Component {
       firebase.initializeApp(ApiKeys.FirebaseConfig);
     }
 
-    // firebase.database().ref('users/0002').set({
-    //   name: 'Darya Sudas',
-    //   age: 27,
-    // }).then(() => {
-    //   console.log("INSERTED");
-    // }).catch((error) => {
-    //   console.log(error);
-    // })
-
     firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
   }
 
@@ -45,7 +36,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    if ((!this.state.isLoadingComplete || !this.state.isAuthenticationReady) && !this.props.skipLoadingScreen) {
+    if ((!this.state.isLoadingComplete)) {
       return (
         <AppLoading
           startAsync={this._loadResourcesAsync}
@@ -59,7 +50,7 @@ export default class App extends React.Component {
           <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
             {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-            {(this.state.isAuthenticated) ? <MainTabNavigator /> : <AppNavigator />}
+            <AppNavigator />
           </View>
         </Provider>
       );

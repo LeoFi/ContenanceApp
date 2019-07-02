@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
-export default class LoginScreen extends React.Component {
+export default class AccountAccess extends React.Component {
 
     static navigationOptions = {
         header: null,

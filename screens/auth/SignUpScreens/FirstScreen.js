@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        checkCode: (text) => { dispatch(checkCode(text)) },
+        checkCode: () => { dispatch(checkCode()) },
         watchcheckCode: () => { dispatch(watchcheckCode()) },
     };
 }
@@ -29,7 +29,7 @@ class FirstScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isCodeTrue: this.props.isCodeTrue,
+            isCodeTrue: '',
         }
         this.props.watchcheckCode();
 
@@ -44,36 +44,9 @@ class FirstScreen extends React.Component {
         //     console.log(error);
         // // })
 
-        // firebase.database().ref("codes").orderByChild("ID").equalTo("000001").once("value", snapshot => {
-        //     if (snapshot.exists()) {
-        //         //const userData = snapshot.val();
-        //         //console.log("exists!", userData);
-        //         console.log("exists!");
-        //     }
-        //     else {
-        //         console.log(snapshot);
-        //     }
-        // });
 
-        // firebase.database().ref(`codes/000000001`).once("value", snapshot => {
-        //     if (snapshot.exists() && ) {
-        //         console.log("THE CODE EXISTS");
-        //         // const email = snapshot.val();
-        //         firebase.database().ref("codes/000000001").orderByChild("isTaken").equalTo(false).once("value", snapshot => {
-        //             if (snapshot.exists()) {
-        //                 console.log("AND AVAILABLE");
-        //                 // const email = snapshot.val();
-        //                 firebase.database().ref('codes/000000001').set({isTaken: true})
-        //             }
-        //             else {
-        //                 console.log("NOT AVAILABLE");
-        //             }
-        //         });
-        //     }
-        //     else {
-        //         console.log("THE CODE DOESN'T EXISTS");
-        //     }
-        // });
+
+
 
     }
 
@@ -83,6 +56,37 @@ class FirstScreen extends React.Component {
 
     onIsCodeTrue = () => {
         this.props.checkCode(this.state.isCodeTrue);
+        console.log('onIsCodeTrue');
+    }
+
+    onLoginPress = () => {
+
+        firebase.database().ref('codes').orderByChild("id").equalTo(this.state.isCodeTrue).on('child_added', snapshot => {
+
+            if ( snapshot.exists()) {
+                
+                var codes = snapshot.val();
+                var codeisTaken = codes.isTaken;
+
+                if (codeisTaken === false) {
+
+                    snapshot.ref.update({isTaken: true});
+                    firebase.auth().signInAnonymously()
+
+                    this.props.navigation.navigate('Onboarding');
+
+                }
+                else {
+                    alert("The code you're entering is not available")
+                }
+            }
+            else {
+                alert("The code you're entering is not available")
+            }
+        });
+
+        // firebase.auth().signInAnonymously()
+        //     .then(() => { }, (error) => { Alert.alert(error.message); });
     }
 
     render() {
@@ -92,13 +96,14 @@ class FirstScreen extends React.Component {
             <View style={styles.container}>
                 <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="15" style={styles.keyboard_view}>
 
-                    <Text style={styles.header}>Create an Account</Text>
-                    <Text style={styles.text}>{'\n'}Create an account to start your journey.</Text>
+                    <Text style={styles.header}>Access Your Account</Text>
+                    <Text style={styles.text}>{'\n'}Type here the code that was send to you.</Text>
 
                     <View style={styles.center}>
                         <TextInput style={styles.usernameInput}
                             value={this.state.isCodeTrue}
-                            onChangeText={(text) => { this.setState({ isCodeTrue: text }) }}
+                            //onChangeText={(text) => { this.setState({ isCodeTrue: text }) }}
+                            onChangeText={isCodeTrue => this.setState({ isCodeTrue })}
                             placeholder="Enter Code"
                             placeholderTextColor="rgba(44, 59, 81, 0.3)"
                             secureTextEntry={true}
@@ -111,7 +116,7 @@ class FirstScreen extends React.Component {
                             textLabel="Accept "
                             linkLabel="security agreement"
                             isBottom={true}
-                            onPress={this.onIsCodeTrue}
+                            onPress={this.onLoginPress}
                             linkOnPress={() => {
                                 this.props.navigation.navigate('UP_Second');
                             }}

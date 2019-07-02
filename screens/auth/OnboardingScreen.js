@@ -31,6 +31,12 @@ export default class WithCTA extends React.Component {
     onSkip={() => Alert.alert('Skipped')}
     pages={[
       {
+        title: 'Hi, I’m Leo.',
+        subtitle: 'And I’m going to be your companion on this journey, and also help you get started. How do you like to be called?',
+        backgroundColor: '#F4F1DE',
+        image: <Image source={require('./../../assets/images/placeholder.png')} />,
+      },
+      {
         title: '',
         subtitle: 'You can probably relate to my situation, {username}: I love my smartphone. It opens up a whole new world right at my fingertips, just like a big ocean full of great possibilities.',
         backgroundColor: '#F4F1DE',
