@@ -12,13 +12,7 @@ export default class SwitchButton extends Component {
 
     }
     toggleSwitch = (value) => {
-
         this.setState({ switchValue: value })
-        //console.log(value);
-
-        //console.log(buttonDisable);
-        //state changes according to switch
-        //which will result in re-render the text
     }
 
     render() {

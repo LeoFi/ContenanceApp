@@ -5,10 +5,12 @@ import { fromRight, fromTop, fromBottom } from 'react-navigation-transitions';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import MainTabNavigator from './MainTabNavigator';
 
-import OnboardingScreen from '../screens/auth/OnboardingScreen';
+
 import StartScreen from '../screens/auth/StartScreen';
-import AccountAccessScreen from '../screens/auth/LoginScreen';
-import FirstScreen from '../screens/auth/SignUpScreens/FirstScreen';
+//import AccountAccessScreen from '../screens/auth/LoginScreen';
+import AccountAccessScreen from '../screens/auth/SignUpScreens/AccountAccessScreen';
+import IntroOnboardingScreen from '../screens/auth/SignUpScreens/IntroOnboardingScreen';
+import OnboardingScreen from '../screens/auth/OnboardingScreen';
 import SecondScreen from '../screens/auth/SignUpScreens/SecondScreen';
 import ThirdScreen from '../screens/auth/SignUpScreens/ThirdScreen';
 import ResetPasswordScreen from '../screens/auth/ResetPasswordScreen';
@@ -24,9 +26,15 @@ import TestScreen from '../screens/TestScreen';
 const IntroStack = createStackNavigator(
   {
     Start: { screen: StartScreen },
-    AccountAccess: { screen: FirstScreen },
+    AccountAccess: { screen: AccountAccessScreen },
+    IntroOnboarding: {
+      screen: IntroOnboardingScreen, navigationOptions: {
+        header: null,
+        gesturesEnabled: false,
+      }
+    },
     Onboarding: { screen: OnboardingScreen },
-    Signup: { screen: FirstScreen },
+    Signup: { screen: AccountAccessScreen },
     T1: { screen: T1Screen },
     Forgot: { screen: ForgotPasswordScreen },
     Home: { screen: TestScreen },
@@ -39,7 +47,7 @@ const IntroStack = createStackNavigator(
 
 const SignUpStack = createStackNavigator(
   {
-    Signup_First: { screen: FirstScreen },
+    Signup_First: { screen: AccountAccessScreen },
     Signup_Second: { screen: SecondScreen },
     Signup_Third: { screen: ThirdScreen },
   },
@@ -51,11 +59,21 @@ const SignUpStack = createStackNavigator(
 
 const FromBottomStack = createStackNavigator(
   {
-    AccountAccess: { screen: FirstScreen },
+    UP_AccountAccess: { screen: AccountAccessScreen },
     UP_Second: { screen: SecondScreen },
   },
   {
     transitionConfig: () => fromBottom(500),
+    cardStyle: { backgroundColor: '#F4F1DE' },
+  },
+);
+
+const MYTRIES = createStackNavigator(
+  {
+    IntroOnboarding: { screen: IntroOnboardingScreen },
+  },
+  {
+    transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: '#F4F1DE' },
   },
 );
