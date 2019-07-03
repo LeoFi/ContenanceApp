@@ -34,7 +34,7 @@ export default class App extends React.Component {
   onAuthStateChanged = (user) => {
     this.setState({ isAuthenticationReady: true });
     this.setState({ isAuthenticated: !!user });
-    console.log(user);
+    //console.log(user);
   }
 
   render() {
@@ -52,6 +52,7 @@ export default class App extends React.Component {
           <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
             {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+            {/* {(this.state.isAuthenticated) ? <MainTabNavigator /> : <AppNavigator />} */}
             <AppNavigator />
           </View>
         </Provider>

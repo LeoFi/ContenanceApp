@@ -18,7 +18,7 @@ export default class Exercice_1_Intro extends React.Component {
     headerBackTitle: null,
     headerTitle: (
       <Progress.Bar
-        progress={0.1}
+        progress={0.2}
         borderWidth={0}
         width={250}
         color={"rgba(44, 59, 81, 1)"}

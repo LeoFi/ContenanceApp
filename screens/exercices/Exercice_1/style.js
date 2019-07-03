@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
     intro_header: {
         color: '#2C3B51',
-        fontSize: 34,
+        fontSize: 30,
         lineHeight: 37,
         textAlign: 'left',
         fontFamily: 'roboto-black',
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
     header: {
         color: '#2C3B51',
-        fontSize: 34,
+        fontSize: 30,
         lineHeight: 37,
         textAlign: 'center',
         fontFamily: 'roboto-black',

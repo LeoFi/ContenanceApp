@@ -15,7 +15,7 @@ export default class Exercice_1_3 extends React.Component {
             borderBottomWidth:0,
         },
         headerBackTitle: null,
-        headerTitle: <Progress.Bar progress={0.1} borderWidth={0} width={250} color={'rgba(44, 59, 81, 1)'} unfilledColor={'rgba(255, 255, 255, 1)'}/>,
+        headerTitle: <Progress.Bar progress={0.5} borderWidth={0} width={250} color={'rgba(44, 59, 81, 1)'} unfilledColor={'rgba(255, 255, 255, 1)'}/>,
         headerTintColor: '#2C3B51',
     };
     state = {

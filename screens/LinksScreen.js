@@ -45,8 +45,8 @@ export default class LinksScreen extends React.Component {
               <SettingsList.Item
                 titleStyle={styles.text_left}
                 backgroundColor="#F4F1DE"
-                title="Profile"
-                onPress={() => Alert.alert("Profile")}
+                title="Nickname"
+                onPress={() => Alert.alert("Nickname")}
               />
               <SettingsList.Item
                 titleStyle={styles.text_left}
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
   header: {
     color: "#2C3B51",
-    fontSize: 34,
+    fontSize: 30,
     lineHeight: 37,
     textAlign: "center",
     fontFamily: "roboto-black",
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   header_left: {
     color: "#2C3B51",
-    fontSize: 34,
+    fontSize: 30,
     lineHeight: 37,
     textAlign: "left",
     fontFamily: "roboto-black",

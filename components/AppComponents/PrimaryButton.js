@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         borderColor: '#2C3B51',
         borderRadius: 99,
         overflow: 'hidden',
-        padding: 20,
+        padding: 15,
         flexDirection: 'row',
         justifyContent: 'center',
         alignSelf: 'stretch',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     },
     button_text_primary: {
         color: '#F4F1DE',
-        fontSize: 17,
+        fontSize: 14,
         lineHeight: 23,
         textAlign: 'center',
         fontFamily: 'roboto-black',

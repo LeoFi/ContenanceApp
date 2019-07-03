@@ -84,10 +84,11 @@ class TestScreen extends React.Component {
             }}
           />
           
-          {/* 
+          
           <Button title="Signout" onPress={this.onSignoutPress} />
 
-          <<Text>{this.props.favoriteAnimal}</Text>
+{/* 
+          <Text>{this.props.favoriteAnimal}</Text>
           <TextInput style={{ borderWidth: 1, width: 200, height: 40 }}
             value={this.state.favoriteAnimal}
             onChangeText={(text) => { this.setState({ favoriteAnimal: text }) }}
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
   },
   header: {
     color: "#2C3B51",
-    fontSize: 34,
+    fontSize: 30,
     lineHeight: 37,
     textAlign: "center",
     fontFamily: "roboto-black",
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
   },
   header_left: {
     color: "#2C3B51",
-    fontSize: 34,
+    fontSize: 30,
     lineHeight: 37,
     textAlign: "left",
     fontFamily: "roboto-black",

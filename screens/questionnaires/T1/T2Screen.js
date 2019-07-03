@@ -18,7 +18,8 @@ export default class T2Screen extends React.Component {
     super(props);
     this.state = {
       nickname: this.props.nickname,
-      showFrom: 0
+      showFrom: 0,
+      value: '',
     };
   }
 
@@ -192,6 +193,7 @@ export default class T2Screen extends React.Component {
             9. I have been told that I spend too much time on my smartphone.
           </Text>
           <RadioGroup
+            value="PSU1_T1"
             getChecked={this.getChecked}
             RadioGroupStyle={{ flexDirection: "row" }}
           >

@@ -59,6 +59,7 @@ export default class AllowNotificationsScreen extends React.Component {
                         isBottom={true}
                         onPress={() => {
                             this.props.navigation.navigate('SetReminders');
+                            //registerForPushNotifications
                           }}
                         disabled={false}
                     />

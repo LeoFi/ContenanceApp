@@ -4,7 +4,8 @@ import {
   PrimaryButton,
   SecondaryButton,
   Timer,
-  AudioCompenent
+  AudioCompenent,
+  DeckSwiperExample
 } from "./../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
@@ -20,7 +21,7 @@ export default class Exercice_1_5 extends React.Component {
     headerBackTitle: null,
     headerTitle: (
       <Progress.Bar
-        progress={0.1}
+        progress={0.7}
         borderWidth={0}
         width={250}
         color={"rgba(44, 59, 81, 1)"}
@@ -36,12 +37,7 @@ export default class Exercice_1_5 extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.header}>Fifth Page of Exercice !</Text>
-        <Text style={styles.text}>
-          {"\n"}Create an account to start your journey.
-        </Text>
-        
+        <>
         <DeckSwiperExample></DeckSwiperExample>
 
         <PrimaryButton
@@ -50,7 +46,7 @@ export default class Exercice_1_5 extends React.Component {
             this.props.navigation.navigate("Anchor");
           }}
         />
-      </View>
+        </>
     );
   }
 }

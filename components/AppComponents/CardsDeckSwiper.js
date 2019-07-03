@@ -5,7 +5,17 @@ const cards = [
   {
     text: 'Card One',
     name: 'One',
-    image: require('./../../../assets/images/your_plan.png'),
+    image: require('./../../assets/images/pink_shape.png'),
+  },
+  {
+    text: 'Card Two',
+    name: 'Two',
+    image: require('./../../assets/images/pink_shape.png'),
+  },
+  {
+    text: 'Card Three',
+    name: 'Three',
+    image: require('./../../assets/images/pink_shape.png'),
   },
 ];
 
