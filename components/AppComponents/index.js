@@ -7,5 +7,8 @@ import SwitchButtonANDText from './SwitchButtonANDText';
 import GreyInputButton from './GreyInputButton';
 import FormElement from './FormElement';
 import ExerciceButton from './ExerciceButton';
+import Timer from './Timer';
+import AudioCompenent from './Audio';
+import DeckSwiperExample from './CardsDeckSwiper';
 
-export { TestComponent, PrimaryButton, SecondaryButton, SwitchButton, SwitchButtonANDText, LinkText, GreyInputButton, FormElement, ExerciceButton };
+export { TestComponent, PrimaryButton, SecondaryButton, SwitchButton, SwitchButtonANDText, LinkText, GreyInputButton, FormElement, ExerciceButton, Timer, AudioCompenent, DeckSwiperExample };

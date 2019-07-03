@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { PrimaryButton, SecondaryButton, Timer } from './../../../components/AppComponents';
+import { PrimaryButton, SecondaryButton, Timer, AudioCompenent } from './../../../components/AppComponents';
 import { styles } from './style'
 import * as Progress from 'react-native-progress';
 
-export default class Exercice_1_3 extends React.Component {
+export default class Exercice_1_4 extends React.Component {
 
     static navigationOptions = {
         headerStyle: {
@@ -27,13 +27,13 @@ export default class Exercice_1_3 extends React.Component {
         return (
             <View style={styles.container}>
 
-                <Text style={styles.header}>Third Page of Exercice !</Text>
+                <Text style={styles.header}>Fourth Page of Exercice !</Text>
                 <Text style={styles.text}>{'\n'}Create an account to start your journey.</Text>
 
-                <Timer></Timer>
+                <AudioCompenent></AudioCompenent>
 
                 <PrimaryButton label='Sign Up' onPress={() => {
-                    this.props.navigation.navigate('Exercice_1_4');
+                    this.props.navigation.navigate('Exercice_1_5');
                 }} />
 
             </View>

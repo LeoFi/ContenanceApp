@@ -1,50 +1,84 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, Image, Alert } from "react-native";
+import { ScrollView, StyleSheet, View, Image, Alert, Text } from "react-native";
 import { ExpoLinksView } from "@expo/samples";
 import { PrimaryButton, SecondaryButton } from "./../components/AppComponents";
 import SettingsList from "react-native-settings-list";
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'Settings',
+    headerStyle: {
+      backgroundColor: "#F4F1DE",
+      shadowOpacity: 0,
+      elevation: 0,
+      borderBottomWidth: 0
+    },
+    headerBackTitle: null,
+    headerTitle: "Settings",
+    headerTintColor: "#2C3B51"
   };
   constructor() {
     super();
+    this.onValueChange = this.onValueChange.bind(this);
+    this.state = { switchValue: false };
+  }
+
+  onValueChange(value) {
+    this.setState({ switchValue: value });
   }
 
   render() {
+    var bgColor = "#DCE3F4";
+
     return (
-      <View style={styles.container}>
-        <View style={{ flex: 1, backgroundColor:'#F4F1DE', borderColor:'#c8c7cc' }}>
-          <SettingsList style={{ flex: 1, backgroundColor:'#F4F1DE'}}>
-            <SettingsList.Item 
-            title="Profile"
-            onPress={() => Alert.alert('Route To Profile')}
-            />
-            <SettingsList.Item
-            title="Reminders"
-            onPress={() => Alert.alert('Route To Reminders')}
-            />
-            <SettingsList.Item
-            title="FAQ"
-            onPress={() => Alert.alert('Route To FAQ')}
-            />
-            <SettingsList.Item
-            title="Security Agreements"
-            onPress={() => Alert.alert('Route To Security Agreements')}
-            />
-            <SettingsList.Item
-            title="Contact Us"
-            onPress={() => Alert.alert('Route To Contact Us')}
-            />
-          </SettingsList>
+      <>
+        <View style={{ backgroundColor: "#EFEFF4", flex: 1 }}>
+          <View
+            style={{
+              borderBottomWidth: 1,
+              backgroundColor: "#F4F1DE",
+              borderColor: "#F4F1DE",
+              paddingTop: 40
+            }}
+          />
+          <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
+            <SettingsList borderColor="#868D91" defaultItemSize={50}>
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="Profile"
+                onPress={() => Alert.alert("Profile")}
+              />
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="Reminders"
+                onPress={() => Alert.alert("Reminders")}
+              />
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="FAQ"
+                onPress={() => Alert.alert("FAQ")}
+              />
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="Security Agreements"
+                onPress={() => Alert.alert("Security Agreements")}
+              />
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="Contact us"
+                onPress={() => Alert.alert("Contact us")}
+              />
+            </SettingsList>
+          </View>
         </View>
-      </View>
+      </>
     );
   }
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -53,6 +87,7 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 40,
     flex: 1,
+    backgroundColor: "#F4F1DE"
   },
   container_scroll: {
     paddingTop: 80,
@@ -121,7 +156,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
-    paddingBottom: 30,
   },
   text_scroll: {
     color: "#2C3B51",

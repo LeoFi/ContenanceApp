@@ -23,6 +23,16 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
     },
+    top_security_agreements: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        paddingTop: 0,
+    },
+    middle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignSelf: "stretch",
+    },
     bottom: {
         flex: 1,
         justifyContent: 'flex-end',
@@ -68,7 +78,7 @@ const styles = StyleSheet.create({
         fontSize: 19,
         lineHeight: 25,
         fontFamily: 'roboto-regular',
-        alignSelf: "flex-start",
+        alignSelf: "stretch",
         textAlign: 'left',
     },
     intro_text_background_color: {

@@ -12,6 +12,8 @@ import Exercice_1_Intro from '../screens/exercices/Exercice_1/Intro';
 import Exercice_1_1 from '../screens/exercices/Exercice_1/1';
 import Exercice_1_2 from '../screens/exercices/Exercice_1/2';
 import Exercice_1_3 from '../screens/exercices/Exercice_1/3';
+import Exercice_1_4 from '../screens/exercices/Exercice_1/4';
+import Exercice_1_5 from '../screens/exercices/Exercice_1/5';
 import Exercice_1_Aha from '../screens/exercices/Exercice_1/Aha';
 import Exercice_1_Challenge from '../screens/exercices/Exercice_1/Challenge';
 import Exercice_1_Congratulations from '../screens/exercices/Exercice_1/Congratulations';
@@ -24,6 +26,8 @@ const HomeTab = createStackNavigator(
     Exercice_1_1: { screen: Exercice_1_1 },
     Exercice_1_2: { screen: Exercice_1_2 },
     Exercice_1_3: { screen: Exercice_1_3 },
+    Exercice_1_4: { screen: Exercice_1_4 },
+    Exercice_1_5: { screen: Exercice_1_5 },
     Exercice_1_Aha: { screen: Exercice_1_Aha },
     Exercice_1_Challenge: { screen: Exercice_1_Challenge },
     Exercice_1_Congratulations: { screen: Exercice_1_Congratulations },
@@ -58,7 +62,7 @@ const SettingsTab = createStackNavigator({
 
 const MainStackTabs = createBottomTabNavigator({
   // First: HomeTab,
-  First: Exercice_1_Congratulations,
+  First: HomeTab,
   Second: SettingsTab,
   Third: LinksTab,
 },

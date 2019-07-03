@@ -3,12 +3,13 @@ import { View, Text, TextInput } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyInputButton
-} from "../../../components/AppComponents";
+  Timer,
+  AudioCompenent
+} from "./../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_1 extends React.Component {
+export default class Exercice_1_5 extends React.Component {
   static navigationOptions = {
     headerStyle: {
       backgroundColor: "#F4F1DE",
@@ -32,23 +33,21 @@ export default class Exercice_1_1 extends React.Component {
     password: ""
   };
 
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>First Page of Exercice !</Text>
+        <Text style={styles.header}>Fifth Page of Exercice !</Text>
         <Text style={styles.text}>
           {"\n"}Create an account to start your journey.
         </Text>
-
-        <View style={styles.middle}>
-          <GreyInputButton label="Email" isBottom={false} />
-          <GreyInputButton label="App Notifications" isBottom={true} />
-        </View>
+        
+        <DeckSwiperExample></DeckSwiperExample>
 
         <PrimaryButton
           label="Sign Up"
           onPress={() => {
-            this.props.navigation.navigate("Exercice_1_2");
+            this.props.navigation.navigate("Anchor");
           }}
         />
       </View>
