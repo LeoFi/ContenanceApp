@@ -18,6 +18,13 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: "stretch",
     },
+    close: {
+        justifyContent: 'flex-start',
+        alignSelf: "stretch",
+        paddingTop: 10,
+        zIndex: 1,
+        right: 0,
+    },
     center: {
         flex: 1,
         justifyContent: 'flex-end',
@@ -27,6 +34,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignSelf: "stretch",
+    },
+    top_security_agreements: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignSelf: "stretch",
+        marginTop: -40,
+        flexDirection: 'row-reverse',
     },
     middle: {
         flex: 1,
@@ -42,7 +56,7 @@ const styles = StyleSheet.create({
     },
     bottom: {
         flex: 1,
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
         alignSelf: 'stretch',
     },
     keyboard_view: {

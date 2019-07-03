@@ -21,6 +21,8 @@ import SecurityAgreementsScreen from '../screens/auth/SignUpScreens/SecurityAgre
 import ThirdScreen from '../screens/auth/SignUpScreens/ThirdScreen';
 import ResetPasswordScreen from '../screens/auth/ResetPasswordScreen';
 import T1Screen from '../screens/questionnaires/T1/T1Screen';
+import T2Screen from '../screens/questionnaires/T1/T2Screen';
+import T3Screen from '../screens/questionnaires/T1/T3Screen';
 import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 
 
@@ -47,12 +49,13 @@ const IntroStack = createStackNavigator(
     //SecurityAgreements: { screen: SecurityAgreementsScreen },
     //Signup: { screen: AccountAccessScreen },
     T1: { screen: T1Screen },
-    //Forgot: { screen: ForgotPasswordScreen },
-    Home: { screen: TestScreen },
+    T2: { screen: T2Screen },
+    T3: { screen: T3Screen },
   },
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: '#F4F1DE' },
+    headerMode: 'none',
   },
 );
 
@@ -68,23 +71,12 @@ const SignUpStack = createStackNavigator(
   },
 );
 
-const FromBottomStack = createStackNavigator(
-  {
-    UP_AccountAccess: { screen: AccountAccessScreen },
-    UP_Second: { screen: SecondScreen },
-  },
-  {
-    transitionConfig: () => fromBottom(500),
-    cardStyle: { backgroundColor: '#F4F1DE' },
-  },
-);
 
 const MYTRIES = createStackNavigator(
   {
-    // AllowNotifications: { screen: AllowNotificationsScreen },
-    // Dashboard: { screen: DashboardScreen },
-    SetRemindersFinal: { screen: SetRemindersFinalScreen },
-    Conclusion: { screen: ConclusionScreen },
+    // T1: { screen: T1Screen },
+    Home: { screen: TestScreen },
+    //AccountAccess: { screen: AccountAccessScreen },
   },
   {
     transitionConfig: () => fromRight(500),
@@ -97,9 +89,9 @@ const MYTRIES = createStackNavigator(
 
 const MainStack = createStackNavigator(
   {
-    Intro: { screen: IntroStack },
-    SignUp: { screen: SignUpStack },
-    Up: { screen: FromBottomStack },
+    // Intro: { screen: IntroStack },
+    // SignUp: { screen: SignUpStack },
+    Home: { screen: MainTabNavigator },
   },
   {
     cardStyle: { backgroundColor: '#F4F1DE' },

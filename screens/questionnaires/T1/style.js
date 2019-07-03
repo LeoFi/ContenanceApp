@@ -10,34 +10,43 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignSelf: "stretch",
     },
-    scroll: {
+    container_scroll: {
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
         flex: 1,
         alignSelf: "stretch",
     },
-    nextscreen: {
+    center: {
         flex: 1,
-        alignItems: "center",
+        justifyContent: 'flex-end',
         alignSelf: "stretch",
     },
-    image: {
+    top: {
         flex: 1,
-        alignItems: "center",
+        justifyContent: 'flex-start',
+        alignSelf: "stretch",
+    },
+    middle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignSelf: "stretch",
+    },
+    inline: {
+        flex: 1,
+        flexDirection:'row-reverse', 
+        justifyContent: 'flex-end',
+        alignSelf: 'stretch',
+        paddingTop: 20,
     },
     bottom: {
         flex: 1,
         justifyContent: 'flex-end',
+        alignSelf: 'stretch',
     },
     keyboard_view: {
         flex: 1,
-        alignSelf: "stretch",
-    },
-    intro_header: {
-        color: '#2C3B51',
-        fontSize: 34,
-        lineHeight: 37,
-        textAlign: 'left',
-        fontFamily: 'roboto-black',
-        paddingBottom: 10,
     },
     header: {
         color: '#2C3B51',
@@ -47,6 +56,15 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-black',
         paddingBottom: 10,
     },
+    header_left: {
+        color: '#2C3B51',
+        fontSize: 34,
+        lineHeight: 37,
+        textAlign: 'left',
+        fontFamily: 'roboto-black',
+        paddingBottom: 10,
+        alignSelf: 'stretch',
+    },
     text: {
         color: '#2C3B51',
         fontSize: 19,
@@ -54,34 +72,33 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'roboto-regular',
     },
-    tap_text: {
-        color: 'rgba(44, 59, 81, 0.4)',
+    text_left: {
+        color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
+        textAlign: 'left',
+        fontFamily: 'roboto-regular',
+        alignSelf: 'stretch',
+    },
+    text_scroll: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'left',
+        fontFamily: 'roboto-regular',
+    },
+    codeInput: {
+        marginTop: 43,
+        alignSelf: "stretch",
         textAlign: 'center',
-        fontFamily: 'roboto-regular',
-        paddingTop: 20,
-    },
-    intro_text: {
-        flex: 1,
-        color: '#2C3B51',
+        height: 40,
         fontSize: 19,
-        lineHeight: 25,
-        fontFamily: 'roboto-regular',
-        alignSelf: "flex-start",
-        textAlign: 'left',
-    },
-    intro_text_background_color: {
-        backgroundColor: 'rgba(155, 81, 224, 0.2)',
-        color: '#2C3B51',
-        fontSize: 19,
-        lineHeight: 25,
-        textAlign: 'left',
-        fontFamily: 'roboto-regular',
+        borderBottomWidth: 2,
     },
     usernameInput: {
         marginTop: 43,
-
+        marginBottom: 43,
+        alignSelf: "stretch",
         textAlign: 'center',
         height: 40,
         fontSize: 19,

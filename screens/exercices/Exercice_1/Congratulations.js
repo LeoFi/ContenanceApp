@@ -7,7 +7,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Intro extends React.Component {
+export default class Exercice_1_Congratulations extends React.Component {
   static navigationOptions = {
     headerStyle: {
       backgroundColor: "#F4F1DE",
@@ -34,15 +34,9 @@ export default class Exercice_1_Intro extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.image}
-          source={require("../../../assets/images/placeholder.png")}
-        />
-        <Text style={styles.intro_header}>Day 1</Text>
-        <Text style={styles.intro_header}>Contenance</Text>
-        <Text style={styles.intro_header}>5 MIN</Text>
+        <Text style={styles.header}>Congratulations!</Text>
         <Text style={styles.intro_text}>
-          {"\n"}In this exercise, you will discover what Contenance is and why it should not be about less but better.
+          {"\n"}You finished your first exercise.  Now you know why this training is called Contenance!
         </Text>
 
         <PrimaryButton

@@ -3,7 +3,7 @@ import { View, Text, TextInput, ScrollView, Image } from "react-native";
 import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
 import { styles } from "./style";
 import { connect } from 'react-redux';
-import { setNickname } from './../../../redux/app-redux';
+import { setNickname } from '../../../redux/app-redux';
 
 const mapStateToProps = (state) => {
   return {
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-class T1Screen extends React.Component {
+class T3Screen extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -33,19 +33,19 @@ class T1Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left}>{this.props.nickname}, welcome to Contenance</Text>
+        <Text style={styles.header_left}>Thank you, {this.props.nickname}.</Text>
 
         <Text style={styles.text_left}>
-          {"\n"}Before you start the training, we have a few questions about your smartphone use, your smartphone habits and your well-being.
-          {"\n"}{"\n"}This is important for our study and will only take five minutes.
+          {"\n"}You’re all set and ready to dive into the wide ocean.
+          {"\n"}{"\n"}Enjoy your journey!
         </Text>
 
         <View style={styles.bottom}>
           <PrimaryButton
-            label="Start Reflection"
+            label="START EXERCISING"
             isBottom={true}
             onPress={() => {
-                this.props.navigation.navigate('T2');
+                this.props.navigation.navigate('Home');
             }}
           />
         </View>
@@ -54,4 +54,4 @@ class T1Screen extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(T1Screen);
+export default connect(mapStateToProps, mapDispatchToProps)(T3Screen);
