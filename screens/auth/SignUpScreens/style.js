@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignSelf: "stretch",
     },
+    middle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignSelf: "stretch",
+    },
     inline: {
         flex: 1,
         flexDirection:'row-reverse', 

@@ -34,6 +34,7 @@ export default class App extends React.Component {
   onAuthStateChanged = (user) => {
     this.setState({ isAuthenticationReady: true });
     this.setState({ isAuthenticated: !!user });
+    console.log(user);
   }
 
   render() {
@@ -69,6 +70,7 @@ export default class App extends React.Component {
         ...Ionicons.font,
         'roboto-black': require('./assets/fonts/Roboto-Black.ttf'),
         'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
+        'roboto-medium': require('./assets/fonts/Roboto-Medium.ttf'),
         'heebo-black': require('./assets/fonts/Heebo-Black.ttf'),
         'heebo-thin': require('./assets/fonts/Heebo-Thin.ttf'),
       }),

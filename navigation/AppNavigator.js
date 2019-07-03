@@ -13,10 +13,14 @@ import IntroOnboardingScreen from '../screens/auth/SignUpScreens/IntroOnboarding
 import OnboardingScreen from '../screens/auth/SignUpScreens/OnboardingScreen';
 import SecondScreen from '../screens/auth/SignUpScreens/SecurityAgreementsScreen';
 import AllowNotificationsScreen from '../screens/auth/SignUpScreens/AllowNotificationsScreen';
+import DashboardScreen from '../screens/auth/SignUpScreens/DashboardScreen';
+import SetRemindersScreen from '../screens/auth/SignUpScreens/SetRemindersScreen';
+import SetRemindersFinalScreen from '../screens/auth/SignUpScreens/SetRemindersFinalScreen';
+import ConclusionScreen from '../screens/auth/SignUpScreens/ConclusionScreen';
 import SecurityAgreementsScreen from '../screens/auth/SignUpScreens/SecurityAgreementsScreen';
 import ThirdScreen from '../screens/auth/SignUpScreens/ThirdScreen';
 import ResetPasswordScreen from '../screens/auth/ResetPasswordScreen';
-import T1Screen from '../screens/auth/T1Screen';
+import T1Screen from '../screens/questionnaires/T1/T1Screen';
 import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 
 
@@ -37,10 +41,13 @@ const IntroStack = createStackNavigator(
     },
     Onboarding: { screen: OnboardingScreen },
     AllowNotifications: { screen: AllowNotificationsScreen },
+    SetReminders: { screen: SetRemindersScreen },
+    SetRemindersFinal: { screen: SetRemindersFinalScreen },
+    Conclusion: { screen: ConclusionScreen },
     //SecurityAgreements: { screen: SecurityAgreementsScreen },
-    Signup: { screen: AccountAccessScreen },
+    //Signup: { screen: AccountAccessScreen },
     T1: { screen: T1Screen },
-    Forgot: { screen: ForgotPasswordScreen },
+    //Forgot: { screen: ForgotPasswordScreen },
     Home: { screen: TestScreen },
   },
   {
@@ -74,7 +81,10 @@ const FromBottomStack = createStackNavigator(
 
 const MYTRIES = createStackNavigator(
   {
-    AllowNotifications: { screen: AllowNotificationsScreen },
+    // AllowNotifications: { screen: AllowNotificationsScreen },
+    // Dashboard: { screen: DashboardScreen },
+    SetRemindersFinal: { screen: SetRemindersFinalScreen },
+    Conclusion: { screen: ConclusionScreen },
   },
   {
     transitionConfig: () => fromRight(500),
@@ -97,7 +107,7 @@ const MainStack = createStackNavigator(
   },
 );
 
-const AppContainer = createAppContainer(MYTRIES);
+const AppContainer = createAppContainer(MainStack);
 
 export default class RootNavigation extends React.Component {
   render() {

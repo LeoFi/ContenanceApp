@@ -29,13 +29,16 @@ export default class AllowNotificationsScreen extends React.Component {
         if (status !== 'granted') {
             const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
             finalStatus = status;
+            debugger;
         }
 
         if (finalStatus !== 'granted') { return; }
 
         let token = await Notifications.getExpoPushTokenAsync();
-        console.log(token)
+        //console.log(token)
+
         let uid = firebase.auth.currentUser.uid;
+        console.log(uid)
         firebase.database.ref("users").child(uid).update({
             expoPushToken: token
         })
@@ -54,7 +57,9 @@ export default class AllowNotificationsScreen extends React.Component {
                     <PrimaryButton
                         label='Next'
                         isBottom={true}
-                        onPress={this.onLoginPress}
+                        onPress={() => {
+                            this.props.navigation.navigate('SetReminders');
+                          }}
                         disabled={false}
                     />
                 </View>

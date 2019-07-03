@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
-import { PrimaryButton, SecondaryButton } from './../../../components/AppComponents';
+import { PrimaryButton, SecondaryButton } from '../../../components/AppComponents';
 import { styles } from './style'
 
 export default class Second extends React.Component {
