@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Image } from "react-native";
+import { View, Text, TextInput, Image, StatusBar } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton
@@ -8,35 +8,36 @@ import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
 export default class Exercice_1_Intro extends React.Component {
-  static navigationOptions = {
-    headerStyle: {
-      backgroundColor: "#F4F1DE",
-      shadowOpacity: 0,
-      elevation: 0,
-      borderBottomWidth: 0
-    },
-    headerBackTitle: null,
-    headerTitle: (
-      <Progress.Bar
-        progress={0.2}
-        borderWidth={0}
-        width={250}
-        color={"rgba(44, 59, 81, 1)"}
-        unfilledColor={"rgba(255, 255, 255, 1)"}
-      />
-    ),
-    headerTintColor: "#2C3B51"
-  };
+  // static navigationOptions = {
+  //   headerStyle: {
+  //     backgroundColor: "#F4F1DE",
+  //     shadowOpacity: 0,
+  //     elevation: 0,
+  //     borderBottomWidth: 0
+  //   },
+  //   headerBackTitle: null,
+  //   headerTitle: (
+  //     <Progress.Bar
+  //       progress={0.2}
+  //       borderWidth={0}
+  //       width={250}
+  //       color={"rgba(44, 59, 81, 1)"}
+  //       unfilledColor={"rgba(255, 255, 255, 1)"}
+  //     />
+  //   ),
+  //   headerTintColor: "#2C3B51"
+  // };
   state = {
     password: ""
   };
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container_background_color}>
+        <StatusBar hidden />
         <Image
-          style={styles.image}
-          source={require("../../../assets/images/placeholder.png")}
+          style={styles.image_absolute}
+          source={require("../../../assets/images/pink_shape.png")}
         />
         <Text style={styles.intro_header}>Day 1</Text>
         <Text style={styles.intro_header}>Contenance</Text>

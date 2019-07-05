@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, StatusBar } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton
@@ -44,6 +44,7 @@ export default class Exercice_1_2 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <StatusBar hidden />
         <Text style={styles.header}>Second Page of Exercice !</Text>
         <Text style={styles.text}>
           {"\n"}Create an account to start your journey.

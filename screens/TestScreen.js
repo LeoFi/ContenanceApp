@@ -10,7 +10,7 @@ import {
   TextInput,
   Button
 } from "react-native";
-import { PrimaryButton, SecondaryButton, ExerciceButton } from "./../components/AppComponents";
+import { PrimaryButton, SecondaryButton, ExerciceButton, HeaderComponent } from "./../components/AppComponents";
 import * as firebase from "firebase";
 import { connect } from "react-redux";
 import { setNickname } from "./../redux/app-redux";
@@ -30,10 +30,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 class TestScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-    headerBackTitle: null
-  };
 
   constructor(props) {
     super(props);

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Image } from "react-native";
+import { View, Text, TextInput, Image, StatusBar } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton
@@ -34,6 +34,7 @@ export default class Exercice_1_Congratulations extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <StatusBar hidden />
         <Text style={styles.header}>Congratulations!</Text>
         <Text style={styles.intro_text}>
           {"\n"}You finished your first exercise.  Now you know why this training is called Contenance!

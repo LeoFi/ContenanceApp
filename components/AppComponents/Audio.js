@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Slider, Alert } from 'react-native';
-import { Constants } from 'expo';
+import Constants from 'expo-constants'
 import { Audio } from 'expo-av'
 
 export default class AudioCompenent extends Component {

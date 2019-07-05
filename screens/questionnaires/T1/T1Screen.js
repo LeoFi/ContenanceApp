@@ -20,9 +20,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 class T1Screen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
+
   constructor(props) {
     super(props);
     this.state = {

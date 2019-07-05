@@ -9,9 +9,7 @@ import * as firebase from "firebase";
 import { styles } from "./style";
 
 export default class SetRemindersScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
+
   constructor(props) {
     super(props);
     this.state = {};

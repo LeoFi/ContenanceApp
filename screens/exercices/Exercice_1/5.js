@@ -5,7 +5,8 @@ import {
   SecondaryButton,
   Timer,
   AudioCompenent,
-  DeckSwiperExample
+  DeckSwiperExample,
+  StatusBar
 } from "./../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
@@ -38,12 +39,13 @@ export default class Exercice_1_5 extends React.Component {
   render() {
     return (
         <>
+        <StatusBar hidden />
         <DeckSwiperExample></DeckSwiperExample>
 
         <PrimaryButton
           label="Sign Up"
           onPress={() => {
-            this.props.navigation.navigate("Anchor");
+            this.props.navigation.popToTop();
           }}
         />
         </>

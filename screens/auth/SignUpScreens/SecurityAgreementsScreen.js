@@ -7,9 +7,7 @@ import {
 import { styles } from "./style";
 
 export default class Second extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
+
   state = {
     email: "",
     password: "",

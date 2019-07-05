@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Image } from "react-native";
+import { View, Text, TextInput, Image, StatusBar } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton
@@ -34,6 +34,7 @@ export default class Challenge extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <StatusBar hidden />
         <Text style={styles.header}>The Challenge</Text>
         <Text style={styles.intro_text}>
           {"\n"}Let’s walk the walk. Do a first run until tomorrow.

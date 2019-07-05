@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { PrimaryButton, SecondaryButton, Timer } from './../../../components/AppComponents';
+import { PrimaryButton, SecondaryButton, Timer, StatusBar } from './../../../components/AppComponents';
 import { styles } from './style'
 import * as Progress from 'react-native-progress';
 
@@ -26,7 +26,7 @@ export default class Exercice_1_3 extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-
+<StatusBar hidden />
                 <Text style={styles.header}>Third Page of Exercice !</Text>
                 <Text style={styles.text}>{'\n'}Create an account to start your journey.</Text>
 

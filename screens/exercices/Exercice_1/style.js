@@ -2,13 +2,33 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        alignItems: "center",
+        alignSelf: "stretch",
         paddingTop: 80,
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 40,
+    },
+    container_background: {
         flex: 1,
         alignItems: "center",
         alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+        backgroundColor: "#F4F1DE",
+    },
+    container_background_color: {
+        flex: 1,
+        alignItems: "center",
+        alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+        backgroundColor: "#A878CE",
     },
     scroll: {
         flex: 1,
@@ -22,6 +42,13 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         alignItems: "center",
+    },
+    image_absolute: {
+        flex: 1,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
     },
     top_security_agreements: {
         flex: 1,
@@ -42,6 +69,7 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
     },
     intro_header: {
+        flex: 1,
         color: '#2C3B51',
         fontSize: 30,
         lineHeight: 37,
@@ -70,7 +98,7 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         textAlign: 'center',
         fontFamily: 'roboto-regular',
-        paddingTop: 20,
+        paddingTop: 50,
     },
     intro_text: {
         flex: 1,
@@ -81,13 +109,14 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
-    intro_text_background_color: {
-        backgroundColor: 'rgba(155, 81, 224, 0.2)',
+    intro_text_bold: {
+        flex: 1,
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
+        fontFamily: 'roboto-medium',
+        alignSelf: "stretch",
         textAlign: 'left',
-        fontFamily: 'roboto-regular',
     },
     usernameInput: {
         marginTop: 43,

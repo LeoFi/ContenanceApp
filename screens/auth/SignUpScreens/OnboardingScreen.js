@@ -20,9 +20,6 @@ const mapDispatchToProps = (dispatch) => {
 
 class OnboardingScreen extends React.Component {
 
-  static navigationOptions = {
-    header: null,
-  };
 
   constructor(props) {
     super(props);

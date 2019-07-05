@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Image } from "react-native";
+import { View, Text, TextInput, Image, StatusBar } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton
@@ -34,6 +34,7 @@ export default class Aha extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <StatusBar hidden />
         <Text style={styles.header}>Aha!</Text>
         <Text style={styles.intro_text}>
           {"\n"}About 90% of new year resolutions fail. Having a gap between knowing what you want to do and actually getting it done is very human.

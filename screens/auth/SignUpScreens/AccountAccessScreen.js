@@ -26,9 +26,6 @@ import { styles } from "./style";
 import * as firebase from "firebase";
 
 export default class AccountAccessScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
 
   constructor(props) {
     super(props);

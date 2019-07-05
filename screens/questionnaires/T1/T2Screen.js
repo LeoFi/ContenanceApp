@@ -11,9 +11,7 @@ import RadioGroup, { Radio } from "react-native-radio-input";
 import { styles } from "./style";
 
 export default class T2Screen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
+
   constructor(props) {
     super(props);
     this.state = {

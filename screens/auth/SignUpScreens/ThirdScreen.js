@@ -6,9 +6,6 @@ import { styles } from './style'
 
 export default class Third extends React.Component {
 
-    static navigationOptions = {
-        header: null,
-    };
     state = {
         email: "",
         password: "",
