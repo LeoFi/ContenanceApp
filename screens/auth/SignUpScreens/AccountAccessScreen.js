@@ -34,13 +34,6 @@ export default class AccountAccessScreen extends React.Component {
       acceptedAgreement: false,
       modalVisible: false
     };
-
-    // firebase.database().ref('users/0003').set({name: 'Darya Sudas'}).then(() => {
-    //     console.log("INSERTED");
-    //     //console.log(firebase.auth().currentUser.uid)
-    // }).catch((error) => {
-    //     console.log(error);
-    // // })
   }
 
   toggleSwitch = value => {

@@ -11,5 +11,6 @@ import Timer from './Timer';
 import AudioCompenent from './Audio';
 import DeckSwiperExample from './CardsDeckSwiper';
 import HeaderComponent from './HeaderComponent';
+import RadioButtons from './RadioButton';
 
-export { TestComponent, PrimaryButton, SecondaryButton, SwitchButton, SwitchButtonANDText, LinkText, GreyInputButton, FormElement, ExerciceButton, Timer, AudioCompenent, DeckSwiperExample, HeaderComponent };
+export { TestComponent, PrimaryButton, SecondaryButton, SwitchButton, SwitchButtonANDText, LinkText, GreyInputButton, FormElement, ExerciceButton, Timer, AudioCompenent, DeckSwiperExample, HeaderComponent, RadioButtons };

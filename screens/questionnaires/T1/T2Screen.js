@@ -15,7 +15,6 @@ export default class T2Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.nickname,
       showFrom: 0,
       value: '',
     };

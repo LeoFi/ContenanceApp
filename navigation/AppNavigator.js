@@ -17,20 +17,22 @@ import ThirdScreen from "../screens/auth/SignUpScreens/ThirdScreen";
 import T1Screen from "../screens/questionnaires/T1/T1Screen";
 import T2Screen from "../screens/questionnaires/T1/T2Screen";
 import T3Screen from "../screens/questionnaires/T1/T3Screen";
+import T4Screen from "../screens/questionnaires/T1/T4Screen";
 
 import TestScreen from "../screens/TestScreen";
 
 const IntroStack = createStackNavigator(
   {
-    Start: { screen: StartScreen },
-    AccountAccess: { screen: AccountAccessScreen },
-    IntroOnboarding: { screen: IntroOnboardingScreen },
-    Onboarding: { screen: OnboardingScreen },
-    AllowNotifications: { screen: AllowNotificationsScreen },
-    SetReminders: { screen: SetRemindersScreen },
-    SetRemindersFinal: { screen: SetRemindersFinalScreen },
-    Conclusion: { screen: ConclusionScreen },
-    T1: { screen: T1Screen },
+    // Start: { screen: StartScreen },
+    // AccountAccess: { screen: AccountAccessScreen },
+    // IntroOnboarding: { screen: IntroOnboardingScreen },
+    // Onboarding: { screen: OnboardingScreen },
+    // AllowNotifications: { screen: AllowNotificationsScreen },
+    // SetReminders: { screen: SetRemindersScreen },
+    // SetRemindersFinal: { screen: SetRemindersFinalScreen },
+    // Conclusion: { screen: ConclusionScreen },
+    // T1: { screen: T1Screen },
+    T4: { screen: T4Screen },
     T2: { screen: T2Screen },
     T3: { screen: T3Screen },
     //Home: { screen: MainTabNavigator }
@@ -45,7 +47,7 @@ const IntroStack = createStackNavigator(
 
 const MainStack = createStackNavigator(
   {
-    //Intro: { screen: IntroStack },
+    Intro: { screen: IntroStack },
     Home: { screen: MainTabNavigator }
   },
   {

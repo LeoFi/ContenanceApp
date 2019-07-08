@@ -21,10 +21,13 @@ import * as Progress from "react-native-progress";
 
 export default class Exercice_1_Intro extends React.Component {
 
-  state = {
-    password: ""
-  };
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      progress: 0
+    };
+  }
 
   render() {
     return (
@@ -35,7 +38,8 @@ export default class Exercice_1_Intro extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Intro");
+              // this.setState({progress: 0.9})
+              this.props.navigation.navigate("Exercice_1_Intro");
               }}
             >
               <View style={styles.container}>
