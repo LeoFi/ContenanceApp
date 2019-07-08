@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
         flex: 1,
         alignSelf: "stretch",
+        flexGrow: 1,
     },
     center: {
         flex: 1,
@@ -104,6 +105,15 @@ const styles = StyleSheet.create({
         fontSize: 19,
         borderBottomWidth: 2,
     },
+    question: {
+        flex:1,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
+        alignSelf: 'stretch',
+        position: 'absolute',
+        top: 250,
+    }
 })
 
 export { styles } 
