@@ -43,7 +43,7 @@ class T1Screen extends React.Component {
             label="Start Reflection"
             isBottom={true}
             onPress={() => {
-                this.props.navigation.navigate('T2');
+                this.props.navigation.navigate('PSU_Screen');
             }}
           />
         </View>

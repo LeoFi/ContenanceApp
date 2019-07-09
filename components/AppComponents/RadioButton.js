@@ -6,6 +6,8 @@ export default class RadioButtons extends Component {
     value: null
   };
 
+  
+
   render() {
     const { options } = this.props;
     const { value } = this.state;

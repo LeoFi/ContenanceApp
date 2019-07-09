@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class T4Screen extends React.Component {
+export default class WB_Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +59,7 @@ export default class T4Screen extends React.Component {
       show_6: false,
       show_7: false,
       show_8: false,
-      show_9: false,
+      show_9: false
     };
   }
 
@@ -88,23 +88,20 @@ export default class T4Screen extends React.Component {
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-      }
-      else if (this.state.show_4 == true) {
+      } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-      }
-      else if (this.state.show_5 == true) {
+      } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-      }
-      else if (this.state.show_6 == true) {
+      } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
@@ -112,8 +109,7 @@ export default class T4Screen extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-      }
-      else if (this.state.show_7 == true) {
+      } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
@@ -122,8 +118,7 @@ export default class T4Screen extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-      }
-      else if (this.state.show_8 == true) {
+      } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
@@ -134,14 +129,13 @@ export default class T4Screen extends React.Component {
         this.setState({ show_8: false });
         this.setState({ show_9: true });
       }
-
-    }, 800);
+    }, 600);
   };
 
   render() {
     return (
-      <ScrollView style={styles.container_scroll}>
-        <Text style={styles.header_left}>In the last 7 days</Text>
+      <View style={styles.container}>
+        <Text style={styles.header_left_padding}>In the last 7 days</Text>
 
         {this.state.show_1 ? (
           <>
@@ -194,7 +188,8 @@ export default class T4Screen extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            If I don’t have a smartphone, my friends would find it hard to get in touch with me.
+              If I don’t have a smartphone, my friends would find it hard to get
+              in touch with me.
             </Text>
 
             <View style={styles.question}>
@@ -216,7 +211,8 @@ export default class T4Screen extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            I feel anxious if I have not checked for messages or switched on my smartphone for some time.
+              I feel anxious if I have not checked for messages or switched on
+              my smartphone for some time.
             </Text>
 
             <View style={styles.question}>
@@ -238,7 +234,7 @@ export default class T4Screen extends React.Component {
         {this.state.show_5 ? (
           <>
             <Text style={styles.text_left}>
-            My friends and family complain about my use of the smartphone.
+              My friends and family complain about my use of the smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -260,7 +256,8 @@ export default class T4Screen extends React.Component {
         {this.state.show_6 ? (
           <>
             <Text style={styles.text_left}>
-            I find myself engaged on the smartphone for longer periods of time than intended.
+              I find myself engaged on the smartphone for longer periods of time
+              than intended.
             </Text>
 
             <View style={styles.question}>
@@ -282,7 +279,8 @@ export default class T4Screen extends React.Component {
         {this.state.show_7 ? (
           <>
             <Text style={styles.text_left}>
-            I am often late for appointments be- cause I’m engaged on the smartphone when I shouldn’t be.
+              I am often late for appointments be- cause I’m engaged on the
+              smartphone when I shouldn’t be.
             </Text>
 
             <View style={styles.question}>
@@ -304,7 +302,7 @@ export default class T4Screen extends React.Component {
         {this.state.show_8 ? (
           <>
             <Text style={styles.text_left}>
-            I find it difficult to switch off my smartphone.
+              I find it difficult to switch off my smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -326,7 +324,7 @@ export default class T4Screen extends React.Component {
         {this.state.show_9 ? (
           <>
             <Text style={styles.text_left}>
-            I have been told that I spend too much time on my smartphone.
+              I have been told that I spend too much time on my smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -342,9 +340,19 @@ export default class T4Screen extends React.Component {
                 <Radio iconName={"lens"} label={"6"} value={"PSU9_T1/6"} />
               </RadioGroup>
             </View>
+
+            <View style={styles.bottom}>
+              <PrimaryButton
+                label="Continue"
+                isBottom={true}
+                onPress={() => {
+                    this.props.navigation.navigate("T3");
+                }}
+              />
+            </View>
           </>
         ) : null}
-      </ScrollView>
+      </View>
     );
   }
 }

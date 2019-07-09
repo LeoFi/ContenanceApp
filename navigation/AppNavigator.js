@@ -15,9 +15,8 @@ import SetRemindersFinalScreen from "../screens/auth/SignUpScreens/SetRemindersF
 import ConclusionScreen from "../screens/auth/SignUpScreens/ConclusionScreen";
 import ThirdScreen from "../screens/auth/SignUpScreens/ThirdScreen";
 import T1Screen from "../screens/questionnaires/T1/T1Screen";
-import T2Screen from "../screens/questionnaires/T1/T2Screen";
 import T3Screen from "../screens/questionnaires/T1/T3Screen";
-import T4Screen from "../screens/questionnaires/T1/T4Screen";
+import PSU_Screen from "../screens/questionnaires/T1/PSU_Screen";
 
 import TestScreen from "../screens/TestScreen";
 
@@ -31,10 +30,9 @@ const IntroStack = createStackNavigator(
     // SetReminders: { screen: SetRemindersScreen },
     // SetRemindersFinal: { screen: SetRemindersFinalScreen },
     // Conclusion: { screen: ConclusionScreen },
-    // T1: { screen: T1Screen },
-    T4: { screen: T4Screen },
-    T2: { screen: T2Screen },
-    T3: { screen: T3Screen },
+    T1: { screen: T1Screen },
+    //T3: { screen: T3Screen },
+    PSU_Screen: { screen: PSU_Screen },
     //Home: { screen: MainTabNavigator }
   },
   {

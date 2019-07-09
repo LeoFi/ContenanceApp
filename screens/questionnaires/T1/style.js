@@ -66,6 +66,15 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         alignSelf: 'stretch',
     },
+    header_left_padding: {
+        color: '#2C3B51',
+        fontSize: 34,
+        lineHeight: 37,
+        textAlign: 'left',
+        fontFamily: 'roboto-black',
+        paddingBottom: 37,
+        alignSelf: 'stretch',
+    },
     text: {
         color: '#2C3B51',
         fontSize: 19,
@@ -110,9 +119,9 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'center',
-        alignSelf: 'stretch',
         position: 'absolute',
-        top: 250,
+        top: 300,
+        zIndex: 1,
     }
 })
 
