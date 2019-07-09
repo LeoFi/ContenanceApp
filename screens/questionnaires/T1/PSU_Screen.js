@@ -59,7 +59,8 @@ export default class PSU_Screen extends React.Component {
       show_6: false,
       show_7: false,
       show_8: false,
-      show_9: false
+      show_9: false,
+      show_10: false
     };
   }
 
@@ -128,6 +129,17 @@ export default class PSU_Screen extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
+      }  else if (this.state.show_9 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: false });
+        this.setState({ show_7: false });
+        this.setState({ show_8: false });
+        this.setState({ show_9: false });
+        this.setState({ show_10: true });
       }
     }, 600);
   };
@@ -151,12 +163,12 @@ export default class PSU_Screen extends React.Component {
                   flexDirection: "row"
                 }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU1_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU1_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU1_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU1_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU1_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU1_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU01_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU01_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU01_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU01_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU01_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU01_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -174,12 +186,12 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU2_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU2_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU2_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU2_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU2_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU2_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU02_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU02_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU02_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU02_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU02_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU02_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -197,12 +209,12 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU3_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU3_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU3_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU3_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU3_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU3_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU03_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU03_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU03_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU03_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU03_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU03_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -220,12 +232,12 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU4_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU4_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU4_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU4_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU4_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU4_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU04_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU04_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU04_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU04_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU04_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU04_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -242,12 +254,12 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU5_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU5_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU5_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU5_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU5_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU5_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU05_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU05_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU05_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU05_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU05_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU05_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -265,12 +277,12 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU6_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU6_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU6_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU6_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU6_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU6_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU06_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU06_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU06_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU06_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU06_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU06_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -279,7 +291,7 @@ export default class PSU_Screen extends React.Component {
         {this.state.show_7 ? (
           <>
             <Text style={styles.text_left}>
-              I am often late for appointments be- cause I’m engaged on the
+              I am often late for appointments because I’m engaged on the
               smartphone when I shouldn’t be.
             </Text>
 
@@ -288,12 +300,12 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU7_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU7_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU7_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU7_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU7_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU7_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU07_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU07_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU07_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU07_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU07_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU07_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -310,12 +322,12 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU8_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU8_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU8_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU8_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU8_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU8_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU08_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU08_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU08_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU08_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU08_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU08_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -332,12 +344,34 @@ export default class PSU_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU9_T1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU9_T1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU9_T1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU9_T1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU9_T1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU9_T1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU09_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU09_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU09_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU09_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU09_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU09_D1/6"} />
+              </RadioGroup>
+            </View>
+          </>
+        ) : null}
+
+        {this.state.show_10 ? (
+          <>
+            <Text style={styles.text_left}>
+            In general, I find my smartphone use problematic.
+            </Text>
+
+            <View style={styles.question}>
+              <RadioGroup
+                getChecked={this.getChecked}
+                RadioGroupStyle={{ flexDirection: "row" }}
+              >
+                <Radio iconName={"lens"} label={"1"} value={"PSUc_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSUc_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSUc_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSUc_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSUc_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSUc_D1/6"} />
               </RadioGroup>
             </View>
 
@@ -346,7 +380,7 @@ export default class PSU_Screen extends React.Component {
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                    this.props.navigation.navigate("T3");
+                    this.props.navigation.navigate("SUE_Screen");
                 }}
               />
             </View>
