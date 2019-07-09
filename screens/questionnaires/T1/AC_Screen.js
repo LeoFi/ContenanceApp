@@ -54,8 +54,6 @@ export default class AC_Screen extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
- 
-
     };
   }
 

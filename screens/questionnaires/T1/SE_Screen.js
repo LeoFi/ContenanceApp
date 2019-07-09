@@ -54,8 +54,6 @@ export default class SE_Screen extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
- 
-
     };
   }
 
@@ -79,16 +77,14 @@ export default class SE_Screen extends React.Component {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-
-      
       }
     }, 600);
   };
 
   render() {
     return (
-      <View style={styles.contaACer}>
-        <Text style={styles.header_left_paddACg}>I am confident that I can...</Text>
+      <View style={styles.container}>
+        <Text style={styles.header_left_padding}>I am confident that I can...</Text>
 
         {this.state.show_1 ? (
           <>
