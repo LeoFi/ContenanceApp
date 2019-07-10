@@ -1,5 +1,13 @@
 import React from "react";
-import { View, Text, TextInput, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StatusBar,
+  TouchableWithoutFeedback,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
@@ -9,50 +17,58 @@ import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
 export default class Exercice_1_1 extends React.Component {
-  // static navigationOptions = {
-  //   headerStyle: {
-  //     backgroundColor: "#F4F1DE",
-  //     shadowOpacity: 0,
-  //     elevation: 0,
-  //     borderBottomWidth: 0
-  //   },
-  //   headerBackTitle: null,
-  //   headerTitle: (
-  //     <Progress.Bar
-  //       progress={0.3}
-  //       borderWidth={0}
-  //       width={250}
-  //       color={"rgba(44, 59, 81, 1)"}
-  //       unfilledColor={"rgba(255, 255, 255, 1)"}
-  //     />
-  //   ),
-  //   headerTintColor: "#2C3B51"
-  // };
-  state = {
-    password: ""
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
 
   render() {
     return (
-      <View style={styles.container}>
-      <StatusBar hidden />
-        <Text style={styles.header}>First Page of Exercice !</Text>
-        <Text style={styles.text}>
-          {"\n"}Create an account to start your journey.
-        </Text>
+      <ImageBackground
+        source={require("../../../assets/images/pink_shape.png")}
+        style={styles.image_background}
+      >
+        <StatusBar hidden />
+        <ScrollView>
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback
+              style={styles.scroll}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_1_2");
+              }}
+            >
+              <View style={styles.container_scroll}>
+                <Text style={styles.sub_header_left}>
+                  Welcome to day 1 of Contenance!
+                </Text>
+                <Text style={styles.intro_text}>
+                  {"\n"}While reading this, you probably have your smartphone in
+                  your hand.
+                </Text>
 
-        <View style={styles.middle}>
-          <GreyInputButton label="Email" isBottom={false} />
-          <GreyInputButton label="App Notifications" isBottom={true} />
-        </View>
-
-        <PrimaryButton
-          label="Sign Up"
-          onPress={() => {
-            this.props.navigation.navigate("Exercice_1_2");
-          }}
-        />
-      </View>
+                <View style={styles.bottom}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
+                </View>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </ScrollView>
+      </ImageBackground>
     );
   }
+}
+
+{
+  /* <View style={styles.middle}>
+  <GreyInputButton label="Email" isBottom={false} />
+  <GreyInputButton label="App Notifications" isBottom={true} />
+</View>
+
+<PrimaryButton
+  label="Sign Up"
+  onPress={() => {
+    this.props.navigation.navigate("Exercice_1_2");
+  }}
+/> */
 }

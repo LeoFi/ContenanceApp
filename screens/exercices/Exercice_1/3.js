@@ -1,42 +1,75 @@
-
-import React from 'react';
-import { View, Text, TextInput } from 'react-native';
-import { PrimaryButton, SecondaryButton, Timer, StatusBar } from './../../../components/AppComponents';
-import { styles } from './style'
-import * as Progress from 'react-native-progress';
+import React from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StatusBar,
+  TouchableWithoutFeedback,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  GreyInputButton
+} from "../../../components/AppComponents";
+import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
 export default class Exercice_1_3 extends React.Component {
+  constructor(props) {
+    super(props);
 
-    static navigationOptions = {
-        headerStyle: {
-            backgroundColor: '#F4F1DE',
-            shadowOpacity: 0,
-            elevation: 0,
-            borderBottomWidth:0,
-        },
-        headerBackTitle: null,
-        headerTitle: <Progress.Bar progress={0.5} borderWidth={0} width={250} color={'rgba(44, 59, 81, 1)'} unfilledColor={'rgba(255, 255, 255, 1)'}/>,
-        headerTintColor: '#2C3B51',
-    };
-    state = {
-        password: "",
-    };
+    this.state = {};
+  }
 
+  render() {
+    return (
+      <ImageBackground
+        source={require("../../../assets/images/pink_shape.png")}
+        style={styles.image_background}
+      >
+        <StatusBar hidden />
+        <ScrollView>
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback
+              style={styles.scroll}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_1_4");
+              }}
+            >
+              <View style={styles.container_scroll}>
+                <Text style={styles.sub_header_left}>
+                Ask yourself:
+                </Text>
+                <Text style={styles.intro_text_bold}>
+                  {"\n"}How is your back positioned?
+                  {"\n"}{"\n"}How does your neck feel?
+                  {"\n"}{"\n"}What does your body look like while you are using your smartphone? 
+                </Text>
 
-    render() {
-        return (
-            <View style={styles.container}>
-<StatusBar hidden />
-                <Text style={styles.header}>Third Page of Exercice !</Text>
-                <Text style={styles.text}>{'\n'}Create an account to start your journey.</Text>
+                <View style={styles.bottom}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
+                </View>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </ScrollView>
+      </ImageBackground>
+    );
+  }
+}
 
-                <Timer></Timer>
+{
+  /* <View style={styles.middle}>
+  <GreyInputButton label="Email" isBottom={false} />
+  <GreyInputButton label="App Notifications" isBottom={true} />
+</View>
 
-                <PrimaryButton label='Sign Up' onPress={() => {
-                    this.props.navigation.navigate('Exercice_1_4');
-                }} />
-
-            </View>
-        );
-    }
+<PrimaryButton
+  label="Sign Up"
+  onPress={() => {
+    this.props.navigation.navigate("Exercice_1_2");
+  }}
+/> */
 }

@@ -2,7 +2,6 @@ import React from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { fromRight } from "react-navigation-transitions";
 import MainTabNavigator from "./MainTabNavigator";
-import { HeaderComponent } from "../components/AppComponents";
 
 import StartScreen from "../screens/auth/StartScreen";
 import AccountAccessScreen from "../screens/auth/SignUpScreens/AccountAccessScreen";
@@ -40,8 +39,7 @@ const IntroStack = createStackNavigator(
     // SetReminders: { screen: SetRemindersScreen },
     // SetRemindersFinal: { screen: SetRemindersFinalScreen },
     // Conclusion: { screen: ConclusionScreen },
-    //T1: { screen: T1Screen },
-    //T3: { screen: T3Screen },
+    // T1: { screen: T1Screen },
     // PSU_Screen: { screen: PSU_Screen },
     // SUE_Screen: { screen: SUE_Screen },
     // WB_Screen: { screen: WB_Screen },
@@ -52,8 +50,8 @@ const IntroStack = createStackNavigator(
     // IN_Screen: { screen: IN_Screen },
     // AP_Screen: { screen: AP_Screen },
     // AC_Screen: { screen: AC_Screen },
-    SE_Screen: { screen: SE_Screen },
-    //Home: { screen: MainTabNavigator }
+    // SE_Screen: { screen: SE_Screen },
+    Home: { screen: MainTabNavigator }
   },
   {
     transitionConfig: () => fromRight(500),
