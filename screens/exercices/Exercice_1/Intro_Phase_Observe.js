@@ -33,7 +33,7 @@ export default class Exercice_1_Intro extends React.Component {
         <ScrollView>
           <TouchableWithoutFeedback
             onPress={() => {
-              this.props.navigation.navigate("Exercice_1_Intro");
+              this.props.navigation.navigate("Exercice_1_Congratulations");
             }}
           >
             <View style={styles.container_scroll_img_absolute}>
