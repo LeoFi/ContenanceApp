@@ -1,84 +1,86 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-//import { defaultStyle } from './style'
+import React, { Component } from "react";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 export default class ExerciceButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      exerciceState: "",
+      date: "",
+    };
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
+  getDate() {
+    var date = (new Date()).toLocaleString();
+    console.log(date);
+  }
 
-    render() {
+  componentDidMount() {
+    this.getDate();
+  }
 
-        const buttonProps = {
-            label: this.props.label,
-            disabled: this.props.disabled,
-            onPress: this.props.onPress,
-            isBottom: this.props.isBottom,
-            style: this.props.style,
-        }
+  render() {
+    const exerciceProps = {
+      label: this.props.label,
+      disabled: this.props.disabled,
+      onPress: this.props.onPress,
+      isBottom: this.props.isBottom,
+      style: this.props.style,
+    };
 
-        return (
-                <TouchableOpacity
-                    //style={this.props.style}
-                    style={[
-                        styles.button_primary,
-                        {
-                            backgroundColor: buttonProps.disabled ? '#E0DFD0' : '#A878CE',
-                            borderColor: buttonProps.disabled ? '#E0DFD0' : '#A878CE',
-                            marginBottom: buttonProps.isBottom ? 0 : 15,
-                        },
-                        buttonProps.style
-                    ]}
-                    onPress={buttonProps.onPress}
-                    disabled={buttonProps.disabled}>
-                    <Text 
-                    style={[
-                        styles.button_text_primary,
-                        {
-                            color: buttonProps.disabled ? 'rgba(44, 59, 81, 0.3)' : '#F4F1DE',
-                        },
-                        buttonProps.style
-                    ]}
-                    >
-                        {buttonProps.label}
-                    </Text>
-                </TouchableOpacity>
-        )
-    }
+    return (
+      <TouchableOpacity
+        //style={this.props.style}
+        style={[
+          styles.button_exercice,
+          {
+            backgroundColor: exerciceProps.disabled ? "#E0DFD0" : "#A878CE",
+            borderColor: exerciceProps.disabled ? "#E0DFD0" : "#A878CE",
+            marginBottom: exerciceProps.isBottom ? 0 : 15
+          },
+          exerciceProps.style
+        ]}
+        onPress={exerciceProps.onPress}
+        disabled={exerciceProps.disabled}
+      >
+        <Text
+          style={[
+            styles.button_text_exercice,
+            {
+              color: exerciceProps.disabled
+                ? "rgba(44, 59, 81, 0.3)"
+                : "#F4F1DE"
+            },
+            exerciceProps.style
+          ]}
+        >
+          {exerciceProps.label}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
 }
 
-
 const styles = StyleSheet.create({
-    bottom: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        flexDirection: 'column',
-        marginBottom: 56,
-        alignSelf: 'stretch',
-    },
-    button_primary: {
-        backgroundColor: '#A878CE',
-        borderWidth: 2,
-        borderColor: '#A878CE',
-        borderRadius: 12,
-        overflow: 'hidden',
-        padding: 15,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignSelf: 'stretch',
-        marginBottom: 0,
-    },
-    button_text_primary: {
-        color: '#F4F1DE',
-        fontSize: 17,
-        lineHeight: 23,
-        textAlign: 'left',
-        fontFamily: 'roboto-medium',
-        textTransform: 'capitalize',
-        alignSelf: 'stretch',
-        letterSpacing: 2,
-    },
+  button_exercice: {
+    backgroundColor: "#A878CE",
+    borderWidth: 2,
+    borderColor: "#A878CE",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    marginBottom: 0
+  },
+  button_text_exercice: {
+    color: "#F4F1DE",
+    fontSize: 17,
+    lineHeight: 23,
+    textAlign: "left",
+    fontFamily: "roboto-medium",
+    textTransform: "capitalize",
+    alignSelf: "stretch",
+    letterSpacing: 1
+  }
 });

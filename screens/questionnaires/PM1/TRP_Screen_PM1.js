@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class HS_Screen extends React.Component {
+export default class TRP_Screen_PM1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,18 +88,18 @@ export default class HS_Screen extends React.Component {
 
       
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>Using my smartphone is something...</Text>
+        <Text style={styles.header_left_padding}></Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ... I do automatically.
+            Smartphones increase the speed of responses people expect from me.
             </Text>
 
             <View style={styles.question}>
@@ -109,12 +109,12 @@ export default class HS_Screen extends React.Component {
                   flexDirection: "row"
                 }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"HS01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"HS01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"HS01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"HS01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"HS01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"HS01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"TRP01_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"TRP01_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"TRP01_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"TRP01_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"TRP01_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"TRP01_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -123,7 +123,7 @@ export default class HS_Screen extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... I do without having to consciously remember.
+            I feel responsible for replying to communication demands quicker because of the smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -131,12 +131,12 @@ export default class HS_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"HS02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"HS02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"HS02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"HS02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"HS02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"HS02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"TRP02_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"TRP02_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"TRP02_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"TRP02_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"TRP02_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"TRP02_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -145,7 +145,7 @@ export default class HS_Screen extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ... I do without thinking.
+            I have felt stressed as a result of unanswered messages on the smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -153,12 +153,12 @@ export default class HS_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"HS03_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"HS03_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"HS03_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"HS03_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"HS03_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"HS03_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"TRP03_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"TRP03_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"TRP03_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"TRP03_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"TRP03_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"TRP03_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -167,7 +167,7 @@ export default class HS_Screen extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            ... I start doing before I realise I’m doing it.
+            In general, I feel stressed by my smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -175,12 +175,12 @@ export default class HS_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"HSc_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"HSc_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"HSc_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"HSc_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"HSc_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"HSc_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"TRPc_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"TRPc_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"TRPc_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"TRPc_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"TRPc_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"TRPc_D4/6"} />
               </RadioGroup>
             </View>
     
@@ -190,7 +190,7 @@ export default class HS_Screen extends React.Component {
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("IN_Screen");
+                  this.props.navigation.navigate("HS_Screen_PM1");
                 }}
               />
             </View>

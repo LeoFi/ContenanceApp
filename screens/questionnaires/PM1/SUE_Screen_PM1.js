@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class PSF_Screen extends React.Component {
+export default class SUE_Screen_PM1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,18 +75,19 @@ export default class PSF_Screen extends React.Component {
         this.setState({ show_2: true });
 
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>Please think about a usual day from the past 7 days.</Text>
+        <Text style={styles.header_left_padding}>How do you evaluate the quality of your
+time on the smartphone?</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            I decided what is important for me and decide what I want to use my energy for.
+            How pleasurable do you rate your screen use?
             </Text>
 
             <View style={styles.question}>
@@ -96,12 +97,12 @@ export default class PSF_Screen extends React.Component {
                   flexDirection: "row"
                 }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSF01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSF01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSF01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSF01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSF01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSF01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"SUE01_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"SUE01_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"SUE01_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"SUE01_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"SUE01_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"SUE01_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -110,7 +111,7 @@ export default class PSF_Screen extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            I actively committed myself to what I find important, useful or meaningful.
+            How meaningful do you rate your screen use?
             </Text>
 
             <View style={styles.question}>
@@ -118,12 +119,12 @@ export default class PSF_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSF02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSF02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSF02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSF02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSF02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSF02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"SUE02_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"SUE02_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"SUE02_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"SUE02_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"SUE02_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"SUE02_D4/6"} />
               </RadioGroup>
             </View>
 
@@ -133,7 +134,7 @@ export default class PSF_Screen extends React.Component {
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("TRP_Screen");
+                  this.props.navigation.navigate("PSF_Screen_PM1");
                 }}
               />
             </View>
@@ -150,7 +151,7 @@ export default class PSF_Screen extends React.Component {
     label="Continue"
     isBottom={true}
     onPress={() => {
-      this.props.navigation.navigate("PSF_Screen");
+      this.props.navigation.navigate("SUE_Screen");
     }}
   />
 </View>; */

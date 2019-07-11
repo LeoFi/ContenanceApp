@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Header } from "react-navigation";
-import { View, Platform, TouchableOpacity } from "react-native";
+import { View, Platform, TouchableOpacity, Alert } from "react-native";
 import * as Progress from "react-native-progress";
 
 export default class HeaderComponent extends React.Component {
@@ -20,7 +20,9 @@ export default class HeaderComponent extends React.Component {
       progress: this.props.progress,
       disabledProgress: this.props.disabledProgress,
       disabledBack: this.props.disabledBack,
-      disabledClose: this.props.disabledClose
+      disabledClose: this.props.disabledClose,
+      color: this.props.color,
+      goBackLink: this.props.goBackLink
     };
 
     return (
@@ -57,16 +59,13 @@ export default class HeaderComponent extends React.Component {
               name="md-arrow-back"
               size={32}
               color="#2C3B51"
-              onPress={() => goBack(null)}
             />
           </TouchableOpacity>
         )}
 
         {headerProps.disabledClose ? null : (
           <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.popToTop();
-            }}
+            onPress={headerProps.goBackLink}
             hitSlop={{ top: 20, bottom: 20, left: 50, right: 50 }}
             style={{ position: "absolute", right: 30, top: 20 }}
           >
@@ -74,9 +73,6 @@ export default class HeaderComponent extends React.Component {
               name="md-close"
               size={32}
               color="#2C3B51"
-              onPress={() => {
-                this.props.navigation.popToTop(0);
-              }}
             />
           </TouchableOpacity>
         )}

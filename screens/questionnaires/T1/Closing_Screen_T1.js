@@ -2,24 +2,24 @@ import React from "react";
 import { View, Text, TextInput, ScrollView, Image } from "react-native";
 import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
 import { styles } from "./style";
-import { connect } from 'react-redux';
-import { setNickname } from '../../../redux/app-redux';
+// import { connect } from 'react-redux';
+// import { setNickname } from '../../../redux/app-redux';
 
-const mapStateToProps = (state) => {
-  return {
-    nickname: state.nickname,
-  };
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     nickname: state.nickname,
+//   };
+// }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setNickname: (text) => { dispatch(setNickname(text)) },
-  };
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     setNickname: (text) => { dispatch(setNickname(text)) },
+//   };
+// }
 
 
 
-class T3Screen extends React.Component {
+class Closing_Screen_T1 extends React.Component {
 
   constructor(props) {
     super(props);
@@ -52,4 +52,5 @@ class T3Screen extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(T3Screen);
+// export default connect(mapStateToProps, mapDispatchToProps)(Closing_Screen_T1);
+export default Closing_Screen_T1;

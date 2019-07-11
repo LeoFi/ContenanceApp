@@ -13,19 +13,20 @@ import SetRemindersScreen from "../screens/auth/SignUpScreens/SetRemindersScreen
 import SetRemindersFinalScreen from "../screens/auth/SignUpScreens/SetRemindersFinalScreen";
 import ConclusionScreen from "../screens/auth/SignUpScreens/ConclusionScreen";
 import ThirdScreen from "../screens/auth/SignUpScreens/ThirdScreen";
-import T1Screen from "../screens/questionnaires/T1/T1Screen";
-import T3Screen from "../screens/questionnaires/T1/T3Screen";
-import PSU_Screen from "../screens/questionnaires/T1/PSU_Screen";
-import SUE_Screen from "../screens/questionnaires/T1/SUE_Screen";
-import WB_Screen from "../screens/questionnaires/T1/WB_Screen";
-import MFSU_Screen from "../screens/questionnaires/T1/MFSU_Screen";
-import PSF_Screen from "../screens/questionnaires/T1/PSF_Screen";
-import TRP_Screen from "../screens/questionnaires/T1/TRP_Screen";
-import HS_Screen from "../screens/questionnaires/T1/HS_Screen";
-import IN_Screen from "../screens/questionnaires/T1/IN_Screen";
-import AP_Screen from "../screens/questionnaires/T1/AP_Screen";
-import AC_Screen from "../screens/questionnaires/T1/AC_Screen";
-import SE_Screen from "../screens/questionnaires/T1/SE_Screen";
+
+import Intro_Screen_T1 from "../screens/questionnaires/T1/Intro_Screen_T1";
+import PSU_Screen_T1 from "../screens/questionnaires/T1/PSU_Screen_T1";
+import SUE_Screen_T1 from "../screens/questionnaires/T1/SUE_Screen_T1";
+import WB_Screen_T1 from "../screens/questionnaires/T1/WB_Screen_T1";
+import MFSU_Screen_T1 from "../screens/questionnaires/T1/MFSU_Screen_T1";
+import PSF_Screen_T1 from "../screens/questionnaires/T1/PSF_Screen_T1";
+import TRP_Screen_T1 from "../screens/questionnaires/T1/TRP_Screen_T1";
+import HS_Screen_T1 from "../screens/questionnaires/T1/HS_Screen_T1";
+import IN_Screen_T1 from "../screens/questionnaires/T1/IN_Screen_T1";
+import AP_Screen_T1 from "../screens/questionnaires/T1/AP_Screen_T1";
+import AC_Screen_T1 from "../screens/questionnaires/T1/AC_Screen_T1";
+import SE_Screen_T1 from "../screens/questionnaires/T1/SE_Screen_T1";
+import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
 import TestScreen from "../screens/TestScreen";
 
@@ -39,18 +40,19 @@ const IntroStack = createStackNavigator(
     // SetReminders: { screen: SetRemindersScreen },
     // SetRemindersFinal: { screen: SetRemindersFinalScreen },
     // Conclusion: { screen: ConclusionScreen },
-    // T1: { screen: T1Screen },
-    // PSU_Screen: { screen: PSU_Screen },
-    // SUE_Screen: { screen: SUE_Screen },
-    // WB_Screen: { screen: WB_Screen },
-    // MFSU_Screen: { screen: MFSU_Screen },
-    // PSF_Screen: { screen: PSF_Screen },
-    // TRP_Screen: { screen: TRP_Screen },
-    // HS_Screen: { screen: HS_Screen },
-    // IN_Screen: { screen: IN_Screen },
-    // AP_Screen: { screen: AP_Screen },
-    // AC_Screen: { screen: AC_Screen },
-    // SE_Screen: { screen: SE_Screen },
+    // Intro_Screen_T1: { screen: Intro_Screen_T1 },
+    // PSU_Screen_T1: { screen: PSU_Screen_T1 },
+    // SUE_Screen_T1: { screen: SUE_Screen_T1 },
+    // WB_Screen_T1: { screen: WB_Screen_T1 },
+    // MFSU_Screen_T1: { screen: MFSU_Screen_T1 },
+    // PSF_Screen_T1: { screen: PSF_Screen_T1 },
+    // TRP_Screen_T1: { screen: TRP_Screen_T1 },
+    // HS_Screen_T1: { screen: HS_Screen_T1 },
+    // IN_Screen_T1: { screen: IN_Screen_T1 },
+    // AP_Screen_T1: { screen: AP_Screen_T1 },
+    // AC_Screen_T1: { screen: AC_Screen_T1 },
+    // SE_Screen_T1: { screen: SE_Screen_T1 },
+    // Closing_Screen_T1: { screen: Closing_Screen_T1 },
     Home: { screen: MainTabNavigator }
   },
   {

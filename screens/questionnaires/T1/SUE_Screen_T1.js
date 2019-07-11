@@ -47,15 +47,13 @@ const options = [
   }
 ];
 
-export default class IN_Screen extends React.Component {
+export default class SUE_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       show_1: true,
       show_2: false,
-      show_3: false,
  
-
     };
   }
 
@@ -75,25 +73,21 @@ export default class IN_Screen extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-      } else if (this.state.show_2 == true) {
-        this.setState({ show_1: false });
-        this.setState({ show_2: false });
-        this.setState({ show_3: true });
 
-      
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>For the next few days, I intend...</Text>
+        <Text style={styles.header_left_padding}>How do you evaluate the quality of your
+time on the smartphone?</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ... to avoid mindless activities on my smartphone.
+            How pleasurable do you rate your screen use?
             </Text>
 
             <View style={styles.question}>
@@ -103,12 +97,12 @@ export default class IN_Screen extends React.Component {
                   flexDirection: "row"
                 }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"IN01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"IN01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"IN01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"IN01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"IN01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"IN01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"SUE01_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"SUE01_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"SUE01_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"SUE01_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"SUE01_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"SUE01_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -117,7 +111,7 @@ export default class IN_Screen extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... to use my smartphone more consciously.
+            How meaningful do you rate your screen use?
             </Text>
 
             <View style={styles.question}>
@@ -125,44 +119,22 @@ export default class IN_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"IN02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"IN02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"IN02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"IN02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"IN02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"IN02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"SUE02_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"SUE02_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"SUE02_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"SUE02_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"SUE02_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"SUE02_D1/6"} />
               </RadioGroup>
             </View>
-          </>
-        ) : null}
 
-        {this.state.show_3 ? (
-          <>
-            <Text style={styles.text_left}>
-            ... to use my smartphone less.
-            </Text>
-
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
-              >
-                <Radio iconName={"lens"} label={"1"} value={"IN03_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"IN03_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"IN03_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"IN03_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"IN03_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"IN03_D1/6"} />
-              </RadioGroup>
-            </View>
-    
-    
+        
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("AP_Screen");
+                  this.props.navigation.navigate("WB_Screen_T1");
                 }}
               />
             </View>
@@ -179,7 +151,7 @@ export default class IN_Screen extends React.Component {
     label="Continue"
     isBottom={true}
     onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
+      this.props.navigation.navigate("SUE_Screen");
     }}
   />
 </View>; */

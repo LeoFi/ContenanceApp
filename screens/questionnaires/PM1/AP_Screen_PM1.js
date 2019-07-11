@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class AP_Screen extends React.Component {
+export default class AP_Screen_PM1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -95,13 +95,13 @@ export default class AP_Screen extends React.Component {
 
       
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>In the past 3 weeks, I have made a detailed plan regarding...</Text>
+        <Text style={styles.header_left_padding}>In the past 4 days, I have made a detailed plan regarding...</Text>
 
         {this.state.show_1 ? (
           <>
@@ -116,12 +116,12 @@ export default class AP_Screen extends React.Component {
                   flexDirection: "row"
                 }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"AP01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP01_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP01_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP01_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP01_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP01_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP01_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -138,12 +138,12 @@ export default class AP_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"AP02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP02_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP02_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP02_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP02_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP02_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP02_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -160,12 +160,12 @@ export default class AP_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"AP03_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP03_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP03_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP03_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP03_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP03_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP03_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP03_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP03_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP03_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP03_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP03_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -182,12 +182,12 @@ export default class AP_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"AP04_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP04_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP04_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP04_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP04_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP04_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP04_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP04_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP04_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP04_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP04_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP04_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -204,12 +204,12 @@ export default class AP_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"AP05_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP05_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP05_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP05_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP05_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP05_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP05_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP05_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP05_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP05_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP05_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP05_D4/6"} />
               </RadioGroup>
             </View>
         
@@ -219,7 +219,7 @@ export default class AP_Screen extends React.Component {
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("AC_Screen");
+                  this.props.navigation.navigate("AC_Screen_PM1");
                 }}
               />
             </View>

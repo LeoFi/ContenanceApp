@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
 
-export default class T1Screen extends React.Component {
+export default class Intro_Screen_T1 extends React.Component {
 
     static navigationOptions = {
         header: null,

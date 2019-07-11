@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class AC_Screen extends React.Component {
+export default class AC_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,7 +80,7 @@ export default class AC_Screen extends React.Component {
 
       
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
@@ -164,7 +164,7 @@ export default class AC_Screen extends React.Component {
                label="Continue"
                isBottom={true}
                onPress={() => {
-                 this.props.navigation.navigate("SE_Screen");
+                 this.props.navigation.navigate("SE_Screen_T1");
                }}
              />
            </View>

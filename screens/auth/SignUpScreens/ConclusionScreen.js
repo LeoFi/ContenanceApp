@@ -5,14 +5,14 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import * as firebase from "firebase";
 import { styles } from "./style";
 
 export default class ConclusionScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
 
   render() {
@@ -37,7 +37,7 @@ export default class ConclusionScreen extends React.Component {
             label="Finish Setup"
             isBottom={true}
             onPress={() => {
-                this.props.navigation.navigate('T1');
+                this.props.navigation.navigate('Intro_Screen_T1');
             }}
           />
         </View>

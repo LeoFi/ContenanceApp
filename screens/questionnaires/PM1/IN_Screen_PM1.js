@@ -2,7 +2,7 @@ import React from "react";
 import {
   View,
   Text,
-  TextACput,
+  TextInput,
   ScrollView,
   Image,
   FlatList,
@@ -12,7 +12,7 @@ import {
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyACputButton,
+  GreyInputButton,
   RadioButtons
 } from "../../../components/AppComponents";
 import RadioGroup, { Radio } from "react-native-radio-input";
@@ -47,13 +47,15 @@ const options = [
   }
 ];
 
-export default class SE_Screen extends React.Component {
+export default class IN_Screen_PM1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       show_1: true,
       show_2: false,
       show_3: false,
+ 
+
     };
   }
 
@@ -77,19 +79,21 @@ export default class SE_Screen extends React.Component {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+
+      
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>I am confident that I can...</Text>
+        <Text style={styles.header_left_padding}>For the next few days, I intend...</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ...use my smartphone consciously even if I first have to find a way to integrate this into my daily routine.
+            ... to avoid mindless activities on my smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -99,12 +103,12 @@ export default class SE_Screen extends React.Component {
                   flexDirection: "row"
                 }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"SE01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"SE01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"SE01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"SE01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"SE01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"SE01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"IN01_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"IN01_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"IN01_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"IN01_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"IN01_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"IN01_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -113,7 +117,7 @@ export default class SE_Screen extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... continue using my smartphone consciously in the long run, even if it will be hard sometimes.
+            ... to use my smartphone more consciously.
             </Text>
 
             <View style={styles.question}>
@@ -121,12 +125,12 @@ export default class SE_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"SE02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"SE02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"SE02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"SE02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"SE02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"SE02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"IN02_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"IN02_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"IN02_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"IN02_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"IN02_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"IN02_D4/6"} />
               </RadioGroup>
             </View>
           </>
@@ -135,7 +139,7 @@ export default class SE_Screen extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ...that I can start using my smartphone consciously again, after several days of using it less consciously.
+            ... to use my smartphone less.
             </Text>
 
             <View style={styles.question}>
@@ -143,22 +147,22 @@ export default class SE_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"SE03_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"SE03_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"SE03_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"SE03_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"SE03_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"SE03_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"IN03_D4/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"IN03_D4/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"IN03_D4/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"IN03_D4/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"IN03_D4/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"IN03_D4/6"} />
               </RadioGroup>
             </View>
     
     
             <View style={styles.bottom}>
               <PrimaryButton
-                label="ContACue"
+                label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("SE_Screen");
+                  this.props.navigation.navigate("AP_Screen_PM1");
                 }}
               />
             </View>
@@ -172,7 +176,7 @@ export default class SE_Screen extends React.Component {
 
   /* <View style={styles.bottom}>
   <PrimaryButton
-    label="ContACue"
+    label="Continue"
     isBottom={true}
     onPress={() => {
       this.props.navigation.navigate("WB_Screen");

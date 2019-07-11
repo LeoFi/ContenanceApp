@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class TRP_Screen extends React.Component {
+export default class AP_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,7 +55,8 @@ export default class TRP_Screen extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
- 
+      show_5: false,
+  
 
     };
   }
@@ -85,21 +86,27 @@ export default class TRP_Screen extends React.Component {
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+      } else if (this.state.show_4 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: true });
 
       
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}></Text>
+        <Text style={styles.header_left_padding}>In the past 3 weeks, I have made a detailed plan regarding...</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            Smartphones increase the speed of responses people expect from me.
+            ... when to use my smartphone consciously (e.g., on the way to work).
             </Text>
 
             <View style={styles.question}>
@@ -109,12 +116,12 @@ export default class TRP_Screen extends React.Component {
                   flexDirection: "row"
                 }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"TRP01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"TRP01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"TRP01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"TRP01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"TRP01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"TRP01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP01_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP01_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP01_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP01_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP01_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP01_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -123,7 +130,7 @@ export default class TRP_Screen extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            I feel responsible for replying to communication demands quicker because of the smartphone.
+            ... where to use my smartphone consciously (e.g., in the train)
             </Text>
 
             <View style={styles.question}>
@@ -131,12 +138,12 @@ export default class TRP_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"TRP02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"TRP02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"TRP02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"TRP02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"TRP02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"TRP02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP02_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP02_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP02_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP02_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP02_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP02_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -145,7 +152,7 @@ export default class TRP_Screen extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            I have felt stressed as a result of unanswered messages on the smartphone.
+            ... what to do on my smartphone to use it consciously (e.g., listen to a TED talk on the smartphone)
             </Text>
 
             <View style={styles.question}>
@@ -153,12 +160,12 @@ export default class TRP_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"TRP03_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"TRP03_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"TRP03_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"TRP03_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"TRP03_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"TRP03_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP03_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP03_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP03_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP03_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP03_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP03_D1/6"} />
               </RadioGroup>
             </View>
           </>
@@ -167,7 +174,7 @@ export default class TRP_Screen extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            In general, I feel stressed by my smartphone.
+            ... what I can do in difficult situations to stay true to my plans.
             </Text>
 
             <View style={styles.question}>
@@ -175,22 +182,44 @@ export default class TRP_Screen extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "row" }}
               >
-                <Radio iconName={"lens"} label={"1"} value={"TRPc_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"TRPc_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"TRPc_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"TRPc_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"TRPc_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"TRPc_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"AP04_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP04_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP04_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP04_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP04_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP04_D1/6"} />
               </RadioGroup>
             </View>
-    
+          </>
+        ) : null}
+
+        {this.state.show_5 ? (
+          <>
+            <Text style={styles.text_left}>
+            ... how to deal with it once I’ve failed doing it.
+            </Text>
+
+            <View style={styles.question}>
+              <RadioGroup
+                getChecked={this.getChecked}
+                RadioGroupStyle={{ flexDirection: "row" }}
+              >
+                <Radio iconName={"lens"} label={"1"} value={"AP05_D1/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"AP05_D1/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"AP05_D1/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"AP05_D1/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"AP05_D1/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"AP05_D1/6"} />
+              </RadioGroup>
+            </View>
+        
        
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("HS_Screen");
+                  this.props.navigation.navigate("AC_Screen_T1");
                 }}
               />
             </View>

@@ -12,47 +12,21 @@ import {
 } from "react-native";
 import { PrimaryButton, SecondaryButton, ExerciceButton, HeaderComponent } from "./../components/AppComponents";
 import * as firebase from "firebase";
+
 import { connect } from "react-redux";
-import { setNickname } from "./../redux/app-redux";
-
-const mapStateToProps = state => {
-  return {
-    nickname: state.nickname
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    setNickname: text => {
-      dispatch(setNickname(text));
-    }
-  };
-};
 
 class TestScreen extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.nickname
+      nickname: this.props.user.nickname || ""
     };
   }
 
   onSignoutPress = () => {
     firebase.auth().signOut();
   };
-
-  // onSetFavoriteAnimalPress = () => {
-  //   this.props.setFavoriteAnimal(this.state.favoriteAnimal);
-  // }
-
-  // onIsCodeTrue = () => {
-  //   this.props.checkCode(this.state.isCodeTrue);
-  // }
-
-  // onCreateAccountPress = () => {
-  //   this.props.navigation.navigate('T1');
-  // }
 
   render() {
     return (
@@ -64,7 +38,7 @@ class TestScreen extends React.Component {
           />
 
           <Text style={styles.header_left}>
-            Hey, {this.props.nickname}!
+            Hey, {this.props.user.nickname}!
           </Text>
 
           <Text style={styles.text_left}>
@@ -74,16 +48,28 @@ class TestScreen extends React.Component {
           <ExerciceButton
             status={this.props.status}
             label="Day 1 - Contenance"
-            isBottom={true}
+            isBottom={false}
+            stateDone={true}
+            stateAvailableLate={false}
+            stateAvailableToday={false}
+            stateLocked={false}
             onPress={() => {
               this.props.navigation.navigate("Intro_Phase_Observe");
             }}
           />
-          
-          
-          <Button title="Signout" onPress={this.onSignoutPress} />
 
-{/* 
+          <ExerciceButton
+            status={this.props.status}
+            label="Day 2 - Notice Your Impulses"
+            isBottom={true}
+            onPress={() => {
+              this.props.navigation.navigate("PSU_Screen_PM1");
+            }}
+          />
+          
+         
+          <Button title="Signout" onPress={this.onSignoutPress} /> 
+          {/*  
           <Text>{this.props.favoriteAnimal}</Text>
           <TextInput style={{ borderWidth: 1, width: 200, height: 40 }}
             value={this.state.favoriteAnimal}
@@ -207,7 +193,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TestScreen);
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(TestScreen);

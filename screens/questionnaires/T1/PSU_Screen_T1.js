@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class PSU_Screen extends React.Component {
+export default class PSU_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -141,7 +141,7 @@ export default class PSU_Screen extends React.Component {
         this.setState({ show_9: false });
         this.setState({ show_10: true });
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
@@ -380,7 +380,7 @@ export default class PSU_Screen extends React.Component {
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                    this.props.navigation.navigate("SUE_Screen");
+                    this.props.navigation.navigate("SUE_Screen_T1");
                 }}
               />
             </View>

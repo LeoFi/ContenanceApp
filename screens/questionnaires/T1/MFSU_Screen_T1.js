@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class MFSU_Screen extends React.Component {
+export default class MFSU_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -110,7 +110,7 @@ export default class MFSU_Screen extends React.Component {
         this.setState({ show_7: true });
       
       }
-    }, 600);
+    }, 400);
   };
 
   render() {
@@ -277,7 +277,7 @@ export default class MFSU_Screen extends React.Component {
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("PSF_Screen");
+                  this.props.navigation.navigate("PSF_Screen_T1");
                 }}
               />
             </View>

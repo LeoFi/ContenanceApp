@@ -2,21 +2,8 @@ import React from 'react';
 import { StyleSheet, Alert, StatusBar, Image, View, Text, TouchableOpacity } from 'react-native';
 import { PrimaryButton } from '../../../components/AppComponents';
 import Onboarding from 'react-native-onboarding-swiper';
-import { connect } from 'react-redux';
-import { setNickname } from './../../../redux/app-redux';
 
-const mapStateToProps = (state) => {
-  return {
-    nickname: state.nickname,
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setNickname: (text) => { dispatch(setNickname(text)) },
-  };
-}
-
+import { connect } from "react-redux";
 
 class OnboardingScreen extends React.Component {
 
@@ -24,8 +11,8 @@ class OnboardingScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.nickname,
-    }
+      nickname: this.props.user.nickname || ""
+    };
   }
 
   onCreateAccountPress = () => {
@@ -69,7 +56,7 @@ class OnboardingScreen extends React.Component {
         pages={[
           {
             title: '',
-            subtitle: 'You can probably relate to my situation, ' + this.props.nickname + ': I love my smartphone. It opens up a whole new world right at my fingertips, just like a big ocean full of great possibilities.',
+            subtitle: 'You can probably relate to my situation, ' + this.props.user.nickname + ': I love my smartphone. It opens up a whole new world right at my fingertips, just like a big ocean full of great possibilities.',
             backgroundColor: '#F4F1DE',
             image: <Image source={require('./../../../assets/images/placeholder.png')} />,
           },
@@ -116,4 +103,8 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(OnboardingScreen);
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(OnboardingScreen);

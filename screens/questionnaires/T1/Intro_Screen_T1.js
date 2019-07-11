@@ -2,36 +2,22 @@ import React from "react";
 import { View, Text, TextInput, ScrollView, Image } from "react-native";
 import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
 import { styles } from "./style";
-import { connect } from 'react-redux';
-import { setNickname } from './../../../redux/app-redux';
 
-const mapStateToProps = (state) => {
-  return {
-    nickname: state.nickname,
-  };
-}
+import { connect } from "react-redux";
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setNickname: (text) => { dispatch(setNickname(text)) },
-  };
-}
-
-
-
-class T1Screen extends React.Component {
+class Intro_Screen_T1 extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.nickname,
+      nickname: this.props.user.nickname || ""
     };
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left}>{this.props.nickname}, welcome to Contenance</Text>
+        <Text style={styles.header_left}>{this.props.user.nickname}, welcome to Contenance</Text>
 
         <Text style={styles.text_left}>
           {"\n"}Before you start the training, we have a few questions about your smartphone use, your smartphone habits and your well-being.
@@ -43,7 +29,7 @@ class T1Screen extends React.Component {
             label="Start Reflection"
             isBottom={true}
             onPress={() => {
-                this.props.navigation.navigate('PSU_Screen');
+                this.props.navigation.navigate('PSU_Screen_T1');
             }}
           />
         </View>
@@ -52,4 +38,8 @@ class T1Screen extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(T1Screen);
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(Intro_Screen_T1);
