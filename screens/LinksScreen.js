@@ -1,81 +1,78 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, Image, Alert, Text } from "react-native";
-import { ExpoLinksView } from "@expo/samples";
-import { PrimaryButton, SecondaryButton } from "./../components/AppComponents";
-import SettingsList from "react-native-settings-list";
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  TextInput,
+  Button,
+  StatusBar,
+} from "react-native";
+import { PrimaryButton, SecondaryButton, ExerciceButton, HeaderComponent } from "./../components/AppComponents";
+import * as firebase from "firebase";
 
-export default class LinksScreen extends React.Component {
-  static navigationOptions = {
-    headerStyle: {
-      backgroundColor: "#F4F1DE",
-      shadowOpacity: 0,
-      elevation: 0,
-      borderBottomWidth: 0
-    },
-    headerBackTitle: null,
-    headerTitle: "Settings",
-    headerTintColor: "#2C3B51"
+import { connect } from "react-redux";
+
+class LinksScreen extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      nickname: this.props.user.nickname || "",
+      exercice_state_1: this.props.exercices.exercice_state_1 || "",
+      exercice_state_2: this.props.exercices.exercice_state_2 || ""
+    };
+  }
+
+  onSignoutPress = () => {
+    firebase.auth().signOut();
   };
-  constructor() {
-    super();
-    this.onValueChange = this.onValueChange.bind(this);
-    this.state = { switchValue: false };
-  }
-
-  onValueChange(value) {
-    this.setState({ switchValue: value });
-  }
 
   render() {
-    var bgColor = "#DCE3F4";
 
     return (
-      <>
-        <View style={{ backgroundColor: "#EFEFF4", flex: 1 }}>
-          <View
-            style={{
-              borderBottomWidth: 1,
-              backgroundColor: "#F4F1DE",
-              borderColor: "#F4F1DE",
-              paddingTop: 40
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <StatusBar barStyle="light-content" />
+        <View style={{ flex: 1, paddingTop: 50, marginTop: 10 }}>
+          <Image
+            style={styles.center}
+            source={require("./../assets/images/home_1.png")}
+          />
+
+          <Text style={styles.header_left}>
+            Hey, {this.props.user.nickname} Journey
+            {/* {this.state.exercices.exercice_state_1}! */}
+          </Text>
+
+          <ExerciceButton
+            status={this.props.exercices.exercice_state_1}
+            label="Day 1 - Contenance"
+            isBottom={false}
+            //state={this.props.exercices.exercice_state_1}
+            onPress={() => {
+              console.log(this.props.exercices.exercice_state_1);
+              //this.props.navigation.navigate("Intro_Phase_Observe");
             }}
           />
-          <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
-            <SettingsList borderColor="#868D91" defaultItemSize={50}>
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Nickname"
-                onPress={() => Alert.alert("Nickname")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Reminders"
-                onPress={() => Alert.alert("Reminders")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="FAQ"
-                onPress={() => Alert.alert("FAQ")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Security Agreements"
-                onPress={() => Alert.alert("Security Agreements")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Contact us"
-                onPress={() => Alert.alert("Contact us")}
-              />
-            </SettingsList>
-          </View>
+
+          <ExerciceButton
+            state={this.props.exercices.exercice_state_2}
+            label="Day 2 - Notice Your Impulses"
+            isBottom={true}
+            onPress={() => {
+              console.log(state);
+              this.props.navigation.navigate("Exercice_2_Intro");
+            }}
+          />
+          
+         
+          <Button title="Signout" onPress={this.onSignoutPress} /> 
+          
         </View>
-      </>
+      </View>
     );
   }
 }
@@ -87,7 +84,8 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 40,
     flex: 1,
-    backgroundColor: "#F4F1DE"
+    alignItems: "center",
+    alignSelf: "stretch"
   },
   container_scroll: {
     paddingTop: 80,
@@ -156,6 +154,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
+    paddingBottom: 30,
   },
   text_scroll: {
     color: "#2C3B51",
@@ -182,3 +181,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   }
 });
+
+const mapStateToProps = state => ({
+  user: state.user,
+  exercices: state.exercices
+});
+
+export default connect(mapStateToProps)(LinksScreen);

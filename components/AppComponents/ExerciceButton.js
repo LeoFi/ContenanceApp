@@ -4,19 +4,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 export default class ExerciceButton extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      exerciceState: "",
-      date: "",
-    };
-  }
-
-  getDate() {
-    var date = (new Date()).toLocaleString();
-    console.log(date);
-  }
-
-  componentDidMount() {
-    this.getDate();
+    this.state = {};
   }
 
   render() {
@@ -26,6 +14,7 @@ export default class ExerciceButton extends Component {
       onPress: this.props.onPress,
       isBottom: this.props.isBottom,
       style: this.props.style,
+      //state: this.props.state
     };
 
     return (
@@ -34,7 +23,7 @@ export default class ExerciceButton extends Component {
         style={[
           styles.button_exercice,
           {
-            backgroundColor: exerciceProps.disabled ? "#E0DFD0" : "#A878CE",
+            backgroundColor: exerciceProps.state ? "#E0DFD0" : "#A878CE",
             borderColor: exerciceProps.disabled ? "#E0DFD0" : "#A878CE",
             marginBottom: exerciceProps.isBottom ? 0 : 15
           },
@@ -42,6 +31,15 @@ export default class ExerciceButton extends Component {
         ]}
         onPress={exerciceProps.onPress}
         disabled={exerciceProps.disabled}
+        state={exerciceProps.state}
+        // style={[
+        //   styles.button_exercice,
+        //   {
+        //     fontSize:
+        //       this.props.exercices.exercice_state_1 == "completed" ? "17" : "55",
+        //   },
+        //   exerciceProps.style
+        // ]}
       >
         <Text
           style={[

@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   View,
   TextInput,
-  Button
+  Button,
+  StatusBar,
 } from "react-native";
 import { PrimaryButton, SecondaryButton, ExerciceButton, HeaderComponent } from "./../components/AppComponents";
 import * as firebase from "firebase";
@@ -20,7 +21,9 @@ class TestScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.user.nickname || ""
+      nickname: this.props.user.nickname || "",
+      exercice_state_1: this.props.exercices.exercice_state_1 || "",
+      exercice_state_2: this.props.exercices.exercice_state_2 || ""
     };
   }
 
@@ -29,8 +32,10 @@ class TestScreen extends React.Component {
   };
 
   render() {
+
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <StatusBar barStyle="light-content" />
         <View style={{ flex: 1, paddingTop: 50, marginTop: 10 }}>
           <Image
             style={styles.center}
@@ -38,7 +43,8 @@ class TestScreen extends React.Component {
           />
 
           <Text style={styles.header_left}>
-            Hey, {this.props.user.nickname}!
+            Hey, {this.props.user.nickname} 
+            {/* {this.state.exercices.exercice_state_1}! */}
           </Text>
 
           <Text style={styles.text_left}>
@@ -46,42 +52,29 @@ class TestScreen extends React.Component {
           </Text>
 
           <ExerciceButton
-            status={this.props.status}
+            status={this.props.exercices.exercice_state_1}
             label="Day 1 - Contenance"
             isBottom={false}
-            stateDone={true}
-            stateAvailableLate={false}
-            stateAvailableToday={false}
-            stateLocked={false}
+            //state={this.props.exercices.exercice_state_1}
             onPress={() => {
-              this.props.navigation.navigate("Intro_Phase_Observe");
+              console.log(this.props.exercices.exercice_state_1);
+              //this.props.navigation.navigate("Intro_Phase_Observe");
             }}
           />
 
           <ExerciceButton
-            status={this.props.status}
+            state={this.props.exercices.exercice_state_2}
             label="Day 2 - Notice Your Impulses"
             isBottom={true}
             onPress={() => {
-              this.props.navigation.navigate("PSU_Screen_PM1");
+              console.log(state);
+              this.props.navigation.navigate("Exercice_2_Intro");
             }}
           />
           
          
           <Button title="Signout" onPress={this.onSignoutPress} /> 
-          {/*  
-          <Text>{this.props.favoriteAnimal}</Text>
-          <TextInput style={{ borderWidth: 1, width: 200, height: 40 }}
-            value={this.state.favoriteAnimal}
-            onChangeText={(text) => { this.setState({ favoriteAnimal: text }) }}
-          />
-          <Button title="Set Favorite Animal" onPress={this.onSetFavoriteAnimalPress} />
-
-
-
-
-          Text>{this.props.personData.firstName}</Text>
-          <Text>{this.props.personData.lastName}</Text> */}
+          
         </View>
       </View>
     );
@@ -194,7 +187,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  exercices: state.exercices
 });
 
 export default connect(mapStateToProps)(TestScreen);

@@ -16,12 +16,25 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_2_Congratulations extends React.Component {
+import { connect } from "react-redux";
+import { updateState_Ex2 } from "./../../../redux-persist/redux/exercices"
+
+class Exercice_2_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      exercice_state_2: "completed",
+    };
   }
+
+ 
+  handleSubmit = () => {
+    const { exercice_state_2 } = this.state;
+    this.setState({ exercice_state_2: exercice_state_2 });
+    this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    this.props.navigation.navigate("Anchor");
+  };
 
   render() {
     return (
@@ -43,9 +56,7 @@ export default class Exercice_2_Congratulations extends React.Component {
                 <View style={styles.bottom}>
                   <PrimaryButton
                     label="Done"
-                    onPress={() => {
-                      this.props.navigation.navigate("Anchor");
-                    }}
+                    onPress={this.handleSubmit}
                   />
                 </View>
               </View>
@@ -57,16 +68,8 @@ export default class Exercice_2_Congratulations extends React.Component {
   }
 }
 
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
+const mapStateToProps = state => ({
+  exercices: state.exercices
+});
 
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
-}
+export default connect(mapStateToProps)(Exercice_2_Congratulations);
