@@ -2,18 +2,17 @@ import React, { PureComponent } from "react";
 import { Image, TouchableOpacity, StyleSheet, View } from "react-native";
 //import { Box, Text } from 'react-native-design-utility';
 
-import { JourneyHeaderImages } from "../assets/images/TabBarIcons/images";
+import { JourneyHeaderIcons } from "../assets/images/TabBarIcons/images";
 
-class JourneyHeaderTabImages extends PureComponent {
+class HeaderTabItem extends PureComponent {
   handlePress = () => {
     this.props.navigation.navigate(this.props.routeName);
   };
 
   render() {
-
     const { routeName, isActive } = this.props;
 
-    const icon = tabBarIcons[isActive ? "observe" : "reflect"][routeName];
+    const icon = JourneyHeaderIcons[isActive ? "active" : "inactive"][routeName];
     return (
       <View style={styles.tab_bar_item}>
         <TouchableOpacity onPress={this.handlePress} style={styles.button}>
@@ -39,4 +38,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default JourneyHeaderTabImages;
+export default HeaderTabItem;

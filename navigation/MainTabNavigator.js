@@ -3,19 +3,29 @@ import {
   createStackNavigator,
   createBottomTabNavigator,
   createSwitchNavigator,
-  createAppContainer
+  createTabNavigator,
+  createAppContainer,
+  createMaterialTopTabNavigator
 } from "react-navigation";
 import { View } from "react-native";
-import { HeaderComponent, MenuHeaderComponent } from "../components/AppComponents";
+import { HeaderComponent } from "../components/AppComponents";
 import registerForPushNotificationsAsync from "../api/registerForPushNotificationsAsync";
 import Icon from "react-native-vector-icons/SimpleLineIcons";
 import { fromRight, fromTop, fromBottom } from "react-navigation-transitions";
 import * as Progress from "react-native-progress";
 import TabBar from '../components/TabBar';
 import JourneyHeaderTabBar from '../components/JourneyHeaderTabBar';
+import HeaderTabBar from '../components/HeaderTabBar';
+
 
 import TestScreen from "../screens/TestScreen";
-import LinksScreen from "../screens/LinksScreen";
+
+import ObserveScreen from "../screens/phases/ObserveScreen";
+import ReflectScreen from "../screens/phases/ReflectScreen";
+import VisionScreen from "../screens/phases/VisionScreen";
+import PlanScreen from "../screens/phases/PlanScreen";
+import SupportScreen from "../screens/phases/SupportScreen";
+
 import SettingsScreen from "../screens/SettingsScreen";
 
 import Exercice_1_Intro_Phase from "../screens/exercices/Exercice_1/Intro_Phase_Observe";
@@ -329,13 +339,17 @@ HomeTab.navigationOptions = ({ navigation }) => {
   return navigationOptions;
 };
 
-const LinksTab = createStackNavigator(
+const LinksTab = createMaterialTopTabNavigator(
   {
-    LinksScreen: { screen: LinksScreen }
+    Observe: ObserveScreen,
+    Reflect: ReflectScreen,
+    Vision: VisionScreen,
+    Plan: PlanScreen,
+    Support: SupportScreen
   },
   {
     defaultNavigationOptions: {
-      header: props => <JourneyHeaderTabBar {...props} />,
+      tabBarComponent: props => <HeaderTabBar {...props} />,
       animationEnabled: true,
       gesturesEnabled: false
     }
@@ -348,7 +362,6 @@ const SettingsTab = createStackNavigator({
 
 const MainStackTabs = createBottomTabNavigator(
   {
-    // First: HomeTab,
     Home: HomeTab,
     Journey: LinksTab,
     Settings: SettingsTab

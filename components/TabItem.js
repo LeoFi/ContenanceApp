@@ -16,7 +16,7 @@ class TabItem extends PureComponent {
     return (
       <View style={styles.tab_bar_item}>
         <TouchableOpacity onPress={this.handlePress} style={styles.button}>
-          <View style={styles.tab_bar_icon}>
+          <View>
             <Image source={icon} />
           </View>
         </TouchableOpacity>
@@ -31,10 +31,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 5
-  },
-  tab_bar_icon: {
-    marginBottom: 3
+    marginTop: -10
   }
 });
 

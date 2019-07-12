@@ -10,14 +10,19 @@ import {
   TextInput,
   Button,
   StatusBar,
+  Dimensions
 } from "react-native";
-import { PrimaryButton, SecondaryButton, ExerciceButton, HeaderComponent } from "./../components/AppComponents";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  ExerciceButton,
+  HeaderComponent
+} from "./../../components/AppComponents";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
 
-class LinksScreen extends React.Component {
-
+class ObserveScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,45 +37,63 @@ class LinksScreen extends React.Component {
   };
 
   render() {
-
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <StatusBar barStyle="light-content" />
-        <View style={{ flex: 1, paddingTop: 50, marginTop: 10 }}>
-          <Image
-            style={styles.center}
-            source={require("./../assets/images/home_1.png")}
-          />
-
-          <Text style={styles.header_left}>
-            Hey, {this.props.user.nickname} Journey
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <View style={{ flex: 1 }}>
+          <Text style={styles.header}>
+            Observe
             {/* {this.state.exercices.exercice_state_1}! */}
           </Text>
 
-          <ExerciceButton
-            status={this.props.exercices.exercice_state_1}
-            label="Day 1 - Contenance"
-            isBottom={false}
-            //state={this.props.exercices.exercice_state_1}
-            onPress={() => {
-              console.log(this.props.exercices.exercice_state_1);
-              //this.props.navigation.navigate("Intro_Phase_Observe");
-            }}
+          <Image
+            style={styles.center}
+            source={require("./../../assets/images/ObservePhase.png")}
           />
 
-          <ExerciceButton
-            state={this.props.exercices.exercice_state_2}
-            label="Day 2 - Notice Your Impulses"
-            isBottom={true}
-            onPress={() => {
-              console.log(state);
-              this.props.navigation.navigate("Exercice_2_Intro");
-            }}
-          />
-          
-         
-          <Button title="Signout" onPress={this.onSignoutPress} /> 
-          
+          <View style={styles.bottom}>
+            <ExerciceButton
+              status={this.props.exercices.exercice_state_1}
+              label="Day 1 - Contenance"
+              isBottom={false}
+              //state={this.props.exercices.exercice_state_1}
+              onPress={() => {
+                console.log(this.props.exercices.exercice_state_1);
+                //this.props.navigation.navigate("Intro_Phase_Observe");
+              }}
+            />
+
+            <ExerciceButton
+              state={this.props.exercices.exercice_state_2}
+              label="Day 2 - Notice Your Impulses"
+              isBottom={false}
+              onPress={() => {
+                console.log(state);
+                this.props.navigation.navigate("Exercice_2_Intro");
+              }}
+            />
+
+            <ExerciceButton
+              status={this.props.exercices.exercice_state_1}
+              label="Day 3 - Solution Triangle"
+              isBottom={false}
+              //state={this.props.exercices.exercice_state_1}
+              onPress={() => {
+                console.log(this.props.exercices.exercice_state_1);
+                //this.props.navigation.navigate("Intro_Phase_Observe");
+              }}
+            />
+
+            <ExerciceButton
+              state={this.props.exercices.exercice_state_2}
+              label="Day 4 - Keep Breathing"
+              isBottom={false}
+              onPress={() => {
+                console.log(state);
+                this.props.navigation.navigate("Exercice_2_Intro");
+              }}
+            />
+          </View>
         </View>
       </View>
     );
@@ -79,10 +102,7 @@ class LinksScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 80,
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingBottom: 40,
+    paddingBottom: 10,
     flex: 1,
     alignItems: "center",
     alignSelf: "stretch"
@@ -96,8 +116,9 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   center: {
-    justifyContent: "center",
-    alignItems: "center"
+    position: "relative",
+    top: 0,
+    left: 0
   },
   top: {
     flex: 1,
@@ -117,8 +138,14 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 1,
+    paddingLeft: 30,
+    paddingRight: 30,
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "flex-end",
-    alignSelf: "stretch"
+    //height: Dimensions.get("window").height / 2,
+    position: "relative",
+    bottom: 0,
   },
   keyboard_view: {
     flex: 1
@@ -129,7 +156,8 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     textAlign: "center",
     fontFamily: "roboto-black",
-    paddingBottom: 10
+    paddingTop: 10,
+    paddingBottom: 0
   },
   header_left: {
     color: "#2C3B51",
@@ -154,7 +182,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
-    paddingBottom: 30,
+    paddingBottom: 30
   },
   text_scroll: {
     color: "#2C3B51",
@@ -187,4 +215,4 @@ const mapStateToProps = state => ({
   exercices: state.exercices
 });
 
-export default connect(mapStateToProps)(LinksScreen);
+export default connect(mapStateToProps)(ObserveScreen);

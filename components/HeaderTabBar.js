@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
-import TabItem from "./TabItem";
-import { StyleSheet, View, Dimensions } from "react-native";
+import HeaderTabItem from "./HeaderTabItem";
+import { StyleSheet, View, Dimensions, Text } from "react-native";
 
-class TabBar extends PureComponent {
+class HeaderTabBar extends PureComponent {
   render() {
     const { navigation } = this.props;
 
@@ -12,7 +12,7 @@ class TabBar extends PureComponent {
     return (
       <View style={styles.tab_bar}>
         {routes.map((route, i) => (
-          <TabItem
+          <HeaderTabItem
             navigation={navigation}
             key={route.routeName}
             {...route}
@@ -26,11 +26,13 @@ class TabBar extends PureComponent {
 
 const styles = StyleSheet.create({
   tab_bar: {
-    //bottom: Dimensions.get("window").height/2,
-    height: 60,
-    backgroundColor: "#F4F1DE",
-    flexDirection: "row"
+    top: Dimensions.get("window").height/2.3,
+    height: 50,
+    paddingLeft: 20,
+    paddingRight: 20,
+    flexDirection: "row",
+    zIndex: 1,
   }
 });
 
-export default TabBar;
+export default HeaderTabBar;
