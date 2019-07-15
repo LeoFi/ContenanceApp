@@ -51,7 +51,7 @@ export default class Exercice_2_Intro extends React.Component {
             label="Start"
             isBottom={true}
             onPress={() => {
-              this.props.navigation.navigate("Exercice_2_Congratulations");
+              this.props.navigation.navigate("Exercice_2_1");
             }}
           />
         </View>

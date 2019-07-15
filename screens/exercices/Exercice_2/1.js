@@ -6,8 +6,9 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
+import { Audio } from 'expo-av'
 import {
   PrimaryButton,
   SecondaryButton,
@@ -21,6 +22,58 @@ export default class Exercice_2_1 extends React.Component {
     super(props);
 
     this.state = {};
+    this.playbackInstance = null;
+  }
+
+  componentDidMount() {
+    Audio.setAudioModeAsync({
+      allowsRecordingIOS: false,
+      staysActiveInBackground: false,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      playsInSilentModeIOS: false,
+      shouldDuckAndroid: true,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: false
+    });
+    //  This function will be called
+    this._loadNewPlaybackInstance(true);
+  }
+
+  async _loadNewPlaybackInstance(playing) {
+    if (this.playbackInstance != null) {
+      await this.playbackInstance.unloadAsync();
+      this.playbackInstance.setOnPlaybackStatusUpdate(null);
+      this.playbackInstance = null;
+    }
+    const source = require("../../../assets/sounds/NoticeYourImpulses_DAY_2.mp3");
+    const initialStatus = {
+      //        Play by default
+      shouldPlay: false,
+      //        Control the speed
+      rate: 1.0,
+      //        Correct the pitch
+      shouldCorrectPitch: true,
+      //        Control the Volume
+      volume: 1.0,
+      //        mute the Audio
+      isMuted: false
+    };
+    const { sound, status } = await Audio.Sound.createAsync(
+      source,
+      initialStatus
+    );
+    //  Save the response of sound in playbackInstance
+    this.playbackInstance = sound;
+    //  Make the loop of Audio
+    this.playbackInstance.setIsLoopingAsync(false);
+    //  Play the Music
+    this.playbackInstance.playAsync();
+  }
+
+  componentWillUnmount() {
+    this.playbackInstance.unloadAsync();
+    //  Check Your Console To verify that the above line is working
+    console.log("unmount");
   }
 
   render() {
@@ -39,17 +92,12 @@ export default class Exercice_2_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                  Welcome to day 1 of Contenance!
-                </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}While reading this, you probably have your smartphone in
-                  your hand.
-                </Text>
+                <Text style={styles.sub_header_left}>Notice Your Impulses</Text>
 
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
+                <PrimaryButton
+                    label="Play"
+                    onPress={this._loadNewPlaybackInstance}
+                  />
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -57,18 +105,4 @@ export default class Exercice_2_1 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }
