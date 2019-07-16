@@ -23,10 +23,11 @@ class Exercice_3_Congratulations extends React.Component {
     super(props);
 
     this.state = {
-      exercice_state_3: "new",
+      exercice_state_3: "completed",
     };
   }
 
+ 
   handleSubmit = () => {
     const { exercice_state_3 } = this.state;
     this.setState({ exercice_state_3: exercice_state_3 });
@@ -47,8 +48,7 @@ class Exercice_3_Congratulations extends React.Component {
               <View style={styles.container_scroll}>
                 <Text style={styles.header}>Congratulations!</Text>
                 <Text style={styles.text}>
-                  {"\n"}You now have heard of the three factors of the Solution
-                  Triangle to improve your relationship with your smartphone.
+                  {"\n"}You now have heard of the three factors of the Solution Triangle to improve your relationship with your smartphone. 
                 </Text>
 
                 <View style={styles.bottom}>
