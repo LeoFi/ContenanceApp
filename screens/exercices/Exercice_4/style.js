@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get("window").width,
         height: Dimensions.get("window").height,
         alignItems: "center",
+        justifyContent: 'center',
         alignSelf: "stretch",
         paddingTop: 80,
         paddingLeft: 30,
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A878CE",
+        backgroundColor: "#A28AD4",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -133,8 +134,25 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-black',
         paddingBottom: 10,
     },
+    intro_header_light: {
+        color: '#F4F1DE',
+        fontSize: 30,
+        lineHeight: 37,
+        textAlign: 'left',
+        alignSelf: "stretch",
+        fontFamily: 'roboto-black',
+        paddingBottom: 10,
+    },
     intro_header_day: {
         color: '#2C3B51',
+        fontSize: 23,
+        lineHeight: 23,
+        textAlign: 'left',
+        alignSelf: "stretch",
+        fontFamily: 'roboto-regular',
+    },
+    intro_header_day_light: {
+        color: '#F4F1DE',
         fontSize: 23,
         lineHeight: 23,
         textAlign: 'left',
@@ -188,6 +206,14 @@ const styles = StyleSheet.create({
     },
     intro_text: {
         color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: 'roboto-regular',
+        alignSelf: "stretch",
+        textAlign: 'left',
+    },
+    intro_text_light: {
+        color: '#F4F1DE',
         fontSize: 19,
         lineHeight: 25,
         fontFamily: 'roboto-regular',

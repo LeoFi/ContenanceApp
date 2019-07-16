@@ -9,7 +9,6 @@ import * as firebase from "firebase";
 import { styles } from "./style";
 
 export default class SetRemindersScreen extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {};
@@ -29,10 +28,24 @@ export default class SetRemindersScreen extends React.Component {
           <GreyInputButton
             label="Email"
             isBottom={false}
+            onPress={() =>
+              this.setState({
+                active1: !this.state.active1,
+                active2: false,
+              })
+            }
+            isActive={this.state.active1}
           />
           <GreyInputButton
             label="App Notifications"
             isBottom={true}
+            onPress={() =>
+              this.setState({
+                active1: false,
+                active2: !this.state.active2,
+              })
+            }
+            isActive={this.state.active2}
           />
         </View>
 
@@ -40,8 +53,9 @@ export default class SetRemindersScreen extends React.Component {
           <PrimaryButton
             label="Next"
             isBottom={true}
+            disabled={ !this.state.active1 && !this.state.active2 }
             onPress={() => {
-                this.props.navigation.navigate('SetRemindersFinal');
+              this.props.navigation.navigate("SetRemindersFinal");
             }}
           />
         </View>

@@ -68,6 +68,17 @@ import Exercice_4_Aha_2 from "../screens/exercices/Exercice_4/Aha_2";
 import Exercice_4_Challenge from "../screens/exercices/Exercice_4/Challenge";
 import Exercice_4_Congratulations from "../screens/exercices/Exercice_4/Congratulations";
 
+import Exercice_5_Intro_Phase from "../screens/exercices/Exercice_5/Intro_Phase_Reflect";
+import Exercice_5_Intro from "../screens/exercices/Exercice_5/Intro";
+import Exercice_5_1 from "../screens/exercices/Exercice_5/1";
+import Exercice_5_2 from "../screens/exercices/Exercice_5/2";
+import Exercice_5_3 from "../screens/exercices/Exercice_5/3";
+import Exercice_5_4 from "../screens/exercices/Exercice_5/4";
+import Exercice_5_Aha_1 from "../screens/exercices/Exercice_5/Aha_1";
+import Exercice_5_Aha_2 from "../screens/exercices/Exercice_5/Aha_2";
+import Exercice_5_Challenge from "../screens/exercices/Exercice_5/Challenge";
+import Exercice_5_Congratulations from "../screens/exercices/Exercice_5/Congratulations";
+
 import PSU_Screen_PM1 from "../screens/questionnaires/PM1/PSU_Screen_PM1";
 import SUE_Screen_PM1 from "../screens/questionnaires/PM1/SUE_Screen_PM1";
 import PSF_Screen_PM1 from "../screens/questionnaires/PM1/PSF_Screen_PM1";
@@ -94,6 +105,7 @@ const Exercice1 = createStackNavigator(
           <HeaderComponent
             disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#2C3B51"}
             {...props}
           />
         )
@@ -106,6 +118,7 @@ const Exercice1 = createStackNavigator(
           <HeaderComponent
             disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#F4F1DE"}
             {...props}
           />
         )
@@ -116,9 +129,11 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={1 / 7}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_1_Intro");
             }}
@@ -132,9 +147,11 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={2 / 8}
+            progress={2 / 7}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_1_Intro");
             }}
@@ -148,9 +165,11 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={3 / 8}
+            progress={3 / 7}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_1_Intro");
             }}
@@ -164,9 +183,11 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={4 / 8}
+            progress={4 / 7}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_1_Intro");
             }}
@@ -180,9 +201,11 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={5 / 8}
+            progress={5 / 7}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_1_Intro");
             }}
@@ -196,9 +219,11 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={6 / 8}
+            progress={6 / 7}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_1_Intro");
             }}
@@ -212,9 +237,11 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={7 / 8}
+            progress={7 / 7}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_1_Intro");
             }}
@@ -228,9 +255,9 @@ const Exercice1 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={8 / 8}
-            disabledProgress={false}
+            disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#2C3B51"}
             {...props}
           />
         )
@@ -239,7 +266,7 @@ const Exercice1 = createStackNavigator(
   },
   {
     transitionConfig: () => fromRight(500),
-    //cardStyle: { backgroundColor: "#F4F1DE" },
+    //cardStyle: { backgroundColor: "#{"#F4F1DE"}" },
     headerMode: "float",
     defaultNavigationOptions: {
       header: props => <HeaderComponent {...props} />,
@@ -264,6 +291,7 @@ const Exercice2 = createStackNavigator(
           <HeaderComponent
             disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#F4F1DE"}
             {...props}
           />
         )
@@ -274,9 +302,11 @@ const Exercice2 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={1 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_2_Intro");
             }}
@@ -290,9 +320,11 @@ const Exercice2 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={5 / 8}
+            progress={2 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_2_Intro");
             }}
@@ -306,9 +338,11 @@ const Exercice2 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={6 / 8}
+            progress={3 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_2_Intro");
             }}
@@ -322,9 +356,11 @@ const Exercice2 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={7 / 8}
+            progress={4 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_2_Intro");
             }}
@@ -338,9 +374,9 @@ const Exercice2 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={8 / 8}
-            disabledProgress={false}
+            disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#2C3B51"}
             {...props}
           />
         )
@@ -375,6 +411,7 @@ const Exercice3 = createStackNavigator(
           <HeaderComponent
             disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#F4F1DE"}
             {...props}
           />
         )
@@ -385,9 +422,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={1 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -401,9 +440,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={2 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -417,9 +458,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={3 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -433,9 +476,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={3 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -449,9 +494,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={3 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -465,9 +512,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={4 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -481,9 +530,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={5 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -497,9 +548,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={6 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -513,9 +566,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={7 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -529,9 +584,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={8 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -545,9 +602,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={9 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -561,9 +620,11 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={5 / 8}
+            progress={10 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
@@ -577,25 +638,14 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={7 / 8}
+            progress={11 / 11}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_3_Intro");
             }}
-            {...props}
-          />
-        )
-      }
-    },
-    Exercice_3_Congratulations: {
-      screen: Exercice_2_Congratulations,
-      navigationOptions: {
-        header: props => (
-          <HeaderComponent
-            progress={8 / 8}
-            disabledProgress={false}
-            disabledClose={true}
             {...props}
           />
         )
@@ -606,8 +656,7 @@ const Exercice3 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={8 / 8}
-            disabledProgress={false}
+            disabledProgress={true}
             disabledClose={true}
             {...props}
           />
@@ -642,6 +691,7 @@ const Exercice4 = createStackNavigator(
           <HeaderComponent
             disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#F4F1DE"}
             {...props}
           />
         )
@@ -652,9 +702,11 @@ const Exercice4 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={1 / 8}
+            progress={1 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_4_Intro");
             }}
@@ -668,9 +720,11 @@ const Exercice4 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={5 / 8}
+            progress={2 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_4_Intro");
             }}
@@ -684,9 +738,11 @@ const Exercice4 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={6 / 8}
+            progress={3 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_4_Intro");
             }}
@@ -700,9 +756,11 @@ const Exercice4 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={7 / 8}
+            progress={4 / 4}
             disabledProgress={false}
             disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
             goBackLink={() => {
               props.navigation.navigate("Exercice_4_Intro");
             }}
@@ -716,9 +774,9 @@ const Exercice4 = createStackNavigator(
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={8 / 8}
-            disabledProgress={false}
+            disabledProgress={true}
             disabledClose={true}
+            colorIcons={"#2C3B51"}
             {...props}
           />
         )
@@ -728,6 +786,193 @@ const Exercice4 = createStackNavigator(
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
+    headerMode: "float",
+    defaultNavigationOptions: {
+      header: props => <HeaderComponent {...props} />,
+      animationEnabled: true,
+      gesturesEnabled: false
+    }
+  }
+);
+
+const Exercice5 = createStackNavigator(
+  {
+    Anchor: {
+      screen: TestScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Intro_Phase_Reflect: {
+      screen: Exercice_5_Intro_Phase,
+      navigationOptions: {
+        cardStyle: { backgroundColor: "#A878CE" },
+        header: props => (
+          <HeaderComponent
+            disabledProgress={true}
+            disabledClose={true}
+            colorIcons={"#2C3B51"}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_Intro: {
+      screen: Exercice_5_Intro,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            disabledProgress={true}
+            disabledClose={true}
+            colorIcons={"#F4F1DE"}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_1: {
+      screen: Exercice_5_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_2: {
+      screen: Exercice_5_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={2 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_3: {
+      screen: Exercice_5_3,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={3 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_4: {
+      screen: Exercice_5_4,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_Aha_1: {
+      screen: Exercice_5_Aha_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={5 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_Aha_2: {
+      screen: Exercice_5_Aha_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={6 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_Challenge: {
+      screen: Exercice_5_Challenge,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={7 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_Congratulations: {
+      screen: Exercice_5_Congratulations,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            disabledProgress={true}
+            disabledClose={true}
+            colorIcons={"#2C3B51"}
+            {...props}
+          />
+        )
+      }
+    }
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    //cardStyle: { backgroundColor: "#F4F1DE" },
     headerMode: "float",
     defaultNavigationOptions: {
       header: props => <HeaderComponent {...props} />,
@@ -812,7 +1057,8 @@ const HomeTab = createStackNavigator(
     Exercice1: { screen: Exercice1 },
     Exercice2: { screen: Exercice2 },
     Exercice3: { screen: Exercice3 },
-    Exercice4: { screen: Exercice4 }
+    Exercice4: { screen: Exercice4 },
+    Exercice5: { screen: Exercice5 }
   },
   {
     transitionConfig: () => fromRight(500),

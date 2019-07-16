@@ -26,6 +26,7 @@ import IN_Screen_T1 from "../screens/questionnaires/T1/IN_Screen_T1";
 import AP_Screen_T1 from "../screens/questionnaires/T1/AP_Screen_T1";
 import AC_Screen_T1 from "../screens/questionnaires/T1/AC_Screen_T1";
 import SE_Screen_T1 from "../screens/questionnaires/T1/SE_Screen_T1";
+import Extra1_Screen_T1 from "../screens/questionnaires/T1/Extra1_Screen_T1";
 import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
 import TestScreen from "../screens/TestScreen";
@@ -51,8 +52,9 @@ const IntroStack = createStackNavigator(
     // IN_Screen_T1: { screen: IN_Screen_T1 },
     // AP_Screen_T1: { screen: AP_Screen_T1 },
     // AC_Screen_T1: { screen: AC_Screen_T1 },
-    // SE_Screen_T1: { screen: SE_Screen_T1 },
-    // Closing_Screen_T1: { screen: Closing_Screen_T1 },
+    SE_Screen_T1: { screen: SE_Screen_T1 },
+    Extra1_Screen_T1: { screen: Extra1_Screen_T1 },
+    Closing_Screen_T1: { screen: Closing_Screen_T1 },
     Home: { screen: MainTabNavigator }
   },
   {

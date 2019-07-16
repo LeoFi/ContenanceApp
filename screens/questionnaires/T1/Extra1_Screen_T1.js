@@ -47,7 +47,7 @@ const options = [
   }
 ];
 
-export default class SE_Screen_T1 extends React.Component {
+export default class Extra1_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -158,7 +158,7 @@ export default class SE_Screen_T1 extends React.Component {
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("Extra1_Screen_T1");
+                  this.props.navigation.navigate("Closing_Screen_T1");
                 }}
               />
             </View>
@@ -168,14 +168,3 @@ export default class SE_Screen_T1 extends React.Component {
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="ContACue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
-    }}
-  />
-</View>; */

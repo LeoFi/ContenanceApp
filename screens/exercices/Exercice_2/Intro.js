@@ -32,14 +32,14 @@ export default class Exercice_2_Intro extends React.Component {
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
-              source={require("../../../assets/images/Day1_Intro.png")}
+              source={require("../../../assets/images/Day2_Intro.png")}
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day}>Day 2</Text>
-              <Text style={styles.intro_header}>Notice Your Impulses</Text>
+              <Text style={styles.intro_header_day_light}>Day 2</Text>
+              <Text style={styles.intro_header_light}>Notice Your Impulses</Text>
 
-              <Text style={styles.intro_text}>
+              <Text style={styles.intro_text_light}>
                 {"\n"}4 MIN{"\n"}Today, you will discover the unconscious force that pushes you to your smartphone.
               </Text>
             </View>
@@ -50,6 +50,7 @@ export default class Exercice_2_Intro extends React.Component {
           <PrimaryButton
             label="Start"
             isBottom={true}
+            style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
             onPress={() => {
               this.props.navigation.navigate("Exercice_2_1");
             }}

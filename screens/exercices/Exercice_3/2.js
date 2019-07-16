@@ -15,6 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { DeckSwiper, Card, CardItem } from "native-base";
 import { styles } from "./style";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const cards = [
   "Screen-Time Tracker to keep track of your time on your mobile phone",
@@ -28,30 +29,7 @@ const cards = [
 ];
 
 export default class Exercice_3_2 extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      countLeft: 0
-    };
-  }
-
-  countLeftTry = () => {
-    this.setState({ countLeft: this.state.countLeft + 1 });
-  };
-
-  goToNext = () => {
-    if (this.state.countLeft > 5) {
-      console.log("More than 5");
-      this.props.navigation.navigate("Exercice_3_2_More5")
-    } else if (this.state.countLeft >= 2 && this.state.countLeft <= 5) {
-      console.log("Between 2 and 5");
-      this.props.navigation.navigate("Exercice_3_2_2to5")
-    } else if (this.state.countLeft < 2) {
-      console.log("Less than 2");
-      this.props.navigation.navigate("Exercice_3_2_Less2")
-    }
-  };
+  countLeft = 0;
 
   render() {
     return (
@@ -65,11 +43,11 @@ export default class Exercice_3_2 extends React.Component {
             looping={false}
             dataSource={cards}
             onSwipeLeft={this.countLeftTry}
-            renderEmpty={this.goToNext}
+            renderEmpty={this.renderEmpty}
             renderItem={item => (
-              <Card style={{ height: 200 }}>
-                <CardItem>
-                  <Text>{item}</Text>
+              <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
+                <CardItem style={{ backgroundColor: "#CAC0DE" }}>
+                  <Text style={styles.intro_text_center}>{item}</Text>
                 </CardItem>
               </Card>
             )}
@@ -81,4 +59,33 @@ export default class Exercice_3_2 extends React.Component {
       </View>
     );
   }
+
+  countLeftTry = () => {
+    this.countLeft += 1;
+  };
+
+  goToNext = () => {
+    if (this.countLeft > 5) {
+      console.log("More than 5");
+      this.props.navigation.navigate("Exercice_3_2_More5");
+    } else if (this.countLeft >= 2 && this.countLeft <= 5) {
+      console.log("Between 2 and 5");
+      this.props.navigation.navigate("Exercice_3_2_2to5");
+    } else if (this.countLeft < 2) {
+      console.log("Less than 2");
+      this.props.navigation.navigate("Exercice_3_2_Less2");
+    }
+  };
+
+  renderEmpty = () => {
+    return (
+      <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
+        <CardItem style={{ backgroundColor: "#CAC0DE" }}>
+          <TouchableOpacity onPress={this.goToNext}>
+            <Text style={styles.intro_text_center}>See results</Text>
+          </TouchableOpacity>
+        </CardItem>
+      </Card>
+    );
+  };
 }

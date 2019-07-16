@@ -47,10 +47,7 @@ export default class Exercice_1_4 extends React.Component {
                   {"\n"}{"\n"}Try to take on a good posture, whatever this might mean for you.
                   {"\n"}{"\n"}Continue when you’re ready.
                 </Text>
-
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
+                
               </View>
             </TouchableWithoutFeedback>
           </View>

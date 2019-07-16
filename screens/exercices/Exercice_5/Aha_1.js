@@ -26,7 +26,7 @@ export default class Exercice_1_Aha_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape.png")}
+        source={require("../../../assets/images/pink_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -50,6 +50,9 @@ export default class Exercice_1_Aha_1 extends React.Component {
                   {"\n"}{"\n"}Literally, but also metaphorically. It is about maintaining contenance against impulses, mindless scrolling, getting lost and other challenges of smartphone use.
                 </Text>
 
+                {/* <View style={styles.bottom}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
+                </View> */}
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -57,4 +60,18 @@ export default class Exercice_1_Aha_1 extends React.Component {
       </ImageBackground>
     );
   }
+}
+
+{
+  /* <View style={styles.middle}>
+  <GreyInputButton label="Email" isBottom={false} />
+  <GreyInputButton label="App Notifications" isBottom={true} />
+</View>
+
+<PrimaryButton
+  label="Sign Up"
+  onPress={() => {
+    this.props.navigation.navigate("Exercice_1_2");
+  }}
+/> */
 }

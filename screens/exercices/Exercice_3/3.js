@@ -60,7 +60,7 @@ export default class Exercice_3_3 extends React.Component {
                   />
                 </View>
 
-                <View style={styles.bottom}>
+                <View style={styles.tap_pos_relative}>
                   <PrimaryButton
                     label="Continue"
                     disabled={ !this.state.active1 && !this.state.active2 && !this.state.active3 }

@@ -44,9 +44,6 @@ export default class Exercice_1_2 extends React.Component {
                   {"\n"}{"\n"}Just observe it for a moment.
                 </Text>
 
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

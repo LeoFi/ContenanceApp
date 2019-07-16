@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_4_Challenge extends React.Component {
+export default class Exercice_1_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +26,7 @@ export default class Exercice_4_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape_inverted.png")}
+        source={require("../../../assets/images/pink_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -35,18 +35,22 @@ export default class Exercice_4_Challenge extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_4_Congratulations");
+                this.props.navigation.navigate("Exercice_1_Aha_1");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.header}>
-                The Challenge
+                <Text style={styles.sub_header_left}>
+                Now, change your posture. 
                 </Text>
-                <Text style={styles.text}>
-                  {"\n"}Whenever you use your smartphone until tomorrow, be aware of your breathing.
-                  {"\n"}{"\n"}Follow one breath all the way through.
+                <Text style={styles.intro_text}>
+                  {"\n"}Try to straighten your back, relax your neck, soften your shoulders.
+                  {"\n"}{"\n"}Try to take on a good posture, whatever this might mean for you.
+                  {"\n"}{"\n"}Continue when you’re ready.
                 </Text>
 
+                <View style={styles.bottom}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

@@ -36,10 +36,10 @@ export default class Exercice_1_Intro extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day}>Day 1</Text>
-              <Text style={styles.intro_header}>Contenance!</Text>
+              <Text style={styles.intro_header_day_light}>Day 1</Text>
+              <Text style={styles.intro_header_light}>Contenance!</Text>
 
-              <Text style={styles.intro_text}>
+              <Text style={styles.intro_text_light}>
                 {"\n"}2 MIN{"\n"}You finished your first exercise. Now you know
                 why this training is called Contenance!
               </Text>
@@ -51,6 +51,7 @@ export default class Exercice_1_Intro extends React.Component {
           <PrimaryButton
             label="Start"
             isBottom={true}
+            style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
             onPress={() => {
               this.props.navigation.navigate("Exercice_1_1");
             }}
@@ -59,18 +60,4 @@ export default class Exercice_1_Intro extends React.Component {
       </View>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

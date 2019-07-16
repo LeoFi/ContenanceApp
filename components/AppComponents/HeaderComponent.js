@@ -21,7 +21,8 @@ export default class HeaderComponent extends React.Component {
       disabledProgress: this.props.disabledProgress,
       disabledBack: this.props.disabledBack,
       disabledClose: this.props.disabledClose,
-      color: this.props.color,
+      colorIcons: this.props.colorIcons,
+      colorProgress: this.props.colorProgress,
       goBackLink: this.props.goBackLink
     };
 
@@ -43,7 +44,7 @@ export default class HeaderComponent extends React.Component {
             borderRadius={0}
             width={null}
             height={10}
-            color={"rgba(44, 59, 81, 1)"}
+            color={headerProps.colorProgress}
             unfilledColor={"rgba(255, 255, 255, 1)"}
             animated={true}
           />
@@ -58,7 +59,7 @@ export default class HeaderComponent extends React.Component {
             <Ionicons
               name="md-arrow-back"
               size={32}
-              color="#2C3B51"
+              color={headerProps.colorIcons}
             />
           </TouchableOpacity>
         )}
@@ -72,7 +73,7 @@ export default class HeaderComponent extends React.Component {
             <Ionicons
               name="md-close"
               size={32}
-              color="#2C3B51"
+              color={headerProps.colorIcons}
             />
           </TouchableOpacity>
         )}

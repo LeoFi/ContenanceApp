@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground
+  Image
 } from "react-native";
 import {
   PrimaryButton,
@@ -32,36 +32,36 @@ class Exercice_2_Congratulations extends React.Component {
     const { exercice_state_2 } = this.state;
     this.setState({ exercice_state_2: exercice_state_2 });
     this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
-    this.props.navigation.navigate("Anchor");
+    this.props.navigation.push("Home");
   };
 
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={styles.container_background_inverted}>
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
+          <View style={styles.container_scroll_img_absolute}>
+            <Image
+              style={styles.image_height}
+              source={require("../../../assets/images/Day2_Intro.png")}
+              resizeMode="stretch"
+            />
+            <View style={styles.middle}>
                 <Text style={styles.header}>Congratulations!</Text>
                 <Text style={styles.text}>
                   {"\n"}You just completed the first step towards a more conscious smartphone use.
                 </Text>
 
-                <View style={styles.bottom}>
+                <View style={styles.tap_pos_relative}>
                   <PrimaryButton
                     label="Done"
                     onPress={this.handleSubmit}
                   />
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
+            </View>
           </View>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
 }

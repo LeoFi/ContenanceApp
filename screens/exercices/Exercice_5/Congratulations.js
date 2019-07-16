@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,21 +16,22 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-import Moment from "react-moment";
+import Moment from 'react-moment';
 import { connect } from "react-redux";
-import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices";
-import { updateStartingDate } from "./../../../redux-persist/redux/user";
+import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices"
+import { updateStartingDate } from "./../../../redux-persist/redux/user"
+
 
 class Exercice_1_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_1: "completed"
+      exercice_state_1: "completed",
       //starting_date: Moment(startdate, "DD-MM-YYYY"),
     };
   }
-
+ 
   handleSubmit = () => {
     const exercice_state_1 = this.state;
     const starting_date = this.state;
@@ -42,33 +43,38 @@ class Exercice_1_Congratulations extends React.Component {
   };
 
   render() {
+
     return (
-      <View style={styles.container_background_inverted}>
+      <ImageBackground
+        source={require("../../../assets/images/pink_shape.png")}
+        style={styles.image_background}
+      >
         <StatusBar hidden />
         <ScrollView>
-          <View style={styles.container_scroll_img_absolute}>
-            <Image
-              style={styles.image_height}
-              source={require("../../../assets/images/Day1_Intro.png")}
-              resizeMode="stretch"
-            />
-            <View style={styles.middle}>
-              <Text style={styles.header}>Congratulations!</Text>
-              <Text style={styles.text}>
-                {"\n"}You finished your first exercise. Now you know why this
-                training is called Contenance!
-              </Text>
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback style={styles.scroll}>
+              <View style={styles.container_scroll}>
+                <Text style={styles.header}>Congratulations!</Text>
+                <Text style={styles.text}>
+                  {"\n"}You finished your first exercise. Now you know why this
+                  training is called Contenance!
+                </Text>
 
-              <View style={styles.tap_pos_relative}>
-                <PrimaryButton label="Done" onPress={this.handleSubmit} />
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Done"
+                    onPress={this.handleSubmit}
+                  />
+                </View>
               </View>
-            </View>
+            </TouchableWithoutFeedback>
           </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }
+
 
 const mapStateToProps = state => ({
   user: state.user,

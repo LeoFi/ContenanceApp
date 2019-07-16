@@ -48,9 +48,6 @@ export default class Exercice_1_3 extends React.Component {
                   {"\n"}{"\n"}What does your body look like while you are using your smartphone? 
                 </Text>
 
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

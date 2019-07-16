@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     container_scroll_img_absolute: {
         //width: Dimensions.get("window").width,
         //height: Dimensions.get("window").height,
+        flex: 1,
         alignItems: "center",
         alignSelf: "stretch",
         paddingLeft: 30,
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
         height: Dimensions.get("window").height,
     },
     container_background: {
+        flex: 1,
         backgroundColor: "#F4F1DE",
     },
     container_background_color: {
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A28AD4",
+        backgroundColor: "#F6B563",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -143,16 +145,16 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-black',
         paddingBottom: 10,
     },
-    intro_header_day: {
-        color: '#2C3B51',
+    intro_header_day_light: {
+        color: '#F4F1DE',
         fontSize: 23,
         lineHeight: 23,
         textAlign: 'left',
         alignSelf: "stretch",
         fontFamily: 'roboto-regular',
     },
-    intro_header_day_light: {
-        color: '#F4F1DE',
+    intro_header_day: {
+        color: '#2C3B51',
         fontSize: 23,
         lineHeight: 23,
         textAlign: 'left',
@@ -204,14 +206,6 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         paddingBottom: 40,
     },
-    intro_text: {
-        color: '#2C3B51',
-        fontSize: 19,
-        lineHeight: 25,
-        fontFamily: 'roboto-regular',
-        alignSelf: "stretch",
-        textAlign: 'left',
-    },
     intro_text_light: {
         color: '#F4F1DE',
         fontSize: 19,
@@ -220,8 +214,15 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    intro_text: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: 'roboto-regular',
+        alignSelf: "stretch",
+        textAlign: 'left',
+    },
     intro_text_bold: {
-        flex: 1,
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
