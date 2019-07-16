@@ -13,7 +13,7 @@ export default class GreyInputButton extends Component {
       label: this.props.label,
       onPress: this.props.onPress,
       isBottom: this.props.isBottom,
-      style: this.props.style
+      style: this.props.style,
     };
 
     return (
@@ -29,7 +29,7 @@ export default class GreyInputButton extends Component {
           },
           buttonProps.style
         ]}
-        onPress={() => this.setState({ active: !this.state.active })}
+        onPress={this.props.onPress}
       >
         <Text
           style={[

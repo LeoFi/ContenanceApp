@@ -15,9 +15,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_2_Intro extends React.Component {
+export default class Exercice_3_Intro extends React.Component {
   constructor(props) {
     super(props);
 
@@ -36,11 +35,11 @@ export default class Exercice_2_Intro extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day}>Day 2</Text>
-              <Text style={styles.intro_header}>Notice Your Impulses</Text>
+              <Text style={styles.intro_header_day}>Day 3</Text>
+              <Text style={styles.intro_header}>Solution Triangle</Text>
 
               <Text style={styles.intro_text}>
-                {"\n"}4 MIN{"\n"}Today, you will discover the unconscious force that pushes you to your smartphone.
+                {"\n"}5 MIN{"\n"}In this exercise, you will discover three factors that help you to improve your relationship with your smartphone. 
               </Text>
             </View>
           </View>
@@ -51,25 +50,11 @@ export default class Exercice_2_Intro extends React.Component {
             label="Start"
             isBottom={true}
             onPress={() => {
-              this.props.navigation.navigate("Exercice_2_1");
+              this.props.navigation.navigate("Exercice_3_1");
             }}
           />
         </View>
       </View>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

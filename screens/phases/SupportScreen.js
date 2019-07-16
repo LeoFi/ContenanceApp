@@ -30,7 +30,9 @@ class SupportScreen extends React.Component {
       exercice_state_17: this.props.exercices.exercice_state_17 || "",
       exercice_state_18: this.props.exercices.exercice_state_18 || "",
       exercice_state_19: this.props.exercices.exercice_state_19 || "",
-      exercice_state_20: this.props.exercices.exercice_state_20 || ""
+      exercice_state_20: this.props.exercices.exercice_state_20 || "",
+      exercice_state_21: this.props.exercices.exercice_state_21 || "",
+      reflection_state_5: this.props.exercices.reflection_state_5 || ""
     };
   }
 
@@ -39,265 +41,238 @@ class SupportScreen extends React.Component {
   };
 
   render() {
+    let ExerciceTextStyle_17 = "";
     let ExerciceStyle_17 = "";
 
     switch (this.props.exercices.exercice_state_17) {
       case "completed":
-        ExerciceStyle_17 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_17 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_17 = styles.new;
-        break;
-      default:
-        ExerciceStyle_17 = styles.locked;
-    }
-
-    let ExerciceTextStyle_17 = "";
-
-    switch (this.props.exercices.exercice_state_17) {
-      case "completed":
         ExerciceTextStyle_17 = styles.text_completed;
-        break;
-      case "next":
-        ExerciceTextStyle_17 = styles.text_next;
-        break;
-      case "new":
-        ExerciceTextStyle_17 = styles.text_new;
-        break;
-      default:
-        ExerciceTextStyle_17 = styles.text_locked;
-    }
-
-    let IconsExercice_17 = "";
-
-    switch (this.props.exercices.exercice_state_17) {
-      case "completed":
+        ExerciceStyle_17 = styles.completed;
         IconsExercice_17 = require("./../../assets/images/checkmark_support.png");
         break;
       case "next":
+        ExerciceTextStyle_17 = styles.text_next;
+        ExerciceStyle_17 = styles.next;
         IconsExercice_17 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
+        ExerciceTextStyle_17 = styles.text_new;
+        ExerciceStyle_17 = styles.new;
         IconsExercice_17 = require("./../../assets/images/newmark_support.png");
         break;
       default:
+        ExerciceTextStyle_17 = styles.text_locked;
+        ExerciceStyle_17 = styles.locked;
         IconsExercice_17 = require("./../../assets/images/lockmark.png");
     }
 
+    let ExerciceTextStyle_18 = "";
     let ExerciceStyle_18 = "";
 
     switch (this.props.exercices.exercice_state_18) {
       case "completed":
-        ExerciceStyle_18 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_18 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_18 = styles.new;
-        break;
-      default:
-        ExerciceStyle_18 = styles.locked;
-    }
-
-    let ExerciceTextStyle_18 = "";
-
-    switch (this.props.exercices.exercice_state_18) {
-      case "completed":
         ExerciceTextStyle_18 = styles.text_completed;
+        ExerciceStyle_18 = styles.completed;
+        IconsExercice_18 = require("./../../assets/images/checkmark_support.png");
         break;
       case "next":
         ExerciceTextStyle_18 = styles.text_next;
+        ExerciceStyle_18 = styles.next;
+        IconsExercice_18 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_18 = styles.text_new;
+        ExerciceStyle_18 = styles.new;
+        IconsExercice_18 = require("./../../assets/images/newmark_support.png");
         break;
       default:
         ExerciceTextStyle_18 = styles.text_locked;
+        ExerciceStyle_18 = styles.locked;
+        IconsExercice_18 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_18 = "";
-
-    switch (this.props.exercices.exercice_state_18) {
-      case "completed":
-      IconsExercice_18 = require("./../../assets/images/checkmark_support.png");
-        break;
-      case "next":
-      IconsExercice_18 = require("./../../assets/images/nextmark.png");
-        break;
-      case "new":
-      IconsExercice_18 = require("./../../assets/images/newmark_support.png");
-        break;
-      default:
-      IconsExercice_18 = require("./../../assets/images/lockmark.png");
-    }
-
+    let ExerciceTextStyle_19 = "";
     let ExerciceStyle_19 = "";
 
     switch (this.props.exercices.exercice_state_19) {
       case "completed":
-        ExerciceStyle_19 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_19 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_19 = styles.new;
-        break;
-      default:
-        ExerciceStyle_19 = styles.locked;
-    }
-
-    let ExerciceTextStyle_19 = "";
-
-    switch (this.props.exercices.exercice_state_19) {
-      case "completed":
         ExerciceTextStyle_19 = styles.text_completed;
+        ExerciceStyle_19 = styles.completed;
+        IconsExercice_19 = require("./../../assets/images/checkmark_support.png");
         break;
       case "next":
         ExerciceTextStyle_19 = styles.text_next;
+        ExerciceStyle_19 = styles.next;
+        IconsExercice_19 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_19 = styles.text_new;
+        ExerciceStyle_19 = styles.new;
+        IconsExercice_19 = require("./../../assets/images/newmark_support.png");
         break;
       default:
         ExerciceTextStyle_19 = styles.text_locked;
+        ExerciceStyle_19 = styles.locked;
+        IconsExercice_19 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_19 = "";
-
-    switch (this.props.exercices.exercice_state_19) {
-      case "completed":
-      IconsExercice_19 = require("./../../assets/images/checkmark_support.png");
-        break;
-      case "next":
-      IconsExercice_19 = require("./../../assets/images/nextmark.png");
-        break;
-      case "new":
-      IconsExercice_19 = require("./../../assets/images/newmark_support.png");
-        break;
-      default:
-      IconsExercice_19 = require("./../../assets/images/lockmark.png");
-    }
-
+    let ExerciceTextStyle_20 = "";
     let ExerciceStyle_20 = "";
 
     switch (this.props.exercices.exercice_state_20) {
       case "completed":
-        ExerciceStyle_20 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_20 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_20 = styles.new;
-        break;
-      default:
-        ExerciceStyle_20 = styles.locked;
-    }
-
-    let ExerciceTextStyle_20 = "";
-
-    switch (this.props.exercices.exercice_state_20) {
-      case "completed":
         ExerciceTextStyle_20 = styles.text_completed;
+        ExerciceStyle_20 = styles.completed;
+        IconsExercice_20 = require("./../../assets/images/checkmark_support.png");
         break;
       case "next":
         ExerciceTextStyle_20 = styles.text_next;
+        ExerciceStyle_20 = styles.next;
+        IconsExercice_20 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_20 = styles.text_new;
+        ExerciceStyle_20 = styles.new;
+        IconsExercice_20 = require("./../../assets/images/newmark_support.png");
         break;
       default:
         ExerciceTextStyle_20 = styles.text_locked;
+        ExerciceStyle_20 = styles.locked;
+        IconsExercice_20 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_20 = "";
+    let ExerciceTextStyle_21 = "";
+    let ExerciceStyle_21 = "";
 
-    switch (this.props.exercices.exercice_state_20) {
+    switch (this.props.exercices.exercice_state_21) {
       case "completed":
-      IconsExercice_20 = require("./../../assets/images/checkmark_support.png");
+        ExerciceTextStyle_21 = styles.text_completed;
+        ExerciceStyle_21 = styles.completed;
+        IconsExercice_21 = require("./../../assets/images/checkmark_support.png");
         break;
       case "next":
-      IconsExercice_20 = require("./../../assets/images/nextmark.png");
+        ExerciceTextStyle_21 = styles.text_next;
+        ExerciceStyle_21 = styles.next;
+        IconsExercice_21 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
-      IconsExercice_20 = require("./../../assets/images/newmark_support.png");
+        ExerciceTextStyle_21 = styles.text_new;
+        ExerciceStyle_21 = styles.new;
+        IconsExercice_21 = require("./../../assets/images/newmark_support.png");
         break;
       default:
-      IconsExercice_20 = require("./../../assets/images/lockmark.png");
+        ExerciceTextStyle_21 = styles.text_locked;
+        ExerciceStyle_21 = styles.locked;
+        IconsExercice_21 = require("./../../assets/images/lockmark.png");
     }
+
+    let ReflectionTextStyle_4 = "";
+    let ReflectionStyle_4 = "";
+
+    switch (this.props.exercices.reflection_state_4) {
+      case "completed":
+        ReflectionTextStyle_4 = styles.text_completed;
+        ReflectionStyle_4 = styles.completed;
+        IconsReflection_4 = require("./../../assets/images/checkmark_support.png");
+        break;
+      case "next":
+        ReflectionTextStyle_4 = styles.text_next;
+        ReflectionStyle_4 = styles.next;
+        IconsReflection_4 = require("./../../assets/images/nextmark.png");
+        break;
+      case "new":
+        ReflectionTextStyle_4 = styles.text_new;
+        ReflectionStyle_4 = styles.new;
+        IconsReflection_4 = require("./../../assets/images/newmark_support.png");
+        break;
+      default:
+        ReflectionTextStyle_4 = styles.text_locked;
+        ReflectionStyle_4 = styles.locked;
+        IconsReflection_4 = require("./../../assets/images/lockmark.png");
+    }
+
+    var ExercicesArray = [
+      {
+        id: 17,
+        path: "Intro_Phase_Support",
+        label: "Day 17 - Taking Control on the Smartphone",
+        styleButton: ExerciceStyle_17,
+        styleText: ExerciceTextStyle_17,
+        IconSource: IconsExercice_17
+      },
+      {
+        id: 18,
+        path: "Exercice_18_Intro",
+        label: "Day 18 - Taking Control of the Environment",
+        styleButton: ExerciceStyle_18,
+        styleText: ExerciceTextStyle_18,
+        IconSource: IconsExercice_18
+      },
+      {
+        id: 19,
+        path: "Exercice_19_Intro",
+        label: "Day 19 - Me, the Smartphone and Others",
+        styleButton: ExerciceStyle_19,
+        styleText: ExerciceTextStyle_19,
+        IconSource: IconsExercice_19
+      },
+      {
+        id: 20,
+        path: "Exercice_20_Intro",
+        label: "Day 20 - Daddeln is Okay",
+        styleButton: ExerciceStyle_20,
+        styleText: ExerciceTextStyle_20,
+        IconSource: IconsExercice_20
+      },
+      {
+        id: 21,
+        path: "Exercice_20_Intro",
+        label: "Day 21 - Brain Reset",
+        styleButton: ExerciceStyle_21,
+        styleText: ExerciceTextStyle_21,
+        IconSource: IconsExercice_21
+      },
+      {
+        id: 22,
+        path: "Reflection_4_Intro",
+        label: "Module Reflection",
+        styleButton: ReflectionStyle_4,
+        styleText: ReflectionTextStyle_4,
+        IconSource: IconsReflection_4
+      }
+    ];
 
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <View style={{ flex: 1 }}>
-          <Text style={styles.header}>
-            Support
-          </Text>
+          <Text style={styles.header}>Support</Text>
 
           <Image
-              style={styles.center}
-              source={require("./../../assets/images/ObservePhase.png")}
-            />
+            style={styles.center}
+            source={require("./../../assets/images/ObservePhase.png")}
+          />
 
           <View style={styles.bottom}>
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_17);
-              }}
-              style={ExerciceStyle_17}
-            >
-              <Text style={ExerciceTextStyle_17}>Day 17 - Taking Control on the Smartphone</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_17}
-              />
-            </ExerciceButton>
 
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_18);
-              }}
-              style={ExerciceStyle_18}
-            >
-              <Text style={ExerciceTextStyle_18}>
-              Day 18 - Taking Control of the Environment
-              </Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_18}
-              />
-            </ExerciceButton>
+            {ExercicesArray.map((item, key) => (
+              <ExerciceButton
+                key={key}
+                onPress={() => {
+                  {
+                    this.props.navigation.navigate(item.path);
+                  }
+                }}
+                style={item.styleButton}
+              >
+                <Text style={item.styleText}>{item.label}</Text>
+                <Image
+                  style={styles.exercice_button_icon}
+                  source={item.IconSource}
+                />
+              </ExerciceButton>
+            ))}
 
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_19);
-              }}
-              style={ExerciceStyle_19}
-            >
-              <Text style={ExerciceTextStyle_19}>Day 19 - Me, the Smartphone and Others</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_19}
-              />
-            </ExerciceButton>
-
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_20);
-              }}
-              style={ExerciceStyle_20}
-            >
-              <Text style={ExerciceTextStyle_20}>Day 20 - Daddeln is Okay</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_20}
-              />
-            </ExerciceButton>
           </View>
         </View>
       </View>
@@ -307,8 +282,8 @@ class SupportScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 10,
     flex: 1,
+    paddingBottom: 10,
     alignItems: "center",
     alignSelf: "stretch"
   },

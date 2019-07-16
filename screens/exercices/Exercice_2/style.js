@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
-        fontFamily: 'roboto-medium',
+        fontFamily: 'roboto-bold',
         alignSelf: "stretch",
         textAlign: 'left',
     },

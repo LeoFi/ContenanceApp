@@ -42,17 +42,10 @@ export default class Exercice_2_Aha_2 extends React.Component {
                 <Text style={styles.header}>
                 Aha!
                 </Text>
-                <Text style={styles.sub_header}>
-                Not less, but better.
-                </Text>
                 <Text style={styles.text}>
-                  {"\n"}Research shows: What we do on our smartphones and how we see our relationship to it is more important to our wellbeing than the mere amount of time we spent on it. 
-                  {"\n"}{"\n"}Make your smartphone the great tool it can be.
+                  {"\n"}Learning to detect the impulse and noticing it, for example by mentally saying “Now, I have an impulse to use the smartphone” is your first step towards conscious smartphone use.
                 </Text>
 
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
               </View>
             </TouchableWithoutFeedback>
           </View>

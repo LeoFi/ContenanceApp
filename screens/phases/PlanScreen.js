@@ -30,7 +30,8 @@ class PlanScreen extends React.Component {
       exercice_state_13: this.props.exercices.exercice_state_13 || "",
       exercice_state_14: this.props.exercices.exercice_state_14 || "",
       exercice_state_15: this.props.exercices.exercice_state_15 || "",
-      exercice_state_16: this.props.exercices.exercice_state_16 || ""
+      exercice_state_16: this.props.exercices.exercice_state_16 || "",
+      reflection_state_4: this.props.exercices.reflection_state_4 || ""
     };
   }
 
@@ -39,265 +40,206 @@ class PlanScreen extends React.Component {
   };
 
   render() {
+
+    let ExerciceTextStyle_13 = "";
     let ExerciceStyle_13 = "";
 
     switch (this.props.exercices.exercice_state_13) {
       case "completed":
-        ExerciceStyle_13 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_13 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_13 = styles.new;
-        break;
-      default:
-        ExerciceStyle_13 = styles.locked;
-    }
-
-    let ExerciceTextStyle_13 = "";
-
-    switch (this.props.exercices.exercice_state_13) {
-      case "completed":
         ExerciceTextStyle_13 = styles.text_completed;
-        break;
-      case "next":
-        ExerciceTextStyle_13 = styles.text_next;
-        break;
-      case "new":
-        ExerciceTextStyle_13 = styles.text_new;
-        break;
-      default:
-        ExerciceTextStyle_13 = styles.text_locked;
-    }
-
-    let IconsExercice_13 = "";
-
-    switch (this.props.exercices.exercice_state_13) {
-      case "completed":
+        ExerciceStyle_13 = styles.completed;
         IconsExercice_13 = require("./../../assets/images/checkmark_plan.png");
         break;
       case "next":
+        ExerciceTextStyle_13 = styles.text_next;
+        ExerciceStyle_13 = styles.next;
         IconsExercice_13 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
+        ExerciceTextStyle_13 = styles.text_new;
+        ExerciceStyle_13 = styles.new;
         IconsExercice_13 = require("./../../assets/images/newmark_plan.png");
         break;
       default:
+        ExerciceTextStyle_13 = styles.text_locked;
+        ExerciceStyle_13 = styles.locked;
         IconsExercice_13 = require("./../../assets/images/lockmark.png");
     }
 
+    let ExerciceTextStyle_14 = "";
     let ExerciceStyle_14 = "";
 
     switch (this.props.exercices.exercice_state_14) {
       case "completed":
-        ExerciceStyle_14 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_14 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_14 = styles.new;
-        break;
-      default:
-        ExerciceStyle_14 = styles.locked;
-    }
-
-    let ExerciceTextStyle_14 = "";
-
-    switch (this.props.exercices.exercice_state_14) {
-      case "completed":
         ExerciceTextStyle_14 = styles.text_completed;
+        ExerciceStyle_14 = styles.completed;
+        IconsExercice_14 = require("./../../assets/images/checkmark_plan.png");
         break;
       case "next":
         ExerciceTextStyle_14 = styles.text_next;
+        ExerciceStyle_14 = styles.next;
+        IconsExercice_14 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_14 = styles.text_new;
+        ExerciceStyle_14 = styles.new;
+        IconsExercice_14 = require("./../../assets/images/newmark_plan.png");
         break;
       default:
         ExerciceTextStyle_14 = styles.text_locked;
+        ExerciceStyle_14 = styles.locked;
+        IconsExercice_14 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_14 = "";
-
-    switch (this.props.exercices.exercice_state_14) {
-      case "completed":
-      IconsExercice_14 = require("./../../assets/images/checkmark_plan.png");
-        break;
-      case "next":
-      IconsExercice_14 = require("./../../assets/images/nextmark.png");
-        break;
-      case "new":
-      IconsExercice_14 = require("./../../assets/images/newmark_plan.png");
-        break;
-      default:
-      IconsExercice_14 = require("./../../assets/images/lockmark.png");
-    }
-
+    let ExerciceTextStyle_15 = "";
     let ExerciceStyle_15 = "";
 
     switch (this.props.exercices.exercice_state_15) {
       case "completed":
-        ExerciceStyle_15 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_15 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_15 = styles.new;
-        break;
-      default:
-        ExerciceStyle_15 = styles.locked;
-    }
-
-    let ExerciceTextStyle_15 = "";
-
-    switch (this.props.exercices.exercice_state_15) {
-      case "completed":
         ExerciceTextStyle_15 = styles.text_completed;
+        ExerciceStyle_15 = styles.completed;
+        IconsExercice_15 = require("./../../assets/images/checkmark_plan.png");
         break;
       case "next":
         ExerciceTextStyle_15 = styles.text_next;
+        ExerciceStyle_15 = styles.next;
+        IconsExercice_15 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_15 = styles.text_new;
+        ExerciceStyle_15 = styles.new;
+        IconsExercice_15 = require("./../../assets/images/newmark_plan.png");
         break;
       default:
         ExerciceTextStyle_15 = styles.text_locked;
+        ExerciceStyle_15 = styles.locked;
+        IconsExercice_15 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_15 = "";
-
-    switch (this.props.exercices.exercice_state_15) {
-      case "completed":
-      IconsExercice_15 = require("./../../assets/images/checkmark_plan.png");
-        break;
-      case "next":
-      IconsExercice_15 = require("./../../assets/images/nextmark.png");
-        break;
-      case "new":
-      IconsExercice_15 = require("./../../assets/images/newmark_plan.png");
-        break;
-      default:
-      IconsExercice_15 = require("./../../assets/images/lockmark.png");
-    }
-
+    let ExerciceTextStyle_16 = "";
     let ExerciceStyle_16 = "";
 
     switch (this.props.exercices.exercice_state_16) {
       case "completed":
-        ExerciceStyle_16 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_16 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_16 = styles.new;
-        break;
-      default:
-        ExerciceStyle_16 = styles.locked;
-    }
-
-    let ExerciceTextStyle_16 = "";
-
-    switch (this.props.exercices.exercice_state_16) {
-      case "completed":
         ExerciceTextStyle_16 = styles.text_completed;
+        ExerciceStyle_16 = styles.completed;
+        IconsExercice_16 = require("./../../assets/images/checkmark_plan.png");
         break;
       case "next":
         ExerciceTextStyle_16 = styles.text_next;
+        ExerciceStyle_16 = styles.next;
+        IconsExercice_16 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_16 = styles.text_new;
+        ExerciceStyle_16 = styles.new;
+        IconsExercice_16 = require("./../../assets/images/newmark_plan.png");
         break;
       default:
         ExerciceTextStyle_16 = styles.text_locked;
+        ExerciceStyle_16 = styles.locked;
+        IconsExercice_16 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_16 = "";
+    let ReflectionTextStyle_4 = "";
+    let ReflectionStyle_4 = "";
 
-    switch (this.props.exercices.exercice_state_16) {
+    switch (this.props.exercices.reflection_state_4) {
       case "completed":
-      IconsExercice_16 = require("./../../assets/images/checkmark_plan.png");
+        ReflectionTextStyle_4 = styles.text_completed;
+        ReflectionStyle_4 = styles.completed;
+        IconsReflection_4 = require("./../../assets/images/checkmark_plan.png");
         break;
       case "next":
-      IconsExercice_16 = require("./../../assets/images/nextmark.png");
+        ReflectionTextStyle_4 = styles.text_next;
+        ReflectionStyle_4 = styles.next;
+        IconsReflection_4 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
-      IconsExercice_16 = require("./../../assets/images/newmark_plan.png");
+        ReflectionTextStyle_4 = styles.text_new;
+        ReflectionStyle_4 = styles.new;
+        IconsReflection_4 = require("./../../assets/images/newmark_plan.png");
         break;
       default:
-      IconsExercice_16 = require("./../../assets/images/lockmark.png");
+        ReflectionTextStyle_4 = styles.text_locked;
+        ReflectionStyle_4 = styles.locked;
+        IconsReflection_4 = require("./../../assets/images/lockmark.png");
     }
+
+    var ExercicesArray = [
+      {
+        id: 13,
+        path: "Intro_Phase_Plan",
+        label: "Day 13 - Meaningful Smartphone Habits",
+        styleButton: ExerciceStyle_13,
+        styleText: ExerciceTextStyle_13,
+        IconSource: IconsExercice_13
+      },
+      {
+        id: 14,
+        path: "Exercice_14_Intro",
+        label: "Day 14 - Being Prepared for Challenges",
+        styleButton: ExerciceStyle_14,
+        styleText: ExerciceTextStyle_14,
+        IconSource: IconsExercice_14
+      },
+      {
+        id: 15,
+        path: "Exercice_15_Intro",
+        label: "Day 15 - Beauty of Imagination",
+        styleButton: ExerciceStyle_15,
+        styleText: ExerciceTextStyle_15,
+        IconSource: IconsExercice_15
+      },
+      {
+        id: 16,
+        path: "Exercice_16_Intro",
+        label: "Day 16 - Brain Reset",
+        styleButton: ExerciceStyle_16,
+        styleText: ExerciceTextStyle_16,
+        IconSource: IconsExercice_16
+      },
+      {
+        id: 17,
+        path: "Reflection_4_Intro",
+        label: "Module Reflection",
+        styleButton: ReflectionStyle_4,
+        styleText: ReflectionTextStyle_4,
+        IconSource: IconsReflection_4
+      }
+    ];
 
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <View style={{ flex: 1 }}>
-          <Text style={styles.header}>
-            Plan
-          </Text>
+          <Text style={styles.header}>Plan</Text>
 
           <Image
-              style={styles.center}
-              source={require("./../../assets/images/ObservePhase.png")}
-            />
+            style={styles.center}
+            source={require("./../../assets/images/ObservePhase.png")}
+          />
 
           <View style={styles.bottom}>
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_13);
-              }}
-              style={ExerciceStyle_13}
-            >
-              <Text style={ExerciceTextStyle_13}>Day 13 - Meaningful Smartphone Habits</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_13}
-              />
-            </ExerciceButton>
 
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_14);
-              }}
-              style={ExerciceStyle_14}
-            >
-              <Text style={ExerciceTextStyle_14}>
-              Day 14 - Being Prepared for Challenges
-              </Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_14}
-              />
-            </ExerciceButton>
+            {ExercicesArray.map((item, key) => (
+              <ExerciceButton
+                key={key}
+                onPress={() => {
+                  {
+                    this.props.navigation.navigate(item.path);
+                  }
+                }}
+                style={item.styleButton}
+              >
+                <Text style={item.styleText}>{item.label}</Text>
+                <Image
+                  style={styles.exercice_button_icon}
+                  source={item.IconSource}
+                />
+              </ExerciceButton>
+            ))}
 
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_15);
-              }}
-              style={ExerciceStyle_15}
-            >
-              <Text style={ExerciceTextStyle_15}>Day 15 - Beauty of Imagination</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_15}
-              />
-            </ExerciceButton>
-
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_16);
-              }}
-              style={ExerciceStyle_16}
-            >
-              <Text style={ExerciceTextStyle_16}>Day 16 - Brain Reset</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_16}
-              />
-            </ExerciceButton>
           </View>
         </View>
       </View>
@@ -440,9 +382,9 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start"
   },
   next: {
-    backgroundColor: "#F6B563",
+    backgroundColor: "#4CBB92",
     borderWidth: 2,
-    borderColor: "#F6B563",
+    borderColor: "#4CBB92",
     borderRadius: 12,
     overflow: "hidden",
     padding: 15,
@@ -464,7 +406,7 @@ const styles = StyleSheet.create({
   new: {
     backgroundColor: "transparent",
     borderWidth: 2,
-    borderColor: "#F6B563",
+    borderColor: "#4CBB92",
     borderRadius: 12,
     overflow: "hidden",
     padding: 15,
@@ -474,7 +416,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   text_new: {
-    color: "#F6B563",
+    color: "#4CBB92",
     fontSize: 17,
     lineHeight: 23,
     textAlign: "left",

@@ -28,7 +28,10 @@ class ObserveScreen extends React.Component {
     this.state = {
       nickname: this.props.user.nickname || "",
       exercice_state_1: this.props.exercices.exercice_state_1 || "",
-      exercice_state_2: this.props.exercices.exercice_state_2 || ""
+      exercice_state_2: this.props.exercices.exercice_state_2 || "",
+      exercice_state_3: this.props.exercices.exercice_state_3 || "",
+      exercice_state_4: this.props.exercices.exercice_state_4 || "",
+      reflection_state_1: this.props.exercices.reflection_state_1 || ""
     };
   }
 
@@ -37,197 +40,173 @@ class ObserveScreen extends React.Component {
   };
 
   render() {
+    let ExerciceTextStyle_1 = "";
     let ExerciceStyle_1 = "";
 
     switch (this.props.exercices.exercice_state_1) {
       case "completed":
-        ExerciceStyle_1 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_1 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_1 = styles.new;
-        break;
-      default:
-        ExerciceStyle_1 = styles.locked;
-    }
-
-    let ExerciceTextStyle_1 = "";
-
-    switch (this.props.exercices.exercice_state_1) {
-      case "completed":
         ExerciceTextStyle_1 = styles.text_completed;
-        break;
-      case "next":
-        ExerciceTextStyle_1 = styles.text_next;
-        break;
-      case "new":
-        ExerciceTextStyle_1 = styles.text_new;
-        break;
-      default:
-        ExerciceTextStyle_1 = styles.text_locked;
-    }
-
-    let IconsExercice_1 = "";
-
-    switch (this.props.exercices.exercice_state_1) {
-      case "completed":
+        ExerciceStyle_1 = styles.completed;
         IconsExercice_1 = require("./../../assets/images/checkmark_observe.png");
         break;
       case "next":
+        ExerciceTextStyle_1 = styles.text_next;
+        ExerciceStyle_1 = styles.next;
         IconsExercice_1 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
+        ExerciceTextStyle_1 = styles.text_new;
+        ExerciceStyle_1 = styles.new;
         IconsExercice_1 = require("./../../assets/images/newmark_observe.png");
         break;
       default:
+        ExerciceTextStyle_1 = styles.text_locked;
+        ExerciceStyle_1 = styles.locked;
         IconsExercice_1 = require("./../../assets/images/lockmark.png");
     }
 
+    let ExerciceTextStyle_2 = "";
     let ExerciceStyle_2 = "";
 
     switch (this.props.exercices.exercice_state_2) {
       case "completed":
-        ExerciceStyle_2 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_2 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_2 = styles.new;
-        break;
-      default:
-        ExerciceStyle_2 = styles.locked;
-    }
-
-    let ExerciceTextStyle_2 = "";
-
-    switch (this.props.exercices.exercice_state_2) {
-      case "completed":
         ExerciceTextStyle_2 = styles.text_completed;
+        ExerciceStyle_2 = styles.completed;
+        IconsExercice_2 = require("./../../assets/images/checkmark_observe.png");
         break;
       case "next":
         ExerciceTextStyle_2 = styles.text_next;
+        ExerciceStyle_2 = styles.next;
+        IconsExercice_2 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_2 = styles.text_new;
+        ExerciceStyle_2 = styles.new;
+        IconsExercice_2 = require("./../../assets/images/newmark_observe.png");
         break;
       default:
         ExerciceTextStyle_2 = styles.text_locked;
+        ExerciceStyle_2 = styles.locked;
+        IconsExercice_2 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_2 = "";
-
-    switch (this.props.exercices.exercice_state_2) {
-      case "completed":
-      IconsExercice_2 = require("./../../assets/images/checkmark_observe.png");
-        break;
-      case "next":
-      IconsExercice_2 = require("./../../assets/images/nextmark.png");
-        break;
-      case "new":
-      IconsExercice_2 = require("./../../assets/images/newmark_observe.png");
-        break;
-      default:
-      IconsExercice_2 = require("./../../assets/images/lockmark.png");
-    }
-
+    let ExerciceTextStyle_3 = "";
     let ExerciceStyle_3 = "";
 
     switch (this.props.exercices.exercice_state_3) {
       case "completed":
-        ExerciceStyle_3 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_3 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_3 = styles.new;
-        break;
-      default:
-        ExerciceStyle_3 = styles.locked;
-    }
-
-    let ExerciceTextStyle_3 = "";
-
-    switch (this.props.exercices.exercice_state_3) {
-      case "completed":
         ExerciceTextStyle_3 = styles.text_completed;
+        ExerciceStyle_3 = styles.completed;
+        IconsExercice_3 = require("./../../assets/images/checkmark_observe.png");
         break;
       case "next":
         ExerciceTextStyle_3 = styles.text_next;
+        ExerciceStyle_3 = styles.next;
+        IconsExercice_3 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_3 = styles.text_new;
+        ExerciceStyle_3 = styles.new;
+        IconsExercice_3 = require("./../../assets/images/newmark_observe.png");
         break;
       default:
         ExerciceTextStyle_3 = styles.text_locked;
+        ExerciceStyle_3 = styles.locked;
+        IconsExercice_3 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_3 = "";
-
-    switch (this.props.exercices.exercice_state_3) {
-      case "completed":
-      IconsExercice_3 = require("./../../assets/images/checkmark_observe.png");
-        break;
-      case "next":
-      IconsExercice_3 = require("./../../assets/images/nextmark.png");
-        break;
-      case "new":
-      IconsExercice_3 = require("./../../assets/images/newmark_observe.png");
-        break;
-      default:
-      IconsExercice_3 = require("./../../assets/images/lockmark.png");
-    }
-
+    let ExerciceTextStyle_4 = "";
     let ExerciceStyle_4 = "";
 
     switch (this.props.exercices.exercice_state_4) {
       case "completed":
-        ExerciceStyle_4 = styles.completed;
-        break;
-      case "next":
-        ExerciceStyle_4 = styles.next;
-        break;
-      case "new":
-        ExerciceStyle_4 = styles.new;
-        break;
-      default:
-        ExerciceStyle_4 = styles.locked;
-    }
-
-    let ExerciceTextStyle_4 = "";
-
-    switch (this.props.exercices.exercice_state_4) {
-      case "completed":
         ExerciceTextStyle_4 = styles.text_completed;
+        ExerciceStyle_4 = styles.completed;
+        IconsExercice_4 = require("./../../assets/images/checkmark_observe.png");
         break;
       case "next":
         ExerciceTextStyle_4 = styles.text_next;
+        ExerciceStyle_4 = styles.next;
+        IconsExercice_4 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
         ExerciceTextStyle_4 = styles.text_new;
+        ExerciceStyle_4 = styles.new;
+        IconsExercice_4 = require("./../../assets/images/newmark_observe.png");
         break;
       default:
         ExerciceTextStyle_4 = styles.text_locked;
+        ExerciceStyle_4 = styles.locked;
+        IconsExercice_4 = require("./../../assets/images/lockmark.png");
     }
 
-    let IconsExercice_4 = "";
+    let ReflectionTextStyle_1 = "";
+    let ReflectionStyle_1 = "";
 
-    switch (this.props.exercices.exercice_state_4) {
+    switch (this.props.exercices.reflection_state_1) {
       case "completed":
-      IconsExercice_4 = require("./../../assets/images/checkmark_observe.png");
+        ReflectionTextStyle_1 = styles.text_completed;
+        ReflectionStyle_1 = styles.completed;
+        IconsReflection_1 = require("./../../assets/images/checkmark_observe.png");
         break;
       case "next":
-      IconsExercice_4 = require("./../../assets/images/nextmark.png");
+        ReflectionTextStyle_1 = styles.text_next;
+        ReflectionStyle_1 = styles.next;
+        IconsReflection_1 = require("./../../assets/images/nextmark.png");
         break;
       case "new":
-      IconsExercice_4 = require("./../../assets/images/newmark_observe.png");
+        ReflectionTextStyle_1 = styles.text_new;
+        ReflectionStyle_1 = styles.new;
+        IconsReflection_1 = require("./../../assets/images/newmark_observe.png");
         break;
       default:
-      IconsExercice_4 = require("./../../assets/images/lockmark.png");
+        ReflectionTextStyle_1 = styles.text_locked;
+        ReflectionStyle_1 = styles.locked;
+        IconsReflection_1 = require("./../../assets/images/lockmark.png");
     }
+
+    var ExercicesArray = [
+      {
+        id: 1,
+        path: "Intro_Phase_Observe",
+        label: "Day 1 - Contenance",
+        styleButton: ExerciceStyle_1,
+        styleText: ExerciceTextStyle_1,
+        IconSource: IconsExercice_1
+      },
+      {
+        id: 2,
+        path: "Exercice_2_Intro",
+        label: "Day 2 - Notice Your Impulses",
+        styleButton: ExerciceStyle_2,
+        styleText: ExerciceTextStyle_2,
+        IconSource: IconsExercice_2
+      },
+      {
+        id: 3,
+        path: "Exercice_3_Intro",
+        label: "Day 3 - Solution Triangle",
+        styleButton: ExerciceStyle_3,
+        styleText: ExerciceTextStyle_3,
+        IconSource: IconsExercice_3
+      },
+      {
+        id: 4,
+        path: "Exercice_4_Intro",
+        label: "Day 4 - Keep Breathing",
+        styleButton: ExerciceStyle_4,
+        styleText: ExerciceTextStyle_4,
+        IconSource: IconsExercice_4
+      },
+      {
+        id: 5,
+        path: "Reflection_1_Intro",
+        label: "Module Reflection",
+        styleButton: ReflectionStyle_1,
+        styleText: ReflectionTextStyle_1,
+        IconSource: IconsReflection_1
+      }
+    ];
 
     return (
       <View style={styles.container}>
@@ -239,68 +218,30 @@ class ObserveScreen extends React.Component {
           </Text>
 
           <Image
-              style={styles.center}
-              source={require("./../../assets/images/ObservePhase.png")}
-            />
+            style={styles.center}
+            source={require("./../../assets/images/ObservePhase.png")}
+          />
 
           <View style={styles.bottom}>
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_1);
-                //this.props.navigation.navigate("Intro_Phase_Observe");
-              }}
-              style={ExerciceStyle_1}
-            >
-              <Text style={ExerciceTextStyle_1}>Day 1 - Contenance</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_1}
-              />
-            </ExerciceButton>
 
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_2);
-                //this.props.navigation.navigate("Exercice_2_Intro");
-              }}
-              style={ExerciceStyle_2}
-            >
-              <Text style={ExerciceTextStyle_2}>
-                Day 2 - Notice Your Impulses
-              </Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_2}
-              />
-            </ExerciceButton>
+            {ExercicesArray.map((item, key) => (
+              <ExerciceButton
+                key={key}
+                onPress={() => {
+                  {
+                    this.props.navigation.navigate(item.path);
+                  }
+                }}
+                style={item.styleButton}
+              >
+                <Text style={item.styleText}>{item.label}</Text>
+                <Image
+                  style={styles.exercice_button_icon}
+                  source={item.IconSource}
+                />
+              </ExerciceButton>
+            ))}
 
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_3);
-                //this.props.navigation.navigate("Exercice_2_Intro");
-              }}
-              style={ExerciceStyle_3}
-            >
-              <Text style={ExerciceTextStyle_3}>Day 3 - Solution Triangle</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_3}
-              />
-            </ExerciceButton>
-
-            <ExerciceButton
-              onPress={() => {
-                console.log(this.props.exercices.exercice_state_3);
-                //this.props.navigation.navigate("Exercice_2_Intro");
-              }}
-              style={ExerciceStyle_4}
-            >
-              <Text style={ExerciceTextStyle_4}>Day 4 - Keep Breathing</Text>
-              <Image
-                style={styles.exercice_button_icon}
-                source={IconsExercice_4}
-              />
-            </ExerciceButton>
           </View>
         </View>
       </View>
@@ -310,8 +251,8 @@ class ObserveScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 10,
     flex: 1,
+    paddingBottom: 10,
     alignItems: "center",
     alignSelf: "stretch"
   },

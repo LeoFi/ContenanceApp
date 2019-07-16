@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_2_Aha_1 extends React.Component {
+export default class Exercice_3_2_2to5 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,16 +34,15 @@ export default class Exercice_2_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_2_Aha_2");
+                this.props.navigation.navigate("Exercice_3_3");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.header}>
-                Aha!
+                <Text style={styles.sub_header_left}>
+                Firstly: Congratulations!
                 </Text>
-                <Text style={styles.text}>
-                  {"\n"}Impulses are one of the most important drivers of smartphone use. Therefore, they provide a great starting point for change.
-                  {"\n"}{"\n"}Impulses are like waves: they come over us and without realizing, they sweep us to wherever they want.
+                <Text style={styles.intro_text}>
+                  {"\n"}You’ve already tried this and that to change your smartphone use. So do most people in different phases of their life. 
                 </Text>
 
               </View>
@@ -54,18 +52,4 @@ export default class Exercice_2_Aha_1 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_2_3 extends React.Component {
+export default class Exercice_3_2_Less2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,22 +34,18 @@ export default class Exercice_2_3 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_2_4");
+                this.props.navigation.navigate("Exercice_3_3");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                Ask yourself:
+                Welcome to the world of smartphone hacks!
                 </Text>
-                <Text style={styles.intro_text_bold}>
-                  {"\n"}How is your back positioned?
-                  {"\n"}{"\n"}How does your neck feel?
-                  {"\n"}{"\n"}What does your body look like while you are using your smartphone? 
+                <Text style={styles.intro_text}>
+                  {"\n"}They are supposed to be little tricks helping you shape your smartphone use. Maybe you have tried other things, or this is your first encounter with them.
+                  {"\n"}{"\n"}Stay curious, in a few days, you’ll already know more!
                 </Text>
 
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -58,18 +53,4 @@ export default class Exercice_2_3 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

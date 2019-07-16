@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_2_2 extends React.Component {
+export default class Exercice_3_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,18 +34,18 @@ export default class Exercice_2_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_2_3");
+                this.props.navigation.navigate("Exercice_3_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.intro_text}>
-                  {"\n"}Now, stop focusing your attention on the screen and start - without changing anything - to notice your posture (body position).
-                  {"\n"}{"\n"}Just observe it for a moment.
+                <Text style={styles.header}>
+                Aha!
+                </Text>
+                <Text style={styles.text}>
+                  {"\n"}You now know why we believe in YOU!
+                  {"\n"}{"\n"}We are happy to embark on this journey together! Here, you will discover how you can empower yourself to use your smartphone in a better way, with the support of changes on your device and in your environment.
                 </Text>
 
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -54,18 +53,4 @@ export default class Exercice_2_2 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

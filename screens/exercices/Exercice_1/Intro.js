@@ -40,7 +40,7 @@ export default class Exercice_1_Intro extends React.Component {
               <Text style={styles.intro_header}>Contenance!</Text>
 
               <Text style={styles.intro_text}>
-                {"\n"}2MIN{"\n"}You finished your first exercise. Now you know
+                {"\n"}2 MIN{"\n"}You finished your first exercise. Now you know
                 why this training is called Contenance!
               </Text>
             </View>

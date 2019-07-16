@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_2_4 extends React.Component {
+export default class Exercice_3_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,22 +34,17 @@ export default class Exercice_2_4 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_2_Aha_1");
+                this.props.navigation.navigate("Exercice_3_Congratulations");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                Now, change your posture. 
+                Welcome back! 
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}Try to straighten your back, relax your neck, soften your shoulders.
-                  {"\n"}{"\n"}Try to take on a good posture, whatever this might mean for you.
-                  {"\n"}{"\n"}Continue when you’re ready.
+                  {"\n"}Today, we will explore what it takes to have a more balanced relationship with your smartphone. 
                 </Text>
 
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -58,18 +52,4 @@ export default class Exercice_2_4 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

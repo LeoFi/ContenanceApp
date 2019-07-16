@@ -40,13 +40,26 @@ import Exercice_1_Congratulations from "../screens/exercices/Exercice_1/Congratu
 
 import Exercice_2_Intro from "../screens/exercices/Exercice_2/Intro";
 import Exercice_2_1 from "../screens/exercices/Exercice_2/1";
-import Exercice_2_2 from "../screens/exercices/Exercice_2/2";
-import Exercice_2_3 from "../screens/exercices/Exercice_2/3";
-import Exercice_2_4 from "../screens/exercices/Exercice_2/4";
 import Exercice_2_Aha_1 from "../screens/exercices/Exercice_2/Aha_1";
 import Exercice_2_Aha_2 from "../screens/exercices/Exercice_2/Aha_2";
 import Exercice_2_Challenge from "../screens/exercices/Exercice_2/Challenge";
 import Exercice_2_Congratulations from "../screens/exercices/Exercice_2/Congratulations";
+
+import Exercice_3_Intro from "../screens/exercices/Exercice_3/Intro";
+import Exercice_3_1 from "../screens/exercices/Exercice_3/1";
+import Exercice_3_2 from "../screens/exercices/Exercice_3/2";
+import Exercice_3_2_Less2 from "../screens/exercices/Exercice_3/2_Less2";
+import Exercice_3_2_2to5 from "../screens/exercices/Exercice_3/2_2to5";
+import Exercice_3_2_More5 from "../screens/exercices/Exercice_3/2_More5";
+import Exercice_3_3 from "../screens/exercices/Exercice_3/3";
+import Exercice_3_4 from "../screens/exercices/Exercice_3/4";
+import Exercice_3_5 from "../screens/exercices/Exercice_3/5";
+import Exercice_3_6 from "../screens/exercices/Exercice_3/6";
+import Exercice_3_7 from "../screens/exercices/Exercice_3/7";
+import Exercice_3_8 from "../screens/exercices/Exercice_3/8";
+import Exercice_3_Aha_1 from "../screens/exercices/Exercice_3/Aha_1";
+import Exercice_3_Challenge from "../screens/exercices/Exercice_3/Challenge";
+import Exercice_3_Congratulations from "../screens/exercices/Exercice_3/Congratulations";
 
 import PSU_Screen_PM1 from "../screens/questionnaires/PM1/PSU_Screen_PM1";
 import SUE_Screen_PM1 from "../screens/questionnaires/PM1/SUE_Screen_PM1";
@@ -258,55 +271,7 @@ const Exercice2 = createStackNavigator(
             disabledProgress={false}
             disabledClose={false}
             goBackLink={() => {
-              props.navigation.navigate("Exercice_1_Intro");
-            }}
-            {...props}
-          />
-        )
-      }
-    },
-    Exercice_2_2: {
-      screen: Exercice_2_2,
-      navigationOptions: {
-        header: props => (
-          <HeaderComponent
-            progress={2 / 8}
-            disabledProgress={false}
-            disabledClose={false}
-            goBackLink={() => {
-              props.navigation.navigate("Exercice_1_Intro");
-            }}
-            {...props}
-          />
-        )
-      }
-    },
-    Exercice_2_3: {
-      screen: Exercice_2_3,
-      navigationOptions: {
-        header: props => (
-          <HeaderComponent
-            progress={3 / 8}
-            disabledProgress={false}
-            disabledClose={false}
-            goBackLink={() => {
-              props.navigation.navigate("Exercice_1_Intro");
-            }}
-            {...props}
-          />
-        )
-      }
-    },
-    Exercice_2_4: {
-      screen: Exercice_2_4,
-      navigationOptions: {
-        header: props => (
-          <HeaderComponent
-            progress={4 / 8}
-            disabledProgress={false}
-            disabledClose={false}
-            goBackLink={() => {
-              props.navigation.navigate("Exercice_1_Intro");
+              props.navigation.navigate("Exercice_2_Intro");
             }}
             {...props}
           />
@@ -322,7 +287,7 @@ const Exercice2 = createStackNavigator(
             disabledProgress={false}
             disabledClose={false}
             goBackLink={() => {
-              props.navigation.navigate("Exercice_1_Intro");
+              props.navigation.navigate("Exercice_2_Intro");
             }}
             {...props}
           />
@@ -338,7 +303,7 @@ const Exercice2 = createStackNavigator(
             disabledProgress={false}
             disabledClose={false}
             goBackLink={() => {
-              props.navigation.navigate("Exercice_1_Intro");
+              props.navigation.navigate("Exercice_2_Intro");
             }}
             {...props}
           />
@@ -354,7 +319,7 @@ const Exercice2 = createStackNavigator(
             disabledProgress={false}
             disabledClose={false}
             goBackLink={() => {
-              props.navigation.navigate("Exercice_1_Intro");
+              props.navigation.navigate("Exercice_2_Intro");
             }}
             {...props}
           />
@@ -374,17 +339,272 @@ const Exercice2 = createStackNavigator(
         )
       }
     }
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    cardStyle: { backgroundColor: "#F4F1DE" },
+    headerMode: "float",
+    defaultNavigationOptions: {
+      header: props => <HeaderComponent {...props} />,
+      animationEnabled: true,
+      gesturesEnabled: false
+    }
   }
-  // {
-  //   transitionConfig: () => fromRight(500),
-  //   //cardStyle: { backgroundColor: "#F4F1DE" },
-  //   headerMode: "float",
-  //   defaultNavigationOptions: {
-  //     header: props => <HeaderComponent {...props} />,
-  //     animationEnabled: true,
-  //     gesturesEnabled: false
-  //   }
-  // }
+);
+
+
+const Exercice3 = createStackNavigator(
+  {
+    Anchor: {
+      screen: TestScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Exercice_3_Intro: {
+      screen: Exercice_3_Intro,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            disabledProgress={true}
+            disabledClose={true}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_1: {
+      screen: Exercice_3_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_2: {
+      screen: Exercice_3_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_2_Less2: {
+      screen: Exercice_3_2_Less2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_2_2to5: {
+      screen: Exercice_3_2_2to5,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_2_More5: {
+      screen: Exercice_3_2_More5,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_3: {
+      screen: Exercice_3_3,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_4: {
+      screen: Exercice_3_4,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_5: {
+      screen: Exercice_3_5,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_6: {
+      screen: Exercice_3_6,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_7: {
+      screen: Exercice_3_7,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_8: {
+      screen: Exercice_3_8,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_Aha_1: {
+      screen: Exercice_3_Aha_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={5 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_Challenge: {
+      screen: Exercice_3_Challenge,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={7 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_3_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_Congratulations: {
+      screen: Exercice_3_Congratulations,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={8 / 8}
+            disabledProgress={false}
+            disabledClose={true}
+            {...props}
+          />
+        )
+      }
+    }
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    cardStyle: { backgroundColor: "#F4F1DE" },
+    headerMode: "float",
+    defaultNavigationOptions: {
+      header: props => <HeaderComponent {...props} />,
+      animationEnabled: true,
+      gesturesEnabled: false
+    }
+  }
 );
 
 // const Exercice2 = createStackNavigator(
@@ -460,7 +680,8 @@ const HomeTab = createStackNavigator(
   {
     Home: { screen: TestScreen },
     Exercice1: { screen: Exercice1 },
-    Exercice2: { screen: Exercice2 }
+    Exercice2: { screen: Exercice2 },
+    Exercice3: { screen: Exercice3 }
   },
   {
     transitionConfig: () => fromRight(500),

@@ -8,7 +8,7 @@ class JourneyHeaderTabBar extends PureComponent {
     const { navigation } = this.props;
 
     const { routes, index } = navigation.state;
-    console.log(routes);
+    //(routes);
 
     return (
       <View style={styles.tab_bar}>

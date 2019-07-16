@@ -2,8 +2,8 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: "center",
+        //flex: 1,
+        //alignItems: "center",
         alignSelf: "stretch",
         paddingTop: 80,
         paddingLeft: 30,
@@ -30,9 +30,32 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
     },
+    container_deck: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'stretch',
+        alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+    },
     scrollview_height: {
         flex: 1,
         height: Dimensions.get("window").height,
+    },
+    full_width: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: "flex-start",
+        alignItems: "stretch",
+        width: Dimensions.get("window").width,
+    },
+    full_width_children: {
+        flex: 1,
+        alignSelf: "stretch",
+        width: Dimensions.get("window").width,
     },
     container_tap: {
         flex: 1,
@@ -157,8 +180,16 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-black',
         paddingBottom: 10,
     },
-    sub_header_left: {
+    sub_header_deck: {
         flex: 1,
+        color: '#2C3B51',
+        fontSize: 24,
+        lineHeight: 28,
+        textAlign: 'center',
+        fontFamily: 'roboto-black',
+        paddingBottom: 10,
+    },
+    sub_header_left: {
         color: '#2C3B51',
         fontSize: 24,
         lineHeight: 28,
@@ -180,6 +211,13 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         textAlign: 'center',
         fontFamily: 'roboto-regular',
+    },
+    tap_text_deck: {
+        color: 'rgba(44, 59, 81, 0.4)',
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'center',
+        fontFamily: 'roboto-regular'
     },
     tap_pos_relative: {
         // alignSelf: "stretch",

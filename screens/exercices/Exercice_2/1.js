@@ -1,28 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 import {
-  View,
+  Dimensions,
+  Image,
+  Platform,
+  Slider,
+  StyleSheet,
   Text,
-  TextInput,
-  StatusBar,
+  TouchableOpacity,
   TouchableWithoutFeedback,
-  ScrollView,
-  ImageBackground
+  View
 } from "react-native";
-import { Audio } from 'expo-av'
 import {
   PrimaryButton,
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import { styles } from "./style";
 import * as Progress from "react-native-progress";
+import { styles } from "./style";
 
-export default class Exercice_2_1 extends React.Component {
+import { Audio } from "expo-av";
+
+export default class Exercice_2_1 extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
     this.playbackInstance = null;
+    this.isSeeking = false;
+    this.shouldPlayAtEndOfSeek = false;
+    this.state = {
+      progressPercentageWidth: 0,
+      playbackInstancePosition: null,
+      playbackInstanceDuration: null,
+      shouldPlay: false,
+      isPlaying: false,
+      isLoading: true
+    };
   }
 
   componentDidMount() {
@@ -30,13 +41,13 @@ export default class Exercice_2_1 extends React.Component {
       allowsRecordingIOS: false,
       staysActiveInBackground: false,
       interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-      playsInSilentModeIOS: false,
-      shouldDuckAndroid: true,
+      playsInSilentModeIOS: true,
+      shouldDuckAndroid: false,
       interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
       playThroughEarpieceAndroid: false
     });
-    //  This function will be called
-    this._loadNewPlaybackInstance(true);
+
+    this._loadNewPlaybackInstance(false);
   }
 
   async _loadNewPlaybackInstance(playing) {
@@ -45,64 +56,191 @@ export default class Exercice_2_1 extends React.Component {
       this.playbackInstance.setOnPlaybackStatusUpdate(null);
       this.playbackInstance = null;
     }
-    const source = require("../../../assets/sounds/NoticeYourImpulses_DAY_2.mp3");
+
     const initialStatus = {
-      //        Play by default
-      shouldPlay: false,
-      //        Control the speed
-      rate: 1.0,
-      //        Correct the pitch
-      shouldCorrectPitch: true,
-      //        Control the Volume
-      volume: 1.0,
-      //        mute the Audio
-      isMuted: false
+      shouldPlay: playing
     };
-    const { sound, status } = await Audio.Sound.createAsync(
-      source,
-      initialStatus
-    );
-    //  Save the response of sound in playbackInstance
-    this.playbackInstance = sound;
-    //  Make the loop of Audio
-    this.playbackInstance.setIsLoopingAsync(false);
-    //  Play the Music
-    this.playbackInstance.playAsync();
+
+    const source = require("../../../assets/sounds/try.mp3");
+
+    try {
+      const { sound, status } = await Audio.Sound.createAsync(
+        source,
+        initialStatus,
+        this._onPlaybackStatusUpdate
+      );
+      this.playbackInstance = sound;
+      this._updateScreenForLoading(false);
+      console.log("IT'S WORKING");
+    } catch (e) {
+      console.log("Problem creating sound object: ", e);
+    }
   }
 
-  componentWillUnmount() {
-    this.playbackInstance.unloadAsync();
-    //  Check Your Console To verify that the above line is working
-    console.log("unmount");
+  _updateScreenForLoading(isLoading) {
+    if (isLoading) {
+      this.setState({
+        isPlaying: false,
+        playbackInstanceDuration: null,
+        playbackInstancePosition: null,
+        isLoading: true
+      });
+    } else {
+      this.setState({
+        isLoading: false
+      });
+    }
+  }
+
+  _onPlaybackStatusUpdate = status => {
+    if (!status.isLoaded) {
+      // Update your UI for the unloaded state
+      if (status.error) {
+        console.log(
+          `Encountered a fatal error during playback: ${status.error}`
+        );
+        // Send Expo team the error on Slack or the forums so we can help you debug!
+      }
+    } else {
+      if (status.isLoaded) {
+        this.setState({
+          playbackInstancePosition: status.positionMillis,
+          playbackInstanceDuration: status.durationMillis,
+          shouldPlay: status.shouldPlay,
+          isPlaying: status.isPlaying
+        });
+        if (status.didJustFinish) {
+          this.playbackInstance.unloadAsync();
+          this.setState({
+            isPlaying: "Done"
+          });
+        }
+      } else {
+        if (status.error) {
+          console.log(`FATAL PLAYER ERROR: ${status.error}`);
+        }
+      }
+    }
+  };
+
+  _getMMSSFromMillis(millis) {
+    const totalSeconds = millis / 1000;
+    const seconds = Math.floor(totalSeconds % 60);
+    const minutes = Math.floor(totalSeconds / 60);
+
+    const padWithZero = number => {
+      const string = number.toString();
+      if (number < 10) {
+        return "0" + string;
+      }
+      return string;
+    };
+    return padWithZero(minutes) + ":" + padWithZero(seconds);
+  }
+
+  measureProgressBar(evt) {
+    progressBarWidth = evt.nativeEvent.layout.width;
+  }
+
+  goToTime(evt) {
+    const progress = evt.nativeEvent.locationX / progressBarWidth;
+    const time = this.state.playbackInstanceDuration * progress;
+    this.state.player.setPositionAsync(time);
+    // this.setState({ progressPercentageWidth: progress });
+  }
+
+  _onPlayPausePressed = () => {
+    if (this.playbackInstance != null) {
+      if (this.state.isPlaying) {
+        this.playbackInstance.pauseAsync();
+      } else {
+        this.playbackInstance.playAsync();
+      }
+    }
+  };
+
+  _onBackPressed = () => {
+    if (this.playbackInstance != null) {
+      if (this.state.isPlaying) {
+        //this.playbackInstance.pauseAsync();
+        this.playbackInstance.setInstancePosition(-15000);
+        //console.log(this.this.playbackInstancePosition())
+      }
+    }
+  };
+
+  _onForwardPressed = () => {
+    if (this.playbackInstance != null) {
+      if (this.state.isPlaying) {
+        //this.playbackInstance.pauseAsync();
+        this.playbackInstance.setInstancePosition(150000);
+      }
+    }
+  };
+
+  renderPlayerIcon() {
+    if (this.state.isPlaying === true){
+      return <Image source={require("../../../assets/images/pause.png")} />;
+    } else if (this.state.isPlaying === false) {
+      return <Image source={require("../../../assets/images/play.png")} />;
+    } else if (this.state.isPlaying === "Done") {
+      return <Image source={require("../../../assets/images/play_done.png")} />;
+    }
   }
 
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
-        <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_2_2");
-              }}
+      <View style={styles.container}>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.state.isPlaying === "Done" ? (this.props.navigation.navigate("Exercice_2_Aha_1")) : (null)
+          }}
+          //{this.renderPlayerIcon()}
+        >
+          <View>
+            <Text style={styles.sub_header_left}>Notice Your Impulses</Text>
+            <TouchableOpacity
+              onPress={this._onBackPressed}
+              //disabled={this.state.isLoading}
             >
-              <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>Notice Your Impulses</Text>
+              <Image
+                source={require("../../../assets/images/pause.png")}
+                //style={styles.image_background}
+              />
+            </TouchableOpacity>
 
-                <PrimaryButton
-                    label="Play"
-                    onPress={this._loadNewPlaybackInstance}
-                  />
+            <TouchableOpacity
+              onPress={this._onPlayPausePressed}
+              disabled={this.state.isLoading}
+            >
+              <View style={styles.center}>
+                
+                {this.renderPlayerIcon()}
+
               </View>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={this._onForwardPressed}
+              //disabled={this.state.isLoading}
+            >
+              <Image
+                source={require("../../../assets/images/pause.png")}
+                //style={styles.image_background}
+              />
+            </TouchableOpacity>
+            <Progress.Bar
+              progress={0.8}
+              borderWidth={0}
+              borderRadius={0}
+              width={null}
+              height={10}
+              color={"rgba(44, 59, 81, 1)"}
+              unfilledColor={"rgba(255, 255, 255, 1)"}
+              animated={true}
+            />
           </View>
-        </ScrollView>
-      </ImageBackground>
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 }

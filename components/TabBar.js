@@ -7,7 +7,7 @@ class TabBar extends PureComponent {
     const { navigation } = this.props;
 
     const { routes, index } = navigation.state;
-    console.log(routes);
+    //console.log(routes);
 
     return (
       <View style={styles.tab_bar}>

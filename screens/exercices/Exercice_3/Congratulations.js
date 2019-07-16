@@ -16,22 +16,21 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex2 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex3 } from "./../../../redux-persist/redux/exercices"
 
-class Exercice_2_Congratulations extends React.Component {
+class Exercice_3_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_2: "completed",
+      exercice_state_3: "new",
     };
   }
 
- 
   handleSubmit = () => {
-    const { exercice_state_2 } = this.state;
-    this.setState({ exercice_state_2: exercice_state_2 });
-    this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    const { exercice_state_3 } = this.state;
+    this.setState({ exercice_state_3: exercice_state_3 });
+    this.props.dispatch(updateState_Ex3(this.state.exercice_state_3));
     this.props.navigation.navigate("Anchor");
   };
 
@@ -48,7 +47,8 @@ class Exercice_2_Congratulations extends React.Component {
               <View style={styles.container_scroll}>
                 <Text style={styles.header}>Congratulations!</Text>
                 <Text style={styles.text}>
-                  {"\n"}You just completed the first step towards a more conscious smartphone use.
+                  {"\n"}You now have heard of the three factors of the Solution
+                  Triangle to improve your relationship with your smartphone.
                 </Text>
 
                 <View style={styles.bottom}>
@@ -70,4 +70,4 @@ const mapStateToProps = state => ({
   exercices: state.exercices
 });
 
-export default connect(mapStateToProps)(Exercice_2_Congratulations);
+export default connect(mapStateToProps)(Exercice_3_Congratulations);
