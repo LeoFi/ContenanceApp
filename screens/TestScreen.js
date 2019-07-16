@@ -27,32 +27,6 @@ class TestScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exercice_state_1: this.props.exercices.exercice_state_1 || "",
-      exercice_state_2: this.props.exercices.exercice_state_2 || "",
-      exercice_state_3: this.props.exercices.exercice_state_3 || "",
-      exercice_state_4: this.props.exercices.exercice_state_4 || "",
-      nickname: this.props.user.nickname || "",
-      exercice_state_1: this.props.exercices.exercice_state_1 || "",
-      exercice_state_2: this.props.exercices.exercice_state_2 || "",
-      exercice_state_3: this.props.exercices.exercice_state_3 || "",
-      exercice_state_4: this.props.exercices.exercice_state_4 || "",
-      exercice_state_5: this.props.exercices.exercice_state_5 || "",
-      exercice_state_6: this.props.exercices.exercice_state_6 || "",
-      exercice_state_7: this.props.exercices.exercice_state_7 || "",
-      exercice_state_8: this.props.exercices.exercice_state_8 || "",
-      exercice_state_9: this.props.exercices.exercice_state_9 || "",
-      exercice_state_10: this.props.exercices.exercice_state_10 || "",
-      exercice_state_11: this.props.exercices.exercice_state_11 || "",
-      exercice_state_12: this.props.exercices.exercice_state_12 || "",
-      exercice_state_13: this.props.exercices.exercice_state_13 || "",
-      exercice_state_14: this.props.exercices.exercice_state_14 || "",
-      exercice_state_15: this.props.exercices.exercice_state_15 || "",
-      exercice_state_16: this.props.exercices.exercice_state_16 || "",
-      exercice_state_17: this.props.exercices.exercice_state_17 || "",
-      exercice_state_18: this.props.exercices.exercice_state_18 || "",
-      exercice_state_19: this.props.exercices.exercice_state_19 || "",
-      exercice_state_20: this.props.exercices.exercice_state_20 || "",
-      exercice_state_21: this.props.exercices.exercice_state_21 || ""
     };
   }
 

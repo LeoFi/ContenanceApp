@@ -61,6 +61,13 @@ import Exercice_3_Aha_1 from "../screens/exercices/Exercice_3/Aha_1";
 import Exercice_3_Challenge from "../screens/exercices/Exercice_3/Challenge";
 import Exercice_3_Congratulations from "../screens/exercices/Exercice_3/Congratulations";
 
+import Exercice_4_Intro from "../screens/exercices/Exercice_4/Intro";
+import Exercice_4_1 from "../screens/exercices/Exercice_4/1";
+import Exercice_4_Aha_1 from "../screens/exercices/Exercice_4/Aha_1";
+import Exercice_4_Aha_2 from "../screens/exercices/Exercice_4/Aha_2";
+import Exercice_4_Challenge from "../screens/exercices/Exercice_4/Challenge";
+import Exercice_4_Congratulations from "../screens/exercices/Exercice_4/Congratulations";
+
 import PSU_Screen_PM1 from "../screens/questionnaires/PM1/PSU_Screen_PM1";
 import SUE_Screen_PM1 from "../screens/questionnaires/PM1/SUE_Screen_PM1";
 import PSF_Screen_PM1 from "../screens/questionnaires/PM1/PSF_Screen_PM1";
@@ -354,7 +361,7 @@ const Exercice2 = createStackNavigator(
 
 
 const Exercice3 = createStackNavigator(
-  {
+{
     Anchor: {
       screen: TestScreen,
       navigationOptions: {
@@ -582,7 +589,130 @@ const Exercice3 = createStackNavigator(
       }
     },
     Exercice_3_Congratulations: {
+      screen: Exercice_2_Congratulations,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={8 / 8}
+            disabledProgress={false}
+            disabledClose={true}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_3_Congratulations: {
       screen: Exercice_3_Congratulations,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={8 / 8}
+            disabledProgress={false}
+            disabledClose={true}
+            {...props}
+          />
+        )
+      }
+    }
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    cardStyle: { backgroundColor: "#F4F1DE" },
+    headerMode: "float",
+    defaultNavigationOptions: {
+      header: props => <HeaderComponent {...props} />,
+      animationEnabled: true,
+      gesturesEnabled: false
+    }
+  }
+);
+
+const Exercice4 = createStackNavigator(
+  {
+    Anchor: {
+      screen: TestScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Exercice_4_Intro: {
+      screen: Exercice_4_Intro,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            disabledProgress={true}
+            disabledClose={true}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_4_1: {
+      screen: Exercice_4_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_4_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_4_Aha_1: {
+      screen: Exercice_4_Aha_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={5 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_4_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_4_Aha_2: {
+      screen: Exercice_4_Aha_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={6 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_4_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_4_Challenge: {
+      screen: Exercice_4_Challenge,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={7 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_4_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_4_Congratulations: {
+      screen: Exercice_4_Congratulations,
       navigationOptions: {
         header: props => (
           <HeaderComponent
@@ -681,7 +811,8 @@ const HomeTab = createStackNavigator(
     Home: { screen: TestScreen },
     Exercice1: { screen: Exercice1 },
     Exercice2: { screen: Exercice2 },
-    Exercice3: { screen: Exercice3 }
+    Exercice3: { screen: Exercice3 },
+    Exercice4: { screen: Exercice4 }
   },
   {
     transitionConfig: () => fromRight(500),

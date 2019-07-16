@@ -43,22 +43,27 @@ export default class Exercice_3_3 extends React.Component {
                   <GreyInputButton
                     label="I was very succesful"
                     isBottom={false}
+                    onPress={() => this.setState({ active1: !this.state.active1, active2: false, active3: false })}
+                    isActive={this.state.active1}
                   />
                   <GreyInputButton
                     label="I was succesful"
                     isBottom={false}
-                    onPress={() => this.setState({ active: !this.state.active })}
+                    onPress={() => this.setState({ active1: false, active2: !this.state.active2, active3: false })}
+                    isActive={this.state.active2}
                   />
                   <GreyInputButton
                     label="No, I was not very succesful"
                     isBottom={true}
+                    onPress={() => this.setState({ active1: false, active2: false, active3: !this.state.active3 })}
+                    isActive={this.state.active3}
                   />
                 </View>
 
                 <View style={styles.bottom}>
                   <PrimaryButton
                     label="Continue"
-                    disabled={ !this.state.active }
+                    disabled={ !this.state.active1 && !this.state.active2 && !this.state.active3 }
                     onPress={() => {
                       this.props.navigation.navigate("Exercice_3_4");
                     }}

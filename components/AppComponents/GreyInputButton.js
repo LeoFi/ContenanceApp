@@ -14,6 +14,7 @@ export default class GreyInputButton extends Component {
       onPress: this.props.onPress,
       isBottom: this.props.isBottom,
       style: this.props.style,
+      isActive: this.props.isActive,
     };
 
     return (
@@ -22,8 +23,8 @@ export default class GreyInputButton extends Component {
         style={[
           styles.button_grey_input,
           {
-            backgroundColor: this.state.active
-              ? "#B8EDE3"
+            backgroundColor: buttonProps.isActive
+              ? "#A28AD4"
               : "rgba(44, 59, 81, 0.1)",
             marginBottom: buttonProps.isBottom ? 0 : 15
           },
@@ -35,11 +36,11 @@ export default class GreyInputButton extends Component {
           style={[
             styles.button_grey_input_text,
             {
-              color: buttonProps.isSelected
-                ? "rgba(44, 59, 81, 0.3)"
+              color: buttonProps.isActive
+                ? "#FFFFFF"
                 : "#2C3B51",
-              fontWeight: buttonProps.isSelected ? "normal" : "bold",
-              fontFamily: buttonProps.isSelected
+              fontWeight: buttonProps.isActive ? "normal" : "bold",
+              fontFamily: buttonProps.isActive
                 ? "roboto-medium"
                 : "roboto-regular"
             },
@@ -48,6 +49,7 @@ export default class GreyInputButton extends Component {
         >
           {buttonProps.label}
         </Text>
+
       </TouchableOpacity>
     );
   }
