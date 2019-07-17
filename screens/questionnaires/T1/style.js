@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
         flex: 1,
         alignSelf: "stretch",
-        flexGrow: 1,
     },
     center: {
         flex: 1,
@@ -36,14 +35,17 @@ const styles = StyleSheet.create({
     },
     inline: {
         flex: 1,
-        flexDirection:'row-reverse', 
-        justifyContent: 'flex-end',
+        flexDirection:'row', 
+        justifyContent: 'space-between',
         alignSelf: 'stretch',
         paddingTop: 20,
     },
     bottom: {
         flex: 1,
-        justifyContent: 'flex-end',
+        position: "absolute",
+        bottom: 30,
+        left: 30,
+        right: 30,
         alignSelf: 'stretch',
     },
     keyboard_view: {
@@ -83,8 +85,18 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
     },
     text_left: {
+        flex: 1,
         color: '#2C3B51',
         fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'left',
+        fontFamily: 'roboto-regular',
+        alignSelf: 'stretch',
+    },
+    text_left_small: {
+        flex: 1,
+        color: '#2C3B51',
+        fontSize: 15,
         lineHeight: 25,
         textAlign: 'left',
         fontFamily: 'roboto-regular',
@@ -115,14 +127,33 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
     },
     question: {
-        flex:1,
+        flex:2,
         flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
-        position: 'absolute',
-        top: 300,
+        alignSelf: "stretch",
+    },
+    top_security_agreements: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignSelf: "stretch",
+        marginTop: -40,
+        flexDirection: 'row-reverse',
+    },
+    close: {
+        justifyContent: 'flex-start',
+        alignSelf: "stretch",
+        paddingTop: 20,
         zIndex: 1,
-    }
+        left: 20,
+
+    },
+    text_bold: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: 'roboto-bold',
+        alignSelf: "stretch",
+        textAlign: 'left',
+    },
 })
 
 export { styles } 

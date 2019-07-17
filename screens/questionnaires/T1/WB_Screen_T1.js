@@ -20,33 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class WB_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
@@ -72,6 +45,7 @@ export default class WB_Screen_T1 extends React.Component {
       show_19: false,
       show_20: false,
       show_21: false,
+      buttonIsActive: false,
     };
   }
 
@@ -338,6 +312,8 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_19: false });
         this.setState({ show_20: false});
         this.setState({ show_21: true });
+      } else if (this.state.show_21 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -812,6 +788,7 @@ export default class WB_Screen_T1 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                   this.props.navigation.navigate("MFSU_Screen_T1");
                 }}
@@ -823,14 +800,3 @@ export default class WB_Screen_T1 extends React.Component {
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="Continue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
-    }}
-  />
-</View>; */

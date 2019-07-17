@@ -20,33 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class PSU_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
@@ -60,7 +33,8 @@ export default class PSU_Screen_T1 extends React.Component {
       show_7: false,
       show_8: false,
       show_9: false,
-      show_10: false
+      show_10: false,
+      buttonIsActive: false,
     };
   }
 
@@ -140,6 +114,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_8: false });
         this.setState({ show_9: false });
         this.setState({ show_10: true });
+      } else if (this.state.show_10 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -379,6 +355,7 @@ export default class PSU_Screen_T1 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                     this.props.navigation.navigate("SUE_Screen_T1");
                 }}
