@@ -46,9 +46,9 @@ export default class Exercice_1_Intro_Phase extends React.Component {
               <View style={styles.middle}>
                 <Text style={styles.intro_header}>Observe</Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}<Text style={styles.intro_text_bold}>Welcome the the wide ocean!</Text>{"\n"}This is how being on
+                  {"\n"}<Text style={styles.intro_text_bold}>Welcome to the wide ocean!</Text>{"\n"}This is how being on
                   the smartphone can feel like with all its’ great
-                  opportunities. But sometimes, it’s hard to navigate There are
+                  opportunities. But sometimes, it’s hard to navigate. There are
                   impulse waves pulling you underwater when you’re hit by them.
                   {"\n"}Leo explores how being in the digital ocean feels.
                 </Text>

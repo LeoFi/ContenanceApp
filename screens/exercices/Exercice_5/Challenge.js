@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Challenge extends React.Component {
+export default class Exercice_5_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ export default class Exercice_1_Challenge extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Congratulations");
+                this.props.navigation.navigate("Exercice_5_Congratulations");
               }}
             >
               <View style={styles.container_scroll}>

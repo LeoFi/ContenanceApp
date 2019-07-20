@@ -28,28 +28,31 @@ export default class Exercice_3_4 extends React.Component {
       <View>
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_3_5");
-              }}
-            >
-              <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_1.png")}
-                  resizeMode="contain"
-                />
+          <TouchableWithoutFeedback
+            style={styles.scroll}
+            onPress={() => {
+              this.props.navigation.navigate("Exercice_3_5");
+            }}
+          >
+            <View style={{ flex: 1 }}>
+              <Image
+                style={styles.image_height_relative}
+                source={require("../../../assets/images/Exercice3_1.png")}
+                resizeMode="contain"
+              />
+              <View style={styles.container_scroll_img}>
                 <Text style={styles.sub_header_left}>
-                The Solution Triangle
+                  The Solution Triangle
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}We asked you to reflect on these hacks to introduce the so-called Solution Triangle. It consists of three crucial factors: your smartphone, your environment and you as a person. 
+                  {"\n"}We asked you to reflect on these hacks to introduce the
+                  so-called Solution Triangle. It consists of three crucial
+                  factors: your smartphone, your environment and you as a
+                  person.
                 </Text>
               </View>
-            </TouchableWithoutFeedback>
-          </View>
+            </View>
+          </TouchableWithoutFeedback>
         </ScrollView>
       </View>
     );

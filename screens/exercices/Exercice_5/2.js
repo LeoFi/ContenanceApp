@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_2 extends React.Component {
+export default class Exercice_5_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,18 +35,21 @@ export default class Exercice_1_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_3");
+                this.props.navigation.navigate("Exercice_5_3");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.intro_text}>
-                  {"\n"}Now, stop focusing your attention on the screen and start - without changing anything - to notice your posture (body position).
-                  {"\n"}{"\n"}Just observe it for a moment.
+                <Text style={styles.sub_header_left}>
+                  Changing habits is tough
                 </Text>
-
-                <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View>
+                <Text style={styles.intro_text}>
+                  {"\n"}Habits are a double-edged sword. They can work for or
+                  against you. To achieve a positive relationship to your
+                  smartphone, we have to identify your{" "}
+                  <Text style={styles.intro_text_bold}>
+                    very personal Habit DNA!
+                  </Text>
+                </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>

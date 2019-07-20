@@ -23,6 +23,15 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingBottom: 100,
     },
+    container_scroll_img: {
+        flex: 1,
+        //flexGrow: 1,
+        width: Dimensions.get("window").width,
+        alignItems: "center",
+        alignSelf: "stretch",
+        paddingLeft: 30,
+        paddingRight: 30,
+    },
     container_scroll_img_absolute: {
         //width: Dimensions.get("window").width,
         //height: Dimensions.get("window").height,
@@ -92,6 +101,12 @@ const styles = StyleSheet.create({
         //position: "absolute",
         width: Dimensions.get("window").width,
         top: 0,
+    },
+    image_height_relative: {
+        flex: 1,
+        width: Dimensions.get("window").width,
+        top: 80,
+        position: "relative",
     },
     image_absolute: {
         flex: 1,

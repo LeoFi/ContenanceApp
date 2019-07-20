@@ -211,39 +211,39 @@ class ObserveScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <View style={{ flex: 1 }}>
-          <Text style={styles.header}>
-            Observe
-            {/* {this.state.exercices.exercice_state_1}! */}
-          </Text>
+        <ScrollView>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.header}>
+              Observe
+              {/* {this.state.exercices.exercice_state_1}! */}
+            </Text>
 
-          <Image
-            style={styles.center}
-            source={require("./../../assets/images/ObservePhase.png")}
-          />
+            <Image
+              style={styles.center}
+              source={require("./../../assets/images/ObservePhase.png")}
+            />
 
-          <View style={styles.bottom}>
-
-            {ExercicesArray.map((item, key) => (
-              <ExerciceButton
-                key={key}
-                onPress={() => {
-                  {
-                    this.props.navigation.navigate(item.path);
-                  }
-                }}
-                style={item.styleButton}
-              >
-                <Text style={item.styleText}>{item.label}</Text>
-                <Image
-                  style={styles.exercice_button_icon}
-                  source={item.IconSource}
-                />
-              </ExerciceButton>
-            ))}
-
+            <View style={styles.bottom}>
+              {ExercicesArray.map((item, key) => (
+                <ExerciceButton
+                  key={key}
+                  onPress={() => {
+                    {
+                      this.props.navigation.navigate(item.path);
+                    }
+                  }}
+                  style={item.styleButton}
+                >
+                  <Text style={item.styleText}>{item.label}</Text>
+                  <Image
+                    style={styles.exercice_button_icon}
+                    source={item.IconSource}
+                  />
+                </ExerciceButton>
+              ))}
+            </View>
           </View>
-        </View>
+        </ScrollView>
       </View>
     );
   }

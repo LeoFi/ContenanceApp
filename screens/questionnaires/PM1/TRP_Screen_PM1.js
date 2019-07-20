@@ -94,12 +94,12 @@ export default class TRP_Screen_PM1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}></Text>
+        <Text style={styles.header_left_padding}>In the last 4 days...</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            Smartphones increase the speed of responses people expect from me.
+            Smartphones increased the speed of responses people expect from me.
             </Text>
 
             <View style={styles.question}>
@@ -123,7 +123,7 @@ export default class TRP_Screen_PM1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            I feel responsible for replying to communication demands quicker because of the smartphone.
+            I felt responsible for replying to communication demands quicker because of the smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -167,7 +167,7 @@ export default class TRP_Screen_PM1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            In general, I feel stressed by my smartphone.
+            I felt stressed by my smartphone.
             </Text>
 
             <View style={styles.question}>

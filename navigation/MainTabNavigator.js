@@ -79,8 +79,10 @@ import Exercice_5_Aha_2 from "../screens/exercices/Exercice_5/Aha_2";
 import Exercice_5_Challenge from "../screens/exercices/Exercice_5/Challenge";
 import Exercice_5_Congratulations from "../screens/exercices/Exercice_5/Congratulations";
 
+import Intro_Screen_PM1 from "../screens/questionnaires/PM1/Intro_Screen_PM1";
 import PSU_Screen_PM1 from "../screens/questionnaires/PM1/PSU_Screen_PM1";
 import SUE_Screen_PM1 from "../screens/questionnaires/PM1/SUE_Screen_PM1";
+import MFSU_Screen_PM1 from "../screens/questionnaires/PM1/MFSU_Screen_PM1";
 import PSF_Screen_PM1 from "../screens/questionnaires/PM1/PSF_Screen_PM1";
 import TRP_Screen_PM1 from "../screens/questionnaires/PM1/TRP_Screen_PM1";
 import HS_Screen_PM1 from "../screens/questionnaires/PM1/HS_Screen_PM1";
@@ -88,6 +90,8 @@ import IN_Screen_PM1 from "../screens/questionnaires/PM1/IN_Screen_PM1";
 import AP_Screen_PM1 from "../screens/questionnaires/PM1/AP_Screen_PM1";
 import AC_Screen_PM1 from "../screens/questionnaires/PM1/AC_Screen_PM1";
 import SE_Screen_PM1 from "../screens/questionnaires/PM1/SE_Screen_PM1";
+import CE_Screen_PM1 from "../screens/questionnaires/PM1/CE_Screen_PM1";
+import Closing_Screen_PM1 from "../screens/questionnaires/PM1/Closing_Screen_PM1";
 
 const Exercice1 = createStackNavigator(
   {
@@ -781,11 +785,159 @@ const Exercice4 = createStackNavigator(
           />
         )
       }
+    },
+    Intro_Screen_PM1: {
+      screen: Intro_Screen_PM1,
+      navigationOptions: {
+        header: null
+      }
+    },
+    PSU_Screen_PM1: {
+      screen: PSU_Screen_PM1,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SUE_Screen_PM1: {
+      screen: SUE_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
+      }
+    },
+    MFSU_Screen_PM1: {
+      screen: MFSU_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
+      }
+    },
+    PSF_Screen_PM1: {
+      screen: PSF_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={1/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    TRP_Screen_PM1: {
+      screen: TRP_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={2/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    HS_Screen_PM1: {
+      screen: HS_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={3/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    IN_Screen_PM1: {
+      screen: IN_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={4/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AP_Screen_PM1: {
+      screen: AP_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={5/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AC_Screen_PM1: {
+      screen: AC_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={6/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    SE_Screen_PM1: {
+      screen: SE_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    CE_Screen_PM1: {
+      screen: CE_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    Closing_Screen_PM1: {
+      screen: Closing_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
     }
   },
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
+    headerMode: "float",
+    defaultNavigationOptions: {
+      header: props => <HeaderComponent {...props} />,
+      animationEnabled: true,
+      gesturesEnabled: false
+    }
+  }
+);
+
+
+const PM1_Stack = createStackNavigator(
+  {
+    PSU_Screen_PM1: {
+      screen: PSU_Screen_PM1,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SUE_Screen_PM1: {
+      screen: SUE_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
+      }
+    },
+    PSF_Screen_PM1: {
+      screen: PSF_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={1/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    TRP_Screen_PM1: {
+      screen: TRP_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={2/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    HS_Screen_PM1: {
+      screen: HS_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={3/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    IN_Screen_PM1: {
+      screen: IN_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={4/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AP_Screen_PM1: {
+      screen: AP_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={5/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AC_Screen_PM1: {
+      screen: AC_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={6/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    SE_Screen_PM1: {
+      screen: SE_Screen_PM1,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    }
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    //cardStyle: { backgroundColor: "#F4F1DE" },
     headerMode: "float",
     defaultNavigationOptions: {
       header: props => <HeaderComponent {...props} />,
@@ -982,75 +1134,6 @@ const Exercice5 = createStackNavigator(
   }
 );
 
-// const Exercice2 = createStackNavigator(
-//   {
-//     PSU_Screen_PM1: {
-//       screen: PSU_Screen_PM1,
-//       navigationOptions: {
-//         header: null
-//       }
-//     },
-//     SUE_Screen_PM1: {
-//       screen: SUE_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
-//       }
-//     },
-//     PSF_Screen_PM1: {
-//       screen: PSF_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent progress={1/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
-//       }
-//     },
-//     TRP_Screen_PM1: {
-//       screen: TRP_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent progress={2/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
-//       }
-//     },
-//     HS_Screen_PM1: {
-//       screen: HS_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent progress={3/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
-//       }
-//     },
-//     IN_Screen_PM1: {
-//       screen: IN_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent progress={4/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
-//       }
-//     },
-//     AP_Screen_PM1: {
-//       screen: AP_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent progress={5/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
-//       }
-//     },
-//     AC_Screen_PM1: {
-//       screen: AC_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent progress={6/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
-//       }
-//     },
-//     SE_Screen_PM1: {
-//       screen: SE_Screen_PM1,
-//       navigationOptions: {
-//         header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
-//       }
-//     }
-//   },
-//   {
-//     transitionConfig: () => fromRight(500),
-//     //cardStyle: { backgroundColor: "#F4F1DE" },
-//     headerMode: "float",
-//     defaultNavigationOptions: {
-//       header: props => <HeaderComponent {...props} />,
-//       animationEnabled: true,
-//       gesturesEnabled: false
-//     }
-//   }
-// );
-
 const HomeTab = createStackNavigator(
   {
     Home: { screen: TestScreen },
@@ -1058,6 +1141,7 @@ const HomeTab = createStackNavigator(
     Exercice2: { screen: Exercice2 },
     Exercice3: { screen: Exercice3 },
     Exercice4: { screen: Exercice4 },
+    PM1_Stack: { screen: PM1_Stack },
     Exercice5: { screen: Exercice5 }
   },
   {

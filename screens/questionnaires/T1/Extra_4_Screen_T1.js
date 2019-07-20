@@ -86,6 +86,7 @@ export default class Extra_4_Screen_T1 extends React.Component {
           keyboardVerticalOffset="15"
           style={styles.keyboard_view}
         >
+        <ScrollView>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <>
               <Text style={styles.text_left}>
@@ -188,7 +189,7 @@ export default class Extra_4_Screen_T1 extends React.Component {
                       {"\n"}You can now get a report about how you use your
                       device, apps, and websites,
                       {"\n"}
-                      {"\n"}}
+                      {"\n"}
                       <Text style={styles.text_bold}>
                         Average Screen Time and pick-ups of the last 7 days
                       </Text>
@@ -246,6 +247,7 @@ export default class Extra_4_Screen_T1 extends React.Component {
               />
             </>
           </TouchableWithoutFeedback>
+          </ScrollView>
         </KeyboardAvoidingView>
       </View>
     );

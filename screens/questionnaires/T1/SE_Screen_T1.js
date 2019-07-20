@@ -135,7 +135,7 @@ export default class SE_Screen_T1 extends React.Component {
                 isBottom={true}
                 disabled={ !this.state.buttonIsActive }
                 onPress={() => {
-                  this.props.navigation.navigate("Extra1_Screen_T1");
+                  this.props.navigation.navigate("Extra_1_Screen_T1");
                 }}
               />
             </View>

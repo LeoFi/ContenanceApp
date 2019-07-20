@@ -6,14 +6,14 @@ export const updateNickname = nickname => ({
   nickname,
 });
 
-export const updateStartingDate = starting_date => ({
+export const updateStartingDate = initialDate => ({
   type: UPDATE_STARTING_DATE,
-  starting_date,
+  initialDate,
 });
 
 const initialState = {
     nickname: '',
-    starting_date: ''
+    initialDate: ''
 };
 
 export default (state = initialState, action) => {
@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
       case UPDATE_STARTING_DATE:
       return {
         ...state,
-        starting_date: action.starting_date,
+        initialDate: action.initialDate,
       };
     default:
       return state;

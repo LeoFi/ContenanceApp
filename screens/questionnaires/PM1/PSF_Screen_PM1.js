@@ -81,7 +81,7 @@ export default class PSF_Screen_PM1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>Please think about a usual day from the past 4 days.</Text>
+        <Text style={styles.header_left_padding}>In the last 4 days....</Text>
 
         {this.state.show_1 ? (
           <>

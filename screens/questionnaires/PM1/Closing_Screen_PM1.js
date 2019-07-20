@@ -5,7 +5,7 @@ import { styles } from "./style";
 import { connect } from "react-redux";
 
 
-class Closing_Screen_T1 extends React.Component {
+class Closing_Screen_PM1 extends React.Component {
 
   constructor(props) {
     super(props);
@@ -17,11 +17,10 @@ class Closing_Screen_T1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left}>Thank you, {this.props.user.nickname}.</Text>
+        <Text style={styles.header_left}>You finished this module, {this.props.user.nickname}.</Text>
 
         <Text style={styles.text_left}>
-          {"\n"}You’re all set and ready to dive into the wide ocean.
-          {"\n"}{"\n"}Enjoy your journey!
+          {"\n"}You’re done and ready for the next module, starting tomorrow.
         </Text>
 
         <View style={styles.bottom}>
@@ -42,4 +41,4 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(Closing_Screen_T1);
+export default connect(mapStateToProps)(Closing_Screen_PM1);

@@ -33,12 +33,6 @@ export default class StartScreen extends React.Component {
                             this.props.navigation.navigate('AccountAccess');
                         }} />
 
-                    {/* <SecondaryButton
-                        label='I Have An Account'
-                        isBottom={true}
-                        onPress={() => {
-                            this.props.navigation.navigate('Login');
-                        }} /> */}
                 </View>
 
             </View>

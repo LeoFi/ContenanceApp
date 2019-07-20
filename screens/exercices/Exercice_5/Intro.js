@@ -17,7 +17,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Intro extends React.Component {
+export default class Exercice_5_Intro extends React.Component {
   constructor(props) {
     super(props);
 

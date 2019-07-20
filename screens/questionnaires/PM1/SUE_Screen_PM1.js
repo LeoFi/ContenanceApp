@@ -134,7 +134,7 @@ time on the smartphone?</Text>
                 label="Continue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("PSF_Screen_PM1");
+                  this.props.navigation.navigate("MFSU_Screen_PM1");
                 }}
               />
             </View>

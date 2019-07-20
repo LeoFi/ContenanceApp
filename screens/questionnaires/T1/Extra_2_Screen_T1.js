@@ -127,15 +127,15 @@ export default class Extra_2_Screen_T1 extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "column" }}
               >
-                <Radio iconName={"lens"} label={"Employed for wages"} value={"Occupation/Employed for wages"} />
-                <Radio iconName={"lens"} label={"Self-employed"} value={"Occupation/Self-employed"} />
-                <Radio iconName={"lens"} label={"Out of work and looking for work"} value={"Occupation/Out of work and looking for work"} />
-                <Radio iconName={"lens"} label={"Out of work but not currently looking for work"} value={"Occupation/Out of work but not currently looking for work"} />
-                <Radio iconName={"lens"} label={"A homemaker"} value={"Occupation/A homemaker"} />
-                <Radio iconName={"lens"} label={"A student"} value={"Occupation/A student"} />
-                <Radio iconName={"lens"} label={"Military"} value={"Occupation/Military"} />
-                <Radio iconName={"lens"} label={"Retired"} value={"Occupation/Retired"} />
-                <Radio iconName={"lens"} label={"Unable to work"} value={"Occupation/Unable to work"} />
+                <Radio iconName={"lens"} label={"Employed for wages"} value={"Employment/Employed for wages"} />
+                <Radio iconName={"lens"} label={"Self-employed"} value={"Employment/Self-employed"} />
+                <Radio iconName={"lens"} label={"Out of work and looking for work"} value={"Employment/Out of work and looking for work"} />
+                <Radio iconName={"lens"} label={"Out of work but not currently looking for work"} value={"Employment/Out of work but not currently looking for work"} />
+                <Radio iconName={"lens"} label={"A homemaker"} value={"Employment/A homemaker"} />
+                <Radio iconName={"lens"} label={"A student"} value={"Employment/A student"} />
+                <Radio iconName={"lens"} label={"Military"} value={"Employment/Military"} />
+                <Radio iconName={"lens"} label={"Retired"} value={"Employment/Retired"} />
+                <Radio iconName={"lens"} label={"Unable to work"} value={"Employment/Unable to work"} />
               </RadioGroup>
             </View>
           </>
@@ -152,8 +152,8 @@ export default class Extra_2_Screen_T1 extends React.Component {
                 getChecked={this.getChecked}
                 RadioGroupStyle={{ flexDirection: "column" }}
               >
-                <Radio iconName={"lens"} label={"Yes"} value={"Has_Children/Yes"} />
-                <Radio iconName={"lens"} label={"No"} value={"Has_Children/No"} />
+                <Radio iconName={"lens"} label={"Yes"} value={"Kids/Yes"} />
+                <Radio iconName={"lens"} label={"No"} value={"Kids/No"} />
               </RadioGroup>
             </View>
     
@@ -164,7 +164,7 @@ export default class Extra_2_Screen_T1 extends React.Component {
                 isBottom={true}
                 disabled={ !this.state.buttonIsActive }
                 onPress={() => {
-                  this.props.navigation.navigate("IN_Screen_T1");
+                  this.props.navigation.navigate("Extra_3_Screen_T1");
                 }}
               />
             </View>

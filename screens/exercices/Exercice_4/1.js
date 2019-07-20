@@ -61,7 +61,9 @@ export default class Exercice_4_1 extends Component {
       shouldPlay: playing
     };
 
+    // const source = require("../../../assets/sounds/KeepBreathe_DAY_4.mp3");
     const source = require("../../../assets/sounds/try.mp3");
+    
 
     try {
       const { sound, status } = await Audio.Sound.createAsync(

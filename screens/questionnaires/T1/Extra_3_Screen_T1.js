@@ -45,7 +45,7 @@ export default class Extra_3_Screen_T1 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({ Nationality: userNationality });
-    this.props.navigation.navigate("Extra_2_Screen_T1");
+    this.props.navigation.navigate("Extra_4_Screen_T1");
   };
 
   render() {

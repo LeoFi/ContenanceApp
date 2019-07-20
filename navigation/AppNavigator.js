@@ -31,6 +31,7 @@ import Extra_2_Screen_T1 from "../screens/questionnaires/T1/Extra_2_Screen_T1";
 import Extra_3_Screen_T1 from "../screens/questionnaires/T1/Extra_3_Screen_T1";
 import Extra_4_Screen_T1 from "../screens/questionnaires/T1/Extra_4_Screen_T1";
 import Extra_5_Screen_T1 from "../screens/questionnaires/T1/Extra_5_Screen_T1";
+import Extra_6_Screen_T1 from "../screens/questionnaires/T1/Extra_6_Screen_T1";
 import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
 import TestScreen from "../screens/TestScreen";
@@ -60,9 +61,10 @@ const IntroStack = createStackNavigator(
     // Extra_1_Screen_T1: { screen: Extra_1_Screen_T1 },
     // Extra_2_Screen_T1: { screen: Extra_2_Screen_T1 },
     // Extra_3_Screen_T1: { screen: Extra_3_Screen_T1 },
-    Extra_4_Screen_T1: { screen: Extra_4_Screen_T1 },
-    Extra_5_Screen_T1: { screen: Extra_5_Screen_T1 },
-    Closing_Screen_T1: { screen: Closing_Screen_T1 },
+    // Extra_4_Screen_T1: { screen: Extra_4_Screen_T1 },
+    // Extra_5_Screen_T1: { screen: Extra_5_Screen_T1 },
+    // Extra_6_Screen_T1: { screen: Extra_6_Screen_T1 },
+    // Closing_Screen_T1: { screen: Closing_Screen_T1 },
     Home: { screen: MainTabNavigator }
   },
   {

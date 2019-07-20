@@ -94,12 +94,12 @@ export default class HS_Screen_PM1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>Using my smartphone is something...</Text>
+        <Text style={styles.header_left_padding}>In the last 4 days, using my smartphone was something...</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ... I do automatically.
+            ... I did automatically.
             </Text>
 
             <View style={styles.question}>
@@ -123,7 +123,7 @@ export default class HS_Screen_PM1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... I do without having to consciously remember.
+            ... I did without having to consciously remember.
             </Text>
 
             <View style={styles.question}>
@@ -145,7 +145,7 @@ export default class HS_Screen_PM1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ... I do without thinking.
+            ... I did without thinking.
             </Text>
 
             <View style={styles.question}>
@@ -167,7 +167,7 @@ export default class HS_Screen_PM1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            ... I start doing before I realise I’m doing it.
+            ... I started doing before I realized I was doing it.
             </Text>
 
             <View style={styles.question}>

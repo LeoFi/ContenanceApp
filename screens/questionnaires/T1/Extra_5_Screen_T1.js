@@ -80,7 +80,7 @@ export default class Extra_5_Screen_T1 extends React.Component {
                 isBottom={true}
                 disabled={ !this.state.buttonIsActive }
                 onPress={() => {
-                  this.props.navigation.navigate("Closing_Screen_T1");
+                  this.props.navigation.navigate("Extra_6_Screen_T1");
                 }}
               />
             </View>

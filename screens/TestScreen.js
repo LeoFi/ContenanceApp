@@ -19,6 +19,15 @@ import {
   HeaderComponent
 } from "./../components/AppComponents";
 
+import { updateState_Ex1 } from "./../redux-persist/redux/exercices";
+import { updateState_Ex2 } from "./../redux-persist/redux/exercices";
+import { updateState_Ex3 } from "./../redux-persist/redux/exercices";
+import { updateState_Ex4 } from "./../redux-persist/redux/exercices";
+import { updateState_Ex5 } from "./../redux-persist/redux/exercices";
+import { updateState_Ex6 } from "./../redux-persist/redux/exercices";
+import { updateState_Ex7 } from "./../redux-persist/redux/exercices";
+import { updateState_Ex8 } from "./../redux-persist/redux/exercices";
+
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
@@ -26,20 +35,46 @@ import { connect } from "react-redux";
 class TestScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
-  onSignoutPress = () => {
-    firebase.auth().signOut();
-  };
+  componentDidMount() {
+    this.compareDates();
+  }
 
-  SampleFunction = item => {
-    Alert.alert(item);
+  compareDates = () => {
+    const initialDate = this.props.user.initialDate;
+
+    diff_days = (dt2, dt1) => {
+      var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+      diff /= 60 * 60 * 24;
+      return Math.abs(Math.round(diff));
+    };
+
+    dt1 = new Date(initialDate);
+    dt2 = new Date(2019, 6, 19);
+    //dt2 = new Date();
+
+    var x = diff_days(dt1, dt2);
+
+    for (let programLength = 1; programLength < 21; programLength++) {
+
+      if (x === programLength) {
+
+        const updateState = "exercice_state_" + programLength;
+        const updateFunction = [updateState_Ex1, updateState_Ex2, updateState_Ex3, updateState_Ex4];
+
+
+        this.setState({ updateState: "next" }, function() {
+            this.props.dispatch(updateFunction[x - 1](this.state.updateState));
+          });
+
+
+      }
+    }
   };
 
   render() {
-
     let ExerciceTextStyle_1 = "";
     let ExerciceStyle_1 = "";
 
@@ -58,6 +93,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_1 = styles.text_new;
         ExerciceStyle_1 = styles.new;
         IconsExercice_1 = require("./../assets/images/newmark_observe.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_1 = styles.text_locked;
+        ExerciceStyle_1 = styles.locked;
+        IconsExercice_1 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_1 = styles.text_locked;
@@ -84,6 +124,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_2 = styles.new;
         IconsExercice_2 = require("./../assets/images/newmark_observe.png");
         break;
+      case "locked":
+        ExerciceTextStyle_2 = styles.text_locked;
+        ExerciceStyle_2 = styles.locked;
+        IconsExercice_2 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_2 = styles.text_locked;
         ExerciceStyle_2 = styles.locked;
@@ -108,6 +153,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_3 = styles.text_new;
         ExerciceStyle_3 = styles.new;
         IconsExercice_3 = require("./../assets/images/newmark_observe.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_3 = styles.text_locked;
+        ExerciceStyle_3 = styles.locked;
+        IconsExercice_3 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_3 = styles.text_locked;
@@ -134,6 +184,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_4 = styles.new;
         IconsExercice_4 = require("./../assets/images/newmark_observe.png");
         break;
+      case "locked":
+        ExerciceTextStyle_4 = styles.text_locked;
+        ExerciceStyle_4 = styles.locked;
+        IconsExercice_4 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_4 = styles.text_locked;
         ExerciceStyle_4 = styles.locked;
@@ -158,6 +213,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_5 = styles.text_new;
         ExerciceStyle_5 = styles.new;
         IconsExercice_5 = require("./../assets/images/newmark_reflect.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_5 = styles.text_locked;
+        ExerciceStyle_5 = styles.locked;
+        IconsExercice_5 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_5 = styles.text_locked;
@@ -184,6 +244,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_6 = styles.new;
         IconsExercice_6 = require("./../assets/images/newmark_reflect.png");
         break;
+      case "locked":
+        ExerciceTextStyle_6 = styles.text_locked;
+        ExerciceStyle_6 = styles.locked;
+        IconsExercice_6 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_6 = styles.text_locked;
         ExerciceStyle_6 = styles.locked;
@@ -208,6 +273,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_7 = styles.text_new;
         ExerciceStyle_7 = styles.new;
         IconsExercice_7 = require("./../assets/images/newmark_reflect.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_7 = styles.text_locked;
+        ExerciceStyle_7 = styles.locked;
+        IconsExercice_7 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_7 = styles.text_locked;
@@ -234,6 +304,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_8 = styles.new;
         IconsExercice_8 = require("./../assets/images/newmark_reflect.png");
         break;
+      case "locked":
+        ExerciceTextStyle_8 = styles.text_locked;
+        ExerciceStyle_8 = styles.locked;
+        IconsExercice_8 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_8 = styles.text_locked;
         ExerciceStyle_8 = styles.locked;
@@ -258,6 +333,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_9 = styles.text_new;
         ExerciceStyle_9 = styles.new;
         IconsExercice_9 = require("./../assets/images/newmark_vision.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_9 = styles.text_locked;
+        ExerciceStyle_9 = styles.locked;
+        IconsExercice_9 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_9 = styles.text_locked;
@@ -284,6 +364,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_10 = styles.new;
         IconsExercice_10 = require("./../assets/images/newmark_vision.png");
         break;
+      case "locked":
+        ExerciceTextStyle_10 = styles.text_locked;
+        ExerciceStyle_10 = styles.locked;
+        IconsExercice_10 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_10 = styles.text_locked;
         ExerciceStyle_10 = styles.locked;
@@ -308,6 +393,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_11 = styles.text_new;
         ExerciceStyle_11 = styles.new;
         IconsExercice_11 = require("./../assets/images/newmark_vision.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_11 = styles.text_locked;
+        ExerciceStyle_11 = styles.locked;
+        IconsExercice_11 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_11 = styles.text_locked;
@@ -334,6 +424,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_12 = styles.new;
         IconsExercice_12 = require("./../assets/images/newmark_vision.png");
         break;
+      case "locked":
+        ExerciceTextStyle_12 = styles.text_locked;
+        ExerciceStyle_12 = styles.locked;
+        IconsExercice_12 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_12 = styles.text_locked;
         ExerciceStyle_12 = styles.locked;
@@ -358,6 +453,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_13 = styles.text_new;
         ExerciceStyle_13 = styles.new;
         IconsExercice_13 = require("./../assets/images/newmark_plan.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_13 = styles.text_locked;
+        ExerciceStyle_13 = styles.locked;
+        IconsExercice_13 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_13 = styles.text_locked;
@@ -384,6 +484,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_14 = styles.new;
         IconsExercice_14 = require("./../assets/images/newmark_plan.png");
         break;
+      case "locked":
+        ExerciceTextStyle_14 = styles.text_locked;
+        ExerciceStyle_14 = styles.locked;
+        IconsExercice_14 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_14 = styles.text_locked;
         ExerciceStyle_14 = styles.locked;
@@ -408,6 +513,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_15 = styles.text_new;
         ExerciceStyle_15 = styles.new;
         IconsExercice_15 = require("./../assets/images/newmark_plan.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_15 = styles.text_locked;
+        ExerciceStyle_15 = styles.locked;
+        IconsExercice_15 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_15 = styles.text_locked;
@@ -434,6 +544,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_16 = styles.new;
         IconsExercice_16 = require("./../assets/images/newmark_plan.png");
         break;
+      case "locked":
+        ExerciceTextStyle_16 = styles.text_locked;
+        ExerciceStyle_16 = styles.locked;
+        IconsExercice_16 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_16 = styles.text_locked;
         ExerciceStyle_16 = styles.locked;
@@ -458,6 +573,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_17 = styles.text_new;
         ExerciceStyle_17 = styles.new;
         IconsExercice_17 = require("./../assets/images/newmark_support.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_17 = styles.text_locked;
+        ExerciceStyle_17 = styles.locked;
+        IconsExercice_17 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_17 = styles.text_locked;
@@ -484,6 +604,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_18 = styles.new;
         IconsExercice_18 = require("./../assets/images/newmark_support.png");
         break;
+      case "locked":
+        ExerciceTextStyle_18 = styles.text_locked;
+        ExerciceStyle_18 = styles.locked;
+        IconsExercice_18 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_18 = styles.text_locked;
         ExerciceStyle_18 = styles.locked;
@@ -508,6 +633,11 @@ class TestScreen extends React.Component {
         ExerciceTextStyle_19 = styles.text_new;
         ExerciceStyle_19 = styles.new;
         IconsExercice_19 = require("./../assets/images/newmark_support.png");
+        break;
+      case "locked":
+        ExerciceTextStyle_19 = styles.text_locked;
+        ExerciceStyle_19 = styles.locked;
+        IconsExercice_19 = require("./../assets/images/lockmark.png");
         break;
       default:
         ExerciceTextStyle_19 = styles.text_locked;
@@ -534,6 +664,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_20 = styles.new;
         IconsExercice_20 = require("./../assets/images/newmark_support.png");
         break;
+      case "locked":
+        ExerciceTextStyle_20 = styles.text_locked;
+        ExerciceStyle_20 = styles.locked;
+        IconsExercice_20 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_20 = styles.text_locked;
         ExerciceStyle_20 = styles.locked;
@@ -559,6 +694,11 @@ class TestScreen extends React.Component {
         ExerciceStyle_21 = styles.new;
         IconsExercice_21 = require("./../assets/images/newmark_support.png");
         break;
+      case "locked":
+        ExerciceTextStyle_21 = styles.text_locked;
+        ExerciceStyle_21 = styles.locked;
+        IconsExercice_21 = require("./../assets/images/lockmark.png");
+        break;
       default:
         ExerciceTextStyle_21 = styles.text_locked;
         ExerciceStyle_21 = styles.locked;
@@ -572,7 +712,8 @@ class TestScreen extends React.Component {
         label: "Day 1 - Contenance",
         styleButton: ExerciceStyle_1,
         styleText: ExerciceTextStyle_1,
-        IconSource: IconsExercice_1
+        IconSource: IconsExercice_1,
+        state: this.props.exercices.exercice_state_1
       },
       {
         id: 2,
@@ -580,7 +721,8 @@ class TestScreen extends React.Component {
         label: "Day 2 - Notice Your Impulses",
         styleButton: ExerciceStyle_2,
         styleText: ExerciceTextStyle_2,
-        IconSource: IconsExercice_2
+        IconSource: IconsExercice_2,
+        state: this.props.exercices.exercice_state_2
       },
       {
         id: 3,
@@ -588,7 +730,8 @@ class TestScreen extends React.Component {
         label: "Day 3 - Solution Triangle",
         styleButton: ExerciceStyle_3,
         styleText: ExerciceTextStyle_3,
-        IconSource: IconsExercice_3
+        IconSource: IconsExercice_3,
+        state: this.props.exercices.exercice_state_3
       },
       {
         id: 4,
@@ -596,7 +739,8 @@ class TestScreen extends React.Component {
         label: "Day 4 - Keep Breathing",
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
-        IconSource: IconsExercice_4
+        IconSource: IconsExercice_4,
+        state: this.props.exercices.exercice_state_4
       },
       {
         id: 5,
@@ -604,7 +748,8 @@ class TestScreen extends React.Component {
         label: "Day 5 - Habit Loop",
         styleButton: ExerciceStyle_5,
         styleText: ExerciceTextStyle_5,
-        IconSource: IconsExercice_5
+        IconSource: IconsExercice_5,
+        state: this.props.exercices.exercice_state_5
       },
       {
         id: 6,
@@ -612,7 +757,8 @@ class TestScreen extends React.Component {
         label: "Day 6 - Exploring Emotional Triggers",
         styleButton: ExerciceStyle_6,
         styleText: ExerciceTextStyle_6,
-        IconSource: IconsExercice_6
+        IconSource: IconsExercice_6,
+        state: this.props.exercices.exercice_state_6
       },
       {
         id: 7,
@@ -620,7 +766,8 @@ class TestScreen extends React.Component {
         label: "Day 7 - Getting Lost",
         styleButton: ExerciceStyle_7,
         styleText: ExerciceTextStyle_7,
-        IconSource: IconsExercice_7
+        IconSource: IconsExercice_7,
+        state: this.props.exercices.exercice_state_7
       },
       {
         id: 8,
@@ -628,7 +775,8 @@ class TestScreen extends React.Component {
         label: "Day 8 - Mindful Social Media Use",
         styleButton: ExerciceStyle_8,
         styleText: ExerciceTextStyle_8,
-        IconSource: IconsExercice_8
+        IconSource: IconsExercice_8,
+        state: this.props.exercices.exercice_state_8
       },
       {
         id: 9,
@@ -636,7 +784,8 @@ class TestScreen extends React.Component {
         label: "Day 9 - Exploring Values",
         styleButton: ExerciceStyle_9,
         styleText: ExerciceTextStyle_9,
-        IconSource: IconsExercice_9
+        IconSource: IconsExercice_9,
+        state: this.props.exercices.exercice_state_9
       },
       {
         id: 10,
@@ -644,7 +793,8 @@ class TestScreen extends React.Component {
         label: "Day 10 - Meaningful Smartphone Activities",
         styleButton: ExerciceStyle_10,
         styleText: ExerciceTextStyle_10,
-        IconSource: IconsExercice_10
+        IconSource: IconsExercice_10,
+        state: this.props.exercices.exercice_state_10
       },
       {
         id: 11,
@@ -652,7 +802,8 @@ class TestScreen extends React.Component {
         label: "Day 11 - 54321 Trick",
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,
-        IconSource: IconsExercice_11
+        IconSource: IconsExercice_11,
+        state: this.props.exercices.exercice_state_11
       },
       {
         id: 12,
@@ -660,7 +811,8 @@ class TestScreen extends React.Component {
         label: "Day 12 - Inner Scientist",
         styleButton: ExerciceStyle_12,
         styleText: ExerciceTextStyle_12,
-        IconSource: IconsExercice_12
+        IconSource: IconsExercice_12,
+        state: this.props.exercices.exercice_state_12
       },
       {
         id: 13,
@@ -668,7 +820,8 @@ class TestScreen extends React.Component {
         label: "Day 13 - Meaningful Smartphone Habits",
         styleButton: ExerciceStyle_13,
         styleText: ExerciceTextStyle_13,
-        IconSource: IconsExercice_13
+        IconSource: IconsExercice_13,
+        state: this.props.exercices.exercice_state_13
       },
       {
         id: 14,
@@ -676,7 +829,8 @@ class TestScreen extends React.Component {
         label: "Day 14 - Being Prepared for Challenges",
         styleButton: ExerciceStyle_14,
         styleText: ExerciceTextStyle_14,
-        IconSource: IconsExercice_14
+        IconSource: IconsExercice_14,
+        state: this.props.exercices.exercice_state_14
       },
       {
         id: 15,
@@ -684,7 +838,8 @@ class TestScreen extends React.Component {
         label: "Day 15 - Beauty of Imagination",
         styleButton: ExerciceStyle_15,
         styleText: ExerciceTextStyle_15,
-        IconSource: IconsExercice_15
+        IconSource: IconsExercice_15,
+        state: this.props.exercices.exercice_state_15
       },
       {
         id: 16,
@@ -692,7 +847,8 @@ class TestScreen extends React.Component {
         label: "Day 16 - Brain Reset",
         styleButton: ExerciceStyle_16,
         styleText: ExerciceTextStyle_16,
-        IconSource: IconsExercice_16
+        IconSource: IconsExercice_16,
+        state: this.props.exercices.exercice_state_16
       },
       {
         id: 17,
@@ -700,7 +856,8 @@ class TestScreen extends React.Component {
         label: "Day 17 - Taking Control on the Smartphone",
         styleButton: ExerciceStyle_17,
         styleText: ExerciceTextStyle_17,
-        IconSource: IconsExercice_17
+        IconSource: IconsExercice_17,
+        state: this.props.exercices.exercice_state_17
       },
       {
         id: 18,
@@ -708,7 +865,8 @@ class TestScreen extends React.Component {
         label: "Day 18 - Taking Control of the Environment",
         styleButton: ExerciceStyle_18,
         styleText: ExerciceTextStyle_18,
-        IconSource: IconsExercice_18
+        IconSource: IconsExercice_18,
+        state: this.props.exercices.exercice_state_18
       },
       {
         id: 19,
@@ -716,7 +874,8 @@ class TestScreen extends React.Component {
         label: "Day 19 - Me, the Smartphone and Others",
         styleButton: ExerciceStyle_19,
         styleText: ExerciceTextStyle_19,
-        IconSource: IconsExercice_19
+        IconSource: IconsExercice_19,
+        state: this.props.exercices.exercice_state_19
       },
       {
         id: 20,
@@ -724,7 +883,8 @@ class TestScreen extends React.Component {
         label: "Day 20 - Daddeln is Okay",
         styleButton: ExerciceStyle_20,
         styleText: ExerciceTextStyle_20,
-        IconSource: IconsExercice_20
+        IconSource: IconsExercice_20,
+        state: this.props.exercices.exercice_state_20
       },
       {
         id: 21,
@@ -732,9 +892,12 @@ class TestScreen extends React.Component {
         label: "Day 21 - Brain Reset",
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
-        IconSource: IconsExercice_21
+        IconSource: IconsExercice_21,
+        state: this.props.exercices.exercice_state_21
       }
     ];
+
+    // const state = ExercicesArray.filter(item => item.state === "locked");
 
     return (
       <View
@@ -746,48 +909,58 @@ class TestScreen extends React.Component {
         }}
       >
         <StatusBar barStyle="light-content" />
-        <View style={{ flex: 1, paddingTop: 50, marginTop: 10 }}>
-          <Image
-            style={styles.center}
-            source={require("./../assets/images/home_1.png")}
-          />
-        </View>
+        <ScrollView
+          contentContainerStyle={{
+            // flexGrow: 1,
+            justifyContent: "space-between"
+          }}
+        >
+          <View style={{ flex: 1, paddingTop: 50, marginTop: 10 }}>
+            <Image
+              style={styles.center}
+              source={require("./../assets/images/home_1.png")}
+            />
+          </View>
 
-        <View style={{ flex: 1 }}>
-          <Text style={styles.header_left}>
-            Hey, {this.props.user.nickname}
-            {/* {this.state.exercices.exercice_state_1}! */}
-          </Text>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.header_left}>
+              Hey, {this.props.user.nickname}
+              {/* {this.props.user.initialDate} */}
+              {/* {this.state.exercices.exercice_state_1}! */}
+            </Text>
 
-          <Text style={styles.text_left}>
-            {"\n"}Continue with your next session.
-          </Text>
+            <Text style={styles.text_left}>
+              {"\n"}Continue with your next session.
+            </Text>
 
-          <ScrollView
-            contentContainerStyle={{
-              // flexGrow: 1,
-              justifyContent: "space-between"
-            }}
-          >
-            {ExercicesArray.map((item, key) => (
-              <ExerciceButton
-                key={key}
-                onPress={() => {
-                  {
-                    this.props.navigation.navigate(item.path);
-                  }
-                }}
-                style={item.styleButton}
-              >
-                <Text style={item.styleText}>{item.label}</Text>
-                <Image
-                  style={styles.exercice_button_icon}
-                  source={item.IconSource}
-                />
-              </ExerciceButton>
-            ))}
-          </ScrollView>
-        </View>
+            <Text style={styles.text_left}>
+              {"\n"}Continue with your next session.
+            </Text>
+
+            {ExercicesArray.map((item, key) =>
+              item.state === "next" || item.state === "locked" ? (
+                <View key={key}>
+                  <ExerciceButton
+                    onPress={() => {
+                      {
+                        this.props.navigation.navigate(item.path);
+                      }
+                    }}
+                    style={item.styleButton}
+                    state={item.state}
+                    //disabled={item.state === undefined ? true : false}
+                  >
+                    <Text style={item.styleText}>{item.label}</Text>
+                    <Image
+                      style={styles.exercice_button_icon}
+                      source={item.IconSource}
+                    />
+                  </ExerciceButton>
+                </View>
+              ) : null
+            )}
+          </View>
+        </ScrollView>
       </View>
     );
   }
@@ -898,8 +1071,10 @@ const styles = StyleSheet.create({
   },
   exercice_button_icon: {
     alignSelf: "flex-end",
-    top: -5,
-    right: 20
+    top: "50%",
+    marginTop: 3,
+    right: 20,
+    position: "absolute"
   },
   completed: {
     backgroundColor: "transparent",
@@ -920,7 +1095,10 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     textTransform: "capitalize",
     letterSpacing: 1,
-    alignSelf: "flex-start"
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 15,
+    marginLeft: -5
   },
   next: {
     backgroundColor: "#A878CE",
@@ -941,8 +1119,10 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-medium",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 15,
+    marginLeft: -5
   },
   new: {
     backgroundColor: "transparent",
@@ -963,17 +1143,16 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-medium",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 15,
+    marginLeft: -5
   },
   locked: {
-    backgroundColor: "transparent",
+    backgroundColor: "#E2DFD1",
     borderWidth: 2,
-    borderTopColor: "transparent",
-    borderLeftColor: "transparent",
-    borderRightColor: "transparent",
-    borderBottomColor: "rgba(44, 59, 81, 0.3)",
-    borderRadius: 0,
+    borderColor: "#E2DFD1",
+    borderRadius: 12,
     overflow: "hidden",
     padding: 15,
     flexDirection: "row",
@@ -988,8 +1167,10 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-regular",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 15,
+    marginLeft: -5
   }
 });
 

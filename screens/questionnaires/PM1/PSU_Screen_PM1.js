@@ -20,32 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
 
 export default class PSU_Screen_PM1 extends React.Component {
   constructor(props) {
@@ -129,17 +103,6 @@ export default class PSU_Screen_PM1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-      }  else if (this.state.show_9 == true) {
-        this.setState({ show_1: false });
-        this.setState({ show_2: false });
-        this.setState({ show_3: false });
-        this.setState({ show_4: false });
-        this.setState({ show_5: false });
-        this.setState({ show_6: false });
-        this.setState({ show_7: false });
-        this.setState({ show_8: false });
-        this.setState({ show_9: false });
-        this.setState({ show_10: true });
       }
     }, 400);
   };
@@ -177,7 +140,7 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-              When out of range for some time, I become preoccupied with the
+            When out of range for some time, I became preoccupied with the
               thought of missing a call or a message.
             </Text>
 
@@ -200,8 +163,8 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-              If I don’t have a smartphone, my friends would find it hard to get
-              in touch with me.
+            I felt anxious if I had not checked for messages or switched on
+              my smartphone for some time.
             </Text>
 
             <View style={styles.question}>
@@ -223,8 +186,7 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-              I feel anxious if I have not checked for messages or switched on
-              my smartphone for some time.
+            My friends and family complained about my use of the smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -246,7 +208,8 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_5 ? (
           <>
             <Text style={styles.text_left}>
-              My friends and family complain about my use of the smartphone.
+            I found myself engaged on the smartphone for longer periods of time
+              than intended.
             </Text>
 
             <View style={styles.question}>
@@ -268,8 +231,8 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_6 ? (
           <>
             <Text style={styles.text_left}>
-              I find myself engaged on the smartphone for longer periods of time
-              than intended.
+            I was often late for appointments because I had been engaged on the
+              smartphone when I shouldn’t have been.
             </Text>
 
             <View style={styles.question}>
@@ -291,8 +254,7 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_7 ? (
           <>
             <Text style={styles.text_left}>
-              I am often late for appointments because I’m engaged on the
-              smartphone when I shouldn’t be.
+            I found it difficult to switch off my smartphone (or use flight mode).
             </Text>
 
             <View style={styles.question}>
@@ -314,7 +276,7 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_8 ? (
           <>
             <Text style={styles.text_left}>
-              I find it difficult to switch off my smartphone.
+            I have been told that I spend too much time on my smartphone.
             </Text>
 
             <View style={styles.question}>
@@ -336,29 +298,7 @@ export default class PSU_Screen_PM1 extends React.Component {
         {this.state.show_9 ? (
           <>
             <Text style={styles.text_left}>
-              I have been told that I spend too much time on my smartphone.
-            </Text>
-
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU09_D4/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU09_D4/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU09_D4/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU09_D4/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU09_D4/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU09_D4/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
-
-        {this.state.show_10 ? (
-          <>
-            <Text style={styles.text_left}>
-            In general, I find my smartphone use problematic.
+            I found my smartphone use problematic.
             </Text>
 
             <View style={styles.question}>

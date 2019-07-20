@@ -16,9 +16,9 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-import Moment from "react-moment";
 import { connect } from "react-redux";
 import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex2 } from "./../../../redux-persist/redux/exercices";
 import { updateStartingDate } from "./../../../redux-persist/redux/user";
 
 class Exercice_1_Congratulations extends React.Component {
@@ -26,20 +26,10 @@ class Exercice_1_Congratulations extends React.Component {
     super(props);
 
     this.state = {
-      exercice_state_1: "completed"
-      //starting_date: Moment(startdate, "DD-MM-YYYY"),
+      exercice_state_1: "completed",
+      exercice_state_2: "locked"
     };
   }
-
-  handleSubmit = () => {
-    const exercice_state_1 = this.state;
-    const starting_date = this.state;
-    this.setState({ exercice_state_1: exercice_state_1 });
-    this.setState({ starting_date: starting_date });
-    this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
-    this.props.dispatch(updateStartingDate(this.state.starting_date));
-    this.props.navigation.push("Home");
-  };
 
   render() {
     return (
@@ -68,6 +58,37 @@ class Exercice_1_Congratulations extends React.Component {
       </View>
     );
   }
+
+  componentDidMount() {
+    this.getDate();
+  }
+
+  getDate = () => {
+    var initialDate = new Date().toString();
+
+    console.log(initialDate);
+
+    if (this.props.user.initialDate.length === 0) {
+    //if (this.props.user.initialDate.length > 0) {
+      this.setState({ initialDate: initialDate }, function() {
+      //this.setState({ initialDate: "" }, function() {
+        //console.log(this.state.initialDate);
+        this.props.dispatch(updateStartingDate(this.state.initialDate));
+      });
+    } else {
+      return;
+    }
+  };
+
+  handleSubmit = () => {
+    const exercice_state_1 = this.state.exercice_state_1;
+    this.setState({ exercice_state_1: exercice_state_1 });
+    this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
+    const exercice_state_2 = this.state.exercice_state_2;
+    this.setState({ exercice_state_2: exercice_state_2 });
+    this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    this.props.navigation.push("Home");
+  };
 }
 
 const mapStateToProps = state => ({

@@ -16,29 +16,25 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-import Moment from 'react-moment';
+
 import { connect } from "react-redux";
-import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices"
 import { updateStartingDate } from "./../../../redux-persist/redux/user"
 
 
-class Exercice_1_Congratulations extends React.Component {
+class Exercice_5_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_1: "completed",
-      //starting_date: Moment(startdate, "DD-MM-YYYY"),
+      exercice_state_5: "completed",
     };
   }
  
   handleSubmit = () => {
     const exercice_state_1 = this.state;
-    const starting_date = this.state;
     this.setState({ exercice_state_1: exercice_state_1 });
-    this.setState({ starting_date: starting_date });
     this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
-    this.props.dispatch(updateStartingDate(this.state.starting_date));
     this.props.navigation.push("Home");
   };
 
@@ -81,4 +77,4 @@ const mapStateToProps = state => ({
   exercices: state.exercices
 });
 
-export default connect(mapStateToProps)(Exercice_1_Congratulations);
+export default connect(mapStateToProps)(Exercice_5_Congratulations);

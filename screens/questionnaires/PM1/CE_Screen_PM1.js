@@ -135,7 +135,7 @@ export default class SE_Screen_PM1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ... enjoyed doing the activities.
+            ... enjoyed doing the program.
             </Text>
 
             <View style={styles.question}>
@@ -158,7 +158,7 @@ export default class SE_Screen_PM1 extends React.Component {
                 label="ContACue"
                 isBottom={true}
                 onPress={() => {
-                  this.props.navigation.navigate("SE_Screen");
+                  this.props.navigation.navigate("Closing_Screen_PM1");
                 }}
               />
             </View>
