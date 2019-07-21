@@ -74,172 +74,82 @@ class TestScreen extends React.Component {
 
     console.log("DIFFERENCE" + x);
 
-    for (let programLength = 1; programLength < 21; programLength++) {
-      const updateFunction = [
-        updateState_Ex1,
-        updateState_Ex2,
-        updateState_Ex3,
-        updateState_Ex4,
-        updateState_Ex5,
-        updateState_Ex6,
-        updateState_Ex7,
-        updateState_Ex8,
-        updateState_Ex9,
-        updateState_Ex10,
-        updateState_Ex11,
-        updateState_Ex12,
-        updateState_Ex13,
-        updateState_Ex14,
-        updateState_Ex15,
-        updateState_Ex16,
-        updateState_Ex17,
-        updateState_Ex18,
-        updateState_Ex19,
-        updateState_Ex20,
-        updateState_Ex21
-      ];
+    if (isNaN(x)) {
+      console.log("X does not exists");
+    } else {
+      for (let programLength = 1; programLength < 21; programLength++) {
+        const updateFunction = [
+          updateState_Ex1,
+          updateState_Ex2,
+          updateState_Ex3,
+          updateState_Ex4,
+          updateState_Ex5,
+          updateState_Ex6,
+          updateState_Ex7,
+          updateState_Ex8,
+          updateState_Ex9,
+          updateState_Ex10,
+          updateState_Ex11,
+          updateState_Ex12,
+          updateState_Ex13,
+          updateState_Ex14,
+          updateState_Ex15,
+          updateState_Ex16,
+          updateState_Ex17,
+          updateState_Ex18,
+          updateState_Ex19,
+          updateState_Ex20,
+          updateState_Ex21
+        ];
 
-      const updatePending = [
-        this.props.exercices.exercice_state_1,
-        this.props.exercices.exercice_state_2,
-        this.props.exercices.exercice_state_3,
-        this.props.exercices.exercice_state_4,
-        this.props.exercices.exercice_state_5,
-        this.props.exercices.exercice_state_6,
-        this.props.exercices.exercice_state_7,
-        this.props.exercices.exercice_state_8,
-        this.props.exercices.exercice_state_9,
-        this.props.exercices.exercice_state_10,
-        this.props.exercices.exercice_state_11,
-        this.props.exercices.exercice_state_12,
-        this.props.exercices.exercice_state_13,
-        this.props.exercices.exercice_state_14,
-        this.props.exercices.exercice_state_15,
-        this.props.exercices.exercice_state_16,
-        this.props.exercices.exercice_state_17,
-        this.props.exercices.exercice_state_18,
-        this.props.exercices.exercice_state_19,
-        this.props.exercices.exercice_state_20,
-        this.props.exercices.exercice_state_21
-      ];
+        const updatePending = [
+          this.props.exercices.exercice_state_1,
+          this.props.exercices.exercice_state_2,
+          this.props.exercices.exercice_state_3,
+          this.props.exercices.exercice_state_4,
+          this.props.exercices.exercice_state_5,
+          this.props.exercices.exercice_state_6,
+          this.props.exercices.exercice_state_7,
+          this.props.exercices.exercice_state_8,
+          this.props.exercices.exercice_state_9,
+          this.props.exercices.exercice_state_10,
+          this.props.exercices.exercice_state_11,
+          this.props.exercices.exercice_state_12,
+          this.props.exercices.exercice_state_13,
+          this.props.exercices.exercice_state_14,
+          this.props.exercices.exercice_state_15,
+          this.props.exercices.exercice_state_16,
+          this.props.exercices.exercice_state_17,
+          this.props.exercices.exercice_state_18,
+          this.props.exercices.exercice_state_19,
+          this.props.exercices.exercice_state_20,
+          this.props.exercices.exercice_state_21
+        ];
 
-      if (programLength <= x) {
-        if (updatePending == "locked") {
-          console.log("OLOCKED");
-          this.setState({ updatePending: "next" }, function() {
-            this.props.dispatch(
-              updateFunction[programLength](this.state.updatePending)
-            );
-            //console.log(updatePending);
-          });
-        } else {
-          //console.log("UNLOCKED");
+        isNewFirst = updatePending => {
+          return updatePending === "new";
+        };
+
+        if (programLength <= x) {
+          console.log("It exists not");
           this.setState({ updatePending: "new" }, function() {
             this.props.dispatch(
               updateFunction[programLength](this.state.updatePending)
             );
           });
+        } else if (updatePending.findIndex(isNewFirst)) {
+          console.log("It exists");
+          const NewFirstValue = updatePending.findIndex(isNewFirst);
+          const Fix = NewFirstValue + 1;
+          const DayNewFirstValue = "exercice_state_" + Fix;
+
+          this.setState({ DayNewFirstValue: "next" }, function() {
+            this.props.dispatch(
+              updateFunction[NewFirstValue](this.state.DayNewFirstValue)
+            );
+          });
         }
       }
-
-      // if (x === programLength) {
-      //   programLength = programLength;
-      //   const updateStateToday = "exercice_state_" + programLength;
-
-      //   //NEED TO ADD A CONDITION HERE AS TODAY CAN BE COMPLETED, CHECK STATE
-      //   const updateFunction = [
-      //     updateState_Ex1,
-      //     updateState_Ex2,
-      //     updateState_Ex3,
-      //     updateState_Ex4,
-      //     updateState_Ex5,
-      //     updateState_Ex6,
-      //     updateState_Ex7,
-      //     updateState_Ex8,
-      //     updateState_Ex9,
-      //     updateState_Ex10,
-      //     updateState_Ex11,
-      //     updateState_Ex12,
-      //     updateState_Ex13,
-      //     updateState_Ex14,
-      //     updateState_Ex15,
-      //     updateState_Ex16,
-      //     updateState_Ex17,
-      //     updateState_Ex18,
-      //     updateState_Ex19,
-      //     updateState_Ex20,
-      //     updateState_Ex21
-      //   ];
-
-      //   const updatePending = [
-      //     this.props.exercices.exercice_state_1,
-      //     this.props.exercices.exercice_state_2,
-      //     this.props.exercices.exercice_state_3,
-      //     this.props.exercices.exercice_state_4,
-      //     this.props.exercices.exercice_state_5,
-      //     this.props.exercices.exercice_state_6,
-      //     this.props.exercices.exercice_state_7,
-      //     this.props.exercices.exercice_state_8,
-      //     this.props.exercices.exercice_state_9,
-      //     this.props.exercices.exercice_state_10,
-      //     this.props.exercices.exercice_state_11,
-      //     this.props.exercices.exercice_state_12,
-      //     this.props.exercices.exercice_state_13,
-      //     this.props.exercices.exercice_state_14,
-      //     this.props.exercices.exercice_state_15,
-      //     this.props.exercices.exercice_state_16,
-      //     this.props.exercices.exercice_state_17,
-      //     this.props.exercices.exercice_state_18,
-      //     this.props.exercices.exercice_state_19,
-      //     this.props.exercices.exercice_state_20,
-      //     this.props.exercices.exercice_state_21
-      //   ];
-
-      //   //console.log(updateStateToday)
-      //   // if (updatePending[x] === "locked") {
-      //   //   this.setState({ updateStateToday: "next" }, function () {
-      //   //     this.props.dispatch(updateFunction[x](this.state.updateStateToday));
-      //   //   });
-      //   // }
-      //   // else if (updatePending[x - 1] === "next") {
-      //   //   console.log("HELLO")
-      //   //   console.log(updatePending)
-      //   // }
-      //   // else if (updatePending[x - 1] === "locked") {
-      //   //   this.setState({ updateStateToday: "next" }, function () {
-      //   //     //console.log(updatePending)
-      //   //     this.props.dispatch(updateFunction[x - 1](this.state.updateStateToday));
-      //   //   });
-      //   // }
-
-      //   // else if (updatePending[x - 1] === "completed") {
-      //   //   console.log("COMPLETED")
-      //   // }
-
-      //   // else if (updatePending[x - 1] === undefined) {
-      //   //   console.log("UNDEFINED")
-      //   //   this.setState({ updateStateToday: "next" }, function () {
-      //   //     console.log(updatePending)
-      //   //     this.props.dispatch(updateFunction[x - 1](this.state.updateStateToday));
-      //   //   });
-      //   // }
-
-      //   // else if (updatePending[x] === undefined) {
-      //   //   console.log("UNDEFINED")
-      //   //   this.setState({ updateStateToday: "new" }, function () {
-      //   //     console.log(updatePending)
-      //   //     this.props.dispatch(updateFunction[x - 1](this.state.updateStateToday));
-      //   //   });
-      //   // }
-
-      //   // else {
-      //   //   this.setState({ updateStateToday: "new" }, function () {
-      //   //     console.log(updatePending)
-      //   //     this.props.dispatch(updateFunction[x](this.state.updateStateToday));
-      //   //   });
-      //   // }
-
-      // }
     }
   };
 
