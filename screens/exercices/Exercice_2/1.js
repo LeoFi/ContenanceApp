@@ -61,7 +61,8 @@ export default class Exercice_2_1 extends Component {
       shouldPlay: playing
     };
 
-    const source = require("../../../assets/sounds/NoticeYourImpulses_DAY_2.mp3");
+    // const source = require("../../../assets/sounds/NoticeYourImpulses_DAY_2.mp3");
+    const source = require("../../../assets/sounds/try.mp3");
 
     try {
       const { sound, status } = await Audio.Sound.createAsync(

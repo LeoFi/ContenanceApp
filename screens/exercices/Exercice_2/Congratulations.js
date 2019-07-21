@@ -17,6 +17,7 @@ import { styles } from "./style";
 
 import { connect } from "react-redux";
 import { updateState_Ex2 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex3 } from "./../../../redux-persist/redux/exercices"
 
 class Exercice_2_Congratulations extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Exercice_2_Congratulations extends React.Component {
 
     this.state = {
       exercice_state_2: "completed",
+      exercice_state_3: "locked"
     };
   }
 
@@ -32,6 +34,9 @@ class Exercice_2_Congratulations extends React.Component {
     const { exercice_state_2 } = this.state;
     this.setState({ exercice_state_2: exercice_state_2 });
     this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    const exercice_state_3 = this.state.exercice_state_3;
+    this.setState({ exercice_state_3: exercice_state_3 });
+    this.props.dispatch(updateState_Ex3(this.state.exercice_state_3));
     this.props.navigation.push("Home");
   };
 
