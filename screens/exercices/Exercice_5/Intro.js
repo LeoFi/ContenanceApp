@@ -40,9 +40,7 @@ export default class Exercice_5_Intro extends React.Component {
               <Text style={styles.intro_header_light}>Habit Loop</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}4 MIN{"\n"}Today, you will discover 
-                why you sometimes end up having your smartphone 
-                in your hand without having thought about it.
+                {"\n"}4 MIN{"\n"}Today, you will discover why you sometimes end up having your smartphone in your hand without having thought about it.
               </Text>
             </View>
           </View>

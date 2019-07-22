@@ -26,11 +26,9 @@ const styles = StyleSheet.create({
     container_scroll_img_absolute: {
         //width: Dimensions.get("window").width,
         //height: Dimensions.get("window").height,
-        flex: 1,
+        //flex: 1,
         alignItems: "center",
-        alignSelf: "stretch",
-        paddingLeft: 30,
-        paddingRight: 30,
+        alignSelf: "flex-start",
     },
     scrollview_height: {
         flex: 1,
@@ -114,10 +112,10 @@ const styles = StyleSheet.create({
     middle: {
         position: "relative",
         flexDirection: 'column',
-        alignItems: 'stretch',
-        //height: Dimensions.get("window").height/2,
-        //position: 'absolute',
-        //top: Dimensions.get("window").height/2,
+        //alignSelf: 'flex-start',
+        alignSelf: 'stretch',
+        paddingLeft: 30,
+        paddingRight: 30,
     },
     bottom: {
         position: 'relative',

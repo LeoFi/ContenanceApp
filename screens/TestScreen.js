@@ -72,7 +72,7 @@ class TestScreen extends React.Component {
 
     var x = diff_days(dt1, dt2);
 
-
+    console.log("DIFFERENCE" + x);
     const data = [
       {
         day: 1,
@@ -1078,7 +1078,7 @@ class TestScreen extends React.Component {
             <Text style={styles.text_left}>
               {"\n"}Continue with your next session.
             </Text>
-
+            
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||

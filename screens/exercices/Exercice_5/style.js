@@ -6,8 +6,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "stretch",
     paddingTop: 80,
-    paddingLeft: 30,
-    paddingRight: 30,
     paddingBottom: 40
   },
   container_scroll: {
@@ -26,10 +24,9 @@ const styles = StyleSheet.create({
   container_scroll_img_absolute: {
     //width: Dimensions.get("window").width,
     //height: Dimensions.get("window").height,
+    //flex: 1,
     alignItems: "center",
-    alignSelf: "stretch",
-    paddingLeft: 30,
-    paddingRight: 30
+    alignSelf: "flex-start"
   },
   scrollview_height: {
     flex: 1,
@@ -52,6 +49,10 @@ const styles = StyleSheet.create({
   },
   container_background_color: {
     backgroundColor: "#A878CE"
+  },
+  container_background_inverted: {
+    flex: 1,
+    backgroundColor: "#A28AD4"
   },
   scroll: {
     flex: 1,
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width
   },
   image_background: {
-    //width: "100%",
+    width: "100%",
     backgroundColor: "#F4F1DE",
     position: "absolute",
     top: 0,
@@ -109,11 +110,11 @@ const styles = StyleSheet.create({
   middle: {
     position: "relative",
     flexDirection: "column",
-    alignItems: "stretch",
-    paddingTop: 40
-    //height: Dimensions.get("window").height/2,
-    //position: 'absolute',
-    //top: Dimensions.get("window").height/2,
+    //alignSelf: 'flex-start',
+    alignSelf: "stretch",
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 30
   },
   bottom: {
     position: "relative",
@@ -203,7 +204,9 @@ const styles = StyleSheet.create({
   tap_pos_relative: {
     alignSelf: "stretch",
     paddingTop: 50,
-    paddingBottom: 40
+    paddingBottom: 40,
+    paddingLeft: 30,
+    paddingRight: 30,
   },
   intro_text_light: {
     color: "#F4F1DE",
@@ -236,22 +239,41 @@ const styles = StyleSheet.create({
     fontSize: 19,
     borderBottomWidth: 2
   },
-  text_input_button: {
-    backgroundColor: "rgba(44, 59, 81, 0.1)",
-    borderRadius: 99,
-    overflow: "hidden",
-    padding: 15,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignSelf: "stretch",
-    marginBottom: 0,
+  button_grey_input_text: {
     color: "#2C3B51",
-    fontSize: 17,
-    lineHeight: 23,
+    fontSize: 14,
+    lineHeight: 20,
     textAlign: "center",
     fontFamily: "roboto-regular",
-    letterSpacing: 2,
+    alignSelf: "stretch",
     fontWeight: "normal"
+  },
+  text_input_button: {
+    flex: 1,
+    color: "#2C3B51",
+    backgroundColor: "#E2DFD1",
+    paddingTop: 15,
+    paddingBottom: 15,
+    borderRadius: 99,
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    alignSelf: "stretch",
+    fontWeight: "normal"
+  },
+  searchSection: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  inputIcon: {
+    padding: 10,
+    position: "absolute",
+    right: 5,
+    zIndex: 1,
+    overflow: "visible",
   }
 });
 
