@@ -67,87 +67,154 @@ class TestScreen extends React.Component {
     };
 
     dt1 = new Date(initialDate);
-    dt2 = new Date(2019, 6, 28);
+    dt2 = new Date(2019, 6, 29);
     //dt2 = new Date();
 
     var x = diff_days(dt1, dt2);
 
-    console.log("DIFFERENCE" + x);
+
+    const data = [
+      {
+        day: 1,
+        function: updateState_Ex1,
+        exercice: this.props.exercices.exercice_state_1
+      },
+      {
+        day: 2,
+        function: updateState_Ex2,
+        exercice: this.props.exercices.exercice_state_2
+      },
+      {
+        day: 3,
+        function: updateState_Ex3,
+        exercice: this.props.exercices.exercice_state_3
+      },
+      {
+        day: 4,
+        function: updateState_Ex4,
+        exercice: this.props.exercices.exercice_state_4
+      },
+      {
+        day: 5,
+        function: updateState_Ex5,
+        exercice: this.props.exercices.exercice_state_5
+      },
+      {
+        day: 6,
+        function: updateState_Ex6,
+        exercice: this.props.exercices.exercice_state_6
+      },
+      {
+        day: 7,
+        function: updateState_Ex7,
+        exercice: this.props.exercices.exercice_state_7
+      },
+      {
+        day: 8,
+        function: updateState_Ex8,
+        exercice: this.props.exercices.exercice_state_8
+      },
+      {
+        day: 9,
+        function: updateState_Ex9,
+        exercice: this.props.exercices.exercice_state_9
+      },
+      {
+        day: 10,
+        function: updateState_Ex10,
+        exercice: this.props.exercices.exercice_state_10
+      },
+      {
+        day: 11,
+        function: updateState_Ex11,
+        exercice: this.props.exercices.exercice_state_11
+      },
+      {
+        day: 12,
+        function: updateState_Ex12,
+        exercice: this.props.exercices.exercice_state_12
+      },
+      {
+        day: 13,
+        function: updateState_Ex13,
+        exercice: this.props.exercices.exercice_state_13
+      },
+      {
+        day: 14,
+        function: updateState_Ex14,
+        exercice: this.props.exercices.exercice_state_14
+      },
+      {
+        day: 15,
+        function: updateState_Ex15,
+        exercice: this.props.exercices.exercice_state_15
+      },
+      {
+        day: 16,
+        function: updateState_Ex16,
+        exercice: this.props.exercices.exercice_state_16
+      },
+      {
+        day: 17,
+        function: updateState_Ex17,
+        exercice: this.props.exercices.exercice_state_17
+      },
+      {
+        day: 18,
+        function: updateState_Ex18,
+        exercice: this.props.exercices.exercice_state_18
+      },
+      {
+        day: 19,
+        function: updateState_Ex19,
+        exercice: this.props.exercices.exercice_state_19
+      },
+      {
+        day: 20,
+        function: updateState_Ex20,
+        exercice: this.props.exercices.exercice_state_20
+      },
+      {
+        day: 21,
+        function: updateState_Ex21,
+        exercice: this.props.exercices.exercice_state_21
+      }
+    ];
 
     if (isNaN(x)) {
-      console.log("X does not exists");
+      //
     } else {
-      for (let programLength = 1; programLength < 21; programLength++) {
-        const updateFunction = [
-          updateState_Ex1,
-          updateState_Ex2,
-          updateState_Ex3,
-          updateState_Ex4,
-          updateState_Ex5,
-          updateState_Ex6,
-          updateState_Ex7,
-          updateState_Ex8,
-          updateState_Ex9,
-          updateState_Ex10,
-          updateState_Ex11,
-          updateState_Ex12,
-          updateState_Ex13,
-          updateState_Ex14,
-          updateState_Ex15,
-          updateState_Ex16,
-          updateState_Ex17,
-          updateState_Ex18,
-          updateState_Ex19,
-          updateState_Ex20,
-          updateState_Ex21
-        ];
+      for (let programLength = 0; programLength < 21; programLength++) {
+        if (programLength === x && data[programLength].exercice == "locked") {
+          console.log("Current Day AND exercice Locked");
 
-        const updatePending = [
-          this.props.exercices.exercice_state_1,
-          this.props.exercices.exercice_state_2,
-          this.props.exercices.exercice_state_3,
-          this.props.exercices.exercice_state_4,
-          this.props.exercices.exercice_state_5,
-          this.props.exercices.exercice_state_6,
-          this.props.exercices.exercice_state_7,
-          this.props.exercices.exercice_state_8,
-          this.props.exercices.exercice_state_9,
-          this.props.exercices.exercice_state_10,
-          this.props.exercices.exercice_state_11,
-          this.props.exercices.exercice_state_12,
-          this.props.exercices.exercice_state_13,
-          this.props.exercices.exercice_state_14,
-          this.props.exercices.exercice_state_15,
-          this.props.exercices.exercice_state_16,
-          this.props.exercices.exercice_state_17,
-          this.props.exercices.exercice_state_18,
-          this.props.exercices.exercice_state_19,
-          this.props.exercices.exercice_state_20,
-          this.props.exercices.exercice_state_21
-        ];
+          const TodayLocked = data
+            .filter(item => item.exercice == "locked")
+            .map(item => {
+              return this.setState({ TodayLocked: "next" }, function() {
+                this.props.dispatch(
+                  data[programLength].function(this.state.TodayLocked)
+                );
+              });
+            });
+        } else if (programLength <= x) {
+          const PastLocked = data
+            .filter(item => item.exercice == "locked")
+            .filter(item => item.day <= x)
+            .map(item => {
+              return this.setState({ item: "next" }, function() {
+                this.props.dispatch(item.function(this.state.item));
+              });
+            });
 
-        isNewFirst = updatePending => {
-          return updatePending === "new";
-        };
-
-        if (programLength <= x) {
-          console.log("It exists not");
-          this.setState({ updatePending: "new" }, function() {
-            this.props.dispatch(
-              updateFunction[programLength](this.state.updatePending)
-            );
-          });
-        } else if (updatePending.findIndex(isNewFirst)) {
-          console.log("It exists");
-          const NewFirstValue = updatePending.findIndex(isNewFirst);
-          const Fix = NewFirstValue + 1;
-          const DayNewFirstValue = "exercice_state_" + Fix;
-
-          this.setState({ DayNewFirstValue: "next" }, function() {
-            this.props.dispatch(
-              updateFunction[NewFirstValue](this.state.DayNewFirstValue)
-            );
-          });
+          const PastUndefined = data
+            .filter(item => item.exercice === undefined)
+            .filter(item => item.day <= x)
+            .map(item => {
+              return this.setState({ item: "new" }, function() {
+                this.props.dispatch(item.function(this.state.item));
+              });
+            });
         }
       }
     }
@@ -1015,8 +1082,8 @@ class TestScreen extends React.Component {
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||
-              item.state === "new" ||
-              item.state === "completed" ? (
+              item.state === "completed" ||
+              item.state === "new" ? (
                 <View key={key}>
                   <ExerciceButton
                     onPress={() => {

@@ -13,6 +13,8 @@ import DeckSwiperExample from "./CardsDeckSwiper";
 import HeaderComponent from "./HeaderComponent";
 import RadioButtons from "./RadioButton";
 import MenuHeaderComponent from "./MenuHeaderComponent";
+import MultipleGreyInputButton from "./MultipleGreyInputButton";
+
 
 export {
   TestComponent,
@@ -30,4 +32,5 @@ export {
   HeaderComponent,
   RadioButtons,
   MenuHeaderComponent,
+  MultipleGreyInputButton
 };

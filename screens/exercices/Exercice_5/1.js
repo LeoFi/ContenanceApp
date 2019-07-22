@@ -13,7 +13,7 @@ import {
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyInputButton
+  GreyInputButton,
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
@@ -22,7 +22,9 @@ export default class Exercice_5_1 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      checked: []
+    };
   }
 
   render() {
