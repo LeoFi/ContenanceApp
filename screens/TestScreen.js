@@ -67,8 +67,8 @@ class TestScreen extends React.Component {
     };
 
     dt1 = new Date(initialDate);
-    dt2 = new Date(2019, 6, 29);
-    //dt2 = new Date();
+    //dt2 = new Date(2019, 7, 10);
+    dt2 = new Date();
 
     var x = diff_days(dt1, dt2);
 

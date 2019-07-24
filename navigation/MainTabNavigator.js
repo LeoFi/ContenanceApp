@@ -93,6 +93,62 @@ import SE_Screen_PM1 from "../screens/questionnaires/PM1/SE_Screen_PM1";
 import CE_Screen_PM1 from "../screens/questionnaires/PM1/CE_Screen_PM1";
 import Closing_Screen_PM1 from "../screens/questionnaires/PM1/Closing_Screen_PM1";
 
+import Intro_Screen_PM2 from "../screens/questionnaires/PM2/Intro_Screen_PM2";
+import PSU_Screen_PM2 from "../screens/questionnaires/PM2/PSU_Screen_PM2";
+import SUE_Screen_PM2 from "../screens/questionnaires/PM2/SUE_Screen_PM2";
+import MFSU_Screen_PM2 from "../screens/questionnaires/PM2/MFSU_Screen_PM2";
+import PSF_Screen_PM2 from "../screens/questionnaires/PM2/PSF_Screen_PM2";
+import TRP_Screen_PM2 from "../screens/questionnaires/PM2/TRP_Screen_PM2";
+import HS_Screen_PM2 from "../screens/questionnaires/PM2/HS_Screen_PM2";
+import IN_Screen_PM2 from "../screens/questionnaires/PM2/IN_Screen_PM2";
+import AP_Screen_PM2 from "../screens/questionnaires/PM2/AP_Screen_PM2";
+import AC_Screen_PM2 from "../screens/questionnaires/PM2/AC_Screen_PM2";
+import SE_Screen_PM2 from "../screens/questionnaires/PM2/SE_Screen_PM2";
+import CE_Screen_PM2 from "../screens/questionnaires/PM2/CE_Screen_PM2";
+import Closing_Screen_PM2 from "../screens/questionnaires/PM2/Closing_Screen_PM2";
+
+import Intro_Screen_PM3 from "../screens/questionnaires/PM3/Intro_Screen_PM3";
+import PSU_Screen_PM3 from "../screens/questionnaires/PM3/PSU_Screen_PM3";
+import SUE_Screen_PM3 from "../screens/questionnaires/PM3/SUE_Screen_PM3";
+import MFSU_Screen_PM3 from "../screens/questionnaires/PM3/MFSU_Screen_PM3";
+import PSF_Screen_PM3 from "../screens/questionnaires/PM3/PSF_Screen_PM3";
+import TRP_Screen_PM3 from "../screens/questionnaires/PM3/TRP_Screen_PM3";
+import HS_Screen_PM3 from "../screens/questionnaires/PM3/HS_Screen_PM3";
+import IN_Screen_PM3 from "../screens/questionnaires/PM3/IN_Screen_PM3";
+import AP_Screen_PM3 from "../screens/questionnaires/PM3/AP_Screen_PM3";
+import AC_Screen_PM3 from "../screens/questionnaires/PM3/AC_Screen_PM3";
+import SE_Screen_PM3 from "../screens/questionnaires/PM3/SE_Screen_PM3";
+import CE_Screen_PM3 from "../screens/questionnaires/PM3/CE_Screen_PM3";
+import Closing_Screen_PM3 from "../screens/questionnaires/PM3/Closing_Screen_PM3";
+
+import Intro_Screen_PM4 from "../screens/questionnaires/PM4/Intro_Screen_PM4";
+import PSU_Screen_PM4 from "../screens/questionnaires/PM4/PSU_Screen_PM4";
+import SUE_Screen_PM4 from "../screens/questionnaires/PM4/SUE_Screen_PM4";
+import MFSU_Screen_PM4 from "../screens/questionnaires/PM4/MFSU_Screen_PM4";
+import PSF_Screen_PM4 from "../screens/questionnaires/PM4/PSF_Screen_PM4";
+import TRP_Screen_PM4 from "../screens/questionnaires/PM4/TRP_Screen_PM4";
+import HS_Screen_PM4 from "../screens/questionnaires/PM4/HS_Screen_PM4";
+import IN_Screen_PM4 from "../screens/questionnaires/PM4/IN_Screen_PM4";
+import AP_Screen_PM4 from "../screens/questionnaires/PM4/AP_Screen_PM4";
+import AC_Screen_PM4 from "../screens/questionnaires/PM4/AC_Screen_PM4";
+import SE_Screen_PM4 from "../screens/questionnaires/PM4/SE_Screen_PM4";
+import CE_Screen_PM4 from "../screens/questionnaires/PM4/CE_Screen_PM4";
+import Closing_Screen_PM4 from "../screens/questionnaires/PM4/Closing_Screen_PM4";
+
+import Intro_Screen_PM5 from "../screens/questionnaires/PM5/Intro_Screen_PM5";
+import PSU_Screen_PM5 from "../screens/questionnaires/PM5/PSU_Screen_PM5";
+import SUE_Screen_PM5 from "../screens/questionnaires/PM5/SUE_Screen_PM5";
+import MFSU_Screen_PM5 from "../screens/questionnaires/PM5/MFSU_Screen_PM5";
+import PSF_Screen_PM5 from "../screens/questionnaires/PM5/PSF_Screen_PM5";
+import TRP_Screen_PM5 from "../screens/questionnaires/PM5/TRP_Screen_PM5";
+import HS_Screen_PM5 from "../screens/questionnaires/PM5/HS_Screen_PM5";
+import IN_Screen_PM5 from "../screens/questionnaires/PM5/IN_Screen_PM5";
+import AP_Screen_PM5 from "../screens/questionnaires/PM5/AP_Screen_PM5";
+import AC_Screen_PM5 from "../screens/questionnaires/PM5/AC_Screen_PM5";
+import SE_Screen_PM5 from "../screens/questionnaires/PM5/SE_Screen_PM5";
+import CE_Screen_PM5 from "../screens/questionnaires/PM5/CE_Screen_PM5";
+import Closing_Screen_PM5 from "../screens/questionnaires/PM5/Closing_Screen_PM5";
+
 const Exercice1 = createStackNavigator(
   {
     Anchor: {

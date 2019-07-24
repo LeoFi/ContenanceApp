@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, Text, TextInput, ScrollView } from 'react-native';
+import { View, Text, TextInput, ScrollView, Alert } from 'react-native';
 import { PrimaryButton, SecondaryButton } from '../../../components/AppComponents';
 import * as firebase from 'firebase';
 import { Notifications } from 'expo'
@@ -16,7 +16,11 @@ export default class AllowNotificationsScreen extends React.Component {
     }
 
     componentDidMount() {
-        this.registerForPushNotifications();
+        //this.registerForPushNotifications();
+    }
+
+    askNotification = () => {
+        Alert.alert("Hey get notifications!")
     }
 
     registerForPushNotifications = async () => {
@@ -54,10 +58,12 @@ export default class AllowNotificationsScreen extends React.Component {
                     <PrimaryButton
                         label='Next'
                         isBottom={true}
-                        onPress={() => {
-                            this.props.navigation.navigate('SetReminders');
-                            //registerForPushNotifications
-                          }}
+                        // onPress={() => {
+                        //     //this.props.navigation.navigate('SetReminders');
+                        //     //registerForPushNotifications
+                        //     this.askNotification
+                        //   }}
+                        onPress={this.askNotification}
                         disabled={false}
                     />
                 </View>

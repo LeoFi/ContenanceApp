@@ -10,6 +10,16 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignSelf: "stretch",
     },
+    container_left: {
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+        flex: 1,
+        //alignItems: "center",
+        alignSelf: "stretch",
+    },
+
     container_scroll: {
         paddingTop: 80,
         paddingLeft: 30,
@@ -29,10 +39,14 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
     },
     middle: {
-        flex: 1,
-        justifyContent: 'center',
+        position: "relative",
+        flexDirection: "row",
+        //alignSelf: 'flex-start',
         alignSelf: "stretch",
-    },
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingTop: 30
+      },
     inline: {
         flex: 1,
         flexDirection:'row', 
@@ -85,7 +99,7 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
     },
     text_left: {
-        flex: 1,
+        //flex: 1,
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
