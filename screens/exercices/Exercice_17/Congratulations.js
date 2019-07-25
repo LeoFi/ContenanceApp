@@ -17,19 +17,30 @@ import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
 import { connect } from "react-redux";
-import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices";
-import { updateState_Ex2 } from "./../../../redux-persist/redux/exercices";
-import { updateStartingDate } from "./../../../redux-persist/redux/user";
+import { updateState_Ex17 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex18 } from "./../../../redux-persist/redux/exercices";
 
-class Exercice_1_Congratulations extends React.Component {
+class Exercice_17_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_1: "completed",
-      exercice_state_2: "locked"
+      exercice_state_17: "completed",
+      exercice_state_18: "locked"
     };
   }
+
+  handleSubmit = () => {
+    const exercice_state_17 = this.state.exercice_state_17;
+    this.setState({ exercice_state_17: exercice_state_17 });
+    this.props.dispatch(updateState_Ex17(this.state.exercice_state_17));
+
+    const exercice_state_18 = this.state.exercice_state_18;
+    this.setState({ exercice_state_18: exercice_state_18 });
+    this.props.dispatch(updateState_Ex18(this.state.exercice_state_18));
+
+    this.props.navigation.push("Home");
+  };
 
   render() {
     return (
@@ -45,8 +56,7 @@ class Exercice_1_Congratulations extends React.Component {
             <View style={styles.middle}>
               <Text style={styles.header}>Congratulations!</Text>
               <Text style={styles.text}>
-                {"\n"}You finished your first exercise. Now you know why this
-                training is called Contenance!
+                {"\n"}Today, you got to know tools that you can immediately use to reduce distractions by your smartphone.
               </Text>
 
               <View style={styles.tap_pos_relative}>
@@ -58,42 +68,10 @@ class Exercice_1_Congratulations extends React.Component {
       </View>
     );
   }
-
-  componentDidMount() {
-    this.getDate();
-  }
-
-  getDate = () => {
-    var initialDate = new Date().toString();
-
-    console.log(initialDate);
-
-    if (this.props.user.initialDate.length === 0) {
-    //if (this.props.user.initialDate.length > 0) {
-      this.setState({ initialDate: initialDate }, function() {
-      //this.setState({ initialDate: "" }, function() {
-        //console.log(this.state.initialDate);
-        this.props.dispatch(updateStartingDate(this.state.initialDate));
-      });
-    } else {
-      return;
-    }
-  };
-
-  handleSubmit = () => {
-    const exercice_state_1 = this.state.exercice_state_1;
-    this.setState({ exercice_state_1: exercice_state_1 });
-    this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
-    const exercice_state_2 = this.state.exercice_state_2;
-    this.setState({ exercice_state_2: exercice_state_2 });
-    this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
-    this.props.navigation.push("Home");
-  };
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
   exercices: state.exercices
 });
 
-export default connect(mapStateToProps)(Exercice_1_Congratulations);
+export default connect(mapStateToProps)(Exercice_17_Congratulations);

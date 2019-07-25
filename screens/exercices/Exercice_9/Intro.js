@@ -17,7 +17,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Intro extends React.Component {
+export default class Exercice_9_Intro extends React.Component {
   constructor(props) {
     super(props);
 
@@ -36,11 +36,11 @@ export default class Exercice_1_Intro extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day_light}>Day 1</Text>
-              <Text style={styles.intro_header_light}>Contenance!</Text>
+              <Text style={styles.intro_header_day_light}>Day 9</Text>
+              <Text style={styles.intro_header_light}>Exploring Values</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}2 MIN{"\n"}In this exercise, you will discover what Contenance is and why it should not be about less but better.
+                {"\n"}8 MIN{"\n"}Today, you will start a beautiful journey to explore the values that guide you when defining a new smartphone use.
               </Text>
             </View>
           </View>
@@ -52,7 +52,7 @@ export default class Exercice_1_Intro extends React.Component {
             isBottom={true}
             style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
             onPress={() => {
-              this.props.navigation.navigate("Exercice_1_1");
+              this.props.navigation.navigate("Exercice_9_1");
             }}
           />
         </View>

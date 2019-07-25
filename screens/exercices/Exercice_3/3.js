@@ -36,7 +36,7 @@ export default class Exercice_3_3 extends React.Component {
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header}>
                   How do you evaluate the long-term success you have achieved so
-                  far?
+                  far in changing your smartphone use?
                 </Text>
 
                 <View style={styles.middle}>

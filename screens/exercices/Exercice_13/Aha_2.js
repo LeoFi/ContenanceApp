@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Aha_2 extends React.Component {
+export default class Exercice_13_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ export default class Exercice_1_Aha_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Challenge");
+                this.props.navigation.navigate("Exercice_13_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
@@ -43,11 +43,12 @@ export default class Exercice_1_Aha_2 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.sub_header}>
-                Not less, but better.
+                No willpower? No problem.
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Research shows: What we do on our smartphones and how we see our relationship to it is more important to our wellbeing than the mere amount of time we spent on it. 
-                  {"\n"}{"\n"}Make your smartphone the great tool it can be.
+                  {"\n"}Fortunately, there is a powerful tool to help you achieve any goal and that looks like this: 
+                  <Text style={styles.intro_text_bold}>If X happens, then I will do Y.</Text>.
+                  {"\n"}{"\n"}Why are these plans so effective?
                 </Text>
 
                 {/* <View style={styles.bottom}>
@@ -71,7 +72,7 @@ export default class Exercice_1_Aha_2 extends React.Component {
 <PrimaryButton
   label="Sign Up"
   onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
+    this.props.navigation.navigate("Exercice_13_Challenge");
   }}
 /> */
 }

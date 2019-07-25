@@ -20,33 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class SE_Screen_PM4 extends React.Component {
   constructor(props) {
     super(props);
@@ -54,6 +27,7 @@ export default class SE_Screen_PM4 extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
+      buttonIsActive: false,
     };
   }
 
@@ -77,6 +51,8 @@ export default class SE_Screen_PM4 extends React.Component {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+      } else if (this.state.show_3 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -84,12 +60,12 @@ export default class SE_Screen_PM4 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>In the last 4 days, I have...</Text>
+        <Text style={styles.header_left_padding}>Please refer to today and the past 3 days.</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ... done the activities as instructed.
+            I have done the activities as instructed.
             </Text>
 
             <View style={styles.question}>
@@ -113,7 +89,7 @@ export default class SE_Screen_PM4 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... done the daily challenge.
+            I have done the daily challenge.
             </Text>
 
             <View style={styles.question}>
@@ -135,7 +111,7 @@ export default class SE_Screen_PM4 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ... enjoyed doing the program.
+            I have enjoyed doing the program.
             </Text>
 
             <View style={styles.question}>
@@ -155,8 +131,9 @@ export default class SE_Screen_PM4 extends React.Component {
     
             <View style={styles.bottom}>
               <PrimaryButton
-                label="ContACue"
+                label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                   this.props.navigation.navigate("SE_Screen");
                 }}
@@ -168,14 +145,3 @@ export default class SE_Screen_PM4 extends React.Component {
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="ContACue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
-    }}
-  />
-</View>; */

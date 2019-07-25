@@ -34,9 +34,11 @@ class Exercice_2_Congratulations extends React.Component {
     const { exercice_state_2 } = this.state;
     this.setState({ exercice_state_2: exercice_state_2 });
     this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+
     const exercice_state_3 = this.state.exercice_state_3;
     this.setState({ exercice_state_3: exercice_state_3 });
     this.props.dispatch(updateState_Ex3(this.state.exercice_state_3));
+    
     this.props.navigation.push("Home");
   };
 

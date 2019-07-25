@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Challenge extends React.Component {
+export default class Exercice_7_Aha_3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +25,7 @@ export default class Exercice_1_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape_inverted.png")}
+        source={require("../../../assets/images/beige_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -35,21 +34,17 @@ export default class Exercice_1_Challenge extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Congratulations");
+                this.props.navigation.navigate("Exercice_7_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.header}>
-                The Challenge
+                Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}From now on, whenever you open Contencance, take on a good posture first.
-                  {"\n"}{"\n"}Your body speaks to your brain. Improving your posture physically sets the stage for improving it mentally.
+                  {"\n"} In the digital world, stopping cues are blurrier than ever. Knowing that it is time to stop is not as easy anymore as reaching the end of a chapter and closing a book. In many apps, you can simply scroll, swipe or be on autoplay forever. They are bottomless: there will simply not be an end.
                 </Text>
 
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -57,18 +52,4 @@ export default class Exercice_1_Challenge extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

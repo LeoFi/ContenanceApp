@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Aha_1 extends React.Component {
+export default class Exercice_8_Aha_3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +25,7 @@ export default class Exercice_1_Aha_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape.png")}
+        source={require("../../../assets/images/pink_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -35,19 +34,16 @@ export default class Exercice_1_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Aha_2");
+                this.props.navigation.navigate("Exercice_8_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.header}>
                 Aha!
                 </Text>
-                <Text style={styles.sub_header}>
-                Contenance is French for posture. 
-                </Text>
                 <Text style={styles.text}>
-                  {"\n"}This program aims to help you strengthen your posture while using the smartphone.
-                  {"\n"}{"\n"}Literally, but also metaphorically. It is about maintaining contenance against impulses, mindless scrolling, getting lost and other challenges of smartphone use.
+                  {"\n"}Research has shown that training mindfulness helps to not get lost and eventually helps to reduce screen time. This is why mindfulness exercises are an essential building block of our path to a more conscious smartphone use.
+                  {"\n"}{"\n"}They might feel uncomfortable in the beginning, but with a bit of practice they can truly grow on you!
                 </Text>
 
               </View>

@@ -34,7 +34,7 @@ export default class PSU_Screen_PM1 extends React.Component {
       show_7: false,
       show_8: false,
       show_9: false,
-      show_10: false
+      buttonIsActive: false,
     };
   }
 
@@ -103,6 +103,8 @@ export default class PSU_Screen_PM1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
+      } else if (this.state.show_9 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -110,7 +112,7 @@ export default class PSU_Screen_PM1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>In the last 4 days</Text>
+        <Text style={styles.header_left_padding}>Please refer to today and the past 3 days.</Text>
 
         {this.state.show_1 ? (
           <>
@@ -319,6 +321,7 @@ export default class PSU_Screen_PM1 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                     this.props.navigation.navigate("SUE_Screen_PM1");
                 }}

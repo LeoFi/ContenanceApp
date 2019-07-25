@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_4_Aha_2 extends React.Component {
+export default class Exercice_20_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_4_Aha_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_4_Challenge");
+                this.props.navigation.navigate("Exercice_20_Aha_3");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,9 +42,9 @@ export default class Exercice_4_Aha_2 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Email Apnea also applies to the smartphone. Yes, you might unconsciously interrupt your normal breathing while scrolling on your screen.
-                  {"\n"}{"\n"}No worries, there’s an easy way to stop that:
-                  {"\n"}{"\n"}while being on your smartphone, bring back your attention to your body and breath and be aware of your breathing.
+                  {"\n"}Luckily, there’s a solution for fun Daddeln time: stopping cues!
+                  {"\n"}{"\n"}A self-set stopping cue marks the end of a time frame in which we allow ourselves to follow our impulses.
+                  {"\n"}{"\n"}That way, you can lose yourself without losing control.
                 </Text>
 
               </View>

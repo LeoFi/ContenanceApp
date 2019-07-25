@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_3 extends React.Component {
+export default class Exercice_11_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +25,7 @@ export default class Exercice_1_3 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/beige_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -35,17 +34,15 @@ export default class Exercice_1_3 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_4");
+                this.props.navigation.navigate("Exercice_11_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                Ask yourself:
+                <Text style={styles.header}>
+                Aha!
                 </Text>
-                <Text style={styles.intro_text_bold}>
-                  {"\n"}How is your back positioned?
-                  {"\n"}{"\n"}How does your neck feel?
-                  {"\n"}{"\n"}What does your body look like while you are using your smartphone? 
+                <Text style={styles.text}>
+                  {"\n"}Whenever you catch yourself getting lost in the smartphone, you can use the 54321 trick to connect back to your surroundings and the present moment in a playful way.
                 </Text>
 
               </View>
@@ -55,18 +52,4 @@ export default class Exercice_1_3 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

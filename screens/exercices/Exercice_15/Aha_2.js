@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Aha_2 extends React.Component {
+export default class Exercice_15_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ export default class Exercice_1_Aha_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Challenge");
+                this.props.navigation.navigate("Exercice_15_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
@@ -43,11 +43,10 @@ export default class Exercice_1_Aha_2 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.sub_header}>
-                Not less, but better.
+            A smart person once claimed the problem with the smartphone is that we unlearned thinking. We do not know how to entertain ourselves anymore. Let’s get this skill back!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Research shows: What we do on our smartphones and how we see our relationship to it is more important to our wellbeing than the mere amount of time we spent on it. 
-                  {"\n"}{"\n"}Make your smartphone the great tool it can be.
+                  {"\n"}{"\n"}With little thought experiments like the ones today, you can practice to spark your imagination.
                 </Text>
 
                 {/* <View style={styles.bottom}>
@@ -71,7 +70,7 @@ export default class Exercice_1_Aha_2 extends React.Component {
 <PrimaryButton
   label="Sign Up"
   onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
+    this.props.navigation.navigate("Exercice_15_Challenge");
   }}
 /> */
 }

@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_2_Aha_1 extends React.Component {
+export default class Exercice_6_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ export default class Exercice_2_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_2_Aha_2");
+                this.props.navigation.navigate("Exercice_6_Aha_2");
               }}
             >
               <View style={styles.container_scroll}>
@@ -43,8 +43,7 @@ export default class Exercice_2_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Impulses are one of the most important drivers of smartphone use. Therefore, they provide a great starting point for change.
-                  {"\n"}{"\n"}Impulses are like waves: they come over us and without realizing, they sweep us to wherever they want.
+                  {"\n"}Emotions are powerful triggers that drive us to unconsciously use our smartphones. When we’re having unwanted or uncomfortable feelings, one quick and easy solution to avoid them can be distracting yourself with the smartphone in order to keep your mind busy.
                 </Text>
 
               </View>

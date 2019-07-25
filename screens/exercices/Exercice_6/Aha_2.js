@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_2_Aha_2 extends React.Component {
+export default class Exercice_6_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ export default class Exercice_2_Aha_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_2_Challenge");
+                this.props.navigation.navigate("Exercice_6_Aha_2");
               }}
             >
               <View style={styles.container_scroll}>
@@ -43,7 +43,7 @@ export default class Exercice_2_Aha_2 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Learning to detect the impulse and noticing it, for example by mentally saying “Now, I have an impulse to use the smartphone” is your first step towards conscious smartphone use.
+                  {"\n"}This holds true for positive feelings as well - they might become so strong inside of you, that grabbing the smartphone provides some kind of...relief.
                 </Text>
 
               </View>

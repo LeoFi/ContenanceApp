@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Challenge extends React.Component {
+export default class Exercice_11_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_3_Challenge extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Congratulations");
+                this.props.navigation.navigate("Exercice_11_Congratulations");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,8 +42,16 @@ export default class Exercice_3_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Look around you today: what are other people doing to take control of their smartphone use?
-                  {"\n"}{"\n"}What factor do they belong to? The smartphone, the environment or the person?
+                  {"\n"}The next time you are using
+                  {"\n"}{"\n"}{AppsRed1_D7}
+                  {"\n"}{"\n"}{AppsRed2_D7}
+                  {"\n"}{"\n"}{AppsRed3_D7}
+                  {"\n"}{"\n"}give it a try and do the trick to find:
+                  {"\n"}5 things you can see
+                  {"\n"}4 things you can touch
+                  {"\n"}3 things you can hear
+                  {"\n"}2 things you can smell
+                  {"\n"}1 thing you can taste
                 </Text>
 
               </View>

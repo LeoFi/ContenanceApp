@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Challenge extends React.Component {
+export default class Exercice_9_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ export default class Exercice_1_Challenge extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Congratulations");
+                this.props.navigation.navigate("Exercice_9_Congratulations");
               }}
             >
               <View style={styles.container_scroll}>
@@ -43,8 +43,8 @@ export default class Exercice_1_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}From now on, whenever you open Contencance, take on a good posture first.
-                  {"\n"}{"\n"}Your body speaks to your brain. Improving your posture physically sets the stage for improving it mentally.
+                  {"\n"}For the moment, take a deep breath! Just enjoy the feeling of reflecting on what matters most to you in life.
+                  {"\n"}{"\n"}Until tomorrow, observe your actions and ask yourself how they might be connected to your values.
                 </Text>
 
                 {/* <View style={styles.bottom}>

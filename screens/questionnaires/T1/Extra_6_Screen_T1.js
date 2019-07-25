@@ -199,12 +199,12 @@ export default class Extra_6_Screen_T1 extends React.Component {
               >
                 <Radio
                   iconName={"lens"}
-                  label={"Yes"}
+                  label={"Work"}
                   value={"AdditionalSPUse/Work"}
                 />
                 <Radio
                   iconName={"lens"}
-                  label={"No"}
+                  label={"Other"}
                   value={"AdditionalSPUse/Other"}
                 />
               </RadioGroup>

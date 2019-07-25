@@ -20,7 +20,7 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-export default class Extra_5_Screen_T1 extends React.Component {
+export default class SU2_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,11 +40,12 @@ export default class Extra_5_Screen_T1 extends React.Component {
       .child(uid)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
+      
 
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: true });
-        this.setState({ buttonIsActive: true });
+        this.props.navigation.navigate("Extra_6_Screen_T1");
       }
     }, 400);
   };
@@ -66,23 +67,12 @@ export default class Extra_5_Screen_T1 extends React.Component {
                   flexDirection: "column"
                 }}
               >
-                <Radio iconName={"lens"} label={"Several times every hour"} value={"Check_Smartphone/Several times every hour"} />
-                <Radio iconName={"lens"} label={"Every hour"} value={"Check_Smartphone/Every hour"} />
-                <Radio iconName={"lens"} label={"Several times per day"} value={"Check_Smartphone/Several times per day"} />
-                <Radio iconName={"lens"} label={"One time per day"} value={"Check_Smartphone/One time per day"} />
-                <Radio iconName={"lens"} label={"I am not using my smartphone every day"} value={"Check_Smartphone/I am not using my smartphone every day"} />
+                <Radio iconName={"lens"} label={"Several times every hour"} value={"Check_Smartphone_D1/Several times every hour"} />
+                <Radio iconName={"lens"} label={"Every hour"} value={"Check_Smartphone_D1/Every hour"} />
+                <Radio iconName={"lens"} label={"Several times per day"} value={"Check_Smartphone_D1/Several times per day"} />
+                <Radio iconName={"lens"} label={"One time per day"} value={"Check_Smartphone_D1/One time per day"} />
+                <Radio iconName={"lens"} label={"I am not using my smartphone every day"} value={"Check_Smartphone_D1/I am not using my smartphone every day"} />
               </RadioGroup>
-            </View>
-
-            <View style={styles.bottom}>
-              <PrimaryButton
-                label="Continue"
-                isBottom={true}
-                disabled={ !this.state.buttonIsActive }
-                onPress={() => {
-                  this.props.navigation.navigate("Extra_6_Screen_T1");
-                }}
-              />
             </View>
           </>
         ) : null}

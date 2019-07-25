@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Aha_1 extends React.Component {
+export default class Exercice_18_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_3_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Challenge");
+                this.props.navigation.navigate("Exercice_18_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,8 +42,9 @@ export default class Exercice_3_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}You now know why we believe in YOU!
-                  {"\n"}{"\n"}We are happy to embark on this journey together! Here, you will discover how you can empower yourself to use your smartphone in a better way, with the support of changes on your device and in your environment.
+                  {"\n"}How often do you have your smartphone more than an arm length away?
+                  {"\n"}{"\n"}When it comes to your smartphone, you decide when you want to have it around. Often, it doesn’t need to be around constantly.
+                  {"\n"}{"\n"}Be picky and consciously decide in which situations it’s a GO or a NO GO.
                 </Text>
 
               </View>

@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_1 extends React.Component {
+export default class Exercice_13_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,16 +35,15 @@ export default class Exercice_1_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_2");
+                this.props.navigation.navigate("Exercice_13_2");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                  Welcome to day 1 of Contenance!
+                 You will build a powerful new smartphone habit using the following recipe.
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}While reading this, you probably have your smartphone in
-                  your hand.
+                  {"\n"}The beauty of it: during this journey, you have already defined all elements you need for it. Now it’s just about putting them together!
                 </Text>
               </View>
             </TouchableWithoutFeedback>

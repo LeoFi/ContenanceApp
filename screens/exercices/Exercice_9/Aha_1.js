@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Aha_1 extends React.Component {
+export default class Exercice_9_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,19 +35,16 @@ export default class Exercice_1_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Aha_2");
+                this.props.navigation.navigate("Exercice_9_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.header}>
                 Aha!
                 </Text>
-                <Text style={styles.sub_header}>
-                Contenance is French for posture. 
-                </Text>
                 <Text style={styles.text}>
-                  {"\n"}This program aims to help you strengthen your posture while using the smartphone.
-                  {"\n"}{"\n"}Literally, but also metaphorically. It is about maintaining contenance against impulses, mindless scrolling, getting lost and other challenges of smartphone use.
+                  {"\n"}We hope this exercise can give you a better idea of the values you want to live by.
+                  {"\n"}{"\n"}This is one of the most challenging exercises of the program - but the work you put in will pay off. Your values provide the base for everything that follows.
                 </Text>
 
               </View>

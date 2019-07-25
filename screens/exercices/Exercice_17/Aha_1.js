@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Aha_1 extends React.Component {
+export default class Exercice_17_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,7 @@ export default class Exercice_1_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Aha_2");
+                this.props.navigation.navigate("Exercice_17_Aha_2");
               }}
             >
               <View style={styles.container_scroll}>
@@ -43,11 +43,11 @@ export default class Exercice_1_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.sub_header}>
-                Contenance is French for posture. 
+                “Never before in history have the decisions of a handful of designers (mostly men, white, living in SF, aged 25–35) working at three companies —Google, Apple, and Facebook— had so much impact on how millions of people around the world spend their attention.” 
+{"\n"}Tristan Harris, Ex-Google Product Manager, Design Ethic
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}This program aims to help you strengthen your posture while using the smartphone.
-                  {"\n"}{"\n"}Literally, but also metaphorically. It is about maintaining contenance against impulses, mindless scrolling, getting lost and other challenges of smartphone use.
+                  {"\n"}{"\n"}Take back control of your attention by taking back control of the design of your smartphone.
                 </Text>
 
               </View>

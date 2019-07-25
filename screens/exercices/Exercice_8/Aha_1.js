@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_4_Aha_1 extends React.Component {
+export default class Exercice_8_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_4_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_4_Aha_2");
+                this.props.navigation.navigate("Exercice_8_Aha_2");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,9 +42,8 @@ export default class Exercice_4_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Being on smart devices has an effect on your physiology.
-                  {"\n"}{"\n"}Email Apnea is the phenomenon that people are unconsciously holding their breath or breathing shallowly while checking emails.
-                  {"\n"}{"\n"}By doing so you put your body in "fight or flight" mode, which shoots up your heart rate and creates a feeling of stress.
+                  {"\n"}What you just did was looking at your smartphone <Text style={styles.intro_text_bold}>mindfully</Text>. This means carefully noticing every aspect of what is happening on the screen - while also noticing what is happening inside of you.
+                  {"\n"}{"\n"}Put simply, mindfulness is the art of being fully present in the moment, without judging yourself for anything you’re feeling.
                 </Text>
 
               </View>

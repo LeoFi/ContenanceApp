@@ -19,9 +19,9 @@ export default class AllowNotificationsScreen extends React.Component {
         //this.registerForPushNotifications();
     }
 
-    askNotification = () => {
-        Alert.alert("Hey get notifications!")
-    }
+    // askNotification = () => {
+    //     Alert.alert("Hey get notifications!")
+    // }
 
     registerForPushNotifications = async () => {
         const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
@@ -36,7 +36,7 @@ export default class AllowNotificationsScreen extends React.Component {
         if (finalStatus !== 'granted') { return; }
 
         let token = await Notifications.getExpoPushTokenAsync();
-        //console.log(token)
+        console.log(token)
 
         let uid = firebase.auth.currentUser.uid;
         console.log(uid)
@@ -58,12 +58,12 @@ export default class AllowNotificationsScreen extends React.Component {
                     <PrimaryButton
                         label='Next'
                         isBottom={true}
-                        // onPress={() => {
-                        //     //this.props.navigation.navigate('SetReminders');
-                        //     //registerForPushNotifications
-                        //     this.askNotification
-                        //   }}
-                        onPress={this.askNotification}
+                        onPress={() => {
+                            this.props.navigation.navigate('SetReminders');
+                            this.registerForPushNotifications()
+                            //this.askNotification
+                          }}
+                        //onPress={this.askNotification}
                         disabled={false}
                     />
                 </View>

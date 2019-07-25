@@ -16,7 +16,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Intro extends React.Component {
+export default class Exercice_10_Intro extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,11 +35,11 @@ export default class Exercice_3_Intro extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day_light}>Day 3</Text>
-              <Text style={styles.intro_header_light}>Solution Triangle</Text>
+              <Text style={styles.intro_header_day_light}>Day 10</Text>
+              <Text style={styles.intro_header_light}>Meaningful Smartphone Activities</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}5 MIN{"\n"}In this exercise, you will discover three factors that help you to improve your relationship with your smartphone. 
+                {"\n"}5 MIN{"\n"}Today, you are going to turn your smartphone into a tool to bring your values to life. 
               </Text>
             </View>
           </View>
@@ -51,7 +51,7 @@ export default class Exercice_3_Intro extends React.Component {
             isBottom={true}
             style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
             onPress={() => {
-              this.props.navigation.navigate("Exercice_3_1");
+              this.props.navigation.navigate("Exercice_10_1");
             }}
           />
         </View>

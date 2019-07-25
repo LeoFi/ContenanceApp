@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_4_Aha_1 extends React.Component {
+export default class Exercice_20_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_4_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_4_Aha_2");
+                this.props.navigation.navigate("Exercice_20_Aha_2");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,9 +42,9 @@ export default class Exercice_4_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Being on smart devices has an effect on your physiology.
-                  {"\n"}{"\n"}Email Apnea is the phenomenon that people are unconsciously holding their breath or breathing shallowly while checking emails.
-                  {"\n"}{"\n"}By doing so you put your body in "fight or flight" mode, which shoots up your heart rate and creates a feeling of stress.
+                  {"\n"}We call this activity <Text style={styles.intro_text_bold}>Daddeln</Text>.
+                  {"\n"}{"\n"}Most of us are doing Daddeln almost every day like mindlessly scrolling through Instagram or binge-watching YouTube after a long day of work.
+                  {"\n"}{"\n"}At the beginning, this feels incredibly good to exhausted brains. But often, there comes a turning point, where the activity starts making us feel bad. We feel like we’ve spent more time on the device than we intended to.
                 </Text>
 
               </View>

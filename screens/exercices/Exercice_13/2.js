@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_2 extends React.Component {
+export default class Exercice_13_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,13 +35,15 @@ export default class Exercice_1_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_3");
+                this.props.navigation.navigate("Exercice_13_3");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.intro_text}>
-                  {"\n"}Now, stop focusing your attention on the screen and start - without changing anything - to notice your posture (body position).
-                  {"\n"}{"\n"}Just observe it for a moment.
+                <Text style={styles.intro_text_bold}>{"\n"}Step 1: Choose three triggers
+                  {"\n"}{"\n"}For which situations - or feelings - do you want to define a new response?</Text>.
+                  View example
+                  {"\n"}{"\n"} If I am...
                 </Text>
 
               </View>

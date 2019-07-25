@@ -20,33 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class TRP_Screen_PM2 extends React.Component {
   constructor(props) {
     super(props);
@@ -55,8 +28,7 @@ export default class TRP_Screen_PM2 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
- 
-
+      buttonIsActive: false,
     };
   }
 
@@ -85,8 +57,8 @@ export default class TRP_Screen_PM2 extends React.Component {
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-
-      
+      } else if (this.state.show_4 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -94,7 +66,7 @@ export default class TRP_Screen_PM2 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>In the last 4 days...</Text>
+        <Text style={styles.header_left_padding}>Please refer to today and the past 3 days....</Text>
 
         {this.state.show_1 ? (
           <>
@@ -189,6 +161,7 @@ export default class TRP_Screen_PM2 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                   this.props.navigation.navigate("HS_Screen_PM2");
                 }}
@@ -200,14 +173,3 @@ export default class TRP_Screen_PM2 extends React.Component {
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="Continue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
-    }}
-  />
-</View>; */

@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_2 extends React.Component {
+export default class Exercice_7_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +25,7 @@ export default class Exercice_1_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/beige_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -35,13 +34,18 @@ export default class Exercice_1_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_3");
+                this.props.navigation.navigate("Exercice_7_Aha_3");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.intro_text}>
-                  {"\n"}Now, stop focusing your attention on the screen and start - without changing anything - to notice your posture (body position).
-                  {"\n"}{"\n"}Just observe it for a moment.
+                <Text style={styles.header}>
+                Aha!
+                </Text>
+                <Text style={styles.sub_header}>
+                What is a Stopping Cue?
+                </Text>
+                <Text style={styles.text}>
+                  {"\n"}A stopping cue is a signal showing us that it might be time to move on. When you read a book and reach the last page of the chapter, then this is the signal that you can easily stop here. You have reached an endpoint. Or when you watch a movie in the theater, you know that it is time to leave when the movie is finished.
                 </Text>
 
               </View>
@@ -51,18 +55,4 @@ export default class Exercice_1_2 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

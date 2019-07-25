@@ -19,7 +19,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Intro_Phase extends React.Component {
+export default class Exercice_9_Intro_Phase extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +33,7 @@ export default class Exercice_1_Intro_Phase extends React.Component {
         <ScrollView>
           <TouchableWithoutFeedback
             onPress={() => {
-              this.props.navigation.navigate("Exercice_1_Intro");
+              this.props.navigation.navigate("Exercice_9_Intro");
             }}
           >
             <View style={styles.container_scroll_img_absolute}>
@@ -44,18 +44,13 @@ export default class Exercice_1_Intro_Phase extends React.Component {
               />
 
               <View style={styles.middle}>
-                <Text style={styles.intro_header}>Observe</Text>
+                <Text style={styles.intro_header}>Vision</Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}<Text style={styles.intro_text_bold}>Welcome to the wide ocean!</Text>{"\n"}This is how being on
-                  the smartphone can feel like with all its’ great
-                  opportunities. But sometimes, it’s hard to navigate. There are
-                  impulse waves pulling you underwater when you’re hit by them.
-                  {"\n"}Leo explores how being in the digital ocean feels.
+                  {"\n"}<Text style={styles.intro_text_bold}>Finding meaning</Text>{"\n"}No matter how good you can surf: if you’re unsure about the direction you’re heading, you will eventually go down. It’s similar to your smartphone use: if you know what’s important to yourself, you’re more likely to handle mindless scrolling on the screen.
+                  {"\n"}Leo learned why some waves soak him underwater. Suddenly, he sees a bright light on the horizon and turns his head towards the lights. It’s a big star! Leo is fascinated by the power of the star and wants to find out more about it. So he does the obvious: he reaches for the star.
                 </Text>
                 <Text style={styles.intro_text_bold}>
-                  {"\n"}This module is all about observing yourself while you’re
-                  on the smartphone. No judgements, no changes. Just observe
-                  yourself in the wide, digital ocean.
+                  {"\n"}This module is about exploring your values. Based on them, you will define a new way to use your smartphone. This might sound challenging but we will support you.
                 </Text>
               </View>
 

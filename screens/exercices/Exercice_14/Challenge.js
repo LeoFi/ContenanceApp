@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Challenge extends React.Component {
+export default class Exercice_14_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_3_Challenge extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Congratulations");
+                this.props.navigation.navigate("Exercice_14_Congratulations");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,8 +42,11 @@ export default class Exercice_3_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Look around you today: what are other people doing to take control of their smartphone use?
-                  {"\n"}{"\n"}What factor do they belong to? The smartphone, the environment or the person?
+                  {"\n"}Until you come back tomorrow, do a test-run of one of your newly defined coping plans!
+                  {"\n"}{"\n"}There might be challenges to realize my plan: {NewHabitCommit_D13}. But I am prepared.
+                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {Obstacle1_D14}, then {CopingStrategy1_D14}.</Text>.
+                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {Obstacle2_D14}, then {CopingStrategy2_D14}.</Text>.
+                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {Obstacle3_D14}, then {CopingStrategy3_D14}.</Text>.
                 </Text>
 
               </View>

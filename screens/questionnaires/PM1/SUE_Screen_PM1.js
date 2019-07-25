@@ -20,40 +20,13 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class SUE_Screen_PM1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       show_1: true,
       show_2: false,
- 
+      buttonIsActive: false,
     };
   }
 
@@ -73,7 +46,8 @@ export default class SUE_Screen_PM1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-
+      } else if (this.state.show_2 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -133,6 +107,7 @@ time on the smartphone?</Text>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                   this.props.navigation.navigate("MFSU_Screen_PM1");
                 }}
@@ -144,14 +119,3 @@ time on the smartphone?</Text>
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="Continue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("SUE_Screen");
-    }}
-  />
-</View>; */

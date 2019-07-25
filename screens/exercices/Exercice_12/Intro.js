@@ -16,7 +16,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_4_Intro extends React.Component {
+export default class Exercice_12_Intro extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,11 +35,11 @@ export default class Exercice_4_Intro extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day_light}>Day 4</Text>
-              <Text style={styles.intro_header_light}>Keep Breathing</Text>
+              <Text style={styles.intro_header_day_light}>Day 12</Text>
+              <Text style={styles.intro_header_light}>Inner Scientist</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}10 MIN{"\n"}Today, you will discover why you might feel stressed after being on the smartphone and do your first reflection.
+                {"\n"}10 MIN{"\n"}In this exercise, you will discover a new way to handle impulses that drive you to use the smartphone unconsciously.
               </Text>
             </View>
           </View>
@@ -51,7 +51,7 @@ export default class Exercice_4_Intro extends React.Component {
             isBottom={true}
             style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
             onPress={() => {
-              this.props.navigation.navigate("Exercice_4_1");
+              this.props.navigation.navigate("Exercice_12_1");
             }}
           />
         </View>

@@ -16,26 +16,28 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex3 } from "./../../../redux-persist/redux/exercices";
-import { updateState_Ex4 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex10 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex11 } from "./../../../redux-persist/redux/exercices";
 
-class Exercice_3_Congratulations extends React.Component {
+class Exercice_10_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_3: "completed",
-      exercice_state_4: "locked"
+      exercice_state_10: "completed",
+      exercice_state_11: "locked"
     };
   }
 
   handleSubmit = () => {
-    const { exercice_state_3 } = this.state;
-    this.setState({ exercice_state_3: exercice_state_3 });
-    this.props.dispatch(updateState_Ex3(this.state.exercice_state_3));
-    const { exercice_state_4 } = this.state;
-    this.setState({ exercice_state_4: exercice_state_4 });
-    this.props.dispatch(updateState_Ex4(this.state.exercice_state_4));
+    const { exercice_state_10 } = this.state;
+    this.setState({ exercice_state_10: exercice_state_10 });
+    this.props.dispatch(updateState_Ex10(this.state.exercice_state_10));
+
+    const { exercice_state_11 } = this.state;
+    this.setState({ exercice_state_11: exercice_state_11 });
+    this.props.dispatch(updateState_Ex11(this.state.exercice_state_11));
+    
     this.props.navigation.push("Home");
   };
 
@@ -53,8 +55,7 @@ class Exercice_3_Congratulations extends React.Component {
             <View style={styles.middle}>
               <Text style={styles.header}>Congratulations!</Text>
               <Text style={styles.text}>
-                {"\n"}You now have heard of the three factors of the Solution
-                Triangle to improve your relationship with your smartphone.
+                {"\n"}Today, you discovered how your smartphone can be a tool to put your values into practice!
               </Text>
 
               <View style={styles.tap_pos_relative}>
@@ -72,4 +73,4 @@ const mapStateToProps = state => ({
   exercices: state.exercices
 });
 
-export default connect(mapStateToProps)(Exercice_3_Congratulations);
+export default connect(mapStateToProps)(Exercice_10_Congratulations);

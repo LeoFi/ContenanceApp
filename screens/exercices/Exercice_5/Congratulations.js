@@ -16,10 +16,9 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-
 import { connect } from "react-redux";
 import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices"
-import { updateStartingDate } from "./../../../redux-persist/redux/user"
+import { updateState_Ex6 } from "./../../../redux-persist/redux/exercices"
 
 
 class Exercice_5_Congratulations extends React.Component {
@@ -28,13 +27,19 @@ class Exercice_5_Congratulations extends React.Component {
 
     this.state = {
       exercice_state_5: "completed",
+      exercice_state_6: "locked"
     };
   }
  
   handleSubmit = () => {
-    const exercice_state_1 = this.state;
-    this.setState({ exercice_state_1: exercice_state_1 });
-    this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
+    const exercice_state_5 = this.state;
+    this.setState({ exercice_state_5: exercice_state_5 });
+    this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
+
+    const exercice_state_6 = this.state;
+    this.setState({ exercice_state_6: exercice_state_6 });
+    this.props.dispatch(updateState_Ex6(this.state.exercice_state_6));
+
     this.props.navigation.push("Home");
   };
 
@@ -73,7 +78,6 @@ class Exercice_5_Congratulations extends React.Component {
 
 
 const mapStateToProps = state => ({
-  user: state.user,
   exercices: state.exercices
 });
 

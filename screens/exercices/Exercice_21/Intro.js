@@ -36,11 +36,11 @@ export default class Exercice_1_Intro extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day_light}>Day 1</Text>
-              <Text style={styles.intro_header_light}>Contenance!</Text>
+              <Text style={styles.intro_header_day_light}>Day 21</Text>
+              <Text style={styles.intro_header_light}>Closing</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}2 MIN{"\n"}In this exercise, you will discover what Contenance is and why it should not be about less but better.
+                {"\n"}12 MIN{"\n"}Today, you’ll cross the finish line and complete the 21-day training journey.
               </Text>
             </View>
           </View>

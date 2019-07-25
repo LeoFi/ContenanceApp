@@ -20,33 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class HS_Screen_PM1 extends React.Component {
   constructor(props) {
     super(props);
@@ -55,8 +28,7 @@ export default class HS_Screen_PM1 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
- 
-
+      buttonIsActive: false,
     };
   }
 
@@ -84,9 +56,9 @@ export default class HS_Screen_PM1 extends React.Component {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
-        this.setState({ show_4: true });
-
-      
+        this.setState({ show_4: true });      
+      } else if (this.state.show_4 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -94,12 +66,12 @@ export default class HS_Screen_PM1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>In the last 4 days, using my smartphone was something...</Text>
+        <Text style={styles.header_left_padding}>Please refer to today and the past 3 days.</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ... I did automatically.
+            Using my smartphone was something I did automatically.
             </Text>
 
             <View style={styles.question}>
@@ -123,7 +95,7 @@ export default class HS_Screen_PM1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... I did without having to consciously remember.
+            Using my smartphone was something I did without having to consciously remember.
             </Text>
 
             <View style={styles.question}>
@@ -145,7 +117,7 @@ export default class HS_Screen_PM1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ... I did without thinking.
+            Using my smartphone was something I did without thinking.
             </Text>
 
             <View style={styles.question}>
@@ -167,7 +139,7 @@ export default class HS_Screen_PM1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            ... I started doing before I realized I was doing it.
+            Using my smartphone was something I started doing before I realized I was doing it.
             </Text>
 
             <View style={styles.question}>
@@ -189,6 +161,7 @@ export default class HS_Screen_PM1 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                   this.props.navigation.navigate("IN_Screen_PM1");
                 }}
@@ -200,14 +173,3 @@ export default class HS_Screen_PM1 extends React.Component {
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="Continue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
-    }}
-  />
-</View>; */

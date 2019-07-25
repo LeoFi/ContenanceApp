@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_4_Aha_1 extends React.Component {
+export default class Exercice_12_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_4_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_4_Aha_2");
+                this.props.navigation.navigate("Exercice_12_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,9 +42,8 @@ export default class Exercice_4_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Being on smart devices has an effect on your physiology.
-                  {"\n"}{"\n"}Email Apnea is the phenomenon that people are unconsciously holding their breath or breathing shallowly while checking emails.
-                  {"\n"}{"\n"}By doing so you put your body in "fight or flight" mode, which shoots up your heart rate and creates a feeling of stress.
+                  {"\n"}The beauty of this exercise is that instead of escaping the emotional trigger or the impulse that pushes you to use the smartphone impulsively, you consciously turn towards it.
+                  {"\n"}{"\n"}You accept it the way it is. You accept the sound that bings, the feeling of boredness and what is happening in your inner world right now.
                 </Text>
 
               </View>

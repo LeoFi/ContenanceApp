@@ -26,7 +26,7 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-export default class Extra_4_Screen_T1 extends React.Component {
+export default class SU1_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,11 +71,11 @@ export default class Extra_4_Screen_T1 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({
-        Screen_Time_Hours: screenTimeHours,
-        Screen_Time_Minutes: screenTimeMinutes,
-        Pickups_Number: pickupNumber
+        Screen_Time_Hours_D1: screenTimeHours,
+        Screen_Time_Minutes_D1: screenTimeMinutes,
+        Pickups_Number_D1: pickupNumber
       });
-    this.props.navigation.navigate("Extra_5_Screen_T1");
+    this.props.navigation.navigate("SU2_Screen_T1");
   };
 
   render() {

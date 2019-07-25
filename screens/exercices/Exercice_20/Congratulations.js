@@ -16,23 +16,30 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex4 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex20 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex21 } from "./../../../redux-persist/redux/exercices"
 
-class Exercice_4_Congratulations extends React.Component {
+class Exercice_20_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_4: "completed",
+      exercice_state_20: "completed",
+      exercice_state_21: "locked"
     };
   }
 
  
   handleSubmit = () => {
-    const { exercice_state_4 } = this.state;
-    this.setState({ exercice_state_4: exercice_state_4 });
-    this.props.dispatch(updateState_Ex4(this.state.exercice_state_4));
-    this.props.navigation.push("Intro_Screen_PM1");
+    const { exercice_state_20 } = this.state;
+    this.setState({ exercice_state_20: exercice_state_20 });
+    this.props.dispatch(updateState_Ex20(this.state.exercice_state_20));
+
+    const { exercice_state_21 } = this.state;
+    this.setState({ exercice_state_21: exercice_state_21 });
+    this.props.dispatch(updateState_Ex21(this.state.exercice_state_21));
+
+    this.props.navigation.push("Intro_Screen_PM5");
   };
 
   render() {
@@ -49,8 +56,8 @@ class Exercice_4_Congratulations extends React.Component {
             <View style={styles.middle}>
                 <Text style={styles.header}>Congratulations!</Text>
                 <Text style={styles.text}>
-                  {"\n"}Today, you discovered why you might feel stressed after being on the smartphone.
-                  {"\n"}{"\n"}Continue with your first reflection.
+                  {"\n"} Today, you discovered how to consciously lose yourself again.
+                  {"\n"}{"\n"}Continue today’s exercise with your fifth reflection.
                 </Text>
 
                 <View style={styles.tap_pos_relative}>
@@ -71,4 +78,4 @@ const mapStateToProps = state => ({
   exercices: state.exercices
 });
 
-export default connect(mapStateToProps)(Exercice_4_Congratulations);
+export default connect(mapStateToProps)(Exercice_20_Congratulations);

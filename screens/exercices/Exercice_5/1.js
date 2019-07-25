@@ -19,8 +19,7 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 
-import { Svg } from "expo";
-const { Circle, Path } = Svg;
+import { Svg, Circle, Path } from 'react-native-svg'
 
 import { TagSelect } from "react-native-tag-select";
 

@@ -41,6 +41,7 @@
     "react-native-settings-list": "^1.8.0",
     "react-native-settings-screen": "^2.1.2",
     "react-native-simple-radio-button": "^2.7.3",
+    "react-native-svg": "~9.4.0",
     "react-native-svg-transformer": "^0.13.0",
     "react-native-swiper": "^1.5.14",
     "react-native-tag-select": "^2.0.0",

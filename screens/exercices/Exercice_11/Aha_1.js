@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Aha_1 extends React.Component {
+export default class Exercice_11_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_3_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Challenge");
+                this.props.navigation.navigate("Exercice_11_Aha_2");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,8 +42,8 @@ export default class Exercice_3_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}You now know why we believe in YOU!
-                  {"\n"}{"\n"}We are happy to embark on this journey together! Here, you will discover how you can empower yourself to use your smartphone in a better way, with the support of changes on your device and in your environment.
+                  {"\n"}Now, remember everything you found...
+                  {"\n"}{"\n"}Don’t worry, this is not a memory test! The magic of this trick is not remembering everything. Through the active use of your 5 senses, you can connect yourself with the present moment and look outside of the smartphone box.
                 </Text>
 
               </View>

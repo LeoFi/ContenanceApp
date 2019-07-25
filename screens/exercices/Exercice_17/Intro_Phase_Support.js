@@ -19,7 +19,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_Intro_Phase extends React.Component {
+export default class Exercice_17_Intro_Phase extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +33,7 @@ export default class Exercice_1_Intro_Phase extends React.Component {
         <ScrollView>
           <TouchableWithoutFeedback
             onPress={() => {
-              this.props.navigation.navigate("Exercice_1_Intro");
+              this.props.navigation.navigate("Exercice_17_Intro");
             }}
           >
             <View style={styles.container_scroll_img_absolute}>
@@ -44,18 +44,13 @@ export default class Exercice_1_Intro_Phase extends React.Component {
               />
 
               <View style={styles.middle}>
-                <Text style={styles.intro_header}>Observe</Text>
+                <Text style={styles.intro_header}>Support</Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}<Text style={styles.intro_text_bold}>Welcome to the wide ocean!</Text>{"\n"}This is how being on
-                  the smartphone can feel like with all its’ great
-                  opportunities. But sometimes, it’s hard to navigate. There are
-                  impulse waves pulling you underwater when you’re hit by them.
-                  {"\n"}Leo explores how being in the digital ocean feels.
+                  {"\n"}<Text style={styles.intro_text_bold}>Mastering the waves</Text>{"\n"}It’s time to surf! In the last 16 days, Leo learned how to handle the stormy waves of distraction in the digital ocean. Now it’s about refining his surfing gear to make sure it supports him in mastering and surfing the waves.
+    
                 </Text>
                 <Text style={styles.intro_text_bold}>
-                  {"\n"}This module is all about observing yourself while you’re
-                  on the smartphone. No judgements, no changes. Just observe
-                  yourself in the wide, digital ocean.
+                  {"\n"}This module is about redesigning your smartphone and environment to support your new smartphone practice. Create the perfect surf environment!
                 </Text>
               </View>
 

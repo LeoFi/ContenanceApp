@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Challenge extends React.Component {
+export default class Exercice_18_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -42,8 +42,9 @@ export default class Exercice_3_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Look around you today: what are other people doing to take control of their smartphone use?
-                  {"\n"}{"\n"}What factor do they belong to? The smartphone, the environment or the person?
+                  {"\n"}From now on, stick to these situations in which you will have your smartphone around - or not.
+                  {"\n"}{"\n"}This might be quite a radical change. Here comes a little tip: You can start with implementing one GO and one NO GO per day.
+                  {"\n"}{"\n"}Wait, what are my GOs and NO GOs again?  {/* This needs to be a link to a pop-up */}
                 </Text>
 
               </View>

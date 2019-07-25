@@ -17,7 +17,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_2_Intro extends React.Component {
+export default class Exercice_6_Intro extends React.Component {
   constructor(props) {
     super(props);
 
@@ -36,11 +36,11 @@ export default class Exercice_2_Intro extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.intro_header_day_light}>Day 2</Text>
-              <Text style={styles.intro_header_light}>Notice Your Impulses</Text>
+              <Text style={styles.intro_header_day_light}>Day 6</Text>
+              <Text style={styles.intro_header_light}>Exploring Emotional Triggers</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}4 MIN{"\n"}Today, you will discover the unconscious force that pushes you to your smartphone.
+                {"\n"}7 MIN{"\n"}In this exercise, you will discover how emotions can trigger you to unconsciously use your smartphone.
               </Text>
             </View>
           </View>
@@ -52,7 +52,7 @@ export default class Exercice_2_Intro extends React.Component {
             isBottom={true}
             style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
             onPress={() => {
-              this.props.navigation.navigate("Exercice_2_1");
+              this.props.navigation.navigate("Exercice_6_1");
             }}
           />
         </View>

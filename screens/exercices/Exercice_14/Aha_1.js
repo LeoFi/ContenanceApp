@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Aha_1 extends React.Component {
+export default class Exercice_14_Aha_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_3_Aha_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Challenge");
+                this.props.navigation.navigate("Exercice_14_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,8 +42,9 @@ export default class Exercice_3_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}You now know why we believe in YOU!
-                  {"\n"}{"\n"}We are happy to embark on this journey together! Here, you will discover how you can empower yourself to use your smartphone in a better way, with the support of changes on your device and in your environment.
+                  {"\n"}Boooom! You just added another “If then” trick to your new habit recipe! 
+                  {"\n"}{"\n"}With those connections established, you’re ready for all those beautiful everyday challenges out there. 
+                  {"\n"}{"\n"}But now, they won’t stop you from doing what is meaningful to you. 
                 </Text>
 
               </View>

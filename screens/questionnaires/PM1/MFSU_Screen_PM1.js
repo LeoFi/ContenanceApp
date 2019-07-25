@@ -20,33 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class MFSU_Screen_PM1 extends React.Component {
   constructor(props) {
     super(props);
@@ -58,7 +31,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
       show_5: false,
       show_6: false,
       show_7: false,
-
+      buttonIsActive: false,
     };
   }
 
@@ -108,7 +81,8 @@ export default class MFSU_Screen_PM1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-      
+      } else if (this.state.show_7 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 600);
   };
@@ -116,12 +90,12 @@ export default class MFSU_Screen_PM1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>When I was using my smartphone in the last 4 days...</Text>
+        <Text style={styles.header_left_padding}>Please refer to today and the past 3 days.</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ...my mind wandered off and I was easily distracted.
+            When I was using my smartphone, my mind wandered off and I was easily distracted.
             </Text>
 
             <View style={styles.question}>
@@ -145,7 +119,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... I did not pay attention to what I was doing because I was daydreaming, worrying, or otherwise distracted.
+            When I was using my smartphone, I did not pay attention to what I was doing because I was daydreaming, worrying, or otherwise distracted.
             </Text>
 
             <View style={styles.question}>
@@ -167,7 +141,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ...I was easily distracted.
+            When I was using my smartphone, I was easily distracted.
             </Text>
 
             <View style={styles.question}>
@@ -189,7 +163,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            ...I found it difficult to stay focused on what was happening in the present.
+            When I was using my smartphone, I found it difficult to stay focused on what was happening in the present.
             </Text>
 
             <View style={styles.question}>
@@ -211,7 +185,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
         {this.state.show_5 ? (
           <>
             <Text style={styles.text_left}>
-            ...I rushed through activities without being really attentive to them.
+            When I was using my smartphone, I rushed through activities without being really attentive to them.
             </Text>
 
             <View style={styles.question}>
@@ -233,7 +207,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
         {this.state.show_6 ? (
           <>
             <Text style={styles.text_left}>
-            ... I did jobs or tasks automatically without being aware of what I was doing.
+            When I was using my smartphone, I did jobs or tasks automatically without being aware of what I was doing.
             </Text>
 
             <View style={styles.question}>
@@ -255,7 +229,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
         {this.state.show_7 ? (
           <>
             <Text style={styles.text_left}>
-            ...I found myself doing things without paying attention.
+            When I was using my smartphone, I found myself doing things without paying attention.
             </Text>
 
             <View style={styles.question}>
@@ -276,6 +250,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                   this.props.navigation.navigate("PSF_Screen_PM1");
                 }}
@@ -287,14 +262,3 @@ export default class MFSU_Screen_PM1 extends React.Component {
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="Continue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
-    }}
-  />
-</View>; */

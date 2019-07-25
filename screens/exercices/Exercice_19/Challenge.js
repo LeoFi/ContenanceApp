@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_Challenge extends React.Component {
+export default class Exercice_19_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_3_Challenge extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Congratulations");
+                this.props.navigation.navigate("Exercice_19_Congratulations");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,8 +42,9 @@ export default class Exercice_3_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Look around you today: what are other people doing to take control of their smartphone use?
-                  {"\n"}{"\n"}What factor do they belong to? The smartphone, the environment or the person?
+                  {"\n"}Your social experiment can begin!
+                  {"\n"}{"\n"}From now on, share with the people around you what you are doing on the smartphone if you are using it around them.
+                  {"\n"}{"\n"}If you don’t feel comfortable sharing your activity, think about if it is even necessary doing that right that second.
                 </Text>
 
               </View>

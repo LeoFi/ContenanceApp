@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_4_Aha_2 extends React.Component {
+export default class Exercice_16_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Exercice_4_Aha_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_4_Challenge");
+                this.props.navigation.navigate("Exercice_16_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
@@ -42,9 +42,9 @@ export default class Exercice_4_Aha_2 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Email Apnea also applies to the smartphone. Yes, you might unconsciously interrupt your normal breathing while scrolling on your screen.
-                  {"\n"}{"\n"}No worries, there’s an easy way to stop that:
-                  {"\n"}{"\n"}while being on your smartphone, bring back your attention to your body and breath and be aware of your breathing.
+                  {"\n"}Research has shown how such micro-breaks increase memory performance and suggests to go through them for at least five minutes every hour. 
+                  {"\n"}{"\n"}When we sense a feeling of overstimulation from a task, grabbing the smartphone is a popular response to it. This gives micro-breaks a tough time.
+                  
                 </Text>
 
               </View>

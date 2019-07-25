@@ -20,33 +20,6 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-const options = [
-  {
-    key: "1",
-    text: "1"
-  },
-  {
-    key: "2",
-    text: "2"
-  },
-  {
-    key: "3",
-    text: "3"
-  },
-  {
-    key: "4",
-    text: "4"
-  },
-  {
-    key: "5",
-    text: "5"
-  },
-  {
-    key: "6",
-    text: "6"
-  }
-];
-
 export default class AP_Screen_PM2 extends React.Component {
   constructor(props) {
     super(props);
@@ -56,8 +29,7 @@ export default class AP_Screen_PM2 extends React.Component {
       show_3: false,
       show_4: false,
       show_5: false,
-  
-
+      buttonIsActive: false,
     };
   }
 
@@ -92,8 +64,8 @@ export default class AP_Screen_PM2 extends React.Component {
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-
-      
+      } else if (this.state.show_5 == true) {
+        this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
@@ -101,12 +73,12 @@ export default class AP_Screen_PM2 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>In the last 4 days, I have made a detailed plan regarding...</Text>
+        <Text style={styles.header_left_padding}>Please refer to today and the past 3 days.</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ... when to use my smartphone consciously (e.g., on the way to work).
+            I have made a detailed plan regarding when to use my smartphone consciously (e.g., on the way to work).
             </Text>
 
             <View style={styles.question}>
@@ -130,7 +102,7 @@ export default class AP_Screen_PM2 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... where to use my smartphone consciously (e.g., in the train)
+            I have made a detailed plan regarding where to use my smartphone consciously (e.g., in the train)
             </Text>
 
             <View style={styles.question}>
@@ -152,7 +124,7 @@ export default class AP_Screen_PM2 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ... what to do on my smartphone to use it consciously (e.g., listen to a TED talk on the smartphone)
+            I have made a detailed plan regarding what to do on my smartphone to use it consciously (e.g., listen to a TED talk on the smartphone)
             </Text>
 
             <View style={styles.question}>
@@ -174,7 +146,7 @@ export default class AP_Screen_PM2 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            ... what I can do in difficult situations to stay true to my plans.
+            I have made a detailed plan regarding what I can do in difficult situations to stay true to my plans.
             </Text>
 
             <View style={styles.question}>
@@ -196,7 +168,7 @@ export default class AP_Screen_PM2 extends React.Component {
         {this.state.show_5 ? (
           <>
             <Text style={styles.text_left}>
-            ... how to deal with it once I’ve failed doing it.
+            I have made a detailed plan regarding how to deal with it once I’ve failed doing it.
             </Text>
 
             <View style={styles.question}>
@@ -218,6 +190,7 @@ export default class AP_Screen_PM2 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
+                disabled={ !this.state.buttonIsActive }
                 onPress={() => {
                   this.props.navigation.navigate("AC_Screen_PM2");
                 }}
@@ -229,14 +202,3 @@ export default class AP_Screen_PM2 extends React.Component {
     );
   }
 }
-
-
-  /* <View style={styles.bottom}>
-  <PrimaryButton
-    label="Continue"
-    isBottom={true}
-    onPress={() => {
-      this.props.navigation.navigate("WB_Screen");
-    }}
-  />
-</View>; */

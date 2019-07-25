@@ -14,9 +14,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_4 extends React.Component {
+export default class Exercice_20_Aha_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,19 +34,18 @@ export default class Exercice_1_4 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Aha_1");
+                this.props.navigation.navigate("Exercice_20_Challenge");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                Now, change your posture. 
+                <Text style={styles.header}>
+                Aha!
                 </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}Try to straighten your back, relax your neck, soften your shoulders.
-                  {"\n"}{"\n"}Try to take on a good posture, whatever this might mean for you.
-                  {"\n"}{"\n"}Continue when you’re ready.
+                <Text style={styles.text}>
+                  {"\n"}Once you’ve made the decision to do Daddeln, you’re free to enjoy the activity to the fullest.
+                  {"\n"}{"\n"}Daddeln is supposed to make you feel good, not bad. No judgement at all, do what makes you feel good.
                 </Text>
-                
+
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -55,18 +53,4 @@ export default class Exercice_1_4 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }
