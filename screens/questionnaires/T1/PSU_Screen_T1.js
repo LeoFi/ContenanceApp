@@ -15,8 +15,10 @@ import {
   GreyInputButton,
   RadioButtons
 } from "../../../components/AppComponents";
+
 import RadioGroup, { Radio } from "react-native-radio-input";
 import { styles } from "./style";
+import { Svg, Circle, Path } from "react-native-svg";
 
 import * as firebase from "firebase";
 
@@ -34,7 +36,7 @@ export default class PSU_Screen_T1 extends React.Component {
       show_8: false,
       show_9: false,
       show_10: false,
-      buttonIsActive: false,
+      buttonIsActive: false
     };
   }
 
@@ -103,7 +105,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-      }  else if (this.state.show_9 == true) {
+      } else if (this.state.show_9 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
@@ -120,9 +122,85 @@ export default class PSU_Screen_T1 extends React.Component {
     }, 400);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+      } else if (this.state.show_2 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: true });
+      } else if (this.state.show_3 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: true });
+      } else if (this.state.show_4 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: true });
+      } else if (this.state.show_5 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: true });
+      } else if (this.state.show_6 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: false });
+        this.setState({ show_7: true });
+      } else if (this.state.show_7 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: false });
+        this.setState({ show_7: false });
+        this.setState({ show_8: true });
+      } else if (this.state.show_8 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: false });
+        this.setState({ show_7: false });
+        this.setState({ show_8: false });
+        this.setState({ show_9: true });
+      } else if (this.state.show_9 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: false });
+        this.setState({ show_7: false });
+        this.setState({ show_8: false });
+        this.setState({ show_9: false });
+        this.setState({ show_10: true });
+      }
+    }, 400);
+  };
+
   render() {
     return (
       <View style={styles.container}>
+
+        {!this.state.show_10 ? (
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        ) : null}
+
         <Text style={styles.header_left_padding}>In the last 7 days</Text>
 
         {this.state.show_1 ? (
@@ -135,9 +213,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "row"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU01_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU01_D1/2"} />
@@ -160,7 +237,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU02_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU02_D1/2"} />
@@ -183,7 +261,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU03_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU03_D1/2"} />
@@ -206,7 +285,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU04_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU04_D1/2"} />
@@ -228,7 +308,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU05_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU05_D1/2"} />
@@ -251,7 +332,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU06_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU06_D1/2"} />
@@ -274,7 +356,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU07_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU07_D1/2"} />
@@ -296,7 +379,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU08_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU08_D1/2"} />
@@ -318,7 +402,8 @@ export default class PSU_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSU09_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSU09_D1/2"} />
@@ -334,13 +419,14 @@ export default class PSU_Screen_T1 extends React.Component {
         {this.state.show_10 ? (
           <>
             <Text style={styles.text_left}>
-            In general, I find my smartphone use problematic.
+              In general, I find my smartphone use problematic.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSUc_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSUc_D1/2"} />
@@ -355,9 +441,9 @@ export default class PSU_Screen_T1 extends React.Component {
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
-                disabled={ !this.state.buttonIsActive }
+                disabled={!this.state.buttonIsActive}
                 onPress={() => {
-                    this.props.navigation.navigate("SUE_Screen_T1");
+                  this.props.navigation.navigate("SUE_Screen_T1");
                 }}
               />
             </View>

@@ -19,7 +19,17 @@ const styles = StyleSheet.create({
         //alignItems: "center",
         alignSelf: "stretch",
     },
-
+    skip: {
+        textAlign: 'left',
+        alignSelf: 'stretch',
+    },
+    skip_text: {
+        color: '#2C3B51',
+        fontSize: 16,
+        textTransform: 'uppercase',
+        fontFamily: 'roboto-bold',
+        paddingBottom: 37,
+    },
     container_scroll: {
         paddingTop: 80,
         paddingLeft: 30,
@@ -141,8 +151,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
     },
     question: {
-        flex:2,
-        flexDirection:'row',
+        //flex:2,
         alignSelf: "stretch",
     },
     top_security_agreements: {
