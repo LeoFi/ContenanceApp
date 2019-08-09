@@ -14,6 +14,7 @@ import HeaderComponent from "./HeaderComponent";
 import RadioButtons from "./RadioButton";
 import MenuHeaderComponent from "./MenuHeaderComponent";
 import MultipleGreyInputButton from "./MultipleGreyInputButton";
+import RadioGroup from "./RadioGroup";
 
 
 export {
@@ -32,5 +33,6 @@ export {
   HeaderComponent,
   RadioButtons,
   MenuHeaderComponent,
-  MultipleGreyInputButton
+  MultipleGreyInputButton,
+  RadioGroup
 };

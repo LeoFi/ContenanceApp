@@ -25,7 +25,7 @@ export default class SU2_Screen_T1 extends React.Component {
     super(props);
     this.state = {
       show_1: true,
-      buttonIsActive: false,
+      buttonIsActive: false
     };
   }
 
@@ -40,7 +40,6 @@ export default class SU2_Screen_T1 extends React.Component {
       .child(uid)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
-      
 
     setTimeout(() => {
       if (this.state.show_1 == true) {
@@ -53,30 +52,58 @@ export default class SU2_Screen_T1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate("Extra_6_Screen_T1");
+          }}
+          style={styles.skip}
+        >
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            How often do you check your smartphone or use it on a regular day?
+              How often do you check your smartphone or use it on a regular day?
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "column"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"Several times every hour"} value={"Check_Smartphone_D1/Several times every hour"} />
-                <Radio iconName={"lens"} label={"Every hour"} value={"Check_Smartphone_D1/Every hour"} />
-                <Radio iconName={"lens"} label={"Several times per day"} value={"Check_Smartphone_D1/Several times per day"} />
-                <Radio iconName={"lens"} label={"One time per day"} value={"Check_Smartphone_D1/One time per day"} />
-                <Radio iconName={"lens"} label={"I am not using my smartphone every day"} value={"Check_Smartphone_D1/I am not using my smartphone every day"} />
+                <Radio
+                  iconName={"lens"}
+                  label={"Several times every hour"}
+                  value={"Check_Smartphone_D1/Several times every hour"}
+                />
+                <Radio
+                  iconName={"lens"}
+                  label={"Every hour"}
+                  value={"Check_Smartphone_D1/Every hour"}
+                />
+                <Radio
+                  iconName={"lens"}
+                  label={"Several times per day"}
+                  value={"Check_Smartphone_D1/Several times per day"}
+                />
+                <Radio
+                  iconName={"lens"}
+                  label={"One time per day"}
+                  value={"Check_Smartphone_D1/One time per day"}
+                />
+                <Radio
+                  iconName={"lens"}
+                  label={"I am not using my smartphone every day"}
+                  value={
+                    "Check_Smartphone_D1/I am not using my smartphone every day"
+                  }
+                />
               </RadioGroup>
             </View>
           </>
         ) : null}
-
       </View>
     );
   }

@@ -35,7 +35,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
       additionalSPUse: ""
     };
   }
-  
+
   handleChange = additionalSPUse => {
     this.setState({ additionalSPUse });
   };
@@ -84,9 +84,54 @@ export default class Extra_6_Screen_T1 extends React.Component {
     }, 400);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+      } else if (this.state.show_2 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: true });
+      } else if (this.state.show_3 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: true });
+      } else if (this.state.show_4 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: true });
+      } else if (this.state.show_5 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: true });
+      }
+    }, 400);
+  };
+
   render() {
     return (
       <View style={styles.container}>
+      {!this.state.show_6 ? (
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Closing_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        )}
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
@@ -96,9 +141,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "column"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"iOS"} value={"System/iOS"} />
                 <Radio
@@ -120,9 +164,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "column"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio
                   iconName={"lens"}
@@ -144,9 +187,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "column"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"Yes"} value={"Tablet/Yes"} />
                 <Radio iconName={"lens"} label={"No"} value={"Tablet/No"} />
@@ -165,9 +207,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "column"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio
                   iconName={"lens"}
@@ -193,9 +234,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "column"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio
                   iconName={"lens"}
@@ -222,9 +262,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "column"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"Yes"} value={"VP/Yes"} />
                 <Radio iconName={"lens"} label={"No"} value={"VP/No"} />

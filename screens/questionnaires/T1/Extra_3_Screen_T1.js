@@ -51,6 +51,14 @@ export default class Extra_3_Screen_T1 extends React.Component {
   render() {
     return (
       <View style={styles.container_left}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate("SU1_Screen_T1");
+          }}
+          style={styles.skip}
+        >
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
         <KeyboardAvoidingView
           behavior="padding"
           keyboardVerticalOffset="15"
@@ -66,7 +74,9 @@ export default class Extra_3_Screen_T1 extends React.Component {
                   style={{ alignSelf: "stretch" }}
                   dropdownStyle={{ width: 300, marginRight: -30 }}
                   dropdownTextStyle={{ textAlign: "center" }}
-                  onSelect={(idx, value) => this.Nationality_onSelect(idx, value)}
+                  onSelect={(idx, value) =>
+                    this.Nationality_onSelect(idx, value)
+                  }
                   options={[
                     "Afghan",
                     "Albanian",

@@ -65,15 +65,15 @@ const styles = StyleSheet.create({
         paddingTop: 20,
     },
     bottom: {
-        flex: 1,
-        position: "absolute",
+        position: "relative",
+        justifyContent: "flex-end",
         bottom: 30,
-        left: 30,
-        right: 30,
-        alignSelf: 'stretch',
+        left: 0,
+        right: 0,
     },
     keyboard_view: {
         flex: 1,
+        alignSelf: 'stretch',
     },
     header: {
         color: '#2C3B51',
@@ -135,11 +135,12 @@ const styles = StyleSheet.create({
     },
     codeInput: {
         marginTop: 43,
-        alignSelf: "stretch",
+        alignItems: "stretch",
+        backgroundColor: "#E2DFD1",
+        borderRadius: 7,
         textAlign: 'center',
-        height: 40,
+        height: 49,
         fontSize: 19,
-        borderBottomWidth: 2,
     },
     usernameInput: {
         marginTop: 43,
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
     },
     question: {
-        //flex:2,
+        flex:1,
         alignSelf: "stretch",
     },
     top_security_agreements: {

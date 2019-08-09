@@ -38,7 +38,7 @@ export default class Extra_1_Screen_T1 extends React.Component {
 
   handleSubmit = () => {
     const { userAge } = this.state;
-    console.log(userAge)
+    console.log(userAge);
     const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
@@ -50,15 +50,23 @@ export default class Extra_1_Screen_T1 extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <KeyboardAvoidingView
-          behavior="padding"
-          keyboardVerticalOffset="15"
-          style={styles.keyboard_view}
-        >
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <>
-              <Text style={styles.text_left}>What is your age?</Text>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate("Extra_2_Screen_T1");
+              }}
+              style={styles.skip}
+            >
+              <Text style={styles.skip_text}>Skip</Text>
+            </TouchableOpacity>
+            <KeyboardAvoidingView
+              behavior="padding"
+              keyboardVerticalOffset="15"
+              style={styles.keyboard_view}
+            >
+              <Text style={styles.text}>What is your age?</Text>
 
               <View style={styles.question}>
                 <TextInput
@@ -73,16 +81,18 @@ export default class Extra_1_Screen_T1 extends React.Component {
                 />
               </View>
 
-              <PrimaryButton
-                label="Continue"
-                isBottom={true}
-                disabled={!this.state.userAge}
-                onPress={this.handleSubmit}
-              />
-            </>
-          </TouchableWithoutFeedback>
-        </KeyboardAvoidingView>
-      </View>
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="Continue"
+                  isBottom={true}
+                  disabled={!this.state.userAge}
+                  onPress={this.handleSubmit}
+                />
+              </View>
+            </KeyboardAvoidingView>
+          </>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

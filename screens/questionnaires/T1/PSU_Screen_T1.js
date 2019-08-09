@@ -194,12 +194,20 @@ export default class PSU_Screen_T1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         {!this.state.show_10 ? (
           <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
             <Text style={styles.skip_text}>Skip</Text>
           </TouchableOpacity>
-        ) : null}
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("SUE_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        )}
 
         <Text style={styles.header_left_padding}>In the last 7 days</Text>
 
@@ -419,7 +427,7 @@ export default class PSU_Screen_T1 extends React.Component {
         {this.state.show_10 ? (
           <>
             <Text style={styles.text_left}>
-              In general, I find my smartphone use problematic.
+              I found my smartphone use problematic.
             </Text>
 
             <View style={styles.question}>

@@ -15,7 +15,7 @@ import {
   GreyInputButton,
   RadioButtons
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "react-native-radio-input";
+import RadioGroup, { Radio } from "../../../components/AppComponents";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
@@ -58,9 +58,36 @@ export default class IN_Screen_T1 extends React.Component {
     }, 400);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+      } else if (this.state.show_2 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: true });
+      }
+    }, 400);
+  };
+
   render() {
     return (
       <View style={styles.container}>
+      {!this.state.show_3 ? (
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("AP_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        )}
         <Text style={styles.header_left_padding}>For the next few days, I intend...</Text>
 
         {this.state.show_1 ? (
@@ -70,11 +97,10 @@ export default class IN_Screen_T1 extends React.Component {
             </Text>
 
             <View style={styles.question}>
-              <RadioGroup
+            <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "row"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"IN01_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"IN01_D1/2"} />
@@ -94,9 +120,10 @@ export default class IN_Screen_T1 extends React.Component {
             </Text>
 
             <View style={styles.question}>
-              <RadioGroup
+            <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"IN02_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"IN02_D1/2"} />
@@ -116,9 +143,10 @@ export default class IN_Screen_T1 extends React.Component {
             </Text>
 
             <View style={styles.question}>
-              <RadioGroup
+            <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"IN03_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"IN03_D1/2"} />

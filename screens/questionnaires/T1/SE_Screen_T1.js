@@ -27,7 +27,7 @@ export default class SE_Screen_T1 extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
-      buttonIsActive: false,
+      buttonIsActive: false
     };
   }
 
@@ -57,23 +57,52 @@ export default class SE_Screen_T1 extends React.Component {
     }, 400);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+      } else if (this.state.show_2 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: true });
+      }
+    }, 400);
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>I am confident that I can...</Text>
+      {!this.state.show_3 ? (
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("Extra_1_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        )}
+        <Text style={styles.header_left_padding}>
+          I am confident that I can...
+        </Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ...use my smartphone consciously even if I first have to find a way to integrate this into my daily routine.
+              ...use my smartphone consciously even if I first have to find a
+              way to integrate this into my daily routine.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "row"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SE01_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SE01_D1/2"} />
@@ -89,13 +118,15 @@ export default class SE_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... continue using my smartphone consciously in the long run, even if it will be hard sometimes.
+              ... continue using my smartphone consciously in the long run, even
+              if it will be hard sometimes.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SE02_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SE02_D1/2"} />
@@ -111,13 +142,15 @@ export default class SE_Screen_T1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ...that I can start using my smartphone consciously again, after several days of using it less consciously.
+              ...that I can start using my smartphone consciously again, after
+              several days of using it less consciously.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SE03_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SE03_D1/2"} />
@@ -127,13 +160,12 @@ export default class SE_Screen_T1 extends React.Component {
                 <Radio iconName={"lens"} label={"6"} value={"SE03_D1/6"} />
               </RadioGroup>
             </View>
-    
-    
+
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
-                disabled={ !this.state.buttonIsActive }
+                disabled={!this.state.buttonIsActive}
                 onPress={() => {
                   this.props.navigation.navigate("Extra_1_Screen_T1");
                 }}

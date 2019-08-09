@@ -26,8 +26,7 @@ export default class SUE_Screen_T1 extends React.Component {
     this.state = {
       show_1: true,
       show_2: false,
-      buttonIsActive: false,
- 
+      buttonIsActive: false
     };
   }
 
@@ -53,24 +52,47 @@ export default class SUE_Screen_T1 extends React.Component {
     }, 400);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+      }
+    }, 400);
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>How do you evaluate the quality of your
-time on the smartphone?</Text>
+      {!this.state.show_2 ? (
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("WB_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        )}
+        <Text style={styles.header_left_padding}>
+          How do you evaluate the quality of your time on the smartphone?
+        </Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            How pleasurable do you rate your screen use?
+              How pleasurable do you rate your screen use?
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "row"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SUE01_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SUE01_D1/2"} />
@@ -86,13 +108,14 @@ time on the smartphone?</Text>
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            How meaningful do you rate your screen use?
+              How meaningful do you rate your screen use?
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SUE02_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SUE02_D1/2"} />
@@ -103,12 +126,11 @@ time on the smartphone?</Text>
               </RadioGroup>
             </View>
 
-        
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
-                disabled={ !this.state.buttonIsActive }
+                disabled={!this.state.buttonIsActive}
                 onPress={() => {
                   this.props.navigation.navigate("WB_Screen_T1");
                 }}

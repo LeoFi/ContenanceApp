@@ -28,8 +28,7 @@ export default class HS_Screen_T1 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
-      buttonIsActive: false,
-
+      buttonIsActive: false
     };
   }
 
@@ -64,23 +63,54 @@ export default class HS_Screen_T1 extends React.Component {
     }, 400);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+      } else if (this.state.show_2 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: true });
+      } else if (this.state.show_3 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: true });
+      }
+    }, 400);
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>Using my smartphone is something...</Text>
+      {!this.state.show_4 ? (
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("IN_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+        )}
+        <Text style={styles.header_left_padding}>
+          Using my smartphone is something...
+        </Text>
 
         {this.state.show_1 ? (
           <>
-            <Text style={styles.text_left}>
-            ... I do automatically.
-            </Text>
+            <Text style={styles.text_left}>... I do automatically.</Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "row"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"HS01_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"HS01_D1/2"} />
@@ -96,13 +126,14 @@ export default class HS_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... I do without having to consciously remember.
+              ... I do without having to consciously remember.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"HS02_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"HS02_D1/2"} />
@@ -117,14 +148,13 @@ export default class HS_Screen_T1 extends React.Component {
 
         {this.state.show_3 ? (
           <>
-            <Text style={styles.text_left}>
-            ... I do without thinking.
-            </Text>
+            <Text style={styles.text_left}>... I do without thinking.</Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"HS03_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"HS03_D1/2"} />
@@ -140,13 +170,14 @@ export default class HS_Screen_T1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            ... I start doing before I realise I’m doing it.
+              ... I start doing before I realise I’m doing it.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"HSc_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"HSc_D1/2"} />
@@ -156,13 +187,12 @@ export default class HS_Screen_T1 extends React.Component {
                 <Radio iconName={"lens"} label={"6"} value={"HSc_D1/6"} />
               </RadioGroup>
             </View>
-    
-       
+
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
-                disabled={ !this.state.buttonIsActive }
+                disabled={!this.state.buttonIsActive}
                 onPress={() => {
                   this.props.navigation.navigate("IN_Screen_T1");
                 }}
