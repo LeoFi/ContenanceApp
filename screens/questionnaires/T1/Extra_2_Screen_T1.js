@@ -19,6 +19,7 @@ import RadioGroup, { Radio } from "react-native-radio-input";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
+import { transform } from "@babel/core";
 
 export default class Extra_2_Screen_T1 extends React.Component {
   constructor(props) {
