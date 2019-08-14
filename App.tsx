@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Platform,
   StatusBar,
   StyleSheet,
   View,
@@ -18,55 +17,49 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux-persist/store";
 
 import AppNavigator from "./navigation/AppNavigator";
-import MainTabNavigator from "./navigation/MainTabNavigator";
+// import MainTabNavigator from "./navigation/MainTabNavigator";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoadingComplete: false,
-      isAuthenticationReady: false,
-      isAuthenticated: false
-    };
+interface State  {
+  isLoadingComplete: boolean;
+  isAuthenticationReady: boolean;
+  isAuthenticated: boolean;}
+
+export default class App extends React.Component<{}, State> {
+
+  state = {
+    isLoadingComplete: false,
+    isAuthenticationReady: false,
+    isAuthenticated: false
+  };
+
+  componentWillMount() {
 
     // Initialize firebase...
     if (!firebase.apps.length) {
       firebase.initializeApp(ApiKeys.FirebaseConfig);
     }
 
-    firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isAuthenticationReady: true });
+      this.setState({ isAuthenticated: !!user });
+    });
   }
-
-  onAuthStateChanged = user => {
-    this.setState({ isAuthenticationReady: true });
-    this.setState({ isAuthenticated: !!user });
-    //console.log(user);
-  };
-
-  renderLoading = () => (
-    <View style={styles.container}>
-      <ActivityIndicator size="large" />
-    </View>
-  );
 
   render() {
     if (!this.state.isLoadingComplete) {
       return (
         <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
+          startAsync={this.loadResourcesAsync as any}
+          onError={this.handleLoadingError}
+          onFinish={this.handleFinishLoading}
         />
       );
     } else {
       return (
-        <Provider store={store}>
+        <Provider store={store as any}>
           <PersistGate persistor={persistor} loading={this.renderLoading()}>
             <View style={styles.container}>
-              {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-              {Platform.OS === "android" && (
-                <View style={styles.statusBarUnderlay} />
-              )}
+              <StatusBar barStyle="default" />
               {/* {(this.state.isAuthenticated) ? <MainTabNavigator /> : <AppNavigator />} */}
               <AppNavigator />
             </View>
@@ -76,7 +69,13 @@ export default class App extends React.Component {
     }
   }
 
-  _loadResourcesAsync = async () => {
+  renderLoading = () => (
+    <View style={styles.container}>
+      <ActivityIndicator size="large" />
+    </View>
+  );
+
+  private loadResourcesAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
         require("./assets/images/robot-dev.png"),
@@ -95,13 +94,13 @@ export default class App extends React.Component {
     ]);
   };
 
-  _handleLoadingError = error => {
+  private handleLoadingError = (error: Error) => {
     // In this case, you might want to report the error to your error
     // reporting service, for example Sentry
     console.warn(error);
   };
 
-  _handleFinishLoading = () => {
+  private handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
   };
 }
