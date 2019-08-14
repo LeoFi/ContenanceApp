@@ -12,10 +12,9 @@ import {
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyInputButton,
-  RadioButtons
+  GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents";
+import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
 
 import * as firebase from "firebase";

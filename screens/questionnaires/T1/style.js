@@ -59,17 +59,12 @@ const styles = StyleSheet.create({
       },
     inline: {
         flex: 1,
-        flexDirection:'row', 
-        justifyContent: 'space-between',
-        alignSelf: 'stretch',
+        flexDirection:'row',
         paddingTop: 20,
     },
     bottom: {
-        position: "relative",
-        justifyContent: "flex-end",
-        bottom: 30,
-        left: 0,
-        right: 0,
+        justifyContent: 'flex-start',
+        alignSelf: 'stretch',
     },
     keyboard_view: {
         flex: 1,
@@ -126,6 +121,17 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
         alignSelf: 'stretch',
     },
+
+    text_left_small_center: {
+        flex: 1,
+        color: '#B8BAB4',
+        fontSize: 15,
+        lineHeight: 16,
+        textAlign: 'center',
+        fontFamily: 'roboto-regular',
+        alignSelf: 'stretch',
+        paddingTop: 10,
+    },
     text_scroll: {
         color: '#2C3B51',
         fontSize: 19,
@@ -134,13 +140,46 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
     },
     codeInput: {
-        marginTop: 43,
-        alignItems: "stretch",
+        marginTop: 40,
+        marginBottom: 20,
         backgroundColor: "#E2DFD1",
         borderRadius: 7,
         textAlign: 'center',
         height: 49,
         fontSize: 19,
+    },
+    codeInputSU: {
+        marginTop: 10,
+        marginBottom: 20,
+        backgroundColor: "#E2DFD1",
+        flex: 1,
+        borderRadius: 7,
+        textAlign: 'center',
+        height: 49,
+        fontSize: 19,
+        marginRight: 5,
+    },
+    codeInputLeft: {
+        marginTop: 10,
+        marginBottom: 20,
+        backgroundColor: "#E2DFD1",
+        flex: 1,
+        borderRadius: 7,
+        textAlign: 'center',
+        height: 49,
+        fontSize: 19,
+        marginRight: 5,
+    },
+    codeInputRight: {
+        marginTop: 10,
+        marginBottom: 20,
+        backgroundColor: "#E2DFD1",
+        flex: 1,
+        borderRadius: 7,
+        textAlign: 'center',
+        height: 49,
+        fontSize: 19,
+        marginLeft: 5,
     },
     usernameInput: {
         marginTop: 43,
@@ -178,6 +217,15 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    link_text: {
+        color: '#2C3B51',
+        fontSize: 15,
+        lineHeight: 25,
+        textAlign: 'left',
+        fontFamily: 'roboto-regular',
+        alignSelf: 'stretch',
+        paddingBottom: 10,
+    }
 })
 
 export { styles } 

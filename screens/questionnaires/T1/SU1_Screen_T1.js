@@ -18,10 +18,8 @@ import {
   PrimaryButton,
   SecondaryButton,
   GreyInputButton,
-  RadioButtons,
   LinkText
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "react-native-radio-input";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
@@ -48,10 +46,6 @@ export default class SU1_Screen_T1 extends React.Component {
     this.setState({ screenTimeMinutes });
   };
 
-  handleChangePickups = pickupNumber => {
-    this.setState({ pickupNumber });
-  };
-
   setModalVisibleIos(visible) {
     this.setState({ modalVisibleIos: visible });
   }
@@ -63,7 +57,6 @@ export default class SU1_Screen_T1 extends React.Component {
   handleSubmit = () => {
     const { screenTimeHours } = this.state;
     const { screenTimeMinutes } = this.state;
-    const { pickupNumber } = this.state;
 
     const uid = firebase.auth().currentUser.uid;
     firebase
@@ -72,8 +65,7 @@ export default class SU1_Screen_T1 extends React.Component {
       .child(uid)
       .update({
         Screen_Time_Hours_D1: screenTimeHours,
-        Screen_Time_Minutes_D1: screenTimeMinutes,
-        Pickups_Number_D1: pickupNumber
+        Screen_Time_Minutes_D1: screenTimeMinutes
       });
     this.props.navigation.navigate("SU2_Screen_T1");
   };
@@ -81,61 +73,48 @@ export default class SU1_Screen_T1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={() => {
-            this.props.navigation.navigate("SU2_Screen_T1");
-          }}
-          style={styles.skip}
-        >
-          <Text style={styles.skip_text}>Skip</Text>
-        </TouchableOpacity>
-        <KeyboardAvoidingView
-          behavior="padding"
-          keyboardVerticalOffset="15"
-          style={styles.keyboard_view}
-        >
-          <ScrollView>
+        <ScrollView style={{ alignSelf: "stretch" }}>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("SU2_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+          <KeyboardAvoidingView
+            behavior="padding"
+            keyboardVerticalOffset="15"
+            style={styles.keyboard_view}
+          >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <>
-                <Text style={styles.text_left}>
+                <Text style={styles.text}>
                   What is your average screen time of the last 7 days?
                 </Text>
 
-                <View style={styles.inline}>
-                  <TextInput
-                    style={styles.codeInput}
-                    onChangeText={this.handleChangeHours}
-                    value={this.state.screenTimeHours}
-                    placeholder="Hours"
-                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    keyboardType="numeric"
-                  />
-
-                  <TextInput
-                    style={styles.codeInput}
-                    onChangeText={this.handleChangeMinutes}
-                    value={this.state.screenTimeMinutes}
-                    placeholder="Minutes"
-                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    keyboardType="numeric"
-                  />
-                </View>
-
-                <Text style={styles.text_left}>
-                  What is your average number of pick-ups per day of the last 7
-                  days?
+                <Text style={styles.text_left_small_center}>
+                  If you do not have a screen time tracker, please skip this
+                  question.
                 </Text>
 
                 <View style={styles.inline}>
                   <TextInput
-                    style={styles.codeInput}
-                    onChangeText={this.handleChangePickups}
-                    value={this.state.pickupNumber}
-                    placeholder="Number"
+                    style={styles.codeInputLeft}
+                    onChangeText={this.handleChangeHours}
+                    value={this.state.screenTimeHours}
+                    placeholder="Insert hours"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
+                  />
+
+                  <TextInput
+                    style={styles.codeInputRight}
+                    onChangeText={this.handleChangeMinutes}
+                    value={this.state.screenTimeMinutes}
+                    placeholder="Insert minutes"
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -143,22 +122,24 @@ export default class SU1_Screen_T1 extends React.Component {
                   />
                 </View>
 
-                <LinkText
-                  style={styles.link_text}
-                  textLabel=""
-                  linkLabel="where do I find this in iOs?"
-                  linkOnPress={() => {
-                    this.setModalVisibleIos(true);
-                  }}
-                />
-                <LinkText
-                  style={styles.link_text}
-                  textLabel=""
-                  linkLabel="where do I find this in android?"
-                  linkOnPress={() => {
-                    this.setModalVisibleAndroid(true);
-                  }}
-                />
+                <View style={{ alignItems: "flex-start" }}>
+                  <LinkText
+                    style={styles.link_text}
+                    textLabel=""
+                    linkLabel="where do I find this in iOs?"
+                    linkOnPress={() => {
+                      this.setModalVisibleIos(true);
+                    }}
+                  />
+                  <LinkText
+                    style={styles.link_text}
+                    textLabel=""
+                    linkLabel="where do I find this in android?"
+                    linkOnPress={() => {
+                      this.setModalVisibleAndroid(true);
+                    }}
+                  />
+                </View>
 
                 <Modal
                   animationType="slide"
@@ -246,21 +227,21 @@ export default class SU1_Screen_T1 extends React.Component {
                     </ScrollView>
                   </View>
                 </Modal>
-
-                <PrimaryButton
-                  label="Continue"
-                  isBottom={true}
-                  disabled={
-                    !this.state.screenTimeHours ||
-                    !this.state.screenTimeMinutes ||
-                    !this.state.pickupNumber
-                  }
-                  onPress={this.handleSubmit}
-                />
               </>
             </TouchableWithoutFeedback>
-          </ScrollView>
-        </KeyboardAvoidingView>
+          </KeyboardAvoidingView>
+        </ScrollView>
+
+        <View style={styles.bottom}>
+          <PrimaryButton
+            label="Continue"
+            isBottom={true}
+            disabled={
+              !this.state.screenTimeHours || !this.state.screenTimeMinutes
+            }
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }

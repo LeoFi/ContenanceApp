@@ -2,20 +2,24 @@ import React from "react";
 import {
   View,
   Text,
-  TextACput,
+  TextInput,
   ScrollView,
   Image,
   FlatList,
   TouchableOpacity,
-  Button
+  Button,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Modal,
+  TouchableHighlight
 } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyACputButton,
-  RadioButtons
+  GreyInputButton,
+  LinkText
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "react-native-radio-input";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
@@ -24,86 +28,198 @@ export default class SU2_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show_1: true,
-      buttonIsActive: false
+      buttonIsActive: false,
+      pickupNumber: "",
+      modalVisibleIos: false,
+      modalVisibleAndroid: false
     };
   }
+  handleChangePickups = pickupNumber => {
+    this.setState({ pickupNumber });
+  };
 
-  getChecked = value => {
+  setModalVisibleIos(visible) {
+    this.setState({ modalVisibleIos: visible });
+  }
+
+  setModalVisibleAndroid(visible) {
+    this.setState({ modalVisibleAndroid: visible });
+  }
+
+  handleSubmit = () => {
+    const { pickupNumber } = this.state;
+
     const uid = firebase.auth().currentUser.uid;
-    const KEY = value.split("/")[0];
-    const KEY_Value = value.split("/")[1];
-    console.log(KEY, KEY_Value);
     firebase
       .database()
       .ref("questionnaires")
       .child(uid)
-      .update({ [KEY]: KEY_Value })
-      .then(() => {});
-
-    setTimeout(() => {
-      if (this.state.show_1 == true) {
-        this.setState({ show_1: true });
-        this.props.navigation.navigate("Extra_6_Screen_T1");
-      }
-    }, 400);
+      .update({
+        Pickups_Number_D1: pickupNumber
+      });
+    this.props.navigation.navigate("SU3_Screen_T1");
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={() => {
-            this.props.navigation.navigate("Extra_6_Screen_T1");
-          }}
-          style={styles.skip}
-        >
-          <Text style={styles.skip_text}>Skip</Text>
-        </TouchableOpacity>
+        <ScrollView style={{ alignSelf: "stretch" }}>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate("SU3_Screen_T1");
+            }}
+            style={styles.skip}
+          >
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+          <KeyboardAvoidingView
+            behavior="padding"
+            keyboardVerticalOffset="15"
+            style={styles.keyboard_view}
+          >
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <>
+                <Text style={styles.text}>
+                  What is your average number of pick-ups per day of the last 7
+                  days?
+                </Text>
 
-        {this.state.show_1 ? (
-          <>
-            <Text style={styles.text_left}>
-              How often do you check your smartphone or use it on a regular day?
-            </Text>
+                <Text style={styles.text_left_small_center}>
+                  If you do not have a screen time tracker, please skip this
+                  question.
+                </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio
-                  iconName={"lens"}
-                  label={"Several times every hour"}
-                  value={"Check_Smartphone_D1/Several times every hour"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"Every hour"}
-                  value={"Check_Smartphone_D1/Every hour"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"Several times per day"}
-                  value={"Check_Smartphone_D1/Several times per day"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"One time per day"}
-                  value={"Check_Smartphone_D1/One time per day"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"I am not using my smartphone every day"}
-                  value={
-                    "Check_Smartphone_D1/I am not using my smartphone every day"
-                  }
-                />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+                <View style={styles.inline}>
+                  <TextInput
+                    style={styles.codeInputSU}
+                    onChangeText={this.handleChangePickups}
+                    value={this.state.pickupNumber}
+                    placeholder="Number"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
+                  />
+                </View>
+
+                <View style={{ alignItems: "flex-start" }}>
+                  <LinkText
+                    style={styles.link_text}
+                    textLabel=""
+                    linkLabel="where do I find this in iOs?"
+                    linkOnPress={() => {
+                      this.setModalVisibleIos(true);
+                    }}
+                  />
+                  <LinkText
+                    style={styles.link_text}
+                    textLabel=""
+                    linkLabel="where do I find this in android?"
+                    linkOnPress={() => {
+                      this.setModalVisibleAndroid(true);
+                    }}
+                  />
+                </View>
+
+                <Modal
+                  animationType="slide"
+                  transparent={false}
+                  visible={this.state.modalVisibleIos}
+                  onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                  }}
+                >
+                  <TouchableHighlight
+                    style={styles.close}
+                    onPress={() => {
+                      this.setModalVisibleIos(!this.state.modalVisibleIos);
+                    }}
+                  >
+                    <Image
+                      style={{ marginTop: 20 }}
+                      source={require("./../../../assets/images/close.png")}
+                    />
+                  </TouchableHighlight>
+                  {/* <Icon name="close" /> */}
+
+                  <View style={styles.top_security_agreements}>
+                    <ScrollView style={styles.container_scroll}>
+                      <Text style={styles.text_scroll}>
+                        {"\n"}where do I find this in IOs?
+                        {"\n"}
+                        {"\n"}
+                        <Text style={styles.text_bold}>
+                          Activating Screen Time
+                        </Text>
+                        {"\n"}On your iPhone, go to Settings > Screen Time. Tap
+                        Turn On Screen Time. Tap Continue. Select This is My
+                        [device].
+                        {"\n"}
+                        {"\n"}You can now get a report about how you use your
+                        device, apps, and websites,
+                        {"\n"}
+                        {"\n"}
+                        <Text style={styles.text_bold}>
+                          Average Screen Time and pick-ups of the last 7 days
+                        </Text>
+                        {"\n"}go to Settings > Screen Time, choose Your Names
+                        iPhone > Choose Last 7 days. Find Screen Time on top,
+                        scroll down for number of pick-ups per day
+                      </Text>
+                    </ScrollView>
+                  </View>
+                </Modal>
+
+                <Modal
+                  animationType="slide"
+                  transparent={false}
+                  visible={this.state.modalVisibleAndroid}
+                  onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                  }}
+                >
+                  <TouchableHighlight
+                    style={styles.close}
+                    onPress={() => {
+                      this.setModalVisibleAndroid(
+                        !this.state.modalVisibleAndroid
+                      );
+                    }}
+                  >
+                    <Image
+                      style={{ marginTop: 20 }}
+                      source={require("./../../../assets/images/close.png")}
+                    />
+                  </TouchableHighlight>
+                  {/* <Icon name="close" /> */}
+
+                  <View style={styles.top_security_agreements}>
+                    <ScrollView style={styles.container_scroll}>
+                      <Text style={styles.text_scroll}>
+                        {"\n"}where do I find this in android?
+                        {"\n"}
+                        {"\n"}On your smartphone, go to Settings > Digital
+                        Well-Being
+                        {"\n"}
+                        {"\n"}Unfortunately, not all smartphones using android
+                        are eqipped with a screentime tracker yet.
+                      </Text>
+                    </ScrollView>
+                  </View>
+                </Modal>
+              </>
+            </TouchableWithoutFeedback>
+          </KeyboardAvoidingView>
+        </ScrollView>
+
+        <View style={styles.bottom}>
+          <PrimaryButton
+            label="Continue"
+            isBottom={true}
+            disabled={!this.state.pickupNumber}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }

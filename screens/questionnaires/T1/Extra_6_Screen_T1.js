@@ -13,10 +13,9 @@ import {
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyACputButton,
-  RadioButtons
+  GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "react-native-radio-input";
+import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
