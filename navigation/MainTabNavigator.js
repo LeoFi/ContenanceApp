@@ -74,6 +74,9 @@ import Exercice_5_1 from "../screens/exercices/Exercice_5/1";
 import Exercice_5_2 from "../screens/exercices/Exercice_5/2";
 import Exercice_5_3 from "../screens/exercices/Exercice_5/3";
 import Exercice_5_4 from "../screens/exercices/Exercice_5/4";
+import Exercice_5_5 from "../screens/exercices/Exercice_5/5";
+import Exercice_5_6 from "../screens/exercices/Exercice_5/6";
+import Exercice_5_7 from "../screens/exercices/Exercice_5/7";
 import Exercice_5_Aha_1 from "../screens/exercices/Exercice_5/Aha_1";
 import Exercice_5_Aha_2 from "../screens/exercices/Exercice_5/Aha_2";
 import Exercice_5_Challenge from "../screens/exercices/Exercice_5/Challenge";
@@ -1215,6 +1218,60 @@ const Exercice5 = createStackNavigator(
     },
     Exercice_5_4: {
       screen: Exercice_5_4,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_5: {
+      screen: Exercice_5_5,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_6: {
+      screen: Exercice_5_6,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_5_7: {
+      screen: Exercice_5_7,
       navigationOptions: {
         header: props => (
           <HeaderComponent

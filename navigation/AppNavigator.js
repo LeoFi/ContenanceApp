@@ -29,11 +29,11 @@ import MainTabNavigator from "./MainTabNavigator";
 // import Extra_1_Screen_T1 from "../screens/questionnaires/T1/Extra_1_Screen_T1";
 // import Extra_2_Screen_T1 from "../screens/questionnaires/T1/Extra_2_Screen_T1";
 // import Extra_3_Screen_T1 from "../screens/questionnaires/T1/Extra_3_Screen_T1";
-import SU1_Screen_T1 from "../screens/questionnaires/T1/SU1_Screen_T1";
-import SU2_Screen_T1 from "../screens/questionnaires/T1/SU2_Screen_T1";
-import SU3_Screen_T1 from "../screens/questionnaires/T1/SU3_Screen_T1";
-import Extra_6_Screen_T1 from "../screens/questionnaires/T1/Extra_6_Screen_T1";
-import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
+// import SU1_Screen_T1 from "../screens/questionnaires/T1/SU1_Screen_T1";
+// import SU2_Screen_T1 from "../screens/questionnaires/T1/SU2_Screen_T1";
+// import SU3_Screen_T1 from "../screens/questionnaires/T1/SU3_Screen_T1";
+// import Extra_6_Screen_T1 from "../screens/questionnaires/T1/Extra_6_Screen_T1";
+// import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
 import TestScreen from "../screens/TestScreen";
 
@@ -62,11 +62,11 @@ const IntroStack = createStackNavigator(
     // Extra_1_Screen_T1: { screen: Extra_1_Screen_T1 },
     // Extra_2_Screen_T1: { screen: Extra_2_Screen_T1 },
     // Extra_3_Screen_T1: { screen: Extra_3_Screen_T1 },
-    SU1_Screen_T1: { screen: SU1_Screen_T1 },
-    SU2_Screen_T1: { screen: SU2_Screen_T1 },
-    SU3_Screen_T1: { screen: SU3_Screen_T1 },
-    Extra_6_Screen_T1: { screen: Extra_6_Screen_T1 },
-    Closing_Screen_T1: { screen: Closing_Screen_T1 },
+    // SU1_Screen_T1: { screen: SU1_Screen_T1 },
+    // SU2_Screen_T1: { screen: SU2_Screen_T1 },
+    // SU3_Screen_T1: { screen: SU3_Screen_T1 },
+    // Extra_6_Screen_T1: { screen: Extra_6_Screen_T1 },
+    // Closing_Screen_T1: { screen: Closing_Screen_T1 },
     Home: { screen: MainTabNavigator }
   },
   {

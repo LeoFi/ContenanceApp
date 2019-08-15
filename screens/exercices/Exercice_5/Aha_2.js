@@ -26,7 +26,7 @@ export default class Exercice_5_Aha_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+      source={require("../../../assets/images/beige_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -42,17 +42,14 @@ export default class Exercice_5_Aha_2 extends React.Component {
                 <Text style={styles.header}>
                 Aha!
                 </Text>
-                <Text style={styles.sub_header}>
-                Not less, but better.
+                <Text style={styles.text}>
+                  {"\n"}Leo's situational trigger is entering the metro.
+                  {"\n"}{"\n"}For you, it is:
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Research shows: What we do on our smartphones and how we see our relationship to it is more important to our wellbeing than the mere amount of time we spent on it. 
-                  {"\n"}{"\n"}Make your smartphone the great tool it can be.
+                  {"\n"}Leos situational trigger is entering the metro.
+                  {"\n"}{"\n"}For you, it is:
                 </Text>
-
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
               </View>
             </TouchableWithoutFeedback>
           </View>

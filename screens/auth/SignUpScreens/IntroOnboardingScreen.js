@@ -21,8 +21,7 @@ import { styles } from "./style";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
-import { updateNickname } from "./../../../redux-persist/redux/user"
-
+import { updateNickname } from "./../../../redux-persist/redux/user";
 
 class IntroOnboardingScreen extends React.Component {
   constructor(props) {
@@ -60,35 +59,42 @@ class IntroOnboardingScreen extends React.Component {
           style={styles.keyboard_view}
         >
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={styles.center}>
-              <Image
-                source={require("./../../../assets/images/placeholder_background.png")}
-              />
+            <>
+              <View style={{flex: 1}}>
+                <Image
+                  source={require("./../../../assets/images/placeholder_background.png")}
+                />
+              </View>
 
-              <Text style={styles.header}>Hi, I’m Leo.</Text>
+              <View style={{flex: 1}}>
+                <Text style={styles.header}>Hi, I’m Leo.</Text>
 
-              <Text style={styles.text}>
-                {"\n"}And I’m going to be your companion on this journey.{"\n"}
-                How do you like to be called?
-              </Text>
+                <Text style={styles.text}>
+                  {"\n"}And I’m going to be your companion on this journey.
+                  {"\n"}
+                  How do you like to be called?
+                </Text>
 
-              <TextInput
-                style={styles.usernameInput}
-                value={this.state.nickname}
-                onChangeText={this.handleChange}
-                placeholder="Your Nickname"
-                placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                autoCapitalize="none"
-                autoCorrect={false}
-              />
+                <TextInput
+                  style={styles.usernameInput}
+                  value={this.state.nickname}
+                  onChangeText={this.handleChange}
+                  placeholder="Your Nickname"
+                  placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                />
 
-              <PrimaryButton
-                label="Sign Up"
-                isBottom={true}
-                onPress={this.handleSubmit}
-                disabled={!this.state.nickname}
-              />
-            </View>
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Sign Up"
+                    isBottom={true}
+                    onPress={this.handleSubmit}
+                    disabled={!this.state.nickname}
+                  />
+                </View>
+              </View>
+            </>
           </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
       </View>

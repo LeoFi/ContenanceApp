@@ -19,45 +19,74 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 
-import { Svg, Circle, Path } from 'react-native-svg'
-
+import { Svg, Circle, Path } from "react-native-svg";
 import { TagSelect } from "react-native-tag-select";
+import * as firebase from "firebase";
 
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
+
+import { connect } from "react-redux";
+import { Update_SitTrigger1_D5, Update_SitTrigger2_D5, Update_SitTrigger3_D5 } from "./../../../redux-persist/redux/user_values";
 
 const data = [
-  { id: 1, label: "In bed after waking up" },
-  { id: 2, label: "In bed before falling asleep" },
-  { id: 3, label: "In the kitchen while eating meal" },
-  { id: 4, label: "In the restaurant while eating a meal" },
-  { id: 5, label: "On public transport during the journey" },
-  { id: 6, label: "In the car while driving" },
-  { id: 7, label: "On the toilet" },
-  { id: 8, label: "When my friend goes to the bathroom" },
-  { id: 9, label: "During commercial breaks on TV" },
-  { id: 10, label: "During a meeting when you're bored" }
+  "In bed after waking up",
+  "In bed before falling asleep",
+  "In the kitchen while eating meal",
+  "In the restaurant while eating a meal",
+  "On public transport during the journey",
+  "In the car while driving",
+  "On the toilet",
+  "When my friend goes to the bathroom",
+  "During commercial breaks on TV",
+  "During a meeting when you're bored"
 ];
 
-export default class Exercice_5_1 extends React.Component {
+class Exercice_5_1 extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      newSelect: ""
+      newSelect: "",
+      SitTrigger1_D5: "",
+      SitTrigger2_D5: "",
+      SitTrigger3_D5: ""
     };
   }
 
   onSubmitEditing = () => {
-    for (let possibleAnswers = 0; possibleAnswers < 2; possibleAnswers++) {
-      var nextAnswer = data.length;
-      var NewValue = {
-        id: nextAnswer + possibleAnswers,
-        label: this.state.newSelect
-      };
-    }
+    var NewValue = this.state.newSelect;
     data.push(NewValue);
     this.setState({ newSelect: undefined });
+  };
+
+  handleSubmit = () => {
+    let SitTrigger = [];
+    for (const prop in this.tag.itemsSelected) {
+      SitTrigger.push(this.tag.itemsSelected[prop]);
+    }
+
+    const uid = firebase.auth().currentUser.uid;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(uid)
+      .update({
+        SitTrigger1_D5: SitTrigger[0],
+        SitTrigger2_D5: SitTrigger[1],
+        SitTrigger3_D5: SitTrigger[2]
+      });
+
+    this.setState({ SitTrigger1_D5: SitTrigger[0] });
+    console.log(SitTrigger[0])
+    this.props.dispatch(Update_SitTrigger1_D5(this.state.SitTrigger1_D5));
+
+    this.setState({ SitTrigger2_D5: SitTrigger[1] });
+    this.props.dispatch(Update_SitTrigger2_D5(this.state.SitTrigger2_D5));
+
+    this.setState({ SitTrigger3_D5: SitTrigger[2] });
+    this.props.dispatch(Update_SitTrigger3_D5(this.state.SitTrigger3_D5));
+
+    //this.props.navigation.navigate("Exercice_5_2");
   };
 
   render() {
@@ -68,8 +97,9 @@ export default class Exercice_5_1 extends React.Component {
       >
         <StatusBar hidden />
         <ScrollView
-         contentContainerStyle={{flexGrow: 1}}
-         keyboardShouldPersistTaps='handled'>
+          contentContainerStyle={{ flexGrow: 1 }}
+          keyboardShouldPersistTaps="handled"
+        >
           <View style={{ flex: 1 }}>
             <KeyboardAvoidingView
               behavior="padding"
@@ -137,9 +167,7 @@ export default class Exercice_5_1 extends React.Component {
                     <PrimaryButton
                       label="Continue"
                       disabled={!this.state.allSelected}
-                      onPress={() => {
-                        this.props.navigation.navigate("Exercice_5_2");
-                      }}
+                      onPress={this.handleSubmit}
                     />
                   </View>
                 </View>
@@ -151,3 +179,9 @@ export default class Exercice_5_1 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_5_1);

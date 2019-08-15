@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#A28AD4"
   },
   scroll: {
-    flex: 1,
+    //flex: 1,
     alignSelf: "stretch"
   },
   nextscreen: {
@@ -229,6 +229,14 @@ const styles = StyleSheet.create({
     fontSize: 19,
     lineHeight: 25,
     fontFamily: "roboto-bold",
+    alignSelf: "stretch",
+    textAlign: "left"
+  },
+  intro_text_grey: {
+    color: "#868D91",
+    fontSize: 19,
+    lineHeight: 25,
+    fontFamily: "roboto-regular",
     alignSelf: "stretch",
     textAlign: "left"
   },

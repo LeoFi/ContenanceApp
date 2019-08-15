@@ -140,8 +140,22 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
               >
                 <Radio iconName={"lens"} label={"iOS"} value={"System/iOS"} />
                 <Radio
@@ -163,8 +177,22 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
               >
                 <Radio
                   iconName={"lens"}
@@ -186,8 +214,22 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
               >
                 <Radio iconName={"lens"} label={"Yes"} value={"Tablet/Yes"} />
                 <Radio iconName={"lens"} label={"No"} value={"Tablet/No"} />
@@ -206,8 +248,22 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
               >
                 <Radio
                   iconName={"lens"}
@@ -233,8 +289,22 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
               >
                 <Radio
                   iconName={"lens"}
@@ -261,8 +331,22 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
               >
                 <Radio iconName={"lens"} label={"Yes"} value={"VP/Yes"} />
                 <Radio iconName={"lens"} label={"No"} value={"VP/No"} />
