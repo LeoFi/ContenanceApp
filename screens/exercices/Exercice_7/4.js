@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import { connect } from "react-redux";
 
-export default class Exercice_3_4 extends React.Component {
+class Exercice_7_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,36 +25,45 @@ export default class Exercice_3_4 extends React.Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground
+        source={require("../../../assets/images/pink_shape.png")}
+        style={styles.image_background}
+      >
         <StatusBar hidden />
         <ScrollView>
-          <TouchableWithoutFeedback
-            style={styles.scroll}
-            onPress={() => {
-              this.props.navigation.navigate("Exercice_3_5");
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <Image
-                style={styles.image_height_relative}
-                source={require("../../../assets/images/Exercice3_1.png")}
-                resizeMode="contain"
-              />
-              <View style={styles.container_scroll_img}>
-                <Text style={styles.sub_header_left}>
-                  The Solution Triangle
-                </Text>
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback
+              style={styles.scroll}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_7_2");
+              }}
+            >
+              <View style={styles.container_scroll}>
                 <Text style={styles.intro_text}>
-                  {"\n"}We asked you to reflect on these hacks to introduce the
-                  so-called Solution Triangle. It consists of three crucial
-                  factors: your smartphone, your environment and you as a
-                  person.
+                  {"\n"}Okay. But, how do{" "}
+                  <Text style={styles.text_bold_italic}>
+                    {"\n"}
+                    {"\n"}
+                    {this.props.user_values.AppsRed1_D7}
+                    {"\n"}
+                    {this.props.user_values.AppsRed2_D7}
+                    {"\n"}
+                    {this.props.user_values.AppsRed3_D7}
+                  </Text>
+                  Okay. But, how do{"\n"}
+                  {"\n"}Don’t worry, it’s not you, it’s them.
                 </Text>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
+            </TouchableWithoutFeedback>
+          </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_7_4);

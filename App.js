@@ -89,6 +89,7 @@ export default class App extends React.Component {
         "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
         "roboto-medium": require("./assets/fonts/Roboto-Medium.ttf"),
         "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+        "roboto-bold-italic": require("./assets/fonts/Roboto-BoldItalic.ttf"),
         "heebo-black": require("./assets/fonts/Heebo-Black.ttf"),
         "heebo-thin": require("./assets/fonts/Heebo-Thin.ttf")
       })

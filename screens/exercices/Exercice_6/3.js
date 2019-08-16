@@ -27,39 +27,50 @@ import { styles } from "./style";
 
 import { connect } from "react-redux";
 import {
-  Update_AppsRed1_D7,
-  Update_AppsRed2_D7,
-  Update_AppsRed3_D7
+  Update_EmTrigger1_D6,
+  Update_EmTrigger2_D6,
+  Update_EmTrigger3_D6
 } from "../../../redux-persist/redux/user_values";
 
 const data = [
-  "Twitter",
-  "Facebook",
-  "Instagram",
-  "Whatsapp",
-  "Pinterest",
-  "Safari",
-  "Netflix",
-  "Youtube",
-  "Google Maps",
-  "Spotify",
-  "Soundcloud",
-  "Audible",
-  "Alarm Clock",
-  "Calculator",
-  "Headspace",
-  "Calm"
+  "Anger",
+  "Annoyance",
+  "Contempt",
+  "Disgust",
+  "Irritation",
+  "Anxiety",
+  "Fear",
+  "Worry",
+  "Pride",
+  "Doubt",
+  "Envy",
+  "Frustration",
+  "Guilt",
+  "Shame",
+  "Boredom",
+  "Despair",
+  "Hurt",
+  "Sadness",
+  "Stress",
+  "Joy",
+  "Pleasure",
+  "Affection",
+  "Love",
+  "Satisfaction",
+  "Calmness",
+  "Relief",
+  "Politeness"
 ];
 
-class Exercice_7_2 extends React.Component {
+class Exercice_6_3 extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       newSelect: "",
-      AppsRed1_D7: this.props.user_values.AppsRed1_D7 || "",
-      AppsRed2_D7: this.props.user_values.AppsRed2_D7 || "",
-      AppsRed3_D7: this.props.user_values.AppsRed3_D7 || ""
+      EmTrigger1_D6: this.props.user_values.EmTrigger1_D6 || "",
+      EmTrigger2_D6: this.props.user_values.EmTrigger2_D6 || "",
+      EmTrigger3_D6: this.props.user_values.EmTrigger3_D6 || ""
     };
   }
 
@@ -70,9 +81,9 @@ class Exercice_7_2 extends React.Component {
   };
 
   handleSubmit = () => {
-    let AppsRed = [];
+    let EmTrigger = [];
     for (const prop in this.tag.itemsSelected) {
-      AppsRed.push(this.tag.itemsSelected[prop]);
+      EmTrigger.push(this.tag.itemsSelected[prop]);
     }
 
     const uid = firebase.auth().currentUser.uid;
@@ -81,12 +92,12 @@ class Exercice_7_2 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({
-        AppsRed1_D7: AppsRed[0],
-        AppsRed2_D7: AppsRed[1],
-        AppsRed3_D7: AppsRed[2]
+        EmTrigger1_D6: EmTrigger[0],
+        EmTrigger2_D6: EmTrigger[1],
+        EmTrigger3_D6: EmTrigger[2]
       });
 
-    this.props.navigation.navigate("Exercice_7_3");
+    this.props.navigation.navigate("Exercice_6_Aha_1");
   };
 
   render() {
@@ -106,10 +117,13 @@ class Exercice_7_2 extends React.Component {
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.container}>
                   <Text style={styles.sub_header}>
-                  Which three apps do you give a red light? 
+                    What did you feel like right before that unconscious reach
+                    for the smartphone?
                   </Text>
                   <Text style={styles.text}>
-                    {"\n"}The ones that you catch yourself spending more time on than you intend to.
+                    {"\n"}Please choose 3 emotions from the list that might
+                    trigger you emotionally to use your smartphone. We know, we
+                    know, it might be more than 3 but let’s start small here.
                   </Text>
 
                   <View style={styles.middle}>
@@ -124,24 +138,24 @@ class Exercice_7_2 extends React.Component {
                       }}
                       onItemPress={() => {
                         if (this.tag.totalSelected === 3) {
-                          let AppsRed = [];
+                          let EmTrigger = [];
                           for (const prop in this.tag.itemsSelected) {
-                            AppsRed.push(this.tag.itemsSelected[prop]);
+                            EmTrigger.push(this.tag.itemsSelected[prop]);
                           }
                           this.setState({ allSelected: true });
-                          this.setState({ AppsRed1_D7: AppsRed[0] });
+                          this.setState({ EmTrigger1_D6: EmTrigger[0] });
                           this.props.dispatch(
-                            Update_AppsRed1_D7(this.state.AppsRed1_D7)
+                            Update_EmTrigger1_D6(this.state.EmTrigger1_D6)
                           );
 
-                          this.setState({ AppsRed2_D7: AppsRed[1] });
+                          this.setState({ EmTrigger2_D6: EmTrigger[1] });
                           this.props.dispatch(
-                            Update_AppsRed2_D7(this.state.AppsRed2_D7)
+                            Update_EmTrigger2_D6(this.state.EmTrigger2_D6)
                           );
 
-                          this.setState({ AppsRed3_D7: AppsRed[2] });
+                          this.setState({ EmTrigger3_D6: EmTrigger[2] });
                           this.props.dispatch(
-                            Update_AppsRed3_D7(this.state.AppsRed3_D7)
+                            Update_EmTrigger3_D6(this.state.EmTrigger3_D6)
                           );
                         } else {
                           this.setState({ allSelected: false });
@@ -201,4 +215,4 @@ const mapStateToProps = state => ({
   user_values: state.user_values
 });
 
-export default connect(mapStateToProps)(Exercice_7_2);
+export default connect(mapStateToProps)(Exercice_6_3);

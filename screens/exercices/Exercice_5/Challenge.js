@@ -43,13 +43,10 @@ export default class Exercice_5_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}From now on, whenever you open Contencance, take on a good posture first.
-                  {"\n"}{"\n"}Your body speaks to your brain. Improving your posture physically sets the stage for improving it mentally.
+                  {"\n"}The next time when you are in one of these situations, take a moment to check if the decision to grab your smartphone happens automatically or if you consciously decide to do so.
+                  {"\n"}{"\n"}Complete this challenge until tomorrow.
                 </Text>
 
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
               </View>
             </TouchableWithoutFeedback>
           </View>

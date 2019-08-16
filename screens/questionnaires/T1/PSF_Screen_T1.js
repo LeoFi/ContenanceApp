@@ -78,21 +78,21 @@ export default class PSF_Screen_T1 extends React.Component {
           </TouchableOpacity>
         )}
         <Text style={styles.header_left_padding}>
-          Please think about a usual day from the past 7 days.
+        Please think about the last 7 days
         </Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-              I decided what is important for me and decide what I want to use
+              I decided what is important for me and decided what I want to use
               my energy for.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                labelLeft="Never"
+                labelRight="Always"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSF01_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSF01_D1/2"} />
@@ -115,8 +115,8 @@ export default class PSF_Screen_T1 extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
+                labelLeft="Never"
+                labelRight="Always"
               >
                 <Radio iconName={"lens"} label={"1"} value={"PSF02_D1/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"PSF02_D1/2"} />

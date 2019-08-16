@@ -10,6 +10,15 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingBottom: 40,
     },
+    container_center: {
+        flex: 1,
+        justifyContent: "center",
+        alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+    },
     container_scroll: {
         flex: 1,
         flexGrow: 1,
@@ -87,7 +96,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A28AD4",
+        backgroundColor: "#F6B563",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -191,6 +200,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'roboto-regular',
     },
+    text_bold_italic: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "center",
+        fontFamily: "roboto-bold-italic"
+      },
     tap_text: {
         color: 'rgba(44, 59, 81, 0.4)',
         fontSize: 19,
@@ -220,7 +236,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
     },
     intro_text_bold: {
-        flex: 1,
+        //flex: 1,
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,

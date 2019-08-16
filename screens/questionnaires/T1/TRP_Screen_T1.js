@@ -97,12 +97,12 @@ export default class TRP_Screen_T1 extends React.Component {
             <Text style={styles.skip_text}>Skip</Text>
           </TouchableOpacity>
         )}
-        <Text style={styles.header_left_padding}></Text>
+        <Text style={styles.header_left_padding}>Please think about the last 7 days</Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-              Smartphones increase the speed of responses people expect from me.
+              Smartphones increased the speed of responses people expected from me.
             </Text>
 
             <View style={styles.question}>
@@ -125,7 +125,7 @@ export default class TRP_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-              I feel responsible for replying to communication demands quicker
+              I felt responsible for replying to communication demands quicker
               because of the smartphone.
             </Text>
 
@@ -149,7 +149,7 @@ export default class TRP_Screen_T1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-              I have felt stressed as a result of unanswered messages on the
+              I felt stressed as a result of unanswered messages on the
               smartphone.
             </Text>
 
@@ -173,7 +173,7 @@ export default class TRP_Screen_T1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-              In general, I feel stressed by my smartphone.
+              In general, I felt stressed by my smartphone.
             </Text>
 
             <View style={styles.question}>

@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_8 extends React.Component {
+export default class Exercice_6_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,33 +25,31 @@ export default class Exercice_3_8 extends React.Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground
+        source={require("../../../assets/images/yellow_shape.png")}
+        style={styles.image_background}
+      >
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
+          <View>
             <TouchableWithoutFeedback
-              style={styles.scroll}
+              style={{backgroundColor: "#000000", flex: 1}}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Aha_1");
+                this.props.navigation.navigate("Exercice_6_3");
               }}
             >
               <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_5.png")}
-                  resizeMode="contain"
-                />
                 <Text style={styles.sub_header_left}>
-                Putting people first
+                Reflect on Your Emotions
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}We believe that sustainable change will happen by combining solutions from all three factors, but focusing on YOU as a person. 
+                  {"\n"}Breathe. Then take a moment to think about the times you might have used your smartphone unconsciously today.  
                 </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }

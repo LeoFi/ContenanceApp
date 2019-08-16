@@ -19,7 +19,7 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-export default class WB_Screen_T1 extends React.Component {
+export default class WB_Screen_T2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -583,7 +583,7 @@ export default class WB_Screen_T1 extends React.Component {
         ) : (
           <TouchableOpacity
             onPress={() => {
-              this.props.navigation.navigate("MFSU_Screen_T1");
+              this.props.navigation.navigate("AU_Screen_T2");
             }}
             style={styles.skip}
           >
@@ -605,12 +605,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB01_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB01_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB01_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB01_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB01_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB01_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -628,12 +628,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB02_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB02_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB02_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB02_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB02_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB02_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -651,12 +651,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB03_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB03_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB03_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB03_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB03_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB03_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB03_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB03_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB03_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB03_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB03_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB03_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -674,12 +674,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB04_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB04_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB04_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB04_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB04_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB04_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB04_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB04_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB04_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB04_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB04_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB04_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -698,12 +698,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB05_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB05_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB05_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB05_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB05_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB05_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB05_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB05_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB05_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB05_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB05_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB05_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -721,12 +721,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Terrible"
                 labelRight="Excellent"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB06_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB06_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB06_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB06_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB06_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB06_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB06_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB06_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB06_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB06_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB06_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB06_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -745,12 +745,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB07_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB07_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB07_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB07_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB07_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB07_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB07_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB07_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB07_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB07_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB07_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB07_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -769,12 +769,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB08_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB08_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB08_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB08_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB08_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB08_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB08_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB08_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB08_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB08_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB08_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB08_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -793,12 +793,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB09_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB09_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB09_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB09_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB09_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB09_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB09_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB09_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB09_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB09_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB09_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB09_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -817,12 +817,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB10_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB10_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB10_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB10_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB10_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB10_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB10_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB10_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB10_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB10_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB10_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB10_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -840,12 +840,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB11_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB11_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB11_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB11_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB11_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB11_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB11_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB11_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB11_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB11_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB11_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB11_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -863,12 +863,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB12_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB12_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB12_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB12_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB12_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB12_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB12_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB12_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB12_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB12_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB12_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB12_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -886,12 +886,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB13_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB13_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB13_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB13_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB13_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB13_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB13_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB13_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB13_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB13_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB13_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB13_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -909,12 +909,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB14_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB14_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB14_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB14_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB14_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB14_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB14_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB14_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB14_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB14_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB14_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB14_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -932,12 +932,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB15_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB15_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB15_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB15_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB15_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB15_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB15_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB15_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB15_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB15_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB15_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB15_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -956,12 +956,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Never"
                 labelRight="Always"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB16_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB16_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB16_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB16_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB16_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB16_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB16_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB16_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB16_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB16_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB16_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB16_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -979,12 +979,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB17_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB17_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB17_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB17_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB17_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB17_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB17_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB17_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB17_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB17_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB17_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB17_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -1003,12 +1003,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB18_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB18_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB18_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB18_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB18_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB18_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB18_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB18_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB18_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB18_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB18_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB18_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -1026,12 +1026,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB19_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB19_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB19_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB19_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB19_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB19_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB19_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB19_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB19_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB19_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB19_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB19_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -1048,12 +1048,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB20_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB20_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB20_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB20_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB20_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB20_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB20_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB20_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB20_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB20_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB20_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB20_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -1070,12 +1070,12 @@ export default class WB_Screen_T1 extends React.Component {
                 labelLeft="Not at all"
                 labelRight="Completely"
               >
-                <Radio iconName={"lens"} label={"1"} value={"WB21_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"WB21_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"WB21_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"WB21_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"WB21_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"WB21_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"WB21_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"WB21_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"WB21_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"WB21_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"WB21_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"WB21_D21/6"} />
               </RadioGroup>
             </View>
 
@@ -1085,7 +1085,7 @@ export default class WB_Screen_T1 extends React.Component {
                 isBottom={true}
                 disabled={!this.state.buttonIsActive}
                 onPress={() => {
-                  this.props.navigation.navigate("MFSU_Screen_T1");
+                  this.props.navigation.navigate("AU_Screen_T2");
                 }}
               />
             </View>

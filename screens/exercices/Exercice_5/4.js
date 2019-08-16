@@ -27,7 +27,7 @@ export default class Exercice_5_4 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/yellow_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />

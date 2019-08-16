@@ -60,10 +60,12 @@ export default class SU3_Screen_T1 extends React.Component {
           <Text style={styles.skip_text}>Skip</Text>
         </TouchableOpacity>
 
+        <Text style={styles.header_left_padding}>Please think about the last 7 days</Text>
+
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-              How often do you check your smartphone or use it on a regular day?
+              How often did you check your smartphone or used it on a regular day?
             </Text>
 
             <View style={styles.question}>

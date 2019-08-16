@@ -26,7 +26,11 @@ import * as firebase from "firebase";
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { Update_SitTrigger1_D5, Update_SitTrigger2_D5, Update_SitTrigger3_D5 } from "./../../../redux-persist/redux/user_values";
+import {
+  Update_SitTrigger1_D5,
+  Update_SitTrigger2_D5,
+  Update_SitTrigger3_D5
+} from "./../../../redux-persist/redux/user_values";
 
 const data = [
   "In bed after waking up",
@@ -47,9 +51,9 @@ class Exercice_5_1 extends React.Component {
 
     this.state = {
       newSelect: "",
-      SitTrigger1_D5: "",
-      SitTrigger2_D5: "",
-      SitTrigger3_D5: ""
+      SitTrigger1_D5: this.props.user_values.SitTrigger1_D5 || "",
+      SitTrigger2_D5: this.props.user_values.SitTrigger2_D5 || "",
+      SitTrigger3_D5: this.props.user_values.SitTrigger3_D5 || ""
     };
   }
 
@@ -76,25 +80,12 @@ class Exercice_5_1 extends React.Component {
         SitTrigger3_D5: SitTrigger[2]
       });
 
-    this.setState({ SitTrigger1_D5: SitTrigger[0] });
-    console.log(SitTrigger[0])
-    this.props.dispatch(Update_SitTrigger1_D5(this.state.SitTrigger1_D5));
-
-    this.setState({ SitTrigger2_D5: SitTrigger[1] });
-    this.props.dispatch(Update_SitTrigger2_D5(this.state.SitTrigger2_D5));
-
-    this.setState({ SitTrigger3_D5: SitTrigger[2] });
-    this.props.dispatch(Update_SitTrigger3_D5(this.state.SitTrigger3_D5));
-
-    //this.props.navigation.navigate("Exercice_5_2");
+    this.props.navigation.navigate("Exercice_5_2");
   };
 
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={{backgroundColor: "#F4F1DE"}}>
         <StatusBar hidden />
         <ScrollView
           contentContainerStyle={{ flexGrow: 1 }}
@@ -125,7 +116,25 @@ class Exercice_5_1 extends React.Component {
                       }}
                       onItemPress={() => {
                         if (this.tag.totalSelected === 3) {
+                          let SitTrigger = [];
+                          for (const prop in this.tag.itemsSelected) {
+                            SitTrigger.push(this.tag.itemsSelected[prop]);
+                          }
                           this.setState({ allSelected: true });
+                          this.setState({ SitTrigger1_D5: SitTrigger[0] });
+                          this.props.dispatch(
+                            Update_SitTrigger1_D5(this.state.SitTrigger1_D5)
+                          );
+
+                          this.setState({ SitTrigger2_D5: SitTrigger[1] });
+                          this.props.dispatch(
+                            Update_SitTrigger2_D5(this.state.SitTrigger2_D5)
+                          );
+
+                          this.setState({ SitTrigger3_D5: SitTrigger[2] });
+                          this.props.dispatch(
+                            Update_SitTrigger3_D5(this.state.SitTrigger3_D5)
+                          );
                         } else {
                           this.setState({ allSelected: false });
                         }
@@ -175,7 +184,7 @@ class Exercice_5_1 extends React.Component {
             </KeyboardAvoidingView>
           </View>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
 }

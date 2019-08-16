@@ -143,13 +143,13 @@ export default class MFSU_Screen_T1 extends React.Component {
           </TouchableOpacity>
         )}
         <Text style={styles.header_left_padding}>
-          When I am using my smartphone...
+          Please think about the last 7 days
         </Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-              ...my mind wanders off and I’m easily distracted.
+            When I was using my smartphone my mind wandered off and I was easily distracted.
             </Text>
 
             <View style={styles.question}>
@@ -172,7 +172,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-              ... I don’t pay attention to what I’m doing because I’m
+            When I was using my smartphone I didn't pay attention to what I was doing because I was
               daydreaming, worrying, or otherwise distracted.
             </Text>
 
@@ -195,7 +195,7 @@ export default class MFSU_Screen_T1 extends React.Component {
 
         {this.state.show_3 ? (
           <>
-            <Text style={styles.text_left}>...I am easily distracted.</Text>
+            <Text style={styles.text_left}>When I was using my smartphone I was easily distracted.</Text>
 
             <View style={styles.question}>
               <RadioGroup
@@ -217,7 +217,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-              ...I find it difficult to stay focused on what’s happening in the
+            When I was using my smartphone I found it difficult to stay focused on what was happening in the
               present.
             </Text>
 
@@ -241,7 +241,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_5 ? (
           <>
             <Text style={styles.text_left}>
-              ...I rush through activities without being really attentive to
+            When I was using my smartphone I rushed through activities without being really attentive to
               them.
             </Text>
 
@@ -265,8 +265,8 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_6 ? (
           <>
             <Text style={styles.text_left}>
-              ... I do jobs or tasks automatically without being aware of what
-              I’m doing.
+            When I was using my smartphone I did jobs or tasks automatically without being aware of what
+              I was doing.
             </Text>
 
             <View style={styles.question}>
@@ -289,7 +289,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_7 ? (
           <>
             <Text style={styles.text_left}>
-              ...I find myself doing things without paying attention.
+            When I was using my smartphone I found myself doing things without paying attention.
             </Text>
 
             <View style={styles.question}>

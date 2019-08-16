@@ -35,7 +35,7 @@ export default class Exercice_6_Aha_2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_6_Aha_2");
+                this.props.navigation.navigate("Exercice_6_Aha_3");
               }}
             >
               <View style={styles.container_scroll}>
@@ -53,18 +53,4 @@ export default class Exercice_6_Aha_2 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

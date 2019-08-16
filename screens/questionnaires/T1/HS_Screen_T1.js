@@ -98,12 +98,12 @@ export default class HS_Screen_T1 extends React.Component {
           </TouchableOpacity>
         )}
         <Text style={styles.header_left_padding}>
-          Using my smartphone is something...
+        Please think about the last 7 days
         </Text>
 
         {this.state.show_1 ? (
           <>
-            <Text style={styles.text_left}>... I do automatically.</Text>
+            <Text style={styles.text_left}>Using my smartphone was something I did automatically.</Text>
 
             <View style={styles.question}>
               <RadioGroup
@@ -125,7 +125,7 @@ export default class HS_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-              ... I do without having to consciously remember.
+            Using my smartphone was something I did without having to consciously remember.
             </Text>
 
             <View style={styles.question}>
@@ -147,7 +147,7 @@ export default class HS_Screen_T1 extends React.Component {
 
         {this.state.show_3 ? (
           <>
-            <Text style={styles.text_left}>... I do without thinking.</Text>
+            <Text style={styles.text_left}>Using my smartphone was something I did without thinking.</Text>
 
             <View style={styles.question}>
               <RadioGroup
@@ -169,7 +169,7 @@ export default class HS_Screen_T1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-              ... I start doing before I realise I’m doing it.
+            Using my smartphone was something I started doing before I realized I was doing it.
             </Text>
 
             <View style={styles.question}>

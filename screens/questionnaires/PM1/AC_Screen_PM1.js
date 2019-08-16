@@ -65,7 +65,7 @@ export default class AC_Screen_PM1 extends React.Component {
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            I have always been aware of my Intentions how to use my smartphone.
+            I have always been aware of my intentions how to use my smartphone.
             </Text>
 
             <View style={styles.question}>

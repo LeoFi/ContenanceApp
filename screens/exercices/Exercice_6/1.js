@@ -20,7 +20,7 @@ import { styles } from "./style";
 
 import { Audio } from "expo-av";
 
-export default class Exercice_2_1 extends Component {
+export default class Exercice_6_1 extends Component {
   constructor(props) {
     super(props);
     this.playbackInstance = null;
@@ -193,13 +193,14 @@ export default class Exercice_2_1 extends Component {
     return (
       <View style={styles.container}>
         <TouchableWithoutFeedback
+        style={{backgroundColor: "#000000"}}
           onPress={() => {
-            this.state.isPlaying === "Done" ? (this.props.navigation.navigate("Exercice_2_Aha_1")) : (null)
+            this.state.isPlaying === "Done" ? (this.props.navigation.navigate("Exercice_6_2")) : (null)
           }}
           //{this.renderPlayerIcon()}
         >
           <View>
-            <Text style={styles.sub_header_left}>Notice Your Impulses</Text>
+            <Text style={styles.sub_header_left}>Exploring Emotional Triggers</Text>
             <TouchableOpacity
               onPress={this._onBackPressed}
               //disabled={this.state.isLoading}
@@ -214,7 +215,7 @@ export default class Exercice_2_1 extends Component {
               onPress={this._onPlayPausePressed}
               disabled={this.state.isLoading}
             >
-              <View style={styles.center}>
+              <View>
                 
                 {this.renderPlayerIcon()}
 

@@ -23,7 +23,7 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-export default class PSU_Screen_T1 extends React.Component {
+export default class PSU_Screen_T2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,6 +36,7 @@ export default class PSU_Screen_T1 extends React.Component {
       show_7: false,
       show_8: false,
       show_9: false,
+      show_10: false,
       buttonIsActive: false
     };
   }
@@ -107,7 +108,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_9: true });
       } else if (this.state.show_9 == true) {
         this.setState({ buttonIsActive: true });
-      }
+      } 
     }, 400);
   };
 
@@ -172,14 +173,14 @@ export default class PSU_Screen_T1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {!this.state.show_10 ? (
+        {!this.state.show_9 ? (
           <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
             <Text style={styles.skip_text}>Skip</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             onPress={() => {
-              this.props.navigation.navigate("SUE_Screen_T1");
+              this.props.navigation.navigate("WB_Screen_T2");
             }}
             style={styles.skip}
           >
@@ -202,12 +203,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU01_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU01_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU01_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU01_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU01_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU01_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU01_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -226,12 +227,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU02_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU02_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU02_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU02_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU02_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU02_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU02_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -250,12 +251,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU04_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU04_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU04_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU04_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU04_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU04_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU04_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU04_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU04_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU04_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU04_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU04_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -273,12 +274,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU05_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU05_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU05_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU05_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU05_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU05_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU05_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU05_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU05_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU05_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU05_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU05_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -297,12 +298,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU06_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU06_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU06_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU06_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU06_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU06_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU06_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU06_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU06_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU06_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU06_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU06_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -321,12 +322,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU07_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU07_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU07_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU07_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU07_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU07_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU07_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU07_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU07_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU07_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU07_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU07_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -344,12 +345,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU08_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU08_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU08_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU08_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU08_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU08_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU08_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU08_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU08_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU08_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU08_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU08_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -367,12 +368,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSU09_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU09_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU09_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU09_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU09_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU09_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSU09_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSU09_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSU09_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSU09_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSU09_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSU09_D21/6"} />
               </RadioGroup>
             </View>
           </>
@@ -390,12 +391,12 @@ export default class PSU_Screen_T1 extends React.Component {
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
               >
-                <Radio iconName={"lens"} label={"1"} value={"PSUc_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSUc_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSUc_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSUc_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSUc_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSUc_D1/6"} />
+                <Radio iconName={"lens"} label={"1"} value={"PSUc_D21/1"} />
+                <Radio iconName={"lens"} label={"2"} value={"PSUc_D21/2"} />
+                <Radio iconName={"lens"} label={"3"} value={"PSUc_D21/3"} />
+                <Radio iconName={"lens"} label={"4"} value={"PSUc_D21/4"} />
+                <Radio iconName={"lens"} label={"5"} value={"PSUc_D21/5"} />
+                <Radio iconName={"lens"} label={"6"} value={"PSUc_D21/6"} />
               </RadioGroup>
             </View>
 
@@ -405,7 +406,7 @@ export default class PSU_Screen_T1 extends React.Component {
                 isBottom={true}
                 disabled={!this.state.buttonIsActive}
                 onPress={() => {
-                  this.props.navigation.navigate("SUE_Screen_T1");
+                  this.props.navigation.navigate("WB_Screen_T2");
                 }}
               />
             </View>

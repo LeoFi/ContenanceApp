@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   container_background_inverted: {
     flex: 1,
-    backgroundColor: "#A28AD4"
+    backgroundColor: "#F6B563"
   },
   scroll: {
     //flex: 1,
@@ -193,6 +193,13 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     textAlign: "center",
     fontFamily: "roboto-regular"
+  },
+  text_bold_italic: {
+    color: "#2C3B51",
+    fontSize: 19,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-bold-italic"
   },
   tap_text: {
     color: "rgba(44, 59, 81, 0.4)",

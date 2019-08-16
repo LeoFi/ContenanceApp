@@ -14,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import { connect } from "react-redux";
 
-export default class Exercice_3_1 extends React.Component {
+class Exercice_7_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,17 +35,23 @@ export default class Exercice_3_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_2");
+                this.props.navigation.navigate("Exercice_7_2");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                Welcome back! 
+                Which apps are your personal danger zones that pull you in?
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}Today, we will explore what it takes to have a more balanced relationship with your smartphone. 
+                  {"\n"}In order to find out, check your most used apps in your settings.
                 </Text>
-
+                <Text style={styles.intro_text_grey}>
+                  {"\n"}For iOs: Settings > Screen Time > {this.props.user.nickname}'s iPhone > Last 7 day > scroll down to MOST USED
+{"\n"}{"\n"}For Android: Settings > Digital Well-Being > Dashboard > scroll down 
+                </Text>
+                <Text style={styles.intro_text}>
+                  {"\n"}If you do not use a screen time tracker, just reflect on this for a moment.
+                </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -53,3 +60,10 @@ export default class Exercice_3_1 extends React.Component {
     );
   }
 }
+
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(Exercice_7_1);

@@ -6,7 +6,8 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Image
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,12 +15,10 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
 import { connect } from "react-redux";
-import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices"
-import { updateState_Ex6 } from "./../../../redux-persist/redux/exercices"
-
+import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex6 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_5_Congratulations extends React.Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class Exercice_5_Congratulations extends React.Component {
       exercice_state_6: "locked"
     };
   }
- 
+
   handleSubmit = () => {
     const exercice_state_5 = this.state;
     this.setState({ exercice_state_5: exercice_state_5 });
@@ -44,38 +43,34 @@ class Exercice_5_Congratulations extends React.Component {
   };
 
   render() {
-
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={styles.container_background_inverted}>
+        <StatusBar hidden />
+
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
-                <Text style={styles.header}>Congratulations!</Text>
-                <Text style={styles.text}>
-                  {"\n"}You finished your first exercise. Now you know why this
-                  training is called Contenance!
-                </Text>
+          <View style={styles.container_scroll_img_absolute}>
+            <Image
+              style={styles.image_height}
+              source={require("../../../assets/images/Day5_Intro.png")}
+              resizeMode="stretch"
+            />
+            <View style={styles.middle}>
+              <Text style={styles.header}>Congratulations!</Text>
+              <Text style={styles.text}>
+                {"\n"}You just completed the first step to change your habits: identifying your situational triggers. We will build on them later on in the program!
+              </Text>
 
-                <View style={styles.bottom}>
-                  <PrimaryButton
-                    label="Done"
-                    onPress={this.handleSubmit}
-                  />
-                </View>
+              <View style={styles.tap_pos_relative}>
+                <PrimaryButton label="Done" onPress={this.handleSubmit} />
               </View>
-            </TouchableWithoutFeedback>
+            </View>
           </View>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
 }
-
 
 const mapStateToProps = state => ({
   exercices: state.exercices
