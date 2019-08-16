@@ -90,7 +90,7 @@ export default class SU1_Screen_T1 extends React.Component {
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <>
                 <Text style={styles.text}>
-                  What is your average screen time of the last 7 days?
+                  What is your average screen time per day of the last 7 days?
                 </Text>
 
                 <Text style={styles.text_left_small_center}>
@@ -126,7 +126,7 @@ export default class SU1_Screen_T1 extends React.Component {
                   <LinkText
                     style={styles.link_text}
                     textLabel=""
-                    linkLabel="where do I find this in iOs?"
+                    linkLabel="Where do I find this in iOS?"
                     linkOnPress={() => {
                       this.setModalVisibleIos(true);
                     }}
@@ -134,7 +134,7 @@ export default class SU1_Screen_T1 extends React.Component {
                   <LinkText
                     style={styles.link_text}
                     textLabel=""
-                    linkLabel="where do I find this in android?"
+                    linkLabel="Where do I find this in Android?"
                     linkOnPress={() => {
                       this.setModalVisibleAndroid(true);
                     }}
@@ -165,15 +165,15 @@ export default class SU1_Screen_T1 extends React.Component {
                   <View style={styles.top_security_agreements}>
                     <ScrollView style={styles.container_scroll}>
                       <Text style={styles.text_scroll}>
-                        {"\n"}where do I find this in IOs?
+                        {"\n"}Where do I find this in iOS?
                         {"\n"}
                         {"\n"}
                         <Text style={styles.text_bold}>
                           Activating Screen Time
                         </Text>
                         {"\n"}On your iPhone, go to Settings > Screen Time. Tap
-                        Turn On Screen Time. Tap Continue. Select This is My
-                        [device].
+                        Turn On Screen Time. Tap Continue. 
+                        {"\n"}Select This is My [device].
                         {"\n"}
                         {"\n"}You can now get a report about how you use your
                         device, apps, and websites,
@@ -234,7 +234,7 @@ export default class SU1_Screen_T1 extends React.Component {
 
         <View style={styles.bottom}>
           <PrimaryButton
-            label="Continue"
+            label="Save Number"
             isBottom={true}
             disabled={
               !this.state.screenTimeHours || !this.state.screenTimeMinutes

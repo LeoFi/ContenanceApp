@@ -87,7 +87,7 @@ class IntroOnboardingScreen extends React.Component {
 
                 <View style={styles.bottom}>
                   <PrimaryButton
-                    label="Sign Up"
+                    label="Next"
                     isBottom={true}
                     onPress={this.handleSubmit}
                     disabled={!this.state.nickname}

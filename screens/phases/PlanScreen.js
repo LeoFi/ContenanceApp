@@ -173,7 +173,8 @@ class PlanScreen extends React.Component {
         label: "Day 13 - Meaningful Smartphone Habits",
         styleButton: ExerciceStyle_13,
         styleText: ExerciceTextStyle_13,
-        IconSource: IconsExercice_13
+        IconSource: IconsExercice_13,
+        state: this.props.exercices.exercice_state_13
       },
       {
         id: 14,
@@ -181,7 +182,8 @@ class PlanScreen extends React.Component {
         label: "Day 14 - Being Prepared for Challenges",
         styleButton: ExerciceStyle_14,
         styleText: ExerciceTextStyle_14,
-        IconSource: IconsExercice_14
+        IconSource: IconsExercice_14,
+        state: this.props.exercices.exercice_state_14
       },
       {
         id: 15,
@@ -189,7 +191,8 @@ class PlanScreen extends React.Component {
         label: "Day 15 - Beauty of Imagination",
         styleButton: ExerciceStyle_15,
         styleText: ExerciceTextStyle_15,
-        IconSource: IconsExercice_15
+        IconSource: IconsExercice_15,
+        state: this.props.exercices.exercice_state_15
       },
       {
         id: 16,
@@ -197,7 +200,8 @@ class PlanScreen extends React.Component {
         label: "Day 16 - Brain Reset",
         styleButton: ExerciceStyle_16,
         styleText: ExerciceTextStyle_16,
-        IconSource: IconsExercice_16
+        IconSource: IconsExercice_16,
+        state: this.props.exercices.exercice_state_16
       },
       {
         id: 17,
@@ -231,6 +235,7 @@ class PlanScreen extends React.Component {
                   }
                 }}
                 style={item.styleButton}
+                disabled={item.state === "locked" ? true : false}
               >
                 <Text style={item.styleText}>{item.label}</Text>
                 <Image

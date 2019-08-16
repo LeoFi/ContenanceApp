@@ -35,7 +35,7 @@ class Exercice_7_4 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_7_2");
+                this.props.navigation.navigate("Exercice_7_Aha_1");
               }}
             >
               <View style={styles.container_scroll}>

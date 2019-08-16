@@ -70,11 +70,11 @@ export default class AccountAccessScreen extends React.Component {
           style={styles.keyboard_view}
         >
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View>
-              <Text style={styles.header}>Access Your Account</Text>
+            <ScrollView>
+              <Text style={styles.header}>Access your account</Text>
 
               <Text style={styles.text}>
-                {"\n"}Type here the code that was send to you.
+                {"\n"}Enter the code you received from us via email and accept the terms.
               </Text>
 
               <View style={styles.center}>
@@ -327,7 +327,7 @@ export default class AccountAccessScreen extends React.Component {
                         /> */}
 
                 <PrimaryButton
-                  label="Sign Up"
+                  label="ACCESS"
                   isBottom={true}
                   onPress={this.onLoginPress}
                   disabled={
@@ -335,7 +335,7 @@ export default class AccountAccessScreen extends React.Component {
                   }
                 />
               </View>
-            </View>
+            </ScrollView>
           </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
       </View>

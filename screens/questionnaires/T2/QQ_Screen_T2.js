@@ -50,7 +50,7 @@ export default class QQ_Screen_T2 extends React.Component {
     this.setState({ QQ1 });
   };
 
-  handleSubmit = value => {
+  handleSubmit = () => {
     const { QQ1 } = this.state;
     //console.log(QQ1);
     const uid = firebase.auth().currentUser.uid;
@@ -285,14 +285,14 @@ export default class QQ_Screen_T2 extends React.Component {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <>
-            {!this.state.show_14 ? (
+            {!this.state.show_13 ? (
               <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
                 <Text style={styles.skip_text}>Skip</Text>
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
                 onPress={() => {
-                  this.props.navigation.navigate("PI_Screen_T2");
+                  this.props.navigation.navigate("Closing_Screen_T2");
                 }}
                 style={styles.skip}
               >

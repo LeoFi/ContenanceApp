@@ -47,7 +47,7 @@ export default class Exercice_9_Intro_Phase extends React.Component {
                 <Text style={styles.intro_header}>Vision</Text>
                 <Text style={styles.intro_text}>
                   {"\n"}<Text style={styles.intro_text_bold}>Finding meaning</Text>{"\n"}No matter how good you can surf: if you’re unsure about the direction you’re heading, you will eventually go down. It’s similar to your smartphone use: if you know what’s important to yourself, you’re more likely to handle mindless scrolling on the screen.
-                  {"\n"}Leo learned why some waves soak him underwater. Suddenly, he sees a bright light on the horizon and turns his head towards the lights. It’s a big star! Leo is fascinated by the power of the star and wants to find out more about it. So he does the obvious: he reaches for the star.
+                  {"\n"}{"\n"}Leo learned why some waves soak him underwater. Suddenly, he sees a bright light on the horizon and turns his head towards the lights. It’s a big star! Leo is fascinated by the power of the star and wants to find out more about it. So he does the obvious: he reaches for the star.
                 </Text>
                 <Text style={styles.intro_text_bold}>
                   {"\n"}This module is about exploring your values. Based on them, you will define a new way to use your smartphone. This might sound challenging but we will support you.

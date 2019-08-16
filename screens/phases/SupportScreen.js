@@ -198,7 +198,8 @@ class SupportScreen extends React.Component {
         label: "Day 17 - Taking Control on the Smartphone",
         styleButton: ExerciceStyle_17,
         styleText: ExerciceTextStyle_17,
-        IconSource: IconsExercice_17
+        IconSource: IconsExercice_17,
+        state: this.props.exercices.exercice_state_17
       },
       {
         id: 18,
@@ -206,7 +207,8 @@ class SupportScreen extends React.Component {
         label: "Day 18 - Taking Control of the Environment",
         styleButton: ExerciceStyle_18,
         styleText: ExerciceTextStyle_18,
-        IconSource: IconsExercice_18
+        IconSource: IconsExercice_18,
+        state: this.props.exercices.exercice_state_18
       },
       {
         id: 19,
@@ -214,7 +216,8 @@ class SupportScreen extends React.Component {
         label: "Day 19 - Me, the Smartphone and Others",
         styleButton: ExerciceStyle_19,
         styleText: ExerciceTextStyle_19,
-        IconSource: IconsExercice_19
+        IconSource: IconsExercice_19,
+        state: this.props.exercices.exercice_state_19
       },
       {
         id: 20,
@@ -222,7 +225,8 @@ class SupportScreen extends React.Component {
         label: "Day 20 - Daddeln is Okay",
         styleButton: ExerciceStyle_20,
         styleText: ExerciceTextStyle_20,
-        IconSource: IconsExercice_20
+        IconSource: IconsExercice_20,
+        state: this.props.exercices.exercice_state_20
       },
       {
         id: 21,
@@ -230,7 +234,8 @@ class SupportScreen extends React.Component {
         label: "Day 21 - Brain Reset",
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
-        IconSource: IconsExercice_21
+        IconSource: IconsExercice_21,
+        state: this.props.exercices.exercice_state_21
       },
       {
         id: 22,
@@ -264,6 +269,7 @@ class SupportScreen extends React.Component {
                   }
                 }}
                 style={item.styleButton}
+                disabled={item.state === "locked" ? true : false}
               >
                 <Text style={item.styleText}>{item.label}</Text>
                 <Image

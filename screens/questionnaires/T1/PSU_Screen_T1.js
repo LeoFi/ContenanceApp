@@ -107,7 +107,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_9: true });
       } else if (this.state.show_9 == true) {
         this.setState({ buttonIsActive: true });
-      }
+      } 
     }, 400);
   };
 
@@ -165,6 +165,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
+      } else if (this.state.show_9 == true) {
+        this.props.navigation.navigate("SUE_Screen_T1");
       }
     }, 400);
   };

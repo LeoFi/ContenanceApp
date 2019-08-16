@@ -195,12 +195,12 @@ export default class Exercice_4_1 extends Component {
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPress={() => {
-            this.state.isPlaying === "Done" ? (this.props.navigation.navigate("Exercice_4_Aha_1")) : (null)
+            this.state.isPlaying === "Done" ? (this.props.navigation.navigate("Exercice_8_Aha_1")) : (null)
           }}
           //{this.renderPlayerIcon()}
         >
           <View>
-            <Text style={styles.sub_header_left}>Keep Breathing</Text>
+            <Text style={styles.sub_header_left}>Mindful Social Media Use</Text>
             <TouchableOpacity
               onPress={this._onBackPressed}
               //disabled={this.state.isLoading}

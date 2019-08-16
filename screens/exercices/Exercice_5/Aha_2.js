@@ -48,10 +48,6 @@ class Exercice_5_Aha_2 extends React.Component {
                   {"\n"}Leo's situational trigger is entering the metro.
                   {"\n"}{"\n"}For you, it is:
                 </Text>
-                <Text style={styles.text}>
-                  {"\n"}Leos situational trigger is entering the metro.
-                  {"\n"}{"\n"}For you, it is:
-                </Text>
                 <Text style={styles.text_bold_italic}>
                   {"\n"}{this.props.user_values.SitTrigger1_D5}
                   {"\n"}{this.props.user_values.SitTrigger2_D5}

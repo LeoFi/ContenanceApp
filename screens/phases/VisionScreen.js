@@ -173,7 +173,8 @@ class VisionScreen extends React.Component {
         label: "Day 9 - Exploring Values",
         styleButton: ExerciceStyle_9,
         styleText: ExerciceTextStyle_9,
-        IconSource: IconsExercice_9
+        IconSource: IconsExercice_9,
+        state: this.props.exercices.exercice_state_9
       },
       {
         id: 10,
@@ -181,7 +182,8 @@ class VisionScreen extends React.Component {
         label: "Day 10 - Meaningful Smartphone Activities",
         styleButton: ExerciceStyle_10,
         styleText: ExerciceTextStyle_10,
-        IconSource: IconsExercice_10
+        IconSource: IconsExercice_10,
+        state: this.props.exercices.exercice_state_10
       },
       {
         id: 11,
@@ -189,7 +191,8 @@ class VisionScreen extends React.Component {
         label: "Day 11 - 54321 Trick",
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,
-        IconSource: IconsExercice_11
+        IconSource: IconsExercice_11,
+        state: this.props.exercices.exercice_state_11
       },
       {
         id: 12,
@@ -197,7 +200,8 @@ class VisionScreen extends React.Component {
         label: "Day 12 - Inner Scientist",
         styleButton: ExerciceStyle_12,
         styleText: ExerciceTextStyle_12,
-        IconSource: IconsExercice_12
+        IconSource: IconsExercice_12,
+        state: this.props.exercices.exercice_state_12
       },
       {
         id: 13,
@@ -231,6 +235,7 @@ class VisionScreen extends React.Component {
                   }
                 }}
                 style={item.styleButton}
+                disabled={item.state === "locked" ? true : false}
               >
                 <Text style={item.styleText}>{item.label}</Text>
                 <Image

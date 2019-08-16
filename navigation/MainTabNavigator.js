@@ -280,6 +280,27 @@ import SE_Screen_PM5 from "../screens/questionnaires/PM5/SE_Screen_PM5";
 import CE_Screen_PM5 from "../screens/questionnaires/PM5/CE_Screen_PM5";
 import Closing_Screen_PM5 from "../screens/questionnaires/PM5/Closing_Screen_PM5";
 
+// import Intro_Screen_T2 from "../screens/questionnaires/T2/Intro_Screen_T2";
+// import PSU_Screen_T2 from "../screens/questionnaires/T2/PSU_Screen_T2";
+// import SUE_Screen_T2 from "../screens/questionnaires/T2/SUE_Screen_T2";
+// import WB_Screen_T2 from "../screens/questionnaires/T2/WB_Screen_T2";
+// import MFSU_Screen_T2 from "../screens/questionnaires/T2/MFSU_Screen_T2";
+// import PSF_Screen_T2 from "../screens/questionnaires/T2/PSF_Screen_T2";
+// import TRP_Screen_T2 from "../screens/questionnaires/T2/TRP_Screen_T2";
+// import HS_Screen_T2 from "../screens/questionnaires/T2/HS_Screen_T2";
+// import IN_Screen_T2 from "../screens/questionnaires/T2/IN_Screen_T2";
+// import AP_Screen_T2 from "../screens/questionnaires/T2/AP_Screen_T2";
+// import AC_Screen_T2 from "../screens/questionnaires/T2/AC_Screen_T2";
+// import SE_Screen_T2 from "../screens/questionnaires/T2/SE_Screen_T2";
+// import Extra_1_Screen_T2 from "../screens/questionnaires/T2/Extra_1_Screen_T2";
+// import Extra_2_Screen_T2 from "../screens/questionnaires/T2/Extra_2_Screen_T2";
+// import Extra_3_Screen_T2 from "../screens/questionnaires/T2/Extra_3_Screen_T2";
+// import SU1_Screen_T2 from "../screens/questionnaires/T2/SU1_Screen_T2";
+// import SU2_Screen_T2 from "../screens/questionnaires/T2/SU2_Screen_T2";
+// import SU3_Screen_T2 from "../screens/questionnaires/T2/SU3_Screen_T2";
+// import Extra_6_Screen_T2 from "../screens/questionnaires/T2/Extra_6_Screen_T2";
+// import Closing_Screen_T2 from "../screens/questionnaires/T2/Closing_Screen_T2";
+
 const Exercice1 = createStackNavigator(
   {
     Anchor: {
@@ -1966,6 +1987,12 @@ const PM2_Stack = createStackNavigator(
         header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
       }
     },
+    MFSU_Screen_PM2: {
+      screen: MFSU_Screen_PM2,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={1/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
     PSF_Screen_PM2: {
       screen: PSF_Screen_PM2,
       navigationOptions: {
@@ -2004,6 +2031,12 @@ const PM2_Stack = createStackNavigator(
     },
     SE_Screen_PM2: {
       screen: SE_Screen_PM2,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    CE_Screen_PM2: {
+      screen: CE_Screen_PM2,
       navigationOptions: {
         header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
       }

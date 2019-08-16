@@ -172,7 +172,8 @@ class ReflectScreen extends React.Component {
         label: "Day 5 - Habit Loop",
         styleButton: ExerciceStyle_5,
         styleText: ExerciceTextStyle_5,
-        IconSource: IconsExercice_5
+        IconSource: IconsExercice_5,
+        state: this.props.exercices.exercice_state_5
       },
       {
         id: 6,
@@ -180,7 +181,8 @@ class ReflectScreen extends React.Component {
         label: "Day 6 - Exploring Emotional Triggers",
         styleButton: ExerciceStyle_6,
         styleText: ExerciceTextStyle_6,
-        IconSource: IconsExercice_6
+        IconSource: IconsExercice_6,
+        state: this.props.exercices.exercice_state_6
       },
       {
         id: 7,
@@ -188,7 +190,8 @@ class ReflectScreen extends React.Component {
         label: "Day 7 - Getting Lost",
         styleButton: ExerciceStyle_7,
         styleText: ExerciceTextStyle_7,
-        IconSource: IconsExercice_7
+        IconSource: IconsExercice_7,
+        state: this.props.exercices.exercice_state_7
       },
       {
         id: 8,
@@ -196,7 +199,8 @@ class ReflectScreen extends React.Component {
         label: "Day 8 - Mindful Social Media Use",
         styleButton: ExerciceStyle_8,
         styleText: ExerciceTextStyle_8,
-        IconSource: IconsExercice_8
+        IconSource: IconsExercice_8,
+        state: this.props.exercices.exercice_state_8
       },
       {
         id: 9,
@@ -230,6 +234,7 @@ class ReflectScreen extends React.Component {
                   }
                 }}
                 style={item.styleButton}
+                disabled={item.state === "locked" ? true : false}
               >
                 <Text style={item.styleText}>{item.label}</Text>
                 <Image

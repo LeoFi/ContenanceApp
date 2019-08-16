@@ -25,7 +25,7 @@ class Closing_Screen_PM4 extends React.Component {
 
         <View style={styles.bottom}>
           <PrimaryButton
-            label="START EXERCISING"
+            label="Done"
             isBottom={true}
             onPress={() => {
                 this.props.navigation.navigate('Home');

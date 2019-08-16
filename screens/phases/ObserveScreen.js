@@ -172,7 +172,8 @@ class ObserveScreen extends React.Component {
         label: "Day 1 - Contenance",
         styleButton: ExerciceStyle_1,
         styleText: ExerciceTextStyle_1,
-        IconSource: IconsExercice_1
+        IconSource: IconsExercice_1,
+        state: this.props.exercices.exercice_state_1
       },
       {
         id: 2,
@@ -180,7 +181,8 @@ class ObserveScreen extends React.Component {
         label: "Day 2 - Notice Your Impulses",
         styleButton: ExerciceStyle_2,
         styleText: ExerciceTextStyle_2,
-        IconSource: IconsExercice_2
+        IconSource: IconsExercice_2,
+        state: this.props.exercices.exercice_state_2
       },
       {
         id: 3,
@@ -188,7 +190,8 @@ class ObserveScreen extends React.Component {
         label: "Day 3 - Solution Triangle",
         styleButton: ExerciceStyle_3,
         styleText: ExerciceTextStyle_3,
-        IconSource: IconsExercice_3
+        IconSource: IconsExercice_3,
+        state: this.props.exercices.exercice_state_3
       },
       {
         id: 4,
@@ -196,7 +199,8 @@ class ObserveScreen extends React.Component {
         label: "Day 4 - Keep Breathing",
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
-        IconSource: IconsExercice_4
+        IconSource: IconsExercice_4,
+        state: this.props.exercices.exercice_state_4
       },
       {
         id: 5,
@@ -233,6 +237,7 @@ class ObserveScreen extends React.Component {
                     }
                   }}
                   style={item.styleButton}
+                  disabled={item.state === "locked" ? true : false}
                 >
                   <Text style={item.styleText}>{item.label}</Text>
                   <Image

@@ -47,7 +47,7 @@ export default class Exercice_5_Intro_Phase extends React.Component {
                 <Text style={styles.intro_text}>
                   {"\n"}<Text style={styles.intro_text_bold}>Studying the waves</Text>
                   {"\n"}You might know the feeling of being hooked to your smartphone and losing yourself in it. It’s like getting hit by a big wave in the ocean that pulls you underwater.
-                  {"\n"}Leo is standing at the beach. With a bit of distance, he tries to understand the dynamics of the impulse waves in the digital ocean.
+                  {"\n"}{"\n"}Leo is standing at the beach. With a bit of distance, he tries to understand the dynamics of the impulse waves in the digital ocean.
                 </Text>
                 <Text style={styles.intro_text_bold}>
                   {"\n"}This module is about understanding the drivers of your unconscious smartphone use. Explore why it’s so hard to resist the pull and discover how to regain control over your smartphone use, so you don’t get dragged underwater.

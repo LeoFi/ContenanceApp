@@ -68,7 +68,7 @@ class TestScreen extends React.Component {
 
     dt1 = new Date(initialDate);
     //dt2 = new Date();
-    dt2 = new Date('September 29, 2019 23:15:30');
+    dt2 = new Date('August 24, 2019 23:15:30');
 
     console.log(dt1);
     console.log(dt2);
@@ -1084,7 +1084,6 @@ class TestScreen extends React.Component {
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||
-              item.state === "completed" ||
               item.state === "new" ? (
                 <View key={key}>
                   <ExerciceButton
@@ -1095,7 +1094,7 @@ class TestScreen extends React.Component {
                     }}
                     style={item.styleButton}
                     state={item.state}
-                    //disabled={item.state === undefined ? true : false}
+                    disabled={item.state === "locked" ? true : false}
                   >
                     <Text style={item.styleText}>{item.label}</Text>
                     <Image

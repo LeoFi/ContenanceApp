@@ -104,7 +104,7 @@ export default class Extra_2_Screen_T1 extends React.Component {
           {this.state.show_1 ? (
             <>
               <Text style={styles.text_left}>
-                To which gender identity do you most identify?
+                What gender do you most identify with?
               </Text>
 
               <View style={styles.question}>
@@ -244,7 +244,7 @@ export default class Extra_2_Screen_T1 extends React.Component {
 
           {this.state.show_3 ? (
             <>
-              <Text style={styles.text_left}>Are you currently…?</Text>
+              <Text style={styles.text_left}>Are you currently:</Text>
 
               <View style={styles.question}>
                 <RadioGroup

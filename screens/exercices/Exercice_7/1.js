@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -40,17 +40,23 @@ class Exercice_7_1 extends React.Component {
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                Which apps are your personal danger zones that pull you in?
+                  Which apps are your personal danger zones that pull you in?
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}In order to find out, check your most used apps in your settings.
+                  {"\n"}In order to find out, check your most used apps in your
+                  settings.
                 </Text>
                 <Text style={styles.intro_text_grey}>
-                  {"\n"}For iOs: Settings > Screen Time > {this.props.user.nickname}'s iPhone > Last 7 day > scroll down to MOST USED
-{"\n"}{"\n"}For Android: Settings > Digital Well-Being > Dashboard > scroll down 
+                  {"\n"}For iOS: Settings > Screen Time >{" "}
+                  {this.props.user.nickname}'s iPhone > Last 7 day > scroll down
+                  to MOST USED
+                  {"\n"}
+                  {"\n"}For Android: Settings > Digital Well-Being > Dashboard >
+                  scroll down
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}If you do not use a screen time tracker, just reflect on this for a moment.
+                  {"\n"}If you do not use a screen time tracker, just reflect on
+                  this for a moment.
                 </Text>
               </View>
             </TouchableWithoutFeedback>
@@ -60,7 +66,6 @@ class Exercice_7_1 extends React.Component {
     );
   }
 }
-
 
 const mapStateToProps = state => ({
   user: state.user

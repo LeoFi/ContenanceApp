@@ -135,7 +135,7 @@ export default class SE_Screen_PM2 extends React.Component {
                 isBottom={true}
                 disabled={ !this.state.buttonIsActive }
                 onPress={() => {
-                  this.props.navigation.navigate("SE_Screen");
+                  this.props.navigation.navigate("Closing_Screen_PM2");
                 }}
               />
             </View>

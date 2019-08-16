@@ -82,6 +82,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'roboto-regular',
     },
+    text_bold: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'center',
+        fontFamily: 'roboto-bold',
+    },
     text_left: {
         color: '#2C3B51',
         fontSize: 19,

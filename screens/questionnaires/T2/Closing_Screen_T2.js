@@ -5,7 +5,7 @@ import { styles } from "./style";
 import { connect } from "react-redux";
 
 
-class Closing_Screen_T1 extends React.Component {
+class Closing_Screen_T2 extends React.Component {
 
   constructor(props) {
     super(props);
@@ -42,4 +42,4 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(Closing_Screen_T1);
+export default connect(mapStateToProps)(Closing_Screen_T2);
