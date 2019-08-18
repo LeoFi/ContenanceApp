@@ -68,7 +68,7 @@ class TestScreen extends React.Component {
 
     dt1 = new Date(initialDate);
     //dt2 = new Date();
-    dt2 = new Date('August 24, 2019 23:15:30');
+    dt2 = new Date('September 24, 2019 23:15:30');
 
     console.log(dt1);
     console.log(dt2);
@@ -883,7 +883,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 4,
-        path: "Exercice_4_Intro",
+        //path: "Exercice_4_Intro",
+        path: "Exercice_4_Congratulations",
         label: "Day 4 - Keep Breathing",
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
@@ -1084,6 +1085,7 @@ class TestScreen extends React.Component {
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||
+              item.state === "completed" ||
               item.state === "new" ? (
                 <View key={key}>
                   <ExerciceButton

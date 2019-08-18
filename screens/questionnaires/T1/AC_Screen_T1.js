@@ -14,7 +14,9 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
@@ -65,6 +67,8 @@ export default class AC_Screen_T1 extends React.Component {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+      } else if (this.state.show_3 == true) {
+        this.props.navigation.navigate("SE_Screen_T1");
       }
     }, 400);
   };
@@ -72,20 +76,10 @@ export default class AC_Screen_T1 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {!this.state.show_3 ? (
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("SE_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
+
         <Text style={styles.header_left_padding}>
           In the past 7 days, I have...
         </Text>

@@ -27,7 +27,8 @@ class IntroOnboardingScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.user.nickname || ""
+      nickname: this.props.user.nickname || "",
+      accessCode: this.props.user.accessCode || ""
     };
   }
 
@@ -37,6 +38,7 @@ class IntroOnboardingScreen extends React.Component {
 
   handleSubmit = () => {
     const { nickname } = this.state;
+    const { accessCode } = this.state;
     const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
@@ -44,7 +46,8 @@ class IntroOnboardingScreen extends React.Component {
       .child("accounts")
       .child(uid)
       .set({
-        nickname
+        nickname,
+        accessCode
       });
     this.props.dispatch(updateNickname(this.state.nickname));
     this.props.navigation.navigate("Onboarding");

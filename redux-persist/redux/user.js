@@ -1,5 +1,6 @@
 export const UPDATE_NICKNAME = 'UPDATE_NICKNAME';
 export const UPDATE_STARTING_DATE = 'UPDATE_STARTING_DATE';
+export const UPDATE_ACCESS_CODE = 'UPDATE_ACCESS_CODE';
 
 export const updateNickname = nickname => ({
   type: UPDATE_NICKNAME,
@@ -11,9 +12,15 @@ export const updateStartingDate = initialDate => ({
   initialDate,
 });
 
+export const updateAccessCode = accessCode => ({
+  type: UPDATE_ACCESS_CODE,
+  accessCode,
+});
+
 const initialState = {
     nickname: '',
-    initialDate: ''
+    initialDate: '',
+    accessCode: undefined
 };
 
 export default (state = initialState, action) => {
@@ -27,6 +34,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         initialDate: action.initialDate,
+      };
+      case UPDATE_ACCESS_CODE:
+      return {
+        ...state,
+        accessCode: action.accessCode,
       };
     default:
       return state;

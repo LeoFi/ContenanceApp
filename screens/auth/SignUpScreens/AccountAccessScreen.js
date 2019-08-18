@@ -15,7 +15,7 @@ import {
   ScrollView,
   Icon
 } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
 import {
   PrimaryButton,
   SecondaryButton,
@@ -25,8 +25,10 @@ import {
 import { styles } from "./style";
 import * as firebase from "firebase";
 
-export default class AccountAccessScreen extends React.Component {
+import { connect } from "react-redux";
+import { updateAccessCode } from "./../../../redux-persist/redux/user";
 
+class AccountAccessScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,6 +44,7 @@ export default class AccountAccessScreen extends React.Component {
 
   onLoginPress = () => {
     const { accessCode } = this.state;
+
     firebase
       .database()
       .ref("codes")
@@ -50,6 +53,8 @@ export default class AccountAccessScreen extends React.Component {
         if (snapshot.exists() && snapshot.val() === "AVAILABLE") {
           snapshot.ref.set("TAKEN");
           firebase.auth().signInAnonymously();
+          this.setState({ accessCode: accessCode });
+          this.props.dispatch(updateAccessCode(this.state.accessCode));
           this.props.navigation.navigate("IntroOnboarding");
         } else {
           Alert.alert("The code you're entering is not available");
@@ -74,7 +79,8 @@ export default class AccountAccessScreen extends React.Component {
               <Text style={styles.header}>Access your account</Text>
 
               <Text style={styles.text}>
-                {"\n"}Enter the code you received from us via email and accept the terms.
+                {"\n"}Enter the code you received from us via email and accept
+                the terms.
               </Text>
 
               <View style={styles.center}>
@@ -315,17 +321,6 @@ export default class AccountAccessScreen extends React.Component {
                   />
                 </View>
 
-                {/* <SwitchButton
-                            label='Sign Up'
-                            textLabel="Accept "
-                            linkLabel="security agreement"
-                            isBottom={true}
-                            onPress={this.onLoginPress}
-                            linkOnPress={() => {
-                                this.props.navigation.navigate('UP_Second');
-                            }}
-                        /> */}
-
                 <PrimaryButton
                   label="ACCESS"
                   isBottom={true}
@@ -342,3 +337,9 @@ export default class AccountAccessScreen extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(AccountAccessScreen);
