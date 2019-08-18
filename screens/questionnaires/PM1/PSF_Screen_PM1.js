@@ -27,7 +27,7 @@ export default class PSF_Screen_PM1 extends React.Component {
     this.state = {
       show_1: true,
       show_2: false,
-      progressValue: 18,
+      progressValue: 18/45,
       buttonIsActive: false,
     };
   }

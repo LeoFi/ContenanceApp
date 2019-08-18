@@ -29,7 +29,7 @@ export default class HS_Screen_PM1 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
-      progressValue: 24,
+      progressValue: 24/45,
       buttonIsActive: false,
     };
   }

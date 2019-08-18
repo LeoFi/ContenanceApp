@@ -45,12 +45,16 @@ import {
 
 import * as firebase from "firebase";
 
+import * as Progress from "react-native-progress";
+
 import { connect } from "react-redux";
 
 class TestScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      progressCircle: 0
+    };
   }
 
   componentDidMount() {
@@ -1064,11 +1068,23 @@ class TestScreen extends React.Component {
             justifyContent: "space-between"
           }}
         >
-          <View style={{ flex: 1, paddingTop: 50, marginTop: 10 }}>
-            <Image
+          <View style={{ flex: 1, paddingTop: 50, marginTop: 10, width: 300, height: 300 }}>
+            {/* <Image
               style={styles.center}
               source={require("./../assets/images/home_1.png")}
-            />
+            /> */}
+            <Progress.Circle
+            progress={this.state.progressCircle}
+            size={200}
+            thickness={10}
+            strokeCap={"round"}
+            borderWidth={0}
+            borderRadius={0}
+            height={200}
+            //color={headerProps.colorProgress}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
           </View>
 
           <View style={{ flex: 1 }}>

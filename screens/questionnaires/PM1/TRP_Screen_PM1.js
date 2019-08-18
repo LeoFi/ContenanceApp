@@ -31,7 +31,7 @@ export default class TRP_Screen_PM1 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
-      progressValue: 20,
+      progressValue: 20/45,
       buttonIsActive: false
     };
   }

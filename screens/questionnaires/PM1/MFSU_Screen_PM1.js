@@ -32,7 +32,7 @@ export default class MFSU_Screen_PM1 extends React.Component {
       show_5: false,
       show_6: false,
       show_7: false,
-      progressValue: 0,
+      progressValue: 11/45,
       buttonIsActive: false,
     };
   }

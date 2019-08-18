@@ -29,7 +29,7 @@ export default class SUE_Screen_PM1 extends React.Component {
     this.state = {
       show_1: true,
       show_2: false,
-      progressValue: 9,
+      progressValue: 9/45,
       buttonIsActive: false
     };
   }

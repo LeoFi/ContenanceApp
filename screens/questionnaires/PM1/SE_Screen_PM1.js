@@ -28,7 +28,7 @@ export default class SE_Screen_PM1 extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
-      progressValue: 39,
+      progressValue: 39/45,
       buttonIsActive: false,
     };
   }

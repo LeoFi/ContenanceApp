@@ -28,7 +28,7 @@ export default class IN_Screen_PM1 extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
-      progressValue: 28,
+      progressValue: 28/45,
       buttonIsActive: false,
     };
   }

@@ -30,7 +30,7 @@ export default class AP_Screen_PM1 extends React.Component {
       show_3: false,
       show_4: false,
       show_5: false,
-      progressValue: 31,
+      progressValue: 31/45,
       buttonIsActive: false,
     };
   }
