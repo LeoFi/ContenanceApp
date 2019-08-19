@@ -12,11 +12,14 @@ import {
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyACputButton,
-  RadioButtons
+  GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "react-native-radio-input";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
+
+import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
@@ -27,7 +30,8 @@ export default class SE_Screen_PM3 extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
-      buttonIsActive: false,
+      progressValue: 43/45,
+      buttonIsActive: false
     };
   }
 
@@ -47,33 +51,79 @@ export default class SE_Screen_PM3 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 44/45 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 45/45 });
       } else if (this.state.show_3 == true) {
         this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+        this.setState({ progressValue: 44/45 });
+      } else if (this.state.show_2 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: true });
+        this.setState({ progressValue: 45/45 });
+      } else if (this.state.show_3 == true) {
+        this.props.navigation.navigate("Closing_Screen_PM3");
+      }
+    }, 400);
+  };
+
   render() {
     return (
+      <>
+      <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
       <View style={styles.container}>
-        <Text style={styles.header_left_padding}>Please refer to today and the past 3 days.</Text>
+      <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
+        <Text style={styles.header_left_padding}>
+          Please refer to today and the past 3 days.
+        </Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            I have done the activities as instructed.
+              I have done the activities as instructed.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "row"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SE01_D12/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SE01_D12/2"} />
@@ -89,13 +139,14 @@ export default class SE_Screen_PM3 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            I have done the daily challenge.
+              I have done the daily challenge.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SE02_D12/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SE02_D12/2"} />
@@ -111,13 +162,14 @@ export default class SE_Screen_PM3 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            I have enjoyed doing the program.
+              I have enjoyed doing the program.
             </Text>
 
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"SE03_D12/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"SE03_D12/2"} />
@@ -127,21 +179,21 @@ export default class SE_Screen_PM3 extends React.Component {
                 <Radio iconName={"lens"} label={"6"} value={"SE03_D12/6"} />
               </RadioGroup>
             </View>
-    
-    
+
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
-                disabled={ !this.state.buttonIsActive }
+                disabled={!this.state.buttonIsActive}
                 onPress={() => {
-                  this.props.navigation.navigate("SE_Screen");
+                  this.props.navigation.navigate("Closing_Screen_PM3");
                 }}
               />
             </View>
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }

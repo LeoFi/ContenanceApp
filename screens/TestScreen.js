@@ -61,6 +61,10 @@ class TestScreen extends React.Component {
     this.compareDates();
   }
 
+  componentDidMount() {
+    this.compareDates();
+  }
+
   compareDates = () => {
     const initialDate = this.props.user.initialDate;
 
@@ -933,7 +937,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 9,
-        path: "Intro_Phase_Vision",
+        //path: "Intro_Phase_Vision",
+        path: "Exercice_9_2",
         label: "Day 9 - Exploring Values",
         styleButton: ExerciceStyle_9,
         styleText: ExerciceTextStyle_9,

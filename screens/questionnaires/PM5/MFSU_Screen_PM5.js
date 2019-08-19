@@ -12,15 +12,16 @@ import {
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyInputButton,
-  RadioButtons
+  GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "react-native-radio-input";
+import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-export default class MFSU_Screen extends React.Component {
+import * as Progress from "react-native-progress";
+
+export default class MFSU_Screen_PM5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,41 +32,35 @@ export default class MFSU_Screen extends React.Component {
       show_5: false,
       show_6: false,
       show_7: false,
+      progressValue: 11/45,
       buttonIsActive: false,
     };
   }
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
-    const KEY = value.split("/")[0];
-    const KEY_Value = value.split("/")[1];
-    console.log(KEY, KEY_Value);
-    firebase
-      .database()
-      .ref("questionnaires")
-      .child(uid)
-      .update({ [KEY]: KEY_Value })
-      .then(() => {});
-
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 12/45 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 13/45 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 14/45 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
+        this.setState({ progressValue: 15/45 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -73,6 +68,7 @@ export default class MFSU_Screen extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
+        this.setState({ progressValue: 16/45 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -81,15 +77,90 @@ export default class MFSU_Screen extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
+        this.setState({ progressValue: 17/45 });
       } else if (this.state.show_7 == true) {
+        this.setState({ progressValue: 18/45 });
         this.setState({ buttonIsActive: true });
       }
     }, 600);
   };
 
+  skipQuestion = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: true });
+        this.setState({ progressValue: 12/45 });
+      } else if (this.state.show_2 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: true });
+        this.setState({ progressValue: 13/45 });
+      } else if (this.state.show_3 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: true });
+        this.setState({ progressValue: 14/45 });
+      } else if (this.state.show_4 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: true });
+        this.setState({ progressValue: 15/45 });
+      } else if (this.state.show_5 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: true });
+        this.setState({ progressValue: 16/45 });
+      } else if (this.state.show_6 == true) {
+        this.setState({ show_1: false });
+        this.setState({ show_2: false });
+        this.setState({ show_3: false });
+        this.setState({ show_4: false });
+        this.setState({ show_5: false });
+        this.setState({ show_6: false });
+        this.setState({ show_7: true });
+        this.setState({ progressValue: 17/45 });
+      } else if (this.state.show_7 == true) {
+        this.setState({ progressValue: 18/45 });
+        this.props.navigation.navigate("PSF_Screen_PM5");
+      }
+    }, 600);
+  };
+
   render() {
-    return (
+    return (<>
+      <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
       <View style={styles.container}>
+      <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
         <Text style={styles.header_left_padding}>Please refer to today and the past 3 days.</Text>
 
         {this.state.show_1 ? (
@@ -101,9 +172,8 @@ export default class MFSU_Screen extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{
-                  flexDirection: "row"
-                }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"MFSU01_D20/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"MFSU01_D20/2"} />
@@ -125,7 +195,8 @@ export default class MFSU_Screen extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"MFSU02_D20/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"MFSU02_D20/2"} />
@@ -147,7 +218,8 @@ export default class MFSU_Screen extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"MFSU03_D20/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"MFSU03_D20/2"} />
@@ -169,7 +241,8 @@ export default class MFSU_Screen extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"MFSU04_D20/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"MFSU04_D20/2"} />
@@ -191,7 +264,8 @@ export default class MFSU_Screen extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"MFSU05_D20/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"MFSU05_D20/2"} />
@@ -213,7 +287,8 @@ export default class MFSU_Screen extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"MFSU06_D20/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"MFSU06_D20/2"} />
@@ -235,7 +310,8 @@ export default class MFSU_Screen extends React.Component {
             <View style={styles.question}>
               <RadioGroup
                 getChecked={this.getChecked}
-                RadioGroupStyle={{ flexDirection: "row" }}
+                labelLeft="Not at all true"
+                labelRight="Exactly true"
               >
                 <Radio iconName={"lens"} label={"1"} value={"MFSU07_D20/1"} />
                 <Radio iconName={"lens"} label={"2"} value={"MFSU07_D20/2"} />
@@ -259,6 +335,7 @@ export default class MFSU_Screen extends React.Component {
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }
