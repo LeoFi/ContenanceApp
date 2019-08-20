@@ -13,79 +13,56 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import { DeckSwiper, Card, CardItem } from "native-base";
 import { styles } from "./style";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import * as Progress from "react-native-progress";
 
-const cards = [
-  "Screen-Time Tracker to keep track of your time on your mobile phone",
-  "Switch off notifications",
-  "Use flight mode",
-  "Install blocking apps",
-  "Set use limits",
-  "Define smartphone free times and locations",
-  "Do a digital detox",
-  "Buy an alarm clock"
-];
+import { connect } from "react-redux";
 
-export default class Exercice_3_2 extends React.Component {
-  countLeft = 0;
+class Exercice_10_2 extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
 
   render() {
     return (
-      <View style={styles.container_deck}>
-        <Text style={styles.sub_header_deck}>
-          What strategies have you tried out so far to improve your smartphone
-          use?
-        </Text>
-        <View style={{ flex: 1 }}>
-          <DeckSwiper
-            looping={false}
-            dataSource={cards}
-            onSwipeLeft={this.countLeftTry}
-            renderEmpty={this.renderEmpty}
-            renderItem={item => (
-              <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-                <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-                  <Text style={styles.intro_text_center}>{item}</Text>
-                </CardItem>
-              </Card>
-            )}
-          />
-        </View>
-        <View style={{ flex: 1, justifyContent: "flex-end" }}>
-          <Text style={styles.tap_text_deck}>DRAG THE CARD LEFT OR RIGHT</Text>
-        </View>
-      </View>
+      <ImageBackground
+        source={require("../../../assets/images/yellow_shape.png")}
+        style={styles.image_background}
+      >
+        <StatusBar hidden />
+        <ScrollView>
+          <View>
+            <TouchableWithoutFeedback
+              style={{backgroundColor: "#000000", flex: 1}}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_10_3");
+              }}
+            >
+              <View style={styles.container_scroll}>
+                <Text style={styles.intro_text}>
+                  We will have a look at Leo’s values first.
+                </Text>
+                <Text style={styles.intro_text_bold}>
+                  {"\n"}What could activities look like that bring his values to life?
+                </Text>
+                <Text style={styles.intro_text}>
+                {"\n"}Learning → Reading a science magazine 
+                {"\n"}{"\n"}Relatedness → Having coffee with his best friends
+                {"\n"}{"\n"}Gratefulness → Gifting flowers to someone
+                </Text>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </ScrollView>
+      </ImageBackground>
     );
   }
-
-  countLeftTry = () => {
-    this.countLeft += 1;
-  };
-
-  goToNext = () => {
-    if (this.countLeft > 5) {
-      console.log("More than 5");
-      this.props.navigation.navigate("Exercice_3_2_More5");
-    } else if (this.countLeft >= 2 && this.countLeft <= 5) {
-      console.log("Between 2 and 5");
-      this.props.navigation.navigate("Exercice_3_2_2to5");
-    } else if (this.countLeft < 2) {
-      console.log("Less than 2");
-      this.props.navigation.navigate("Exercice_3_2_Less2");
-    }
-  };
-
-  renderEmpty = () => {
-    return (
-      <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-        <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-          <TouchableOpacity onPress={this.goToNext}>
-            <Text style={styles.intro_text_center}>See results</Text>
-          </TouchableOpacity>
-        </CardItem>
-      </Card>
-    );
-  };
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_10_2);

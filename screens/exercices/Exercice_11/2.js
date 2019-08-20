@@ -13,79 +13,65 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import { DeckSwiper, Card, CardItem } from "native-base";
+import CountDown from "react-native-countdown-component";
 import { styles } from "./style";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import * as Progress from "react-native-progress";
 
-const cards = [
-  "Screen-Time Tracker to keep track of your time on your mobile phone",
-  "Switch off notifications",
-  "Use flight mode",
-  "Install blocking apps",
-  "Set use limits",
-  "Define smartphone free times and locations",
-  "Do a digital detox",
-  "Buy an alarm clock"
-];
+export default class Exercice_11_2 extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default class Exercice_3_2 extends React.Component {
-  countLeft = 0;
+    this.state = {
+      show_button: false
+    };
+  }
 
   render() {
     return (
-      <View style={styles.container_deck}>
-        <Text style={styles.sub_header_deck}>
-          What strategies have you tried out so far to improve your smartphone
-          use?
-        </Text>
-        <View style={{ flex: 1 }}>
-          <DeckSwiper
-            looping={false}
-            dataSource={cards}
-            onSwipeLeft={this.countLeftTry}
-            renderEmpty={this.renderEmpty}
-            renderItem={item => (
-              <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-                <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-                  <Text style={styles.intro_text_center}>{item}</Text>
-                </CardItem>
-              </Card>
-            )}
-          />
-        </View>
-        <View style={{ flex: 1, justifyContent: "flex-end" }}>
-          <Text style={styles.tap_text_deck}>DRAG THE CARD LEFT OR RIGHT</Text>
-        </View>
-      </View>
+      <ImageBackground
+        source={require("../../../assets/images/yellow_shape.png")}
+        style={styles.image_background}
+      >
+        <StatusBar hidden />
+        <ScrollView>
+          <View>
+            <View style={styles.container_scroll}>
+              <CountDown
+                until={180}
+                onFinish={() => this.setState({ show_button: true })}
+                timeToShow={["M", "S"]}
+                timeLabels={{ d: null, h: null, m: null, s: null }}
+                digitStyle={{ backgroundColor: "unset" }}
+                digitTxtStyle={{
+                  fontFamily: "roboto-black",
+                  color: "#2C3B51",
+                  fontSize: 50
+                }}
+                separatorStyle={{
+                  fontFamily: "roboto-black",
+                  color: "#2C3B51",
+                  fontSize: 50
+                }}
+                showSeparator={true}
+                size={30}
+              />
+              <Text style={styles.intro_text}>
+                We’ll let you know when it’s time to come back.
+              </Text>
+              {this.state.show_button ? (
+                <View style={styles.tap_pos_relative}>
+                  <PrimaryButton
+                    label="Continue"
+                    onPress={() => {
+                      this.props.navigation.navigate("Exercice_11_3");
+                    }}
+                  />
+                </View>
+              ) : null}
+            </View>
+          </View>
+        </ScrollView>
+      </ImageBackground>
     );
   }
-
-  countLeftTry = () => {
-    this.countLeft += 1;
-  };
-
-  goToNext = () => {
-    if (this.countLeft > 5) {
-      console.log("More than 5");
-      this.props.navigation.navigate("Exercice_3_2_More5");
-    } else if (this.countLeft >= 2 && this.countLeft <= 5) {
-      console.log("Between 2 and 5");
-      this.props.navigation.navigate("Exercice_3_2_2to5");
-    } else if (this.countLeft < 2) {
-      console.log("Less than 2");
-      this.props.navigation.navigate("Exercice_3_2_Less2");
-    }
-  };
-
-  renderEmpty = () => {
-    return (
-      <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-        <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-          <TouchableOpacity onPress={this.goToNext}>
-            <Text style={styles.intro_text_center}>See results</Text>
-          </TouchableOpacity>
-        </CardItem>
-      </Card>
-    );
-  };
 }

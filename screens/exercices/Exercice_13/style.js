@@ -231,6 +231,14 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    intro_text_grey: {
+        color: "#868D91",
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: "roboto-regular",
+        alignSelf: "stretch",
+        textAlign: "left"
+      },
     usernameInput: {
         marginTop: 43,
 

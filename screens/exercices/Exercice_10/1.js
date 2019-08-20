@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,8 +14,11 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_1 extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_10_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,26 +28,30 @@ export default class Exercice_3_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/yellow_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
+          <View>
             <TouchableWithoutFeedback
-              style={styles.scroll}
+              style={{backgroundColor: "#000000", flex: 1}}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_2");
+                this.props.navigation.navigate("Exercice_10_2");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                Welcome back! 
+                How can you realize what is important to you and bring your values to life?
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}Today, we will explore what it takes to have a more balanced relationship with your smartphone. 
+                  {"\n"}Your three values are:
                 </Text>
-
+                <Text style={styles.text_bold_italic}>
+                  {"\n"}{this.props.user_values.Value1_D9}
+                  {"\n"}{this.props.user_values.Value2_D9}
+                  {"\n"}{this.props.user_values.Value3_D9}
+                </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -53,3 +60,9 @@ export default class Exercice_3_1 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_10_1);

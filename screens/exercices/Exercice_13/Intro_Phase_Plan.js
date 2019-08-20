@@ -46,11 +46,20 @@ export default class Exercice_13_Intro_Phase extends React.Component {
               <View style={styles.middle}>
                 <Text style={styles.intro_header}>Plan</Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}<Text style={styles.intro_text_bold}>Preparing for the waves</Text>{"\n"}Turns out that values are the secret of success to handle the waves!
-Having learned this on the beach, Leo is back on his way to the ocean. It’s time to prepare for the big challenge: mastering and surfing the waves.
+                  {"\n"}
+                  <Text style={styles.intro_text_bold}>
+                    Preparing for the waves
+                  </Text>
+                  {"\n"}Turns out that values are the secret of success to
+                  handle the waves! Having learned this on the beach, Leo is
+                  back on his way to the ocean. It’s time to prepare for the big
+                  challenge: mastering and surfing the waves.
                 </Text>
                 <Text style={styles.intro_text_bold}>
-                  {"\n"}{"\n"}This module is about introducing meaningful smartphone habits. The goal is to learn new ways to react to impulses. Prepare for the rough part of the digital ocean and discover how to surf the impulse waves.
+                  {"\n"}This module is about introducing meaningful smartphone
+                  habits. The goal is to learn new ways to react to impulses.
+                  Prepare for the rough part of the digital ocean and discover
+                  how to surf the impulse waves.
                 </Text>
               </View>
 

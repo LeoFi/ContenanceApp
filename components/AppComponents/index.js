@@ -7,7 +7,6 @@ import SwitchButtonANDText from "./SwitchButtonANDText";
 import GreyInputButton from "./GreyInputButton";
 import FormElement from "./FormElement";
 import ExerciceButton from "./ExerciceButton";
-import Timer from "./Timer";
 import AudioCompenent from "./Audio";
 import DeckSwiperExample from "./CardsDeckSwiper";
 import HeaderComponent from "./HeaderComponent";
@@ -26,7 +25,6 @@ export {
   GreyInputButton,
   FormElement,
   ExerciceButton,
-  Timer,
   AudioCompenent,
   DeckSwiperExample,
   HeaderComponent,

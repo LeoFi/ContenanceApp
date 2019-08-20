@@ -50,7 +50,7 @@ class Exercice_13_Congratulations extends React.Component {
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
-              source={require("../../../assets/images/Day1_Intro.png")}
+              source={require("../../../assets/images/Day13_Intro.png")}
               resizeMode="stretch"
             />
             <View style={styles.middle}>

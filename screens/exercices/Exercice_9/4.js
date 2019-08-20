@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,8 +14,11 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_2_Less2 extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_9_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,27 +28,30 @@ export default class Exercice_3_2_Less2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/yellow_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
+          <View>
             <TouchableWithoutFeedback
-              style={styles.scroll}
+              style={{backgroundColor: "#000000", flex: 1}}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_3");
+                this.props.navigation.navigate("Exercice_9_5");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                Welcome to the world of smartphone hacks!
+                Defining values.
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}They are supposed to be little tricks helping you shape your smartphone use. Maybe you have tried other things, or this is your first encounter with them.
-                  {"\n"}{"\n"}Stay curious, in a few days, you’ll already know more!
+                  {"\n"}In the following, assign a value that is most aligned to
+                  these advices.{"\n"}
+                  {"\n"}Tip: Values are the things that you believe are
+                  important in the way you live and work.{"\n"}
+                  {"\n"}Even if the mediation did not work out for you this
+                  time, you can still choose 3 values, no problem.
                 </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -54,3 +60,9 @@ export default class Exercice_3_2_Less2 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_9_4);

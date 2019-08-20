@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 20310,
+  "packagerPid": 35545,
   "expoServerNgrokUrl": "https://fi-nph.eleonorefilhol.contenanceapp.exp.direct",
   "packagerNgrokUrl": "https://packager.fi-nph.eleonorefilhol.contenanceapp.exp.direct",
-  "ngrokPid": 20334
+  "ngrokPid": 35584,
+  "webpackServerPort": 19006
 }

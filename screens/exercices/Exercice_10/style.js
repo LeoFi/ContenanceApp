@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
     },
     intro_text_bold: {
-        flex: 1,
+        //flex: 1,
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
@@ -281,6 +281,21 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    intro_text_grey: {
+        color: "#868D91",
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: "roboto-regular",
+        alignSelf: "stretch",
+        textAlign: "left"
+      },
+    text_bold_italic: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "center",
+        fontFamily: "roboto-bold-italic"
+      },
     usernameInput: {
         marginTop: 43,
 
@@ -288,6 +303,16 @@ const styles = StyleSheet.create({
         height: 40,
         fontSize: 19,
         borderBottomWidth: 2,
+    },
+    codeInput: {
+        marginTop: 40,
+        marginBottom: 20,
+        backgroundColor: "#E2DFD1",
+        borderRadius: 7,
+        textAlign: 'center',
+        height: 49,
+        fontSize: 19,
+        alignSelf: "stretch",
     },
 })
 

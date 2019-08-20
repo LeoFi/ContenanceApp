@@ -31,6 +31,7 @@
     "react-dom": "^16.8.6",
     "react-highlighter": "^0.4.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native-countdown-component": "^2.5.2",
     "react-native-elements": "^1.1.0",
     "react-native-modal-datetime-picker": "^7.5.0",
     "react-native-modal-dropdown": "^0.6.2",

@@ -39,11 +39,9 @@ export default class Exercice_13_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                 You will build a powerful new smartphone habit using the following recipe.
-                </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}The beauty of it: during this journey, you have already defined all elements you need for it. Now it’s just about putting them together!
+                You will build a powerful new smartphone habit using the following recipe.
+                {"\n"}{"\n"}The beauty of it: during this journey, you have already defined all elements you need for it. Now it’s just about putting them together!
                 </Text>
               </View>
             </TouchableWithoutFeedback>
@@ -52,18 +50,4 @@ export default class Exercice_13_1 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

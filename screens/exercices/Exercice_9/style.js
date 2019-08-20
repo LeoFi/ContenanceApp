@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     image_background: {
         width: "100%",
-        backgroundColor: "#F4F1DE",
+        backgroundColor: "#F87B7B",
         position: "absolute",
         top: 0,
         bottom: 0,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A28AD4",
+        backgroundColor: "#F87B7B",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -231,12 +231,18 @@ const styles = StyleSheet.create({
     },
     usernameInput: {
         marginTop: 43,
-
         textAlign: 'center',
         height: 40,
         fontSize: 19,
         borderBottomWidth: 2,
     },
+    text_bold_italic: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "center",
+        fontFamily: "roboto-bold-italic"
+      },
     codeInput: {
         marginTop: 40,
         marginBottom: 20,

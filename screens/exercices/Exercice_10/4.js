@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,46 +14,83 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as firebase from "firebase";
+import { connect } from "react-redux";
+import { Update_MeanAct1_D10 } from "./../../../redux-persist/redux/user_values";
 
-export default class Exercice_3_4 extends React.Component {
+class Exercice_10_4 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      MeanAct1_D10: this.props.user_values.MeanAct1_D10 || ""
+    };
   }
+
+  handleChange_Advice1 = MeanAct1_D10 => {
+    this.setState({ MeanAct1_D10 });
+  };
+
+  handleSubmit = () => {
+    const { MeanAct1_D10 } = this.state;
+    const uid = firebase.auth().currentUser.uid;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(uid)
+      .update({
+        MeanAct1_D10: MeanAct1_D10
+      });
+    this.props.dispatch(Update_MeanAct1_D10(this.state.MeanAct1_D10));
+    this.props.navigation.navigate("Exercice_10_5");
+  };
 
   render() {
     return (
-      <View>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
-          <TouchableWithoutFeedback
-            style={styles.scroll}
-            onPress={() => {
-              this.props.navigation.navigate("Exercice_3_5");
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <Image
-                style={styles.image_height_relative}
-                source={require("../../../assets/images/Exercice3_1.png")}
-                resizeMode="contain"
-              />
-              <View style={styles.container_scroll_img}>
-                <Text style={styles.sub_header_left}>
-                  The Solution Triangle
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback style={styles.scroll}>
+              <View style={styles.container_scroll}>
+                <Text style={styles.sub_header}>Bringing values to life</Text>
+                <Text style={styles.intro_text_bold}>
+                {"\n"}What could an activity look like that helps you bring {this.props.user_values.Value1_D9} to life?
                 </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}We asked you to reflect on these hacks to introduce the
-                  so-called Solution Triangle. It consists of three crucial
-                  factors: your smartphone, your environment and you as a
-                  person.
-                </Text>
+                <Text style={styles.intro_text_grey}>{"\n"}{"\n"}E.g. Learning → Reading a science magazin</Text>
+                
+
+                <View>
+                  <TextInput
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice1}
+                    value={this.state.MeanAct1_D10}
+                    placeholder="Write down your activity"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
+                  />
+                </View>
+
+                <View style={styles.tap_pos_relative}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.MeanAct1_D10}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
+            </TouchableWithoutFeedback>
+          </View>
         </ScrollView>
       </View>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_10_4);

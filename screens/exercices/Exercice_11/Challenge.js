@@ -15,7 +15,9 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_11_Challenge extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_11_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -43,9 +45,9 @@ export default class Exercice_11_Challenge extends React.Component {
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}The next time you are using
-                  {"\n"}{"\n"}{AppsRed1_D7}
-                  {"\n"}{"\n"}{AppsRed2_D7}
-                  {"\n"}{"\n"}{AppsRed3_D7}
+                  {"\n"}{"\n"}{this.props.user_values.AppsRed1_D7}
+                  {"\n"}{"\n"}{this.props.user_values.AppsRed2_D7}
+                  {"\n"}{"\n"}{this.props.user_values.AppsRed3_D7}
                   {"\n"}{"\n"}give it a try and do the trick to find:
                   {"\n"}5 things you can see
                   {"\n"}4 things you can touch
@@ -62,3 +64,9 @@ export default class Exercice_11_Challenge extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_11_Challenge);

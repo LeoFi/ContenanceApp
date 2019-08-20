@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,35 +14,72 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as firebase from "firebase";
+import { connect } from "react-redux";
+import { Update_MeanSmAct1_D10 } from "./../../../redux-persist/redux/user_values";
 
-export default class Exercice_3_5 extends React.Component {
+class Exercice_10_5 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      MeanSmAct1_D10: this.props.user_values.MeanSmAct1_D10 || ""
+    };
   }
+
+  handleChange_Advice1 = MeanSmAct1_D10 => {
+    this.setState({ MeanSmAct1_D10 });
+  };
+
+  handleSubmit = () => {
+    const { MeanSmAct1_D10 } = this.state;
+    const uid = firebase.auth().currentUser.uid;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(uid)
+      .update({
+        MeanSmAct1_D10: MeanSmAct1_D10
+      });
+    this.props.dispatch(Update_MeanSmAct1_D10(this.state.MeanSmAct1_D10));
+    this.props.navigation.navigate("Exercice_10_6");
+  };
 
   render() {
     return (
-      <View>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_3_6");
-              }}
-            >
+            <TouchableWithoutFeedback style={styles.scroll}>
               <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_2.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.intro_text}>
-                  {"\n"}Hacks like turning the display to grayscale or switching off notifications are solutions from the first factor of the triangle: your <Text style={styles.intro_text_bold}>smartphone</Text>. Such solutions help us to neutralise addictive features like vibrant colours that make us spend more time on it or notifications that ring, ding and vibrate their way into our attention.
+                <Text style={styles.sub_header}>Bringing values to life with your smartphone</Text>
+                <Text style={styles.intro_text_bold}>
+                {"\n"}What could an activity on your smartphone look like that helps you bring {this.props.user_values.Value1_D9} to life?
                 </Text>
+                <Text style={styles.intro_text_grey}>{"\n"}{"\n"}E.g. Learning → Listening to a TED talk on his smartphone</Text>
+                
+
+                <View>
+                  <TextInput
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice1}
+                    value={this.state.MeanSmAct1_D10}
+                    placeholder="Write down your activity"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
+                  />
+                </View>
+
+                <View style={styles.tap_pos_relative}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.MeanSmAct1_D10}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -52,3 +88,9 @@ export default class Exercice_3_5 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_10_5);

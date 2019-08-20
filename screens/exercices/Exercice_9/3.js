@@ -37,7 +37,7 @@ class Exercice_9_3 extends React.Component {
             <TouchableWithoutFeedback
               style={{backgroundColor: "#000000", flex: 1}}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_6_3");
+                this.props.navigation.navigate("Exercice_9_4");
               }}
             >
               <View style={styles.container_scroll}>

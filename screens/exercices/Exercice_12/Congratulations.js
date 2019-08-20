@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex12 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex12, updateState_Ex13 } from "./../../../redux-persist/redux/exercices"
 
 class Exercice_12_Congratulations extends React.Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class Exercice_12_Congratulations extends React.Component {
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
-              source={require("../../../assets/images/Day4_Intro.png")}
+              source={require("../../../assets/images/Day12_Intro.png")}
               resizeMode="stretch"
             />
             <View style={styles.middle}>

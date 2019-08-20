@@ -891,8 +891,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 4,
-        //path: "Exercice_4_Intro",
-        path: "Exercice_4_Congratulations",
+        path: "Exercice_4_Intro",
+        //path: "Exercice_4_Congratulations",
         label: "Day 4 - Keep Breathing",
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
@@ -937,8 +937,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 9,
-        //path: "Intro_Phase_Vision",
-        path: "Exercice_9_2",
+        path: "Intro_Phase_Vision",
+        //path: "Exercice_9_8",
         label: "Day 9 - Exploring Values",
         styleButton: ExerciceStyle_9,
         styleText: ExerciceTextStyle_9,
@@ -948,6 +948,7 @@ class TestScreen extends React.Component {
       {
         id: 10,
         path: "Exercice_10_Intro",
+        //path: "Exercice_10_4",
         label: "Day 10 - Meaningful Smartphone Activities",
         styleButton: ExerciceStyle_10,
         styleText: ExerciceTextStyle_10,
@@ -956,7 +957,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 11,
-        path: "Exercice_11_Intro",
+        //path: "Exercice_11_Intro",
+        path: "Exercice_11_3",
         label: "Day 11 - 54321 Trick",
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,

@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import { connect } from "react-redux";
 
-export default class Exercice_10_Challenge extends React.Component {
+class Exercice_10_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -38,20 +39,26 @@ export default class Exercice_10_Challenge extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.header}>
-                The Challenge
-                </Text>
+                <Text style={styles.header}>The Challenge</Text>
                 <Text style={styles.text}>
-                  {"\n"}Until tomorrow, do a test run of the meaningful smartphone activity that you defined today!
-                  {"\n"}{"\n"}Your meaningful activities are:
-                
-                  {"\n"}{"\n"}{MeanSmAct1_10}
+                  {"\n"}Until tomorrow, do a test run of the meaningful
+                  smartphone activity that you defined today!
+                  {"\n"}
+                  {"\n"}Your meaningful activities are:
+                  <Text style={styles.text_bold_italic}>
+                    {"\n"}
+                    {"\n"}
+                    {this.props.user_values.MeanSmAct1_D10}
 
-                  {"\n"}{"\n"}{MeanSmAct2_10}
+                    {"\n"}
+                    {"\n"}
+                    {this.props.user_values.MeanSmAct2_D10}
 
-                  {"\n"}{"\n"}{MeanSmAct3_10}
+                    {"\n"}
+                    {"\n"}
+                    {this.props.user_values.MeanSmAct3_D10}
+                  </Text>
                 </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -60,3 +67,9 @@ export default class Exercice_10_Challenge extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_10_Challenge);
