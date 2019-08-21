@@ -165,6 +165,8 @@ import Exercice_13_1 from "../screens/exercices/Exercice_13/1";
 import Exercice_13_2 from "../screens/exercices/Exercice_13/2";
 import Exercice_13_3 from "../screens/exercices/Exercice_13/3";
 import Exercice_13_4 from "../screens/exercices/Exercice_13/4";
+import Exercice_13_5 from "../screens/exercices/Exercice_13/5";
+import Exercice_13_6 from "../screens/exercices/Exercice_13/6";
 import Exercice_13_Aha_1 from "../screens/exercices/Exercice_13/Aha_1";
 import Exercice_13_Aha_2 from "../screens/exercices/Exercice_13/Aha_2";
 import Exercice_13_Challenge from "../screens/exercices/Exercice_13/Challenge";
@@ -172,12 +174,22 @@ import Exercice_13_Congratulations from "../screens/exercices/Exercice_13/Congra
 
 import Exercice_14_Intro from "../screens/exercices/Exercice_14/Intro";
 import Exercice_14_1 from "../screens/exercices/Exercice_14/1";
+import Exercice_14_2 from "../screens/exercices/Exercice_14/2";
+import Exercice_14_3 from "../screens/exercices/Exercice_14/3";
+import Exercice_14_4 from "../screens/exercices/Exercice_14/4";
+import Exercice_14_5 from "../screens/exercices/Exercice_14/5";
+import Exercice_14_6 from "../screens/exercices/Exercice_14/6";
+import Exercice_14_7 from "../screens/exercices/Exercice_14/7";
+import Exercice_14_8 from "../screens/exercices/Exercice_14/8";
 import Exercice_14_Aha_1 from "../screens/exercices/Exercice_14/Aha_1";
 import Exercice_14_Challenge from "../screens/exercices/Exercice_14/Challenge";
 import Exercice_14_Congratulations from "../screens/exercices/Exercice_14/Congratulations";
 
 import Exercice_15_Intro from "../screens/exercices/Exercice_15/Intro";
 import Exercice_15_1 from "../screens/exercices/Exercice_15/1";
+import Exercice_15_2 from "../screens/exercices/Exercice_15/2";
+import Exercice_15_3 from "../screens/exercices/Exercice_15/3";
+import Exercice_15_4 from "../screens/exercices/Exercice_15/4";
 import Exercice_15_Aha_1 from "../screens/exercices/Exercice_15/Aha_1";
 import Exercice_15_Aha_2 from "../screens/exercices/Exercice_15/Aha_2";
 import Exercice_15_Challenge from "../screens/exercices/Exercice_15/Challenge";
@@ -185,6 +197,8 @@ import Exercice_15_Congratulations from "../screens/exercices/Exercice_15/Congra
 
 import Exercice_16_Intro from "../screens/exercices/Exercice_16/Intro";
 import Exercice_16_1 from "../screens/exercices/Exercice_16/1";
+import Exercice_16_2 from "../screens/exercices/Exercice_16/2";
+import Exercice_16_3 from "../screens/exercices/Exercice_16/3";
 import Exercice_16_Aha_1 from "../screens/exercices/Exercice_16/Aha_1";
 import Exercice_16_Aha_2 from "../screens/exercices/Exercice_16/Aha_2";
 import Exercice_16_Challenge from "../screens/exercices/Exercice_16/Challenge";
@@ -196,25 +210,41 @@ import Exercice_17_1 from "../screens/exercices/Exercice_17/1";
 import Exercice_17_2 from "../screens/exercices/Exercice_17/2";
 import Exercice_17_3 from "../screens/exercices/Exercice_17/3";
 import Exercice_17_4 from "../screens/exercices/Exercice_17/4";
+import Exercice_17_5 from "../screens/exercices/Exercice_17/5";
+import Exercice_17_6 from "../screens/exercices/Exercice_17/6";
+import Exercice_17_7_iphone from "../screens/exercices/Exercice_17/7_iphone";
+import Exercice_17_7_android from "../screens/exercices/Exercice_17/7_android";
+import Exercice_17_8 from "../screens/exercices/Exercice_17/8";
+import Exercice_17_9 from "../screens/exercices/Exercice_17/9";
+import Exercice_17_10 from "../screens/exercices/Exercice_17/10";
 import Exercice_17_Aha_1 from "../screens/exercices/Exercice_17/Aha_1";
-import Exercice_17_Aha_2 from "../screens/exercices/Exercice_17/Aha_2";
 import Exercice_17_Challenge from "../screens/exercices/Exercice_17/Challenge";
 import Exercice_17_Congratulations from "../screens/exercices/Exercice_17/Congratulations";
 
 import Exercice_18_Intro from "../screens/exercices/Exercice_18/Intro";
 import Exercice_18_1 from "../screens/exercices/Exercice_18/1";
+import Exercice_18_2 from "../screens/exercices/Exercice_18/2";
+import Exercice_18_3 from "../screens/exercices/Exercice_18/3";
+import Exercice_18_4 from "../screens/exercices/Exercice_18/4";
 import Exercice_18_Aha_1 from "../screens/exercices/Exercice_18/Aha_1";
 import Exercice_18_Challenge from "../screens/exercices/Exercice_18/Challenge";
 import Exercice_18_Congratulations from "../screens/exercices/Exercice_18/Congratulations";
 
 import Exercice_19_Intro from "../screens/exercices/Exercice_19/Intro";
 import Exercice_19_1 from "../screens/exercices/Exercice_19/1";
+import Exercice_19_2 from "../screens/exercices/Exercice_19/2";
+import Exercice_19_3 from "../screens/exercices/Exercice_19/3";
+import Exercice_19_4 from "../screens/exercices/Exercice_19/4";
+import Exercice_19_5 from "../screens/exercices/Exercice_19/5";
 import Exercice_19_Aha_1 from "../screens/exercices/Exercice_19/Aha_1";
 import Exercice_19_Challenge from "../screens/exercices/Exercice_19/Challenge";
 import Exercice_19_Congratulations from "../screens/exercices/Exercice_19/Congratulations";
 
 import Exercice_20_Intro from "../screens/exercices/Exercice_20/Intro";
 import Exercice_20_1 from "../screens/exercices/Exercice_20/1";
+import Exercice_20_2 from "../screens/exercices/Exercice_20/2";
+import Exercice_20_3 from "../screens/exercices/Exercice_20/3";
+import Exercice_20_4 from "../screens/exercices/Exercice_20/4";
 import Exercice_20_Aha_1 from "../screens/exercices/Exercice_20/Aha_1";
 import Exercice_20_Aha_2 from "../screens/exercices/Exercice_20/Aha_2";
 import Exercice_20_Aha_3 from "../screens/exercices/Exercice_20/Aha_3";
@@ -3158,6 +3188,42 @@ const Exercice13 = createStackNavigator(
         )
       }
     },
+    Exercice_13_5: {
+      screen: Exercice_13_5,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_13_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_13_6: {
+      screen: Exercice_13_6,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_13_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
     Exercice_13_Aha_1: {
       screen: Exercice_13_Aha_1,
       navigationOptions: {
@@ -3277,6 +3343,132 @@ const Exercice14 = createStackNavigator(
         )
       }
     },
+    Exercice_14_2: {
+      screen: Exercice_14_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_14_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_14_3: {
+      screen: Exercice_14_3,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_14_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_14_4: {
+      screen: Exercice_14_4,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_14_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_14_5: {
+      screen: Exercice_14_5,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_14_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_14_6: {
+      screen: Exercice_14_6,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_14_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_14_7: {
+      screen: Exercice_14_7,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_14_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_14_8: {
+      screen: Exercice_14_8,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_14_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
     Exercice_14_Aha_1: {
       screen: Exercice_14_Aha_1,
       navigationOptions: {
@@ -3362,6 +3554,60 @@ const Exercice15 = createStackNavigator(
     },
     Exercice_15_1: {
       screen: Exercice_15_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_15_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_15_2: {
+      screen: Exercice_15_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_15_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_15_3: {
+      screen: Exercice_15_3,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_15_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_15_4: {
+      screen: Exercice_15_4,
       navigationOptions: {
         header: props => (
           <HeaderComponent
@@ -3481,6 +3727,42 @@ const Exercice16 = createStackNavigator(
     },
     Exercice_16_1: {
       screen: Exercice_16_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_16_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_16_2: {
+      screen: Exercice_16_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_16_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_16_3: {
+      screen: Exercice_16_3,
       navigationOptions: {
         header: props => (
           <HeaderComponent
@@ -3831,12 +4113,12 @@ const Exercice17 = createStackNavigator(
         )
       }
     },
-    Exercice_17_Aha_1: {
-      screen: Exercice_17_Aha_1,
+    Exercice_17_5: {
+      screen: Exercice_17_5,
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={5 / 7}
+            progress={4 / 7}
             disabledProgress={false}
             disabledClose={false}
             colorIcons={"#A28AD4"}
@@ -3849,12 +4131,120 @@ const Exercice17 = createStackNavigator(
         )
       }
     },
-    Exercice_17_Aha_2: {
-      screen: Exercice_17_Aha_2,
+    Exercice_17_6: {
+      screen: Exercice_17_6,
       navigationOptions: {
         header: props => (
           <HeaderComponent
-            progress={6 / 7}
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_17_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_17_7_iphone: {
+      screen: Exercice_17_7_iphone,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_17_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_17_7_android: {
+      screen: Exercice_17_7_android,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_17_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_17_8: {
+      screen: Exercice_17_8,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_17_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_17_9: {
+      screen: Exercice_17_9,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_17_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_17_10: {
+      screen: Exercice_17_10,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={4 / 7}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_17_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_17_Aha_1: {
+      screen: Exercice_17_Aha_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={5 / 7}
             disabledProgress={false}
             disabledClose={false}
             colorIcons={"#A28AD4"}
@@ -3934,6 +4324,60 @@ const Exercice18 = createStackNavigator(
     },
     Exercice_18_1: {
       screen: Exercice_18_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_18_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_18_2: {
+      screen: Exercice_18_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_18_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_18_3: {
+      screen: Exercice_18_3,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_18_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_18_4: {
+      screen: Exercice_18_4,
       navigationOptions: {
         header: props => (
           <HeaderComponent
@@ -4051,6 +4495,78 @@ const Exercice19 = createStackNavigator(
         )
       }
     },
+    Exercice_19_2: {
+      screen: Exercice_19_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_19_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_19_3: {
+      screen: Exercice_19_3,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_19_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_19_4: {
+      screen: Exercice_19_4,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_19_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_19_5: {
+      screen: Exercice_19_5,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_19_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
     Exercice_19_Aha_1: {
       screen: Exercice_19_Aha_1,
       navigationOptions: {
@@ -4136,6 +4652,60 @@ const Exercice20 = createStackNavigator(
     },
     Exercice_20_1: {
       screen: Exercice_20_1,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_20_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_20_2: {
+      screen: Exercice_20_2,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_20_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_20_3: {
+      screen: Exercice_20_3,
+      navigationOptions: {
+        header: props => (
+          <HeaderComponent
+            progress={1 / 4}
+            disabledProgress={false}
+            disabledClose={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_20_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Exercice_20_4: {
+      screen: Exercice_20_4,
       navigationOptions: {
         header: props => (
           <HeaderComponent
@@ -4254,11 +4824,158 @@ const Exercice20 = createStackNavigator(
           />
         )
       }
+    },
+    Intro_Screen_PM5: {
+      screen: Intro_Screen_PM5,
+      navigationOptions: {
+        header: null
+      }
+    },
+    PSU_Screen_PM5: {
+      screen: PSU_Screen_PM5,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SUE_Screen_PM5: {
+      screen: SUE_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
+      }
+    },
+    MFSU_Screen_PM5: {
+      screen: MFSU_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
+      }
+    },
+    PSF_Screen_PM5: {
+      screen: PSF_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={1/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    TRP_Screen_PM5: {
+      screen: TRP_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={2/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    HS_Screen_PM5: {
+      screen: HS_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={3/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    IN_Screen_PM5: {
+      screen: IN_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={4/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AP_Screen_PM5: {
+      screen: AP_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={5/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AC_Screen_PM5: {
+      screen: AC_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={6/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    SE_Screen_PM5: {
+      screen: SE_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    CE_Screen_PM5: {
+      screen: CE_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    Closing_Screen_PM5: {
+      screen: Closing_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
     }
   },
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
+    headerMode: "float",
+    defaultNavigationOptions: {
+      header: props => <HeaderComponent {...props} />,
+      animationEnabled: true,
+      gesturesEnabled: false
+    }
+  }
+);
+
+const PM5_Stack = createStackNavigator(
+  {
+    PSU_Screen_PM5: {
+      screen: PSU_Screen_PM5,
+      navigationOptions: {
+        header: null
+      }
+    },
+    SUE_Screen_PM5: {
+      screen: SUE_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent disabledProgress={true} disabledClose={true} {...props} />,
+      }
+    },
+    PSF_Screen_PM5: {
+      screen: PSF_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={1/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    TRP_Screen_PM5: {
+      screen: TRP_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={2/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    HS_Screen_PM5: {
+      screen: HS_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={3/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    IN_Screen_PM5: {
+      screen: IN_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={4/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AP_Screen_PM5: {
+      screen: AP_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={5/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    AC_Screen_PM5: {
+      screen: AC_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={6/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    },
+    SE_Screen_PM5: {
+      screen: SE_Screen_PM5,
+      navigationOptions: {
+        header: props => <HeaderComponent progress={7/8} disabledProgress={false} disabledClose={false} goBackLink={() => {props.navigation.navigate('Exercice_1_Intro')}} {...props} />,
+      }
+    }
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    //cardStyle: { backgroundColor: "#F4F1DE" },
     headerMode: "float",
     defaultNavigationOptions: {
       header: props => <HeaderComponent {...props} />,

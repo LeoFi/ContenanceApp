@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,38 +14,73 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as firebase from "firebase";
+import { connect } from "react-redux";
+import { Update_CopingStrategy3_D14 } from "../../../redux-persist/redux/user_values";
 
-export default class Exercice_3_8 extends React.Component {
+class Exercice_14_8 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      CopingStrategy3_D14: this.props.user_values.CopingStrategy3_D14 || ""
+    };
   }
+
+  handleChange_Advice1 = CopingStrategy3_D14 => {
+    this.setState({ CopingStrategy3_D14 });
+  };
+
+  handleSubmit = () => {
+    const { CopingStrategy3_D14 } = this.state;
+    const uid = firebase.auth().currentUser.uid;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(uid)
+      .update({
+        CopingStrategy3_D14: CopingStrategy3_D14
+      });
+    this.props.dispatch(Update_CopingStrategy3_D14(this.state.CopingStrategy3_D14));
+    this.props.navigation.navigate("Exercice_14_Aha_1");
+  };
 
   render() {
     return (
-      <View>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Aha_1");
-              }}
-            >
+            <TouchableWithoutFeedback style={styles.scroll}>
               <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_5.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.sub_header_left}>
-                Putting people first
+                <Text style={styles.sub_header}>It’s your turn!</Text>
+                <Text style={styles.text}>
+                  Define your own strategies to still realize your plan.
                 </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}We believe that sustainable change will happen by combining solutions from all three factors, but focusing on YOU as a person. 
-                </Text>
+
+                <View>
+                  <Text style={styles.text}>
+                    If {this.props.user_values.Obstacle3_D14}, then:
+                  </Text>
+                  <TextInput
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice1}
+                    value={this.state.CopingStrategy3_D14}
+                    placeholder="What can be your third strategy?"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
+                  />
+                </View>
+
+                <View style={styles.tap_pos_relative}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.CopingStrategy3_D14}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -55,3 +89,9 @@ export default class Exercice_3_8 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_14_8);

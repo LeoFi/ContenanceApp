@@ -42,16 +42,13 @@ class Exercice_7_4 extends React.Component {
                 <Text style={styles.intro_text}>
                   {"\n"}Okay. But, how do{" "}
                   <Text style={styles.text_bold_italic}>
-                    {"\n"}
-                    {"\n"}
                     {this.props.user_values.AppsRed1_D7}
-                    {"\n"}
+                    {", "}
                     {this.props.user_values.AppsRed2_D7}
-                    {"\n"}
+                    {" and "}
                     {this.props.user_values.AppsRed3_D7}
                   </Text>
-                  Okay. But, how do{"\n"}
-                  {"\n"}Don’t worry, it’s not you, it’s them.
+                  {" "}actually pull you in?{"\n"}{"\n"}Don’t worry, it’s not you, it’s them.
                 </Text>
               </View>
             </TouchableWithoutFeedback>

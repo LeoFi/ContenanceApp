@@ -79,13 +79,15 @@ class Exercice_5_1 extends React.Component {
         SitTrigger2_D5: SitTrigger[1],
         SitTrigger3_D5: SitTrigger[2]
       });
-
+    this.props.dispatch(Update_SitTrigger1_D5(this.state.SitTrigger1_D5));
+    this.props.dispatch(Update_SitTrigger2_D5(this.state.SitTrigger2_D5));
+    this.props.dispatch(Update_SitTrigger3_D5(this.state.SitTrigger3_D5));
     this.props.navigation.navigate("Exercice_5_2");
   };
 
   render() {
     return (
-      <View style={{backgroundColor: "#F4F1DE"}}>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView
           contentContainerStyle={{ flexGrow: 1 }}
@@ -122,19 +124,8 @@ class Exercice_5_1 extends React.Component {
                           }
                           this.setState({ allSelected: true });
                           this.setState({ SitTrigger1_D5: SitTrigger[0] });
-                          this.props.dispatch(
-                            Update_SitTrigger1_D5(this.state.SitTrigger1_D5)
-                          );
-
                           this.setState({ SitTrigger2_D5: SitTrigger[1] });
-                          this.props.dispatch(
-                            Update_SitTrigger2_D5(this.state.SitTrigger2_D5)
-                          );
-
                           this.setState({ SitTrigger3_D5: SitTrigger[2] });
-                          this.props.dispatch(
-                            Update_SitTrigger3_D5(this.state.SitTrigger3_D5)
-                          );
                         } else {
                           this.setState({ allSelected: false });
                         }

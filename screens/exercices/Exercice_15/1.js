@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_1 extends React.Component {
+export default class Exercice_15_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,16 +35,18 @@ export default class Exercice_1_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_2");
+                this.props.navigation.navigate("Exercice_15_2");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                  Welcome to day 1 of Contenance!
-                </Text>
+                <Text style={styles.sub_header_left}>Becoming a director.</Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}While reading this, you probably have your smartphone in
-                  your hand.
+                  {"\n"}Today, you will become the director of your own
+                  imagination! Let’s dive into the beauty of your own mind.
+                  {"\n"}
+                  {"\n"}With three questions, we will stimulate it a bit today.
+                  {"\n"}
+                  {"\n"}Look around you and ask yourself...
                 </Text>
               </View>
             </TouchableWithoutFeedback>
@@ -53,18 +55,4 @@ export default class Exercice_1_1 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

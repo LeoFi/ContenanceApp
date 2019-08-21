@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_2_Less2 extends React.Component {
+export default class Exercice_20_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,18 +35,13 @@ export default class Exercice_3_2_Less2 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_3");
+                this.props.navigation.navigate("Exercice_20_Aha_1");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                Welcome to the world of smartphone hacks!
-                </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}They are supposed to be little tricks helping you shape your smartphone use. Maybe you have tried other things, or this is your first encounter with them.
-                  {"\n"}{"\n"}Stay curious, in a few days, you’ll already know more!
+                {"\n"}Welcome back! Wait a second? Wasn’t the aim of this whole course to do less of exactly this?{"\n"}{"\n"}Doing mindless activities on your smartphone, following your impulses and losing yourself into something can be wonderful - under one condition: you know how to stop.
                 </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>

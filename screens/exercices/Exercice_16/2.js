@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_7 extends React.Component {
+export default class Exercice_16_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,30 +25,28 @@ export default class Exercice_3_7 extends React.Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground
+        source={require("../../../assets/images/pink_shape.png")}
+        style={styles.image_background}
+      >
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_8");
+                this.props.navigation.navigate("Exercice_16_3");
               }}
             >
               <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_4.png")}
-                  resizeMode="contain"
-                />
                 <Text style={styles.intro_text}>
-                  {"\n"}Interestingly,  most of the strategies and hacks you can find on blogs or in books are mainly focusing on the smartphone and the environment. Although they are highly valuable, we believe in the power of the <Text style={styles.intro_text_bold}>person</Text> to take control. It is you who is in control! You have the power to consciously use the phone, not less but better, for your own benefit.
+                ... nothing!{"\n"}{"\n"}Allow your mind to wander and do whatever it wants to do.{"\n"}{"\n"}Let it do what it does best: think, watch, remember, imagine and dream.{"\n"}{"\n"}Whatever might come up, just let it come up. It’s okay.{"\n"}{"\n"}Start the timer in the next screen.
                 </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }

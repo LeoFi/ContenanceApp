@@ -957,8 +957,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 11,
-        //path: "Exercice_11_Intro",
-        path: "Exercice_11_3",
+        path: "Exercice_11_Intro",
+        //path: "Exercice_11_3",
         label: "Day 11 - 54321 Trick",
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,

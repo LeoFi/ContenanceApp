@@ -42,7 +42,7 @@ export default class Exercice_7_Aha_2 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.sub_header}>
-                What is a Stopping Cue?
+                {"\n"}What is a Stopping Cue?
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}A stopping cue is a signal showing us that it might be time to move on. When you read a book and reach the last page of the chapter, then this is the signal that you can easily stop here. You have reached an endpoint. Or when you watch a movie in the theater, you know that it is time to leave when the movie is finished.

@@ -289,6 +289,33 @@ const styles = StyleSheet.create({
         fontSize: 19,
         borderBottomWidth: 2,
     },
+    intro_text_grey: {
+        color: "#868D91",
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: "roboto-regular",
+        alignSelf: "stretch",
+        textAlign: "left"
+      },
+      intro_text_grey_padding: {
+        color: "#868D91",
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: "roboto-regular",
+        alignSelf: "stretch",
+        textAlign: "left",
+        paddingLeft: 30,
+      },
+    codeInput: {
+        marginTop: 40,
+        marginBottom: 20,
+        backgroundColor: "#E2DFD1",
+        borderRadius: 7,
+        textAlign: 'center',
+        height: 49,
+        fontSize: 19,
+        alignSelf: "stretch",
+    },
 })
 
 export { styles } 

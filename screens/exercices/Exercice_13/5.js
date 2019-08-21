@@ -35,19 +35,15 @@ import { TagSelect } from "react-native-tag-select";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 import {
-  Update_NewHabitTrigger1_D13,
-  Update_NewHabitTrigger2_D13,
-  Update_NewHabitTrigger3_D13
+  Update_NewHabitActivity3_D13,
 } from "./../../../redux-persist/redux/user_values";
 
-class Exercice_13_2 extends React.Component {
+class Exercice_13_5 extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      NewHabitTrigger1_D13: this.props.user_values.NewHabitTrigger1_D13 || "",
-      NewHabitTrigger2_D13: this.props.user_values.NewHabitTrigger2_D13 || "",
-      NewHabitTrigger3_D13: this.props.user_values.NewHabitTrigger3_D13 || "",
+      NewHabitActivity3_D13: this.props.user_values.NewHabitActivity3_D13 || "",
       modalVisibleExample: false
     };
   }
@@ -57,9 +53,9 @@ class Exercice_13_2 extends React.Component {
   }
 
   handleSubmit = () => {
-    let NewHabitTrigger = [];
+    let NewHabitActivity = [];
     for (const prop in this.tag.itemsSelected) {
-      NewHabitTrigger.push(this.tag.itemsSelected[prop]);
+      NewHabitActivity.push(this.tag.itemsSelected[prop]);
     }
 
     const uid = firebase.auth().currentUser.uid;
@@ -68,24 +64,17 @@ class Exercice_13_2 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({
-        NewHabitTrigger1_D13: NewHabitTrigger[0],
-        NewHabitTrigger2_D13: NewHabitTrigger[1],
-        NewHabitTrigger3_D13: NewHabitTrigger[2]
+        NewHabitActivity3_D13: NewHabitActivity[0]
       });
-    this.props.dispatch(Update_NewHabitTrigger1_D13(this.state.NewHabitTrigger1_D13));
-    this.props.dispatch(Update_NewHabitTrigger2_D13(this.state.NewHabitTrigger2_D13));
-    this.props.dispatch(Update_NewHabitTrigger3_D13(this.state.NewHabitTrigger3_D13));
-    this.props.navigation.navigate("Exercice_13_3");
+    this.props.dispatch(Update_NewHabitActivity3_D13(this.state.NewHabitActivity3_D13));
+    this.props.navigation.navigate("Exercice_13_6");
   };
 
   render() {
     const data = [
-      ""+this.props.user_values.EmTrigger1_D6+"",
-      ""+this.props.user_values.EmTrigger2_D6+"",
-      ""+this.props.user_values.EmTrigger3_D6+"",
-      ""+this.props.user_values.SitTrigger1_D5+"",
-      ""+this.props.user_values.SitTrigger2_D5+"",
-      ""+this.props.user_values.SitTrigger3_D5+"",
+      ""+this.props.user_values.MeanSmAct1_D10+"",
+      ""+this.props.user_values.MeanSmAct2_D10+"",
+      ""+this.props.user_values.MeanSmAct3_D10+"",
     ];
     return (
       <ImageBackground
@@ -103,11 +92,10 @@ class Exercice_13_2 extends React.Component {
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                  Step 1: Choose three triggers
+                Step 2: Choose your new behavior
                 </Text>
                 <Text style={styles.intro_text_bold}>
-                  {"\n"}For which situations - or feelings - do you want to
-                  define a new response?
+                  {"\n"}What would you like to do differently in this situation?
                 </Text>
                 <LinkText
                   style={styles.link_text}
@@ -166,17 +154,15 @@ class Exercice_13_2 extends React.Component {
                       </Defs>
                     </Svg>
                     <Text style={styles.intro_text_grey}>
-                      E.g. Leo, for which situation - or feeling - do you want
-                      to define a new response?{"\n"}
-                      {"\n"}If I am in the metro...{"\n"}If I am lonely...
+                    E.g. ... then I will listen to a TED talk on my smartphone.{"\n"}{"\n"}...then I will send my best friend a thoughful message.
                     </Text>
                   </View>
                 </Modal>
-                <Text style={styles.intro_text}>{"\n"}If I am...</Text>
+                <Text style={styles.intro_text}>{"\n"}If I am {this.props.user_values.NewHabitTrigger3_D13}, then I will...</Text>
 
                 <TagSelect
                   data={data}
-                  max={3}
+                  max={1}
                   ref={tag => {
                     this.tag = tag;
                   }}
@@ -184,15 +170,13 @@ class Exercice_13_2 extends React.Component {
                     //Alert.alert("Ops", "Max reached");
                   }}
                   onItemPress={() => {
-                    if (this.tag.totalSelected === 3) {
-                      let NewHabitTrigger = [];
+                    if (this.tag.totalSelected === 1) {
+                      let NewHabitActivity = [];
                           for (const prop in this.tag.itemsSelected) {
-                            NewHabitTrigger.push(this.tag.itemsSelected[prop]);
+                            NewHabitActivity.push(this.tag.itemsSelected[prop]);
                           }
                           this.setState({ allSelected: true });
-                          this.setState({ NewHabitTrigger1_D13: NewHabitTrigger[0] });
-                          this.setState({ NewHabitTrigger2_D13: NewHabitTrigger[1] });
-                          this.setState({ NewHabitTrigger3_D13: NewHabitTrigger[2] });
+                          this.setState({ NewHabitActivity3_D13: NewHabitActivity[0] });
                     } else {
                       this.setState({ allSelected: false });
                     }
@@ -220,4 +204,4 @@ const mapStateToProps = state => ({
   user_values: state.user_values
 });
 
-export default connect(mapStateToProps)(Exercice_13_2);
+export default connect(mapStateToProps)(Exercice_13_5);

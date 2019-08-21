@@ -85,7 +85,9 @@ class Exercice_7_2 extends React.Component {
         AppsRed2_D7: AppsRed[1],
         AppsRed3_D7: AppsRed[2]
       });
-
+    this.props.dispatch(Update_AppsRed1_D7(this.state.AppsRed1_D7));
+    this.props.dispatch(Update_AppsRed2_D7(this.state.AppsRed2_D7));
+    this.props.dispatch(Update_AppsRed3_D7(this.state.AppsRed3_D7));
     this.props.navigation.navigate("Exercice_7_3");
   };
 
@@ -106,10 +108,11 @@ class Exercice_7_2 extends React.Component {
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.container}>
                   <Text style={styles.sub_header}>
-                  Which three apps do you give a red light? 
+                    Which three apps do you give a red light?
                   </Text>
                   <Text style={styles.text}>
-                    {"\n"}The ones that you catch yourself spending more time on than you intend to.
+                    {"\n"}The ones that you catch yourself spending more time on
+                    than you intend to.
                   </Text>
 
                   <View style={styles.middle}>
@@ -130,19 +133,8 @@ class Exercice_7_2 extends React.Component {
                           }
                           this.setState({ allSelected: true });
                           this.setState({ AppsRed1_D7: AppsRed[0] });
-                          this.props.dispatch(
-                            Update_AppsRed1_D7(this.state.AppsRed1_D7)
-                          );
-
                           this.setState({ AppsRed2_D7: AppsRed[1] });
-                          this.props.dispatch(
-                            Update_AppsRed2_D7(this.state.AppsRed2_D7)
-                          );
-
                           this.setState({ AppsRed3_D7: AppsRed[2] });
-                          this.props.dispatch(
-                            Update_AppsRed3_D7(this.state.AppsRed3_D7)
-                          );
                         } else {
                           this.setState({ allSelected: false });
                         }

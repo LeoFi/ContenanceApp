@@ -5,87 +5,184 @@ import {
   TextInput,
   StatusBar,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  KeyboardAvoidingView,
+  Keyboard,
+  Alert,
+  Image
 } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import { DeckSwiper, Card, CardItem } from "native-base";
-import { styles } from "./style";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
-const cards = [
-  "Screen-Time Tracker to keep track of your time on your mobile phone",
-  "Switch off notifications",
-  "Use flight mode",
-  "Install blocking apps",
-  "Set use limits",
-  "Define smartphone free times and locations",
-  "Do a digital detox",
-  "Buy an alarm clock"
+import { Svg, Circle, Path } from "react-native-svg";
+import { TagSelect } from "react-native-tag-select";
+import * as firebase from "firebase";
+
+import { styles } from "./style";
+
+import { connect } from "react-redux";
+import {
+  Update_SPNoGoSit1_D18,
+  Update_SPNoGoSit2_D18,
+  Update_SPNoGoSit3_D18
+} from "./../../../redux-persist/redux/user_values";
+
+const data = [
+  "Before going to sleep",
+  "After waking up",
+  "Having lunch with friends or family",
+  "Having dinner with friends or family",
+  "Commuting (e.g in the bus or in the metro)",
+  "Waiting for a friend",
+  "After finishing a task at work",
+  "When sitting on the toilet",
+  "When sitting at my desk at work"
 ];
 
-export default class Exercice_3_2 extends React.Component {
-  countLeft = 0;
+class Exercice_18_3 extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      newSelect: "",
+      SPNoGoSit1_D18: this.props.user_values.SPNoGoSit1_D18 || "",
+      SPNoGoSit2_D18: this.props.user_values.SPNoGoSit2_D18 || "",
+      SPNoGoSit3_D18: this.props.user_values.SPNoGoSit3_D18 || ""
+    };
+  }
+
+  onSubmitEditing = () => {
+    var NewValue = this.state.newSelect;
+    data.push(NewValue);
+    this.setState({ newSelect: undefined });
+  };
+
+  handleSubmit = () => {
+    let SPNoGoSit = [];
+    for (const prop in this.tag.itemsSelected) {
+      SPNoGoSit.push(this.tag.itemsSelected[prop]);
+    }
+
+    const uid = firebase.auth().currentUser.uid;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(uid)
+      .update({
+        SPNoGoSit1_D18: SPNoGoSit[0],
+        SPNoGoSit2_D18: SPNoGoSit[1],
+        SPNoGoSit3_D18: SPNoGoSit[2]
+      });
+    this.props.dispatch(Update_SPNoGoSit1_D18(this.state.SPNoGoSit1_D18));
+    this.props.dispatch(Update_SPNoGoSit2_D18(this.state.SPNoGoSit2_D18));
+    this.props.dispatch(Update_SPNoGoSit3_D18(this.state.SPNoGoSit3_D18));
+    this.props.navigation.navigate("Exercice_18_3");
+  };
 
   render() {
     return (
-      <View style={styles.container_deck}>
-        <Text style={styles.sub_header_deck}>
-          What strategies have you tried out so far to improve your smartphone
-          use?
-        </Text>
-        <View style={{ flex: 1 }}>
-          <DeckSwiper
-            looping={false}
-            dataSource={cards}
-            onSwipeLeft={this.countLeftTry}
-            renderEmpty={this.renderEmpty}
-            renderItem={item => (
-              <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-                <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-                  <Text style={styles.intro_text_center}>{item}</Text>
-                </CardItem>
-              </Card>
-            )}
-          />
-        </View>
-        <View style={{ flex: 1, justifyContent: "flex-end" }}>
-          <Text style={styles.tap_text_deck}>DRAG THE CARD LEFT OR RIGHT</Text>
-        </View>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
+        <StatusBar hidden />
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          keyboardShouldPersistTaps="handled"
+        >
+          <View style={{ flex: 1 }}>
+            <KeyboardAvoidingView
+              behavior="padding"
+              keyboardVerticalOffset="15"
+              style={styles.keyboard_view}
+            >
+              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View style={styles.container}>
+                  <Text style={styles.sub_header}>
+                  Step 1: Select three specific situations in which you don’t want to have your smartphone around.
+                  </Text>
+                  <Text style={styles.intro_text}>
+                  {"\n"}Tip: you can also set times of the day when you don’t want to have it around, e.g. after 10pm, I don’t want to have my smartphone with me.
+                  </Text>
+
+                  <View style={styles.middle}>
+                    <TagSelect
+                      data={data}
+                      max={3}
+                      ref={tag => {
+                        this.tag = tag;
+                      }}
+                      onMaxError={() => {
+                        //Alert.alert("Ops", "Max reached");
+                      }}
+                      onItemPress={() => {
+                        if (this.tag.totalSelected === 3) {
+                          let SPNoGoSit = [];
+                          for (const prop in this.tag.itemsSelected) {
+                            SPNoGoSit.push(this.tag.itemsSelected[prop]);
+                          }
+                          this.setState({ allSelected: true });
+                          this.setState({ SPNoGoSit1_D18: SPNoGoSit[0] });
+                          this.setState({ SPNoGoSit2_D18: SPNoGoSit[1] });
+                          this.setState({ SPNoGoSit3_D18: SPNoGoSit[2] });
+                        } else {
+                          this.setState({ allSelected: false });
+                        }
+                      }}
+                      containerStyle={{ flexDirection: "column" }}
+                      itemLabelStyle={styles.button_grey_input_text}
+                    />
+
+                    <View style={styles.searchSection}>
+                      <TextInput
+                        style={styles.text_input_button}
+                        value={this.state.newSelect}
+                        onChangeText={newSelect => this.setState({ newSelect })}
+                        onSubmitEditing={this.onSubmitEditing}
+                        blurOnSubmit={true}
+                        multiline={true}
+                        numberOfLines={1}
+                        placeholder="Write a new one"
+                        autoCapitalize="none"
+                        editable={!this.state.allSelected}
+                        autoCorrect={false}
+                      />
+                      <TouchableOpacity
+                        style={styles.inputIcon}
+                        onPress={this.onSubmitEditing}
+                      >
+                        <Svg height="32" width="32">
+                          <Circle cx="16" cy="16" r="16" fill="#2C3B51" />
+                          <Path
+                            d="M10.946 14.332H14.51V10.614H17.084V14.332H20.67V16.796H17.084V20.558H14.51V16.796H10.946V14.332Z"
+                            fill="#F4F1DE"
+                          />
+                        </Svg>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+
+                  <View style={styles.tap_pos_relative}>
+                    <PrimaryButton
+                      label="Continue"
+                      disabled={!this.state.allSelected}
+                      onPress={this.handleSubmit}
+                    />
+                  </View>
+                </View>
+              </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
+          </View>
+        </ScrollView>
       </View>
     );
   }
-
-  countLeftTry = () => {
-    this.countLeft += 1;
-  };
-
-  goToNext = () => {
-    if (this.countLeft > 5) {
-      console.log("More than 5");
-      this.props.navigation.navigate("Exercice_3_2_More5");
-    } else if (this.countLeft >= 2 && this.countLeft <= 5) {
-      console.log("Between 2 and 5");
-      this.props.navigation.navigate("Exercice_3_2_2to5");
-    } else if (this.countLeft < 2) {
-      console.log("Less than 2");
-      this.props.navigation.navigate("Exercice_3_2_Less2");
-    }
-  };
-
-  renderEmpty = () => {
-    return (
-      <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-        <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-          <TouchableOpacity onPress={this.goToNext}>
-            <Text style={styles.intro_text_center}>See results</Text>
-          </TouchableOpacity>
-        </CardItem>
-      </Card>
-    );
-  };
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_18_3);

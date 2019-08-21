@@ -17,7 +17,7 @@ import CountDown from "react-native-countdown-component";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_11_2 extends React.Component {
+export default class Exercice_16_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -57,10 +57,10 @@ export default class Exercice_11_2 extends React.Component {
               />
               {!this.state.show_button ? (
                 <Text style={styles.intro_text}>
-                  We’ll let you know when it’s time to come back.
+                  Don’t be on your smartphone.{"\n"}
+                  {"\n"}We’ll let you know when it’s time to come back.
                 </Text>
               ) : null}
-
               {this.state.show_button ? (
                 <>
                   <Text style={styles.intro_text}>
@@ -71,7 +71,7 @@ export default class Exercice_11_2 extends React.Component {
                     <PrimaryButton
                       label="Continue"
                       onPress={() => {
-                        this.props.navigation.navigate("Exercice_11_3");
+                        this.props.navigation.navigate("Exercice_16_Aha_1");
                       }}
                     />
                   </View>

@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_2_More5 extends React.Component {
+export default class Exercice_17_7_android extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,17 +34,19 @@ export default class Exercice_3_2_More5 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_3");
+                this.props.navigation.navigate("Exercice_17_8");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                First: Wow!
+                  Turning off notifications in Android.
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}You’ve already tried out a fair amount of things! Maybe you also did other things and found creative ways to shape your relationship to your smartphone!
+                  {"\n"}Visit Settings > Apps and Notifications > Notifications.
+                  {"\n"}
+                  {"\n"}Turn off all notifications, banners, and badges, except from apps where real people want your attention.{"\n"}
+                  {"\n"}This can be messaging apps like WhatsApp, FB Messenger, Telegram, WeChat etc.
                 </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>

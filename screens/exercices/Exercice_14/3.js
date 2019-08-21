@@ -14,66 +14,128 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as firebase from "firebase";
+import { connect } from "react-redux";
+import {
+  Update_Obstacle1_D14,
+  Update_Obstacle2_D14,
+  Update_Obstacle3_D14
+} from "../../../redux-persist/redux/user_values";
 
-export default class Exercice_3_3 extends React.Component {
+class Exercice_14_3 extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      Obstacle1_D14: this.props.user_values.Obstacle1_D14 || "",
+      Obstacle2_D14: this.props.user_values.Obstacle2_D14 || "",
+      Obstacle3_D14: this.props.user_values.Obstacle3_D14 || ""
     };
   }
 
+  handleChange_Advice1 = Obstacle1_D14 => {
+    this.setState({ Obstacle1_D14 });
+  };
+
+  handleChange_Advice2 = Obstacle2_D14 => {
+    this.setState({ Obstacle2_D14 });
+  };
+
+  handleChange_Advice3 = Obstacle3_D14 => {
+    this.setState({ Obstacle3_D14 });
+  };
+
+  handleSubmit = () => {
+    const { Obstacle1_D14 } = this.state;
+    const { Obstacle2_D14 } = this.state;
+    const { Obstacle3_D14 } = this.state;
+    const uid = firebase.auth().currentUser.uid;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(uid)
+      .update({
+        Obstacle1_D14: Obstacle1_D14,
+        Obstacle2_D14: Obstacle2_D14,
+        Obstacle3_D14: Obstacle3_D14
+      });
+    this.props.dispatch(Update_Obstacle1_D14(this.state.Obstacle1_D14));
+    this.props.dispatch(Update_Obstacle2_D14(this.state.Obstacle2_D14));
+    this.props.dispatch(Update_Obstacle3_D14(this.state.Obstacle3_D14));
+    this.props.navigation.navigate("Exercice_14_4");
+  };
+
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback style={styles.scroll}>
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header}>
-                  How do you evaluate the long-term success you have achieved so
-                  far?
+                <Text style={styles.sub_header}>It’s your turn!</Text>
+                <Text style={styles.text}>
+                  Define your three own obstacles.
+                  {"\n"}
+                  {"\n"}
+                  {this.props.user_values.NewHabitCommit_D13}
                 </Text>
 
-                <View style={styles.middle}>
-                  <GreyInputButton
-                    label="I was very succesful"
-                    isBottom={false}
-                    onPress={() => this.setState({ active1: !this.state.active1, active2: false, active3: false })}
-                    isActive={this.state.active1}
+                <View>
+                  <TextInput
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice1}
+                    value={this.state.Obstacle1_D14}
+                    placeholder="Write down first obstacle"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
                   />
-                  <GreyInputButton
-                    label="I was succesful"
-                    isBottom={false}
-                    onPress={() => this.setState({ active1: false, active2: !this.state.active2, active3: false })}
-                    isActive={this.state.active2}
+                  <TextInput
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice2}
+                    value={this.state.Obstacle2_D14}
+                    placeholder="Write down second obstacle"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
                   />
-                  <GreyInputButton
-                    label="No, I was not very succesful"
-                    isBottom={true}
-                    onPress={() => this.setState({ active1: false, active2: false, active3: !this.state.active3 })}
-                    isActive={this.state.active3}
+                  <TextInput
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice3}
+                    value={this.state.Obstacle3_D14}
+                    placeholder="Write down third obstacle"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
                   />
                 </View>
 
                 <View style={styles.tap_pos_relative}>
                   <PrimaryButton
                     label="Continue"
-                    disabled={ !this.state.active1 && !this.state.active2 && !this.state.active3 }
-                    onPress={() => {
-                      this.props.navigation.navigate("Exercice_3_4");
-                    }}
+                    disabled={
+                      !this.state.Obstacle1_D14 ||
+                      !this.state.Obstacle2_D14 ||
+                      !this.state.Obstacle3_D14
+                    }
+                    onPress={this.handleSubmit}
                   />
                 </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_14_3);

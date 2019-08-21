@@ -6,7 +6,8 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Image
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,9 +15,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_1 extends React.Component {
+export default class Exercice_17_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,46 +25,32 @@ export default class Exercice_1_1 extends React.Component {
 
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={{backgroundColor: "#F4F1DE"}}>
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_1_2");
-              }}
-            >
-              <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                  Welcome to day 1 of Contenance!
-                </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}While reading this, you probably have your smartphone in
-                  your hand.
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
+          <TouchableWithoutFeedback
+            style={styles.scroll}
+            onPress={() => {
+              this.props.navigation.navigate("Exercice_17_2");
+            }}
+          >
+            <View style={styles.container_scroll}>
+              <Image
+                style={styles.image_height}
+                source={require("../../../assets/images/Exercice3_1.png")}
+                resizeMode="contain"
+              />
+              <Text style={styles.intro_text}>
+                Are you thinking right now: wait, I’ve seen this before? Guess
+                who's back: <Text style={styles.intro_text_bold}>the Solution Triangle from Day 3</Text>! Do you remember
+                the three factors?{"\n"}
+                {"\n"}… or maybe not. Neither did we in the beginning. Here
+                comes a little refresher.
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

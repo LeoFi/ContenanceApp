@@ -211,6 +211,14 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    intro_italic: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: 'roboto-italic',
+        alignSelf: "stretch",
+        textAlign: 'left',
+    },
     intro_text_light: {
         color: '#F4F1DE',
         fontSize: 19,

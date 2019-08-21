@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
     },
     sub_header_left: {
-        flex: 1,
+        //flex: 1,
         color: '#2C3B51',
         fontSize: 24,
         lineHeight: 28,

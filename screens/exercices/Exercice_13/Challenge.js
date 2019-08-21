@@ -14,9 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
+import { connect } from "react-redux";
 
-export default class Exercice_13_Challenge extends React.Component {
+class Exercice_13_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -44,12 +44,8 @@ export default class Exercice_13_Challenge extends React.Component {
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}Let’s walk the walk. Do a first run until tomorrow.
-                  {"\n"}{"\n"}
+                  {"\n"}{"\n"}{this.props.user_values.NewHabitCommit_D13}
                 </Text>
-
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -59,16 +55,8 @@ export default class Exercice_13_Challenge extends React.Component {
   }
 }
 
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
 
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_13_Congratulations");
-  }}
-/> */
-}
+export default connect(mapStateToProps)(Exercice_13_Challenge);

@@ -13,9 +13,10 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
+import { connect } from "react-redux";
 import { styles } from "./style";
 
-export default class Exercice_14_Challenge extends React.Component {
+class Exercice_14_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -43,10 +44,10 @@ export default class Exercice_14_Challenge extends React.Component {
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}Until you come back tomorrow, do a test-run of one of your newly defined coping plans!
-                  {"\n"}{"\n"}There might be challenges to realize my plan: {NewHabitCommit_D13}. But I am prepared.
-                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {Obstacle1_D14}, then {CopingStrategy1_D14}.</Text>.
-                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {Obstacle2_D14}, then {CopingStrategy2_D14}.</Text>.
-                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {Obstacle3_D14}, then {CopingStrategy3_D14}.</Text>.
+                  {"\n"}{"\n"}There might be challenges to realize my plan: {this.props.user_values.NewHabitCommit_D13}. But I am prepared.
+                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {this.props.user_values.Obstacle1_D14}, then {this.props.user_values.CopingStrategy1_D14}.</Text>.
+                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {this.props.user_values.Obstacle2_D14}, then {this.props.user_values.CopingStrategy2_D14}.</Text>.
+                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {this.props.user_values.Obstacle3_D14}, then {this.props.user_values.CopingStrategy3_D14}.</Text>.
                 </Text>
 
               </View>
@@ -57,3 +58,9 @@ export default class Exercice_14_Challenge extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_14_Challenge);

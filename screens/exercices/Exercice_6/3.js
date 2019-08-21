@@ -96,7 +96,9 @@ class Exercice_6_3 extends React.Component {
         EmTrigger2_D6: EmTrigger[1],
         EmTrigger3_D6: EmTrigger[2]
       });
-
+    this.props.dispatch(Update_EmTrigger1_D6(this.state.EmTrigger1_D6));
+    this.props.dispatch(Update_EmTrigger2_D6(this.state.EmTrigger2_D6));
+    this.props.dispatch(Update_EmTrigger3_D6(this.state.EmTrigger3_D6));
     this.props.navigation.navigate("Exercice_6_Aha_1");
   };
 
@@ -144,19 +146,8 @@ class Exercice_6_3 extends React.Component {
                           }
                           this.setState({ allSelected: true });
                           this.setState({ EmTrigger1_D6: EmTrigger[0] });
-                          this.props.dispatch(
-                            Update_EmTrigger1_D6(this.state.EmTrigger1_D6)
-                          );
-
                           this.setState({ EmTrigger2_D6: EmTrigger[1] });
-                          this.props.dispatch(
-                            Update_EmTrigger2_D6(this.state.EmTrigger2_D6)
-                          );
-
                           this.setState({ EmTrigger3_D6: EmTrigger[2] });
-                          this.props.dispatch(
-                            Update_EmTrigger3_D6(this.state.EmTrigger3_D6)
-                          );
                         } else {
                           this.setState({ allSelected: false });
                         }

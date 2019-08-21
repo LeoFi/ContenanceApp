@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_3 extends React.Component {
+export default class Exercice_17_3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,19 +35,13 @@ export default class Exercice_1_3 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_4");
+                this.props.navigation.navigate("Exercice_17_4");
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                Ask yourself:
+                <Text style={styles.intro_text}>
+                Luckily, there are numerous things you can change in the <Text style={styles.intro_text_bold}>settings</Text>. {"\n"}{"\n"}We are happy to present you three of them today. 
                 </Text>
-                <Text style={styles.intro_text_bold}>
-                  {"\n"}How is your back positioned?
-                  {"\n"}{"\n"}How does your neck feel?
-                  {"\n"}{"\n"}What does your body look like while you are using your smartphone? 
-                </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -55,18 +49,4 @@ export default class Exercice_1_3 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

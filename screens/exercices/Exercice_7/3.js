@@ -85,7 +85,9 @@ class Exercice_7_3 extends React.Component {
         AppsGreen2_D7: AppsGreen[1],
         AppsGreen3_D7: AppsGreen[2]
       });
-
+    this.props.dispatch(Update_AppsGreen1_D7(this.state.AppsGreen1_D7));
+    this.props.dispatch(Update_AppsGreen2_D7(this.state.AppsGreen2_D7));
+    this.props.dispatch(Update_AppsGreen3_D7(this.state.AppsGreen3_D7));
     this.props.navigation.navigate("Exercice_7_4");
   };
 
@@ -106,10 +108,11 @@ class Exercice_7_3 extends React.Component {
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.container}>
                   <Text style={styles.sub_header}>
-                  Which three apps do you give a green light? 
+                    Which three apps do you give a green light?
                   </Text>
                   <Text style={styles.text}>
-                    {"\n"}They are the ones you rarely or never spend more time on than intended.
+                    {"\n"}They are the ones you rarely or never spend more time
+                    on than intended.
                   </Text>
 
                   <View style={styles.middle}>
@@ -130,19 +133,8 @@ class Exercice_7_3 extends React.Component {
                           }
                           this.setState({ allSelected: true });
                           this.setState({ AppsGreen1_D7: AppsGreen[0] });
-                          this.props.dispatch(
-                            Update_AppsGreen1_D7(this.state.AppsGreen1_D7)
-                          );
-
                           this.setState({ AppsGreen2_D7: AppsGreen[1] });
-                          this.props.dispatch(
-                            Update_AppsGreen2_D7(this.state.AppsGreen2_D7)
-                          );
-
                           this.setState({ AppsGreen3_D7: AppsGreen[2] });
-                          this.props.dispatch(
-                            Update_AppsGreen3_D7(this.state.AppsGreen3_D7)
-                          );
                         } else {
                           this.setState({ allSelected: false });
                         }

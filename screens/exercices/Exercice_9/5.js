@@ -26,9 +26,7 @@ import * as firebase from "firebase";
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import {
-  Update_Value1_D9
-} from "../../../redux-persist/redux/user_values";
+import { Update_Value1_D9 } from "../../../redux-persist/redux/user_values";
 
 const data = [
   "Adventure",
@@ -89,7 +87,7 @@ class Exercice_9_5 extends React.Component {
       .update({
         Value1_D9: Value1[0]
       });
-
+    this.props.dispatch(Update_Value1_D9(this.state.Value1_D9));
     this.props.navigation.navigate("Exercice_9_6");
   };
 
@@ -110,12 +108,15 @@ class Exercice_9_5 extends React.Component {
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.container}>
                   <Text style={styles.sub_header}>
-                  What value is related to this advice?
+                    What value is related to this advice?
                   </Text>
                   <Text style={styles.text_bold_italic}>
-                  {"\n"}{this.props.user_values.Advice1_D9}
-                </Text>
-                <Text style={styles.tap_text}>TAP ONE OPTION OR WRITE A NEW ONE TO CONTINUE</Text>
+                    {"\n"}
+                    {this.props.user_values.Advice1_D9}
+                  </Text>
+                  <Text style={styles.tap_text}>
+                    TAP ONE OPTION OR WRITE A NEW ONE TO CONTINUE
+                  </Text>
 
                   <View style={styles.middle}>
                     <TagSelect
@@ -135,9 +136,6 @@ class Exercice_9_5 extends React.Component {
                           }
                           this.setState({ allSelected: true });
                           this.setState({ Value1_D9: Value1[0] });
-                          this.props.dispatch(
-                            Update_Value1_D9(this.state.Value1_D9)
-                          );
                         } else {
                           this.setState({ allSelected: false });
                         }

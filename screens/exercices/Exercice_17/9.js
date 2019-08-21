@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_8 extends React.Component {
+export default class Exercice_17_9 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,33 +25,31 @@ export default class Exercice_3_8 extends React.Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground
+        source={require("../../../assets/images/pink_shape.png")}
+        style={styles.image_background}
+      >
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_Aha_1");
+                this.props.navigation.navigate("Exercice_17_10");
               }}
             >
               <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_5.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.sub_header_left}>
-                Putting people first
+              <Text style={styles.sub_header_left}>
+              2. Design a home screen that feels like home.
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}We believe that sustainable change will happen by combining solutions from all three factors, but focusing on YOU as a person. 
+                {"\n"}This is how it works:{"\n"}{"\n"}Limit your first page of apps to just tools – the apps you use for quick in-and-out tasks like Maps, Camera, Calendar, Notes, Music, or the Mobility app of your choice.{"\n"}{"\n"}Move the rest of your apps, especially mindless choices, off the first page and into folders.
                 </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }
