@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 40,
-        flex: 1,
-        alignItems: "center",
+        alignItems: "flex-start",
         alignSelf: "stretch",
     },
     container_scroll: {
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
     },
     center: {
         flex: 1,
-        justifyContent: 'flex-end',
+        //justifyContent: 'flex-end',
         alignSelf: "stretch",
     },
     top: {
@@ -84,12 +83,14 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
     },
     codeInput: {
-        marginTop: 43,
-        alignSelf: "stretch",
+        marginTop: 40,
+        marginBottom: 20,
+        backgroundColor: "#E2DFD1",
+        borderRadius: 7,
         textAlign: 'center',
-        height: 40,
+        height: 49,
         fontSize: 19,
-        borderBottomWidth: 2,
+        alignSelf: "stretch",
     },
     usernameInput: {
         marginTop: 43,

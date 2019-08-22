@@ -3,6 +3,8 @@ import { View, Text, TextInput, ScrollView, Image } from "react-native";
 import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
 import { styles } from "./style";
 import { connect } from "react-redux";
+import * as firebase from "firebase";
+import { updateOnboarding } from "./../../../redux-persist/redux/user";
 
 
 class Closing_Screen_T1 extends React.Component {
@@ -11,8 +13,25 @@ class Closing_Screen_T1 extends React.Component {
     super(props);
     this.state = {
       nickname: this.props.nickname,
+      onboardingDone: true
     };
   }
+
+  handleSubmit = () => {
+    const uid = firebase.auth().currentUser.uid;
+    const onboardingDone = this.state.onboardingDone;
+    this.setState({ onboardingDone: onboardingDone });
+    this.props.dispatch(updateOnboarding(this.state.onboardingDone));
+    firebase
+      .database()
+      .ref()
+      .child("accounts")
+      .child(uid)
+      .update({
+        onboardingDone
+      });
+    this.props.navigation.push('Home');
+  };
 
   render() {
     return (
@@ -28,9 +47,7 @@ class Closing_Screen_T1 extends React.Component {
           <PrimaryButton
             label="START EXERCISING"
             isBottom={true}
-            onPress={() => {
-                this.props.navigation.navigate('Home');
-            }}
+            onPress={this.handleSubmit}
           />
         </View>
       </View>

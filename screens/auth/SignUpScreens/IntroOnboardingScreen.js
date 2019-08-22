@@ -63,7 +63,7 @@ class IntroOnboardingScreen extends React.Component {
         >
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <>
-              <View style={{flex: 1}}>
+              <View style={{flex: 1, alignItems: "center"}}>
                 <Image
                   source={require("./../../../assets/images/placeholder_background.png")}
                 />
@@ -73,9 +73,7 @@ class IntroOnboardingScreen extends React.Component {
                 <Text style={styles.header}>Hi, I’m Leo.</Text>
 
                 <Text style={styles.text}>
-                  {"\n"}And I’m going to be your companion on this journey.
-                  {"\n"}
-                  How do you like to be called?
+                  {"\n"}And I’m going to be your companion on this journey. How do you like to be called?
                 </Text>
 
                 <TextInput

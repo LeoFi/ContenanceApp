@@ -4,7 +4,8 @@ import {
   StatusBar,
   StyleSheet,
   View,
-  ActivityIndicator
+  ActivityIndicator,
+  Alert
 } from "react-native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
@@ -40,7 +41,7 @@ export default class App extends React.Component {
   onAuthStateChanged = user => {
     this.setState({ isAuthenticationReady: true });
     this.setState({ isAuthenticated: !!user });
-    //console.log(user);
+
   };
 
   renderLoading = () => (

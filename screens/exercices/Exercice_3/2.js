@@ -13,7 +13,7 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import { DeckSwiper, Card, CardItem } from "native-base";
+// import { DeckSwiper, Card, CardItem } from "native-base";
 import { styles } from "./style";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -39,7 +39,7 @@ export default class Exercice_3_2 extends React.Component {
           use?
         </Text>
         <View style={{ flex: 1 }}>
-          <DeckSwiper
+          {/* <DeckSwiper
             looping={false}
             dataSource={cards}
             onSwipeLeft={this.countLeftTry}
@@ -51,7 +51,7 @@ export default class Exercice_3_2 extends React.Component {
                 </CardItem>
               </Card>
             )}
-          />
+          /> */}
         </View>
         <View style={{ flex: 1, justifyContent: "flex-end" }}>
           <Text style={styles.tap_text_deck}>DRAG THE CARD LEFT OR RIGHT</Text>

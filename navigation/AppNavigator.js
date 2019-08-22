@@ -35,17 +35,6 @@ import SU3_Screen_T1 from "../screens/questionnaires/T1/SU3_Screen_T1";
 import Extra_6_Screen_T1 from "../screens/questionnaires/T1/Extra_6_Screen_T1";
 import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
-import Intro_Screen_T2 from "../screens/questionnaires/T2/Intro_Screen_T2";
-
-import PSU_Screen_T2 from "../screens/questionnaires/T2/PSU_Screen_T2";
-import WB_Screen_T2 from "../screens/questionnaires/T2/WB_Screen_T2";
-import AU_Screen_T2 from "../screens/questionnaires/T2/AU_Screen_T2";
-import PI_Screen_T2 from "../screens/questionnaires/T2/PI_Screen_T2";
-import CO_Screen_T2 from "../screens/questionnaires/T2/CO_Screen_T2";
-import QQ_Screen_T2 from "../screens/questionnaires/T2/QQ_Screen_T2";
-
-import Closing_Screen_T2 from "../screens/questionnaires/T2/Closing_Screen_T2";
-
 import TestScreen from "../screens/TestScreen";
 
 const IntroStack = createStackNavigator(
@@ -54,9 +43,6 @@ const IntroStack = createStackNavigator(
     // AccountAccess: { screen: AccountAccessScreen },
     // IntroOnboarding: { screen: IntroOnboardingScreen },
     // Onboarding: { screen: OnboardingScreen },
-    // AllowNotifications: { screen: AllowNotificationsScreen },
-    // SetReminders: { screen: SetRemindersScreen },
-    // SetRemindersFinal: { screen: SetRemindersFinalScreen },
     // Conclusion: { screen: ConclusionScreen },
     // Intro_Screen_T1: { screen: Intro_Screen_T1 },
     // PSU_Screen_T1: { screen: PSU_Screen_T1 },
@@ -78,14 +64,6 @@ const IntroStack = createStackNavigator(
     // SU3_Screen_T1: { screen: SU3_Screen_T1 },
     // Extra_6_Screen_T1: { screen: Extra_6_Screen_T1 },
     // Closing_Screen_T1: { screen: Closing_Screen_T1 },
-    // Intro_Screen_T2: { screen: Intro_Screen_T2 },
-    // PSU_Screen_T2: { screen: PSU_Screen_T2 },
-    // WB_Screen_T2: { screen: WB_Screen_T2 },
-    // AU_Screen_T2: { screen: AU_Screen_T2 },
-    // PI_Screen_T2: { screen: PI_Screen_T2 },
-    // CO_Screen_T2: { screen: CO_Screen_T2 },
-    // QQ_Screen_T2: { screen: QQ_Screen_T2 },
-    // Closing_Screen_T2: { screen: Closing_Screen_T2 },
     Home: { screen: MainTabNavigator }
   },
   {

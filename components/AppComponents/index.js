@@ -8,7 +8,7 @@ import GreyInputButton from "./GreyInputButton";
 import FormElement from "./FormElement";
 import ExerciceButton from "./ExerciceButton";
 import AudioCompenent from "./Audio";
-import DeckSwiperExample from "./CardsDeckSwiper";
+// import DeckSwiperExample from "./CardsDeckSwiper";
 import HeaderComponent from "./HeaderComponent";
 import RadioButtons from "./RadioButton";
 import MenuHeaderComponent from "./MenuHeaderComponent";
@@ -26,7 +26,7 @@ export {
   FormElement,
   ExerciceButton,
   AudioCompenent,
-  DeckSwiperExample,
+  // DeckSwiperExample,
   HeaderComponent,
   RadioButtons,
   MenuHeaderComponent,
