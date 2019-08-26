@@ -16,6 +16,7 @@ import {
 } from "../../../components/AppComponents";
 import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
@@ -23,6 +24,7 @@ export default class SU3_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      progressValue: 71/78,
       show_1: true,
       buttonIsActive: false
     };
@@ -43,6 +45,7 @@ export default class SU3_Screen_T1 extends React.Component {
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: true });
+        this.setState({ progressValue: 72 / 78 });
         this.props.navigation.navigate("Extra_6_Screen_T1");
       }
     }, 400);
@@ -50,9 +53,33 @@ export default class SU3_Screen_T1 extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
+        <View style={styles.container}>
         <TouchableOpacity
           onPress={() => {
+            this.setState({ progressValue: 72 / 78 });
             this.props.navigation.navigate("Extra_6_Screen_T1");
           }}
           style={styles.skip}
@@ -120,6 +147,7 @@ export default class SU3_Screen_T1 extends React.Component {
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }

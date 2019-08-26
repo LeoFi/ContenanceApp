@@ -18,17 +18,17 @@ import { Svg, Path } from "react-native-svg";
 export default class StartScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.logo_top}>Not less</Text>
-        <Text style={styles.logo_bottom}>But Better</Text>
+        <Text style={styles.logo_top}>
+          not less{"\n"}<Text style={styles.logo_bottom}>but better</Text>
+        </Text>
 
-        <Svg width="375" height="167" viewBox="0 0 375 167" fill="none" style={{top:100}}>
+        <Svg width="375" height="167" viewBox="0 0 375 167" fill="none">
           <Path
             d="M392.474 144.886V161.475C391.72 162.983 388.553 166 381.917 166C375.281 166 117.24 166 -10.9513 166C-13.4649 165.497 -18.6428 163.285 -19.246 158.459C-19.8493 153.633 -20.0001 147.399 -20.0001 144.886"
             stroke="#2C3B51"
@@ -559,15 +559,13 @@ export default class StartScreen extends React.Component {
           />
         </Svg>
 
-        <View style={styles.bottom}>
-          <PrimaryButton
-            label="ACCESS YOUR ACCOUNT"
-            isBottom={true}
-            onPress={() => {
-              this.props.navigation.navigate("AccountAccess");
-            }}
-          />
-        </View>
+        <PrimaryButton
+          label="ACCESS YOUR ACCOUNT"
+          isBottom={true}
+          onPress={() => {
+            this.props.navigation.navigate("AccountAccess");
+          }}
+        />
       </View>
     );
   }
@@ -575,13 +573,14 @@ export default class StartScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 100,
+    paddingTop: 80,
     paddingLeft: 30,
     paddingRight: 30,
     paddingBottom: 40,
     flex: 1,
     alignItems: "center",
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    justifyContent: "space-between"
   },
   bottom: {
     flex: 1,
@@ -589,16 +588,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end"
   },
   logo_top: {
-    fontFamily: "heebo-thin",
-    textTransform: "uppercase",
+    fontFamily: "fira-light",
     fontSize: 47,
-    marginBottom: -13,
-    color: "#2C3B51"
+    marginBottom: -10,
+    color: "#2C3B51",
+    textAlign: "center"
   },
   logo_bottom: {
-    fontFamily: "heebo-black",
-    textTransform: "uppercase",
-    fontSize: 35,
+    fontFamily: "fira-medium",
+    fontSize: 47,
     color: "#2C3B51"
   }
 });

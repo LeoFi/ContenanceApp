@@ -2,6 +2,8 @@ import React from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { fromRight } from "react-navigation-transitions";
 import MainTabNavigator from "./MainTabNavigator";
+import { connect } from "react-redux";
+
 
 import StartScreen from "../screens/auth/StartScreen";
 import AccountAccessScreen from "../screens/auth/SignUpScreens/AccountAccessScreen";
@@ -35,8 +37,6 @@ import SU3_Screen_T1 from "../screens/questionnaires/T1/SU3_Screen_T1";
 import Extra_6_Screen_T1 from "../screens/questionnaires/T1/Extra_6_Screen_T1";
 import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
-import TestScreen from "../screens/TestScreen";
-
 const IntroStack = createStackNavigator(
   {
     // Start: { screen: StartScreen },
@@ -63,7 +63,7 @@ const IntroStack = createStackNavigator(
     // SU2_Screen_T1: { screen: SU2_Screen_T1 },
     // SU3_Screen_T1: { screen: SU3_Screen_T1 },
     // Extra_6_Screen_T1: { screen: Extra_6_Screen_T1 },
-    // Closing_Screen_T1: { screen: Closing_Screen_T1 },
+    Closing_Screen_T1: { screen: Closing_Screen_T1 },
     Home: { screen: MainTabNavigator }
   },
   {
@@ -88,8 +88,14 @@ const MainStack = createStackNavigator(
 
 const AppContainer = createAppContainer(MainStack);
 
-export default class RootNavigation extends React.Component {
+class RootNavigation extends React.Component {
   render() {
-    return <AppContainer />;
+    { return this.props.user.onboardingDone ? <MainTabNavigator /> : <AppContainer />}
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(RootNavigation);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native';
 //import { defaultStyle } from './style'
 
 export default class LinkText extends Component {
@@ -23,7 +23,7 @@ export default class LinkText extends Component {
             <TouchableOpacity
                 //style={this.props.style}
                 onPress={buttonProps.linkOnPress}>
-                <Text>
+                <Text style={styles.text_container}>
                     <Text style={styles.text}>
                         {buttonProps.textLabel} 
                     </Text>
@@ -38,19 +38,22 @@ export default class LinkText extends Component {
 
 
 const styles = StyleSheet.create({
+    text_container: {
+        flexDirection:'row',
+        width: Dimensions.get("window").width-126
+    },
     text: {
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
-        textAlign: 'center',
         fontFamily: 'roboto-regular',
     },
     link: {
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
-        textAlign: 'center',
         fontFamily: 'roboto-regular',
         textDecorationLine: 'underline',
+        flexWrap:'wrap'
     },
 });

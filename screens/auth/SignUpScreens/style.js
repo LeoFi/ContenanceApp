@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
@@ -6,26 +6,38 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 40,
+        flex: 1,
         alignItems: "flex-start",
         alignSelf: "stretch",
+    },
+    container_scrollview: {
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+    },
+    container_scrollview_content: {
+        flexGrow: 1,
+        alignItems: "flex-start",
+        alignSelf: "stretch",
+        flexWrap: "wrap",
     },
     container_scroll: {
         paddingTop: 80,
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 40,
-        flex: 1,
+        //flex: 1,
         alignSelf: "stretch",
     },
     close: {
-        justifyContent: 'flex-start',
-        alignSelf: "stretch",
-        paddingTop: 10,
-        zIndex: 1,
-        right: 0,
+        position: "absolute",
+        right: 30,
+        top: 30,
+        zIndex: 1
     },
     center: {
-        flex: 1,
+        //flex: 1,
         //justifyContent: 'flex-end',
         alignSelf: "stretch",
     },
@@ -35,11 +47,12 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
     },
     top_security_agreements: {
-        flex: 1,
+        //flex: 1,
+        backgroundColor: "#F4F1DE",
         justifyContent: 'flex-start',
         alignSelf: "stretch",
-        marginTop: -40,
-        flexDirection: 'row-reverse',
+        height: Dimensions.get("window").height,
+        //marginTop: -40,
     },
     middle: {
         flex: 1,
@@ -47,11 +60,13 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
     },
     inline: {
-        flex: 1,
-        flexDirection:'row-reverse', 
-        justifyContent: 'flex-end',
-        alignSelf: 'stretch',
-        paddingTop: 20,
+        flexDirection:'row', 
+        //flexWrap: "wrap",
+        textAlign: "left",
+        paddingTop: 10,
+        alignSelf: "stretch",
+        width: Dimensions.get("window").width-60,
+        justifyContent: "center"
     },
     bottom: {
         justifyContent: 'flex-start',
@@ -67,6 +82,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'roboto-black',
         paddingBottom: 10,
+        width: '100%'
+    },
+    header_modal: {
+        color: '#2C3B51',
+        fontSize: 30,
+        lineHeight: 37,
+        textAlign: 'center',
+        fontFamily: 'roboto-black',
+        //paddingTop: 30,
+        paddingBottom: 10,
+        width: '100%'
     },
     text: {
         color: '#2C3B51',
@@ -74,6 +100,7 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         textAlign: 'center',
         fontFamily: 'roboto-regular',
+        width: '100%'
     },
     text_scroll: {
         color: '#2C3B51',
@@ -81,6 +108,26 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         textAlign: 'left',
         fontFamily: 'roboto-regular',
+    },
+    text_modal: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'left',
+        fontFamily: 'roboto-regular',
+        width: '100%'
+    },
+    codeInputLeft: {
+        marginTop: 40,
+        marginBottom: 20,
+        backgroundColor: "#E2DFD1",
+        borderRadius: 7,
+        textAlign: 'left',
+        height: 49,
+        fontSize: 19,
+        alignSelf: "stretch",
+        paddingLeft: 20,
+        width: '100%'
     },
     codeInput: {
         marginTop: 40,

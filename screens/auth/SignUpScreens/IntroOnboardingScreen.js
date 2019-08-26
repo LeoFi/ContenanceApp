@@ -9,7 +9,9 @@ import {
   Switch,
   Keyboard,
   TouchableWithoutFeedback,
-  Image
+  Image,
+  ScrollView,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -55,50 +57,54 @@ class IntroOnboardingScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <KeyboardAvoidingView
-          behavior="padding"
-          keyboardVerticalOffset="15"
-          style={styles.keyboard_view}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ScrollView
+          style={styles.container_scrollview}
+          contentContainerStyle={styles.container_scrollview_content}
+          keyboardShouldPersistTaps="handled"
         >
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <>
-              <View style={{flex: 1, alignItems: "center"}}>
+          <KeyboardAvoidingView behavior="position" keyboardVerticalOffset="100">
+            <View style={{ flex: 1, justifyContent: "flex-start", width: Dimensions.get("window").width - 60 }}>
+              <View style={{ alignItems: "center", paddingBottom: 40 }}>
                 <Image
                   source={require("./../../../assets/images/placeholder_background.png")}
                 />
               </View>
+              <Text style={styles.header}>Hi, I’m Leo.</Text>
 
-              <View style={{flex: 1}}>
-                <Text style={styles.header}>Hi, I’m Leo.</Text>
+              <Text style={styles.text}>
+                {"\n"}And I’m going to be your companion on this journey. How do
+                you like to be called?
+              </Text>
 
-                <Text style={styles.text}>
-                  {"\n"}And I’m going to be your companion on this journey. How do you like to be called?
-                </Text>
-
-                <TextInput
-                  style={styles.usernameInput}
-                  value={this.state.nickname}
-                  onChangeText={this.handleChange}
-                  placeholder="Your Nickname"
-                  placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                  autoCapitalize="none"
-                  autoCorrect={false}
+              <TextInput
+                style={styles.codeInput}
+                value={this.state.nickname}
+                onChangeText={this.handleChange}
+                placeholder="Your Nickname"
+                placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+              <View style={{ flex: 1 }} />
+              <View
+                style={{
+                  //flex: 1,
+                  alignSelf: "stretch",
+                  justifyContent: "flex-end"
+                }}
+              >
+                <PrimaryButton
+                  label="Next"
+                  isBottom={true}
+                  onPress={this.handleSubmit}
+                  disabled={!this.state.nickname}
                 />
-
-                <View style={styles.bottom}>
-                  <PrimaryButton
-                    label="Next"
-                    isBottom={true}
-                    onPress={this.handleSubmit}
-                    disabled={!this.state.nickname}
-                  />
-                </View>
               </View>
-            </>
-          </TouchableWithoutFeedback>
-        </KeyboardAvoidingView>
-      </View>
+            </View>
+          </KeyboardAvoidingView>
+        </ScrollView>
+      </TouchableWithoutFeedback>
     );
   }
 }

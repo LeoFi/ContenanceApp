@@ -14,6 +14,48 @@ import Onboarding from "react-native-onboarding-swiper";
 
 import { connect } from "react-redux";
 
+const CustomButton = ({ isLight, selected }) => {
+  let backgroundColor;
+  if (isLight) {
+    backgroundColor = selected ? "#2C3B51" : "#F4F1DE";
+  }
+
+  return (
+    <View
+      style={{
+        width: 14,
+        height: 14,
+        marginHorizontal: 5,
+        marginVertical: 0,
+        backgroundColor: "#2C3B51",
+        borderRadius: 7
+      }}
+    >
+      <View
+        style={{
+          width: 10,
+          height: 10,
+          marginHorizontal: 2,
+          marginVertical: 2,
+          backgroundColor: "#F4F1DE",
+          borderRadius: 6
+        }}
+      >
+        <View
+          style={{
+            width: 6,
+            height: 6,
+            marginHorizontal: 2,
+            marginVertical: 2,
+            backgroundColor,
+            borderRadius: 4
+          }}
+        />
+      </View>
+    </View>
+  );
+};
+
 class OnboardingScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -32,16 +74,23 @@ class OnboardingScreen extends React.Component {
         showDone={false}
         showSkip={false}
         showNext={false}
+        bottomBarHeight={1}
         bottomBarHighlight={false}
-        imageContainerStyles={{ paddingBottom: 0 }}
+        DotComponent={CustomButton}
         containerStyles={{
-          paddingTop: 0,
+          paddingTop: 80,
           paddingLeft: 30,
           paddingRight: 30,
-          paddingBottom: 40,
+          paddingBottom: 60,
           flex: 1,
           alignItems: "flex-start",
           alignSelf: "stretch"
+        }}
+        imageContainerStyles={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          paddingBottom: 0
         }}
         titleStyles={{
           color: "#2C3B51",
@@ -52,6 +101,7 @@ class OnboardingScreen extends React.Component {
           paddingBottom: 10
         }}
         subTitleStyles={{
+          flex: 1,
           color: "#2C3B51",
           fontSize: 19,
           lineHeight: 25,
@@ -63,7 +113,7 @@ class OnboardingScreen extends React.Component {
           {
             title: "",
             subtitle: (
-              <View>
+              <View style={{ flex: 1 }}>
                 <Text style={styles.text}>
                   You can probably relate to my situation,{" "}
                   {this.props.user.nickname}: I love my smartphone. It opens up
@@ -75,7 +125,7 @@ class OnboardingScreen extends React.Component {
             backgroundColor: "#F4F1DE",
             image: (
               <Image
-                // style={{ flex: 1 }}
+                style={{ justifyContent: "center" }}
                 source={require("./../../../assets/images/Onboarding1.png")}
               />
             )
@@ -83,7 +133,7 @@ class OnboardingScreen extends React.Component {
           {
             title: "",
             subtitle: (
-              <View>
+              <View style={{ flex: 1 }}>
                 <Text style={styles.text}>
                   But the ocean is not calm. There are lots of stormy waves of
                   distraction that pull you underwater. Sometimes, I feel like
@@ -101,7 +151,7 @@ class OnboardingScreen extends React.Component {
           {
             title: "",
             subtitle: (
-              <View>
+              <View style={{ flex: 2, justifyContent: "flex-end" }}>
                 <Text style={styles.header}>
                   This program is about mastering the waves.
                 </Text>
@@ -110,20 +160,23 @@ class OnboardingScreen extends React.Component {
                   relationship to your smartphone. One exercise per day. No more
                   feelings of drowning.
                 </Text>
-                <PrimaryButton
-                  label="Next"
-                  isBottom={true}
-                  onPress={() => {
-                    this.props.navigation.navigate("Conclusion");
-                  }}
-                  SecurityAgreements
-                  disabled={false}
-                />
+                <View style={{ flex: 1 }} />
+                <View>
+                  <PrimaryButton
+                    label="Next"
+                    isBottom={true}
+                    onPress={() => {
+                      this.props.navigation.navigate("Conclusion");
+                    }}
+                    disabled={false}
+                  />
+                </View>
               </View>
             ),
             backgroundColor: "#F4F1DE",
             image: (
               <Image
+                style={{ justifyContent: "flex-start" }}
                 source={require("./../../../assets/images/Onboarding3.png")}
               />
             )
@@ -151,7 +204,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "roboto-black",
     paddingBottom: 10,
-    paddingTop: 10,
+    paddingTop: 10
   }
 });
 

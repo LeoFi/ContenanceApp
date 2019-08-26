@@ -19,6 +19,18 @@ const styles = StyleSheet.create({
         //alignItems: "center",
         alignSelf: "stretch",
     },
+    container_scrollview: {
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+    },
+    container_scrollview_content: {
+        flex: 1,
+        alignItems: "flex-start",
+        alignSelf: "stretch",
+        flexWrap: "wrap",
+    },
     skip: {
         textAlign: 'left',
         alignSelf: 'stretch',

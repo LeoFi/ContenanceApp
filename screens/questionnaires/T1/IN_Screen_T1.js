@@ -14,8 +14,11 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
@@ -26,8 +29,8 @@ export default class IN_Screen_T1 extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
-      buttonIsActive: false,
-
+      progressValue: 49 / 78,
+      buttonIsActive: false
     };
   }
 
@@ -47,11 +50,14 @@ export default class IN_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 50 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 51 / 78 });
       } else if (this.state.show_3 == true) {
+        this.setState({ progressValue: 52 / 78 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -62,41 +68,60 @@ export default class IN_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 50 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 51 / 78 });
+      } else if (this.state.show_3 == true) {
+        this.setState({ progressValue: 52 / 78 });
+        this.props.navigation.navigate("AP_Screen_T1");
       }
     }, 400);
   };
 
   render() {
     return (
-      <View style={styles.container}>
-      {!this.state.show_3 ? (
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("AP_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        )}
-        <Text style={styles.header_left_padding}>For the next few days, I intend...</Text>
+      <>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
+        <View style={styles.container}>
+        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
+        <Text style={styles.header_left_padding}>
+          For the next few days, I intend...
+        </Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ... to avoid mindless activities on my smartphone.
+              ... to avoid mindless activities on my smartphone.
             </Text>
 
             <View style={styles.question}>
-            <RadioGroup
+              <RadioGroup
                 getChecked={this.getChecked}
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
@@ -115,11 +140,11 @@ export default class IN_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            ... to use my smartphone more consciously.
+              ... to use my smartphone more consciously.
             </Text>
 
             <View style={styles.question}>
-            <RadioGroup
+              <RadioGroup
                 getChecked={this.getChecked}
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
@@ -137,12 +162,10 @@ export default class IN_Screen_T1 extends React.Component {
 
         {this.state.show_3 ? (
           <>
-            <Text style={styles.text_left}>
-            ... to use my smartphone less.
-            </Text>
+            <Text style={styles.text_left}>... to use my smartphone less.</Text>
 
             <View style={styles.question}>
-            <RadioGroup
+              <RadioGroup
                 getChecked={this.getChecked}
                 labelLeft="Not at all true"
                 labelRight="Exactly true"
@@ -155,13 +178,12 @@ export default class IN_Screen_T1 extends React.Component {
                 <Radio iconName={"lens"} label={"6"} value={"IN03_D1/6"} />
               </RadioGroup>
             </View>
-    
-    
+
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
-                disabled={ !this.state.buttonIsActive }
+                disabled={!this.state.buttonIsActive}
                 onPress={() => {
                   this.props.navigation.navigate("AP_Screen_T1");
                 }}
@@ -170,6 +192,7 @@ export default class IN_Screen_T1 extends React.Component {
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }

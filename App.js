@@ -5,7 +5,8 @@ import {
   StyleSheet,
   View,
   ActivityIndicator,
-  Alert
+  Alert,
+  Text
 } from "react-native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
@@ -18,7 +19,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux-persist/store";
 
-import AppNavigator from "./navigation/AppNavigator";
+import RootNavigation from "./navigation/AppNavigator";
 import MainTabNavigator from "./navigation/MainTabNavigator";
 
 export default class App extends React.Component {
@@ -41,7 +42,6 @@ export default class App extends React.Component {
   onAuthStateChanged = user => {
     this.setState({ isAuthenticationReady: true });
     this.setState({ isAuthenticated: !!user });
-
   };
 
   renderLoading = () => (
@@ -68,8 +68,7 @@ export default class App extends React.Component {
               {Platform.OS === "android" && (
                 <View style={styles.statusBarUnderlay} />
               )}
-              {/* {(this.state.isAuthenticated) ? <MainTabNavigator /> : <AppNavigator />} */}
-              <AppNavigator />
+               <RootNavigation />
             </View>
           </PersistGate>
         </Provider>
@@ -93,7 +92,9 @@ export default class App extends React.Component {
         "roboto-bold-italic": require("./assets/fonts/Roboto-BoldItalic.ttf"),
         "roboto-italic": require("./assets/fonts/Roboto-Italic.ttf"),
         "heebo-black": require("./assets/fonts/Heebo-Black.ttf"),
-        "heebo-thin": require("./assets/fonts/Heebo-Thin.ttf")
+        "heebo-thin": require("./assets/fonts/Heebo-Thin.ttf"),
+        "fira-light": require("./assets/fonts/FiraSans-Light.ttf"),
+        "fira-medium": require("./assets/fonts/FiraSans-Medium.ttf")
       })
     ]);
   };

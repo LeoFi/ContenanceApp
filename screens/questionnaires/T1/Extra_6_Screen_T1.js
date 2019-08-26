@@ -15,8 +15,11 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
@@ -24,6 +27,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      progressValue: 72 / 78,
       show_1: true,
       show_2: false,
       show_3: false,
@@ -55,21 +59,25 @@ export default class Extra_6_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 73 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 74 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 75 / 78 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
+        this.setState({ progressValue: 76 / 78 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -77,7 +85,9 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
+        this.setState({ progressValue: 77 / 78 });
       } else if (this.state.show_6 == true) {
+        this.setState({ progressValue: 78 / 78 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -88,21 +98,25 @@ export default class Extra_6_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 73 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 74 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 75 / 78 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
+        this.setState({ progressValue: 76 / 78 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -110,27 +124,43 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
+        this.setState({ progressValue: 77 / 78 });
+      } else if (this.state.show_6 == true) {
+        this.setState({ progressValue: 78 / 78 });
+        this.props.navigation.navigate("Closing_Screen_T1");
       }
     }, 400);
   };
 
   render() {
     return (
-      <View style={styles.container}>
-      {!this.state.show_6 ? (
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("Closing_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        )}
+      <>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
+        <View style={styles.container}>
+        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
@@ -366,6 +396,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }

@@ -52,13 +52,6 @@ export default class PrimaryButton extends Component {
 
 
 const styles = StyleSheet.create({
-    bottom: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        flexDirection: 'column',
-        marginBottom: 56,
-        alignSelf: 'stretch',
-    },
     button_primary: {
         backgroundColor: '#2C3B51',
         borderWidth: 2,
@@ -70,6 +63,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'stretch',
         marginBottom: 0,
+        height: 56
     },
     button_text_primary: {
         color: '#F4F1DE',

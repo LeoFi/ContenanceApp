@@ -14,8 +14,11 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
@@ -30,6 +33,7 @@ export default class MFSU_Screen_T1 extends React.Component {
       show_5: false,
       show_6: false,
       show_7: false,
+      progressValue: 32 / 78,
       buttonIsActive: false
     };
   }
@@ -50,21 +54,25 @@ export default class MFSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 33 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 34 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 35 / 78 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
+        this.setState({ progressValue: 36 / 78 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -72,6 +80,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
+        this.setState({ progressValue: 37 / 78 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -80,7 +89,9 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
+        this.setState({ progressValue: 38 / 78 });
       } else if (this.state.show_7 == true) {
+        this.setState({ progressValue: 39 / 78 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -91,21 +102,25 @@ export default class MFSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 33 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 34 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 35 / 78 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
+        this.setState({ progressValue: 36 / 78 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -113,6 +128,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
+        this.setState({ progressValue: 37 / 78 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -121,27 +137,42 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
+        this.setState({ progressValue: 38 / 78 });
+      } else if (this.state.show_7 == true) {
+        this.setState({ progressValue: 39 / 78 });
+        this.props.navigation.navigate("PSF_Screen_T1");
       }
     }, 400);
   };
 
   render() {
     return (
-      <View style={styles.container}>
-      {!this.state.show_7 ? (
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("PSF_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        )}
+      <>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View><View style={styles.container}>
+        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
         <Text style={styles.header_left_padding}>
           Please think about the last 7 days
         </Text>
@@ -149,7 +180,8 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            When I was using my smartphone my mind wandered off and I was easily distracted.
+              When I was using my smartphone my mind wandered off and I was
+              easily distracted.
             </Text>
 
             <View style={styles.question}>
@@ -172,8 +204,9 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            When I was using my smartphone I didn't pay attention to what I was doing because I was
-              daydreaming, worrying, or otherwise distracted.
+              When I was using my smartphone I didn't pay attention to what I
+              was doing because I was daydreaming, worrying, or otherwise
+              distracted.
             </Text>
 
             <View style={styles.question}>
@@ -195,7 +228,9 @@ export default class MFSU_Screen_T1 extends React.Component {
 
         {this.state.show_3 ? (
           <>
-            <Text style={styles.text_left}>When I was using my smartphone I was easily distracted.</Text>
+            <Text style={styles.text_left}>
+              When I was using my smartphone I was easily distracted.
+            </Text>
 
             <View style={styles.question}>
               <RadioGroup
@@ -217,8 +252,8 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            When I was using my smartphone I found it difficult to stay focused on what was happening in the
-              present.
+              When I was using my smartphone I found it difficult to stay
+              focused on what was happening in the present.
             </Text>
 
             <View style={styles.question}>
@@ -241,8 +276,8 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_5 ? (
           <>
             <Text style={styles.text_left}>
-            When I was using my smartphone I rushed through activities without being really attentive to
-              them.
+              When I was using my smartphone I rushed through activities without
+              being really attentive to them.
             </Text>
 
             <View style={styles.question}>
@@ -265,8 +300,8 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_6 ? (
           <>
             <Text style={styles.text_left}>
-            When I was using my smartphone I did jobs or tasks automatically without being aware of what
-              I was doing.
+              When I was using my smartphone I did jobs or tasks automatically
+              without being aware of what I was doing.
             </Text>
 
             <View style={styles.question}>
@@ -289,7 +324,8 @@ export default class MFSU_Screen_T1 extends React.Component {
         {this.state.show_7 ? (
           <>
             <Text style={styles.text_left}>
-            When I was using my smartphone I found myself doing things without paying attention.
+              When I was using my smartphone I found myself doing things without
+              paying attention.
             </Text>
 
             <View style={styles.question}>
@@ -320,6 +356,7 @@ export default class MFSU_Screen_T1 extends React.Component {
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }

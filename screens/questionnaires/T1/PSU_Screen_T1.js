@@ -14,10 +14,11 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
+import * as Progress from "react-native-progress";
 
-// import RadioGroup, { Radio } from "react-native-radio-input";
-
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 
 import { styles } from "./style";
 
@@ -36,6 +37,7 @@ export default class PSU_Screen_T1 extends React.Component {
       show_7: false,
       show_8: false,
       show_9: false,
+      progressValue: 0,
       buttonIsActive: false
     };
   }
@@ -56,21 +58,25 @@ export default class PSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 1 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 2 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 3 / 78 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
+        this.setState({ progressValue: 4 / 78 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -78,6 +84,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
+        this.setState({ progressValue: 5 / 78 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -86,6 +93,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
+        this.setState({ progressValue: 6 / 78 });
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -95,6 +103,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
+        this.setState({ progressValue: 7 / 78 });
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -105,9 +114,11 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
+        this.setState({ progressValue: 8 / 78 });
       } else if (this.state.show_9 == true) {
+        this.setState({ progressValue: 9 / 78 });
         this.setState({ buttonIsActive: true });
-      } 
+      }
     }, 400);
   };
 
@@ -116,21 +127,25 @@ export default class PSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 1 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 2 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 3 / 78 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
+        this.setState({ progressValue: 4 / 78 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -138,6 +153,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
+        this.setState({ progressValue: 5 / 78 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -146,6 +162,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
+        this.setState({ progressValue: 6 / 78 });
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -155,6 +172,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
+        this.setState({ progressValue: 7 / 78 });
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -165,7 +183,9 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
+        this.setState({ progressValue: 8 / 78 });
       } else if (this.state.show_9 == true) {
+        this.setState({ progressValue: 9 / 78 });
         this.props.navigation.navigate("SUE_Screen_T1");
       }
     }, 400);
@@ -173,23 +193,37 @@ export default class PSU_Screen_T1 extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {!this.state.show_10 ? (
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("SUE_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        )}
+      <>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
+        <View style={styles.container}>
+        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
 
-        <Text style={styles.header_left_padding}>Please think about the last 7 days</Text>
+        <Text style={styles.header_left_padding}>
+          Please think about the last 7 days
+        </Text>
 
         {this.state.show_1 ? (
           <>
@@ -242,8 +276,8 @@ export default class PSU_Screen_T1 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-              I felt anxious if I had not checked for messages or switched on
-              my smartphone for some time.
+              I felt anxious if I had not checked for messages or switched on my
+              smartphone for some time.
             </Text>
 
             <View style={styles.question}>
@@ -289,8 +323,8 @@ export default class PSU_Screen_T1 extends React.Component {
         {this.state.show_5 ? (
           <>
             <Text style={styles.text_left}>
-              I found myself engaged on the smartphone for longer periods of time
-              than intended.
+              I found myself engaged on the smartphone for longer periods of
+              time than intended.
             </Text>
 
             <View style={styles.question}>
@@ -414,6 +448,7 @@ export default class PSU_Screen_T1 extends React.Component {
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }

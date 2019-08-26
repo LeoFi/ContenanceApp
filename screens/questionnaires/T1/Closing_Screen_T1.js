@@ -1,14 +1,16 @@
 import React from "react";
-import { View, Text, TextInput, ScrollView, Image } from "react-native";
-import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
+import { View, Text, TextInput, ScrollView, Image, Dimensions } from "react-native";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  GreyInputButton
+} from "../../../components/AppComponents";
 import { styles } from "./style";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 import { updateOnboarding } from "./../../../redux-persist/redux/user";
 
-
 class Closing_Screen_T1 extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -30,26 +32,45 @@ class Closing_Screen_T1 extends React.Component {
       .update({
         onboardingDone
       });
-    this.props.navigation.push('Home');
+    this.props.navigation.push("Home");
   };
 
   render() {
+    const screenHeight = Dimensions.get("window").height;
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.header_left}>Thank you, {this.props.user.nickname}.</Text>
+      <View style={{ height: screenHeight }}>
+        <ScrollView
+          style={styles.container_scrollview}
+          contentContainerStyle={styles.container_scrollview_content}
+        >
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "flex-start",
+              width: Dimensions.get("window").width - 60
+            }}
+          >
+            <Text style={styles.header_left}>
+              Thank you, {this.props.user.nickname}.
+            </Text>
 
-        <Text style={styles.text_left}>
-          {"\n"}You’re all set and ready to dive into the wide ocean.
-          {"\n"}{"\n"}Enjoy your journey!
-        </Text>
+            <Text style={styles.text_left}>
+              {"\n"}You’re all set and ready to dive into the wide ocean.
+              {"\n"}
+              {"\n"}Enjoy your journey!
+            </Text>
+            <View style={{ flex: 1 }} />
 
-        <View style={styles.bottom}>
-          <PrimaryButton
-            label="START EXERCISING"
-            isBottom={true}
-            onPress={this.handleSubmit}
-          />
-        </View>
+            <View style={styles.bottom}>
+              <PrimaryButton
+                label="START EXERCISING"
+                isBottom={true}
+                onPress={this.handleSubmit}
+              />
+            </View>
+          </View>
+        </ScrollView>
       </View>
     );
   }

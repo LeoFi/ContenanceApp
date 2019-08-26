@@ -61,10 +61,6 @@ class TestScreen extends React.Component {
     this.compareDates();
   }
 
-  componentDidMount() {
-    this.compareDates();
-  }
-
   compareDates = () => {
     const initialDate = this.props.user.initialDate;
 
@@ -76,7 +72,7 @@ class TestScreen extends React.Component {
 
     dt1 = new Date(initialDate);
     //dt2 = new Date();
-    dt2 = new Date('September 24, 2019 23:15:30');
+    dt2 = new Date("September 24, 2019 23:15:30");
 
     console.log(dt1);
     console.log(dt2);
@@ -202,6 +198,7 @@ class TestScreen extends React.Component {
             .filter(item => item.exercice == "locked")
             .map(item => {
               return this.setState({ TodayLocked: "next" }, function() {
+                //Alert.alert(item);
                 this.props.dispatch(
                   data[programLength].function(this.state.TodayLocked)
                 );
@@ -1075,23 +1072,31 @@ class TestScreen extends React.Component {
             justifyContent: "space-between"
           }}
         >
-          <View style={{ flex: 1, paddingTop: 50, marginTop: 10, width: 300, height: 300 }}>
+          <View
+            style={{
+              flex: 1,
+              paddingTop: 50,
+              marginTop: 10,
+              width: 300,
+              height: 300
+            }}
+          >
             {/* <Image
               style={styles.center}
               source={require("./../assets/images/home_1.png")}
             /> */}
             <Progress.Circle
-            progress={this.state.progressCircle}
-            size={200}
-            thickness={10}
-            strokeCap={"round"}
-            borderWidth={0}
-            borderRadius={0}
-            height={200}
-            //color={headerProps.colorProgress}
-            unfilledColor={"rgba(255, 255, 255, 1)"}
-            animated={true}
-          />
+              progress={this.state.progressCircle}
+              size={200}
+              thickness={10}
+              strokeCap={"round"}
+              borderWidth={0}
+              borderRadius={0}
+              height={200}
+              //color={headerProps.colorProgress}
+              unfilledColor={"rgba(255, 255, 255, 1)"}
+              animated={true}
+            />
           </View>
 
           <View style={{ flex: 1 }}>
@@ -1104,7 +1109,7 @@ class TestScreen extends React.Component {
             <Text style={styles.text_left}>
               {"\n"}Continue with your next session.
             </Text>
-            
+
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||

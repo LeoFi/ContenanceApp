@@ -17,8 +17,8 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
@@ -26,6 +26,7 @@ export default class Extra_1_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      progressValue: 63/78,
       buttonIsActive: false,
       userAge: ""
     };
@@ -44,16 +45,41 @@ export default class Extra_1_Screen_T1 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({ Age: userAge });
+      this.setState({ progressValue: 64 / 78 });
     this.props.navigation.navigate("Extra_2_Screen_T1");
   };
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <>
             <TouchableOpacity
               onPress={() => {
+                this.setState({ progressValue: 64 / 78 });
                 this.props.navigation.navigate("Extra_2_Screen_T1");
               }}
               style={styles.skip}
@@ -92,6 +118,7 @@ export default class Extra_1_Screen_T1 extends React.Component {
           </>
         </View>
       </TouchableWithoutFeedback>
+      </>
     );
   }
 }

@@ -14,8 +14,11 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
@@ -27,6 +30,7 @@ export default class HS_Screen_T1 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
+      progressValue: 45 / 78,
       buttonIsActive: false
     };
   }
@@ -47,16 +51,20 @@ export default class HS_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 46 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 47 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 48 / 78 });
       } else if (this.state.show_4 == true) {
+        this.setState({ progressValue: 49 / 78 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -67,43 +75,63 @@ export default class HS_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValue: 46 / 78 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValue: 47 / 78 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValue: 48 / 78 });
+      } else if (this.state.show_4 == true) {
+        this.setState({ progressValue: 49 / 78 });
+        this.props.navigation.navigate("IN_Screen_T1");
       }
     }, 400);
   };
 
   render() {
     return (
-      <View style={styles.container}>
-      {!this.state.show_4 ? (
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("IN_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        )}
+      <>
+        <View
+          style={{
+            flex: 1,
+            width: "100%",
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValue}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
+        <View style={styles.container}>
+        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
         <Text style={styles.header_left_padding}>
-        Please think about the last 7 days
+          Please think about the last 7 days
         </Text>
 
         {this.state.show_1 ? (
           <>
-            <Text style={styles.text_left}>Using my smartphone was something I did automatically.</Text>
+            <Text style={styles.text_left}>
+              Using my smartphone was something I did automatically.
+            </Text>
 
             <View style={styles.question}>
               <RadioGroup
@@ -125,7 +153,8 @@ export default class HS_Screen_T1 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            Using my smartphone was something I did without having to consciously remember.
+              Using my smartphone was something I did without having to
+              consciously remember.
             </Text>
 
             <View style={styles.question}>
@@ -147,7 +176,9 @@ export default class HS_Screen_T1 extends React.Component {
 
         {this.state.show_3 ? (
           <>
-            <Text style={styles.text_left}>Using my smartphone was something I did without thinking.</Text>
+            <Text style={styles.text_left}>
+              Using my smartphone was something I did without thinking.
+            </Text>
 
             <View style={styles.question}>
               <RadioGroup
@@ -169,7 +200,8 @@ export default class HS_Screen_T1 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            Using my smartphone was something I started doing before I realized I was doing it.
+              Using my smartphone was something I started doing before I
+              realized I was doing it.
             </Text>
 
             <View style={styles.question}>
@@ -200,6 +232,7 @@ export default class HS_Screen_T1 extends React.Component {
           </>
         ) : null}
       </View>
+      </>
     );
   }
 }
