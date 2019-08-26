@@ -8,6 +8,15 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingBottom: 40
   },
+  container_tag: {
+    flex: 1,
+    alignItems: "center",
+    alignSelf: "stretch",
+    paddingTop: 80,
+    paddingBottom: 40,
+    paddingLeft: 30,
+    paddingRight: 30
+  },
   container_scroll: {
     flex: 1,
     flexGrow: 1,
@@ -42,6 +51,22 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     //paddingBottom: 200,
     height: Dimensions.get("window").height
+  },
+  container_scrollview: {
+    height: Dimensions.get("window").height,
+    backgroundColor: "#F4F1DE",
+    paddingTop: 80,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingBottom: 40
+  },
+  container_scrollview_content: {
+    paddingTop: 80,
+    paddingBottom: 30,
+    flexGrow: 1,
+    alignItems: "flex-start",
+    alignSelf: "stretch",
+    flexWrap: "wrap"
   },
   container_background: {
     flex: 1,
@@ -117,12 +142,8 @@ const styles = StyleSheet.create({
     paddingTop: 30
   },
   bottom: {
-    position: "relative",
-    alignSelf: "stretch",
-    //paddingTop: 30,
-    paddingLeft: 30,
-    paddingRight: 30,
-    bottom: 30
+    justifyContent: "flex-start",
+    alignSelf: "stretch"
   },
   keyboard_view: {
     flex: 1,
@@ -145,6 +166,21 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     fontFamily: "roboto-black",
     paddingBottom: 10
+  },
+  header_light: {
+    color: "#F4F1DE",
+    fontSize: 34,
+    lineHeight: 37,
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 10
+  },
+  text_light: {
+    color: "#F4F1DE",
+    fontSize: 19,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-regular"
   },
   intro_header_day_light: {
     color: "#F4F1DE",
@@ -213,7 +249,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingBottom: 40,
     paddingLeft: 30,
-    paddingRight: 30,
+    paddingRight: 30
   },
   intro_text_light: {
     color: "#F4F1DE",
@@ -261,7 +297,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
-    fontWeight: "normal"
+    fontWeight: "normal",
+    paddingTop: 4
   },
   text_input_button: {
     flex: 1,
@@ -281,14 +318,14 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   inputIcon: {
     padding: 10,
     position: "absolute",
     right: 5,
     zIndex: 1,
-    overflow: "visible",
+    overflow: "visible"
   }
 });
 

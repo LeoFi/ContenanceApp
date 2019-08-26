@@ -7,7 +7,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Dimensions
 } from "react-native";
 import { PrimaryButton } from "../../../components/AppComponents";
 import Onboarding from "react-native-onboarding-swiper";
@@ -28,7 +29,8 @@ const CustomButton = ({ isLight, selected }) => {
         marginHorizontal: 5,
         marginVertical: 0,
         backgroundColor: "#2C3B51",
-        borderRadius: 7
+        borderRadius: 7,
+        marginTop: -30
       }}
     >
       <View
@@ -60,9 +62,19 @@ class OnboardingScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.user.nickname || ""
+      nickname: this.props.user.nickname || "",
+      iphone5: false
     };
   }
+
+  componentWillMount = () => {
+    const screenWidth = Dimensions.get("window").width;
+    if (screenWidth === 320) {
+      this.setState({ iphone5: true });
+    } else {
+      this.setState({ iphone5: false });
+    }
+  };
 
   onCreateAccountPress = () => {
     this.props.navigation.navigate("T1");
@@ -74,14 +86,14 @@ class OnboardingScreen extends React.Component {
         showDone={false}
         showSkip={false}
         showNext={false}
-        bottomBarHeight={1}
         bottomBarHighlight={false}
+        bottomBarHeight={15}
         DotComponent={CustomButton}
         containerStyles={{
-          paddingTop: 80,
+          paddingTop: 50,
+          paddingBottom: 40,
           paddingLeft: 30,
           paddingRight: 30,
-          paddingBottom: 60,
           flex: 1,
           alignItems: "flex-start",
           alignSelf: "stretch"
@@ -105,7 +117,6 @@ class OnboardingScreen extends React.Component {
           color: "#2C3B51",
           fontSize: 19,
           lineHeight: 25,
-          paddingTop: 25,
           textAlign: "center",
           fontFamily: "roboto-regular"
         }}
@@ -113,7 +124,7 @@ class OnboardingScreen extends React.Component {
           {
             title: "",
             subtitle: (
-              <View style={{ flex: 1 }}>
+              <View style={{ flex: 1, justifyContent: "flex-start" }}>
                 <Text style={styles.text}>
                   You can probably relate to my situation,{" "}
                   {this.props.user.nickname}: I love my smartphone. It opens up
@@ -133,7 +144,7 @@ class OnboardingScreen extends React.Component {
           {
             title: "",
             subtitle: (
-              <View style={{ flex: 1 }}>
+              <View style={{ flex: 1, justifyContent: "flex-start" }}>
                 <Text style={styles.text}>
                   But the ocean is not calm. There are lots of stormy waves of
                   distraction that pull you underwater. Sometimes, I feel like
@@ -144,6 +155,7 @@ class OnboardingScreen extends React.Component {
             backgroundColor: "#F4F1DE",
             image: (
               <Image
+                style={{ width: this.state.iphone5 ? 320 : 375 }}
                 source={require("./../../../assets/images/Onboarding2.png")}
               />
             )
@@ -176,7 +188,7 @@ class OnboardingScreen extends React.Component {
             backgroundColor: "#F4F1DE",
             image: (
               <Image
-                style={{ justifyContent: "flex-start" }}
+                style={{ width: this.state.iphone5 ? 320 : 375 }}
                 source={require("./../../../assets/images/Onboarding3.png")}
               />
             )
@@ -193,9 +205,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
     lineHeight: 25,
     textAlign: "center",
-    fontFamily: "roboto-regular",
-    paddingTop: 25,
-    paddingBottom: 25
+    fontFamily: "roboto-regular"
   },
   header: {
     color: "#2C3B51",

@@ -25,6 +25,8 @@ class Intro_Screen_PM1 extends React.Component {
           {"\n"}{"\n"}If you happen to answer these questions at a later point, please do a mental time travel and pretend it is just the end of the <Text style={styles.text_bold}>Observe</Text> module.
         </Text>
 
+        <View style={{ flex: 1 }} />
+
         <View style={styles.bottom}>
           <PrimaryButton
             label="Start Reflection"

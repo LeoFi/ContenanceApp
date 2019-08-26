@@ -17,10 +17,20 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
     },
     container_scrollview_content: {
+        paddingTop: 80,
+        paddingBottom: 40,
         flexGrow: 1,
         alignItems: "flex-start",
         alignSelf: "stretch",
-        flexWrap: "wrap",
+        flexWrap: "wrap"
+    },
+    container_scrollview_image: {
+        paddingTop: 60,
+        paddingBottom: 40,
+        flexGrow: 1,
+        alignItems: "flex-start",
+        alignSelf: "stretch",
+        flexWrap: "wrap"
     },
     container_scroll: {
         paddingTop: 80,
@@ -130,8 +140,7 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     codeInput: {
-        marginTop: 40,
-        marginBottom: 20,
+        //marginTop: 40,
         backgroundColor: "#E2DFD1",
         borderRadius: 7,
         textAlign: 'center',

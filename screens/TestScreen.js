@@ -861,7 +861,8 @@ class TestScreen extends React.Component {
     var ExercicesArray = [
       {
         id: 1,
-        path: "Intro_Phase_Observe",
+        // path: "Intro_Phase_Observe",
+        path: "Exercice_1_Congratulations",
         label: "Day 1 - Contenance",
         styleButton: ExerciceStyle_1,
         styleText: ExerciceTextStyle_1,

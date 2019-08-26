@@ -53,21 +53,26 @@ class Exercice_12_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header}>Congratulations!</Text>
-                <Text style={styles.text}>
+                <Text style={styles.header_light}>Congratulations!</Text>
+                <Text style={styles.text_light}>
                   {"\n"}Today, you discovered how to accept  emotional triggers and impulses.
                   {"\n"}{"\n"}Continue today’s exercise with your third reflection.
                 </Text>
-
-                <View style={styles.tap_pos_relative}>
-                  <PrimaryButton
-                    label="Continue"
-                    onPress={this.handleSubmit}
-                  />
-                </View>
             </View>
           </View>
         </ScrollView>
+
+        <View style={styles.bottom}>
+          <PrimaryButton
+            label="Done"
+            style={{
+              backgroundColor: "#F4F1DE",
+              borderColor: "#F4F1DE",
+              color: "#2C3B51"
+            }}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }

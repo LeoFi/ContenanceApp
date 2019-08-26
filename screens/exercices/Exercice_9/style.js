@@ -51,6 +51,10 @@ const styles = StyleSheet.create({
     container_background_color: {
         backgroundColor: "#A878CE",
     },
+    container_background_inverted: {
+        flex: 1,
+        backgroundColor: "#F87B7B"
+      },
     scroll: {
         flex: 1,
         alignSelf: "stretch",
@@ -142,6 +146,21 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         fontFamily: 'roboto-black',
         paddingBottom: 10,
+    },
+    header_light: {
+        color: '#F4F1DE',
+        fontSize: 34,
+        lineHeight: 37,
+        textAlign: 'center',
+        fontFamily: 'roboto-black',
+        paddingBottom: 10,
+    },
+    text_light: {
+        color: '#F4F1DE',
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'center',
+        fontFamily: 'roboto-regular',
     },
     intro_header_day: {
         color: '#2C3B51',

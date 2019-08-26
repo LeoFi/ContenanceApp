@@ -43,18 +43,26 @@ class Exercice_1_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.header}>Congratulations!</Text>
-              <Text style={styles.text}>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
                 {"\n"}You finished your first exercise. Now you know why this
                 training is called Contenance!
               </Text>
-
-              <View style={styles.tap_pos_relative}>
-                <PrimaryButton label="Done" onPress={this.handleSubmit} />
-              </View>
             </View>
           </View>
         </ScrollView>
+
+        <View style={styles.bottom}>
+          <PrimaryButton
+            label="Done"
+            style={{
+              backgroundColor: "#F4F1DE",
+              borderColor: "#F4F1DE",
+              color: "#2C3B51"
+            }}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }
@@ -69,9 +77,9 @@ class Exercice_1_Congratulations extends React.Component {
     console.log(initialDate);
 
     if (this.props.user.initialDate.length === 0) {
-    //if (this.props.user.initialDate.length > 0) {
+      //if (this.props.user.initialDate.length > 0) {
       this.setState({ initialDate: initialDate }, function() {
-      //this.setState({ initialDate: "" }, function() {
+        //this.setState({ initialDate: "" }, function() {
         //console.log(this.state.initialDate);
         this.props.dispatch(updateStartingDate(this.state.initialDate));
       });

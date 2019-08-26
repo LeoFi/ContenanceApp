@@ -30,9 +30,19 @@ class IntroOnboardingScreen extends React.Component {
     super(props);
     this.state = {
       nickname: this.props.user.nickname || "",
-      accessCode: this.props.user.accessCode || ""
+      accessCode: this.props.user.accessCode || "",
+      iphone5: false
     };
   }
+
+  componentWillMount = () => {
+    const screenWidth = Dimensions.get("window").width;
+    if (screenWidth === 320) {
+      this.setState({ iphone5: true });
+    } else {
+      this.setState({ iphone5: false });
+    }
+  };
 
   handleChange = nickname => {
     this.setState({ nickname });
@@ -57,54 +67,68 @@ class IntroOnboardingScreen extends React.Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView
-          style={styles.container_scrollview}
-          contentContainerStyle={styles.container_scrollview_content}
-          keyboardShouldPersistTaps="handled"
-        >
-          <KeyboardAvoidingView behavior="position" keyboardVerticalOffset="100">
-            <View style={{ flex: 1, justifyContent: "flex-start", width: Dimensions.get("window").width - 60 }}>
-              <View style={{ alignItems: "center", paddingBottom: 40 }}>
-                <Image
-                  source={require("./../../../assets/images/placeholder_background.png")}
-                />
-              </View>
-              <Text style={styles.header}>Hi, I’m Leo.</Text>
-
-              <Text style={styles.text}>
-                {"\n"}And I’m going to be your companion on this journey. How do
-                you like to be called?
-              </Text>
-
-              <TextInput
-                style={styles.codeInput}
-                value={this.state.nickname}
-                onChangeText={this.handleChange}
-                placeholder="Your Nickname"
-                placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                autoCapitalize="none"
-                autoCorrect={false}
-              />
-              <View style={{ flex: 1 }} />
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#F4F1DE",
+          width: Dimensions.get("window").width
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <ScrollView
+            contentContainerStyle={styles.container_scrollview_image}
+            keyboardShouldPersistTaps="handled"
+          >
+            <KeyboardAvoidingView
+              behavior="position"
+              keyboardVerticalOffset="30"
+            >
               <View
                 style={{
-                  //flex: 1,
-                  alignSelf: "stretch",
-                  justifyContent: "flex-end"
+                  flex: 1,
+                  width: Dimensions.get("window").width - 60,
+                  justifyContent: "space-between"
                 }}
               >
-                <PrimaryButton
-                  label="Next"
-                  isBottom={true}
-                  onPress={this.handleSubmit}
-                  disabled={!this.state.nickname}
-                />
+                <View style={{ flex: 2, alignItems: "center"}}>
+                  <Image
+                    source={require("./../../../assets/images/placeholder_background.png")}
+                  />
+                  <View style={{height: 40}}/>
+                  <Text style={styles.header}>Hi, I’m Leo.</Text>
+                  <Text style={styles.text}>
+                    {"\n"}And I’m going to be your companion on this journey.
+                    How do you like to be called?
+                  </Text>
+                  <View style={{height: 40}}/>
+                  <TextInput
+                    style={styles.codeInput}
+                    value={this.state.nickname}
+                    onChangeText={this.handleChange}
+                    placeholder="Your Nickname"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="ascii-capable"
+                  />
+                  <View style={{height: 40}}/>
+                </View>
+                
+                <View>
+                  <PrimaryButton
+                    label="Next"
+                    isBottom={true}
+                    onPress={this.handleSubmit}
+                    disabled={!this.state.nickname}
+                  />
+                </View>
               </View>
-            </View>
-          </KeyboardAvoidingView>
-        </ScrollView>
-      </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
+          </ScrollView>
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 }

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         paddingTop: 80,
         paddingLeft: 30,
         paddingRight: 30,
-        paddingBottom: 100,
+        paddingBottom: 50,
     },
     container_scroll_img_absolute: {
         //width: Dimensions.get("window").width,
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
         //position: "absolute",
         width: Dimensions.get("window").width,
         top: 0,
+        marginBottom: 50
     },
     image_absolute: {
         flex: 1,
@@ -171,6 +172,21 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-black',
         paddingBottom: 10,
     },
+    header_light: {
+        color: '#F4F1DE',
+        fontSize: 34,
+        lineHeight: 37,
+        textAlign: 'center',
+        fontFamily: 'roboto-black',
+        paddingBottom: 10,
+    },
+    text_light: {
+        color: '#F4F1DE',
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'center',
+        fontFamily: 'roboto-regular',
+    },
     sub_header: {
         color: '#2C3B51',
         fontSize: 24,
@@ -201,6 +217,10 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         textAlign: 'center',
         fontFamily: 'roboto-regular',
+    },
+    tap_pos_relative_exercice: {
+        // alignSelf: "stretch",
+        paddingTop: 50,
     },
     tap_pos_relative: {
         // alignSelf: "stretch",

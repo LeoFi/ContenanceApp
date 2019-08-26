@@ -23,6 +23,19 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingBottom: 100,
     },
+    container_scroll_start: {
+        flex: 1,
+        flexGrow: 1,
+        width: Dimensions.get("window").width,
+        height: Dimensions.get("window").height,
+        alignItems: "center",
+        justifyContent: 'flex-start',
+        alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 100,
+    },
     container_scroll_img_absolute: {
         //width: Dimensions.get("window").width,
         //height: Dimensions.get("window").height,
@@ -73,6 +86,22 @@ const styles = StyleSheet.create({
     },
     container_background_color: {
         backgroundColor: "#A878CE",
+    },
+    container_background_inverted: {
+        flex: 1,
+        backgroundColor: "#A28AD4",
+    },
+    container_scrollview: {
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+    },
+    container_scrollview_content: {
+        flexGrow: 1,
+        alignItems: "flex-start",
+        alignSelf: "stretch",
+        flexWrap: "wrap",
     },
     scroll: {
         flex: 1,
@@ -170,6 +199,21 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         fontFamily: 'roboto-black',
         paddingBottom: 10,
+    },
+    header_light: {
+        color: '#F4F1DE',
+        fontSize: 34,
+        lineHeight: 37,
+        textAlign: 'center',
+        fontFamily: 'roboto-black',
+        paddingBottom: 10,
+    },
+    text_light: {
+        color: '#F4F1DE',
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: 'center',
+        fontFamily: 'roboto-regular',
     },
     intro_header_day: {
         color: '#2C3B51',

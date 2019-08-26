@@ -53,6 +53,11 @@ export default class Exercice_3_2 extends React.Component {
             )}
           /> */}
         </View>
+        <PrimaryButton
+            label="Next"
+            onPress={this.handleSubmit}
+          />
+
         <View style={{ flex: 1, justifyContent: "flex-end" }}>
           <Text style={styles.tap_text_deck}>DRAG THE CARD LEFT OR RIGHT</Text>
         </View>
@@ -60,6 +65,10 @@ export default class Exercice_3_2 extends React.Component {
     );
   }
 
+  handleSubmit = () => {
+    this.props.navigation.push("Exercice_3_2_More5");
+  };
+  
   countLeftTry = () => {
     this.countLeft += 1;
   };

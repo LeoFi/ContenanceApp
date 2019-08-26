@@ -35,15 +35,26 @@ export default class Exercice_3_7 extends React.Component {
                 this.props.navigation.navigate("Exercice_3_8");
               }}
             >
-              <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_4.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.intro_text}>
-                  {"\n"}Interestingly,  most of the strategies and hacks you can find on blogs or in books are mainly focusing on the smartphone and the environment. Although they are highly valuable, we believe in the power of the <Text style={styles.intro_text_bold}>person</Text> to take control. It is you who is in control! You have the power to consciously use the phone, not less but better, for your own benefit.
-                </Text>
+              <View style={styles.container_scroll_start}>
+                <View style={{ flex: 1 }}>
+                  <Image
+                    style={styles.image_height}
+                    source={require("../../../assets/images/Exercice3_4.png")}
+                    resizeMode="contain"
+                  />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.intro_text}>
+                    Interestingly, most of the strategies and hacks you can find
+                    on blogs or in books are mainly focusing on the smartphone
+                    and the environment. Although they are highly valuable, we
+                    believe in the power of the{" "}
+                    <Text style={styles.intro_text_bold}>person</Text> to take
+                    control. It is you who is in control! You have the power to
+                    consciously use the phone, not less but better, for your own
+                    benefit.
+                  </Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
