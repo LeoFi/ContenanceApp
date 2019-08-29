@@ -28,7 +28,7 @@ export default class Exercice_1_Intro extends React.Component {
     return (
       <View style={styles.background_intro}>
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}

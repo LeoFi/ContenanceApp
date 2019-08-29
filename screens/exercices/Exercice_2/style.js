@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F4F1DE",
     },
     container_background_color: {
-        backgroundColor: "#A878CE",
+        backgroundColor: "#A28AD4",
     },
     container_background_inverted: {
         flex: 1,

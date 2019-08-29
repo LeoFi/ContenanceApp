@@ -78,6 +78,7 @@ class IntroOnboardingScreen extends React.Component {
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <ScrollView
+          showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.container_scrollview_image}
             keyboardShouldPersistTaps="handled"
           >

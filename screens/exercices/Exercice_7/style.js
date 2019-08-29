@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F4F1DE"
   },
   container_background_color: {
-    backgroundColor: "#A878CE"
+    backgroundColor: "#A28AD4"
   },
   container_background_inverted: {
     flex: 1,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     right: 0
   },
   background_intro: {
-    backgroundColor: "#A28AD4",
+    backgroundColor: "#F6B563",
     height: Dimensions.get("window").height
   },
   full_background: {
@@ -176,20 +176,20 @@ const styles = StyleSheet.create({
     paddingBottom: 10
   },
   header_light: {
-    color: '#F4F1DE',
+    color: "#F4F1DE",
     fontSize: 34,
     lineHeight: 37,
-    textAlign: 'center',
-    fontFamily: 'roboto-black',
-    paddingBottom: 10,
-},
-text_light: {
-    color: '#F4F1DE',
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 10
+  },
+  text_light: {
+    color: "#F4F1DE",
     fontSize: 19,
     lineHeight: 25,
-    textAlign: 'center',
-    fontFamily: 'roboto-regular',
-},
+    textAlign: "center",
+    fontFamily: "roboto-regular"
+  },
   intro_header_day: {
     color: "#2C3B51",
     fontSize: 23,

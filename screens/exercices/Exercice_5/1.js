@@ -153,10 +153,16 @@ class Exercice_5_1 extends React.Component {
                     paddingLeft: 20,
                     paddingRight: 20,
                     backgroundColor: "#E2DFD1",
+                    borderWidth: 0,
                     height: 50,
                     width: "100%"
                   }}
-                  itemStyleSelected={{}}
+                  itemStyleSelected={{
+                    backgroundColor: "#F6B563"
+                  }}
+                  itemLabelStyleSelected={{
+                    fontFamily: 'roboto-bold'
+                  }}
                 />
 
                 <View style={styles.searchSection}>
@@ -186,7 +192,7 @@ class Exercice_5_1 extends React.Component {
                     </Svg>
                   </TouchableOpacity>
                 </View>
-                <View style={{ flex: 1 }} />
+                <View style={{ flex: 1, paddingBottom: 30 }} />
                 <View style={styles.bottom}>
                   <PrimaryButton
                     label="Continue"

@@ -389,9 +389,9 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start"
   },
   next: {
-    backgroundColor: "#A878CE",
+    backgroundColor: "#A28AD4",
     borderWidth: 2,
-    borderColor: "#A878CE",
+    borderColor: "#A28AD4",
     borderRadius: 12,
     overflow: "hidden",
     padding: 15,
@@ -413,7 +413,7 @@ const styles = StyleSheet.create({
   new: {
     backgroundColor: "transparent",
     borderWidth: 2,
-    borderColor: "#A878CE",
+    borderColor: "#A28AD4",
     borderRadius: 12,
     overflow: "hidden",
     padding: 15,
@@ -423,7 +423,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   text_new: {
-    color: "#A878CE",
+    color: "#A28AD4",
     fontSize: 17,
     lineHeight: 23,
     textAlign: "left",

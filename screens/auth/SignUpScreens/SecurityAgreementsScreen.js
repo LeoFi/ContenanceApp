@@ -16,7 +16,9 @@ export default class Second extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container_scroll}>
+      <ScrollView 
+      showsVerticalScrollIndicator={false}
+      style={styles.container_scroll}>
         <Text style={styles.header}>Security Agreements</Text>
         <Text style={styles.text_scroll}>
           {"\n"}Declaration of Consent

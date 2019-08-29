@@ -10,13 +10,17 @@ import {
   TextInput,
   Button,
   StatusBar,
-  Alert
+  Alert,
+  Dimensions,
+  Modal,
+  TouchableHighlight
 } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
   ExerciceButton,
-  HeaderComponent
+  HeaderComponent,
+  HomeIllustration
 } from "./../components/AppComponents";
 
 import {
@@ -44,7 +48,7 @@ import {
 } from "./../redux-persist/redux/exercices";
 
 import * as firebase from "firebase";
-
+import { Svg, Path, Circle } from "react-native-svg";
 import * as Progress from "react-native-progress";
 
 import { connect } from "react-redux";
@@ -53,7 +57,13 @@ class TestScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressCircle: 0
+      progressCircle: 0.2,
+      welcome_message: "Continue with your next session.",
+      observeStarted: true,
+      reflectStarted: false,
+      visionStarted: false,
+      planStarted: false,
+      supportStarted: false
     };
   }
 
@@ -72,7 +82,7 @@ class TestScreen extends React.Component {
 
     dt1 = new Date(initialDate);
     //dt2 = new Date();
-    dt2 = new Date("September 24, 2019 23:15:30");
+    dt2 = new Date("september 27, 2019 14:44:30");
 
     console.log(dt1);
     console.log(dt2);
@@ -191,7 +201,18 @@ class TestScreen extends React.Component {
       //
     } else {
       for (let programLength = 0; programLength < 21; programLength++) {
-        if (programLength === x && data[programLength].exercice == "locked") {
+        if (
+          programLength === x &&
+          data[programLength].exercice == "completed"
+        ) {
+          console.log("On the same day ET Complet");
+          this.setState({
+            welcome_message: "Well Done, come back tomorrow to continue."
+          });
+        } else if (
+          programLength === x &&
+          data[programLength].exercice == "locked"
+        ) {
           console.log("Current Day AND exercice Locked");
 
           const TodayLocked = data
@@ -239,12 +260,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_1 = styles.text_next;
-        ExerciceStyle_1 = styles.next;
+        ExerciceStyle_1 = styles.next_observe;
         IconsExercice_1 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_1 = styles.text_new;
-        ExerciceStyle_1 = styles.new;
+        ExerciceTextStyle_1 = styles.text_new_observe;
+        ExerciceStyle_1 = styles.new_observe;
         IconsExercice_1 = require("./../assets/images/newmark_observe.png");
         break;
       case "locked":
@@ -269,12 +290,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_2 = styles.text_next;
-        ExerciceStyle_2 = styles.next;
+        ExerciceStyle_2 = styles.next_observe;
         IconsExercice_2 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_2 = styles.text_new;
-        ExerciceStyle_2 = styles.new;
+        ExerciceTextStyle_2 = styles.text_new_observe;
+        ExerciceStyle_2 = styles.new_observe;
         IconsExercice_2 = require("./../assets/images/newmark_observe.png");
         break;
       case "locked":
@@ -299,12 +320,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_3 = styles.text_next;
-        ExerciceStyle_3 = styles.next;
+        ExerciceStyle_3 = styles.next_observe;
         IconsExercice_3 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_3 = styles.text_new;
-        ExerciceStyle_3 = styles.new;
+        ExerciceTextStyle_3 = styles.text_new_observe;
+        ExerciceStyle_3 = styles.new_observe;
         IconsExercice_3 = require("./../assets/images/newmark_observe.png");
         break;
       case "locked":
@@ -329,12 +350,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_4 = styles.text_next;
-        ExerciceStyle_4 = styles.next;
+        ExerciceStyle_4 = styles.next_observe;
         IconsExercice_4 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_4 = styles.text_new;
-        ExerciceStyle_4 = styles.new;
+        ExerciceTextStyle_4 = styles.text_new_observe;
+        ExerciceStyle_4 = styles.new_observe;
         IconsExercice_4 = require("./../assets/images/newmark_observe.png");
         break;
       case "locked":
@@ -359,12 +380,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_5 = styles.text_next;
-        ExerciceStyle_5 = styles.next;
+        ExerciceStyle_5 = styles.next_reflect;
         IconsExercice_5 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_5 = styles.text_new;
-        ExerciceStyle_5 = styles.new;
+        ExerciceTextStyle_5 = styles.text_new_reflect;
+        ExerciceStyle_5 = styles.new_reflect;
         IconsExercice_5 = require("./../assets/images/newmark_reflect.png");
         break;
       case "locked":
@@ -389,12 +410,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_6 = styles.text_next;
-        ExerciceStyle_6 = styles.next;
+        ExerciceStyle_6 = styles.next_reflect;
         IconsExercice_6 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_6 = styles.text_new;
-        ExerciceStyle_6 = styles.new;
+        ExerciceTextStyle_6 = styles.text_new_reflect;
+        ExerciceStyle_6 = styles.new_reflect;
         IconsExercice_6 = require("./../assets/images/newmark_reflect.png");
         break;
       case "locked":
@@ -419,12 +440,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_7 = styles.text_next;
-        ExerciceStyle_7 = styles.next;
+        ExerciceStyle_7 = styles.next_reflect;
         IconsExercice_7 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_7 = styles.text_new;
-        ExerciceStyle_7 = styles.new;
+        ExerciceTextStyle_7 = styles.text_new_reflect;
+        ExerciceStyle_7 = styles.new_reflect;
         IconsExercice_7 = require("./../assets/images/newmark_reflect.png");
         break;
       case "locked":
@@ -449,12 +470,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_8 = styles.text_next;
-        ExerciceStyle_8 = styles.next;
+        ExerciceStyle_8 = styles.next_reflect;
         IconsExercice_8 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_8 = styles.text_new;
-        ExerciceStyle_8 = styles.new;
+        ExerciceTextStyle_8 = styles.text_new_reflect;
+        ExerciceStyle_8 = styles.new_reflect;
         IconsExercice_8 = require("./../assets/images/newmark_reflect.png");
         break;
       case "locked":
@@ -479,12 +500,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_9 = styles.text_next;
-        ExerciceStyle_9 = styles.next;
+        ExerciceStyle_9 = styles.next_vision;
         IconsExercice_9 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_9 = styles.text_new;
-        ExerciceStyle_9 = styles.new;
+        ExerciceTextStyle_9 = styles.text_new_vision;
+        ExerciceStyle_9 = styles.new_vision;
         IconsExercice_9 = require("./../assets/images/newmark_vision.png");
         break;
       case "locked":
@@ -509,12 +530,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_10 = styles.text_next;
-        ExerciceStyle_10 = styles.next;
+        ExerciceStyle_10 = styles.next_vision;
         IconsExercice_10 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_10 = styles.text_new;
-        ExerciceStyle_10 = styles.new;
+        ExerciceTextStyle_10 = styles.text_new_vision;
+        ExerciceStyle_10 = styles.new_vision;
         IconsExercice_10 = require("./../assets/images/newmark_vision.png");
         break;
       case "locked":
@@ -539,12 +560,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_11 = styles.text_next;
-        ExerciceStyle_11 = styles.next;
+        ExerciceStyle_11 = styles.next_vision;
         IconsExercice_11 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_11 = styles.text_new;
-        ExerciceStyle_11 = styles.new;
+        ExerciceTextStyle_11 = styles.text_new_vision;
+        ExerciceStyle_11 = styles.new_vision;
         IconsExercice_11 = require("./../assets/images/newmark_vision.png");
         break;
       case "locked":
@@ -569,12 +590,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_12 = styles.text_next;
-        ExerciceStyle_12 = styles.next;
+        ExerciceStyle_12 = styles.next_vision;
         IconsExercice_12 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_12 = styles.text_new;
-        ExerciceStyle_12 = styles.new;
+        ExerciceTextStyle_12 = styles.text_new_vision;
+        ExerciceStyle_12 = styles.new_vision;
         IconsExercice_12 = require("./../assets/images/newmark_vision.png");
         break;
       case "locked":
@@ -599,12 +620,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_13 = styles.text_next;
-        ExerciceStyle_13 = styles.next;
+        ExerciceStyle_13 = styles.next_plan;
         IconsExercice_13 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_13 = styles.text_new;
-        ExerciceStyle_13 = styles.new;
+        ExerciceTextStyle_13 = styles.text_new_plan;
+        ExerciceStyle_13 = styles.new_plan;
         IconsExercice_13 = require("./../assets/images/newmark_plan.png");
         break;
       case "locked":
@@ -629,12 +650,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_14 = styles.text_next;
-        ExerciceStyle_14 = styles.next;
+        ExerciceStyle_14 = styles.next_plan;
         IconsExercice_14 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_14 = styles.text_new;
-        ExerciceStyle_14 = styles.new;
+        ExerciceTextStyle_14 = styles.text_new_plan;
+        ExerciceStyle_14 = styles.new_plan;
         IconsExercice_14 = require("./../assets/images/newmark_plan.png");
         break;
       case "locked":
@@ -659,12 +680,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_15 = styles.text_next;
-        ExerciceStyle_15 = styles.next;
+        ExerciceStyle_15 = styles.next_plan;
         IconsExercice_15 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_15 = styles.text_new;
-        ExerciceStyle_15 = styles.new;
+        ExerciceTextStyle_15 = styles.text_new_plan;
+        ExerciceStyle_15 = styles.new_plan;
         IconsExercice_15 = require("./../assets/images/newmark_plan.png");
         break;
       case "locked":
@@ -689,12 +710,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_16 = styles.text_next;
-        ExerciceStyle_16 = styles.next;
+        ExerciceStyle_16 = styles.next_plan;
         IconsExercice_16 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_16 = styles.text_new;
-        ExerciceStyle_16 = styles.new;
+        ExerciceTextStyle_16 = styles.text_new_plan;
+        ExerciceStyle_16 = styles.new_plan;
         IconsExercice_16 = require("./../assets/images/newmark_plan.png");
         break;
       case "locked":
@@ -719,12 +740,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_17 = styles.text_next;
-        ExerciceStyle_17 = styles.next;
+        ExerciceStyle_17 = styles.next_support;
         IconsExercice_17 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_17 = styles.text_new;
-        ExerciceStyle_17 = styles.new;
+        ExerciceTextStyle_17 = styles.text_new_support;
+        ExerciceStyle_17 = styles.new_support;
         IconsExercice_17 = require("./../assets/images/newmark_support.png");
         break;
       case "locked":
@@ -749,12 +770,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_18 = styles.text_next;
-        ExerciceStyle_18 = styles.next;
+        ExerciceStyle_18 = styles.next_support;
         IconsExercice_18 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_18 = styles.text_new;
-        ExerciceStyle_18 = styles.new;
+        ExerciceTextStyle_18 = styles.text_new_support;
+        ExerciceStyle_18 = styles.new_support;
         IconsExercice_18 = require("./../assets/images/newmark_support.png");
         break;
       case "locked":
@@ -779,12 +800,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_19 = styles.text_next;
-        ExerciceStyle_19 = styles.next;
+        ExerciceStyle_19 = styles.next_support;
         IconsExercice_19 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_19 = styles.text_new;
-        ExerciceStyle_19 = styles.new;
+        ExerciceTextStyle_19 = styles.text_new_support;
+        ExerciceStyle_19 = styles.new_support;
         IconsExercice_19 = require("./../assets/images/newmark_support.png");
         break;
       case "locked":
@@ -809,12 +830,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_20 = styles.text_next;
-        ExerciceStyle_20 = styles.next;
+        ExerciceStyle_20 = styles.next_support;
         IconsExercice_20 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_20 = styles.text_new;
-        ExerciceStyle_20 = styles.new;
+        ExerciceTextStyle_20 = styles.text_new_support;
+        ExerciceStyle_20 = styles.new_support;
         IconsExercice_20 = require("./../assets/images/newmark_support.png");
         break;
       case "locked":
@@ -861,8 +882,8 @@ class TestScreen extends React.Component {
     var ExercicesArray = [
       {
         id: 1,
-        // path: "Intro_Phase_Observe",
-        path: "Exercice_1_Congratulations",
+        path: "Intro_Phase_Observe",
+        //path: "Exercice_1_Congratulations",
         label: "Day 1 - Contenance",
         styleButton: ExerciceStyle_1,
         styleText: ExerciceTextStyle_1,
@@ -908,7 +929,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 6,
-        path: "Exercice_6_Intro",
+        // path: "Exercice_6_Intro",
+        path: "Exercice_6_3",
         label: "Day 6 - Exploring Emotional Triggers",
         styleButton: ExerciceStyle_6,
         styleText: ExerciceTextStyle_6,
@@ -1060,55 +1082,57 @@ class TestScreen extends React.Component {
     return (
       <View
         style={{
-          flex: 2,
-          alignItems: "center",
-          paddingLeft: 30,
-          paddingRight: 30
+          alignItems: "stretch"
         }}
       >
         <StatusBar barStyle="light-content" />
-        <ScrollView
-          contentContainerStyle={{
-            // flexGrow: 1,
-            justifyContent: "space-between"
-          }}
-        >
+        <ScrollView>
           <View
             style={{
               flex: 1,
-              paddingTop: 50,
-              marginTop: 10,
-              width: 300,
-              height: 300
+              paddingTop: 80
             }}
           >
-            {/* <Image
-              style={styles.center}
-              source={require("./../assets/images/home_1.png")}
-            /> */}
             <Progress.Circle
               progress={this.state.progressCircle}
-              size={200}
-              thickness={10}
+              size={Dimensions.get("window").width - 50}
+              height={Dimensions.get("window").width - 50}
+              thickness={12}
               strokeCap={"round"}
               borderWidth={0}
               borderRadius={0}
-              height={200}
-              //color={headerProps.colorProgress}
-              unfilledColor={"rgba(255, 255, 255, 1)"}
+              color={"#A28AD4"}
+              unfilledColor={"#E2DFD1"}
               animated={true}
+              style={{ alignSelf: "center" }}
             />
+
+            <View
+              style={{
+                position: "absolute",
+                paddingTop: 55,
+                left: 13,
+                alignItems: "center"
+              }}
+            >
+              <HomeIllustration
+                observeStarted={this.state.observeStarted}
+                reflectStarted={this.state.reflectStarted}
+                visionStarted={this.state.visionStarted}
+                planStarted={this.state.planStarted}
+                supportStarted={this.state.supportStarted}
+              />
+            </View>
           </View>
 
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, paddingRight: 30, paddingLeft: 30 }}>
             <Text style={styles.header_left}>
               Hey, {this.props.user.nickname}
-              {/* {this.props.user.initialDate} */}
-              {/* {this.state.exercices.exercice_state_1}! */}
             </Text>
 
             <Text style={styles.text_left}>
-              {"\n"}Continue with your next session.
+              {"\n"}
+              {this.state.welcome_message}
             </Text>
 
             {ExercicesArray.map((item, key) =>
@@ -1249,7 +1273,7 @@ const styles = StyleSheet.create({
   exercice_button_icon: {
     alignSelf: "flex-end",
     top: "50%",
-    marginTop: 3,
+    marginTop: 6,
     right: 20,
     position: "absolute"
   },
@@ -1277,10 +1301,58 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     marginLeft: -5
   },
-  next: {
-    backgroundColor: "#A878CE",
+  next_observe: {
+    backgroundColor: "#A28AD4",
     borderWidth: 2,
-    borderColor: "#A878CE",
+    borderColor: "#A28AD4",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  next_reflect: {
+    backgroundColor: "#F6B563",
+    borderWidth: 2,
+    borderColor: "#F6B563",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  next_vision: {
+    backgroundColor: "#F87B7B",
+    borderWidth: 2,
+    borderColor: "#F87B7B",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  next_plan: {
+    backgroundColor: "#4CBB92",
+    borderWidth: 2,
+    borderColor: "#4CBB92",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  next_support: {
+    backgroundColor: "#6A97D8",
+    borderWidth: 2,
+    borderColor: "#6A97D8",
     borderRadius: 12,
     overflow: "hidden",
     padding: 15,
@@ -1301,10 +1373,10 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     marginLeft: -5
   },
-  new: {
+  new_observe: {
     backgroundColor: "transparent",
     borderWidth: 2,
-    borderColor: "#A878CE",
+    borderColor: "#A28AD4",
     borderRadius: 12,
     overflow: "hidden",
     padding: 15,
@@ -1313,7 +1385,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 15
   },
-  text_new: {
+  text_new_observe: {
     color: "#9B51E0",
     fontSize: 17,
     lineHeight: 23,
@@ -1322,7 +1394,103 @@ const styles = StyleSheet.create({
     textTransform: "capitalize",
     alignSelf: "stretch",
     letterSpacing: 1,
-    paddingRight: 15,
+    paddingRight: 30,
+    marginLeft: -5
+  },
+  new_reflect: {
+    backgroundColor: "transparent",
+    borderWidth: 2,
+    borderColor: "#F6B563",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  text_new_reflect: {
+    color: "#F6B563",
+    fontSize: 17,
+    lineHeight: 23,
+    textAlign: "left",
+    fontFamily: "roboto-medium",
+    textTransform: "capitalize",
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 30,
+    marginLeft: -5
+  },
+  new_vision: {
+    backgroundColor: "transparent",
+    borderWidth: 2,
+    borderColor: "#F87B7B",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  text_new_vision: {
+    color: "#F87B7B",
+    fontSize: 17,
+    lineHeight: 23,
+    textAlign: "left",
+    fontFamily: "roboto-medium",
+    textTransform: "capitalize",
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 30,
+    marginLeft: -5
+  },
+  new_plan: {
+    backgroundColor: "transparent",
+    borderWidth: 2,
+    borderColor: "#4CBB92",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  text_new_plan: {
+    color: "#4CBB92",
+    fontSize: 17,
+    lineHeight: 23,
+    textAlign: "left",
+    fontFamily: "roboto-medium",
+    textTransform: "capitalize",
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 30,
+    marginLeft: -5
+  },
+  new_support: {
+    backgroundColor: "transparent",
+    borderWidth: 2,
+    borderColor: "#6A97D8",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
+  },
+  text_new_support: {
+    color: "#6A97D8",
+    fontSize: 17,
+    lineHeight: 23,
+    textAlign: "left",
+    fontFamily: "roboto-medium",
+    textTransform: "capitalize",
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 30,
     marginLeft: -5
   },
   locked: {

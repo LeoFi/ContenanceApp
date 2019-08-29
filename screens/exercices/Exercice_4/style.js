@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F4F1DE",
     },
     container_background_color: {
-        backgroundColor: "#A878CE",
+        backgroundColor: "#A28AD4",
     },
     container_background_inverted: {
         flex: 1,
@@ -117,6 +117,14 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     bottom: {
+        position: 'relative',
+        alignSelf: "stretch",
+        //paddingTop: 30,
+        paddingLeft: 30,
+        paddingRight: 30,
+        bottom: 30,
+    },
+    bottom_button: {
         position: 'relative',
         alignSelf: "stretch",
         //paddingTop: 30,

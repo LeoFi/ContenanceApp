@@ -31,9 +31,9 @@ export default class Exercice_6_2 extends React.Component {
       >
         <StatusBar hidden />
         <ScrollView>
-          <View>
+          <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
-              style={{backgroundColor: "#000000", flex: 1}}
+              style={styles.scroll}
               onPress={() => {
                 this.props.navigation.navigate("Exercice_6_3");
               }}
@@ -46,7 +46,7 @@ export default class Exercice_6_2 extends React.Component {
                   {"\n"}Breathe. Then take a moment to think about the times you might have used your smartphone unconsciously today.  
                 </Text>
               </View>
-            </TouchableWithoutFeedback>
+              </TouchableWithoutFeedback>
           </View>
         </ScrollView>
       </ImageBackground>

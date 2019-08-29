@@ -35,7 +35,7 @@ class Exercice_1_Congratulations extends React.Component {
     return (
       <View style={styles.container_background_inverted}>
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}

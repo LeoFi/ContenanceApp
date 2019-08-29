@@ -32,7 +32,7 @@ class Exercice_10_1 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             <TouchableWithoutFeedback
               style={{backgroundColor: "#000000", flex: 1}}

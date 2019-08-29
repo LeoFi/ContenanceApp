@@ -1,8 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet, View, Image, Alert, Text } from "react-native";
-import { ExpoLinksView } from "@expo/samples";
-import { PrimaryButton, SecondaryButton } from "./../components/AppComponents";
-import SettingsList from "react-native-settings-list";
+import SettingsList, { Item } from "react-native-settings-list";
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -30,52 +28,50 @@ export default class SettingsScreen extends React.Component {
     var bgColor = "#DCE3F4";
 
     return (
-      <>
-        <View style={{ backgroundColor: "#EFEFF4", flex: 1 }}>
-          <View
-            style={{
-              borderBottomWidth: 1,
-              backgroundColor: "#F4F1DE",
-              borderColor: "#F4F1DE",
-              paddingTop: 40
-            }}
-          />
-          <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
-            <SettingsList borderColor="#868D91" defaultItemSize={50}>
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Nickname"
-                onPress={() => Alert.alert("Nickname")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Reminders"
-                onPress={() => Alert.alert("Reminders")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="FAQ"
-                onPress={() => Alert.alert("FAQ")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Security Agreements"
-                onPress={() => Alert.alert("Security Agreements")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Contact us"
-                onPress={() => Alert.alert("Contact us")}
-              />
-            </SettingsList>
-          </View>
+      <View style={{ backgroundColor: "#EFEFF4", flex: 1 }}>
+        <View
+          style={{
+            borderBottomWidth: 1,
+            backgroundColor: "#F4F1DE",
+            borderColor: "#F4F1DE",
+            paddingTop: 40
+          }}
+        />
+        <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
+          <SettingsList borderColor="#868D91" defaultItemSize={50}>
+            <SettingsList.Item
+              titleStyle={styles.text_left}
+              backgroundColor="#F4F1DE"
+              title="Nickname"
+              onPress={() => Alert.alert("Nickname")}
+            />
+            <SettingsList.Item
+              titleStyle={styles.text_left}
+              backgroundColor="#F4F1DE"
+              title="Reminders"
+              onPress={() => Alert.alert("Reminders")}
+            />
+            <SettingsList.Item
+              titleStyle={styles.text_left}
+              backgroundColor="#F4F1DE"
+              title="FAQ"
+              onPress={() => Alert.alert("FAQ")}
+            />
+            <SettingsList.Item
+              titleStyle={styles.text_left}
+              backgroundColor="#F4F1DE"
+              title="Security Agreements"
+              onPress={() => Alert.alert("Security Agreements")}
+            />
+            <SettingsList.Item
+              titleStyle={styles.text_left}
+              backgroundColor="#F4F1DE"
+              title="Contact us"
+              onPress={() => Alert.alert("Contact us")}
+            />
+          </SettingsList>
         </View>
-      </>
+      </View>
     );
   }
 }
@@ -155,7 +151,7 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     textAlign: "left",
     fontFamily: "roboto-regular",
-    alignSelf: "stretch",
+    alignSelf: "stretch"
   },
   text_scroll: {
     color: "#2C3B51",

@@ -90,6 +90,7 @@ class AccountAccessScreen extends React.Component {
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <ScrollView
+          showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.container_scrollview_content}
             keyboardShouldPersistTaps="handled"
           >

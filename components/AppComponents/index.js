@@ -1,4 +1,3 @@
-import TestComponent from "./TestComponent";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 import SwitchButton from "./SwitchButton";
@@ -8,15 +7,15 @@ import GreyInputButton from "./GreyInputButton";
 import FormElement from "./FormElement";
 import ExerciceButton from "./ExerciceButton";
 import AudioCompenent from "./Audio";
-// import DeckSwiperExample from "./CardsDeckSwiper";
+import DeckSwiperExample from "./CardsDeckSwiper";
 import HeaderComponent from "./HeaderComponent";
 import RadioButtons from "./RadioButton";
 import MenuHeaderComponent from "./MenuHeaderComponent";
 import MultipleGreyInputButton from "./MultipleGreyInputButton";
+import HomeIllustration from "./HomeIllustration";
 
 
 export {
-  TestComponent,
   PrimaryButton,
   SecondaryButton,
   SwitchButton,
@@ -26,9 +25,10 @@ export {
   FormElement,
   ExerciceButton,
   AudioCompenent,
-  // DeckSwiperExample,
+  DeckSwiperExample,
   HeaderComponent,
   RadioButtons,
   MenuHeaderComponent,
-  MultipleGreyInputButton
+  MultipleGreyInputButton,
+  HomeIllustration
 };

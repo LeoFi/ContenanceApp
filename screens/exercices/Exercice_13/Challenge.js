@@ -26,7 +26,7 @@ class Exercice_13_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape_inverted.png")}
+        source={require("../../../assets/images/purple_shape_inverted.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />

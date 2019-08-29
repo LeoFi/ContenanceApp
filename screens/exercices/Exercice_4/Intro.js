@@ -45,7 +45,7 @@ export default class Exercice_4_Intro extends React.Component {
           </View>
         </ScrollView>
 
-        <View style={styles.bottom}>
+        <View style={styles.bottom_button}>
           <PrimaryButton
             label="Start"
             isBottom={true}

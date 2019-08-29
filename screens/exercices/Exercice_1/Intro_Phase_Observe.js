@@ -30,7 +30,7 @@ export default class Exercice_1_Intro_Phase extends React.Component {
     return (
       <View style={styles.container_background}>
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <TouchableWithoutFeedback
             onPress={() => {
               this.props.navigation.navigate("Exercice_1_Intro");

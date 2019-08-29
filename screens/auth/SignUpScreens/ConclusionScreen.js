@@ -27,9 +27,10 @@ export default class ConclusionScreen extends React.Component {
     const screenHeight = Dimensions.get('window').height
 
     return (
-      <View style={{height: screenHeight}}>
+      <View style={{height: screenHeight, alignItems: "center"}}>
         <ScrollView
-          style={styles.container_scrollview}
+          //style={styles.container_scrollview}
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.container_scrollview_content}
         >
           <View
