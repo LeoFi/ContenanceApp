@@ -911,7 +911,7 @@ class TestScreen extends React.Component {
       {
         id: 4,
         path: "Exercice_4_Intro",
-        //path: "Exercice_4_Congratulations",
+        //path: "Closing_Screen_PM1",
         label: "Day 4 - Keep Breathing",
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
@@ -929,8 +929,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 6,
-        // path: "Exercice_6_Intro",
-        path: "Exercice_6_3",
+        path: "Exercice_6_Intro",
+        //path: "Exercice_6_3",
         label: "Day 6 - Exploring Emotional Triggers",
         styleButton: ExerciceStyle_6,
         styleText: ExerciceTextStyle_6,
@@ -958,7 +958,7 @@ class TestScreen extends React.Component {
       {
         id: 9,
         path: "Intro_Phase_Vision",
-        //path: "Exercice_9_8",
+        //path: "Exercice_9_Challenge",
         label: "Day 9 - Exploring Values",
         styleButton: ExerciceStyle_9,
         styleText: ExerciceTextStyle_9,
@@ -977,8 +977,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 11,
-        path: "Exercice_11_Intro",
-        //path: "Exercice_11_3",
+        //path: "Exercice_11_Intro",
+        path: "Exercice_11_3",
         label: "Day 11 - 54321 Trick",
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,
@@ -1138,7 +1138,7 @@ class TestScreen extends React.Component {
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||
-              item.state === "completed" ||
+              //item.state === "completed" ||
               item.state === "new" ? (
                 <View key={key}>
                   <ExerciceButton

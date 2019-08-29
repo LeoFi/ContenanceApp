@@ -11,7 +11,8 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   Alert,
-  Image
+  Image,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -86,29 +87,38 @@ class Exercice_18_2 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
-        <StatusBar hidden />
-        <ScrollView
-          contentContainerStyle={{ flexGrow: 1 }}
-          keyboardShouldPersistTaps="handled"
-        >
-          <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#F4F1DE"
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.container_scrollview_content}
+            keyboardShouldPersistTaps="handled"
+          >
             <KeyboardAvoidingView
-              behavior="padding"
-              keyboardVerticalOffset="15"
-              style={styles.keyboard_view}
+              behavior="position"
+              keyboardVerticalOffset="100"
             >
-              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <View style={styles.container}>
-                  <Text style={styles.sub_header}>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "flex-start",
+                  width: Dimensions.get("window").width - 60
+                }}
+              ><Text style={styles.sub_header}>
                   Step 2: Now, select three specific situations in which you’re happy to have your smartphone around.
                   </Text>
                   <Text style={styles.intro_text}>
                   {"\n"}Tip: you can also set times of the day when you want to have it around, e.g. between 8am-10pm, I am fine with having my smartphone with me.
                   </Text>
 
-                  <View style={styles.middle}>
-                    <TagSelect
+                  <TagSelect
                       data={data}
                       max={3}
                       ref={tag => {
@@ -131,8 +141,28 @@ class Exercice_18_2 extends React.Component {
                           this.setState({ allSelected: false });
                         }
                       }}
-                      containerStyle={{ flexDirection: "column" }}
+                      containerStyle={{
+                        flexDirection: "column",
+                        alignItems: "stretch",
+                        paddingTop: 40,
+                        width: Dimensions.get("window").width - 50
+                      }}
                       itemLabelStyle={styles.button_grey_input_text}
+                      itemStyle={{
+                        borderRadius: 99,
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        backgroundColor: "#E2DFD1",
+                        borderWidth: 0,
+                        height: 50,
+                        width: "100%"
+                      }}
+                      itemStyleSelected={{
+                        backgroundColor: "#6A97D8"
+                      }}
+                      itemLabelStyleSelected={{
+                        fontFamily: "roboto-bold"
+                      }}
                     />
 
                     <View style={styles.searchSection}>
@@ -160,22 +190,21 @@ class Exercice_18_2 extends React.Component {
                             fill="#F4F1DE"
                           />
                         </Svg>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-
-                  <View style={styles.tap_pos_relative}>
-                    <PrimaryButton
-                      label="Continue"
-                      disabled={!this.state.allSelected}
-                      onPress={this.handleSubmit}
-                    />
-                  </View>
+                  </TouchableOpacity>
                 </View>
-              </TouchableWithoutFeedback>
+
+                <View style={{ flex: 1, paddingBottom: 30 }} />
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.allSelected}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
+              </View>
             </KeyboardAvoidingView>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </TouchableWithoutFeedback>
       </View>
     );
   }

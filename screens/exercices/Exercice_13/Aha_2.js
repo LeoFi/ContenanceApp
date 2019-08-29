@@ -9,7 +9,8 @@ import {
   ImageBackground,
   Modal,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -47,7 +48,7 @@ export default class Exercice_13_Aha_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/purple_shape.png")}
+        source={require("../../../assets/images/green_aha.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -66,12 +67,11 @@ export default class Exercice_13_Aha_2 extends React.Component {
                   {"\n"}
                   {"\n"}Fortunately, there is a powerful tool to help you
                   achieve any goal and that looks like this:
-                  <Text style={styles.intro_text_bold}>
-                    {"\n"}If X happens, then I will do Y.
+                  <Text style={styles.intro_text_bold_center}>
+                    {"\n"}If X happens, then I will do Y.{"\n"}
                   </Text>
-                  .
                 </Text>
-                <LinkText
+                <View style={{width: Dimensions.get("window").width - 60}}><LinkText
                   style={styles.link_text}
                   textLabel=""
                   linkLabel="Why are these plans so effective?"
@@ -79,6 +79,7 @@ export default class Exercice_13_Aha_2 extends React.Component {
                     this.setModalVisibleExample(true);
                   }}
                 />
+                </View>
 
                 <Modal
                   animationType="slide"
@@ -140,18 +141,4 @@ export default class Exercice_13_Aha_2 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_13_Challenge");
-  }}
-/> */
 }

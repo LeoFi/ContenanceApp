@@ -30,6 +30,10 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-bold',
         paddingBottom: 37,
     },
+    bottom_button: {
+        alignSelf: "stretch",
+        justifyContent: "flex-end"
+    },
     container_scroll: {
         paddingTop: 80,
         paddingLeft: 30,

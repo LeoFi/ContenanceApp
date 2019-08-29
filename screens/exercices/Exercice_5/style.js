@@ -145,6 +145,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignSelf: "stretch"
   },
+  bottom_button: {
+    position: 'relative',
+    alignSelf: "stretch",
+    //paddingTop: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    bottom: 30,
+},
   keyboard_view: {
     flex: 1,
     alignSelf: "stretch"

@@ -61,8 +61,9 @@ export default class Exercice_15_4 extends React.Component {
                 Spend a moment imagining this scenario.
               </Text>
             </View>
-
-            <View style={styles.tap_pos_relative}>
+          </View>
+        </ScrollView>
+        <View style={styles.bottom_button}>
               <PrimaryButton
                 label="Done"
                 onPress={() => {
@@ -70,8 +71,6 @@ export default class Exercice_15_4 extends React.Component {
                 }}
               />
             </View>
-          </View>
-        </ScrollView>
       </ImageBackground>
     );
   }

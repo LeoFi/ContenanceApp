@@ -62,7 +62,7 @@ export default class IN_Screen_PM4 extends React.Component {
     }, 400);
   };
 
-  getChecked = value => {
+  skipQuestion = () => {
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });

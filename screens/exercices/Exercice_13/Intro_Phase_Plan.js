@@ -39,7 +39,7 @@ export default class Exercice_13_Intro_Phase extends React.Component {
             <View style={styles.container_scroll_img_absolute}>
               <Image
                 style={styles.image_height}
-                source={require("../../../assets/images/Day1_IntroPhase.png")}
+                source={require("../../../assets/images/Day13_IntroPhase.png")}
                 resizeMode="stretch"
               />
 

@@ -146,7 +146,7 @@ import Exercice_11_2 from "../screens/exercices/Exercice_11/2";
 import Exercice_11_3 from "../screens/exercices/Exercice_11/3";
 import Exercice_11_4 from "../screens/exercices/Exercice_11/4";
 import Exercice_11_5 from "../screens/exercices/Exercice_11/5";
-import Exercice_11_6 from "../screens/exercices/Exercice_11/3";
+import Exercice_11_6 from "../screens/exercices/Exercice_11/6";
 import Exercice_11_7 from "../screens/exercices/Exercice_11/7";
 import Exercice_11_Aha_1 from "../screens/exercices/Exercice_11/Aha_1";
 import Exercice_11_Aha_2 from "../screens/exercices/Exercice_11/Aha_2";

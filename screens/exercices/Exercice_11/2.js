@@ -29,57 +29,56 @@ export default class Exercice_11_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/yellow_shape.png")}
+        source={require("../../../assets/images/red_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
-          <View>
-            <View style={styles.container_scroll}>
-              <CountDown
-                until={180}
-                onFinish={() => this.setState({ show_button: true })}
-                timeToShow={["M", "S"]}
-                timeLabels={{ d: null, h: null, m: null, s: null }}
-                digitStyle={{ backgroundColor: "unset" }}
-                digitTxtStyle={{
-                  fontFamily: "roboto-black",
-                  color: "#2C3B51",
-                  fontSize: 50
-                }}
-                separatorStyle={{
-                  fontFamily: "roboto-black",
-                  color: "#2C3B51",
-                  fontSize: 50
-                }}
-                showSeparator={true}
-                size={30}
-              />
-              {!this.state.show_button ? (
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.container_scroll}>
+            <CountDown
+              until={180}
+              onFinish={() => this.setState({ show_button: true })}
+              timeToShow={["M", "S"]}
+              timeLabels={{ d: null, h: null, m: null, s: null }}
+              digitStyle={{ backgroundColor: "unset" }}
+              digitTxtStyle={{
+                fontFamily: "roboto-black",
+                color: "#2C3B51",
+                fontSize: 50
+              }}
+              separatorStyle={{
+                fontFamily: "roboto-black",
+                color: "#2C3B51",
+                fontSize: 50
+              }}
+              showSeparator={true}
+              size={30}
+            />
+            {!this.state.show_button ? (
+              <Text style={styles.intro_text}>
+                We’ll let you know when it’s time to come back.
+              </Text>
+            ) : null}
+
+            {this.state.show_button ? (
+              <>
                 <Text style={styles.intro_text}>
-                  We’ll let you know when it’s time to come back.
+                  Time is up. Continue the exercise.
                 </Text>
-              ) : null}
-
-              {this.state.show_button ? (
-                <>
-                  <Text style={styles.intro_text}>
-                    Time is up. Continue the exercise.
-                  </Text>
-
-                  <View style={styles.tap_pos_relative}>
-                    <PrimaryButton
-                      label="Continue"
-                      onPress={() => {
-                        this.props.navigation.navigate("Exercice_11_3");
-                      }}
-                    />
-                  </View>
-                </>
-              ) : null}
-            </View>
+              </>
+            ) : null}
           </View>
         </ScrollView>
+        {this.state.show_button ? (
+          <View style={styles.bottom_button}>
+            <PrimaryButton
+              label="Continue"
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_11_3");
+              }}
+            />
+          </View>
+        ) : null}
       </ImageBackground>
     );
   }

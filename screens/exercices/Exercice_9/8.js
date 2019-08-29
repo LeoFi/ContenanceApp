@@ -28,7 +28,7 @@ class Exercice_9_8 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/yellow_shape.png")}
+        source={require("../../../assets/images/red_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -40,14 +40,14 @@ class Exercice_9_8 extends React.Component {
                 this.props.navigation.navigate("Exercice_9_Aha_1");
               }}
             >
-              <View style={styles.container_scroll}>
+              <View style={styles.container_center}>
                 <Text style={styles.sub_header_left}>
                 {this.props.user.nickname}, here are your values:
                 </Text>
-                <Text style={styles.text_bold_italic}>
+                <Text style={styles.text_bold_italic_left}>
                   {"\n"}{this.props.user_values.Value1_D9}
-                  {"\n"}{this.props.user_values.Value2_D9}
-                  {"\n"}{this.props.user_values.Value3_D9}
+                  {"\n"}{"\n"}{this.props.user_values.Value2_D9}
+                  {"\n"}{"\n"}{this.props.user_values.Value3_D9}
                 </Text>
               </View>
             </TouchableWithoutFeedback>

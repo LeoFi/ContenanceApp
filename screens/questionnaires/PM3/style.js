@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         alignSelf: 'stretch',
     },
+    bottom_button: {
+        alignSelf: "stretch",
+        justifyContent: "flex-end"
+    },
     skip_text: {
         color: '#2C3B51',
         fontSize: 16,

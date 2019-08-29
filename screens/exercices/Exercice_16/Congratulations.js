@@ -61,8 +61,8 @@ class Exercice_16_Congratulations extends React.Component {
             </View>
           </View>
         </ScrollView>
-        
-        <View style={styles.bottom}>
+
+        <View style={styles.bottom_button}>
           <PrimaryButton
             label="Done"
             style={{

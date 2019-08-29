@@ -41,18 +41,20 @@ class Exercice_14_6 extends React.Component {
       .update({
         CopingStrategy1_D14: CopingStrategy1_D14
       });
-    this.props.dispatch(Update_CopingStrategy1_D14(this.state.CopingStrategy1_D14));
+    this.props.dispatch(
+      Update_CopingStrategy1_D14(this.state.CopingStrategy1_D14)
+    );
     this.props.navigation.navigate("Exercice_14_7");
   };
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
+      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
         <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View>
             <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
+              <View style={styles.container_top}>
                 <Text style={styles.sub_header}>It’s your turn!</Text>
                 <Text style={styles.text}>
                   Define your own strategies to still realize your plan.
@@ -62,29 +64,30 @@ class Exercice_14_6 extends React.Component {
                   <Text style={styles.text}>
                     If {this.props.user_values.Obstacle1_D14}, then:
                   </Text>
-                  <TextInput
-                    style={styles.codeInput}
-                    onChangeText={this.handleChange_Advice1}
-                    value={this.state.CopingStrategy1_D14}
-                    placeholder="What can be your first strategy?"
-                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    keyboardType="numeric"
-                  />
-                </View>
-
-                <View style={styles.tap_pos_relative}>
-                  <PrimaryButton
-                    label="Continue"
-                    disabled={!this.state.CopingStrategy1_D14}
-                    onPress={this.handleSubmit}
-                  />
+                  <View style={{ flex: 1, justifyContent: "center", top: -100 }}>
+                    <TextInput
+                      style={styles.codeInput}
+                      onChangeText={this.handleChange_Advice1}
+                      value={this.state.CopingStrategy1_D14}
+                      placeholder="What can be your first strategy?"
+                      placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                      autoCapitalize="none"
+                      autoCorrect={false}
+                      keyboardType="default"
+                    />
+                  </View>
                 </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
         </ScrollView>
+        <View style={styles.bottom_button}>
+          <PrimaryButton
+            label="Continue"
+            disabled={!this.state.CopingStrategy1_D14}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }

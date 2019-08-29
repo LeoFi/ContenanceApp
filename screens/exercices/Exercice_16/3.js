@@ -29,7 +29,7 @@ export default class Exercice_16_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/yellow_shape.png")}
+        source={require("../../../assets/images/green_shape_full.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -66,20 +66,21 @@ export default class Exercice_16_2 extends React.Component {
                   <Text style={styles.intro_text}>
                     Time is up. Continue the exercise.
                   </Text>
-
-                  <View style={styles.tap_pos_relative}>
-                    <PrimaryButton
-                      label="Continue"
-                      onPress={() => {
-                        this.props.navigation.navigate("Exercice_16_Aha_1");
-                      }}
-                    />
-                  </View>
                 </>
               ) : null}
             </View>
           </View>
         </ScrollView>
+        {this.state.show_button ? (
+          <View style={styles.bottom_button}>
+            <PrimaryButton
+              label="Continue"
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_16_Aha_1");
+              }}
+            />
+          </View>
+        ) : null}
       </ImageBackground>
     );
   }

@@ -23,6 +23,19 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingBottom: 100,
     },
+    container_top: {
+        flex: 1,
+        flexGrow: 1,
+        width: Dimensions.get("window").width,
+        height: Dimensions.get("window").height,
+        alignItems: "center",
+        //justifyContent: 'center',
+        alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 100,
+    },
     container_scroll_img_absolute: {
         //width: Dimensions.get("window").width,
         //height: Dimensions.get("window").height,
@@ -120,7 +133,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A28AD4",
+        backgroundColor: "#F87B7B",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -146,13 +159,17 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     bottom: {
-        position: 'relative',
+        justifyContent: "flex-start",
+    alignSelf: "stretch"
+    },
+    bottom_button: {
+        position: "relative",
         alignSelf: "stretch",
         //paddingTop: 30,
         paddingLeft: 30,
         paddingRight: 30,
-        bottom: 30,
-    },
+        bottom: 30
+      },
     keyboard_view: {
         flex: 1,
         alignSelf: "stretch",
@@ -315,6 +332,14 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontFamily: "roboto-bold-italic"
       },
+      text_bold_italic_left: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "left",
+        fontFamily: "roboto-bold-italic",
+        alignSelf: "flex-start"
+      },
     usernameInput: {
         marginTop: 43,
 
@@ -332,6 +357,7 @@ const styles = StyleSheet.create({
         height: 49,
         fontSize: 19,
         alignSelf: "stretch",
+        width: Dimensions.get("window").width - 60
     },
 })
 

@@ -29,7 +29,7 @@ export default class Exercice_20_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/yellow_shape.png")}
+        source={require("../../../assets/images/blue_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -37,7 +37,7 @@ export default class Exercice_20_2 extends React.Component {
           <View>
             <View style={styles.container_scroll}>
               <CountDown
-                until={5}
+                until={300}
                 onFinish={() => this.setState({ show_button: true })}
                 timeToShow={["M", "S"]}
                 timeLabels={{ d: null, h: null, m: null, s: null }}
@@ -65,20 +65,21 @@ export default class Exercice_20_2 extends React.Component {
                   <Text style={styles.intro_text}>
                     Time is up. Continue the exercise.
                   </Text>
-
-                  <View style={styles.tap_pos_relative}>
-                    <PrimaryButton
-                      label="Continue"
-                      onPress={() => {
-                        this.props.navigation.navigate("Exercice_20_4");
-                      }}
-                    />
-                  </View>
                 </>
               ) : null}
             </View>
           </View>
         </ScrollView>
+        {this.state.show_button ? (
+          <View style={styles.bottom_button}>
+            <PrimaryButton
+              label="Continue"
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_20_4");
+              }}
+            />
+          </View>
+        ) : null}
       </ImageBackground>
     );
   }

@@ -26,7 +26,7 @@ export default class Exercice_13_Aha_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/purple_shape.png")}
+        source={require("../../../assets/images/green_aha.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />

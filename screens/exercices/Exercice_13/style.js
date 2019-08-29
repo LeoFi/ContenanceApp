@@ -10,6 +10,19 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingBottom: 40,
     },
+    container_top: {
+        flex: 1,
+        flexGrow: 1,
+        width: Dimensions.get("window").width,
+        height: Dimensions.get("window").height,
+        alignItems: "center",
+        //justifyContent: 'center',
+        alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 100,
+    },
     container_scroll: {
         flex: 1,
         flexGrow: 1,
@@ -92,7 +105,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A28AD4",
+        backgroundColor: "#4CBB92",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -118,13 +131,17 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     bottom: {
-        position: 'relative',
+        justifyContent: "flex-start",
+    alignSelf: "stretch"
+    },
+    bottom_button: {
+        position: "relative",
         alignSelf: "stretch",
         //paddingTop: 30,
         paddingLeft: 30,
         paddingRight: 30,
-        bottom: 30,
-    },
+        bottom: 30
+      },
     keyboard_view: {
         flex: 1,
         alignSelf: "stretch",
@@ -230,6 +247,16 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    button_grey_input_text: {
+        color: "#2C3B51",
+        fontSize: 14,
+        lineHeight: 20,
+        textAlign: "center",
+        fontFamily: "roboto-regular",
+        alignSelf: "stretch",
+        fontWeight: "normal",
+        paddingTop: 4
+      },
     intro_text: {
         color: '#2C3B51',
         fontSize: 19,
@@ -245,6 +272,14 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-bold',
         alignSelf: "stretch",
         textAlign: 'left',
+    },
+    intro_text_bold_center: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: 'roboto-bold',
+        alignSelf: "stretch",
+        textAlign: 'center',
     },
     intro_text_grey: {
         color: "#868D91",

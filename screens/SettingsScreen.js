@@ -12,7 +12,17 @@ export default class SettingsScreen extends React.Component {
     },
     headerBackTitle: null,
     headerTitle: "Settings",
-    headerTintColor: "#2C3B51"
+    headerTintColor: "#2C3B51",
+    headerTitleStyle: {
+      color: "#2C3B51",
+      fontSize: 30,
+      lineHeight: 37,
+      textAlign: "left",
+      fontFamily: "roboto-black",
+      paddingTop: 15,
+      paddingBottom: 80,
+      alignSelf: "stretch"
+    }
   };
   constructor() {
     super();
@@ -28,15 +38,9 @@ export default class SettingsScreen extends React.Component {
     var bgColor = "#DCE3F4";
 
     return (
-      <View style={{ backgroundColor: "#EFEFF4", flex: 1 }}>
-        <View
-          style={{
-            borderBottomWidth: 1,
-            backgroundColor: "#F4F1DE",
-            borderColor: "#F4F1DE",
-            paddingTop: 40
-          }}
-        />
+      <>
+      <View style={{ height: 50, backgroundColor: "#F4F1DE"}}/>
+      <View style={{ flex: 1}}>
         <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
           <SettingsList borderColor="#868D91" defaultItemSize={50}>
             <SettingsList.Item
@@ -72,6 +76,7 @@ export default class SettingsScreen extends React.Component {
           </SettingsList>
         </View>
       </View>
+      </>
     );
   }
 }

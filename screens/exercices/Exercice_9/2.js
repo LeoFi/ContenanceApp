@@ -63,10 +63,10 @@ class Exercice_9_2 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
+      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
         <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View>
             <TouchableWithoutFeedback style={styles.scroll}>
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header}>
@@ -78,7 +78,7 @@ class Exercice_9_2 extends React.Component {
                   might advice you to value in this life:
                 </Text>
 
-                <View>
+                <View style={{justifyContent: "flex-start", paddingTop: 20}}>
                   <TextInput
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
@@ -87,7 +87,7 @@ class Exercice_9_2 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
+                    keyboardType="default"
                   />
                    <TextInput
                     style={styles.codeInput}
@@ -97,7 +97,7 @@ class Exercice_9_2 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
+                    keyboardType="default"
                   />
                    <TextInput
                     style={styles.codeInput}
@@ -107,11 +107,14 @@ class Exercice_9_2 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
+                    keyboardType="default"
                   />
                 </View>
-
-                <View style={styles.tap_pos_relative}>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+          </ScrollView>
+          <View style={styles.tap_pos_relative}>
                   <PrimaryButton
                     label="Continue"
                     disabled={
@@ -122,10 +125,7 @@ class Exercice_9_2 extends React.Component {
                     onPress={this.handleSubmit}
                   />
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </ScrollView>
+        
       </View>
     );
   }

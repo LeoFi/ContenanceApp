@@ -37,17 +37,17 @@ export default class Exercice_17_6 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/blue_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
         <ScrollView>
-          <View style={styles.container_scroll}>
+          <View style={styles.container_top}>
             <Text style={styles.sub_header}>
               Let’s check how to turn off notifications.
             </Text>
             <Text style={styles.intro_text_bold}>
-              {"\n"}Which smartphone do you use?
+              {"\n"}Which smartphone do you use?{"\n"}{"\n"}
             </Text>
             <GreyInputButton
               label="I have an iPhone"
@@ -71,15 +71,15 @@ export default class Exercice_17_6 extends React.Component {
               }
               isActive={this.state.android}
             />
-            <View style={styles.tap_pos_relative}>
+          </View>
+        </ScrollView>
+        <View style={styles.bottom_button}>
               <PrimaryButton
                 label="Continue"
                 disabled={!this.state.iphone && !this.state.android}
                 onPress={this.handleSubmit}
               />
             </View>
-          </View>
-        </ScrollView>
       </ImageBackground>
     );
   }

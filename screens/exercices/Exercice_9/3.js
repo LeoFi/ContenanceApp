@@ -28,7 +28,7 @@ class Exercice_9_3 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/yellow_shape.png")}
+        source={require("../../../assets/images/red_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -40,14 +40,14 @@ class Exercice_9_3 extends React.Component {
                 this.props.navigation.navigate("Exercice_9_4");
               }}
             >
-              <View style={styles.container_scroll}>
+              <View style={styles.container_center}>
                 <Text style={styles.sub_header_left}>
                 Great!
                 </Text>
                 <Text style={styles.intro_text}>
                   {"\n"}The three things your older version suggested you to value in order to be happier in life are:
                 </Text>
-                <Text style={styles.text_bold_italic}>
+                <Text style={styles.text_bold_italic_left}>
                   {"\n"}{this.props.user_values.Advice1_D9}
                   {"\n"}{this.props.user_values.Advice2_D9}
                   {"\n"}{this.props.user_values.Advice3_D9}

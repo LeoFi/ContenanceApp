@@ -10,7 +10,8 @@ import {
   Modal,
   TouchableHighlight,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -41,7 +42,7 @@ class Exercice_13_6 extends React.Component {
     super(props);
 
     this.state = {
-      NewHabitCommit_D13: this.props.user_values.NewHabitCommit_D13 || "",
+      NewHabitCommit_D13: this.props.user_values.NewHabitCommit_D13 || ""
     };
   }
   handleSubmit = () => {
@@ -83,68 +84,76 @@ class Exercice_13_6 extends React.Component {
         ""
     ];
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_13_3");
-              }}
-            >
-              <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                  Step 3: Commit to a new habit
-                </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}These are your three freshly designed plans for
-                  meaningful smartphone habits.{"\n"}
-                  {"\n"}Let’s take it step by step. Pick one of the plans you
-                  want to establish first.
-                </Text>
+          <View style={styles.container_top}>
+            <Text style={styles.sub_header_left}>
+              Step 3: Commit to a new habit
+            </Text>
+            <Text style={styles.intro_text}>
+              {"\n"}These are your three freshly designed plans for meaningful
+              smartphone habits.{"\n"}
+              {"\n"}Let’s take it step by step. Pick one of the plans you want
+              to establish first.
+            </Text>
 
-                <TagSelect
-                  data={data}
-                  max={1}
-                  ref={tag => {
-                    this.tag = tag;
-                  }}
-                  onMaxError={() => {
-                    //Alert.alert("Ops", "Max reached");
-                  }}
-                  onItemPress={() => {
-                    if (this.tag.totalSelected === 1) {
-                      let NewHabitCommit = [];
-                      for (const prop in this.tag.itemsSelected) {
-                        NewHabitCommit.push(this.tag.itemsSelected[prop]);
-                      }
-                      this.setState({ allSelected: true });
-                      this.setState({
-                        NewHabitCommit_D13: NewHabitCommit[0]
-                      });
-                    } else {
-                      this.setState({ allSelected: false });
-                    }
-                  }}
-                  containerStyle={{ flexDirection: "column" }}
-                  itemLabelStyle={styles.button_grey_input_text}
-                />
-                <View style={styles.tap_pos_relative}>
-                  <PrimaryButton
-                    label="Continue"
-                    disabled={!this.state.allSelected}
-                    onPress={this.handleSubmit}
-                  />
-                </View>
-              </View>
-            </TouchableWithoutFeedback>
+            <TagSelect
+              data={data}
+              max={1}
+              ref={tag => {
+                this.tag = tag;
+              }}
+              onMaxError={() => {
+                //Alert.alert("Ops", "Max reached");
+              }}
+              onItemPress={() => {
+                if (this.tag.totalSelected === 1) {
+                  let NewHabitCommit = [];
+                  for (const prop in this.tag.itemsSelected) {
+                    NewHabitCommit.push(this.tag.itemsSelected[prop]);
+                  }
+                  this.setState({ allSelected: true });
+                  this.setState({
+                    NewHabitCommit_D13: NewHabitCommit[0]
+                  });
+                } else {
+                  this.setState({ allSelected: false });
+                }
+              }}
+              containerStyle={{
+                flexDirection: "column",
+                alignItems: "stretch",
+                paddingTop: 40,
+                width: Dimensions.get("window").width - 50
+              }}
+              itemLabelStyle={styles.button_grey_input_text}
+              itemStyle={{
+                borderRadius: 99,
+                paddingLeft: 20,
+                paddingRight: 20,
+                backgroundColor: "#E2DFD1",
+                borderWidth: 0,
+                height: 50,
+                width: "100%"
+              }}
+              itemStyleSelected={{
+                backgroundColor: "#4CBB92"
+              }}
+              itemLabelStyleSelected={{
+                fontFamily: "roboto-bold"
+              }}
+            />
           </View>
         </ScrollView>
-      </ImageBackground>
+        <View style={styles.bottom_button}>
+          <PrimaryButton
+            label="Continue"
+            disabled={!this.state.allSelected}
+            onPress={this.handleSubmit}
+          />
+        </View>
+      </View>
     );
   }
 }

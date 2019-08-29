@@ -25,7 +25,7 @@ export default class Exercice_17_7_iphone extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/blue_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -37,7 +37,7 @@ export default class Exercice_17_7_iphone extends React.Component {
                 this.props.navigation.navigate("Exercice_17_8");
               }}
             >
-              <View style={styles.container_scroll}>
+              <View style={styles.container_top}>
                 <Text style={styles.sub_header_left}>
                   Turning off notifications in iOs.
                 </Text>

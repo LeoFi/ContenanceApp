@@ -16,7 +16,7 @@ import {
 import { styles } from "./style";
 import * as firebase from "firebase";
 import { connect } from "react-redux";
-import { Update_MeanAct1_D10 } from "./../../../redux-persist/redux/user_values";
+import { Update_MeanAct3_D10 } from "./../../../redux-persist/redux/user_values";
 
 class Exercice_10_8 extends React.Component {
   constructor(props) {
@@ -41,18 +41,18 @@ class Exercice_10_8 extends React.Component {
       .update({
         MeanAct3_D10: MeanAct3_D10
       });
-    this.props.dispatch(Update_MeanAct1_D10(this.state.MeanAct3_D10));
+    this.props.dispatch(Update_MeanAct3_D10(this.state.MeanAct3_D10));
     this.props.navigation.navigate("Exercice_10_9");
   };
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
+      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
         <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View>
             <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
+              <View style={styles.container_top}>
                 <Text style={styles.sub_header}>Bringing values to life</Text>
                 <Text style={styles.intro_text_bold}>
                 {"\n"}What could an activity look like that helps you bring {this.props.user_values.Value3_D9} to life?
@@ -69,22 +69,22 @@ class Exercice_10_8 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
+                    keyboardType="default"
                   />
+                  </View>
                 </View>
-
-                <View style={styles.tap_pos_relative}>
-                  <PrimaryButton
-                    label="Continue"
-                    disabled={!this.state.MeanAct3_D10}
-                    onPress={this.handleSubmit}
-                  />
-                </View>
-              </View>
-            </TouchableWithoutFeedback>
+              </TouchableWithoutFeedback>
+            </View>
+          </ScrollView>
+  
+          <View style={styles.bottom_button}>
+            <PrimaryButton
+              label="Continue"
+              disabled={!this.state.MeanAct3_D10}
+              onPress={this.handleSubmit}
+            />
           </View>
-        </ScrollView>
-      </View>
+        </View>
     );
   }
 }

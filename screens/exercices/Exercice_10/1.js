@@ -28,7 +28,7 @@ class Exercice_10_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/yellow_shape.png")}
+        source={require("../../../assets/images/red_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -47,10 +47,10 @@ class Exercice_10_1 extends React.Component {
                 <Text style={styles.intro_text}>
                   {"\n"}Your three values are:
                 </Text>
-                <Text style={styles.text_bold_italic}>
+                <Text style={styles.text_bold_italic_left}>
                   {"\n"}{this.props.user_values.Value1_D9}
-                  {"\n"}{this.props.user_values.Value2_D9}
-                  {"\n"}{this.props.user_values.Value3_D9}
+                  {"\n"}{"\n"}{this.props.user_values.Value2_D9}
+                  {"\n"}{"\n"}{this.props.user_values.Value3_D9}
                 </Text>
               </View>
             </TouchableWithoutFeedback>

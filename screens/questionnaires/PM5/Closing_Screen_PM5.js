@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, ScrollView, Image } from "react-native";
+import { View, Text, TextInput, ScrollView, Image, StatusBar } from "react-native";
 import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
 import { styles } from "./style";
 import { connect } from "react-redux";
@@ -17,13 +17,17 @@ class Closing_Screen_PM5 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <StatusBar hidden />
+        <ScrollView>
+          
         <Text style={styles.header_left}>You finished this module, {this.props.user.nickname}.</Text>
 
         <Text style={styles.text_left}>
           {"\n"}You’re done and ready for the next module, starting tomorrow.
         </Text>
+        </ScrollView>
 
-        <View style={styles.bottom}>
+        <View style={styles.bottom_button}>
           <PrimaryButton
             label="Done"
             isBottom={true}

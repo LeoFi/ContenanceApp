@@ -11,7 +11,8 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   Alert,
-  Image
+  Image,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -93,21 +94,32 @@ class Exercice_9_5 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
-        <StatusBar hidden />
-        <ScrollView
-          contentContainerStyle={{ flexGrow: 1 }}
-          keyboardShouldPersistTaps="handled"
-        >
-          <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#F4F1DE"
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.container_scrollview_content}
+            keyboardShouldPersistTaps="handled"
+          >
             <KeyboardAvoidingView
-              behavior="padding"
-              keyboardVerticalOffset="15"
-              style={styles.keyboard_view}
+              behavior="position"
+              keyboardVerticalOffset="100"
             >
-              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <View style={styles.container}>
-                  <Text style={styles.sub_header}>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "flex-start",
+                  width: Dimensions.get("window").width - 60
+                }}
+              >
+                <Text style={styles.sub_header}>
                     What value is related to this advice?
                   </Text>
                   <Text style={styles.text_bold_italic}>
@@ -118,8 +130,7 @@ class Exercice_9_5 extends React.Component {
                     TAP ONE OPTION OR WRITE A NEW ONE TO CONTINUE
                   </Text>
 
-                  <View style={styles.middle}>
-                    <TagSelect
+                  <TagSelect
                       data={data}
                       max={1}
                       ref={tag => {
@@ -140,8 +151,30 @@ class Exercice_9_5 extends React.Component {
                           this.setState({ allSelected: false });
                         }
                       }}
-                      containerStyle={{ flexDirection: "column" }}
+                      containerStyle={{
+                        flexDirection: "row",
+                        alignItems: "stretch",
+                        justifyContent: "space-between",
+                        paddingTop: 40,
+                        width: Dimensions.get("window").width - 50
+                      }}
                       itemLabelStyle={styles.button_grey_input_text}
+                      itemStyle={{
+                        flexGrow: 2,
+                        borderRadius: 99,
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        backgroundColor: "#E2DFD1",
+                        borderWidth: 0,
+                        height: 50,
+                        width: "100%"
+                      }}
+                      itemStyleSelected={{
+                        backgroundColor: "#F6B563"
+                      }}
+                      itemLabelStyleSelected={{
+                        fontFamily: "roboto-bold"
+                      }}
                     />
 
                     <View style={styles.searchSection}>
@@ -170,21 +203,20 @@ class Exercice_9_5 extends React.Component {
                           />
                         </Svg>
                       </TouchableOpacity>
-                    </View>
-                  </View>
-
-                  <View style={styles.tap_pos_relative}>
-                    <PrimaryButton
-                      label="Continue"
-                      disabled={!this.state.allSelected}
-                      onPress={this.handleSubmit}
-                    />
-                  </View>
                 </View>
-              </TouchableWithoutFeedback>
+
+                <View style={{ flex: 1, paddingBottom: 30 }} />
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.allSelected}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
+              </View>
             </KeyboardAvoidingView>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </TouchableWithoutFeedback>
       </View>
     );
   }

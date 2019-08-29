@@ -28,7 +28,7 @@ class Exercice_9_4 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/yellow_shape.png")}
+        source={require("../../../assets/images/red_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -40,7 +40,7 @@ class Exercice_9_4 extends React.Component {
                 this.props.navigation.navigate("Exercice_9_5");
               }}
             >
-              <View style={styles.container_scroll}>
+              <View style={styles.container_center}>
                 <Text style={styles.sub_header_left}>
                 Defining values.
                 </Text>

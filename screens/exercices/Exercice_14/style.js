@@ -10,6 +10,19 @@ const styles = StyleSheet.create({
         paddingRight: 30,
         paddingBottom: 40,
     },
+    container_top: {
+        flex: 1,
+        flexGrow: 1,
+        width: Dimensions.get("window").width,
+        height: Dimensions.get("window").height,
+        alignItems: "center",
+        //justifyContent: 'center',
+        alignSelf: "stretch",
+        paddingTop: 80,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 100,
+    },
     container_scroll: {
         flex: 1,
         flexGrow: 1,
@@ -120,7 +133,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A28AD4",
+        backgroundColor: "#4CBB92",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -146,13 +159,17 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     bottom: {
-        position: 'relative',
+        justifyContent: "flex-start",
+    alignSelf: "stretch"
+    },
+    bottom_button: {
+        position: "relative",
         alignSelf: "stretch",
         //paddingTop: 30,
         paddingLeft: 30,
         paddingRight: 30,
-        bottom: 30,
-    },
+        bottom: 30
+      },
     keyboard_view: {
         flex: 1,
         alignSelf: "stretch",
@@ -325,15 +342,16 @@ const styles = StyleSheet.create({
         textAlign: "left",
         paddingLeft: 30,
       },
-    codeInput: {
-        marginTop: 40,
-        marginBottom: 20,
+      codeInput: {
+        marginTop: 5,
+        marginBottom: 5,
         backgroundColor: "#E2DFD1",
         borderRadius: 7,
         textAlign: 'center',
         height: 49,
         fontSize: 19,
         alignSelf: "stretch",
+        width: Dimensions.get("window").width - 60
     },
 })
 

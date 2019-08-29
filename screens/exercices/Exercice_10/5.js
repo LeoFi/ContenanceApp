@@ -47,18 +47,24 @@ class Exercice_10_5 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
+      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
         <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View>
             <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
-                <Text style={styles.sub_header}>Bringing values to life with your smartphone</Text>
-                <Text style={styles.intro_text_bold}>
-                {"\n"}What could an activity on your smartphone look like that helps you bring {this.props.user_values.Value1_D9} to life?
+              <View style={styles.container_top}>
+                <Text style={styles.sub_header}>
+                  Bringing values to life with your smartphone
                 </Text>
-                <Text style={styles.intro_text_grey}>{"\n"}{"\n"}E.g. Learning → Listening to a TED talk on his smartphone</Text>
-                
+                <Text style={styles.intro_text_bold}>
+                  {"\n"}What could an activity on your smartphone look like that
+                  helps you bring {this.props.user_values.Value1_D9} to life?
+                </Text>
+                <Text style={styles.intro_text_grey}>
+                  {"\n"}
+                  {"\n"}E.g. Learning → Listening to a TED talk on his
+                  smartphone
+                </Text>
 
                 <View>
                   <TextInput
@@ -69,21 +75,21 @@ class Exercice_10_5 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
-                  />
-                </View>
-
-                <View style={styles.tap_pos_relative}>
-                  <PrimaryButton
-                    label="Continue"
-                    disabled={!this.state.MeanSmAct1_D10}
-                    onPress={this.handleSubmit}
+                    keyboardType="default"
                   />
                 </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
         </ScrollView>
+
+        <View style={styles.bottom_button}>
+          <PrimaryButton
+            label="Continue"
+            disabled={!this.state.MeanSmAct1_D10}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }

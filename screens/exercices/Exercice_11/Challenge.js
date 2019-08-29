@@ -27,7 +27,7 @@ class Exercice_11_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/purple_shape_inverted.png")}
+        source={require("../../../assets/images/salmon_shape_inverted.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -49,7 +49,7 @@ class Exercice_11_Challenge extends React.Component {
                   {"\n"}{"\n"}{this.props.user_values.AppsRed2_D7}
                   {"\n"}{"\n"}{this.props.user_values.AppsRed3_D7}
                   {"\n"}{"\n"}give it a try and do the trick to find:
-                  {"\n"}5 things you can see
+                  {"\n"}{"\n"}5 things you can see
                   {"\n"}4 things you can touch
                   {"\n"}3 things you can hear
                   {"\n"}2 things you can smell

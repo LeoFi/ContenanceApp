@@ -67,12 +67,12 @@ class Exercice_14_3 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
+      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
         <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View>
             <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
+              <View style={styles.container_top}>
                 <Text style={styles.sub_header}>It’s your turn!</Text>
                 <Text style={styles.text}>
                   Define your three own obstacles.
@@ -81,7 +81,7 @@ class Exercice_14_3 extends React.Component {
                   {this.props.user_values.NewHabitCommit_D13}
                 </Text>
 
-                <View>
+                <View style={{ justifyContent: "flex-start", paddingTop: 20 }}>
                   <TextInput
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
@@ -90,7 +90,7 @@ class Exercice_14_3 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
+                    keyboardType="default"
                   />
                   <TextInput
                     style={styles.codeInput}
@@ -100,7 +100,7 @@ class Exercice_14_3 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
+                    keyboardType="default"
                   />
                   <TextInput
                     style={styles.codeInput}
@@ -110,11 +110,14 @@ class Exercice_14_3 extends React.Component {
                     placeholderTextColor="rgba(44, 59, 81, 0.3)"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    keyboardType="numeric"
+                    keyboardType="default"
                   />
                 </View>
-
-                <View style={styles.tap_pos_relative}>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </ScrollView>
+        <View style={styles.bottom_button}>
                   <PrimaryButton
                     label="Continue"
                     disabled={
@@ -125,10 +128,6 @@ class Exercice_14_3 extends React.Component {
                     onPress={this.handleSubmit}
                   />
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </ScrollView>
       </View>
     );
   }

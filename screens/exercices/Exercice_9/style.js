@@ -9,14 +9,36 @@ const styles = StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 40,
+        backgroundColor: "#F4EFDE"
     },
     container_scroll: {
+        flex: 1,
+    flexGrow: 1,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "stretch",
+    paddingTop: 80,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingBottom: 100
+    },
+    container_scrollview_content: {
+        paddingTop: 80,
+        paddingBottom: 30,
+        flexGrow: 1,
+        alignItems: "flex-start",
+        alignSelf: "stretch",
+        flexWrap: "wrap"
+      },
+    container_center: {
         flex: 1,
         flexGrow: 1,
         width: Dimensions.get("window").width,
         height: Dimensions.get("window").height,
         alignItems: "center",
-        //justifyContent: 'center',
+        justifyContent: 'center',
         alignSelf: "stretch",
         paddingTop: 80,
         paddingLeft: 30,
@@ -83,7 +105,7 @@ const styles = StyleSheet.create({
     },
     image_background: {
         width: "100%",
-        backgroundColor: "#F87B7B",
+        backgroundColor: "#F4F1DE",
         position: "absolute",
         top: 0,
         bottom: 0,
@@ -117,14 +139,17 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     bottom: {
-        position: 'relative',
+        justifyContent: "flex-start",
+    alignSelf: "stretch"
+    },
+    bottom_button: {
+        position: "relative",
         alignSelf: "stretch",
-        justifyContent:"flex-end",
         //paddingTop: 30,
         paddingLeft: 30,
         paddingRight: 30,
-        bottom: 30,
-    },
+        bottom: 30
+      },
     keyboard_view: {
         flex: 1,
         alignSelf: "stretch",
@@ -195,7 +220,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
     },
     sub_header_left: {
-        flex: 1,
+        //flex: 1,
         color: '#2C3B51',
         fontSize: 24,
         lineHeight: 28,
@@ -219,10 +244,19 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
     },
     tap_pos_relative: {
-        // alignSelf: "stretch",
+        alignSelf: "stretch",
         paddingTop: 50,
         paddingBottom: 40,
-    },
+        paddingLeft: 30,
+        paddingRight: 30
+      },
+      tap_pos_relative: {
+        alignSelf: "stretch",
+        paddingTop: 50,
+        paddingBottom: 40,
+        paddingLeft: 30,
+        paddingRight: 30
+      },
     intro_text: {
         color: '#2C3B51',
         fontSize: 19,
@@ -240,7 +274,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
     },
     intro_text_bold: {
-        flex: 1,
+        //flex: 1,
         color: '#2C3B51',
         fontSize: 19,
         lineHeight: 25,
@@ -262,16 +296,62 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontFamily: "roboto-bold-italic"
       },
+      text_bold_italic_left: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "left",
+        alignSelf: "flex-start",
+        fontFamily: "roboto-bold-italic"
+      },
     codeInput: {
-        marginTop: 40,
-        marginBottom: 20,
+        marginTop: 5,
+        marginBottom: 5,
         backgroundColor: "#E2DFD1",
         borderRadius: 7,
         textAlign: 'center',
         height: 49,
         fontSize: 19,
         alignSelf: "stretch",
+        width: Dimensions.get("window").width - 60
     },
+    button_grey_input_text: {
+        color: "#2C3B51",
+        fontSize: 14,
+        lineHeight: 20,
+        textAlign: "center",
+        fontFamily: "roboto-regular",
+        alignSelf: "stretch",
+        fontWeight: "normal",
+        paddingTop: 4
+      },
+      searchSection: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
+      },
+      text_input_button: {
+        flex: 1,
+        color: "#2C3B51",
+        backgroundColor: "#E2DFD1",
+        paddingTop: 15,
+        paddingBottom: 15,
+        borderRadius: 99,
+        fontSize: 14,
+        lineHeight: 20,
+        textAlign: "center",
+        fontFamily: "roboto-regular",
+        alignSelf: "stretch",
+        fontWeight: "normal"
+      },
+      inputIcon: {
+        padding: 10,
+        position: "absolute",
+        right: 5,
+        zIndex: 1,
+        overflow: "visible"
+      }
 })
 
 export { styles } 

@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     background_intro: {
-        backgroundColor: "#A28AD4",
+        backgroundColor: "#4CBB92",
         height: Dimensions.get("window").height,
     },
     full_background: {
@@ -117,13 +117,17 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     bottom: {
-        position: 'relative',
+        justifyContent: "flex-start",
+    alignSelf: "stretch"
+    },
+    bottom_button: {
+        position: "relative",
         alignSelf: "stretch",
         //paddingTop: 30,
         paddingLeft: 30,
         paddingRight: 30,
-        bottom: 30,
-    },
+        bottom: 30
+      },
     keyboard_view: {
         flex: 1,
         alignSelf: "stretch",
