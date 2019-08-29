@@ -272,6 +272,14 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     textAlign: "left"
   },
+  intro_text_bold_center: {
+    color: "#2C3B51",
+    fontSize: 19,
+    lineHeight: 25,
+    fontFamily: "roboto-bold",
+    alignSelf: "stretch",
+    textAlign: "center"
+  },
   usernameInput: {
     marginTop: 43,
 

@@ -44,10 +44,10 @@ class Exercice_14_Challenge extends React.Component {
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}Until you come back tomorrow, do a test-run of one of your newly defined coping plans!
-                  {"\n"}{"\n"}There might be challenges to realize my plan: {this.props.user_values.NewHabitCommit_D13}. But I am prepared.
-                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {this.props.user_values.Obstacle1_D14}, then {this.props.user_values.CopingStrategy1_D14}.</Text>.
-                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {this.props.user_values.Obstacle2_D14}, then {this.props.user_values.CopingStrategy2_D14}.</Text>.
-                  {"\n"}{"\n"}<Text style={styles.intro_text_bold}>If {this.props.user_values.Obstacle3_D14}, then {this.props.user_values.CopingStrategy3_D14}.</Text>.
+                  {"\n"}{"\n"}There might be challenges to realize my plan: <Text style={styles.text_bold_italic}>{this.props.user_values.NewHabitCommit_D13}</Text>. But I am prepared.
+                  {"\n"}{"\n"}<Text style={styles.text_bold_italic}>If {this.props.user_values.Obstacle1_D14}, then {this.props.user_values.CopingStrategy1_D14}.</Text>.
+                  {"\n"}{"\n"}<Text style={styles.text_bold_italic}>If {this.props.user_values.Obstacle2_D14}, then {this.props.user_values.CopingStrategy2_D14}.</Text>.
+                  {"\n"}{"\n"}<Text style={styles.text_bold_italic}>If {this.props.user_values.Obstacle3_D14}, then {this.props.user_values.CopingStrategy3_D14}.</Text>.
                 </Text>
 
               </View>

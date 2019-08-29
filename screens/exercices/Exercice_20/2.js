@@ -42,9 +42,9 @@ class Exercice_20_2 extends React.Component {
                 <Text style={styles.intro_text}>
                   Now, do your favourite mindless activity on your smartphone
                   for five minutes.{"\n"}
-                  {"\n"}This might be {this.props.user_values.AppsRed1_D7},{" "}
-                  {this.props.user_values.AppsRed2_D7} or{" "}
-                  {this.props.user_values.AppsRed3_D7}.{"\n"}
+                  {"\n"}This might be:{"\n"}{"\n"}<Text style={styles.text_bold_italic_left}>{this.props.user_values.AppsRed1_D7},{" "}
+                  {this.props.user_values.AppsRed2_D7}</Text> or{" "}
+                  <Text style={styles.text_bold_italic_left}>{this.props.user_values.AppsRed3_D7}</Text>.{"\n"}
                   {"\n"}Enjoy it to the fullest!{"\n"}
                   {"\n"}Start the timer in the next screen.
                 </Text>

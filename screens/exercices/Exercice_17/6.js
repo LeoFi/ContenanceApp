@@ -36,17 +36,14 @@ export default class Exercice_17_6 extends React.Component {
 
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/blue_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={{backgroundColor: "#F4F1DE", flex: 1}}>
         <StatusBar hidden />
         <ScrollView>
           <View style={styles.container_top}>
             <Text style={styles.sub_header}>
               Let’s check how to turn off notifications.
             </Text>
-            <Text style={styles.intro_text_bold}>
+            <Text style={styles.intro_text_bold_center}>
               {"\n"}Which smartphone do you use?{"\n"}{"\n"}
             </Text>
             <GreyInputButton
@@ -80,7 +77,7 @@ export default class Exercice_17_6 extends React.Component {
                 onPress={this.handleSubmit}
               />
             </View>
-      </ImageBackground>
+      </View>
     );
   }
 }

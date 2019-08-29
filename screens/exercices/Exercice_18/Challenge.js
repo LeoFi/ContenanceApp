@@ -92,32 +92,32 @@ class Exercice_18_Challenge extends React.Component {
 
                   <View style={styles.top_security_agreements}>
                     <Text style={styles.intro_text}>
-                      <Text style={styles.intro_text_bold}>
-                        Smartphone GO Situations
+                      <Text style={styles.intro_text}>
+                        Smartphone GO Situations:
                       </Text>
                       {"\n"}
                       {"\n"}
-                      {this.props.user_values.SPGoSit1_D18}
+                      <Text style={styles.text_bold_italic}>{this.props.user_values.SPGoSit1_D18}
                       {"\n"}
                       {"\n"}
                       {this.props.user_values.SPGoSit2_D18}
                       {"\n"}
                       {"\n"}
-                      {this.props.user_values.SPGoSit3_D18}
+                      {this.props.user_values.SPGoSit3_D18}</Text>
                       {"\n"}
                       {"\n"}
-                      <Text style={styles.intro_text_bold}>
-                        Smartphone NO GO Situations
+                      <Text style={styles.intro_text}>
+                        Smartphone NO GO Situations:
                       </Text>
                       {"\n"}
                       {"\n"}
-                      {this.props.user_values.SPNoGoSit1_D18}
+                      <Text style={styles.text_bold_italic}>{this.props.user_values.SPNoGoSit1_D18}
                       {"\n"}
                       {"\n"}
                       {this.props.user_values.SPNoGoSit2_D18}
                       {"\n"}
                       {"\n"}
-                      {this.props.user_values.SPNoGoSit3_D18}
+                      {this.props.user_values.SPNoGoSit3_D18}</Text>
                     </Text>
                   </View>
                 </Modal>

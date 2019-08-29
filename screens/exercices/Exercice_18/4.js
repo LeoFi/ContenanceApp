@@ -43,32 +43,27 @@ class Exercice_18_4 extends React.Component {
                   Et voilà, this is your personal environment design plan to
                   support a better relationship with your smartphone.{"\n"}
                   {"\n"}
-                  <Text style={styles.intro_text_bold}>
-                    Smartphone GO Situations
+                  <Text style={styles.intro_text}>
+                    Smartphone GO Situations:
                   </Text>
-                  {"\n"}
-                  {"\n"}
-                  {this.props.user_values.SPGoSit1_D18}
-                  {"\n"}
+                  {"\n"}{"\n"}
+                  <Text style={styles.text_bold_italic}>{this.props.user_values.SPGoSit1_D18}
                   {"\n"}
                   {this.props.user_values.SPGoSit2_D18}
                   {"\n"}
+                  {this.props.user_values.SPGoSit3_D18}</Text>
                   {"\n"}
-                  {this.props.user_values.SPGoSit3_D18}
                   {"\n"}
-                  {"\n"}
-                  <Text style={styles.intro_text_bold}>
-                    Smartphone NO GO Situations
+                  <Text style={styles.intro_text}>
+                    Smartphone NO GO Situations:
                   </Text>
                   {"\n"}
                   {"\n"}
-                  {this.props.user_values.SPNoGoSit1_D18}
-                  {"\n"}
+                  <Text style={styles.text_bold_italic}>{this.props.user_values.SPNoGoSit1_D18}
                   {"\n"}
                   {this.props.user_values.SPNoGoSit2_D18}
                   {"\n"}
-                  {"\n"}
-                  {this.props.user_values.SPNoGoSit3_D18}
+                  {this.props.user_values.SPNoGoSit3_D18}</Text>
                 </Text>
               </View>
             </TouchableWithoutFeedback>

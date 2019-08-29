@@ -78,7 +78,7 @@ class Exercice_14_3 extends React.Component {
                   Define your three own obstacles.
                   {"\n"}
                   {"\n"}
-                  {this.props.user_values.NewHabitCommit_D13}
+                  <Text style={styles.text_bold_italic}>{this.props.user_values.NewHabitCommit_D13}</Text>
                 </Text>
 
                 <View style={{ justifyContent: "flex-start", paddingTop: 20 }}>

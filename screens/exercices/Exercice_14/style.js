@@ -353,6 +353,13 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         width: Dimensions.get("window").width - 60
     },
+    text_bold_italic: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "center",
+        fontFamily: "roboto-bold-italic"
+      },
 })
 
 export { styles } 

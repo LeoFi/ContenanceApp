@@ -58,7 +58,8 @@ class TestScreen extends React.Component {
     super(props);
     this.state = {
       progressCircle: 0.2,
-      welcome_message: "Continue with your next session.",
+      welcome_title_message: "Welcome",
+      welcome_message: "Start your journey now.",
       observeStarted: true,
       reflectStarted: false,
       visionStarted: false,
@@ -69,6 +70,25 @@ class TestScreen extends React.Component {
 
   componentDidMount() {
     this.compareDates();
+    if (this.props.exercice_state_1 === "completed"){
+      this.setState({
+        welcome_title_message: "Hey"
+      });
+    }
+    // Alert.alert(
+    //   'Alert Title',
+    //   'My Alert Msg',
+    //   [
+    //     {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+    //     {
+    //       text: 'Cancel',
+    //       onPress: () => console.log('Cancel Pressed'),
+    //       style: 'cancel',
+    //     },
+    //     {text: 'OK', onPress: () => console.log('OK Pressed')},
+    //   ],
+    //   {cancelable: false},
+    // );
   }
 
   compareDates = () => {
@@ -81,8 +101,8 @@ class TestScreen extends React.Component {
     };
 
     dt1 = new Date(initialDate);
-    //dt2 = new Date();
-    dt2 = new Date("september 27, 2019 14:44:30");
+    dt2 = new Date();
+    //dt2 = new Date("september 27, 2019 14:44:30");
 
     console.log(dt1);
     console.log(dt2);
@@ -207,14 +227,15 @@ class TestScreen extends React.Component {
         ) {
           console.log("On the same day ET Complet");
           this.setState({
-            welcome_message: "Well Done, come back tomorrow to continue."
+            welcome_title_message: "Well done,",
+            welcome_message: "Come back tomorrow to continue."
           });
         } else if (
           programLength === x &&
           data[programLength].exercice == "locked"
         ) {
           console.log("Current Day AND exercice Locked");
-
+          
           const TodayLocked = data
             .filter(item => item.exercice == "locked")
             .map(item => {
@@ -226,6 +247,7 @@ class TestScreen extends React.Component {
               });
             });
         } else if (programLength <= x) {
+          //Alert.alert("Test")
           const PastLocked = data
             .filter(item => item.exercice == "locked")
             .filter(item => item.day <= x)
@@ -977,8 +999,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 11,
-        //path: "Exercice_11_Intro",
-        path: "Exercice_11_3",
+        path: "Exercice_11_Intro",
+        //path: "Exercice_11_3",
         label: "Day 11 - 54321 Trick",
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,
@@ -1127,7 +1149,7 @@ class TestScreen extends React.Component {
 
           <View style={{ flex: 1, paddingRight: 30, paddingLeft: 30 }}>
             <Text style={styles.header_left}>
-              Hey, {this.props.user.nickname}
+            {this.state.welcome_title_message} {this.props.user.nickname}!
             </Text>
 
             <Text style={styles.text_left}>
@@ -1138,7 +1160,7 @@ class TestScreen extends React.Component {
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||
-              //item.state === "completed" ||
+              item.state === "completed" ||
               item.state === "new" ? (
                 <View key={key}>
                   <ExerciceButton

@@ -60,13 +60,13 @@ class Exercice_14_8 extends React.Component {
                   Define your own strategies to still realize your plan.
                 </Text>
 
-                <View>
-                  <Text style={styles.text}>
-                    If {this.props.user_values.Obstacle3_D14}, then:
-                  </Text>
+                  
                   <View
                     style={{ flex: 1, justifyContent: "center", top: -100 }}
                   >
+                  <Text style={styles.text}>
+                    If <Text style={styles.text_bold_italic}>{this.props.user_values.Obstacle3_D14}</Text>, then:{"\n"}
+                  </Text>
                     <TextInput
                       style={styles.codeInput}
                       onChangeText={this.handleChange_Advice1}
@@ -78,7 +78,6 @@ class Exercice_14_8 extends React.Component {
                       keyboardType="default"
                     />
                   </View>
-                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

@@ -326,6 +326,13 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    text_bold_italic: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "left",
+        fontFamily: "roboto-bold-italic"
+      },
     usernameInput: {
         marginTop: 43,
 

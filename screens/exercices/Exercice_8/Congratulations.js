@@ -46,7 +46,7 @@ class Exercice_8_Congratulations extends React.Component {
     return (
       <View style={styles.container_background_inverted}>
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView  showsVerticalScrollIndicator={false}>
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
@@ -65,7 +65,7 @@ class Exercice_8_Congratulations extends React.Component {
 
         <View style={styles.bottom_button}>
           <PrimaryButton
-            label="Done"
+            label="Continue"
             style={{
               backgroundColor: "#F4F1DE",
               borderColor: "#F4F1DE",

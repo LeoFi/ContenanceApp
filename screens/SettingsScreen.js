@@ -46,18 +46,6 @@ export default class SettingsScreen extends React.Component {
             <SettingsList.Item
               titleStyle={styles.text_left}
               backgroundColor="#F4F1DE"
-              title="Nickname"
-              onPress={() => Alert.alert("Nickname")}
-            />
-            <SettingsList.Item
-              titleStyle={styles.text_left}
-              backgroundColor="#F4F1DE"
-              title="Reminders"
-              onPress={() => Alert.alert("Reminders")}
-            />
-            <SettingsList.Item
-              titleStyle={styles.text_left}
-              backgroundColor="#F4F1DE"
               title="FAQ"
               onPress={() => Alert.alert("FAQ")}
             />

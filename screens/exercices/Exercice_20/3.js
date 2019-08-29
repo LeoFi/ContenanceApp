@@ -22,21 +22,20 @@ export default class Exercice_20_2 extends React.Component {
     super(props);
 
     this.state = {
-      show_button: false
+      show_button: false,
+      coutdown_running: false
     };
   }
 
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/blue_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={{flex: 1}}>
         <StatusBar hidden />
         <ScrollView>
           <View>
             <View style={styles.container_scroll}>
               <CountDown
+              running={this.state.coutdown_running}
                 until={300}
                 onFinish={() => this.setState({ show_button: true })}
                 timeToShow={["M", "S"]}
@@ -56,13 +55,13 @@ export default class Exercice_20_2 extends React.Component {
                 size={30}
               />
               {!this.state.show_button ? (
-                <Text style={styles.intro_text}>
+                <Text style={styles.intro_text_center}>
                   We’ll let you know when it’s time to come back.
                 </Text>
               ) : null}
               {this.state.show_button ? (
                 <>
-                  <Text style={styles.intro_text}>
+                  <Text style={styles.intro_text_center}>
                     Time is up. Continue the exercise.
                   </Text>
                 </>
@@ -80,7 +79,18 @@ export default class Exercice_20_2 extends React.Component {
             />
           </View>
         ) : null}
-      </ImageBackground>
+
+        {!this.state.coutdown_running ? (
+        <View style={styles.bottom_button}>
+        <PrimaryButton
+          label="START AND ENJOY"
+          onPress={() => {
+            this.setState({coutdown_running: true})
+          }}
+        />
+      </View>
+      ) : null}
+      </View>
     );
   }
 }

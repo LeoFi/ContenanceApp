@@ -40,7 +40,7 @@ export default class Exercice_19_4 extends React.Component {
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.intro_text}>
-                When people are on their smartphones, they could be reading the news, but also be shopping, gaming, dating, watching a cat video, researching or texting their parents.
+                When people are on their smartphones, they could be reading the news, but also be shopping, gaming, dating, watching a cat video, researching or texting their parents.{"\n"}{"\n"}You simply can’t know. Your smartphone is a black box to others.
                 </Text>
               </View>
             </TouchableWithoutFeedback>

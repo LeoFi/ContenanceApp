@@ -65,7 +65,7 @@ class Exercice_20_Congratulations extends React.Component {
 
         <View style={styles.bottom_button}>
           <PrimaryButton
-            label="Done"
+            label="Continue"
             style={{
               backgroundColor: "#F4F1DE",
               borderColor: "#F4F1DE",

@@ -45,9 +45,9 @@ class Exercice_11_Challenge extends React.Component {
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}The next time you are using
-                  {"\n"}{"\n"}{this.props.user_values.AppsRed1_D7}
-                  {"\n"}{"\n"}{this.props.user_values.AppsRed2_D7}
-                  {"\n"}{"\n"}{this.props.user_values.AppsRed3_D7}
+                  <Text style={styles.text_bold_italic}>{"\n"}{"\n"}{this.props.user_values.AppsRed1_D7}
+                  {"\n"}{this.props.user_values.AppsRed2_D7}
+                  {"\n"}{this.props.user_values.AppsRed3_D7}</Text>
                   {"\n"}{"\n"}give it a try and do the trick to find:
                   {"\n"}{"\n"}5 things you can see
                   {"\n"}4 things you can touch

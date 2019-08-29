@@ -235,6 +235,14 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         textAlign: 'left',
     },
+    intro_text_center: {
+        color: '#2C3B51',
+        fontSize: 19,
+        lineHeight: 25,
+        fontFamily: 'roboto-regular',
+        alignSelf: "stretch",
+        textAlign: 'center',
+    },
     intro_text_light: {
         color: '#F4F1DE',
         fontSize: 19,
@@ -260,6 +268,13 @@ const styles = StyleSheet.create({
         fontSize: 19,
         borderBottomWidth: 2,
     },
+    text_bold_italic_left: {
+        color: "#2C3B51",
+        fontSize: 19,
+        lineHeight: 25,
+        textAlign: "left",
+        fontFamily: "roboto-bold-italic"
+      }
 })
 
 export { styles } 
