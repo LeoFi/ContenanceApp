@@ -35,10 +35,13 @@ class Exercice_13_Congratulations extends React.Component {
     this.setState({ exercice_state_13: exercice_state_13 });
     this.props.dispatch(updateState_Ex13(this.state.exercice_state_13));
 
-    const exercice_state_14 = this.state.exercice_state_14;
-    this.setState({ exercice_state_14: exercice_state_14 });
-    this.props.dispatch(updateState_Ex14(this.state.exercice_state_14));
-    
+    if (this.props.exercices.exercice_state_14 === undefined) {
+      const exercice_state_14 = this.state.exercice_state_14;
+      this.setState({ exercice_state_14: exercice_state_14 });
+      this.props.dispatch(updateState_Ex14(this.state.exercice_state_14));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 

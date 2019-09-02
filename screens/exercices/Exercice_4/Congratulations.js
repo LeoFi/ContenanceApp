@@ -16,8 +16,8 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex4 } from "./../../../redux-persist/redux/exercices"
-import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex4 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_4_Congratulations extends React.Component {
   constructor(props) {
@@ -29,16 +29,18 @@ class Exercice_4_Congratulations extends React.Component {
     };
   }
 
- 
   handleSubmit = () => {
     const { exercice_state_4 } = this.state;
     this.setState({ exercice_state_4: exercice_state_4 });
     this.props.dispatch(updateState_Ex4(this.state.exercice_state_4));
 
-    const { exercice_state_5 } = this.state;
-    this.setState({ exercice_state_5: exercice_state_5 });
-    this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
-
+    if (this.props.exercices.exercice_state_5 === undefined) {
+      const { exercice_state_5 } = this.state;
+      this.setState({ exercice_state_5: exercice_state_5 });
+      this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
+    } else {
+      //
+    }
     this.props.navigation.push("Intro_Screen_PM1");
   };
 
@@ -54,11 +56,13 @@ class Exercice_4_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header_light}>Congratulations!</Text>
-                <Text style={styles.text_light}>
-                  {"\n"}Today, you discovered why you might feel stressed after being on the smartphone.
-                  {"\n"}{"\n"}Continue with your first reflection.
-                </Text>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"}Today, you discovered why you might feel stressed after
+                being on the smartphone.
+                {"\n"}
+                {"\n"}Continue with your first reflection.
+              </Text>
             </View>
           </View>
         </ScrollView>

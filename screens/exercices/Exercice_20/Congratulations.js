@@ -16,8 +16,8 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex20 } from "./../../../redux-persist/redux/exercices"
-import { updateState_Ex21 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex20 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex21 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_20_Congratulations extends React.Component {
   constructor(props) {
@@ -29,16 +29,18 @@ class Exercice_20_Congratulations extends React.Component {
     };
   }
 
- 
   handleSubmit = () => {
     const { exercice_state_20 } = this.state;
     this.setState({ exercice_state_20: exercice_state_20 });
     this.props.dispatch(updateState_Ex20(this.state.exercice_state_20));
 
-    const { exercice_state_21 } = this.state;
-    this.setState({ exercice_state_21: exercice_state_21 });
-    this.props.dispatch(updateState_Ex21(this.state.exercice_state_21));
-
+    if (this.props.exercices.exercice_state_21 === undefined) {
+      const { exercice_state_21 } = this.state;
+      this.setState({ exercice_state_21: exercice_state_21 });
+      this.props.dispatch(updateState_Ex21(this.state.exercice_state_21));
+    } else {
+      //
+    }
     this.props.navigation.push("Intro_Screen_PM5");
   };
 
@@ -54,11 +56,13 @@ class Exercice_20_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header_light}>Congratulations!</Text>
-                <Text style={styles.text_light}>
-                  {"\n"} Today, you discovered how to consciously lose yourself again.
-                  {"\n"}{"\n"}Continue today’s exercise with your fifth reflection.
-                </Text>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"} Today, you discovered how to consciously lose yourself
+                again.
+                {"\n"}
+                {"\n"}Continue today’s exercise with your fifth reflection.
+              </Text>
             </View>
           </View>
         </ScrollView>

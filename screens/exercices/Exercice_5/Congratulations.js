@@ -35,10 +35,13 @@ class Exercice_5_Congratulations extends React.Component {
     this.setState({ exercice_state_5: exercice_state_5 });
     this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
 
-    const exercice_state_6 = this.state;
-    this.setState({ exercice_state_6: exercice_state_6 });
-    this.props.dispatch(updateState_Ex6(this.state.exercice_state_6));
-
+    if (this.props.exercices.exercice_state_6 === undefined) {
+      const exercice_state_6 = this.state;
+      this.setState({ exercice_state_6: exercice_state_6 });
+      this.props.dispatch(updateState_Ex6(this.state.exercice_state_6));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 
@@ -58,7 +61,9 @@ class Exercice_5_Congratulations extends React.Component {
             <View style={styles.middle}>
               <Text style={styles.header_light}>Congratulations!</Text>
               <Text style={styles.text_light}>
-                {"\n"}You just completed the first step to change your habits: identifying your situational triggers. We will build on them later on in the program!
+                {"\n"}You just completed the first step to change your habits:
+                identifying your situational triggers. We will build on them
+                later on in the program!
               </Text>
             </View>
           </View>

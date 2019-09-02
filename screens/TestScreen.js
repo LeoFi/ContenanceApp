@@ -57,58 +57,119 @@ class TestScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressCircle: 0.2,
+      progressCircle: 1/22,
       welcome_title_message: "Welcome",
       welcome_message: "Start your journey now.",
       observeStarted: true,
       reflectStarted: false,
       visionStarted: false,
       planStarted: false,
-      supportStarted: false
+      supportStarted: false,
+      colorProgress: "#A28AD4",
+      count: 1,
+      modalVisible: [],
+      challengePending: undefined
     };
   }
 
-  componentDidMount() {
-    this.compareDates();
-    if (this.props.exercice_state_1 === "completed"){
-      this.setState({
-        welcome_title_message: "Hey"
-      });
+  setPhases = () => {
+    if (
+      this.props.exercices.exercice_state_17 === "completed" &&
+      this.props.exercices.exercice_state_18 === "completed" &&
+      this.props.exercices.exercice_state_19 === "completed" &&
+      this.props.exercices.exercice_state_20 === "completed" &&
+      this.props.exercices.exercice_state_21 === "completed"
+    ) {
+      Alert.alert("CACA5")
+      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: true, supportStarted: true, colorProgress: "#6A97D8" });
+    } else if (
+      this.props.exercices.exercice_state_13 === "completed" &&
+      this.props.exercices.exercice_state_14 === "completed" &&
+      this.props.exercices.exercice_state_15 === "completed" &&
+      this.props.exercices.exercice_state_16 === "completed"
+    ) {
+      Alert.alert("CACA4")
+      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: true, supportStarted: true, colorProgress: "#6A97D8" });
+    } else if (
+      this.props.exercices.exercice_state_9 === "completed" &&
+      this.props.exercices.exercice_state_10 === "completed" &&
+      this.props.exercices.exercice_state_11 === "completed" &&
+      this.props.exercices.exercice_state_12 === "completed"
+    ) {
+      Alert.alert("CACA3")
+      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: true, supportStarted: false, colorProgress: "#4CBB92" });
+    } else if (
+      this.props.exercices.exercice_state_5 === "completed" &&
+      this.props.exercices.exercice_state_6 === "completed" &&
+      this.props.exercices.exercice_state_7 === "completed" &&
+      this.props.exercices.exercice_state_8 === "completed"
+    ) {
+      Alert.alert("CACA2")
+      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: false, supportStarted: false, colorProgress: "#F87B7B" });
+    } else if (
+      this.props.exercices.exercice_state_1 === "completed" &&
+      this.props.exercices.exercice_state_2 === "completed" &&
+      this.props.exercices.exercice_state_3 === "completed" &&
+      this.props.exercices.exercice_state_4 === "completed"
+    ) {
+      Alert.alert("CACA2")
+      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: false, planStarted: false, supportStarted: false, colorProgress: "#F6B563" });
     }
-    // Alert.alert(
-    //   'Alert Title',
-    //   'My Alert Msg',
-    //   [
-    //     {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-    //     {
-    //       text: 'Cancel',
-    //       onPress: () => console.log('Cancel Pressed'),
-    //       style: 'cancel',
-    //     },
-    //     {text: 'OK', onPress: () => console.log('OK Pressed')},
-    //   ],
-    //   {cancelable: false},
-    // );
+    else {
+      null
+    }
+  };
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
   }
 
-  compareDates = () => {
-    const initialDate = this.props.user.initialDate;
+  incrementCount = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
 
+  decrementCount = () => {
+    this.setState({
+      count: this.state.count - 1
+    });
+  };
+
+  componentDidMount() {
+    this.compareDates();
+    this.timeLogic();
+    this.setPhases();
+    // this.setState({
+    //   modalVisible: true
+    // });
+    this.setState({
+      modalVisible: false
+    });
+  }
+
+  goToTop = () => {
+    this.scroll.scrollTo({
+      x: -Dimensions.get("window").height,
+      y: 0,
+      animated: true
+    });
+  };
+
+  compareDates = () => {
     diff_days = (dt2, dt1) => {
       var diff = (dt2.getTime() - dt1.getTime()) / 1000;
       diff /= 60 * 60 * 24;
       return Math.abs(Math.round(diff));
     };
+  };
 
+  timeLogic = () => {
+    const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    dt2 = new Date();
-    //dt2 = new Date("september 27, 2019 14:44:30");
-
-    console.log(dt1);
-    console.log(dt2);
+    dt2 = new Date("September 30, 2019 14:44:30");
     var x = diff_days(dt1, dt2);
 
-    console.log("DIFFERENCE" + x);
     const data = [
       {
         day: 1,
@@ -221,33 +282,49 @@ class TestScreen extends React.Component {
       //
     } else {
       for (let programLength = 0; programLength < 21; programLength++) {
+        // GET ALL COMPLETED EXERCISES
+        var myOrderedArray = data
+          .filter(item => item.exercice == "completed")
+          // GET AN ARRAY OF ALL ITEM.DAY COMPLETED EXERCISES
+          .map(item => {
+            return item.day;
+          })
+          // GET ARRAY OF UNIQUES VALUES
+          .reduce(function(accumulator, currentValue) {
+            if (accumulator.indexOf(currentValue) === -1) {
+              accumulator.push(currentValue);
+            }
+            return accumulator;
+          }, []);
+
         if (
+          // CURRENT DAY AND DAY EXERCISE IS COMPLETED
           programLength === x &&
           data[programLength].exercice == "completed"
         ) {
-          console.log("On the same day ET Complet");
           this.setState({
             welcome_title_message: "Well done,",
-            welcome_message: "Come back tomorrow to continue."
+            welcome_message: "Come back tomorrow to continue.",
+            modalVisible: true
           });
         } else if (
+          // CURRENT DAY AND DAY EXERCISE IS LOCKED
           programLength === x &&
           data[programLength].exercice == "locked"
         ) {
-          console.log("Current Day AND exercice Locked");
-          
           const TodayLocked = data
             .filter(item => item.exercice == "locked")
             .map(item => {
               return this.setState({ TodayLocked: "next" }, function() {
-                //Alert.alert(item);
                 this.props.dispatch(
                   data[programLength].function(this.state.TodayLocked)
                 );
               });
             });
-        } else if (programLength <= x) {
-          //Alert.alert("Test")
+        } else if (
+          // FUTURE DAY = SKIPPED DAYS
+          programLength <= x
+        ) {
           const PastLocked = data
             .filter(item => item.exercice == "locked")
             .filter(item => item.day <= x)
@@ -266,6 +343,45 @@ class TestScreen extends React.Component {
               });
             });
         }
+      }
+
+      // console.log(myOrderedArray)
+      // TOTAL AMOUNT OF DAYS MISSED
+      const Days_Missed_TotalValue = x - myOrderedArray.length;
+      const ChallengePendingArray = myOrderedArray;
+      //this.setState({ challengePending: ChallengePendingArray });
+
+      //CALCUL OF THE PROGRESS BAR
+
+      const numbers = myOrderedArray;
+      //const numbers = [1, 2, 3, 4, 5, 7, 8];
+      console.log(myOrderedArray);
+      let chunks = [];
+      let prev = -1;
+      numbers.forEach(current => {
+        if (current - prev != 1) chunks.push([]);
+        chunks[chunks.length - 1].push(current);
+        prev = current;
+      });
+      //console.log(chunks[0].length);
+      const progressCircleCompleted = chunks[0].length / 21;
+      this.setState({ progressCircle: progressCircleCompleted });
+
+      // DAYS MISSED SINCE LAST COMPLETED EXERCISE
+      const Days_Missed_LastExValue = myOrderedArray.pop();
+      //console.log(Days_Missed_TotalValue);
+
+      const currentUser = firebase.auth().currentUser;
+
+      if (currentUser != null) {
+        firebase
+          .database()
+          .ref("accounts")
+          .child(currentUser.uid)
+          .update({
+            DaysMissedTotal: Days_Missed_TotalValue,
+            DaysMissedLastEx: Days_Missed_LastExValue
+          });
       }
     }
   };
@@ -910,7 +1026,15 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_1,
         styleText: ExerciceTextStyle_1,
         IconSource: IconsExercice_1,
-        state: this.props.exercices.exercice_state_1
+        state: this.props.exercices.exercice_state_1,
+        title: <Text style={styles.header_challenge}>Contenance</Text>,
+        visible: true,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            From now on, whenever you open Contencance, take on a good posture
+            first.
+          </Text>
+        )
       },
       {
         id: 2,
@@ -919,7 +1043,21 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_2,
         styleText: ExerciceTextStyle_2,
         IconSource: IconsExercice_2,
-        state: this.props.exercices.exercice_state_2
+        state: this.props.exercices.exercice_state_2,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>Notice Your Impulses</Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Whenever you catch yourself grabbing your smartphone, stop for a
+            moment and try to see if you can identify the impulse. Notice it
+            with curiosity and without judging it.{"\n"}
+            {"\n"}Try to let the impulse come over you, like a wave, without
+            reacting to it immediately. And then decide consciously if you want
+            to follow your impulse right now - or not.
+          </Text>
+        )
       },
       {
         id: 3,
@@ -928,7 +1066,21 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_3,
         styleText: ExerciceTextStyle_3,
         IconSource: IconsExercice_3,
-        state: this.props.exercices.exercice_state_3
+        state: this.props.exercices.exercice_state_3,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>The Solution Triangle</Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Look around you today: what are other people doing to take control
+            of their smartphone use?{"\n"}
+            {"\n"}
+            What factor do they belong to?{"\n"}
+            {"\n"}
+            The smartphone, the environment or the person?
+          </Text>
+        )
       },
       {
         id: 4,
@@ -938,7 +1090,17 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
         IconSource: IconsExercice_4,
-        state: this.props.exercices.exercice_state_4
+        state: this.props.exercices.exercice_state_4,
+        visible: true,
+        title: <Text style={styles.header_challenge}>Keep Breathing</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Whenever you use your smartphone until tomorrow, be aware of your
+            breathing.{"\n"}
+            {"\n"}
+            Follow one breath all the way through.
+          </Text>
+        )
       },
       {
         id: 5,
@@ -947,7 +1109,16 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_5,
         styleText: ExerciceTextStyle_5,
         IconSource: IconsExercice_5,
-        state: this.props.exercices.exercice_state_5
+        state: this.props.exercices.exercice_state_5,
+        visible: true,
+        title: <Text style={styles.header_challenge}>The Habit Loop</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            The next time when you are in one of these situations, take a moment
+            to check if the decision to grab your smartphone happens
+            automatically or if you consciously decide to do so.
+          </Text>
+        )
       },
       {
         id: 6,
@@ -957,7 +1128,22 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_6,
         styleText: ExerciceTextStyle_6,
         IconSource: IconsExercice_6,
-        state: this.props.exercices.exercice_state_6
+        state: this.props.exercices.exercice_state_6,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>
+            Exploring Emotional Triggers
+          </Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Next time when you catch yourself grabbing the smartphone, stop for
+            a moment and check your inner state of mind. Ask yourself: How am I
+            feeling at this moment?{"\n"}
+            {"\n"}Notice the feeling, and then consciously decide if you want to
+            use your smartphone as a reaction to it.
+          </Text>
+        )
       },
       {
         id: 7,
@@ -966,7 +1152,17 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_7,
         styleText: ExerciceTextStyle_7,
         IconSource: IconsExercice_7,
-        state: this.props.exercices.exercice_state_7
+        state: this.props.exercices.exercice_state_7,
+        visible: true,
+        title: <Text style={styles.header_challenge}>Getting Lost</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            When you continue using your smartphone today, think of the traffic
+            light and the apps you use. How does their design add to the
+            experience of losing yourself in the app?{"\n"}
+            {"\n"}Become aware of that.
+          </Text>
+        )
       },
       {
         id: 8,
@@ -975,7 +1171,18 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_8,
         styleText: ExerciceTextStyle_8,
         IconSource: IconsExercice_8,
-        state: this.props.exercices.exercice_state_8
+        state: this.props.exercices.exercice_state_8,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>Mindful Social Media Use</Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Until tomorrow, look at the pictures in your feed a little bit
+            longer than usual, asking yourself: What do I actually see in front
+            of me?
+          </Text>
+        )
       },
       {
         id: 9,
@@ -985,7 +1192,15 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_9,
         styleText: ExerciceTextStyle_9,
         IconSource: IconsExercice_9,
-        state: this.props.exercices.exercice_state_9
+        state: this.props.exercices.exercice_state_9,
+        visible: true,
+        title: <Text style={styles.header_challenge}>Exploring Values</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Until tomorrow, observe your actions and ask yourself how they might
+            be connected to your values.
+          </Text>
+        )
       },
       {
         id: 10,
@@ -995,7 +1210,19 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_10,
         styleText: ExerciceTextStyle_10,
         IconSource: IconsExercice_10,
-        state: this.props.exercices.exercice_state_10
+        state: this.props.exercices.exercice_state_10,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>
+            Meaninngful Smartphone Activities
+          </Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Until tomorrow, do a test run of the meaningful smartphone activity
+            you defined today!
+          </Text>
+        )
       },
       {
         id: 11,
@@ -1005,7 +1232,19 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,
         IconSource: IconsExercice_11,
-        state: this.props.exercices.exercice_state_11
+        state: this.props.exercices.exercice_state_11,
+        visible: true,
+        title: <Text style={styles.header_challenge}>54321 Trick</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            {/* The next time you are using {this.props.user_values.AppsRed1_D7},
+            {this.props.user_values.AppsRed2_D7} and
+            {this.props.user_values.AppsRed3_D7}, give it a try and do the trick */}
+            to find: Give it a try and do the 54321 trick and find:{"\n"}
+            {"\n"}5 things you can see, 4 things you can touch, 3 things you can
+            hear, 2 things you can smell, 1 thing you can taste!
+          </Text>
+        )
       },
       {
         id: 12,
@@ -1014,7 +1253,16 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_12,
         styleText: ExerciceTextStyle_12,
         IconSource: IconsExercice_12,
-        state: this.props.exercices.exercice_state_12
+        state: this.props.exercices.exercice_state_12,
+        visible: true,
+        title: <Text style={styles.header_challenge}>Inner Scientist</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Next time you notice any emotional trigger or impulse:{"\n"}
+            {"\n"}Stop, notice it, most importantly accept it and then decide
+            what to do!
+          </Text>
+        )
       },
       {
         id: 13,
@@ -1023,7 +1271,20 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_13,
         styleText: ExerciceTextStyle_13,
         IconSource: IconsExercice_13,
-        state: this.props.exercices.exercice_state_13
+        state: this.props.exercices.exercice_state_13,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>
+            Meaningful Smartphone Habits
+          </Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Let’s walk the walk. Do a first run of your new activity:{"\n"}
+            {"\n"}
+            {/* {this.props.user_values.NewHabitCommit_D13} */}
+          </Text>
+        )
       },
       {
         id: 14,
@@ -1032,7 +1293,27 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_14,
         styleText: ExerciceTextStyle_14,
         IconSource: IconsExercice_14,
-        state: this.props.exercices.exercice_state_14
+        state: this.props.exercices.exercice_state_14,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>
+            Being Prepared for Challenges
+          </Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Do a test-run of one of your newly defined coping plans!{"\n"}
+            {"\n"}There might be challenges to realize my plan:{" "}
+            {/* {this.props.user_values.NewHabitCommit_D13}. But I am prepared.
+            {"\n"}
+            {"\n"}If {this.props.user_values.Obstacle1_D14}, then{" "}
+            {this.props.user_values.CopingStrategy1_D14}.{"\n"}
+            {"\n"}If {this.props.user_values.Obstacle2_D14}, then{" "}
+            {this.props.user_values.CopingStrategy2_D14}.{"\n"}
+            {"\n"}If {this.props.user_values.Obstacle3_D14}, then{" "}
+            {this.props.user_values.CopingStrategy3_D14}. */}
+          </Text>
+        )
       },
       {
         id: 15,
@@ -1041,7 +1322,17 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_15,
         styleText: ExerciceTextStyle_15,
         IconSource: IconsExercice_15,
-        state: this.props.exercices.exercice_state_15
+        state: this.props.exercices.exercice_state_15,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>Beauty of Imagination</Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Next time you find yourself in an empty moment today, try another
+            one of these thought experiments. Or come up with your own!
+          </Text>
+        )
       },
       {
         id: 16,
@@ -1050,7 +1341,17 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_16,
         styleText: ExerciceTextStyle_16,
         IconSource: IconsExercice_16,
-        state: this.props.exercices.exercice_state_16
+        state: this.props.exercices.exercice_state_16,
+        visible: true,
+        title: <Text style={styles.header_challenge}>Brain Reset</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Give your brain the chance to have a moment without any guided input
+            in an empty moment.{"\n"}
+            {"\n"}Treat yourself with another micro-break today, lasting 3 - 10
+            minutes instead of using your smartphone.
+          </Text>
+        )
       },
       {
         id: 17,
@@ -1059,7 +1360,21 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_17,
         styleText: ExerciceTextStyle_17,
         IconSource: IconsExercice_17,
-        state: this.props.exercices.exercice_state_17
+        state: this.props.exercices.exercice_state_17,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>
+            Taking Control of the Smartphone
+          </Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Choose your favorite option:{"\n"}
+            {"\n"}1. Turn-off non-human notifications{"\n"}
+            {"\n"}2. Design a home screen that feels like home{"\n"}
+            {"\n"}3. Free yourself from social media apps
+          </Text>
+        )
       },
       {
         id: 18,
@@ -1068,7 +1383,21 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_18,
         styleText: ExerciceTextStyle_18,
         IconSource: IconsExercice_18,
-        state: this.props.exercices.exercice_state_18
+        state: this.props.exercices.exercice_state_18,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>
+            Taking Control of the Environment
+          </Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            From now on, stick to these situations in which you will have your
+            smartphone around - or not.{"\n"}
+            {"\n"}This might be quite a radical change. Here comes a little tip:
+            You can start with implementing one GO and one NO GO per day.
+          </Text>
+        )
       },
       {
         id: 19,
@@ -1077,7 +1406,21 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_19,
         styleText: ExerciceTextStyle_19,
         IconSource: IconsExercice_19,
-        state: this.props.exercices.exercice_state_19
+        state: this.props.exercices.exercice_state_19,
+        visible: true,
+        title: (
+          <Text style={styles.header_challenge}>
+            Me, the Smartphone and Others
+          </Text>
+        ),
+        text_content: (
+          <Text style={styles.text_challenge}>
+            From now on, share with the people around you what you are doing on
+            the smartphone if you are using it around them.{"\n"}
+            {"\n"}If you don’t feel comfortable sharing your activity, think
+            about if it is even necessary doing that right that second.
+          </Text>
+        )
       },
       {
         id: 20,
@@ -1086,7 +1429,15 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_20,
         styleText: ExerciceTextStyle_20,
         IconSource: IconsExercice_20,
-        state: this.props.exercices.exercice_state_20
+        state: this.props.exercices.exercice_state_20,
+        visible: true,
+        title: <Text style={styles.header_challenge}>Daddeln is Okay</Text>,
+        text_content: (
+          <Text style={styles.text_challenge}>
+            Do one more Daddeln session until tomorrow. Lose yourself and have
+            fun!
+          </Text>
+        )
       },
       {
         id: 21,
@@ -1095,11 +1446,12 @@ class TestScreen extends React.Component {
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
         IconSource: IconsExercice_21,
-        state: this.props.exercices.exercice_state_21
+        state: this.props.exercices.exercice_state_21,
+        visible: true
       }
     ];
 
-    // const state = ExercicesArray.filter(item => item.state === "locked");
+    let { challengePending } = this.state;
 
     return (
       <View
@@ -1108,7 +1460,7 @@ class TestScreen extends React.Component {
         }}
       >
         <StatusBar barStyle="light-content" />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View
             style={{
               flex: 1,
@@ -1123,7 +1475,7 @@ class TestScreen extends React.Component {
               strokeCap={"round"}
               borderWidth={0}
               borderRadius={0}
-              color={"#A28AD4"}
+              color={this.state.colorProgress}
               unfilledColor={"#E2DFD1"}
               animated={true}
               style={{ alignSelf: "center" }}
@@ -1138,7 +1490,7 @@ class TestScreen extends React.Component {
               }}
             >
               <HomeIllustration
-                observeStarted={this.state.observeStarted}
+                observeStarted={true}
                 reflectStarted={this.state.reflectStarted}
                 visionStarted={this.state.visionStarted}
                 planStarted={this.state.planStarted}
@@ -1149,7 +1501,7 @@ class TestScreen extends React.Component {
 
           <View style={{ flex: 1, paddingRight: 30, paddingLeft: 30 }}>
             <Text style={styles.header_left}>
-            {this.state.welcome_title_message} {this.props.user.nickname}!
+              {this.state.welcome_title_message} {this.props.user.nickname}!
             </Text>
 
             <Text style={styles.text_left}>
@@ -1160,7 +1512,7 @@ class TestScreen extends React.Component {
             {ExercicesArray.map((item, key) =>
               item.state === "next" ||
               item.state === "locked" ||
-              item.state === "completed" ||
+              //item.state === "completed" ||
               item.state === "new" ? (
                 <View key={key}>
                   <ExerciceButton
@@ -1182,6 +1534,73 @@ class TestScreen extends React.Component {
                 </View>
               ) : null
             )}
+
+            <View style={{ flex: 1 }}>
+              <Modal
+                animationType="fade"
+                transparent={false}
+                visible={this.state.modalVisible}
+                onRequestClose={() => {
+                  Alert.alert("Modal has been closed.");
+                }}
+              >
+                <ScrollView
+                  showsVerticalScrollIndicator={false}
+                  ref={c => {
+                    this.scroll = c;
+                  }}
+                  style={{
+                    alignContent: "flex-start",
+                    flex: 1
+                  }}
+                >
+                  {ExercicesArray.filter(item => item.state == "completed").map(
+                    (item, key) =>
+                      item.visible === true ? (
+                        // item.id === challengePending ? (
+                        <View
+                          key={key}
+                          style={{
+                            padding: 30,
+                            backgroundColor: "#F4F1DE",
+                            height: Dimensions.get("window").height,
+                            justifyContent: "center"
+                          }}
+                        >
+                          <Text style={styles.text_modal}>
+                            {key}/{challengePending}
+                          </Text>
+                          <Text style={styles.header_modal}>
+                            {item.title}: Challenge accomplished?
+                          </Text>
+                          <Text style={styles.text_modal}>
+                            {item.text_content}
+                          </Text>
+                          <View
+                            style={{
+                              flexDirection: "row",
+                              justifyContent: "space-between",
+                              width: "auto"
+                            }}
+                          >
+                            <PrimaryButton
+                              label="Oh Yes"
+                              onPress={this.incrementCount}
+                            />
+                            <PrimaryButton
+                              label="Not Yet"
+                              // onPress={this.decrementCount}
+                              onPress={() => {
+                                this.setModalVisible(false);
+                              }}
+                            />
+                          </View>
+                        </View>
+                      ) : null
+                  )}
+                </ScrollView>
+              </Modal>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -1210,6 +1629,22 @@ const styles = StyleSheet.create({
   center: {
     justifyContent: "center",
     alignItems: "center"
+  },
+  header_modal: {
+    color: "#2C3B51",
+    fontSize: 24,
+    lineHeight: 28,
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 50
+  },
+  text_modal: {
+    color: "#2C3B51",
+    fontSize: 19,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    paddingBottom: 50
   },
   top: {
     flex: 1,

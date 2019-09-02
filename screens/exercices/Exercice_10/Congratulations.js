@@ -34,10 +34,13 @@ class Exercice_10_Congratulations extends React.Component {
     this.setState({ exercice_state_10: exercice_state_10 });
     this.props.dispatch(updateState_Ex10(this.state.exercice_state_10));
 
+    if (this.props.exercices.exercice_state_11 === undefined) {
     const { exercice_state_11 } = this.state;
     this.setState({ exercice_state_11: exercice_state_11 });
     this.props.dispatch(updateState_Ex11(this.state.exercice_state_11));
-    
+    } else {
+
+    }
     this.props.navigation.push("Home");
   };
 

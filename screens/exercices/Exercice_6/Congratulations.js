@@ -16,8 +16,8 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex6 } from "./../../../redux-persist/redux/exercices"
-import { updateState_Ex7 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex6 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex7 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_6_Congratulations extends React.Component {
   constructor(props) {
@@ -29,20 +29,18 @@ class Exercice_6_Congratulations extends React.Component {
     };
   }
 
- 
   handleSubmit = () => {
-
-    //Today's Exercise
     const { exercice_state_6 } = this.state;
     this.setState({ exercice_state_6: exercice_state_6 });
     this.props.dispatch(updateState_Ex6(this.state.exercice_state_6));
 
-    //Tomorrow's Exercise
-    const exercice_state_7 = this.state.exercice_state_7;
-    this.setState({ exercice_state_7: exercice_state_7 });
-    this.props.dispatch(updateState_Ex7(this.state.exercice_state_7));
-    
-    //
+    if (this.props.exercices.exercice_state_7 === undefined) {
+      const exercice_state_7 = this.state.exercice_state_7;
+      this.setState({ exercice_state_7: exercice_state_7 });
+      this.props.dispatch(updateState_Ex7(this.state.exercice_state_7));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 
@@ -58,10 +56,12 @@ class Exercice_6_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header_light}>Congratulations!</Text>
-                <Text style={styles.text_light}>
-                  {"\n"}Today, you discovered how emotions can trigger you to unconsciously use your smartphone. We will come back to this at a later point.
-                </Text>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"}Today, you discovered how emotions can trigger you to
+                unconsciously use your smartphone. We will come back to this at
+                a later point.
+              </Text>
             </View>
           </View>
         </ScrollView>

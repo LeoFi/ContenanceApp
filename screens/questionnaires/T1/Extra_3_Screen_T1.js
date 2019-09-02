@@ -12,7 +12,9 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
-  Picker
+  Picker,
+  StatusBar,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -248,10 +250,11 @@ export default class Extra_3_Screen_T1 extends React.Component {
 
     return (
       <>
+      <StatusBar hidden />
         <View
           style={{
             flex: 1,
-            width: "100%",
+            width: Dimensions.get("window").width,
             position: "absolute",
             left: 0,
             right: 0,

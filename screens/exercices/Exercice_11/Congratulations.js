@@ -34,10 +34,13 @@ class Exercice_11_Congratulations extends React.Component {
     this.setState({ exercice_state_11: exercice_state_11 });
     this.props.dispatch(updateState_Ex11(this.state.exercice_state_11));
 
-    const { exercice_state_12 } = this.state;
-    this.setState({ exercice_state_12: exercice_state_12 });
-    this.props.dispatch(updateState_Ex12(this.state.exercice_state_12));
-    
+    if (this.props.exercices.exercice_state_12 === undefined) {
+      const { exercice_state_12 } = this.state;
+      this.setState({ exercice_state_12: exercice_state_12 });
+      this.props.dispatch(updateState_Ex12(this.state.exercice_state_12));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 
@@ -55,7 +58,8 @@ class Exercice_11_Congratulations extends React.Component {
             <View style={styles.middle}>
               <Text style={styles.header_light}>Congratulations!</Text>
               <Text style={styles.text_light}>
-                {"\n"}Today, you discovered a trick to reconnect to the present moment if you got lost.
+                {"\n"}Today, you discovered a trick to reconnect to the present
+                moment if you got lost.
               </Text>
             </View>
           </View>

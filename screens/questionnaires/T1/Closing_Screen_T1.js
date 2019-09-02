@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, ScrollView, Image, Dimensions } from "react-native";
+import { View, Text, TextInput, ScrollView, Image, Dimensions, StatusBar } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
@@ -39,7 +39,8 @@ class Closing_Screen_T1 extends React.Component {
     const screenHeight = Dimensions.get("window").height;
 
     return (
-      <View style={{ height: screenHeight }}>
+      <View style={{ height: screenHeight, width: Dimensions.get("window").width }}>
+      <StatusBar hidden />
         <ScrollView
           style={styles.container_scrollview}
           contentContainerStyle={styles.container_scrollview_content}

@@ -16,8 +16,8 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex8 } from "./../../../redux-persist/redux/exercices"
-import { updateState_Ex9 } from "./../../../redux-persist/redux/exercices"
+import { updateState_Ex8 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex9 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_8_Congratulations extends React.Component {
   constructor(props) {
@@ -29,16 +29,18 @@ class Exercice_8_Congratulations extends React.Component {
     };
   }
 
- 
   handleSubmit = () => {
     const { exercice_state_8 } = this.state;
     this.setState({ exercice_state_8: exercice_state_8 });
     this.props.dispatch(updateState_Ex8(this.state.exercice_state_8));
 
-    const { exercice_state_9 } = this.state;
-    this.setState({ exercice_state_9: exercice_state_9 });
-    this.props.dispatch(updateState_Ex9(this.state.exercice_state_9));
-
+    if (this.props.exercices.exercice_state_9 === undefined) {
+      const { exercice_state_9 } = this.state;
+      this.setState({ exercice_state_9: exercice_state_9 });
+      this.props.dispatch(updateState_Ex9(this.state.exercice_state_9));
+    } else {
+      //
+    }
     this.props.navigation.push("Intro_Screen_PM2");
   };
 
@@ -46,7 +48,7 @@ class Exercice_8_Congratulations extends React.Component {
     return (
       <View style={styles.container_background_inverted}>
         <StatusBar hidden />
-        <ScrollView  showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
@@ -54,11 +56,13 @@ class Exercice_8_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header_light}>Congratulations!</Text>
-                <Text style={styles.text_light}>
-                  {"\n"}You discovered how your smartphone can be a tool for mindfulness.
-                  {"\n"}{"\n"}Continue today’s exercise with your second reflection.
-                </Text>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"}You discovered how your smartphone can be a tool for
+                mindfulness.
+                {"\n"}
+                {"\n"}Continue today’s exercise with your second reflection.
+              </Text>
             </View>
           </View>
         </ScrollView>

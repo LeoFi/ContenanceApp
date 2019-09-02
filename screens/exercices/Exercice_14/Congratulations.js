@@ -34,10 +34,13 @@ class Exercice_14_Congratulations extends React.Component {
     this.setState({ exercice_state_14: exercice_state_14 });
     this.props.dispatch(updateState_Ex14(this.state.exercice_state_14));
 
-    const { exercice_state_15 } = this.state;
-    this.setState({ exercice_state_15: exercice_state_15 });
-    this.props.dispatch(updateState_Ex15(this.state.exercice_state_15));
-    
+    if (this.props.exercices.exercice_state_15 === undefined) {
+      const { exercice_state_15 } = this.state;
+      this.setState({ exercice_state_15: exercice_state_15 });
+      this.props.dispatch(updateState_Ex15(this.state.exercice_state_15));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 
@@ -55,7 +58,8 @@ class Exercice_14_Congratulations extends React.Component {
             <View style={styles.middle}>
               <Text style={styles.header_light}>Congratulations!</Text>
               <Text style={styles.text_light}>
-                {"\n"}Today, you discovered how to make your plans even stronger.
+                {"\n"}Today, you discovered how to make your plans even
+                stronger.
               </Text>
             </View>
           </View>

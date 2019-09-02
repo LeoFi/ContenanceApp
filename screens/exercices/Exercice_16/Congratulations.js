@@ -16,7 +16,10 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex16, updateState_Ex17 } from "./../../../redux-persist/redux/exercices"
+import {
+  updateState_Ex16,
+  updateState_Ex17
+} from "./../../../redux-persist/redux/exercices";
 
 class Exercice_16_Congratulations extends React.Component {
   constructor(props) {
@@ -28,16 +31,18 @@ class Exercice_16_Congratulations extends React.Component {
     };
   }
 
- 
   handleSubmit = () => {
     const { exercice_state_16 } = this.state;
     this.setState({ exercice_state_16: exercice_state_16 });
     this.props.dispatch(updateState_Ex16(this.state.exercice_state_16));
 
-    const { exercice_state_17 } = this.state;
-    this.setState({ exercice_state_17: exercice_state_17 });
-    this.props.dispatch(updateState_Ex17(this.state.exercice_state_17));
-
+    if (this.props.exercices.exercice_state_17 === undefined) {
+      const { exercice_state_17 } = this.state;
+      this.setState({ exercice_state_17: exercice_state_17 });
+      this.props.dispatch(updateState_Ex17(this.state.exercice_state_17));
+    } else {
+      //
+    }
     this.props.navigation.push("Intro_Screen_PM4");
   };
 
@@ -53,11 +58,13 @@ class Exercice_16_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header_light}>Congratulations!</Text>
-                <Text style={styles.text_light}>
-                  {"\n"}Today, you discovered how to take care of your brain in empty moments!
-                  {"\n"}{"\n"}Continue today's exercise with your fourth reflection.
-                </Text>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"}Today, you discovered how to take care of your brain in
+                empty moments!
+                {"\n"}
+                {"\n"}Continue today's exercise with your fourth reflection.
+              </Text>
             </View>
           </View>
         </ScrollView>

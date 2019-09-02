@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import PropTypes from "prop-types";
 
 import { Svg, Path } from "react-native-svg";
@@ -166,7 +166,7 @@ RadioGroup.defaultProps = {
     color: "#B8EDE3",
     width: 35,
     height: 35,
-    margin: 5
+    //margin: 5
   },
   labelStyle: {
     color: "#2C3B51",
@@ -193,10 +193,9 @@ RadioGroup.defaultProps = {
   questionDrop: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginLeft: 5,
-    marginRight: 5,
-    top: -40,
-    zIndex: 0
+    top: -35,
+    zIndex: 0,
+    width: Dimensions.get("window").width - 60
   },
   question_icon_left: {},
   question_icon_right: {

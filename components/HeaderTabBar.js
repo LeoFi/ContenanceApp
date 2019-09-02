@@ -11,6 +11,7 @@ class HeaderTabBar extends PureComponent {
 
     return (
       <View style={styles.tab_bar}>
+      
         {routes.map((route, i) => (
           <HeaderTabItem
             navigation={navigation}
@@ -26,7 +27,7 @@ class HeaderTabBar extends PureComponent {
 
 const styles = StyleSheet.create({
   tab_bar: {
-    top: Dimensions.get("window").height/2.3,
+    top: 20,
     height: 50,
     paddingLeft: 20,
     paddingRight: 20,

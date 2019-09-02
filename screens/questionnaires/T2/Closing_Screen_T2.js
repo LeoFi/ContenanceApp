@@ -3,6 +3,7 @@ import { View, Text, TextInput, ScrollView, Image } from "react-native";
 import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
 import { styles } from "./style";
 import { connect } from "react-redux";
+import * as firebase from "firebase";
 
 
 class Closing_Screen_T2 extends React.Component {
@@ -29,6 +30,18 @@ class Closing_Screen_T2 extends React.Component {
             label="START EXERCISING"
             isBottom={true}
             onPress={() => {
+              const uid = firebase.auth().currentUser.uid;
+              var initialDate = new Date().toString();
+              
+              firebase
+                .database()
+                .ref()
+                .child("accounts")
+                .child(uid)
+                .update({
+                  Day_21_Done: initialDate
+                });
+
                 this.props.navigation.navigate('Home');
             }}
           />

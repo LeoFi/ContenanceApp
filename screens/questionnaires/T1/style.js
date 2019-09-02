@@ -1,14 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 80,
+        paddingTop: 40,
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 40,
         flex: 1,
         alignItems: "center",
         alignSelf: "stretch",
+        width: Dimensions.get("window").width,
     },
     container_left: {
         paddingTop: 80,
@@ -37,10 +38,11 @@ const styles = StyleSheet.create({
     },
     skip_text: {
         color: '#2C3B51',
-        fontSize: 16,
+        fontSize: 13,
         textTransform: 'uppercase',
         fontFamily: 'roboto-bold',
-        paddingBottom: 37,
+        paddingBottom: 25,
+        textAlign: 'right',
     },
     container_scroll: {
         paddingTop: 80,
@@ -101,11 +103,11 @@ const styles = StyleSheet.create({
     },
     header_left_padding: {
         color: '#2C3B51',
-        fontSize: 34,
-        lineHeight: 37,
+        fontSize: 30,
+        lineHeight: 35,
         textAlign: 'left',
         fontFamily: 'roboto-black',
-        paddingBottom: 37,
+        paddingBottom: 30,
         alignSelf: 'stretch',
     },
     text: {
@@ -205,6 +207,7 @@ const styles = StyleSheet.create({
     question: {
         flex:1,
         alignSelf: "stretch",
+        width: "100%"
     },
     top_security_agreements: {
         flex: 1,

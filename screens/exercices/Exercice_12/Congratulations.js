@@ -16,7 +16,10 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex12, updateState_Ex13 } from "./../../../redux-persist/redux/exercices"
+import {
+  updateState_Ex12,
+  updateState_Ex13
+} from "./../../../redux-persist/redux/exercices";
 
 class Exercice_12_Congratulations extends React.Component {
   constructor(props) {
@@ -28,16 +31,18 @@ class Exercice_12_Congratulations extends React.Component {
     };
   }
 
- 
   handleSubmit = () => {
     const { exercice_state_12 } = this.state;
     this.setState({ exercice_state_12: exercice_state_12 });
     this.props.dispatch(updateState_Ex12(this.state.exercice_state_12));
 
-    const { exercice_state_13 } = this.state;
-    this.setState({ exercice_state_13: exercice_state_13 });
-    this.props.dispatch(updateState_Ex13(this.state.exercice_state_13));
-
+    if (this.props.exercices.exercice_state_13 === undefined) {
+      const { exercice_state_13 } = this.state;
+      this.setState({ exercice_state_13: exercice_state_13 });
+      this.props.dispatch(updateState_Ex13(this.state.exercice_state_13));
+    } else {
+      //
+    }
     this.props.navigation.push("Intro_Screen_PM3");
   };
 
@@ -53,11 +58,13 @@ class Exercice_12_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header_light}>Congratulations!</Text>
-                <Text style={styles.text_light}>
-                  {"\n"}Today, you discovered how to accept  emotional triggers and impulses.
-                  {"\n"}{"\n"}Continue today’s exercise with your third reflection.
-                </Text>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"}Today, you discovered how to accept emotional triggers and
+                impulses.
+                {"\n"}
+                {"\n"}Continue today’s exercise with your third reflection.
+              </Text>
             </View>
           </View>
         </ScrollView>

@@ -8,7 +8,8 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Dimensions,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  StatusBar
 } from "react-native";
 import {
   PrimaryButton,
@@ -30,18 +31,20 @@ class Intro_Screen_T1 extends React.Component {
 
   render() {
     return (
-      <ScrollView
-        style={styles.container_scrollview}
-        contentContainerStyle={styles.container_scrollview_content}
-      >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "flex-start",
-            width: Dimensions.get("window").width - 50
-          }}
+      <>
+        <StatusBar hidden />
+        <ScrollView
+          style={styles.container_scrollview}
+          contentContainerStyle={styles.container_scrollview_content}
         >
-          <View style={{ alignSelf: "center", paddingBottom: 60 }}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "flex-start",
+              width: Dimensions.get("window").width - 50
+            }}
+          >
+            {/* <View style={{ alignSelf: "center", paddingBottom: 60 }}>
             <Svg width="92" height="104" viewBox="0 0 92 104" fill="none">
               <Path
                 d="M48.26 70.1352L48.2635 70.1358C48.5361 70.1894 48.8108 70.2054 49.0807 70.1581C49.5876 70.0694 50.0671 69.7972 50.3892 69.3396C50.3896 69.339 50.39 69.3384 50.3904 69.3378L58.8044 57.9004L77.8994 54.5566C82.2077 53.8021 85.0912 49.6943 84.3368 45.386L80.5823 23.9465C79.8279 19.6382 75.7201 16.7547 71.4118 17.5091L36.2686 23.6633C31.9603 24.4177 29.0768 28.5256 29.8313 32.8339L33.5857 54.2734C34.3401 58.5817 38.448 61.4652 42.7563 60.7107L45.2668 60.2711L46.7064 68.4915C46.8487 69.304 47.4461 69.9601 48.26 70.1352ZM42.2489 56.6537L42.2456 56.6353L42.0486 56.6698C39.9656 57.0346 37.9914 55.6488 37.6266 53.5657L33.8722 32.1262C33.5074 30.0432 34.8932 28.069 36.9763 27.7042L72.101 21.5533C74.184 21.1885 76.1582 22.5743 76.523 24.6574L80.2774 46.0969C80.6422 48.1799 79.2564 50.1541 77.1733 50.5189L57.2626 54.0056C56.7324 54.0984 56.2765 54.3888 55.9724 54.8211C55.972 54.8216 55.9716 54.8222 55.9712 54.8227L49.9213 63.0673L48.9572 57.5614C48.7607 56.4396 47.7047 55.6983 46.5829 55.8948L42.2489 56.6537Z"
@@ -68,31 +71,32 @@ class Intro_Screen_T1 extends React.Component {
                 stroke-width="0.4"
               />
             </Svg>
-          </View>
-          <Text style={styles.header_left}>
-            {this.props.user.nickname}, welcome to Contenance!
-          </Text>
+          </View> */}
+            <Text style={styles.header_left}>
+              {this.props.user.nickname}, welcome to Contenance!
+            </Text>
 
-          <Text style={styles.text_left}>
-            {"\n"}Before you start the training, we have a few questions about
-            your smartphone use, your smartphone habits and your well-being.
-            {"\n"}
-            {"\n"}This is important for our study and will only take ten
-            minutes.
-          </Text>
-          <View style={{ flex: 1 }} />
+            <Text style={styles.text_left}>
+              {"\n"}Before you start the training, we have a few questions about
+              your smartphone use, your smartphone habits and your well-being.
+              {"\n"}
+              {"\n"}This is important for our study and will only take ten
+              minutes.
+            </Text>
+            <View style={{ flex: 1 }} />
 
-          <View style={styles.bottom}>
-            <PrimaryButton
-              label="Start Reflecting"
-              isBottom={true}
-              onPress={() => {
-                this.props.navigation.navigate("PSU_Screen_T1");
-              }}
-            />
+            <View style={styles.bottom}>
+              <PrimaryButton
+                label="Start Reflecting"
+                isBottom={true}
+                onPress={() => {
+                  this.props.navigation.navigate("PSU_Screen_T1");
+                }}
+              />
+            </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </>
     );
   }
 }

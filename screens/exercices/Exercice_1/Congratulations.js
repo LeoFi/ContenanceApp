@@ -15,6 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
+import * as firebase from "firebase";
 
 import { connect } from "react-redux";
 import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices";
@@ -74,15 +75,22 @@ class Exercice_1_Congratulations extends React.Component {
   getDate = () => {
     var initialDate = new Date().toString();
 
-    console.log(initialDate);
+    //console.log(initialDate);
 
     if (this.props.user.initialDate.length === 0) {
-      //if (this.props.user.initialDate.length > 0) {
       this.setState({ initialDate: initialDate }, function() {
-        //this.setState({ initialDate: "" }, function() {
-        //console.log(this.state.initialDate);
         this.props.dispatch(updateStartingDate(this.state.initialDate));
       });
+
+      const uid = firebase.auth().currentUser.uid;
+      firebase
+        .database()
+        .ref()
+        .child("accounts")
+        .child(uid)
+        .update({
+          Day_1_Done: initialDate
+        });
     } else {
       return;
     }
@@ -92,9 +100,13 @@ class Exercice_1_Congratulations extends React.Component {
     const exercice_state_1 = this.state.exercice_state_1;
     this.setState({ exercice_state_1: exercice_state_1 });
     this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
-    const exercice_state_2 = this.state.exercice_state_2;
-    this.setState({ exercice_state_2: exercice_state_2 });
-    this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    if (this.props.exercices.exercice_state_2 === undefined) {
+      const exercice_state_2 = this.state.exercice_state_2;
+      this.setState({ exercice_state_2: exercice_state_2 });
+      this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 }

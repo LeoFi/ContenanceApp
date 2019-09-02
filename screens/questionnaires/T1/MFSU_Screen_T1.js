@@ -7,7 +7,9 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
-  Button
+  Button,
+  StatusBar,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -148,10 +150,11 @@ export default class MFSU_Screen_T1 extends React.Component {
   render() {
     return (
       <>
+      <StatusBar hidden />
         <View
           style={{
             flex: 1,
-            width: "100%",
+            width: Dimensions.get("window").width,
             position: "absolute",
             left: 0,
             right: 0,

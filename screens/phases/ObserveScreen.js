@@ -19,6 +19,7 @@ import {
   HeaderComponent
 } from "./../../components/AppComponents";
 import * as firebase from "firebase";
+import HeaderTabBar from "./../../components/HeaderTabBar";
 
 import { connect } from "react-redux";
 
@@ -34,10 +35,6 @@ class ObserveScreen extends React.Component {
       reflection_state_1: this.props.exercices.reflection_state_1 || ""
     };
   }
-
-  onSignoutPress = () => {
-    firebase.auth().signOut();
-  };
 
   render() {
     let ExerciceTextStyle_1 = "";
@@ -214,18 +211,14 @@ class ObserveScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
         <ScrollView>
           <View style={{ flex: 1 }}>
-            <Text style={styles.header}>
-              Observe
-              {/* {this.state.exercices.exercice_state_1}! */}
-            </Text>
+            {/* <Text style={styles.header}>Observe</Text> */}
 
-            <Image
+            {/* <Image
               style={styles.center}
               source={require("./../../assets/images/ObservePhase.png")}
-            />
+            /> */}
 
             <View style={styles.bottom}>
               {ExercicesArray.map((item, key) => (
@@ -259,7 +252,13 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingBottom: 10,
     alignItems: "center",
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    width: Dimensions.get("window").width,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   },
   container_scroll: {
     paddingTop: 80,
@@ -272,7 +271,8 @@ const styles = StyleSheet.create({
   center: {
     position: "relative",
     top: 0,
-    left: 0
+    left: 0,
+    width: Dimensions.get("window").width
   },
   top: {
     flex: 1,
@@ -299,7 +299,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     //height: Dimensions.get("window").height / 2,
     position: "relative",
-    bottom: 0
+    bottom: 0,
+    width: Dimensions.get("window").width
   },
   keyboard_view: {
     flex: 1

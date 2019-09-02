@@ -34,10 +34,13 @@ class Exercice_18_Congratulations extends React.Component {
     this.setState({ exercice_state_18: exercice_state_18 });
     this.props.dispatch(updateState_Ex18(this.state.exercice_state_18));
 
-    const { exercice_state_19 } = this.state;
-    this.setState({ exercice_state_19: exercice_state_19 });
-    this.props.dispatch(updateState_Ex19(this.state.exercice_state_19));
-    
+    if (this.props.exercices.exercice_state_19 === undefined) {
+      const { exercice_state_19 } = this.state;
+      this.setState({ exercice_state_19: exercice_state_19 });
+      this.props.dispatch(updateState_Ex19(this.state.exercice_state_19));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 
@@ -55,7 +58,8 @@ class Exercice_18_Congratulations extends React.Component {
             <View style={styles.middle}>
               <Text style={styles.header_light}>Congratulations!</Text>
               <Text style={styles.text_light}>
-                {"\n"}Today, you consciously defined GO and NO GO situations for your smartphone use.
+                {"\n"}Today, you consciously defined GO and NO GO situations for
+                your smartphone use.
               </Text>
             </View>
           </View>
