@@ -3,6 +3,7 @@ import { View, Text, TextInput, ScrollView, Image, StatusBar } from "react-nativ
 import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../components/AppComponents';
 import { styles } from "./style";
 import { connect } from "react-redux";
+import { updateState_Ex21 } from "./../../../redux-persist/redux/exercices";
 
 
 class Closing_Screen_PM5 extends React.Component {
@@ -11,8 +12,20 @@ class Closing_Screen_PM5 extends React.Component {
     super(props);
     this.state = {
       nickname: this.props.nickname,
+      exercice_state_21: "locked",
     };
   }
+
+  handleSubmit = () => {
+    if (this.props.exercices.exercice_state_5 === undefined) {
+      const exercice_state_21 = this.state.exercice_state_21;
+      this.setState({ exercice_state_21: exercice_state_21 });
+      this.props.dispatch(updateState_Ex21(this.state.exercice_state_21));
+    } else {
+      //
+    }
+    this.props.navigation.push("Home");
+  };
 
   render() {
     return (
@@ -31,9 +44,7 @@ class Closing_Screen_PM5 extends React.Component {
           <PrimaryButton
             label="Done"
             isBottom={true}
-            onPress={() => {
-                this.props.navigation.navigate('Home');
-            }}
+            onPress={this.handleSubmit}
           />
         </View>
       </View>
@@ -42,7 +53,8 @@ class Closing_Screen_PM5 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  exercices: state.exercices
 });
 
 export default connect(mapStateToProps)(Closing_Screen_PM5);

@@ -27,8 +27,9 @@ class HeaderTabBar extends PureComponent {
 
 const styles = StyleSheet.create({
   tab_bar: {
-    top: 20,
-    height: 50,
+    marginTop: 30,
+    height: 70,
+    //justifyContent: "flex-end",
     paddingLeft: 20,
     paddingRight: 20,
     flexDirection: "row",

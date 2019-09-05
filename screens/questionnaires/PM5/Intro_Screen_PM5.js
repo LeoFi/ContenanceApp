@@ -30,7 +30,7 @@ class Intro_Screen_PM5 extends React.Component {
 
         <View style={styles.bottom_button}>
           <PrimaryButton
-            label="Start Reflection"
+            label="Start Reflecting"
             isBottom={true}
             onPress={() => {
                 this.props.navigation.navigate('PSU_Screen_PM5');

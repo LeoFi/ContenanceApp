@@ -155,7 +155,7 @@ class OnboardingScreen extends React.Component {
             backgroundColor: "#F4F1DE",
             image: (
               <Image
-                style={{ width: this.state.iphone5 ? 320 : 375 }}
+                style={{ width: this.state.iphone5 ? 320 : 375, height: 150,marginTop: -40 }}
                 source={require("./../../../assets/images/Onboarding2.png")}
               />
             )

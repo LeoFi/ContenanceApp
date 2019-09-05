@@ -13,6 +13,7 @@ import RadioButtons from "./RadioButton";
 import MenuHeaderComponent from "./MenuHeaderComponent";
 import MultipleGreyInputButton from "./MultipleGreyInputButton";
 import HomeIllustration from "./HomeIllustration";
+import ChallengeModal from "./ChallengeModal";
 
 
 export {
@@ -30,5 +31,6 @@ export {
   RadioButtons,
   MenuHeaderComponent,
   MultipleGreyInputButton,
-  HomeIllustration
+  HomeIllustration,
+  ChallengeModal
 };

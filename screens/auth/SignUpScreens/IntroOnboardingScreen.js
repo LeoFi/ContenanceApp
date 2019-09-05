@@ -52,6 +52,7 @@ class IntroOnboardingScreen extends React.Component {
     const { nickname } = this.state;
     const { accessCode } = this.state;
     const uid = firebase.auth().currentUser.uid;
+
     firebase
       .database()
       .ref()
@@ -63,6 +64,8 @@ class IntroOnboardingScreen extends React.Component {
       });
     this.props.dispatch(updateNickname(this.state.nickname));
     this.props.navigation.navigate("Onboarding");
+    //this.props.navigation.navigate("Closing_Screen_T1");
+    
   };
 
   render() {

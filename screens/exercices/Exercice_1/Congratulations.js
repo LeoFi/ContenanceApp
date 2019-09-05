@@ -20,7 +20,11 @@ import * as firebase from "firebase";
 import { connect } from "react-redux";
 import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices";
 import { updateState_Ex2 } from "./../../../redux-persist/redux/exercices";
-import { updateStartingDate } from "./../../../redux-persist/redux/user";
+import {
+  updateStartingDate,
+  updateWelcomeTitle,
+  updateWelcomeSubTitle
+} from "./../../../redux-persist/redux/user";
 
 class Exercice_1_Congratulations extends React.Component {
   constructor(props) {
@@ -28,7 +32,9 @@ class Exercice_1_Congratulations extends React.Component {
 
     this.state = {
       exercice_state_1: "completed",
-      exercice_state_2: "locked"
+      exercice_state_2: "locked",
+      welcomeTitle: "Well done,",
+      welcomeSubTitle: "Come back tomorrow to continue."
     };
   }
 
@@ -82,15 +88,15 @@ class Exercice_1_Congratulations extends React.Component {
         this.props.dispatch(updateStartingDate(this.state.initialDate));
       });
 
-      const uid = firebase.auth().currentUser.uid;
-      firebase
-        .database()
-        .ref()
-        .child("accounts")
-        .child(uid)
-        .update({
-          Day_1_Done: initialDate
-        });
+      // const uid = firebase.auth().currentUser.uid;
+      // firebase
+      //   .database()
+      //   .ref()
+      //   .child("accounts")
+      //   .child(uid)
+      //   .update({
+      //     Day_1_Done: initialDate
+      //   });
     } else {
       return;
     }
@@ -107,6 +113,12 @@ class Exercice_1_Congratulations extends React.Component {
     } else {
       //
     }
+    const welcomeTitle = this.state.welcomeTitle;
+    const welcomeSubTitle = this.state.welcomeSubTitle;
+    this.setState({ welcomeTitle: welcomeTitle });
+    this.setState({ welcomeSubTitle: welcomeSubTitle });
+    this.props.dispatch(updateWelcomeTitle(this.state.welcomeTitle));
+    this.props.dispatch(updateWelcomeSubTitle(this.state.welcomeSubTitle));
     this.props.navigation.push("Home");
   };
 }

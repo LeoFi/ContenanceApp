@@ -144,7 +144,7 @@ const initialState = {
   exercice_state_18: undefined,
   exercice_state_19: undefined,
   exercice_state_20: undefined,
-  exercice_state_21: undefined
+  exercice_state_21: undefined,
 };
 
 export default (state = initialState, action) => {

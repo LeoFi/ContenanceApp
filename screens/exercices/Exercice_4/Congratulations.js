@@ -17,15 +17,13 @@ import { styles } from "./style";
 
 import { connect } from "react-redux";
 import { updateState_Ex4 } from "./../../../redux-persist/redux/exercices";
-import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_4_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_4: "completed",
-      exercice_state_5: "locked"
+      exercice_state_4: "completed"
     };
   }
 
@@ -34,13 +32,6 @@ class Exercice_4_Congratulations extends React.Component {
     this.setState({ exercice_state_4: exercice_state_4 });
     this.props.dispatch(updateState_Ex4(this.state.exercice_state_4));
 
-    if (this.props.exercices.exercice_state_5 === undefined) {
-      const { exercice_state_5 } = this.state;
-      this.setState({ exercice_state_5: exercice_state_5 });
-      this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
-    } else {
-      //
-    }
     this.props.navigation.push("Intro_Screen_PM1");
   };
 

@@ -4,6 +4,8 @@ export const UPDATE_NICKNAME = 'UPDATE_NICKNAME';
 export const UPDATE_STARTING_DATE = 'UPDATE_STARTING_DATE';
 export const UPDATE_ACCESS_CODE = 'UPDATE_ACCESS_CODE';
 export const UPDATE_ONBOARDING_DONE = 'UPDATE_ONBOARDING_DONE';
+export const UPDATE_WELCOME_TITLE = 'UPDATE_WELCOME_TITLE';
+export const UPDATE_WELCOME_SUBTITLE = 'UPDATE_WELCOME_SUBTITLE';
 
 export const updateNickname = nickname => ({
   type: UPDATE_NICKNAME,
@@ -25,11 +27,23 @@ export const updateOnboarding = onboardingDone => ({
   onboardingDone,
 });
 
+export const updateWelcomeTitle = welcomeTitle => ({
+  type: UPDATE_WELCOME_TITLE,
+  welcomeTitle,
+});
+
+export const updateWelcomeSubTitle = welcomeSubTitle => ({
+  type: UPDATE_WELCOME_SUBTITLE,
+  welcomeSubTitle,
+});
+
 const initialState = {
     nickname: '',
     initialDate: '',
     accessCode: undefined,
-    onboardingDone: false
+    onboardingDone: false,
+    welcomeTitle: '',
+    welcomeSubTitle: '',
 };
 
 export default (state = initialState, action) => {
@@ -53,6 +67,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         onboardingDone: action.onboardingDone,
+      };
+      case UPDATE_WELCOME_TITLE:
+      return {
+        ...state,
+        welcomeTitle: action.welcomeTitle,
+      };
+      case UPDATE_WELCOME_SUBTITLE:
+      return {
+        ...state,
+        welcomeSubTitle: action.welcomeSubTitle,
       };
     default:
       return state;

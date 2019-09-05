@@ -26,9 +26,7 @@ class TabBar extends PureComponent {
 
 const styles = StyleSheet.create({
   tab_bar: {
-    //bottom: Dimensions.get("window").height/2,
     height: 60,
-    backgroundColor: "#F4F1DE",
     flexDirection: "row"
   }
 });

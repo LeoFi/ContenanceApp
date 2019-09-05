@@ -20,7 +20,7 @@ class Closing_Screen_T1 extends React.Component {
   }
 
   handleSubmit = () => {
-    const uid = firebase.auth().currentUser.uid;
+    //const uid = firebase.auth().currentUser.uid;
     const onboardingDone = this.state.onboardingDone;
     this.setState({ onboardingDone: onboardingDone });
     this.props.dispatch(updateOnboarding(this.state.onboardingDone));

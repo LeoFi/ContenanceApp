@@ -17,8 +17,7 @@ import { styles } from "./style";
 
 import { connect } from "react-redux";
 import {
-  updateState_Ex12,
-  updateState_Ex13
+  updateState_Ex12
 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_12_Congratulations extends React.Component {
@@ -26,8 +25,7 @@ class Exercice_12_Congratulations extends React.Component {
     super(props);
 
     this.state = {
-      exercice_state_12: "completed",
-      exercice_state_13: "locked"
+      exercice_state_12: "completed"
     };
   }
 
@@ -36,13 +34,6 @@ class Exercice_12_Congratulations extends React.Component {
     this.setState({ exercice_state_12: exercice_state_12 });
     this.props.dispatch(updateState_Ex12(this.state.exercice_state_12));
 
-    if (this.props.exercices.exercice_state_13 === undefined) {
-      const { exercice_state_13 } = this.state;
-      this.setState({ exercice_state_13: exercice_state_13 });
-      this.props.dispatch(updateState_Ex13(this.state.exercice_state_13));
-    } else {
-      //
-    }
     this.props.navigation.push("Intro_Screen_PM3");
   };
 

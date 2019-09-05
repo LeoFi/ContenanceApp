@@ -42,6 +42,7 @@ class Exercice_18_Congratulations extends React.Component {
       //
     }
     this.props.navigation.push("Home");
+    //this.props.navigation.goBack()
   };
 
   render() {

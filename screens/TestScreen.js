@@ -20,7 +20,8 @@ import {
   SecondaryButton,
   ExerciceButton,
   HeaderComponent,
-  HomeIllustration
+  HomeIllustration,
+  ChallengeModal
 } from "./../components/AppComponents";
 
 import {
@@ -47,6 +48,11 @@ import {
   updateState_Ex21
 } from "./../redux-persist/redux/exercices";
 
+import {
+  updateWelcomeTitle,
+  updateWelcomeSubTitle
+} from "./../redux-persist/redux/user";
+
 import * as firebase from "firebase";
 import { Svg, Path, Circle } from "react-native-svg";
 import * as Progress from "react-native-progress";
@@ -57,9 +63,12 @@ class TestScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressCircle: 1/22,
-      welcome_title_message: "Welcome",
-      welcome_message: "Start your journey now.",
+      progressCircle: 1 / 22,
+      welcomeTitle: this.props.user.welcomeTitle || "Welcome",
+      welcomeSubTitle:
+        this.props.user.welcomeSubTitle || "Start your journey now.",
+      welcomeTitleContinue: "Hey",
+      welcomeSubTitleContinue: "Continue with your next session.",
       observeStarted: true,
       reflectStarted: false,
       visionStarted: false,
@@ -67,56 +76,71 @@ class TestScreen extends React.Component {
       supportStarted: false,
       colorProgress: "#A28AD4",
       count: 1,
-      modalVisible: [],
-      challengePending: undefined
+      modalVisible: false,
+      challengePending: undefined,
+      completedExercices: 0
     };
   }
 
   setPhases = () => {
     if (
-      this.props.exercices.exercice_state_17 === "completed" &&
-      this.props.exercices.exercice_state_18 === "completed" &&
-      this.props.exercices.exercice_state_19 === "completed" &&
-      this.props.exercices.exercice_state_20 === "completed" &&
-      this.props.exercices.exercice_state_21 === "completed"
-    ) {
-      Alert.alert("CACA5")
-      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: true, supportStarted: true, colorProgress: "#6A97D8" });
-    } else if (
       this.props.exercices.exercice_state_13 === "completed" &&
       this.props.exercices.exercice_state_14 === "completed" &&
       this.props.exercices.exercice_state_15 === "completed" &&
       this.props.exercices.exercice_state_16 === "completed"
     ) {
-      Alert.alert("CACA4")
-      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: true, supportStarted: true, colorProgress: "#6A97D8" });
+      this.setState({
+        observeStarted: true,
+        reflectStarted: true,
+        visionStarted: true,
+        planStarted: true,
+        supportStarted: true,
+        colorProgress: "#6A97D8"
+      });
     } else if (
       this.props.exercices.exercice_state_9 === "completed" &&
       this.props.exercices.exercice_state_10 === "completed" &&
       this.props.exercices.exercice_state_11 === "completed" &&
       this.props.exercices.exercice_state_12 === "completed"
     ) {
-      Alert.alert("CACA3")
-      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: true, supportStarted: false, colorProgress: "#4CBB92" });
+      this.setState({
+        observeStarted: true,
+        reflectStarted: true,
+        visionStarted: true,
+        planStarted: true,
+        supportStarted: false,
+        colorProgress: "#4CBB92"
+      });
     } else if (
       this.props.exercices.exercice_state_5 === "completed" &&
       this.props.exercices.exercice_state_6 === "completed" &&
       this.props.exercices.exercice_state_7 === "completed" &&
       this.props.exercices.exercice_state_8 === "completed"
     ) {
-      Alert.alert("CACA2")
-      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: true, planStarted: false, supportStarted: false, colorProgress: "#F87B7B" });
+      this.setState({
+        observeStarted: true,
+        reflectStarted: true,
+        visionStarted: true,
+        planStarted: false,
+        supportStarted: false,
+        colorProgress: "#F87B7B"
+      });
     } else if (
       this.props.exercices.exercice_state_1 === "completed" &&
       this.props.exercices.exercice_state_2 === "completed" &&
       this.props.exercices.exercice_state_3 === "completed" &&
       this.props.exercices.exercice_state_4 === "completed"
     ) {
-      Alert.alert("CACA2")
-      this.setState({ observeStarted: true, reflectStarted: true, visionStarted: false, planStarted: false, supportStarted: false, colorProgress: "#F6B563" });
-    }
-    else {
-      null
+      this.setState({
+        observeStarted: true,
+        reflectStarted: true,
+        visionStarted: false,
+        planStarted: false,
+        supportStarted: false,
+        colorProgress: "#F6B563"
+      });
+    } else {
+      null;
     }
   };
 
@@ -140,11 +164,8 @@ class TestScreen extends React.Component {
     this.compareDates();
     this.timeLogic();
     this.setPhases();
-    // this.setState({
-    //   modalVisible: true
-    // });
     this.setState({
-      modalVisible: false
+      modalVisible: true
     });
   }
 
@@ -164,11 +185,22 @@ class TestScreen extends React.Component {
     };
   };
 
+  isEmpty = obj => {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) return false;
+    }
+    return true;
+  };
+
   timeLogic = () => {
     const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    dt2 = new Date("September 30, 2019 14:44:30");
+    dt2 = new Date("September 18, 2019 16:44:30");
+    //dt2 = new Date();
     var x = diff_days(dt1, dt2);
+    //Alert.alert(x);
+    //console.log(this.props.exercices);
+    //console.log(x);
 
     const data = [
       {
@@ -297,91 +329,143 @@ class TestScreen extends React.Component {
             return accumulator;
           }, []);
 
+        var myNextArray = data.filter(item => item.exercice == "next");
+
+        // FIND ALL UNDEFINED PAST EXERCICES AND GET FIRST EXERCISE
+        var LockedExercises = data.filter(item => item.exercice == "locked");
+
+        // FIND ALL UNDEFICOMPLETEDNED PAST EXERCICES AND GET FIRST EXERCISE
+        var CompletedExercises = data.filter(
+          item => item.exercice == "completed"
+        );
+
         if (
-          // CURRENT DAY AND DAY EXERCISE IS COMPLETED
-          programLength === x &&
-          data[programLength].exercice == "completed"
-        ) {
-          this.setState({
-            welcome_title_message: "Well done,",
-            welcome_message: "Come back tomorrow to continue.",
-            modalVisible: true
-          });
-        } else if (
-          // CURRENT DAY AND DAY EXERCISE IS LOCKED
-          programLength === x &&
-          data[programLength].exercice == "locked"
-        ) {
-          const TodayLocked = data
-            .filter(item => item.exercice == "locked")
-            .map(item => {
-              return this.setState({ TodayLocked: "next" }, function() {
-                this.props.dispatch(
-                  data[programLength].function(this.state.TodayLocked)
-                );
-              });
-            });
-        } else if (
           // FUTURE DAY = SKIPPED DAYS
           programLength <= x
         ) {
-          const PastLocked = data
-            .filter(item => item.exercice == "locked")
-            .filter(item => item.day <= x)
-            .map(item => {
-              return this.setState({ item: "next" }, function() {
-                this.props.dispatch(item.function(this.state.item));
-              });
-            });
+          // FIND ALL UNDEFINED PAST EXERCICES AND CHANGE THEM INTO NEW EXERCISES
+          var PastUndefined = data.reduce((acc, item) => {
+            if (
+              (item.exercice === undefined || item.exercice === "locked") &&
+              // item.exercice === "new" &&
+              item.day <= x + 1
+            ) {
+              return [
+                ...acc,
+                {
+                  ...item
+                },
+                this.setState(
+                  {
+                    newstate: "new",
+                    welcomeTitle: "Hey",
+                    welcomeSubTitle: "Continue with your next session."
+                  },
+                  function() {
+                    this.props.dispatch(item.function(this.state.newstate));
+                    this.props.dispatch(
+                      updateWelcomeTitle(this.state.welcomeTitle)
+                    );
+                    this.props.dispatch(
+                      updateWelcomeSubTitle(this.state.welcomeSubTitle)
+                    );
+                  }
+                )
+              ];
+            } else {
+              return [...acc];
+            }
+          }, []);
 
-          const PastUndefined = data
-            .filter(item => item.exercice === undefined)
-            .filter(item => item.day <= x)
-            .map(item => {
-              return this.setState({ item: "new" }, function() {
-                this.props.dispatch(item.function(this.state.item));
-              });
-            });
+          // FIND ALL UNDEFINED PAST EXERCICES AND GET FIRST EXERCISE
+          var PastUndefinedNext = data
+            .filter(
+              item =>
+                (item.exercice === undefined ||
+                  item.exercice === "locked" ||
+                  item.exercice === "new") &&
+                item.day <= x + 1
+            )
+            .shift();
+
+          // FIND ALL COMPLETED PAST EXERCICES
+          var PastCompleted = data.filter(
+            item => item.exercice === "completed"
+          );
         }
       }
 
-      // console.log(myOrderedArray)
-      // TOTAL AMOUNT OF DAYS MISSED
-      const Days_Missed_TotalValue = x - myOrderedArray.length;
-      const ChallengePendingArray = myOrderedArray;
-      //this.setState({ challengePending: ChallengePendingArray });
+      // IF LOCKED = DOES EXIST THEN SET THE STATE
+      if (!this.isEmpty(LockedExercises)) {
+        this.setState({
+          welcomeTitle: "Well done,",
+          welcomeSubTitle: "Come back tomorrow to continue."
+        });
+        this.props.dispatch(updateWelcomeTitle(this.state.welcomeTitle));
+        this.props.dispatch(updateWelcomeSubTitle(this.state.welcomeSubTitle));
+      } else {
+        //
+      }
 
-      //CALCUL OF THE PROGRESS BAR
+      // IF NEXT = DOES NOT EXIST THEN SET THE STATE
+      if (this.isEmpty(myNextArray) && !this.isEmpty(PastUndefinedNext)) {
+        resultFunction = PastUndefinedNext.function;
+        resultDay = "exercice_state_" + PastUndefinedNext.day;
+        //Alert.alert(this.state.welcomeSubTitleContinue);
+        this.setState(
+          {
+            resultDay: "next"
+          },
+          function() {
+            this.props.dispatch(resultFunction(this.state.resultDay));
+          }
+        );
+        // UDATE WELCOME TEXT
+        const welcomeTitleContinue = this.state.welcomeTitleContinue;
+        this.setState({ welcomeTitle: welcomeTitleContinue });
+        this.props.dispatch(updateWelcomeTitle(this.state.welcomeTitle));
+        const welcomeSubTitleContinue = this.state.welcomeSubTitleContinue;
+        this.setState({ welcomeSubTitle: welcomeSubTitleContinue });
+        this.props.dispatch(updateWelcomeTitle(this.state.welcomeSubTitle));
+      } else {
+        //
+      }
 
-      const numbers = myOrderedArray;
-      //const numbers = [1, 2, 3, 4, 5, 7, 8];
-      console.log(myOrderedArray);
-      let chunks = [];
-      let prev = -1;
-      numbers.forEach(current => {
-        if (current - prev != 1) chunks.push([]);
-        chunks[chunks.length - 1].push(current);
-        prev = current;
-      });
-      //console.log(chunks[0].length);
-      const progressCircleCompleted = chunks[0].length / 21;
-      this.setState({ progressCircle: progressCircleCompleted });
+      // IF COMPLETED = DOES EXIST
+      if (!this.isEmpty(CompletedExercises)) {
+        // TOTAL AMOUNT OF DAYS MISSED
+        const Days_Missed_TotalValue = x - myOrderedArray.length;
 
-      // DAYS MISSED SINCE LAST COMPLETED EXERCISE
-      const Days_Missed_LastExValue = myOrderedArray.pop();
-      //console.log(Days_Missed_TotalValue);
+        //CALCUL OF THE PROGRESS BAR
+        const numbers = myOrderedArray;
+        this.setState({ completedExercices: myOrderedArray.length });
+        let chunks = [];
+        let prev = -1;
+        numbers.forEach(current => {
+          if (current - prev != 1) chunks.push([]);
+          chunks[chunks.length - 1].push(current);
+          prev = current;
+        });
+        const progressCircleCompleted = chunks[0].length / 21;
+        this.setState({ progressCircle: progressCircleCompleted });
 
-      const currentUser = firebase.auth().currentUser;
+        // DAYS MISSED SINCE LAST COMPLETED EXERCISE
+        const Days_Missed_LastExValue = myOrderedArray.pop();
 
-      if (currentUser != null) {
-        firebase
-          .database()
-          .ref("accounts")
-          .child(currentUser.uid)
-          .update({
-            DaysMissedTotal: Days_Missed_TotalValue,
-            DaysMissedLastEx: Days_Missed_LastExValue
-          });
+        const currentUser = firebase.auth().currentUser;
+
+        if (currentUser != null) {
+          firebase
+            .database()
+            .ref("accounts")
+            .child(currentUser.uid)
+            .update({
+              DaysMissedTotal: Days_Missed_TotalValue,
+              DaysMissedLastEx: Days_Missed_LastExValue
+            });
+        }
+      } else {
+        //
       }
     }
   };
@@ -1029,6 +1113,7 @@ class TestScreen extends React.Component {
         state: this.props.exercices.exercice_state_1,
         title: <Text style={styles.header_challenge}>Contenance</Text>,
         visible: true,
+        state_name: "exercice_state_21",
         text_content: (
           <Text style={styles.text_challenge}>
             From now on, whenever you open Contencance, take on a good posture
@@ -1105,6 +1190,7 @@ class TestScreen extends React.Component {
       {
         id: 5,
         path: "Intro_Phase_Reflect",
+        //path: "Exercice_5_Congratulations",
         label: "Day 5 - Habit Loop",
         styleButton: ExerciceStyle_5,
         styleText: ExerciceTextStyle_5,
@@ -1123,6 +1209,7 @@ class TestScreen extends React.Component {
       {
         id: 6,
         path: "Exercice_6_Intro",
+        //path: "Exercice_6_Congratulations",
         //path: "Exercice_6_3",
         label: "Day 6 - Exploring Emotional Triggers",
         styleButton: ExerciceStyle_6,
@@ -1148,6 +1235,7 @@ class TestScreen extends React.Component {
       {
         id: 7,
         path: "Exercice_7_Intro",
+        //path: "Exercice_7_Congratulations",
         label: "Day 7 - Getting Lost",
         styleButton: ExerciceStyle_7,
         styleText: ExerciceTextStyle_7,
@@ -1167,6 +1255,7 @@ class TestScreen extends React.Component {
       {
         id: 8,
         path: "Exercice_8_Intro",
+        //path: "Exercice_8_Congratulations",
         label: "Day 8 - Mindful Social Media Use",
         styleButton: ExerciceStyle_8,
         styleText: ExerciceTextStyle_8,
@@ -1408,6 +1497,7 @@ class TestScreen extends React.Component {
         IconSource: IconsExercice_19,
         state: this.props.exercices.exercice_state_19,
         visible: true,
+        state_name: "exercice_state_10",
         title: (
           <Text style={styles.header_challenge}>
             Me, the Smartphone and Others
@@ -1432,6 +1522,7 @@ class TestScreen extends React.Component {
         state: this.props.exercices.exercice_state_20,
         visible: true,
         title: <Text style={styles.header_challenge}>Daddeln is Okay</Text>,
+        state_name: "exercice_state_20",
         text_content: (
           <Text style={styles.text_challenge}>
             Do one more Daddeln session until tomorrow. Lose yourself and have
@@ -1447,7 +1538,8 @@ class TestScreen extends React.Component {
         styleText: ExerciceTextStyle_21,
         IconSource: IconsExercice_21,
         state: this.props.exercices.exercice_state_21,
-        visible: true
+        visible: true,
+        state_name: "exercice_state_21"
       }
     ];
 
@@ -1459,18 +1551,19 @@ class TestScreen extends React.Component {
           alignItems: "stretch"
         }}
       >
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="dark-content" />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
             style={{
               flex: 1,
-              paddingTop: 80
+              paddingTop: 50,
+              justifyContent: "flex-start"
             }}
           >
             <Progress.Circle
               progress={this.state.progressCircle}
-              size={Dimensions.get("window").width - 50}
-              height={Dimensions.get("window").width - 50}
+              size={Dimensions.get("window").width - 70}
+              height={Dimensions.get("window").width - 70}
               thickness={12}
               strokeCap={"round"}
               borderWidth={0}
@@ -1484,8 +1577,8 @@ class TestScreen extends React.Component {
             <View
               style={{
                 position: "absolute",
-                paddingTop: 55,
-                left: 13,
+                paddingTop: 25,
+                left: 25,
                 alignItems: "center"
               }}
             >
@@ -1499,14 +1592,21 @@ class TestScreen extends React.Component {
             </View>
           </View>
 
-          <View style={{ flex: 1, paddingRight: 30, paddingLeft: 30 }}>
+          <View
+            style={{
+              flex: 1,
+              paddingRight: 30,
+              paddingLeft: 30,
+              justifyContent: "flex-start"
+            }}
+          >
             <Text style={styles.header_left}>
-              {this.state.welcome_title_message} {this.props.user.nickname}!
+              {this.state.welcomeTitle} {this.props.user.nickname}!
             </Text>
 
             <Text style={styles.text_left}>
               {"\n"}
-              {this.state.welcome_message}
+              {this.state.welcomeSubTitle}
             </Text>
 
             {ExercicesArray.map((item, key) =>
@@ -1535,31 +1635,41 @@ class TestScreen extends React.Component {
               ) : null
             )}
 
-            <View style={{ flex: 1 }}>
-              <Modal
-                animationType="fade"
-                transparent={false}
-                visible={this.state.modalVisible}
-                onRequestClose={() => {
-                  Alert.alert("Modal has been closed.");
-                }}
-              >
-                <ScrollView
-                  showsVerticalScrollIndicator={false}
-                  ref={c => {
-                    this.scroll = c;
-                  }}
-                  style={{
-                    alignContent: "flex-start",
-                    flex: 1
-                  }}
-                >
-                  {ExercicesArray.filter(item => item.state == "completed").map(
-                    (item, key) =>
-                      item.visible === true ? (
-                        // item.id === challengePending ? (
+            {ExercicesArray.filter(item => item.state == "completed").map(
+              (item, key) => (
+                <ChallengeModal
+                  key={key}
+                  label={item.title}
+                  content={item.text_content}
+                  allpopups={this.state.completedExercices}
+                  function={item.function}
+                ></ChallengeModal>
+              )
+            )}
+
+            {/* {ExercicesArray.filter(item => item.state == "completed").map(
+              (item, key) => (
+                <>
+                  <View style={{ flex: 1 }} key={key}>
+                    <Modal
+                      animationType="fade"
+                      transparent={false}
+                      visible={this.state.modalVisible}
+                      onRequestClose={() => {
+                        Alert.alert("Modal has been closed.");
+                      }}
+                    >
+                      <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        ref={c => {
+                          this.scroll = c;
+                        }}
+                        style={{
+                          alignContent: "flex-start",
+                          flex: 1
+                        }}
+                      >
                         <View
-                          key={key}
                           style={{
                             padding: 30,
                             backgroundColor: "#F4F1DE",
@@ -1568,13 +1678,19 @@ class TestScreen extends React.Component {
                           }}
                         >
                           <Text style={styles.text_modal}>
-                            {key}/{challengePending}
+                            {key + 1}/{this.state.completedExercices}
                           </Text>
                           <Text style={styles.header_modal}>
                             {item.title}: Challenge accomplished?
                           </Text>
                           <Text style={styles.text_modal}>
+                            {'"'}
                             {item.text_content}
+                            {'"'}
+                          </Text>
+                          <Text style={styles.text_modal}>
+                            {item.id}
+                            {this.state.completedExercices}
                           </Text>
                           <View
                             style={{
@@ -1591,16 +1707,20 @@ class TestScreen extends React.Component {
                               label="Not Yet"
                               // onPress={this.decrementCount}
                               onPress={() => {
-                                this.setModalVisible(false);
+                                this.setState({
+                                  completedExercices:
+                                    this.state.completedExercices + 1
+                                });
                               }}
                             />
                           </View>
                         </View>
-                      ) : null
-                  )}
-                </ScrollView>
-              </Modal>
-            </View>
+                      </ScrollView>
+                    </Modal>
+                  </View>
+                </>
+              )
+            )} */}
           </View>
         </ScrollView>
       </View>
@@ -1697,10 +1817,11 @@ const styles = StyleSheet.create({
   text_left: {
     color: "#2C3B51",
     fontSize: 19,
-    lineHeight: 25,
+    //lineHeight: 25,
     textAlign: "left",
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
+    marginTop: -15,
     paddingBottom: 30
   },
   text_scroll: {

@@ -17,6 +17,7 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import * as Progress from "react-native-progress";
+import { Ionicons } from "@expo/vector-icons";
 
 import RadioGroup, {
   Radio
@@ -194,9 +195,10 @@ export default class PSU_Screen_T1 extends React.Component {
   };
 
   render() {
+    const { goBack } = this.props.navigation;
     return (
       <>
-      <StatusBar hidden />
+        <StatusBar hidden />
         <View
           style={{
             flex: 1,
@@ -220,237 +222,237 @@ export default class PSU_Screen_T1 extends React.Component {
           />
         </View>
         <View style={styles.container}>
-        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-          <Text style={styles.skip_text}>Skip</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
 
-        <Text style={styles.header_left_padding}>
-          Please think about the last 7 days
-        </Text>
+          <Text style={styles.header_left_padding}>
+            Please think about the last 7 days
+          </Text>
 
-        {this.state.show_1 ? (
-          <>
-            <Text style={styles.text_left}>
-              I have used my smartphone to make myself feel better when I was
-              feeling down.
-            </Text>
+          {this.state.show_1 ? (
+            <>
+              <Text style={styles.text_left}>
+                I have used my smartphone to make myself feel better when I was
+                feeling down.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU01_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU01_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU01_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU01_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU01_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU01_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU01_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_2 ? (
-          <>
-            <Text style={styles.text_left}>
-              When out of range for some time, I became preoccupied with the
-              thought of missing a call or a message.
-            </Text>
+          {this.state.show_2 ? (
+            <>
+              <Text style={styles.text_left}>
+                When out of range for some time, I became preoccupied with the
+                thought of missing a call or a message.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU02_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU02_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU02_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU02_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU02_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU02_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU02_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_3 ? (
-          <>
-            <Text style={styles.text_left}>
-              I felt anxious if I had not checked for messages or switched on my
-              smartphone for some time.
-            </Text>
+          {this.state.show_3 ? (
+            <>
+              <Text style={styles.text_left}>
+                I felt anxious if I had not checked for messages or switched on
+                my smartphone for some time.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU04_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU04_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU04_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU04_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU04_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU04_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU04_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU04_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU04_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU04_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU04_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU04_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_4 ? (
-          <>
-            <Text style={styles.text_left}>
-              My friends and family complained about my use of the smartphone.
-            </Text>
+          {this.state.show_4 ? (
+            <>
+              <Text style={styles.text_left}>
+                My friends and family complained about my use of the smartphone.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU05_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU05_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU05_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU05_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU05_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU05_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU05_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU05_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU05_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU05_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU05_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU05_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_5 ? (
-          <>
-            <Text style={styles.text_left}>
-              I found myself engaged on the smartphone for longer periods of
-              time than intended.
-            </Text>
+          {this.state.show_5 ? (
+            <>
+              <Text style={styles.text_left}>
+                I found myself engaged on the smartphone for longer periods of
+                time than intended.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU06_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU06_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU06_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU06_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU06_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU06_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU06_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU06_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU06_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU06_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU06_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU06_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_6 ? (
-          <>
-            <Text style={styles.text_left}>
-              I was often late for appointments because I was engaged on the
-              smartphone when I shouldn’t have been.
-            </Text>
+          {this.state.show_6 ? (
+            <>
+              <Text style={styles.text_left}>
+                I was often late for appointments because I was engaged on the
+                smartphone when I shouldn’t have been.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU07_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU07_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU07_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU07_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU07_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU07_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU07_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU07_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU07_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU07_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU07_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU07_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_7 ? (
-          <>
-            <Text style={styles.text_left}>
-              I found it difficult to switch off my smartphone.
-            </Text>
+          {this.state.show_7 ? (
+            <>
+              <Text style={styles.text_left}>
+                I found it difficult to switch off my smartphone.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU08_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU08_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU08_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU08_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU08_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU08_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU08_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU08_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU08_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU08_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU08_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU08_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_8 ? (
-          <>
-            <Text style={styles.text_left}>
-              I have been told that I spend too much time on my smartphone.
-            </Text>
+          {this.state.show_8 ? (
+            <>
+              <Text style={styles.text_left}>
+                I have been told that I spend too much time on my smartphone.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSU09_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSU09_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSU09_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSU09_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSU09_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSU09_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSU09_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSU09_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSU09_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSU09_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSU09_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSU09_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_9 ? (
-          <>
-            <Text style={styles.text_left}>
-              I found my smartphone use problematic.
-            </Text>
+          {this.state.show_9 ? (
+            <>
+              <Text style={styles.text_left}>
+                I found my smartphone use problematic.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"PSUc_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"PSUc_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"PSUc_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"PSUc_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"PSUc_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"PSUc_D1/6"} />
-              </RadioGroup>
-            </View>
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"PSUc_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"PSUc_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"PSUc_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"PSUc_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"PSUc_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"PSUc_D1/6"} />
+                </RadioGroup>
+              </View>
 
-            <View style={styles.bottom}>
-              <PrimaryButton
-                label="Continue"
-                isBottom={true}
-                disabled={!this.state.buttonIsActive}
-                onPress={() => {
-                  this.props.navigation.navigate("SUE_Screen_T1");
-                }}
-              />
-            </View>
-          </>
-        ) : null}
-      </View>
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="Continue"
+                  isBottom={true}
+                  disabled={!this.state.buttonIsActive}
+                  onPress={() => {
+                    this.props.navigation.navigate("SUE_Screen_T1");
+                  }}
+                />
+              </View>
+            </>
+          ) : null}
+        </View>
       </>
     );
   }

@@ -192,7 +192,7 @@ class Exercice_7_3 extends React.Component {
                   />
                   <TouchableOpacity
                     style={styles.inputIcon}
-                    onPress={this.onSubmitEditing}
+                    onPress={this.state.newSelect ? this.onSubmitEditing : null }
                   >
                     <Svg height="32" width="32">
                       <Circle cx="16" cy="16" r="16" fill="#2C3B51" />

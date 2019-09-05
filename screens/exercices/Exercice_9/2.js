@@ -114,7 +114,7 @@ class Exercice_9_2 extends React.Component {
             </TouchableWithoutFeedback>
           </View>
           </ScrollView>
-          <View style={styles.tap_pos_relative}>
+          <View style={styles.bottom_button}>
                   <PrimaryButton
                     label="Continue"
                     disabled={

@@ -21,7 +21,7 @@ class HeaderTabItem extends PureComponent {
       Reflect: require("./../assets/images/phase_observe.png"),
       Vision: require("./../assets/images/phase_observe.png"),
       Plan: require("./../assets/images/phase_observe.png"),
-      Support: require("./../assets/images/phase_observe.png"),
+      Support: require("./../assets/images/phase_observe.png")
     };
   };
 
@@ -53,11 +53,6 @@ const styles = StyleSheet.create({
   tab_bar_icon: {
     marginBottom: 3
   },
-  center: {
-    flex: 1,
-    position: "relative",
-    width: "100%"
-  }
 });
 
 export default HeaderTabItem;

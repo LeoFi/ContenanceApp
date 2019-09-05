@@ -58,7 +58,7 @@ export default class ConclusionScreen extends React.Component {
               {"\n"}around 5 min per exercise,
               {"\n"}6 reflections.
             </Text>
-            <View style={{ flex: 1 }} />
+            <View style={{ flex: 1, height: 30 }} />
 
             <View style={styles.bottom}>
               <PrimaryButton
