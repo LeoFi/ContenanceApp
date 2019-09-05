@@ -14,6 +14,7 @@ import MenuHeaderComponent from "./MenuHeaderComponent";
 import MultipleGreyInputButton from "./MultipleGreyInputButton";
 import HomeIllustration from "./HomeIllustration";
 import ChallengeModal from "./ChallengeModal";
+import ModalContent from "./ModalContent";
 
 
 export {
@@ -32,5 +33,6 @@ export {
   MenuHeaderComponent,
   MultipleGreyInputButton,
   HomeIllustration,
-  ChallengeModal
+  ChallengeModal,
+  ModalContent
 };

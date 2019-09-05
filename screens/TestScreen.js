@@ -50,7 +50,8 @@ import {
 
 import {
   updateWelcomeTitle,
-  updateWelcomeSubTitle
+  updateWelcomeSubTitle,
+  updateCompletedList
 } from "./../redux-persist/redux/user";
 
 import * as firebase from "firebase";
@@ -78,7 +79,9 @@ class TestScreen extends React.Component {
       count: 1,
       modalVisible: false,
       challengePending: undefined,
-      completedExercices: 0
+      completedExercices: false,
+      firstItemArray: 0,
+      visible: true
     };
   }
 
@@ -144,10 +147,6 @@ class TestScreen extends React.Component {
     }
   };
 
-  setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
-  }
-
   incrementCount = () => {
     this.setState({
       count: this.state.count + 1
@@ -164,9 +163,6 @@ class TestScreen extends React.Component {
     this.compareDates();
     this.timeLogic();
     this.setPhases();
-    this.setState({
-      modalVisible: true
-    });
   }
 
   goToTop = () => {
@@ -392,6 +388,20 @@ class TestScreen extends React.Component {
           var PastCompleted = data.filter(
             item => item.exercice === "completed"
           );
+
+          if (this.isEmpty(PastCompleted)) {
+            //Alert.alert("EMPTY");
+          } else {
+            //Alert.alert("PAS EMPTY");
+            this.setState(
+              {
+                completedExercices: true
+              },
+              function() {
+                this.props.dispatch(updateCompletedList(this.state.completedExercices));
+              }
+            );
+          }
         }
       }
 
@@ -426,7 +436,7 @@ class TestScreen extends React.Component {
         this.props.dispatch(updateWelcomeTitle(this.state.welcomeTitle));
         const welcomeSubTitleContinue = this.state.welcomeSubTitleContinue;
         this.setState({ welcomeSubTitle: welcomeSubTitleContinue });
-        this.props.dispatch(updateWelcomeTitle(this.state.welcomeSubTitle));
+        this.props.dispatch(updateWelcomeSubTitle(this.state.welcomeSubTitle));
       } else {
         //
       }
@@ -438,7 +448,6 @@ class TestScreen extends React.Component {
 
         //CALCUL OF THE PROGRESS BAR
         const numbers = myOrderedArray;
-        this.setState({ completedExercices: myOrderedArray.length });
         let chunks = [];
         let prev = -1;
         numbers.forEach(current => {
@@ -1326,10 +1335,20 @@ class TestScreen extends React.Component {
         title: <Text style={styles.header_challenge}>54321 Trick</Text>,
         text_content: (
           <Text style={styles.text_challenge}>
-            {/* The next time you are using {this.props.user_values.AppsRed1_D7},
-            {this.props.user_values.AppsRed2_D7} and
-            {this.props.user_values.AppsRed3_D7}, give it a try and do the trick */}
-            to find: Give it a try and do the 54321 trick and find:{"\n"}
+            The next time you are using
+            {this.state.AppsRed1_D7 == undefined
+              ? null
+              : this.props.user_values.AppsRed1_D7}
+            ,
+            {this.state.AppsRed2_D7 == undefined
+              ? null
+              : this.props.user_values.AppsRed2_D7}{" "}
+            and
+            {this.state.AppsRed3_D7 == undefined
+              ? null
+              : this.props.user_values.AppsRed3_D7}
+            , give it a try and do the trick to find: Give it a try and do the
+            54321 trick and find:{"\n"}
             {"\n"}5 things you can see, 4 things you can touch, 3 things you can
             hear, 2 things you can smell, 1 thing you can taste!
           </Text>
@@ -1393,7 +1412,10 @@ class TestScreen extends React.Component {
           <Text style={styles.text_challenge}>
             Do a test-run of one of your newly defined coping plans!{"\n"}
             {"\n"}There might be challenges to realize my plan:{" "}
-            {/* {this.props.user_values.NewHabitCommit_D13}. But I am prepared.
+            {/* {this.props.user_values.NewHabitCommit_D13 === undefined
+              ? null
+              : this.props.user_values.NewHabitCommit_D13}
+            . But I am prepared.
             {"\n"}
             {"\n"}If {this.props.user_values.Obstacle1_D14}, then{" "}
             {this.props.user_values.CopingStrategy1_D14}.{"\n"}
@@ -1555,7 +1577,7 @@ class TestScreen extends React.Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
             style={{
-              flex: 1,
+              //flex: 1,
               paddingTop: 50,
               justifyContent: "flex-start"
             }}
@@ -1635,92 +1657,45 @@ class TestScreen extends React.Component {
               ) : null
             )}
 
-            {ExercicesArray.filter(item => item.state == "completed").map(
-              (item, key) => (
-                <ChallengeModal
-                  key={key}
-                  label={item.title}
-                  content={item.text_content}
-                  allpopups={this.state.completedExercices}
-                  function={item.function}
-                ></ChallengeModal>
-              )
+            {this.state.completedExercices === false ? null : (
+              <Modal
+                visible={this.state.visible}
+                animationType="fade"
+                transparent={false}
+              >
+                {ExercicesArray.filter(item => item.state == "completed").map(
+                  (item, key) =>
+                    this.state.firstItemArray === key ? (
+                      <ChallengeModal
+                        key={key}
+                        label={item.title}
+                        content={item.text_content}
+                        function={item.function}
+                        current={this.state.firstItemArray}
+                        onPress={() => {
+                          {
+                            this.setState({
+                              firstItemArray: this.state.firstItemArray + 1
+                            });
+                          }
+                        }}
+                        onPressLast={() => {
+                          {
+                            this.setState({
+                              visible: false,
+                              completedExercices: false
+                              },
+                              function() {
+                                this.props.dispatch(updateCompletedList(this.state.completedExercices));
+                              }
+                            );
+                          }
+                        }}
+                      ></ChallengeModal>
+                    ) : null
+                )}
+              </Modal>
             )}
-
-            {/* {ExercicesArray.filter(item => item.state == "completed").map(
-              (item, key) => (
-                <>
-                  <View style={{ flex: 1 }} key={key}>
-                    <Modal
-                      animationType="fade"
-                      transparent={false}
-                      visible={this.state.modalVisible}
-                      onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                      }}
-                    >
-                      <ScrollView
-                        showsVerticalScrollIndicator={false}
-                        ref={c => {
-                          this.scroll = c;
-                        }}
-                        style={{
-                          alignContent: "flex-start",
-                          flex: 1
-                        }}
-                      >
-                        <View
-                          style={{
-                            padding: 30,
-                            backgroundColor: "#F4F1DE",
-                            height: Dimensions.get("window").height,
-                            justifyContent: "center"
-                          }}
-                        >
-                          <Text style={styles.text_modal}>
-                            {key + 1}/{this.state.completedExercices}
-                          </Text>
-                          <Text style={styles.header_modal}>
-                            {item.title}: Challenge accomplished?
-                          </Text>
-                          <Text style={styles.text_modal}>
-                            {'"'}
-                            {item.text_content}
-                            {'"'}
-                          </Text>
-                          <Text style={styles.text_modal}>
-                            {item.id}
-                            {this.state.completedExercices}
-                          </Text>
-                          <View
-                            style={{
-                              flexDirection: "row",
-                              justifyContent: "space-between",
-                              width: "auto"
-                            }}
-                          >
-                            <PrimaryButton
-                              label="Oh Yes"
-                              onPress={this.incrementCount}
-                            />
-                            <PrimaryButton
-                              label="Not Yet"
-                              // onPress={this.decrementCount}
-                              onPress={() => {
-                                this.setState({
-                                  completedExercices:
-                                    this.state.completedExercices + 1
-                                });
-                              }}
-                            />
-                          </View>
-                        </View>
-                      </ScrollView>
-                    </Modal>
-                  </View>
-                </>
-              )
-            )} */}
           </View>
         </ScrollView>
       </View>

@@ -6,6 +6,8 @@ export const UPDATE_ACCESS_CODE = 'UPDATE_ACCESS_CODE';
 export const UPDATE_ONBOARDING_DONE = 'UPDATE_ONBOARDING_DONE';
 export const UPDATE_WELCOME_TITLE = 'UPDATE_WELCOME_TITLE';
 export const UPDATE_WELCOME_SUBTITLE = 'UPDATE_WELCOME_SUBTITLE';
+export const UPDATE_TOTAL_CHALLENGE = 'UPDATE_TOTAL_CHALLENGE';
+export const UPDATE_COMPLETED_LIST = 'UPDATE_COMPLETED_LIST';
 
 export const updateNickname = nickname => ({
   type: UPDATE_NICKNAME,
@@ -37,6 +39,16 @@ export const updateWelcomeSubTitle = welcomeSubTitle => ({
   welcomeSubTitle,
 });
 
+export const updateTotalChallenge = totalChallenge => ({
+  type: UPDATE_TOTAL_CHALLENGE,
+  totalChallenge,
+});
+
+export const updateCompletedList = isCompletedList => ({
+  type: UPDATE_COMPLETED_LIST,
+  isCompletedList,
+});
+
 const initialState = {
     nickname: '',
     initialDate: '',
@@ -44,6 +56,8 @@ const initialState = {
     onboardingDone: false,
     welcomeTitle: '',
     welcomeSubTitle: '',
+    totalChallenge: undefined,
+    isCompletedList: false,
 };
 
 export default (state = initialState, action) => {
@@ -77,6 +91,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         welcomeSubTitle: action.welcomeSubTitle,
+      };
+      case UPDATE_TOTAL_CHALLENGE:
+      return {
+        ...state,
+        totalChallenge: action.totalChallenge,
+      };
+      case UPDATE_COMPLETED_LIST:
+      return {
+        ...state,
+        isCompletedList: action.isCompletedList,
       };
     default:
       return state;
