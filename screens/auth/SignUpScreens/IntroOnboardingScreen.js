@@ -23,7 +23,7 @@ import { styles } from "./style";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
-import { updateNickname } from "./../../../redux-persist/redux/user";
+import { updateNickname, updateUID } from "./../../../redux-persist/redux/user";
 
 class IntroOnboardingScreen extends React.Component {
   constructor(props) {
@@ -63,9 +63,8 @@ class IntroOnboardingScreen extends React.Component {
         accessCode
       });
     this.props.dispatch(updateNickname(this.state.nickname));
-    this.props.navigation.navigate("Onboarding");
-    //this.props.navigation.navigate("Closing_Screen_T1");
-    
+    //this.props.navigation.navigate("Onboarding");
+    this.props.navigation.navigate("Closing_Screen_T1");
   };
 
   render() {
@@ -81,7 +80,7 @@ class IntroOnboardingScreen extends React.Component {
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <ScrollView
-          showsVerticalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.container_scrollview_image}
             keyboardShouldPersistTaps="handled"
           >
@@ -96,17 +95,17 @@ class IntroOnboardingScreen extends React.Component {
                   justifyContent: "space-between"
                 }}
               >
-                <View style={{ flex: 2, alignItems: "center"}}>
+                <View style={{ flex: 2, alignItems: "center" }}>
                   <Image
                     source={require("./../../../assets/images/placeholder_background.png")}
                   />
-                  <View style={{height: 40}}/>
+                  <View style={{ height: 40 }} />
                   <Text style={styles.header}>Hi, I’m Leo.</Text>
                   <Text style={styles.text}>
                     {"\n"}And I’m going to be your companion on this journey.
                     How do you like to be called?
                   </Text>
-                  <View style={{height: 40}}/>
+                  <View style={{ height: 40 }} />
                   <TextInput
                     style={styles.codeInput}
                     value={this.state.nickname}
@@ -117,9 +116,9 @@ class IntroOnboardingScreen extends React.Component {
                     autoCorrect={false}
                     keyboardType="ascii-capable"
                   />
-                  <View style={{height: 40}}/>
+                  <View style={{ height: 40 }} />
                 </View>
-                
+
                 <View>
                   <PrimaryButton
                     label="Next"

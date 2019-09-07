@@ -63,7 +63,7 @@ const IntroStack = createStackNavigator(
     // SU2_Screen_T1: { screen: SU2_Screen_T1 },
     // SU3_Screen_T1: { screen: SU3_Screen_T1 },
     // Extra_6_Screen_T1: { screen: Extra_6_Screen_T1 },
-    // Closing_Screen_T1: { screen: Closing_Screen_T1 },
+    Closing_Screen_T1: { screen: Closing_Screen_T1 },
     Home: { screen: MainTabNavigator }
   },
   {

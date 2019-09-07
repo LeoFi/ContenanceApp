@@ -10,7 +10,8 @@ import {
   TextInput,
   Button,
   StatusBar,
-  Dimensions
+  Dimensions,
+  Alert
 } from "react-native";
 import {
   PrimaryButton,
@@ -27,19 +28,9 @@ class SupportScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.user.nickname || "",
-      exercice_state_17: this.props.exercices.exercice_state_17 || "",
-      exercice_state_18: this.props.exercices.exercice_state_18 || "",
-      exercice_state_19: this.props.exercices.exercice_state_19 || "",
-      exercice_state_20: this.props.exercices.exercice_state_20 || "",
-      exercice_state_21: this.props.exercices.exercice_state_21 || "",
-      reflection_state_5: this.props.exercices.reflection_state_5 || ""
+      nickname: this.props.user.nickname || ""
     };
   }
-
-  onSignoutPress = () => {
-    firebase.auth().signOut();
-  };
 
   render() {
     const buttonProps = {
@@ -49,6 +40,11 @@ class SupportScreen extends React.Component {
     let ExerciceStyle_17 = "";
 
     switch (this.props.exercices.exercice_state_17) {
+      case "DONE":
+        ExerciceTextStyle_17 = styles.text_completed;
+        ExerciceStyle_17 = styles.completed;
+        IconsExercice_17 = require("./../../assets/images/checkmark_support.png");
+        break;
       case "completed":
         ExerciceTextStyle_17 = styles.text_completed;
         ExerciceStyle_17 = styles.completed;
@@ -74,6 +70,11 @@ class SupportScreen extends React.Component {
     let ExerciceStyle_18 = "";
 
     switch (this.props.exercices.exercice_state_18) {
+      case "DONE":
+        ExerciceTextStyle_18 = styles.text_completed;
+        ExerciceStyle_18 = styles.completed;
+        IconsExercice_18 = require("./../../assets/images/checkmark_support.png");
+        break;
       case "completed":
         ExerciceTextStyle_18 = styles.text_completed;
         ExerciceStyle_18 = styles.completed;
@@ -99,6 +100,11 @@ class SupportScreen extends React.Component {
     let ExerciceStyle_19 = "";
 
     switch (this.props.exercices.exercice_state_19) {
+      case "DONE":
+        ExerciceTextStyle_19 = styles.text_completed;
+        ExerciceStyle_19 = styles.completed;
+        IconsExercice_19 = require("./../../assets/images/checkmark_support.png");
+        break;
       case "completed":
         ExerciceTextStyle_19 = styles.text_completed;
         ExerciceStyle_19 = styles.completed;
@@ -124,6 +130,11 @@ class SupportScreen extends React.Component {
     let ExerciceStyle_20 = "";
 
     switch (this.props.exercices.exercice_state_20) {
+      case "DONE":
+        ExerciceTextStyle_20 = styles.text_completed;
+        ExerciceStyle_20 = styles.completed;
+        IconsExercice_20 = require("./../../assets/images/checkmark_support.png");
+        break;
       case "completed":
         ExerciceTextStyle_20 = styles.text_completed;
         ExerciceStyle_20 = styles.completed;
@@ -149,6 +160,11 @@ class SupportScreen extends React.Component {
     let ExerciceStyle_21 = "";
 
     switch (this.props.exercices.exercice_state_21) {
+      case "DONE":
+        ExerciceTextStyle_21 = styles.text_completed;
+        ExerciceStyle_21 = styles.completed;
+        IconsExercice_21 = require("./../../assets/images/checkmark_support.png");
+        break;
       case "completed":
         ExerciceTextStyle_21 = styles.text_completed;
         ExerciceStyle_21 = styles.completed;
@@ -256,7 +272,6 @@ class SupportScreen extends React.Component {
         <StatusBar barStyle="dark-content" />
         <ScrollView>
           <View style={{ flex: 1, paddingTop: 0 }}>
-
             <Svg
               width={buttonProps.width}
               height={"187"}
@@ -793,11 +808,23 @@ class SupportScreen extends React.Component {
                     }
                   }}
                   style={item.styleButton}
-                  disabled={item.state === "locked" ? true : false}
+                  state={item.state}
+                  disabled={
+                    item.state === "locked" || item.state === undefined
+                      ? true
+                      : false
+                  }
                 >
                   <Text style={item.styleText}>{item.label}</Text>
                   <Image
-                    style={styles.exercice_button_icon}
+                    style={
+                      item.state === "locked" ||
+                      item.state === "completed" ||
+                      item.state === "DONE" ||
+                      item.state === undefined
+                        ? styles.exercice_button_icon_locked
+                        : styles.exercice_button_icon
+                    }
                     source={item.IconSource}
                   />
                 </ExerciceButton>
@@ -922,9 +949,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   },
   exercice_button_icon: {
-    alignSelf: "flex-end",
-    top: -5,
-    right: 20
+    top: "50%",
+    marginTop: 6,
+    right: 20,
+    position: "absolute"
+  },
+  exercice_button_icon_locked: {
+    top: "50%",
+    marginTop: -6,
+    right: 20,
+    position: "absolute"
   },
   completed: {
     backgroundColor: "transparent",
@@ -935,7 +969,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "stretch",
     justifyContent: "space-between",
-    marginBottom: 15
+    marginBottom: 15,
+    paddingTop: 0,
+    paddingBottom: 0
   },
   text_completed: {
     color: "#2C3B51",
@@ -945,7 +981,11 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     textTransform: "capitalize",
     letterSpacing: 1,
-    alignSelf: "flex-start"
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   },
   next: {
     backgroundColor: "#6A97D8",
@@ -966,8 +1006,11 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-medium",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   },
   new: {
     backgroundColor: "transparent",
@@ -988,12 +1031,15 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-medium",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   },
   locked: {
     backgroundColor: "transparent",
-    borderWidth: 2,
+    borderWidth: 1,
     borderTopColor: "transparent",
     borderLeftColor: "transparent",
     borderRightColor: "transparent",
@@ -1004,7 +1050,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "stretch",
     justifyContent: "space-between",
-    marginBottom: 15
+    marginBottom: 15,
+    paddingTop: 0
   },
   text_locked: {
     color: "rgba(44, 59, 81, 0.3)",
@@ -1013,8 +1060,11 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-regular",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   }
 });
 

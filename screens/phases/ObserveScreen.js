@@ -45,6 +45,11 @@ class ObserveScreen extends React.Component {
     let ExerciceStyle_1 = "";
 
     switch (this.props.exercices.exercice_state_1) {
+      case "DONE":
+        ExerciceTextStyle_1 = styles.text_completed;
+        ExerciceStyle_1 = styles.completed;
+        IconsExercice_1 = require("./../../assets/images/checkmark_observe.png");
+        break;
       case "completed":
         ExerciceTextStyle_1 = styles.text_completed;
         ExerciceStyle_1 = styles.completed;
@@ -70,6 +75,11 @@ class ObserveScreen extends React.Component {
     let ExerciceStyle_2 = "";
 
     switch (this.props.exercices.exercice_state_2) {
+      case "DONE":
+        ExerciceTextStyle_2 = styles.text_completed;
+        ExerciceStyle_2 = styles.completed;
+        IconsExercice_2 = require("./../../assets/images/checkmark_observe.png");
+        break;
       case "completed":
         ExerciceTextStyle_2 = styles.text_completed;
         ExerciceStyle_2 = styles.completed;
@@ -95,6 +105,11 @@ class ObserveScreen extends React.Component {
     let ExerciceStyle_3 = "";
 
     switch (this.props.exercices.exercice_state_3) {
+      case "DONE":
+        ExerciceTextStyle_3 = styles.text_completed;
+        ExerciceStyle_3 = styles.completed;
+        IconsExercice_3 = require("./../../assets/images/checkmark_observe.png");
+        break;
       case "completed":
         ExerciceTextStyle_3 = styles.text_completed;
         ExerciceStyle_3 = styles.completed;
@@ -120,7 +135,12 @@ class ObserveScreen extends React.Component {
     let ExerciceStyle_4 = "";
 
     switch (this.props.exercices.exercice_state_4) {
-      case "completed":
+      case "DONE":
+        ExerciceTextStyle_4 = styles.text_completed;
+        ExerciceStyle_4 = styles.completed;
+        IconsExercice_4 = require("./../../assets/images/checkmark_observe.png");
+        break;
+        case "completed":
         ExerciceTextStyle_4 = styles.text_completed;
         ExerciceStyle_4 = styles.completed;
         IconsExercice_4 = require("./../../assets/images/checkmark_observe.png");
@@ -476,11 +496,22 @@ class ObserveScreen extends React.Component {
                     }
                   }}
                   style={item.styleButton}
-                  disabled={item.state === "locked" ? true : false}
+                  disabled={
+                    item.state === "locked" || item.state === undefined
+                      ? true
+                      : false
+                  }
                 >
                   <Text style={item.styleText}>{item.label}</Text>
                   <Image
-                    style={styles.exercice_button_icon}
+                    style={
+                      item.state === "locked" ||
+                      item.state === "completed" ||
+                      item.state === "DONE" ||
+                      item.state === undefined
+                        ? styles.exercice_button_icon_locked
+                        : styles.exercice_button_icon
+                    }
                     source={item.IconSource}
                   />
                 </ExerciceButton>
@@ -612,9 +643,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   },
   exercice_button_icon: {
-    alignSelf: "flex-end",
-    top: -5,
-    right: 20
+    top: "50%",
+    marginTop: 6,
+    right: 20,
+    position: "absolute"
+  },
+  exercice_button_icon_locked: {
+    top: "50%",
+    marginTop: -6,
+    right: 20,
+    position: "absolute"
   },
   completed: {
     backgroundColor: "transparent",
@@ -625,7 +663,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "stretch",
     justifyContent: "space-between",
-    marginBottom: 15
+    marginBottom: 15,
+    paddingTop: 0,
+    paddingBottom: 0
   },
   text_completed: {
     color: "#2C3B51",
@@ -635,7 +675,11 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     textTransform: "capitalize",
     letterSpacing: 1,
-    alignSelf: "flex-start"
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   },
   next: {
     backgroundColor: "#A28AD4",
@@ -656,8 +700,11 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-medium",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   },
   new: {
     backgroundColor: "transparent",
@@ -672,18 +719,21 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   text_new: {
-    color: "#A28AD4",
+    color: "#9B51E0",
     fontSize: 17,
     lineHeight: 23,
     textAlign: "left",
     fontFamily: "roboto-medium",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   },
   locked: {
     backgroundColor: "transparent",
-    borderWidth: 2,
+    borderWidth: 1,
     borderTopColor: "transparent",
     borderLeftColor: "transparent",
     borderRightColor: "transparent",
@@ -694,7 +744,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignSelf: "stretch",
     justifyContent: "space-between",
-    marginBottom: 15
+    marginBottom: 15,
+    paddingTop: 0
   },
   text_locked: {
     color: "rgba(44, 59, 81, 0.3)",
@@ -703,8 +754,11 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: "roboto-regular",
     textTransform: "capitalize",
-    alignSelf: "flex-start",
-    letterSpacing: 1
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
   }
 });
 

@@ -8,6 +8,7 @@ export const UPDATE_WELCOME_TITLE = 'UPDATE_WELCOME_TITLE';
 export const UPDATE_WELCOME_SUBTITLE = 'UPDATE_WELCOME_SUBTITLE';
 export const UPDATE_TOTAL_CHALLENGE = 'UPDATE_TOTAL_CHALLENGE';
 export const UPDATE_COMPLETED_LIST = 'UPDATE_COMPLETED_LIST';
+export const UPDATE_UID = 'UPDATE_UID';
 
 export const updateNickname = nickname => ({
   type: UPDATE_NICKNAME,
@@ -49,6 +50,11 @@ export const updateCompletedList = isCompletedList => ({
   isCompletedList,
 });
 
+export const updateUID = UID => ({
+  type: UPDATE_UID,
+  UID,
+});
+
 const initialState = {
     nickname: '',
     initialDate: '',
@@ -58,6 +64,7 @@ const initialState = {
     welcomeSubTitle: '',
     totalChallenge: undefined,
     isCompletedList: false,
+    UID: undefined
 };
 
 export default (state = initialState, action) => {
@@ -101,6 +108,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isCompletedList: action.isCompletedList,
+      };
+      case UPDATE_UID:
+      return {
+        ...state,
+        UID: action.UID,
       };
     default:
       return state;

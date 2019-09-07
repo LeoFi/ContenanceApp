@@ -26,9 +26,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoadingComplete: false,
-      isAuthenticationReady: false,
-      isAuthenticated: false
+      isLoadingComplete: false
     };
 
     // Initialize firebase...
@@ -36,13 +34,22 @@ export default class App extends React.Component {
       firebase.initializeApp(ApiKeys.FirebaseConfig);
     }
 
-    firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
-  }
+    firebase.auth().signInAnonymously()
 
-  onAuthStateChanged = user => {
-    this.setState({ isAuthenticationReady: true });
-    this.setState({ isAuthenticated: !!user });
-  };
+    firebase.auth().onAuthStateChanged = user => {
+      if (user) {
+        // User is signed in.
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+
+        // ...
+      } else {
+        // User is signed out.
+        // ...
+      }
+      // ...
+    };
+  }
 
   renderLoading = () => (
     <View style={styles.container}>
@@ -61,6 +68,7 @@ export default class App extends React.Component {
       );
     } else {
       return (
+      //Alert.alert(firebase.auth().currentUser.uid),
         <Provider store={store}>
           <PersistGate persistor={persistor} loading={this.renderLoading()}>
             <View style={styles.container}>
@@ -68,7 +76,7 @@ export default class App extends React.Component {
               {Platform.OS === "android" && (
                 <View style={styles.statusBarUnderlay} />
               )}
-               <RootNavigation />
+              <RootNavigation />
             </View>
           </PersistGate>
         </Provider>

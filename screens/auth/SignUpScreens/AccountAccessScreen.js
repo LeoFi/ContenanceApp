@@ -63,7 +63,7 @@ class AccountAccessScreen extends React.Component {
       .once("value", snapshot => {
         if (snapshot.exists() && snapshot.val() === "AVAILABLE") {
           snapshot.ref.set("TAKEN");
-          firebase.auth().signInAnonymously();
+          // firebase.auth().signInAnonymously();
           this.setState({ accessCode: accessCode });
           this.props.dispatch(updateAccessCode(this.state.accessCode));
           this.props.navigation.navigate("IntroOnboarding");

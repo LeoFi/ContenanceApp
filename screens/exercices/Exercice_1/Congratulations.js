@@ -81,22 +81,20 @@ class Exercice_1_Congratulations extends React.Component {
   getDate = () => {
     var initialDate = new Date().toString();
 
-    //console.log(initialDate);
-
     if (this.props.user.initialDate.length === 0) {
       this.setState({ initialDate: initialDate }, function() {
         this.props.dispatch(updateStartingDate(this.state.initialDate));
       });
 
-      // const uid = firebase.auth().currentUser.uid;
-      // firebase
-      //   .database()
-      //   .ref()
-      //   .child("accounts")
-      //   .child(uid)
-      //   .update({
-      //     Day_1_Done: initialDate
-      //   });
+      const uid = firebase.auth().currentUser.uid;
+      firebase
+        .database()
+        .ref()
+        .child("accounts")
+        .child(uid)
+        .update({
+          Day_1_Done: initialDate
+        });
     } else {
       return;
     }
