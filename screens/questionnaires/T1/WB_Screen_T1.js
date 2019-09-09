@@ -49,7 +49,7 @@ export default class WB_Screen_T1 extends React.Component {
       show_19: false,
       show_20: false,
       show_21: false,
-      progressValue: 11 / 78,
+      progressValue: 11 / 79,
       buttonIsActive: false
     };
   }
@@ -70,25 +70,25 @@ export default class WB_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 12 / 78 });
+        this.setState({ progressValue: 12 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 13 / 78 });
+        this.setState({ progressValue: 13 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 14 / 78 });
+        this.setState({ progressValue: 14 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 15 / 78 });
+        this.setState({ progressValue: 15 / 79 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -96,7 +96,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 16 / 78 });
+        this.setState({ progressValue: 16 / 79 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -105,7 +105,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 17 / 78 });
+        this.setState({ progressValue: 17 / 79 });
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -115,7 +115,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValue: 18 / 78 });
+        this.setState({ progressValue: 18 / 79 });
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -126,7 +126,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValue: 19 / 78 });
+        this.setState({ progressValue: 19 / 79 });
       } else if (this.state.show_9 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -138,7 +138,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_8: false });
         this.setState({ show_9: false });
         this.setState({ show_10: true });
-        this.setState({ progressValue: 20 / 78 });
+        this.setState({ progressValue: 20 / 79 });
       } else if (this.state.show_10 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -151,7 +151,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_9: false });
         this.setState({ show_10: false });
         this.setState({ show_11: true });
-        this.setState({ progressValue: 21 / 78 });
+        this.setState({ progressValue: 21 / 79 });
       } else if (this.state.show_11 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -165,7 +165,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_10: false });
         this.setState({ show_11: false });
         this.setState({ show_12: true });
-        this.setState({ progressValue: 22 / 78 });
+        this.setState({ progressValue: 22 / 79 });
       } else if (this.state.show_12 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -180,7 +180,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_11: false });
         this.setState({ show_12: false });
         this.setState({ show_13: true });
-        this.setState({ progressValue: 23 / 78 });
+        this.setState({ progressValue: 23 / 79 });
       } else if (this.state.show_13 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -196,7 +196,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_12: false });
         this.setState({ show_13: false });
         this.setState({ show_14: true });
-        this.setState({ progressValue: 24 / 78 });
+        this.setState({ progressValue: 24 / 79 });
       } else if (this.state.show_14 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -213,7 +213,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_13: false });
         this.setState({ show_14: false });
         this.setState({ show_15: true });
-        this.setState({ progressValue: 25 / 78 });
+        this.setState({ progressValue: 25 / 79 });
       } else if (this.state.show_15 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -231,7 +231,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_14: false });
         this.setState({ show_15: false });
         this.setState({ show_16: true });
-        this.setState({ progressValue: 26 / 78 });
+        this.setState({ progressValue: 26 / 79 });
       } else if (this.state.show_16 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -250,7 +250,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_15: false });
         this.setState({ show_16: false });
         this.setState({ show_17: true });
-        this.setState({ progressValue: 27 / 78 });
+        this.setState({ progressValue: 27 / 79 });
       } else if (this.state.show_17 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -270,7 +270,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_16: false });
         this.setState({ show_17: false });
         this.setState({ show_18: true });
-        this.setState({ progressValue: 28 / 78 });
+        this.setState({ progressValue: 28 / 79 });
       } else if (this.state.show_18 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -291,7 +291,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_17: false });
         this.setState({ show_18: false });
         this.setState({ show_19: true });
-        this.setState({ progressValue: 29 / 78 });
+        this.setState({ progressValue: 29 / 79 });
       } else if (this.state.show_19 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -313,7 +313,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_18: false });
         this.setState({ show_19: false });
         this.setState({ show_20: true });
-        this.setState({ progressValue: 30 / 78 });
+        this.setState({ progressValue: 30 / 79 });
       } else if (this.state.show_20 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -336,9 +336,9 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_19: false });
         this.setState({ show_20: false });
         this.setState({ show_21: true });
-        this.setState({ progressValue: 31 / 78 });
+        this.setState({ progressValue: 31 / 79 });
       } else if (this.state.show_21 == true) {
-        this.setState({ progressValue: 32 / 78 });
+        this.setState({ progressValue: 32 / 79 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -349,25 +349,25 @@ export default class WB_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 12 / 78 });
+        this.setState({ progressValue: 12 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 13 / 78 });
+        this.setState({ progressValue: 13 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 14 / 78 });
+        this.setState({ progressValue: 14 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 15 / 78 });
+        this.setState({ progressValue: 15 / 79 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -375,7 +375,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 16 / 78 });
+        this.setState({ progressValue: 16 / 79 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -384,7 +384,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 17 / 78 });
+        this.setState({ progressValue: 17 / 79 });
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -394,7 +394,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValue: 18 / 78 });
+        this.setState({ progressValue: 18 / 79 });
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -405,7 +405,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValue: 19 / 78 });
+        this.setState({ progressValue: 19 / 79 });
       } else if (this.state.show_9 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -417,7 +417,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_8: false });
         this.setState({ show_9: false });
         this.setState({ show_10: true });
-        this.setState({ progressValue: 20 / 78 });
+        this.setState({ progressValue: 20 / 79 });
       } else if (this.state.show_10 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -430,7 +430,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_9: false });
         this.setState({ show_10: false });
         this.setState({ show_11: true });
-        this.setState({ progressValue: 21 / 78 });
+        this.setState({ progressValue: 21 / 79 });
       } else if (this.state.show_11 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -444,7 +444,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_10: false });
         this.setState({ show_11: false });
         this.setState({ show_12: true });
-        this.setState({ progressValue: 22 / 78 });
+        this.setState({ progressValue: 22 / 79 });
       } else if (this.state.show_12 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -459,7 +459,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_11: false });
         this.setState({ show_12: false });
         this.setState({ show_13: true });
-        this.setState({ progressValue: 23 / 78 });
+        this.setState({ progressValue: 23 / 79 });
       } else if (this.state.show_13 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -475,7 +475,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_12: false });
         this.setState({ show_13: false });
         this.setState({ show_14: true });
-        this.setState({ progressValue: 24 / 78 });
+        this.setState({ progressValue: 24 / 79 });
       } else if (this.state.show_14 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -492,7 +492,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_13: false });
         this.setState({ show_14: false });
         this.setState({ show_15: true });
-        this.setState({ progressValue: 25 / 78 });
+        this.setState({ progressValue: 25 / 79 });
       } else if (this.state.show_15 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -510,7 +510,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_14: false });
         this.setState({ show_15: false });
         this.setState({ show_16: true });
-        this.setState({ progressValue: 26 / 78 });
+        this.setState({ progressValue: 26 / 79 });
       } else if (this.state.show_16 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -529,7 +529,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_15: false });
         this.setState({ show_16: false });
         this.setState({ show_17: true });
-        this.setState({ progressValue: 27 / 78 });
+        this.setState({ progressValue: 27 / 79 });
       } else if (this.state.show_17 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -549,7 +549,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_16: false });
         this.setState({ show_17: false });
         this.setState({ show_18: true });
-        this.setState({ progressValue: 28 / 78 });
+        this.setState({ progressValue: 28 / 79 });
       } else if (this.state.show_18 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -570,7 +570,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_17: false });
         this.setState({ show_18: false });
         this.setState({ show_19: true });
-        this.setState({ progressValue: 29 / 78 });
+        this.setState({ progressValue: 29 / 79 });
       } else if (this.state.show_19 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -592,7 +592,7 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_18: false });
         this.setState({ show_19: false });
         this.setState({ show_20: true });
-        this.setState({ progressValue: 30 / 78 });
+        this.setState({ progressValue: 30 / 79 });
       } else if (this.state.show_20 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -615,9 +615,9 @@ export default class WB_Screen_T1 extends React.Component {
         this.setState({ show_19: false });
         this.setState({ show_20: false });
         this.setState({ show_21: true });
-        this.setState({ progressValue: 31 / 78 });
+        this.setState({ progressValue: 31 / 79 });
       } else if (this.state.show_21 == true) {
-        this.setState({ progressValue: 32 / 78 });
+        this.setState({ progressValue: 32 / 79 });
         this.props.navigation.navigate("MFSU_Screen_T1");
       }
     }, 400);

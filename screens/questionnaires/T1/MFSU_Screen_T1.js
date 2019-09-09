@@ -35,7 +35,7 @@ export default class MFSU_Screen_T1 extends React.Component {
       show_5: false,
       show_6: false,
       show_7: false,
-      progressValue: 32 / 78,
+      progressValue: 32 / 79,
       buttonIsActive: false
     };
   }
@@ -56,25 +56,25 @@ export default class MFSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 33 / 78 });
+        this.setState({ progressValue: 33 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 34 / 78 });
+        this.setState({ progressValue: 34 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 35 / 78 });
+        this.setState({ progressValue: 35 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 36 / 78 });
+        this.setState({ progressValue: 36 / 79 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -82,7 +82,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 37 / 78 });
+        this.setState({ progressValue: 37 / 79 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -91,9 +91,9 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 38 / 78 });
+        this.setState({ progressValue: 38 / 79 });
       } else if (this.state.show_7 == true) {
-        this.setState({ progressValue: 39 / 78 });
+        this.setState({ progressValue: 39 / 79 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -104,25 +104,25 @@ export default class MFSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 33 / 78 });
+        this.setState({ progressValue: 33 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 34 / 78 });
+        this.setState({ progressValue: 34 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 35 / 78 });
+        this.setState({ progressValue: 35 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 36 / 78 });
+        this.setState({ progressValue: 36 / 79 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -130,7 +130,7 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 37 / 78 });
+        this.setState({ progressValue: 37 / 79 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -139,9 +139,9 @@ export default class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 38 / 78 });
+        this.setState({ progressValue: 38 / 79 });
       } else if (this.state.show_7 == true) {
-        this.setState({ progressValue: 39 / 78 });
+        this.setState({ progressValue: 39 / 79 });
         this.props.navigation.navigate("PSF_Screen_T1");
       }
     }, 400);

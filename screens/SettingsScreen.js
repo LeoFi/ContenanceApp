@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, View, Image, Alert, Text } from "react-native";
 import SettingsList, { Item } from "react-native-settings-list";
+import PrimaryButton from "./../components/AppComponents/PrimaryButton"
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -39,31 +40,43 @@ export default class SettingsScreen extends React.Component {
 
     return (
       <>
-      <View style={{ height: 50, backgroundColor: "#F4F1DE"}}/>
-      <View style={{ flex: 1}}>
-        <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
-          <SettingsList borderColor="#868D91" defaultItemSize={50}>
-            <SettingsList.Item
-              titleStyle={styles.text_left}
-              backgroundColor="#F4F1DE"
-              title="FAQ"
-              onPress={() => Alert.alert("FAQ")}
-            />
-            <SettingsList.Item
-              titleStyle={styles.text_left}
-              backgroundColor="#F4F1DE"
-              title="Security Agreements"
-              onPress={() => Alert.alert("Security Agreements")}
-            />
-            <SettingsList.Item
-              titleStyle={styles.text_left}
-              backgroundColor="#F4F1DE"
-              title="Contact us"
-              onPress={() => Alert.alert("Contact us")}
-            />
-          </SettingsList>
+        <View style={{ height: 50, backgroundColor: "#F4F1DE" }} />
+        <View style={{ flex: 1 }}>
+          <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
+            <SettingsList borderColor="#868D91" defaultItemSize={50}>
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="FAQ"
+                onPress={() => this.props.navigation.navigate("Faq")}
+              />
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="Security Agreements"
+                onPress={() =>
+                  this.props.navigation.navigate("SecurityAgreements")
+                }
+              />
+              <SettingsList.Item
+                titleStyle={styles.text_left}
+                backgroundColor="#F4F1DE"
+                title="Contact us"
+                onPress={() => this.props.navigation.navigate("ContactUs")}
+              />
+            </SettingsList>
+          </View>
         </View>
-      </View>
+
+        <View style={styles.bottom}>
+          <PrimaryButton
+            label="LOG OUT"
+            isBottom={true}
+            onPress={() => {
+              firebase.auth().signOut();
+            }}
+          />
+        </View>
       </>
     );
   }
@@ -107,9 +120,12 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   bottom: {
-    flex: 1,
-    justifyContent: "flex-end",
-    alignSelf: "stretch"
+    position: "relative",
+    alignSelf: "stretch",
+    //paddingTop: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    bottom: 30
   },
   keyboard_view: {
     flex: 1

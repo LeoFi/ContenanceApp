@@ -19,6 +19,14 @@ const styles = StyleSheet.create({
         //alignItems: "center",
         alignSelf: "stretch",
     },
+    tap_text: {
+        color: "rgba(44, 59, 81, 0.4)",
+        fontSize: 13,
+        lineHeight: 25,
+        textAlign: "center",
+        fontFamily: "roboto-regular",
+        letterSpacing: 1.15
+      },
     skip: {
         textAlign: 'left',
         alignSelf: 'stretch',

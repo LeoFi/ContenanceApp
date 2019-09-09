@@ -20,7 +20,7 @@ import {
 import { styles } from "./style";
 import { Svg, Path } from "react-native-svg";
 import { Ionicons } from "@expo/vector-icons";
-
+import * as firebase from "firebase";
 import { connect } from "react-redux";
 
 class Intro_Screen_T1 extends React.Component {
@@ -40,6 +40,98 @@ class Intro_Screen_T1 extends React.Component {
     } else {
       this.setState({ iphone5: false });
     }
+  };
+
+  handleSubmit = () => {
+    const EmptyResult = "999";
+    const uid = firebase.auth().currentUser.uid;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(uid)
+      .update({
+        AC01_D1 : EmptyResult,
+        AC02_D1 : EmptyResult,
+        AC03_D1 : EmptyResult,
+        AP01_D1 : EmptyResult,
+        AP02_D1 : EmptyResult,
+        AP03_D1 : EmptyResult,
+        AP04_D1 : EmptyResult,
+        AP05_D1 : EmptyResult,
+        Age : EmptyResult,
+        Gender : EmptyResult,
+        Education : EmptyResult,
+        Employment : EmptyResult,
+        Kids : EmptyResult,
+        Nationality : EmptyResult,
+        System : EmptyResult,
+        Smartwatch : EmptyResult,
+        Tablet : EmptyResult,
+        AdditionalSP : EmptyResult,
+        AdditionalSPUse : EmptyResult,
+        VP : EmptyResult,
+        HS01_D1 : EmptyResult,
+        HS02_D1 : EmptyResult,
+        HS03_D1 : EmptyResult,
+        HSc_D1 : EmptyResult,
+        IN01_D1 : EmptyResult,
+        IN02_D1 : EmptyResult,
+        IN03_D1 : EmptyResult,
+        MFSU01_D1 : EmptyResult,
+        MFSU02_D1 : EmptyResult,
+        MFSU03_D1 : EmptyResult,
+        MFSU04_D1 : EmptyResult,
+        MFSU05_D1 : EmptyResult,
+        MFSU06_D1 : EmptyResult,
+        MFSU07_D1 : EmptyResult,
+        PSF01_D1 : EmptyResult,
+        PSF02_D1 : EmptyResult,
+        PSU01_D1 : EmptyResult,
+        PSU02_D1 : EmptyResult,
+        PSU04_D1 : EmptyResult,
+        PSU05_D1 : EmptyResult,
+        PSU06_D1 : EmptyResult,
+        PSU07_D1 : EmptyResult,
+        PSU08_D1 : EmptyResult,
+        PSU09_D1 : EmptyResult,
+        PSUc_D1 : EmptyResult,
+        SE01_D1 : EmptyResult,
+        SE02_D1 : EmptyResult,
+        SE03_D1 : EmptyResult,
+        Screen_Time_Hours_D1 : EmptyResult,
+        Screen_Time_Minutes_D1 : EmptyResult,
+        Pickups_Number_D1 : EmptyResult,
+        Check_Smartphone_D1 : EmptyResult,
+        Expectation: EmptyResult,
+        SUE01_D1 : EmptyResult,
+        SUE02_D1 : EmptyResult,
+        TRP01_D1 : EmptyResult,
+        TRP02_D1 : EmptyResult,
+        TRP03_D1 : EmptyResult,
+        TRPc_D1 : EmptyResult,
+        WB01_D1 : EmptyResult,
+        WB02_D1 : EmptyResult,
+        WB03_D1 : EmptyResult,
+        WB04_D1 : EmptyResult,
+        WB05_D1 : EmptyResult,
+        WB06_D1 : EmptyResult,
+        WB07_D1 : EmptyResult,
+        WB08_D1 : EmptyResult,
+        WB09_D1 : EmptyResult,
+        WB10_D1 : EmptyResult,
+        WB11_D1 : EmptyResult,
+        WB12_D1 : EmptyResult,
+        WB13_D1 : EmptyResult,
+        WB14_D1 : EmptyResult,
+        WB15_D1 : EmptyResult,
+        WB16_D1 : EmptyResult,
+        WB17_D1 : EmptyResult,
+        WB18_D1 : EmptyResult,
+        WB19_D1 : EmptyResult,
+        WB20_D1 : EmptyResult,
+        WB21_D1 : EmptyResult
+      });
+    this.props.navigation.navigate("PSU_Screen_T1");
   };
 
   render() {
@@ -131,9 +223,7 @@ class Intro_Screen_T1 extends React.Component {
               <PrimaryButton
                 label="Start Reflecting"
                 isBottom={true}
-                onPress={() => {
-                  this.props.navigation.navigate("PSU_Screen_T1");
-                }}
+                onPress={this.handleSubmit}
               />
             </View>
           </View>

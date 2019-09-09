@@ -30,7 +30,7 @@ export default class SUE_Screen_T1 extends React.Component {
     this.state = {
       show_1: true,
       show_2: false,
-      progressValue: 9 / 78,
+      progressValue: 9 / 79,
       buttonIsActive: false
     };
   }
@@ -51,9 +51,9 @@ export default class SUE_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 10 / 78 });
+        this.setState({ progressValue: 10 / 79 });
       } else if (this.state.show_2 == true) {
-        this.setState({ progressValue: 11 / 78 });
+        this.setState({ progressValue: 11 / 79 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -62,11 +62,11 @@ export default class SUE_Screen_T1 extends React.Component {
   skipQuestion = () => {
     setTimeout(() => {
       if (this.state.show_1 == true) {
-        this.setState({ progressValue: 10 / 78 });
+        this.setState({ progressValue: 10 / 79 });
         this.setState({ show_1: false });
         this.setState({ show_2: true });
       } else if (this.state.show_2 == true) {
-        this.setState({ progressValue: 11 / 78 });
+        this.setState({ progressValue: 11 / 79 });
         this.props.navigation.navigate("WB_Screen_T1");
       }
     }, 400);

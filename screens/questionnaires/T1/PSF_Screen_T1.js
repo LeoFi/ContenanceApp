@@ -30,7 +30,7 @@ export default class PSF_Screen_T1 extends React.Component {
     this.state = {
       show_1: true,
       show_2: false,
-      progressValue: 39 / 78,
+      progressValue: 39 / 79,
       buttonIsActive: false
     };
   }
@@ -51,9 +51,9 @@ export default class PSF_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 40 / 78 });
+        this.setState({ progressValue: 40 / 79 });
       } else if (this.state.show_2 == true) {
-        this.setState({ progressValue: 41 / 78 });
+        this.setState({ progressValue: 41 / 79 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -64,9 +64,9 @@ export default class PSF_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 40 / 78 });
+        this.setState({ progressValue: 40 / 79 });
       } else if (this.state.show_2 == true) {
-        this.setState({ progressValue: 41 / 78 });
+        this.setState({ progressValue: 41 / 79 });
         this.props.navigation.navigate("TRP_Screen_T1");
       }
     }, 400);

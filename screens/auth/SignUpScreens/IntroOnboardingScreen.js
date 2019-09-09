@@ -63,8 +63,8 @@ class IntroOnboardingScreen extends React.Component {
         accessCode
       });
     this.props.dispatch(updateNickname(this.state.nickname));
-    //this.props.navigation.navigate("Onboarding");
-    this.props.navigation.navigate("Closing_Screen_T1");
+    this.props.navigation.navigate("Onboarding");
+    //this.props.navigation.navigate("Closing_Screen_T1");
   };
 
   render() {

@@ -9,15 +9,16 @@ import {
   TouchableOpacity,
   Button,
   StatusBar,
-  Dimensions
+  Dimensions,
+  Modal
 } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyInputButton
+  GreyInputButton,
+  LinkText
 } from "../../../components/AppComponents";
 import * as Progress from "react-native-progress";
-import { Ionicons } from "@expo/vector-icons";
 
 import RadioGroup, {
   Radio
@@ -41,6 +42,7 @@ export default class PSU_Screen_T1 extends React.Component {
       show_8: false,
       show_9: false,
       progressValue: 0,
+      modalVisible: false,
       buttonIsActive: false
     };
   }
@@ -61,25 +63,25 @@ export default class PSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 1 / 78 });
+        this.setState({ progressValue: 1 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 2 / 78 });
+        this.setState({ progressValue: 2 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 3 / 78 });
+        this.setState({ progressValue: 3 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 4 / 78 });
+        this.setState({ progressValue: 4 / 79 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -87,7 +89,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 5 / 78 });
+        this.setState({ progressValue: 5 / 79 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -96,7 +98,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 6 / 78 });
+        this.setState({ progressValue: 6 / 79 });
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -106,7 +108,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValue: 7 / 78 });
+        this.setState({ progressValue: 7 / 79 });
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -117,9 +119,9 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValue: 8 / 78 });
+        this.setState({ progressValue: 8 / 79 });
       } else if (this.state.show_9 == true) {
-        this.setState({ progressValue: 9 / 78 });
+        this.setState({ progressValue: 9 / 79 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -130,25 +132,25 @@ export default class PSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 1 / 78 });
+        this.setState({ progressValue: 1 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 2 / 78 });
+        this.setState({ progressValue: 2 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 3 / 78 });
+        this.setState({ progressValue: 3 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 4 / 78 });
+        this.setState({ progressValue: 4 / 79 });
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -156,7 +158,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 5 / 78 });
+        this.setState({ progressValue: 5 / 79 });
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -165,7 +167,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 6 / 78 });
+        this.setState({ progressValue: 6 / 79 });
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -175,7 +177,7 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValue: 7 / 78 });
+        this.setState({ progressValue: 7 / 79 });
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -186,16 +188,19 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValue: 8 / 78 });
+        this.setState({ progressValue: 8 / 79 });
       } else if (this.state.show_9 == true) {
-        this.setState({ progressValue: 9 / 78 });
+        this.setState({ progressValue: 9 / 79 });
         this.props.navigation.navigate("SUE_Screen_T1");
       }
     }, 400);
   };
 
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
+
   render() {
-    const { goBack } = this.props.navigation;
     return (
       <>
         <StatusBar hidden />
@@ -250,6 +255,9 @@ export default class PSU_Screen_T1 extends React.Component {
                   <Radio iconName={"lens"} label={"5"} value={"PSU01_D1/5"} />
                   <Radio iconName={"lens"} label={"6"} value={"PSU01_D1/6"} />
                 </RadioGroup>
+              </View>
+              <View style={styles.bottom}>
+                <Text style={styles.tap_text}>TAP ONE OPTION TO CONTINUE</Text>
               </View>
             </>
           ) : null}
@@ -441,6 +449,17 @@ export default class PSU_Screen_T1 extends React.Component {
               </View>
 
               <View style={styles.bottom}>
+                <LinkText
+                  linkLabel="Why is there suddenly a button?"
+                  linkOnPress={() => {
+                    this.setModalVisible(true);
+                  }}
+                  style={{
+                    width: Dimensions.get("window").width - 60,
+                    textAlign: "center",
+                    paddingBottom: 20
+                  }}
+                />
                 <PrimaryButton
                   label="Continue"
                   isBottom={true}
@@ -450,6 +469,58 @@ export default class PSU_Screen_T1 extends React.Component {
                   }}
                 />
               </View>
+
+              <Modal
+                animationType="slide"
+                transparent={false}
+                visible={this.state.modalVisible}
+                onRequestClose={() => {
+                  Alert.alert("Modal has been closed.");
+                }}
+                style={{
+                  flex: 1,
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start"
+                }}
+              >
+                <TouchableOpacity
+                  style={styles.close}
+                  onPress={() => {
+                    this.setModalVisible(!this.state.modalVisible);
+                  }}
+                >
+                  <Image
+                    style={{ marginTop: 20 }}
+                    source={require("./../../../assets/images/close.png")}
+                  />
+                </TouchableOpacity>
+
+                <View style={styles.top_security_agreements}>
+                  <ScrollView>
+                    <View
+                      style={{
+                        paddingTop: 50,
+                        paddingLeft: 30,
+                        paddingRight: 30,
+                        width: Dimensions.get("window").width,
+                        height: Dimensions.get("window").height,
+                        backgroundColor: "#F4F1DE",
+                        position: 'relative',
+                        zIndex: 10
+                      }}
+                    >
+                      <Text style={styles.header_modal}>
+                        Why is there suddenly a button?
+                      </Text>
+                      <Text style={styles.text}>
+                        After each set of questions, there will be a CONTINUE
+                        button. It leads you to the next section in the
+                        questionnaire.
+                      </Text>
+                    </View>
+                  </ScrollView>
+                </View>
+              </Modal>
             </>
           ) : null}
         </View>

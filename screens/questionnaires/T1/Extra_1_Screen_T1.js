@@ -28,7 +28,7 @@ export default class Extra_1_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 63/78,
+      progressValue: 63 / 79,
       buttonIsActive: false,
       userAge: ""
     };
@@ -47,14 +47,14 @@ export default class Extra_1_Screen_T1 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({ Age: userAge });
-      this.setState({ progressValue: 64 / 78 });
+    this.setState({ progressValue: 64 / 79 });
     this.props.navigation.navigate("Extra_2_Screen_T1");
   };
 
   render() {
     return (
       <>
-      <StatusBar hidden />
+        <StatusBar hidden />
         <View
           style={{
             flex: 1,
@@ -78,49 +78,48 @@ export default class Extra_1_Screen_T1 extends React.Component {
           />
         </View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-          <>
-            <TouchableOpacity
-              onPress={() => {
-                this.setState({ progressValue: 64 / 78 });
-                this.props.navigation.navigate("Extra_2_Screen_T1");
-              }}
-              style={styles.skip}
-            >
-              <Text style={styles.skip_text}>Skip</Text>
-            </TouchableOpacity>
-            <KeyboardAvoidingView
-              behavior="padding"
-              keyboardVerticalOffset="15"
-              style={styles.keyboard_view}
-            >
-              <Text style={styles.text}>What is your age?</Text>
+          <View style={styles.container}>
+            <>
+              <TouchableOpacity
+                onPress={() => {
+                  this.setState({ progressValue: 64 / 79 });
+                  this.props.navigation.navigate("Extra_2_Screen_T1");
+                }}
+                style={styles.skip}
+              >
+                <Text style={styles.skip_text}>Skip</Text>
+              </TouchableOpacity>
+              <KeyboardAvoidingView
+                behavior="padding"
+                keyboardVerticalOffset="15"
+                style={styles.keyboard_view}
+              >
+                <View style={styles.question_center}>
+                  <Text style={styles.text_bold_center}>What is your age?</Text>
+                  <TextInput
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange}
+                    value={this.state.userAge}
+                    placeholder="Your Age"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="numeric"
+                  />
+                </View>
 
-              <View style={styles.question}>
-                <TextInput
-                  style={styles.codeInput}
-                  onChangeText={this.handleChange}
-                  value={this.state.userAge}
-                  placeholder="Your Age"
-                  placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  keyboardType="numeric"
-                />
-              </View>
-
-              <View style={styles.bottom}>
-                <PrimaryButton
-                  label="Continue"
-                  isBottom={true}
-                  disabled={!this.state.userAge}
-                  onPress={this.handleSubmit}
-                />
-              </View>
-            </KeyboardAvoidingView>
-          </>
-        </View>
-      </TouchableWithoutFeedback>
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Continue"
+                    isBottom={true}
+                    disabled={!this.state.userAge}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
+              </KeyboardAvoidingView>
+            </>
+          </View>
+        </TouchableWithoutFeedback>
       </>
     );
   }

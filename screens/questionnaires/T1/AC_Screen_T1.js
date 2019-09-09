@@ -31,7 +31,7 @@ export default class AC_Screen_T1 extends React.Component {
       show_1: true,
       show_2: false,
       show_3: false,
-      progressValue: 57/78,
+      progressValue: 57/79,
       buttonIsActive: false
     };
   }
@@ -52,14 +52,14 @@ export default class AC_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 58 / 78 });
+        this.setState({ progressValue: 58 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 59 / 78 });
+        this.setState({ progressValue: 59 / 79 });
       } else if (this.state.show_3 == true) {
-        this.setState({ progressValue: 60 / 78 });
+        this.setState({ progressValue: 60 / 79 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -70,14 +70,14 @@ export default class AC_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 58 / 78 });
+        this.setState({ progressValue: 58 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 59 / 78 });
+        this.setState({ progressValue: 59 / 79 });
       } else if (this.state.show_3 == true) {
-        this.setState({ progressValue: 60 / 78 });
+        this.setState({ progressValue: 60 / 79 });
         this.props.navigation.navigate("SE_Screen_T1");
       }
     }, 400);

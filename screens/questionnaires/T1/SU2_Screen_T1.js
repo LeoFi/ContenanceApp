@@ -31,7 +31,7 @@ export default class SU2_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 70/78,
+      progressValue: 70/79,
       buttonIsActive: false,
       pickupNumber: "",
       modalVisibleIos: false,
@@ -61,7 +61,7 @@ export default class SU2_Screen_T1 extends React.Component {
       .update({
         Pickups_Number_D1: pickupNumber
       });
-      this.setState({ progressValue: 71 / 78 });
+      this.setState({ progressValue: 71 / 79 });
     this.props.navigation.navigate("SU3_Screen_T1");
   };
 
@@ -95,7 +95,7 @@ export default class SU2_Screen_T1 extends React.Component {
         <ScrollView style={{ alignSelf: "stretch" }}>
           <TouchableOpacity
             onPress={() => {
-              this.setState({ progressValue: 71 / 78 });
+              this.setState({ progressValue: 71 / 79 });
               this.props.navigation.navigate("SU3_Screen_T1");
             }}
             style={styles.skip}
@@ -109,7 +109,7 @@ export default class SU2_Screen_T1 extends React.Component {
           >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <>
-                <Text style={styles.text}>
+                <Text style={styles.text_bold_center}>
                   What is your average number of pick-ups per day of the last 7
                   days?
                 </Text>

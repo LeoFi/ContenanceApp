@@ -86,7 +86,9 @@ const styles = StyleSheet.create({
   },
   bottom: {
     justifyContent: "flex-end",
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    width: "100%",
+    textAlign: "center"
   },
   keyboard_view: {
     flex: 1,
@@ -99,6 +101,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "roboto-black",
     paddingBottom: 10
+  },
+  header_modal: {
+    color: "#2C3B51",
+    fontSize: 34,
+    lineHeight: 37,
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 30
   },
   header_left: {
     color: "#2C3B51",
@@ -117,6 +127,14 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-black",
     paddingBottom: 30,
     alignSelf: "stretch"
+  },
+  tap_text: {
+    color: "rgba(44, 59, 81, 0.4)",
+    fontSize: 13,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    letterSpacing: 1.15
   },
   text: {
     color: "#2C3B51",
@@ -137,7 +155,7 @@ const styles = StyleSheet.create({
   },
   text_left_small: {
     flex: 1,
-    color: "#2C3B51",
+    color: "#B8BAB4",
     fontSize: 15,
     lineHeight: 25,
     textAlign: "left",
@@ -169,6 +187,15 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     textAlign: "center",
     height: 49,
+    fontSize: 19
+  },
+  codeInputBig: {
+    marginTop: 40,
+    marginBottom: 20,
+    backgroundColor: "#E2DFD1",
+    borderRadius: 7,
+    textAlign: "center",
+    height: 100,
     fontSize: 19
   },
   codeInputSU: {
@@ -218,12 +245,19 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     width: "100%"
   },
+  question_center: {
+    flex: 1,
+    alignSelf: "stretch",
+    width: "100%",
+    justifyContent: "center"
+  },
   top_security_agreements: {
     flex: 1,
     justifyContent: "flex-start",
     alignSelf: "stretch",
     marginTop: -40,
-    flexDirection: "row-reverse"
+    flexDirection: "row-reverse",
+    backgroundColor: "#F4F1DE"
   },
   close: {
     justifyContent: "flex-start",
@@ -239,6 +273,15 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-bold",
     alignSelf: "stretch",
     textAlign: "left"
+  },
+  text_bold_center: {
+    color: "#2C3B51",
+    fontSize: 19,
+    lineHeight: 25,
+    fontFamily: "roboto-bold",
+    alignSelf: "stretch",
+    textAlign: "center",
+    paddingBottom: 20
   },
   link_text: {
     color: "#2C3B51",

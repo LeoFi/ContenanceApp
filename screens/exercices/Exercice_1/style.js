@@ -212,11 +212,12 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
     },
     tap_text: {
-        color: 'rgba(44, 59, 81, 0.4)',
-        fontSize: 19,
-        lineHeight: 25,
-        textAlign: 'center',
-        fontFamily: 'roboto-regular',
+        color: "rgba(44, 59, 81, 0.4)",
+    fontSize: 13,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    letterSpacing: 1.15
     },
     tap_pos_relative_exercice: {
         // alignSelf: "stretch",

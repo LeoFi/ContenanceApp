@@ -32,8 +32,10 @@ export default class Extra_2_Screen_T1 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
-      progressValue: 64 / 78,
-      buttonIsActive: false
+      progressValue: 64 / 79,
+      buttonIsActive1: false,
+      buttonIsActive2: false,
+      buttonIsActive3: false
     };
   }
 
@@ -51,23 +53,37 @@ export default class Extra_2_Screen_T1 extends React.Component {
 
     setTimeout(() => {
       if (this.state.show_1 == true) {
+        this.setState({ buttonIsActive1: true });
+      } else if (this.state.show_2 == true) {
+        this.setState({ buttonIsActive2: true });
+      } else if (this.state.show_3 == true) {
+        this.setState({ buttonIsActive3: true });
+      } else if (this.state.show_4 == true) {
+        this.setState({ buttonIsActive4: true });
+      }
+    }, 400);
+  };
+
+  handleClick = () => {
+    setTimeout(() => {
+      if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 65 / 78 });
+        this.setState({ progressValue: 65 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 66 / 78 });
+        this.setState({ progressValue: 66 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 67 / 78 });
+        this.setState({ progressValue: 67 / 79 });
       } else if (this.state.show_4 == true) {
-        this.setState({ progressValue: 68 / 78 });
-        this.setState({ buttonIsActive: true });
+        this.setState({ progressValue: 68 / 79 });
+        this.props.navigation.navigate("Extra_3_Screen_T1");
       }
     }, 400);
   };
@@ -77,20 +93,20 @@ export default class Extra_2_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 65 / 78 });
+        this.setState({ progressValue: 65 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 66 / 78 });
+        this.setState({ progressValue: 66 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 67 / 78 });
+        this.setState({ progressValue: 67 / 79 });
       } else if (this.state.show_4 == true) {
-        this.setState({ progressValue: 68 / 78 });
+        this.setState({ progressValue: 68 / 79 });
         this.props.navigation.navigate("Extra_3_Screen_T1");
       }
     }, 400);
@@ -123,13 +139,13 @@ export default class Extra_2_Screen_T1 extends React.Component {
           />
         </View>
         <View style={styles.container}>
-          <ScrollView style={{ alignSelf: "stretch" }}>
+          <ScrollView style={{ alignSelf: "stretch" }} showsVerticalScrollIndicator={false}>
             <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
               <Text style={styles.skip_text}>Skip</Text>
             </TouchableOpacity>
             {this.state.show_1 ? (
               <>
-                <Text style={styles.text}>
+                <Text style={styles.text_bold_center}>
                   What gender do you most identify with?
                 </Text>
 
@@ -139,7 +155,8 @@ export default class Extra_2_Screen_T1 extends React.Component {
                     isScaleEnabled={false}
                     RadioGroupStyle={{
                       flexDirection: "column",
-                      paddingTop: 20
+                      paddingTop: 20,
+                      paddingBottom: 20,
                     }}
                     RadioStyle={{
                       width: "100%",
@@ -153,7 +170,9 @@ export default class Extra_2_Screen_T1 extends React.Component {
                       fontSize: 14,
                       paddingLeft: 20,
                       paddingRight: 20,
-                      alignItems: "stretch"
+                      alignItems: "stretch",
+                      color: "#2C3B51",
+                      textAlign: "center"
                     }}
                   >
                     <Radio
@@ -176,25 +195,13 @@ export default class Extra_2_Screen_T1 extends React.Component {
               </>
             ) : null}
 
-            {this.state.show_1 ? (
-              <View style={styles.bottom}>
-                <PrimaryButton
-                  label="Continue"
-                  isBottom={true}
-                  //disabled={!this.state.buttonIsActive}
-                  onPress={this.getChecked}
-                />
-              </View>
-            ) : null}
-
             {this.state.show_2 ? (
               <>
-                <Text style={styles.text_left}>
+                <Text style={styles.text_bold_center}>
                   What is the highest degree or level of school you have
-                  completed?
+                  completed?{"\n"}
                   <Text style={styles.text_left_small}>
-                    {"\n"}
-                    {"\n"}If currently enrolled, highest degree received.
+                  {"\n"}If currently enrolled, highest degree received.
                   </Text>
                 </Text>
 
@@ -204,7 +211,8 @@ export default class Extra_2_Screen_T1 extends React.Component {
                     isScaleEnabled={false}
                     RadioGroupStyle={{
                       flexDirection: "column",
-                      paddingTop: 20
+                      paddingTop: 20,
+                      paddingBottom: 20,
                     }}
                     RadioStyle={{
                       width: "100%",
@@ -218,7 +226,9 @@ export default class Extra_2_Screen_T1 extends React.Component {
                       fontSize: 14,
                       paddingLeft: 20,
                       paddingRight: 20,
-                      alignItems: "stretch"
+                      alignItems: "stretch",
+                      color: "#2C3B51",
+                      textAlign: "center"
                     }}
                   >
                     <Radio
@@ -287,7 +297,7 @@ export default class Extra_2_Screen_T1 extends React.Component {
 
             {this.state.show_3 ? (
               <>
-                <Text style={styles.text_left}>Are you currently:</Text>
+                <Text style={styles.text_bold_center}>Are you currently:</Text>
 
                 <View style={styles.question}>
                   <RadioGroup
@@ -295,7 +305,8 @@ export default class Extra_2_Screen_T1 extends React.Component {
                     isScaleEnabled={false}
                     RadioGroupStyle={{
                       flexDirection: "column",
-                      paddingTop: 20
+                      paddingTop: 20,
+                      paddingBottom: 20,
                     }}
                     RadioStyle={{
                       width: "100%",
@@ -309,7 +320,9 @@ export default class Extra_2_Screen_T1 extends React.Component {
                       fontSize: 14,
                       paddingLeft: 20,
                       paddingRight: 20,
-                      alignItems: "stretch"
+                      alignItems: "stretch",
+                      color: "#2C3B51",
+                      textAlign: "center"
                     }}
                   >
                     <Radio
@@ -366,7 +379,7 @@ export default class Extra_2_Screen_T1 extends React.Component {
 
             {this.state.show_4 ? (
               <>
-                <Text style={styles.text_left}>Do you have children?</Text>
+                <Text style={styles.text_bold_center}>Do you have children?</Text>
 
                 <View style={styles.question}>
                   <RadioGroup
@@ -374,7 +387,8 @@ export default class Extra_2_Screen_T1 extends React.Component {
                     isScaleEnabled={false}
                     RadioGroupStyle={{
                       flexDirection: "column",
-                      paddingTop: 20
+                      paddingTop: 20,
+                      paddingBottom: 20,
                     }}
                     RadioStyle={{
                       width: "100%",
@@ -388,7 +402,9 @@ export default class Extra_2_Screen_T1 extends React.Component {
                       fontSize: 14,
                       paddingLeft: 20,
                       paddingRight: 20,
-                      alignItems: "stretch"
+                      alignItems: "stretch",
+                      color: "#2C3B51",
+                      textAlign: "center"
                     }}
                   >
                     <Radio iconName={"lens"} label={"Yes"} value={"Kids/Yes"} />
@@ -399,12 +415,45 @@ export default class Extra_2_Screen_T1 extends React.Component {
             ) : null}
           </ScrollView>
 
+          {this.state.show_1 ? (
+            <View style={styles.bottom}>
+              <PrimaryButton
+                label="Continue"
+                isBottom={true}
+                disabled={!this.state.buttonIsActive1}
+                onPress={this.handleClick}
+              />
+            </View>
+          ) : null}
+
+          {this.state.show_2 ? (
+            <View style={styles.bottom}>
+              <PrimaryButton
+                label="Continue"
+                isBottom={true}
+                disabled={!this.state.buttonIsActive2}
+                onPress={this.handleClick}
+              />
+            </View>
+          ) : null}
+
+          {this.state.show_3 ? (
+            <View style={styles.bottom}>
+              <PrimaryButton
+                label="Continue"
+                isBottom={true}
+                disabled={!this.state.buttonIsActive3}
+                onPress={this.handleClick}
+              />
+            </View>
+          ) : null}
+
           {this.state.show_4 ? (
             <View style={styles.bottom}>
               <PrimaryButton
                 label="Continue"
                 isBottom={true}
-                disabled={!this.state.buttonIsActive}
+                disabled={!this.state.buttonIsActive4}
                 onPress={() => {
                   this.props.navigation.navigate("Extra_3_Screen_T1");
                 }}

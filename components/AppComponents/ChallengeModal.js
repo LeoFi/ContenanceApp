@@ -9,33 +9,10 @@ import {
   TouchableOpacity
 } from "react-native";
 import PrimaryButton from "./../AppComponents/PrimaryButton";
+import SecondaryButton from "./../AppComponents/SecondaryButton";
 
-import { connect } from "react-redux";
-import {
-  updateState_Ex1,
-  updateState_Ex2,
-  updateState_Ex3,
-  updateState_Ex4,
-  updateState_Ex5,
-  updateState_Ex6,
-  updateState_Ex7,
-  updateState_Ex8,
-  updateState_Ex9,
-  updateState_Ex10,
-  updateState_Ex11,
-  updateState_Ex12,
-  updateState_Ex13,
-  updateState_Ex14,
-  updateState_Ex15,
-  updateState_Ex16,
-  updateState_Ex17,
-  updateState_Ex18,
-  updateState_Ex19,
-  updateState_Ex20,
-  updateState_Ex21
-} from "./../../redux-persist/redux/exercices";
 
-class ChallengeModal extends PureComponent {
+export default class ChallengeModal extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
@@ -90,7 +67,7 @@ class ChallengeModal extends PureComponent {
             />
           </View>
           <View style={{ width: "50%", marginLeft: 15 }}>
-            <PrimaryButton
+            <SecondaryButton
               onPress={
                 popUpProps.current < popUpProps.total
                   ? popUpProps.onPressRight
@@ -129,4 +106,3 @@ const mapStateToProps = state => ({
   exercices: state.exercices
 });
 
-export default connect(mapStateToProps)(ChallengeModal);

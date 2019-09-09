@@ -33,7 +33,7 @@ export default class AP_Screen_T1 extends React.Component {
       show_3: false,
       show_4: false,
       show_5: false,
-      progressValue: 52 / 78,
+      progressValue: 52 / 79,
       buttonIsActive: false
     };
   }
@@ -54,27 +54,27 @@ export default class AP_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 53 / 78 });
+        this.setState({ progressValue: 53 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 54 / 78 });
+        this.setState({ progressValue: 54 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 55 / 78 });
+        this.setState({ progressValue: 55 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 56 / 78 });
+        this.setState({ progressValue: 56 / 79 });
       } else if (this.state.show_5 == true) {
-        this.setState({ progressValue: 57 / 78 });
+        this.setState({ progressValue: 57 / 79 });
         this.setState({ buttonIsActive: true });
       }
     }, 400);
@@ -85,27 +85,27 @@ export default class AP_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 53 / 78 });
+        this.setState({ progressValue: 53 / 79 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 54 / 78 });
+        this.setState({ progressValue: 54 / 79 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 55 / 78 });
+        this.setState({ progressValue: 55 / 79 });
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 56 / 78 });
+        this.setState({ progressValue: 56 / 79 });
       } else if (this.state.show_5 == true) {
-        this.setState({ progressValue: 57 / 78 });
+        this.setState({ progressValue: 57 / 79 });
         this.props.navigation.navigate("AC_Screen_T1");
       }
     }, 400);

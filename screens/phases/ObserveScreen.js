@@ -216,6 +216,7 @@ class ObserveScreen extends React.Component {
       },
       {
         id: 4,
+        //path: "Exercice_4_Intro",
         path: "Exercice_4_Intro",
         label: "Day 4 - Keep Breathing",
         styleButton: ExerciceStyle_4,

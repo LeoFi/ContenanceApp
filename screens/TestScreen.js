@@ -92,10 +92,14 @@ class TestScreen extends React.Component {
 
   setPhases = () => {
     if (
-      this.props.exercices.exercice_state_13 === "completed" &&
-      this.props.exercices.exercice_state_14 === "completed" &&
-      this.props.exercices.exercice_state_15 === "completed" &&
-      this.props.exercices.exercice_state_16 === "completed"
+      (this.props.exercices.exercice_state_13 === "completed" ||
+        this.props.exercices.exercice_state_13 === "DONE") &&
+      (this.props.exercices.exercice_state_14 === "completed" ||
+        this.props.exercices.exercice_state_14 === "DONE") &&
+      (this.props.exercices.exercice_state_15 === "completed" ||
+        this.props.exercices.exercice_state_15 === "DONE") &&
+      (this.props.exercices.exercice_state_16 === "completed" ||
+        this.props.exercices.exercice_state_16 === "DONE")
     ) {
       this.setState({
         observeStarted: true,
@@ -106,10 +110,14 @@ class TestScreen extends React.Component {
         colorProgress: "#6A97D8"
       });
     } else if (
-      this.props.exercices.exercice_state_9 === "completed" &&
-      this.props.exercices.exercice_state_10 === "completed" &&
-      this.props.exercices.exercice_state_11 === "completed" &&
-      this.props.exercices.exercice_state_12 === "completed"
+      (this.props.exercices.exercice_state_9 === "completed" ||
+        this.props.exercices.exercice_state_9 === "DONE") &&
+      (this.props.exercices.exercice_state_10 === "completed" ||
+        this.props.exercices.exercice_state_10 === "DONE") &&
+      (this.props.exercices.exercice_state_11 === "completed" ||
+        this.props.exercices.exercice_state_11 === "DONE") &&
+      (this.props.exercices.exercice_state_12 === "completed" ||
+        this.props.exercices.exercice_state_12 === "DONE")
     ) {
       this.setState({
         observeStarted: true,
@@ -120,10 +128,14 @@ class TestScreen extends React.Component {
         colorProgress: "#4CBB92"
       });
     } else if (
-      this.props.exercices.exercice_state_5 === "completed" &&
-      this.props.exercices.exercice_state_6 === "completed" &&
-      this.props.exercices.exercice_state_7 === "completed" &&
-      this.props.exercices.exercice_state_8 === "completed"
+      (this.props.exercices.exercice_state_5 === "completed" ||
+        this.props.exercices.exercice_state_5 === "DONE") &&
+      (this.props.exercices.exercice_state_6 === "completed" ||
+        this.props.exercices.exercice_state_6 === "DONE") &&
+      (this.props.exercices.exercice_state_7 === "completed" ||
+        this.props.exercices.exercice_state_7 === "DONE") &&
+      (this.props.exercices.exercice_state_8 === "completed" ||
+        this.props.exercices.exercice_state_8 === "DONE")
     ) {
       this.setState({
         observeStarted: true,
@@ -134,10 +146,14 @@ class TestScreen extends React.Component {
         colorProgress: "#F87B7B"
       });
     } else if (
-      this.props.exercices.exercice_state_1 === "completed" &&
-      this.props.exercices.exercice_state_2 === "completed" &&
-      this.props.exercices.exercice_state_3 === "completed" &&
-      this.props.exercices.exercice_state_4 === "completed"
+      (this.props.exercices.exercice_state_1 === "completed" ||
+        this.props.exercices.exercice_state_1 === "DONE") &&
+      (this.props.exercices.exercice_state_2 === "completed" ||
+        this.props.exercices.exercice_state_2 === "DONE") &&
+      (this.props.exercices.exercice_state_3 === "completed" ||
+        this.props.exercices.exercice_state_3 === "DONE") &&
+      (this.props.exercices.exercice_state_4 === "completed" ||
+        this.props.exercices.exercice_state_4 === "DONE")
     ) {
       this.setState({
         observeStarted: true,
@@ -208,8 +224,8 @@ class TestScreen extends React.Component {
   timeLogic = () => {
     const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    dt2 = new Date("Septembre 10 2019 16:44:30");
-    //dt2 = new Date();
+    //dt2 = new Date("October 10 2019 16:44:30");
+    dt2 = new Date();
     var x = diff_days(dt1, dt2);
     //Alert.alert(x);
     console.log(this.props.exercices);
@@ -1602,7 +1618,9 @@ class TestScreen extends React.Component {
         <BlurView
           tint="dark"
           intensity={this.state.visible ? 30 : 0}
-          style={this.state.visible ? styles.notBlurredIndex : styles.notBlurred}
+          style={
+            this.state.visible ? styles.notBlurredIndex : styles.notBlurred
+          }
         />
         <View
           style={{
@@ -1704,7 +1722,7 @@ class TestScreen extends React.Component {
                     padding: 30,
                     flexDirection: "column",
                     backgroundColor: "#F4F1DE",
-                    height: Dimensions.get("window").height - 50,
+                    height: Dimensions.get("window").height,
                     justifyContent: "space-between",
                     paddingBottom: 30,
                     top: 50,
@@ -2015,14 +2033,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "roboto-black",
     paddingBottom: 25,
-    paddingTop: 30,
+    paddingTop: 30
   },
   text_modal: {
     color: "#2C3B51",
     fontSize: 19,
     lineHeight: 25,
     textAlign: "center",
-    fontFamily: "roboto-regular",
+    fontFamily: "roboto-regular"
   },
   counter_modal: {
     color: "#2C3B51",

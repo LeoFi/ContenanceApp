@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 80,
+        paddingTop: 50,
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 40,
@@ -10,6 +10,31 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignSelf: "stretch",
     },
+    container_finish: {
+        paddingTop: 0,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 40,
+        marginTop: -10,
+        flex: 1,
+        alignItems: "center",
+        alignSelf: "stretch"
+      },
+      image_background: {
+        width: "100%",
+        backgroundColor: "#F4F1DE",
+        top: 0,
+        left: 0,
+        right: 0
+      },
+      tap_text: {
+        color: "rgba(44, 59, 81, 0.4)",
+        fontSize: 13,
+        lineHeight: 25,
+        textAlign: "center",
+        fontFamily: "roboto-regular",
+        letterSpacing: 1.15
+      },
     container_left: {
         paddingTop: 80,
         paddingLeft: 30,
@@ -24,11 +49,12 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
     },
     skip_text: {
-        color: '#2C3B51',
-        fontSize: 16,
-        textTransform: 'uppercase',
-        fontFamily: 'roboto-bold',
-        paddingBottom: 37,
+        color: "#2C3B51",
+    fontSize: 13,
+    textTransform: "uppercase",
+    fontFamily: "roboto-bold",
+    paddingBottom: 25,
+    textAlign: "right"
     },
     bottom_button: {
         alignSelf: "stretch",
@@ -92,13 +118,13 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
     },
     header_left_padding: {
-        color: '#2C3B51',
-        fontSize: 34,
-        lineHeight: 37,
-        textAlign: 'left',
-        fontFamily: 'roboto-black',
-        paddingBottom: 37,
-        alignSelf: 'stretch',
+        color: "#2C3B51",
+    fontSize: 30,
+    lineHeight: 35,
+    textAlign: "left",
+    fontFamily: "roboto-black",
+    paddingBottom: 30,
+    alignSelf: "stretch"
     },
     text: {
         color: '#2C3B51',

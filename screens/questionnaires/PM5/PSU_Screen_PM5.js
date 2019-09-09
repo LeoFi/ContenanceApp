@@ -245,6 +245,9 @@ export default class PSU_Screen_PM5 extends React.Component {
                   <Radio iconName={"lens"} label={"6"} value={"PSU01_D20/6"} />
                 </RadioGroup>
               </View>
+              <View style={styles.bottom}>
+                <Text style={styles.tap_text}>TAP ONE OPTION TO CONTINUE</Text>
+              </View>
             </>
           ) : null}
 

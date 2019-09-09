@@ -31,7 +31,7 @@ export default class Extra_3_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 68/78,
+      progressValue: 68/79,
       buttonIsActive: false,
       userNationality: ""
     };
@@ -46,7 +46,7 @@ export default class Extra_3_Screen_T1 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({ Nationality: userNationality });
-      this.setState({ progressValue: 69 / 78 });
+      this.setState({ progressValue: 69 / 79 });
     this.props.navigation.navigate("SU1_Screen_T1");
   };
 
@@ -277,7 +277,7 @@ export default class Extra_3_Screen_T1 extends React.Component {
         <ScrollView style={{ alignSelf: "stretch" }}>
           <TouchableOpacity
             onPress={() => {
-              this.setState({ progressValue: 69 / 78 });
+              this.setState({ progressValue: 69 / 79 });
               this.props.navigation.navigate("SU1_Screen_T1");
             }}
             style={styles.skip}
@@ -291,7 +291,7 @@ export default class Extra_3_Screen_T1 extends React.Component {
           >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <>
-                <Text style={styles.text_left}>What is your nationality?</Text>
+                <Text style={styles.text_bold_center}>What is your nationality?</Text>
 
                 <View>
                   <Picker

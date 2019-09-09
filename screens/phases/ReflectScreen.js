@@ -219,7 +219,8 @@ class ReflectScreen extends React.Component {
       },
       {
         id: 8,
-        path: "Exercice_8_Intro",
+        // path: "Exercice_8_Intro",
+        path: "Intro_Screen_PM2",
         label: "Day 8 - Mindful Social Media Use",
         styleButton: ExerciceStyle_8,
         styleText: ExerciceTextStyle_8,

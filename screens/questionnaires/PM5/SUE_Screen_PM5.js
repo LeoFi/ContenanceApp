@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import {
   View,
   Text,
@@ -101,13 +101,13 @@ export default class SUE_Screen_PM5 extends React.Component {
           <Text style={styles.skip_text}>Skip</Text>
         </TouchableOpacity>
         <Text style={styles.header_left_padding}>
-          How do you evaluate the quality of your time on the smartphone?
+        Evaluate the quality of your time on the smartphone today and in the past 3 days.
         </Text>
 
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-              How pleasurable do you rate your screen use?
+            How pleasurable do you rate your time on the smartphone?
             </Text>
 
             <View style={styles.question}>
@@ -130,7 +130,7 @@ export default class SUE_Screen_PM5 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-              How meaningful do you rate your screen use?
+            How meaningful do you rate your time on the smartphone?
             </Text>
 
             <View style={styles.question}>
