@@ -3,6 +3,8 @@ import { ScrollView, StyleSheet, View, Image, Alert, Text } from "react-native";
 import SettingsList, { Item } from "react-native-settings-list";
 import PrimaryButton from "./../components/AppComponents/PrimaryButton"
 
+import * as firebase from "firebase";
+
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     headerStyle: {
@@ -68,7 +70,7 @@ export default class SettingsScreen extends React.Component {
           </View>
         </View>
 
-        <View style={styles.bottom}>
+        {/* <View style={styles.bottom}>
           <PrimaryButton
             label="LOG OUT"
             isBottom={true}
@@ -76,7 +78,7 @@ export default class SettingsScreen extends React.Component {
               firebase.auth().signOut();
             }}
           />
-        </View>
+        </View> */}
       </>
     );
   }

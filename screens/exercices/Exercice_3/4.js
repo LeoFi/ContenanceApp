@@ -25,7 +25,7 @@ export default class Exercice_3_4 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE" }}>
+      <View style={{ flex: 1, backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
           <TouchableWithoutFeedback

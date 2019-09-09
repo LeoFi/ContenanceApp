@@ -180,7 +180,7 @@ export default class Exercice_2_1 extends Component {
   };
 
   renderPlayerIcon() {
-    if (this.state.isPlaying === true){
+    if (this.state.isPlaying === true) {
       return <Image source={require("../../../assets/images/pause.png")} />;
     } else if (this.state.isPlaying === false) {
       return <Image source={require("../../../assets/images/play.png")} />;
@@ -194,12 +194,14 @@ export default class Exercice_2_1 extends Component {
       <View style={styles.container}>
         <TouchableWithoutFeedback
           onPress={() => {
-            this.state.isPlaying === "Done" ? (this.props.navigation.navigate("Exercice_2_Aha_1")) : (null)
+            this.state.isPlaying === "Done"
+              ? this.props.navigation.navigate("Exercice_2_Aha_1")
+              : null;
           }}
           //{this.renderPlayerIcon()}
         >
           <View>
-            <Text style={styles.sub_header_left}>Notice Your Impulses</Text>
+            <Text style={styles.sub_header_left}>Notice your Impulses</Text>
             <TouchableOpacity
               onPress={this._onBackPressed}
               //disabled={this.state.isLoading}
@@ -214,11 +216,7 @@ export default class Exercice_2_1 extends Component {
               onPress={this._onPlayPausePressed}
               disabled={this.state.isLoading}
             >
-              <View style={styles.center}>
-                
-                {this.renderPlayerIcon()}
-
-              </View>
+              <View style={styles.center}>{this.renderPlayerIcon()}</View>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={this._onForwardPressed}
@@ -239,6 +237,14 @@ export default class Exercice_2_1 extends Component {
               unfilledColor={"rgba(255, 255, 255, 1)"}
               animated={true}
             />
+
+            <View style={{flex: 1}}/>
+
+            {this.state.isPlaying === "Done" ? (
+              <View style={styles.tap_pos_relative_exercice}>
+                <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+              </View>
+            ) : null}
           </View>
         </TouchableWithoutFeedback>
       </View>

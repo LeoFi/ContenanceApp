@@ -25,16 +25,16 @@ const styles = StyleSheet.create({
     },
     container_scroll: {
         flex: 1,
-        flexGrow: 1,
-        width: Dimensions.get("window").width,
-        height: Dimensions.get("window").height,
-        alignItems: "center",
-        justifyContent: 'center',
-        alignSelf: "stretch",
-        paddingTop: 80,
-        paddingLeft: 30,
-        paddingRight: 30,
-        paddingBottom: 100,
+    flexGrow: 1,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "stretch",
+    paddingTop: 80,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingBottom: 50
     },
     container_scroll_img_absolute: {
         //width: Dimensions.get("window").width,
@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
         //position: "absolute",
         width: Dimensions.get("window").width,
         top: 0,
+        marginBottom: 0
     },
     image_height_relative: {
         flex: 1,
@@ -265,11 +266,12 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
     },
     tap_text: {
-        color: 'rgba(44, 59, 81, 0.4)',
-        fontSize: 19,
-        lineHeight: 25,
-        textAlign: 'center',
-        fontFamily: 'roboto-regular',
+        color: "rgba(44, 59, 81, 0.4)",
+    fontSize: 13,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    letterSpacing: 1.15
     },
     tap_text_deck: {
         color: 'rgba(44, 59, 81, 0.4)',

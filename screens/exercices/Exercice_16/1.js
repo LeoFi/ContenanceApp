@@ -30,7 +30,7 @@ export default class Exercice_16_1 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
@@ -39,9 +39,14 @@ export default class Exercice_16_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
+                <View style={{ flex: 1 }} />
                 <Text style={styles.intro_text}>
-                In the next 3 minutes, do the following...
+                  In the next 3 minutes, do the following...
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

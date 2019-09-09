@@ -100,7 +100,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: false });
-        this.setState({ show_6: true });
+        this.setState({ show_6: false });
         this.setState({ show_7: true });
         this.setState({ progressValue: 78 / 79 });
       } else if (this.state.show_7 == true) {
@@ -148,7 +148,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: false });
-        this.setState({ show_6: true });
+        this.setState({ show_6: false });
         this.setState({ show_7: true });
         this.setState({ progressValue: 78 / 79 });
       } else if (this.state.show_7 == true) {

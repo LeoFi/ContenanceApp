@@ -170,7 +170,7 @@ class Exercice_9_7 extends React.Component {
                     width: "100%"
                   }}
                   itemStyleSelected={{
-                    backgroundColor: "#F6B563"
+                    backgroundColor: "#F87B7B"
                   }}
                   itemLabelStyleSelected={{
                     fontFamily: "roboto-bold"

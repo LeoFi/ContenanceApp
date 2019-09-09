@@ -25,7 +25,7 @@ export default class Exercice_17_1 extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: "#F4F1DE"}}>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
           <TouchableWithoutFeedback
@@ -35,6 +35,7 @@ export default class Exercice_17_1 extends React.Component {
             }}
           >
             <View style={styles.container_scroll}>
+              <View style={{ flex: 1 }} />
               <Image
                 style={styles.image_height}
                 source={require("../../../assets/images/Exercice3_1.png")}
@@ -42,11 +43,18 @@ export default class Exercice_17_1 extends React.Component {
               />
               <Text style={styles.intro_text}>
                 Are you thinking right now: wait, I’ve seen this before? Guess
-                who's back: <Text style={styles.intro_text_bold}>the Solution Triangle from Day 3</Text>! Do you remember
-                the three factors?{"\n"}
+                who's back:{" "}
+                <Text style={styles.intro_text_bold}>
+                  the Solution Triangle from Day 3
+                </Text>
+                ! Do you remember the three factors?{"\n"}
                 {"\n"}… or maybe not. Neither did we in the beginning. Here
                 comes a little refresher.
               </Text>
+              <View style={{ flex: 1 }} />
+              <View style={styles.tap_pos_relative_exercice}>
+                <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+              </View>
             </View>
           </TouchableWithoutFeedback>
         </ScrollView>

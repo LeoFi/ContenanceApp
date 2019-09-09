@@ -360,6 +360,7 @@ const Exercice1 = createStackNavigator(
     Intro_Phase_Observe: {
       screen: Exercice_1_Intro_Phase,
       navigationOptions: {
+        gesturesEnabled: false,
         cardStyle: { backgroundColor: "#A28AD4" },
         header: props => (
           <HeaderComponent
@@ -374,6 +375,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_Intro: {
       screen: Exercice_1_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -387,6 +389,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_1: {
       screen: Exercice_1_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 8}
@@ -405,6 +408,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_2: {
       screen: Exercice_1_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 8}
@@ -423,6 +427,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_3: {
       screen: Exercice_1_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 8}
@@ -441,6 +446,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_4: {
       screen: Exercice_1_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 8}
@@ -459,6 +465,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_Aha_1: {
       screen: Exercice_1_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 8}
@@ -477,6 +484,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_Aha_2: {
       screen: Exercice_1_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={6 / 8}
@@ -495,6 +503,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_Challenge: {
       screen: Exercice_1_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 8}
@@ -513,6 +522,7 @@ const Exercice1 = createStackNavigator(
     Exercice_1_Congratulations: {
       screen: Exercice_1_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={8 / 8}
@@ -543,6 +553,7 @@ const Exercice2 = createStackNavigator(
     Exercice_2_Intro: {
       screen: Exercice_2_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -556,6 +567,7 @@ const Exercice2 = createStackNavigator(
     Exercice_2_1: {
       screen: Exercice_2_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -574,6 +586,7 @@ const Exercice2 = createStackNavigator(
     Exercice_2_Aha_1: {
       screen: Exercice_2_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -592,6 +605,7 @@ const Exercice2 = createStackNavigator(
     Exercice_2_Aha_2: {
       screen: Exercice_2_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -610,6 +624,7 @@ const Exercice2 = createStackNavigator(
     Exercice_2_Challenge: {
       screen: Exercice_2_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -628,6 +643,7 @@ const Exercice2 = createStackNavigator(
     Exercice_2_Congratulations: {
       screen: Exercice_2_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -656,6 +672,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_Intro: {
       screen: Exercice_3_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -669,6 +686,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_1: {
       screen: Exercice_3_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 11}
@@ -687,6 +705,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_2: {
       screen: Exercice_3_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 11}
@@ -705,6 +724,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_2_Less2: {
       screen: Exercice_3_2_Less2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 11}
@@ -723,6 +743,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_2_2to5: {
       screen: Exercice_3_2_2to5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 11}
@@ -741,6 +762,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_2_More5: {
       screen: Exercice_3_2_More5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 11}
@@ -759,6 +781,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_3: {
       screen: Exercice_3_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 11}
@@ -777,6 +800,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_4: {
       screen: Exercice_3_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 11}
@@ -795,6 +819,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_5: {
       screen: Exercice_3_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={6 / 11}
@@ -813,6 +838,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_6: {
       screen: Exercice_3_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 11}
@@ -831,6 +857,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_7: {
       screen: Exercice_3_7,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={8 / 11}
@@ -849,6 +876,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_8: {
       screen: Exercice_3_8,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={9 / 11}
@@ -867,6 +895,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_Aha_1: {
       screen: Exercice_3_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={10 / 11}
@@ -885,6 +914,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_Challenge: {
       screen: Exercice_3_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={11 / 11}
@@ -903,6 +933,7 @@ const Exercice3 = createStackNavigator(
     Exercice_3_Congratulations: {
       screen: Exercice_3_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -930,6 +961,7 @@ const Exercice4 = createStackNavigator(
     Exercice_4_Intro: {
       screen: Exercice_4_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -943,6 +975,7 @@ const Exercice4 = createStackNavigator(
     Exercice_4_1: {
       screen: Exercice_4_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -961,6 +994,7 @@ const Exercice4 = createStackNavigator(
     Exercice_4_Aha_1: {
       screen: Exercice_4_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -979,6 +1013,7 @@ const Exercice4 = createStackNavigator(
     Exercice_4_Aha_2: {
       screen: Exercice_4_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -997,6 +1032,7 @@ const Exercice4 = createStackNavigator(
     Exercice_4_Challenge: {
       screen: Exercice_4_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -1015,6 +1051,7 @@ const Exercice4 = createStackNavigator(
     Exercice_4_Congratulations: {
       screen: Exercice_4_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1028,78 +1065,91 @@ const Exercice4 = createStackNavigator(
     Intro_Screen_PM1: {
       screen: Intro_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSU_Screen_PM1: {
       screen: PSU_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM1: {
       screen: SUE_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     MFSU_Screen_PM1: {
       screen: MFSU_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSF_Screen_PM1: {
       screen: PSF_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     TRP_Screen_PM1: {
       screen: TRP_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     HS_Screen_PM1: {
       screen: HS_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     IN_Screen_PM1: {
       screen: IN_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AP_Screen_PM1: {
       screen: AP_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AC_Screen_PM1: {
       screen: AC_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SE_Screen_PM1: {
       screen: SE_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     CE_Screen_PM1: {
       screen: CE_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     Closing_Screen_PM1: {
       screen: Closing_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     }
@@ -1121,12 +1171,14 @@ const PM1_Stack = createStackNavigator(
     PSU_Screen_PM1: {
       screen: PSU_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM1: {
       screen: SUE_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1139,6 +1191,7 @@ const PM1_Stack = createStackNavigator(
     PSF_Screen_PM1: {
       screen: PSF_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 8}
@@ -1155,6 +1208,7 @@ const PM1_Stack = createStackNavigator(
     TRP_Screen_PM1: {
       screen: TRP_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 8}
@@ -1171,6 +1225,7 @@ const PM1_Stack = createStackNavigator(
     HS_Screen_PM1: {
       screen: HS_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 8}
@@ -1187,6 +1242,7 @@ const PM1_Stack = createStackNavigator(
     IN_Screen_PM1: {
       screen: IN_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 8}
@@ -1203,6 +1259,7 @@ const PM1_Stack = createStackNavigator(
     AP_Screen_PM1: {
       screen: AP_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 8}
@@ -1219,6 +1276,7 @@ const PM1_Stack = createStackNavigator(
     AC_Screen_PM1: {
       screen: AC_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={6 / 8}
@@ -1235,6 +1293,7 @@ const PM1_Stack = createStackNavigator(
     SE_Screen_PM1: {
       screen: SE_Screen_PM1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 8}
@@ -1266,6 +1325,7 @@ const Exercice5 = createStackNavigator(
     Intro_Phase_Reflect: {
       screen: Exercice_5_Intro_Phase,
       navigationOptions: {
+        gesturesEnabled: false,
         cardStyle: { backgroundColor: "#A28AD4" },
         header: props => (
           <HeaderComponent
@@ -1280,6 +1340,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_Intro: {
       screen: Exercice_5_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1293,6 +1354,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_1: {
       screen: Exercice_5_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 7}
@@ -1311,6 +1373,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_2: {
       screen: Exercice_5_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 7}
@@ -1329,6 +1392,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_3: {
       screen: Exercice_5_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 7}
@@ -1347,6 +1411,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_4: {
       screen: Exercice_5_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -1365,6 +1430,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_5: {
       screen: Exercice_5_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -1383,6 +1449,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_6: {
       screen: Exercice_5_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -1401,6 +1468,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_7: {
       screen: Exercice_5_7,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -1419,6 +1487,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_Aha_1: {
       screen: Exercice_5_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 7}
@@ -1437,6 +1506,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_Aha_2: {
       screen: Exercice_5_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={6 / 7}
@@ -1455,6 +1525,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_Challenge: {
       screen: Exercice_5_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 7}
@@ -1473,6 +1544,7 @@ const Exercice5 = createStackNavigator(
     Exercice_5_Congratulations: {
       screen: Exercice_5_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1501,6 +1573,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_Intro: {
       screen: Exercice_6_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1514,6 +1587,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_1: {
       screen: Exercice_6_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1532,6 +1606,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_2: {
       screen: Exercice_6_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1550,6 +1625,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_3: {
       screen: Exercice_6_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1568,6 +1644,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_Aha_1: {
       screen: Exercice_6_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -1586,6 +1663,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_Aha_2: {
       screen: Exercice_6_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -1604,6 +1682,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_Aha_3: {
       screen: Exercice_6_Aha_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -1622,6 +1701,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_Challenge: {
       screen: Exercice_6_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -1640,6 +1720,7 @@ const Exercice6 = createStackNavigator(
     Exercice_6_Congratulations: {
       screen: Exercice_6_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1668,6 +1749,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_Intro: {
       screen: Exercice_7_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1681,6 +1763,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_1: {
       screen: Exercice_7_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1699,6 +1782,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_2: {
       screen: Exercice_7_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1717,6 +1801,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_3: {
       screen: Exercice_7_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1735,6 +1820,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_4: {
       screen: Exercice_7_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1753,6 +1839,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_Aha_1: {
       screen: Exercice_7_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -1771,6 +1858,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_Aha_2: {
       screen: Exercice_7_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -1789,6 +1877,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_Aha_3: {
       screen: Exercice_7_Aha_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -1807,6 +1896,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_Challenge: {
       screen: Exercice_7_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -1825,6 +1915,7 @@ const Exercice7 = createStackNavigator(
     Exercice_7_Congratulations: {
       screen: Exercice_7_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1853,6 +1944,7 @@ const Exercice8 = createStackNavigator(
     Exercice_8_Intro: {
       screen: Exercice_8_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1866,6 +1958,7 @@ const Exercice8 = createStackNavigator(
     Exercice_8_1: {
       screen: Exercice_8_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -1884,6 +1977,7 @@ const Exercice8 = createStackNavigator(
     Exercice_8_Aha_1: {
       screen: Exercice_8_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -1902,6 +1996,7 @@ const Exercice8 = createStackNavigator(
     Exercice_8_Aha_2: {
       screen: Exercice_8_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -1920,6 +2015,7 @@ const Exercice8 = createStackNavigator(
     Exercice_8_Aha_3: {
       screen: Exercice_8_Aha_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -1938,6 +2034,7 @@ const Exercice8 = createStackNavigator(
     Exercice_8_Challenge: {
       screen: Exercice_8_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -1956,6 +2053,7 @@ const Exercice8 = createStackNavigator(
     Exercice_8_Congratulations: {
       screen: Exercice_8_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -1969,78 +2067,91 @@ const Exercice8 = createStackNavigator(
     Intro_Screen_PM2: {
       screen: Intro_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSU_Screen_PM2: {
       screen: PSU_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM2: {
       screen: SUE_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     MFSU_Screen_PM2: {
       screen: MFSU_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSF_Screen_PM2: {
       screen: PSF_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     TRP_Screen_PM2: {
       screen: TRP_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     HS_Screen_PM2: {
       screen: HS_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     IN_Screen_PM2: {
       screen: IN_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AP_Screen_PM2: {
       screen: AP_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AC_Screen_PM2: {
       screen: AC_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SE_Screen_PM2: {
       screen: SE_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     CE_Screen_PM2: {
       screen: CE_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     Closing_Screen_PM2: {
       screen: Closing_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     }
@@ -2062,6 +2173,7 @@ const PM2_Stack = createStackNavigator(
     SUE_Screen_PM2: {
       screen: SUE_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2074,6 +2186,7 @@ const PM2_Stack = createStackNavigator(
     MFSU_Screen_PM2: {
       screen: MFSU_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2086,6 +2199,7 @@ const PM2_Stack = createStackNavigator(
     PSF_Screen_PM2: {
       screen: PSF_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2098,6 +2212,7 @@ const PM2_Stack = createStackNavigator(
     TRP_Screen_PM2: {
       screen: TRP_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2110,6 +2225,7 @@ const PM2_Stack = createStackNavigator(
     HS_Screen_PM2: {
       screen: HS_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2122,6 +2238,7 @@ const PM2_Stack = createStackNavigator(
     IN_Screen_PM2: {
       screen: IN_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2134,6 +2251,7 @@ const PM2_Stack = createStackNavigator(
     AP_Screen_PM2: {
       screen: AP_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2146,6 +2264,7 @@ const PM2_Stack = createStackNavigator(
     AC_Screen_PM2: {
       screen: AC_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2158,6 +2277,7 @@ const PM2_Stack = createStackNavigator(
     SE_Screen_PM2: {
       screen: SE_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2170,6 +2290,7 @@ const PM2_Stack = createStackNavigator(
     CE_Screen_PM2: {
       screen: CE_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2197,6 +2318,7 @@ const Exercice9 = createStackNavigator(
     Intro_Phase_Vision: {
       screen: Exercice_9_Intro_Phase,
       navigationOptions: {
+        gesturesEnabled: false,
         cardStyle: { backgroundColor: "#A28AD4" },
         header: props => (
           <HeaderComponent
@@ -2211,6 +2333,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_Intro: {
       screen: Exercice_9_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2224,6 +2347,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_1: {
       screen: Exercice_9_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 7}
@@ -2242,6 +2366,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_2: {
       screen: Exercice_9_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 7}
@@ -2260,6 +2385,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_3: {
       screen: Exercice_9_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 7}
@@ -2278,6 +2404,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_4: {
       screen: Exercice_9_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -2296,6 +2423,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_5: {
       screen: Exercice_9_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -2314,6 +2442,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_6: {
       screen: Exercice_9_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -2332,6 +2461,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_7: {
       screen: Exercice_9_7,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -2350,6 +2480,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_8: {
       screen: Exercice_9_8,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -2368,6 +2499,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_Aha_1: {
       screen: Exercice_9_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 7}
@@ -2386,6 +2518,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_Challenge: {
       screen: Exercice_9_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 7}
@@ -2404,6 +2537,7 @@ const Exercice9 = createStackNavigator(
     Exercice_9_Congratulations: {
       screen: Exercice_9_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2432,6 +2566,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_Intro: {
       screen: Exercice_10_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2445,6 +2580,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_1: {
       screen: Exercice_10_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2463,6 +2599,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_2: {
       screen: Exercice_10_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2481,6 +2618,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_3: {
       screen: Exercice_10_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2499,6 +2637,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_4: {
       screen: Exercice_10_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2517,6 +2656,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_5: {
       screen: Exercice_10_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2535,6 +2675,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_6: {
       screen: Exercice_10_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2553,6 +2694,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_7: {
       screen: Exercice_10_7,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2571,6 +2713,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_8: {
       screen: Exercice_10_8,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2589,6 +2732,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_9: {
       screen: Exercice_10_9,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2607,6 +2751,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_Aha_1: {
       screen: Exercice_10_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -2625,6 +2770,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_Aha_2: {
       screen: Exercice_10_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -2643,6 +2789,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_Challenge: {
       screen: Exercice_10_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -2661,6 +2808,7 @@ const Exercice10 = createStackNavigator(
     Exercice_10_Congratulations: {
       screen: Exercice_10_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2689,6 +2837,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_Intro: {
       screen: Exercice_11_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2702,6 +2851,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_1: {
       screen: Exercice_11_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2720,6 +2870,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_2: {
       screen: Exercice_11_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2738,6 +2889,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_3: {
       screen: Exercice_11_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2756,6 +2908,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_4: {
       screen: Exercice_11_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2774,6 +2927,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_5: {
       screen: Exercice_11_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2792,6 +2946,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_6: {
       screen: Exercice_11_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2810,6 +2965,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_7: {
       screen: Exercice_11_7,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2828,6 +2984,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_Aha_1: {
       screen: Exercice_11_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -2846,6 +3003,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_Aha_2: {
       screen: Exercice_11_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -2864,6 +3022,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_Challenge: {
       screen: Exercice_11_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -2882,6 +3041,7 @@ const Exercice11 = createStackNavigator(
     Exercice_11_Congratulations: {
       screen: Exercice_11_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2910,6 +3070,7 @@ const Exercice12 = createStackNavigator(
     Exercice_12_Intro: {
       screen: Exercice_12_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2923,6 +3084,7 @@ const Exercice12 = createStackNavigator(
     Exercice_12_1: {
       screen: Exercice_12_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -2941,6 +3103,7 @@ const Exercice12 = createStackNavigator(
     Exercice_12_Aha_1: {
       screen: Exercice_12_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -2959,6 +3122,7 @@ const Exercice12 = createStackNavigator(
     Exercice_12_Challenge: {
       screen: Exercice_12_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -2977,6 +3141,7 @@ const Exercice12 = createStackNavigator(
     Exercice_12_Congratulations: {
       screen: Exercice_12_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -2990,78 +3155,91 @@ const Exercice12 = createStackNavigator(
     Intro_Screen_PM3: {
       screen: Intro_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSU_Screen_PM3: {
       screen: PSU_Screen_PM2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM3: {
       screen: SUE_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     MFSU_Screen_PM3: {
       screen: MFSU_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSF_Screen_PM3: {
       screen: PSF_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     TRP_Screen_PM3: {
       screen: TRP_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     HS_Screen_PM3: {
       screen: HS_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     IN_Screen_PM3: {
       screen: IN_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AP_Screen_PM3: {
       screen: AP_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AC_Screen_PM3: {
       screen: AC_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SE_Screen_PM3: {
       screen: SE_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     CE_Screen_PM3: {
       screen: CE_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     Closing_Screen_PM3: {
       screen: Closing_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     }
@@ -3083,12 +3261,14 @@ const PM3_Stack = createStackNavigator(
     PSU_Screen_PM3: {
       screen: PSU_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM3: {
       screen: SUE_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3101,6 +3281,7 @@ const PM3_Stack = createStackNavigator(
     PSF_Screen_PM3: {
       screen: PSF_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 8}
@@ -3117,6 +3298,7 @@ const PM3_Stack = createStackNavigator(
     TRP_Screen_PM3: {
       screen: TRP_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 8}
@@ -3133,6 +3315,7 @@ const PM3_Stack = createStackNavigator(
     HS_Screen_PM3: {
       screen: HS_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 8}
@@ -3149,6 +3332,7 @@ const PM3_Stack = createStackNavigator(
     IN_Screen_PM3: {
       screen: IN_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 8}
@@ -3165,6 +3349,7 @@ const PM3_Stack = createStackNavigator(
     AP_Screen_PM3: {
       screen: AP_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 8}
@@ -3181,6 +3366,7 @@ const PM3_Stack = createStackNavigator(
     AC_Screen_PM3: {
       screen: AC_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={6 / 8}
@@ -3197,6 +3383,7 @@ const PM3_Stack = createStackNavigator(
     SE_Screen_PM3: {
       screen: SE_Screen_PM3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 8}
@@ -3228,6 +3415,7 @@ const Exercice13 = createStackNavigator(
     Intro_Phase_Plan: {
       screen: Exercice_13_Intro_Phase,
       navigationOptions: {
+        gesturesEnabled: false,
         cardStyle: { backgroundColor: "#A28AD4" },
         header: props => (
           <HeaderComponent
@@ -3242,6 +3430,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_Intro: {
       screen: Exercice_13_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3255,6 +3444,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_1: {
       screen: Exercice_13_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 7}
@@ -3273,6 +3463,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_2: {
       screen: Exercice_13_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 7}
@@ -3291,6 +3482,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_3: {
       screen: Exercice_13_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 7}
@@ -3309,6 +3501,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_4: {
       screen: Exercice_13_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -3327,6 +3520,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_5: {
       screen: Exercice_13_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -3345,6 +3539,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_6: {
       screen: Exercice_13_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -3363,6 +3558,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_Aha_1: {
       screen: Exercice_13_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 7}
@@ -3381,6 +3577,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_Aha_2: {
       screen: Exercice_13_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 7}
@@ -3399,6 +3596,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_Challenge: {
       screen: Exercice_13_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 7}
@@ -3417,6 +3615,7 @@ const Exercice13 = createStackNavigator(
     Exercice_13_Congratulations: {
       screen: Exercice_13_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3445,6 +3644,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_Intro: {
       screen: Exercice_14_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3458,6 +3658,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_1: {
       screen: Exercice_14_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3476,6 +3677,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_2: {
       screen: Exercice_14_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3494,6 +3696,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_3: {
       screen: Exercice_14_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3512,6 +3715,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_4: {
       screen: Exercice_14_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3530,6 +3734,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_5: {
       screen: Exercice_14_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3548,6 +3753,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_6: {
       screen: Exercice_14_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3566,6 +3772,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_7: {
       screen: Exercice_14_7,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3584,6 +3791,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_8: {
       screen: Exercice_14_8,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3602,6 +3810,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_Aha_1: {
       screen: Exercice_14_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -3620,6 +3829,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_Challenge: {
       screen: Exercice_14_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -3638,6 +3848,7 @@ const Exercice14 = createStackNavigator(
     Exercice_14_Congratulations: {
       screen: Exercice_14_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3666,6 +3877,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_Intro: {
       screen: Exercice_15_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3679,6 +3891,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_1: {
       screen: Exercice_15_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3697,6 +3910,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_2: {
       screen: Exercice_15_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3715,6 +3929,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_3: {
       screen: Exercice_15_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3733,6 +3948,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_4: {
       screen: Exercice_15_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3751,6 +3967,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_Aha_1: {
       screen: Exercice_15_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -3769,6 +3986,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_Aha_2: {
       screen: Exercice_15_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -3787,6 +4005,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_Challenge: {
       screen: Exercice_15_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -3805,6 +4024,7 @@ const Exercice15 = createStackNavigator(
     Exercice_15_Congratulations: {
       screen: Exercice_15_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3833,6 +4053,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_Intro: {
       screen: Exercice_16_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3846,6 +4067,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_1: {
       screen: Exercice_16_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3864,6 +4086,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_2: {
       screen: Exercice_16_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3882,6 +4105,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_3: {
       screen: Exercice_16_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -3900,6 +4124,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_Aha_1: {
       screen: Exercice_16_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -3918,6 +4143,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_Aha_2: {
       screen: Exercice_16_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -3936,6 +4162,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_Challenge: {
       screen: Exercice_16_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -3954,6 +4181,7 @@ const Exercice16 = createStackNavigator(
     Exercice_16_Congratulations: {
       screen: Exercice_16_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -3967,78 +4195,91 @@ const Exercice16 = createStackNavigator(
     Intro_Screen_PM4: {
       screen: Intro_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSU_Screen_PM4: {
       screen: PSU_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM4: {
       screen: SUE_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     MFSU_Screen_PM4: {
       screen: MFSU_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSF_Screen_PM4: {
       screen: PSF_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     TRP_Screen_PM4: {
       screen: TRP_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     HS_Screen_PM4: {
       screen: HS_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     IN_Screen_PM4: {
       screen: IN_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AP_Screen_PM4: {
       screen: AP_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AC_Screen_PM4: {
       screen: AC_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SE_Screen_PM4: {
       screen: SE_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     CE_Screen_PM4: {
       screen: CE_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     Closing_Screen_PM4: {
       screen: Closing_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     }
@@ -4060,12 +4301,14 @@ const PM4_Stack = createStackNavigator(
     PSU_Screen_PM4: {
       screen: PSU_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM4: {
       screen: SUE_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4078,6 +4321,7 @@ const PM4_Stack = createStackNavigator(
     PSF_Screen_PM4: {
       screen: PSF_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 8}
@@ -4094,6 +4338,7 @@ const PM4_Stack = createStackNavigator(
     TRP_Screen_PM4: {
       screen: TRP_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 8}
@@ -4110,6 +4355,7 @@ const PM4_Stack = createStackNavigator(
     HS_Screen_PM4: {
       screen: HS_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 8}
@@ -4126,6 +4372,7 @@ const PM4_Stack = createStackNavigator(
     IN_Screen_PM4: {
       screen: IN_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 8}
@@ -4142,6 +4389,7 @@ const PM4_Stack = createStackNavigator(
     AP_Screen_PM4: {
       screen: AP_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 8}
@@ -4158,6 +4406,7 @@ const PM4_Stack = createStackNavigator(
     AC_Screen_PM4: {
       screen: AC_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={6 / 8}
@@ -4174,6 +4423,7 @@ const PM4_Stack = createStackNavigator(
     SE_Screen_PM4: {
       screen: SE_Screen_PM4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 8}
@@ -4205,6 +4455,7 @@ const Exercice17 = createStackNavigator(
     Intro_Phase_Support: {
       screen: Exercice_17_Intro_Phase,
       navigationOptions: {
+        gesturesEnabled: false,
         cardStyle: { backgroundColor: "#A28AD4" },
         header: props => (
           <HeaderComponent
@@ -4219,6 +4470,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_Intro: {
       screen: Exercice_17_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4232,6 +4484,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_1: {
       screen: Exercice_17_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 7}
@@ -4250,6 +4503,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_2: {
       screen: Exercice_17_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 7}
@@ -4268,6 +4522,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_3: {
       screen: Exercice_17_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 7}
@@ -4286,6 +4541,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_4: {
       screen: Exercice_17_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4304,6 +4560,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_5: {
       screen: Exercice_17_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4322,6 +4579,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_6: {
       screen: Exercice_17_6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4340,6 +4598,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_7_iphone: {
       screen: Exercice_17_7_iphone,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4358,6 +4617,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_7_android: {
       screen: Exercice_17_7_android,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4376,6 +4636,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_8: {
       screen: Exercice_17_8,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4394,6 +4655,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_9: {
       screen: Exercice_17_9,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4412,6 +4674,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_10: {
       screen: Exercice_17_10,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 7}
@@ -4430,6 +4693,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_Aha_1: {
       screen: Exercice_17_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 7}
@@ -4448,6 +4712,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_Challenge: {
       screen: Exercice_17_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 7}
@@ -4466,6 +4731,7 @@ const Exercice17 = createStackNavigator(
     Exercice_17_Congratulations: {
       screen: Exercice_17_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4494,6 +4760,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_Intro: {
       screen: Exercice_18_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4507,6 +4774,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_1: {
       screen: Exercice_18_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4525,6 +4793,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_2: {
       screen: Exercice_18_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4543,6 +4812,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_3: {
       screen: Exercice_18_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4561,6 +4831,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_4: {
       screen: Exercice_18_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4579,6 +4850,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_Aha_1: {
       screen: Exercice_18_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -4597,6 +4869,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_Challenge: {
       screen: Exercice_18_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -4615,6 +4888,7 @@ const Exercice18 = createStackNavigator(
     Exercice_18_Congratulations: {
       screen: Exercice_18_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4643,6 +4917,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_Intro: {
       screen: Exercice_19_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4656,6 +4931,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_1: {
       screen: Exercice_19_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4674,6 +4950,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_2: {
       screen: Exercice_19_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4692,6 +4969,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_3: {
       screen: Exercice_19_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4710,6 +4988,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_4: {
       screen: Exercice_19_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4728,6 +5007,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_5: {
       screen: Exercice_19_5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4746,6 +5026,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_Aha_1: {
       screen: Exercice_19_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -4764,6 +5045,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_Challenge: {
       screen: Exercice_19_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -4782,6 +5064,7 @@ const Exercice19 = createStackNavigator(
     Exercice_19_Congratulations: {
       screen: Exercice_19_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4810,6 +5093,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_Intro: {
       screen: Exercice_20_Intro,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4823,6 +5107,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_1: {
       screen: Exercice_20_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4841,6 +5126,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_2: {
       screen: Exercice_20_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4859,6 +5145,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_3: {
       screen: Exercice_20_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4877,6 +5164,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_4: {
       screen: Exercice_20_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 4}
@@ -4895,6 +5183,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_Aha_1: {
       screen: Exercice_20_Aha_1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 4}
@@ -4913,6 +5202,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_Aha_2: {
       screen: Exercice_20_Aha_2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -4931,6 +5221,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_Aha_3: {
       screen: Exercice_20_Aha_3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -4949,6 +5240,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_Aha_4: {
       screen: Exercice_20_Aha_4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 4}
@@ -4967,6 +5259,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_Challenge: {
       screen: Exercice_20_Challenge,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 4}
@@ -4985,6 +5278,7 @@ const Exercice20 = createStackNavigator(
     Exercice_20_Congratulations: {
       screen: Exercice_20_Congratulations,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -4998,78 +5292,91 @@ const Exercice20 = createStackNavigator(
     Intro_Screen_PM5: {
       screen: Intro_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSU_Screen_PM5: {
       screen: PSU_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM5: {
       screen: SUE_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     MFSU_Screen_PM5: {
       screen: MFSU_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     PSF_Screen_PM5: {
       screen: PSF_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     TRP_Screen_PM5: {
       screen: TRP_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     HS_Screen_PM5: {
       screen: HS_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     IN_Screen_PM5: {
       screen: IN_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AP_Screen_PM5: {
       screen: AP_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     AC_Screen_PM5: {
       screen: AC_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SE_Screen_PM5: {
       screen: SE_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     CE_Screen_PM5: {
       screen: CE_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     Closing_Screen_PM5: {
       screen: Closing_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     }
@@ -5091,12 +5398,14 @@ const PM5_Stack = createStackNavigator(
     PSU_Screen_PM5: {
       screen: PSU_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: null
       }
     },
     SUE_Screen_PM5: {
       screen: SUE_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5109,6 +5418,7 @@ const PM5_Stack = createStackNavigator(
     PSF_Screen_PM5: {
       screen: PSF_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={1 / 8}
@@ -5125,6 +5435,7 @@ const PM5_Stack = createStackNavigator(
     TRP_Screen_PM5: {
       screen: TRP_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={2 / 8}
@@ -5141,6 +5452,7 @@ const PM5_Stack = createStackNavigator(
     HS_Screen_PM5: {
       screen: HS_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={3 / 8}
@@ -5157,6 +5469,7 @@ const PM5_Stack = createStackNavigator(
     IN_Screen_PM5: {
       screen: IN_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={4 / 8}
@@ -5173,6 +5486,7 @@ const PM5_Stack = createStackNavigator(
     AP_Screen_PM5: {
       screen: AP_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={5 / 8}
@@ -5189,6 +5503,7 @@ const PM5_Stack = createStackNavigator(
     AC_Screen_PM5: {
       screen: AC_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={6 / 8}
@@ -5205,6 +5520,7 @@ const PM5_Stack = createStackNavigator(
     SE_Screen_PM5: {
       screen: SE_Screen_PM5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             progress={7 / 8}
@@ -5264,7 +5580,8 @@ const HomeTab = createStackNavigator(
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
     defaultNavigationOptions: {
-      header: null
+      header: null,
+      gesturesEnabled: false
     }
   }
 );
@@ -5275,8 +5592,10 @@ HomeTab.navigationOptions = ({ navigation }) => {
 
   if (routeName == "Home") {
     navigationOptions.tabBarVisible = true;
+    navigationOptions.gesturesEnabled = false
   } else {
     navigationOptions.tabBarVisible = false;
+    navigationOptions.gesturesEnabled = false
   }
 
   return navigationOptions;
@@ -5305,6 +5624,7 @@ const SettingsTab = createStackNavigator(
     Faq: {
       screen: Faq,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5320,6 +5640,7 @@ const SettingsTab = createStackNavigator(
     SecurityAgreements: {
       screen: SecurityAgreements,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5335,6 +5656,7 @@ const SettingsTab = createStackNavigator(
     ContactUs: {
       screen: ContactUs,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5350,6 +5672,7 @@ const SettingsTab = createStackNavigator(
     Question1: {
       screen: Question1,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5365,6 +5688,7 @@ const SettingsTab = createStackNavigator(
     Question2: {
       screen: Question2,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5380,6 +5704,7 @@ const SettingsTab = createStackNavigator(
     Question3: {
       screen: Question3,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5395,6 +5720,7 @@ const SettingsTab = createStackNavigator(
     Question4: {
       screen: Question4,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5410,6 +5736,7 @@ const SettingsTab = createStackNavigator(
     Question5: {
       screen: Question5,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5425,6 +5752,7 @@ const SettingsTab = createStackNavigator(
     Question6: {
       screen: Question6,
       navigationOptions: {
+        gesturesEnabled: false,
         header: props => (
           <HeaderComponent
             disabledProgress={true}
@@ -5455,7 +5783,9 @@ const MainStackTabs = createBottomTabNavigator(
     Settings: SettingsTab
   },
   {
-    tabBarComponent: props => <TabBar {...props} />
+    tabBarComponent: props => <TabBar {...props} />,
+    animationEnabled: true,
+    gesturesEnabled: false
   }
 );
 

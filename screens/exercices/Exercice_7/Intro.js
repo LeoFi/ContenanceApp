@@ -39,7 +39,7 @@ export default class Exercice_7_Intro extends React.Component {
               <Text style={styles.intro_header_light}>Getting Lost</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}5 MIN{"\n"}In this exercise, you will discover why you sometimes get lost while using your smartphone. 
+                {"\n"}4 MIN{"\n"}In this exercise, you will discover why you sometimes get lost while using your smartphone. 
               </Text>
             </View>
           </View>

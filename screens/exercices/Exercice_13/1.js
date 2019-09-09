@@ -30,7 +30,7 @@ export default class Exercice_13_1 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
@@ -39,10 +39,19 @@ export default class Exercice_13_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
+                <View style={{ flex: 1 }} />
                 <Text style={styles.intro_text}>
-                You will build a powerful new smartphone habit using the following recipe.
-                {"\n"}{"\n"}The beauty of it: during this journey, you have already defined all elements you need for it. Now it’s just about putting them together!
+                  You will build a powerful new smartphone habit using the
+                  following recipe.
+                  {"\n"}
+                  {"\n"}The beauty of it: during this journey, you have already
+                  defined all elements you need for it. Now it’s just about
+                  putting them together!
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

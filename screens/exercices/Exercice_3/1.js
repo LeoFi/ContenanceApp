@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -29,22 +29,26 @@ export default class Exercice_3_1 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.container_scroll}>
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
                 this.props.navigation.navigate("Exercice_3_2");
               }}
             >
-              <View style={styles.container_scroll}>
-                <Text style={styles.sub_header_left}>
-                Welcome back! 
-                </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}Today, we will explore what it takes to have a more balanced relationship with your smartphone. 
-                </Text>
+              <View>
+                <View style={{ flex: 1, justifyContent: "center" }}>
+                  <Text style={styles.sub_header_left}>Welcome back!</Text>
+                  <Text style={styles.intro_text}>
+                    {"\n"}Today, we will explore what it takes to have a more
+                    balanced relationship with your smartphone.
+                  </Text>
+                </View>
 
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

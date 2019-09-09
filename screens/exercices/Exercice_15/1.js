@@ -30,7 +30,7 @@ export default class Exercice_15_1 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
@@ -39,6 +39,7 @@ export default class Exercice_15_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
+              <View style={{ flex: 1 }} />
                 <Text style={styles.sub_header_left}>Becoming a director.</Text>
                 <Text style={styles.intro_text}>
                   {"\n"}Today, you will become the director of your own
@@ -48,6 +49,10 @@ export default class Exercice_15_1 extends React.Component {
                   {"\n"}
                   {"\n"}Look around you and ask yourself...
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

@@ -58,6 +58,10 @@ class Exercice_7_1 extends React.Component {
                   {"\n"}If you do not use a screen time tracker, just reflect on
                   this for a moment.
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

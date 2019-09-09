@@ -224,8 +224,8 @@ class TestScreen extends React.Component {
   timeLogic = () => {
     const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    //dt2 = new Date("October 10 2019 16:44:30");
-    dt2 = new Date();
+    dt2 = new Date("October 20 2019 16:44:30");
+    //dt2 = new Date();
     var x = diff_days(dt1, dt2);
     //Alert.alert(x);
     console.log(this.props.exercices);
@@ -1162,8 +1162,8 @@ class TestScreen extends React.Component {
     var ExercicesArray = [
       {
         id: 1,
-        //path: "Intro_Phase_Observe",
-        path: "Exercice_1_Congratulations",
+        path: "Intro_Phase_Observe",
+        //path: "Exercice_1_Congratulations",
         label: "Day 1 - Contenance",
         styleButton: ExerciceStyle_1,
         styleText: ExerciceTextStyle_1,
@@ -1180,8 +1180,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 2,
-        // path: "Exercice_2_Intro",
-        path: "Exercice_2_Congratulations",
+        path: "Exercice_2_Intro",
+        //path: "Exercice_2_Congratulations",
         label: "Day 2 - Notice Your Impulses",
         styleButton: ExerciceStyle_2,
         styleText: ExerciceTextStyle_2,
@@ -1204,8 +1204,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 3,
-        // path: "Exercice_3_Intro",
-        path: "Exercice_3_Congratulations",
+        //path: "Exercice_3_Intro",
+        path: "Exercice_3_3",
         label: "Day 3 - Solution Triangle",
         styleButton: ExerciceStyle_3,
         styleText: ExerciceTextStyle_3,
@@ -1228,8 +1228,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 4,
-        //path: "Exercice_4_Intro",
-        path: "Exercice_4_Congratulations",
+        path: "Exercice_4_Intro",
+        //path: "Exercice_4_Congratulations",
         label: "Day 4 - Keep Breathing",
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
@@ -1248,8 +1248,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 5,
-        //path: "Intro_Phase_Reflect",
-        path: "Exercice_5_Congratulations",
+        path: "Intro_Phase_Reflect",
+        //path: "Exercice_5_Congratulations",
         label: "Day 5 - Habit Loop",
         styleButton: ExerciceStyle_5,
         styleText: ExerciceTextStyle_5,
@@ -1267,8 +1267,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 6,
-        //path: "Exercice_6_Intro",
-        path: "Exercice_6_Congratulations",
+        path: "Exercice_6_Intro",
+        //path: "Exercice_6_Congratulations",
         label: "Day 6 - Exploring Emotional Triggers",
         styleButton: ExerciceStyle_6,
         styleText: ExerciceTextStyle_6,
@@ -1312,8 +1312,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 8,
-        //path: "Exercice_8_Intro",
-        path: "Exercice_8_Congratulations",
+        path: "Exercice_8_Intro",
+        //path: "Exercice_8_Congratulations",
         label: "Day 8 - Mindful Social Media Use",
         styleButton: ExerciceStyle_8,
         styleText: ExerciceTextStyle_8,
@@ -1351,8 +1351,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 10,
-        //path: "Exercice_10_Intro",
-        path: "Exercice_10_Congratulations",
+        path: "Exercice_10_Intro",
+        //path: "Exercice_10_Congratulations",
         label: "Day 10 - Meaningful Smartphone Activities",
         styleButton: ExerciceStyle_10,
         styleText: ExerciceTextStyle_10,
@@ -1373,8 +1373,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 11,
-        //path: "Exercice_11_Intro",
-        path: "Exercice_11_Congratulations",
+        path: "Exercice_11_Intro",
+        //path: "Exercice_11_Congratulations",
         label: "Day 11 - 54321 Trick",
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,
@@ -1405,8 +1405,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 12,
-        //path: "Exercice_12_Intro",
-        path: "Exercice_12_Congratulations",
+        path: "Exercice_12_Intro",
+        //path: "Exercice_12_Congratulations",
         label: "Day 12 - Inner Scientist",
         styleButton: ExerciceStyle_12,
         styleText: ExerciceTextStyle_12,
@@ -1424,8 +1424,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 13,
-        // path: "Intro_Phase_Plan",
-        path: "Exercice_13_Congratulations",
+        path: "Intro_Phase_Plan",
+        //path: "Exercice_13_Congratulations",
         label: "Day 13 - Meaningful Smartphone Habits",
         styleButton: ExerciceStyle_13,
         styleText: ExerciceTextStyle_13,

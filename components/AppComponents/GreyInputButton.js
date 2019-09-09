@@ -39,9 +39,9 @@ export default class GreyInputButton extends Component {
               color: buttonProps.isActive
                 ? "#FFFFFF"
                 : "#2C3B51",
-              fontWeight: buttonProps.isActive ? "normal" : "bold",
+              fontWeight: buttonProps.isActive ? "bold" : "normal",
               fontFamily: buttonProps.isActive
-                ? "roboto-medium"
+                ? "roboto-bold"
                 : "roboto-regular"
             },
             buttonProps.style
@@ -75,12 +75,11 @@ const styles = StyleSheet.create({
   },
   button_grey_input_text: {
     color: "#2C3B51",
-    fontSize: 17,
+    fontSize: 14,
     lineHeight: 23,
     textAlign: "center",
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
-    letterSpacing: 2,
     fontWeight: "normal"
   }
 });

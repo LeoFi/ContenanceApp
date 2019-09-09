@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   },
   container_scroll: {
     flex: 1,
-    flexGrow: 1,
-    width: Dimensions.get("window").width,
+    //flexGrow: 1,
+    //width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
     alignItems: "center",
     justifyContent: "center",
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingLeft: 30,
     paddingRight: 30,
-    paddingBottom: 100
+    paddingBottom: 40
   },
   container_scroll_img_absolute: {
     //width: Dimensions.get("window").width,
@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
   image_height: {
     //position: "absolute",
     width: Dimensions.get("window").width,
-    top: 0
+    top: 0,
+    marginBottom: 0
   },
   image_absolute: {
     flex: 1,
@@ -146,13 +147,13 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   bottom_button: {
-    position: 'relative',
+    position: "relative",
     alignSelf: "stretch",
     //paddingTop: 30,
     paddingLeft: 30,
     paddingRight: 30,
-    bottom: 30,
-},
+    bottom: 30
+  },
   keyboard_view: {
     flex: 1,
     alignSelf: "stretch"
@@ -247,10 +248,11 @@ const styles = StyleSheet.create({
   },
   tap_text: {
     color: "rgba(44, 59, 81, 0.4)",
-    fontSize: 19,
+    fontSize: 13,
     lineHeight: 25,
     textAlign: "center",
-    fontFamily: "roboto-regular"
+    fontFamily: "roboto-regular",
+    letterSpacing: 1.15
   },
   tap_pos_relative: {
     alignSelf: "stretch",

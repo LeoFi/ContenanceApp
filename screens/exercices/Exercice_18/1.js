@@ -25,7 +25,7 @@ export default class Exercice_18_1 extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: "#F4F1DE"}}>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
@@ -36,14 +36,25 @@ export default class Exercice_18_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
+                <View style={{ flex: 1 }} />
                 <Image
                   style={styles.image_height}
                   source={require("../../../assets/images/Exercice18_1.png")}
                   resizeMode="contain"
                 />
                 <Text style={styles.intro_text}>
-                Yes, it’s the triangle again. Now, it it’s time to bring in the <Text style={styles.intro_text_bold}>last factor: the environment</Text>. Here, you have an active role to play as the architect of your own environment.
+                  Yes, it’s the triangle again. Now, it it’s time to bring in
+                  the{" "}
+                  <Text style={styles.intro_text_bold}>
+                    last factor: the environment
+                  </Text>
+                  . Here, you have an active role to play as the architect of
+                  your own environment.
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

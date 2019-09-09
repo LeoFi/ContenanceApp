@@ -25,7 +25,7 @@ export default class Exercice_19_1 extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: "#F4F1DE"}}>
+      <View style={{ backgroundColor: "#F4F1DE" }}>
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
@@ -36,14 +36,20 @@ export default class Exercice_19_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
+                <View style={{ flex: 1 }} />
                 <Image
                   style={styles.image_height}
                   source={require("../../../assets/images/Exercice19_1.png")}
                   resizeMode="contain"
                 />
                 <Text style={styles.intro_text}>
-                Today, we go one step further together. What happens when you’re using your smartphone and you’re not alone? 
+                  Today, we go one step further together. What happens when
+                  you’re using your smartphone and you’re not alone?
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

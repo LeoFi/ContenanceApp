@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
         //position: "absolute",
         width: Dimensions.get("window").width,
         top: 0,
+        marginBottom: 0
     },
     image_absolute: {
         flex: 1,

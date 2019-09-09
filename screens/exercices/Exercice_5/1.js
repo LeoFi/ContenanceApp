@@ -101,10 +101,11 @@ class Exercice_5_1 extends React.Component {
             //style={styles.container_scrollview}
             contentContainerStyle={styles.container_scrollview_content}
             keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
           >
             <KeyboardAvoidingView
               behavior="position"
-              keyboardVerticalOffset="100"
+              keyboardVerticalOffset="30"
             >
               <View
                 style={{

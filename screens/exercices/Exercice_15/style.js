@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingLeft: 30,
     paddingRight: 30,
-    paddingBottom: 100
+    paddingBottom: 50
   },
   container_scroll_img_absolute: {
     //width: Dimensions.get("window").width,
@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
   image_height: {
     //position: "absolute",
     width: Dimensions.get("window").width,
-    top: 0
+    top: 0,
+    marginBottom: 0
   },
   image_absolute: {
     flex: 1,
@@ -216,10 +217,11 @@ text_light: {
   },
   tap_text: {
     color: "rgba(44, 59, 81, 0.4)",
-    fontSize: 19,
+    fontSize: 13,
     lineHeight: 25,
     textAlign: "center",
-    fontFamily: "roboto-regular"
+    fontFamily: "roboto-regular",
+    letterSpacing: 1.15
   },
   tap_pos_relative: {
     alignSelf: "stretch",

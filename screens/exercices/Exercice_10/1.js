@@ -33,25 +33,36 @@ class Exercice_10_1 extends React.Component {
       >
         <StatusBar hidden />
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View>
+          <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
-              style={{backgroundColor: "#000000", flex: 1}}
+              style={{ backgroundColor: "#000000", flex: 1 }}
               onPress={() => {
                 this.props.navigation.navigate("Exercice_10_2");
               }}
             >
               <View style={styles.container_scroll}>
+                <View style={{ flex: 1 }} />
                 <Text style={styles.sub_header_left}>
-                How can you realize what is important to you and bring your values to life?
+                  How can you realize what is important to you and bring your
+                  values to life?
                 </Text>
                 <Text style={styles.intro_text}>
                   {"\n"}Your three values are:
                 </Text>
                 <Text style={styles.text_bold_italic_left}>
-                  {"\n"}{this.props.user_values.Value1_D9}
-                  {"\n"}{"\n"}{this.props.user_values.Value2_D9}
-                  {"\n"}{"\n"}{this.props.user_values.Value3_D9}
+                  {"\n"}
+                  {this.props.user_values.Value1_D9}
+                  {"\n"}
+                  {"\n"}
+                  {this.props.user_values.Value2_D9}
+                  {"\n"}
+                  {"\n"}
+                  {this.props.user_values.Value3_D9}
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

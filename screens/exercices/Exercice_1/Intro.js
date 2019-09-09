@@ -7,7 +7,8 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
   ImageBackground,
-  Image
+  Image,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -21,8 +22,19 @@ export default class Exercice_1_Intro extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      iphone5: false
+    };
   }
+
+  componentWillMount = () => {
+    const screenWidth = Dimensions.get("window").width;
+    if (screenWidth === 320) {
+      this.setState({ iphone5: true });
+    } else {
+      this.setState({ iphone5: false });
+    }
+  };
 
   render() {
     return (
@@ -31,9 +43,9 @@ export default class Exercice_1_Intro extends React.Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.container_scroll_img_absolute}>
             <Image
-              style={styles.image_height}
+              style={this.state.iphone5 ? styles.image_height_iphone5 : styles.image_height}
               source={require("../../../assets/images/Day1_Intro.png")}
-              resizeMode="stretch"
+              resizeMode="contain"
             />
             <View style={styles.middle}>
               <Text style={styles.intro_header_day_light}>Day 1</Text>

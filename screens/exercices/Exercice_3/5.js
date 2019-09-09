@@ -25,7 +25,7 @@ export default class Exercice_3_5 extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>

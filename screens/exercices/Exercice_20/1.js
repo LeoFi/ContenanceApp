@@ -39,12 +39,17 @@ export default class Exercice_20_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
-              <Text style={styles.sub_header_left}>
-              Wow!
-                </Text>
+                <View style={{ flex: 1 }} />
+                <Text style={styles.sub_header_left}>Wow!</Text>
                 <Text style={styles.intro_text}>
-                {"\n"}You’re almost done with the 21- day training and you’ve learned a lot about yourself and how to consciously use your smartphone.
+                  {"\n"}You’re almost done with the 21- day training and you’ve
+                  learned a lot about yourself and how to consciously use your
+                  smartphone.
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -29,7 +29,7 @@ export default class Exercice_14_1 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
@@ -38,13 +38,18 @@ export default class Exercice_14_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
+                <View style={{ flex: 1 }} />
                 <Text style={styles.sub_header_left}>
-                I wanted to, but then it started raining...
+                  I wanted to, but then it started raining...
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}Life is not predictable. And that is the beauty of it. The key is to be prepared for your ever-changing environment.
+                  {"\n"}Life is not predictable. And that is the beauty of it.
+                  The key is to be prepared for your ever-changing environment.
                 </Text>
-
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
