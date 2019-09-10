@@ -27,7 +27,7 @@ export default class Exercice_3_5 extends React.Component {
     return (
       <View style={{flex: 1}}>
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}

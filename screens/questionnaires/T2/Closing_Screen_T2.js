@@ -18,16 +18,16 @@ class Closing_Screen_T2 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header_left}>Thank you, {this.props.user.nickname}.</Text>
+        <Text style={styles.header_left}>You made it, {this.props.user.nickname}.</Text>
 
         <Text style={styles.text_left}>
-          {"\n"}You’re all set and ready to dive into the wide ocean.
-          {"\n"}{"\n"}Enjoy your journey!
+          {"\n"}There is nothing more to exercise today. Thanks a million for being so brave and tackling your smartphone habits with the 21-day Contenance program.
+          {"\n"}{"\n"}This was the active part of the training. We’ll send you an email with information on the next steps.
         </Text>
 
         <View style={styles.bottom}>
           <PrimaryButton
-            label="START EXERCISING"
+            label="DONE"
             isBottom={true}
             onPress={() => {
               const uid = firebase.auth().currentUser.uid;

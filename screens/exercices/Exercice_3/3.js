@@ -32,6 +32,7 @@ export default class Exercice_3_3 extends React.Component {
         <ScrollView
           style={styles.container_scrollview}
           contentContainerStyle={styles.container_scrollview_content}
+          showsVerticalScrollIndicator={false}
         >
           <View
             style={{

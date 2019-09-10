@@ -255,6 +255,24 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-regular',
         alignSelf: 'stretch',
         paddingBottom: 10,
+    },
+    text_bold_center: {
+      color: "#2C3B51",
+      fontSize: 19,
+      lineHeight: 25,
+      fontFamily: "roboto-bold",
+      alignSelf: "stretch",
+      textAlign: "center",
+      paddingBottom: 20
+    },
+    codeInputBig: {
+      marginTop: 40,
+      marginBottom: 20,
+      backgroundColor: "#E2DFD1",
+      borderRadius: 7,
+      textAlign: "center",
+      height: 100,
+      fontSize: 19
     }
 })
 

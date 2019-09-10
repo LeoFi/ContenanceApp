@@ -168,18 +168,6 @@ class TestScreen extends React.Component {
     }
   };
 
-  incrementCount = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
-  };
-
-  decrementCount = () => {
-    this.setState({
-      count: this.state.count - 1
-    });
-  };
-
   componentDidMount() {
     this.compareDates();
     this.timeLogic();
@@ -224,7 +212,7 @@ class TestScreen extends React.Component {
   timeLogic = () => {
     const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    dt2 = new Date("October 20 2019 16:44:30");
+    dt2 = new Date("October 21 2019 16:44:30");
     //dt2 = new Date();
     var x = diff_days(dt1, dt2);
     //Alert.alert(x);
@@ -1603,8 +1591,9 @@ class TestScreen extends React.Component {
       },
       {
         id: 21,
-        path: "Exercice_20_Intro",
-        label: "Day 21 - Brain Reset",
+        // path: "Intro_Screen_T2",
+        path: "QQ_Screen_T2",
+        label: "Closing",
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
         IconSource: IconsExercice_21,

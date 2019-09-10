@@ -3,12 +3,24 @@ import { StyleSheet, Dimensions } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    //alignSelf: "center",
     justifyContent: "flex-start",
+    alignItems: "stretch",
     paddingTop: 80,
     paddingLeft: 30,
     paddingRight: 30,
-    paddingBottom: 40
+    paddingBottom: 40,
+  },
+  container_audio: {
+    flex: 1,
+    //alignSelf: "center",
+    justifyContent: "flex-start",
+    alignItems: "stretch",
+    paddingTop: 80,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingBottom: 40,
+    backgroundColor: "#F4F1DE"
   },
   container_scroll: {
     flex: 1,
@@ -218,6 +230,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "roboto-black",
     paddingBottom: 10
+  },
+  sub_header_audio: {
+    color: "#2C3B51",
+    fontSize: 24,
+    lineHeight: 28,
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 0
   },
   sub_header_left: {
     //flex: 1,

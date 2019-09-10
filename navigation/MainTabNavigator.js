@@ -346,14 +346,143 @@ import CO_Screen_T2 from "../screens/questionnaires/T2/CO_Screen_T2";
 import QQ_Screen_T2 from "../screens/questionnaires/T2/QQ_Screen_T2";
 import Closing_Screen_T2 from "../screens/questionnaires/T2/Closing_Screen_T2";
 
-// Intro_Screen_T2: { screen: Intro_Screen_T2 },
-//     PSU_Screen_T2: { screen: PSU_Screen_T2 },
-//     WB_Screen_T2: { screen: WB_Screen_T2 },
-//     AU_Screen_T2: { screen: AU_Screen_T2 },
-//     PI_Screen_T2: { screen: PI_Screen_T2 },
-//     CO_Screen_T2: { screen: CO_Screen_T2 },
-//     QQ_Screen_T2: { screen: QQ_Screen_T2 },
-//     Closing_Screen_T2: { screen: Closing_Screen_T2 },
+
+const T2_Stack = createStackNavigator(
+  {
+    Intro_Screen_T2: {
+      screen: Intro_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    PSU_Screen_T2: {
+      screen: PSU_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            disabledProgress={true}
+            disabledClose={true}
+            {...props}
+          />
+        )
+      }
+    },
+    WB_Screen_T2: {
+      screen: WB_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={1 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    AU_Screen_T2: {
+      screen: AU_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={2 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    PI_Screen_T2: {
+      screen: PI_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={3 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    CO_Screen_T2: {
+      screen: CO_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={4 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    QQ_Screen_T2: {
+      screen: QQ_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={5 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    Closing_Screen_T2: {
+      screen: Closing_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={6 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    }
+  },
+  {
+    transitionConfig: () => fromRight(500),
+    //cardStyle: { backgroundColor: "#F4F1DE" },
+    headerMode: "float",
+    defaultNavigationOptions: {
+      header: props => <HeaderComponent {...props} />,
+      animationEnabled: true,
+      gesturesEnabled: false
+    }
+  }
+);
 
 const Exercice1 = createStackNavigator(
   {
@@ -5573,8 +5702,8 @@ const HomeTab = createStackNavigator(
     Exercice17: { screen: Exercice17 },
     Exercice18: { screen: Exercice18 },
     Exercice19: { screen: Exercice19 },
-    Exercice20: { screen: Exercice20 }
-    //Exercice21: { screen: Exercice21 },
+    Exercice20: { screen: Exercice20 },
+    Exercice21: { screen: T2_Stack },
   },
   {
     transitionConfig: () => fromRight(500),
@@ -5592,10 +5721,10 @@ HomeTab.navigationOptions = ({ navigation }) => {
 
   if (routeName == "Home") {
     navigationOptions.tabBarVisible = true;
-    navigationOptions.gesturesEnabled = false
+    navigationOptions.gesturesEnabled = false;
   } else {
     navigationOptions.tabBarVisible = false;
-    navigationOptions.gesturesEnabled = false
+    navigationOptions.gesturesEnabled = false;
   }
 
   return navigationOptions;
@@ -5764,7 +5893,7 @@ const SettingsTab = createStackNavigator(
           />
         )
       }
-    },
+    }
   },
   {
     cardStyle: { backgroundColor: "#F4F1DE" },

@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import Constants from "expo-constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -360,6 +361,64 @@ const styles = StyleSheet.create({
     fontSize: 19,
     alignSelf: "stretch",
     width: Dimensions.get("window").width - 60
+  },
+  notBlurred: {
+    ...StyleSheet.absoluteFill,
+    top: Constants.statusBarHeight
+  },
+  notBlurredIndex: {
+    ...StyleSheet.absoluteFill,
+    top: Constants.statusBarHeight,
+    zIndex: 2
+  },
+  header_modal: {
+    color: "#2C3B51",
+    fontSize: 24,
+    lineHeight: 28,
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 25,
+    paddingTop: 30
+  },
+  text_modal: {
+    color: "#2C3B51",
+    fontSize: 19,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    paddingBottom: 25,
+  },
+  exercice_button_icon: {
+    alignSelf: "flex-end",
+    top: "50%",
+    marginTop: 6,
+    right: 20,
+    position: "absolute"
+  },
+  styleText: {
+    color: "#FFFFFF",
+    fontSize: 17,
+    lineHeight: 23,
+    textAlign: "left",
+    fontFamily: "roboto-medium",
+    textTransform: "capitalize",
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
+  },
+  styleButton: {
+    backgroundColor: "#F87B7B",
+    borderWidth: 2,
+    borderColor: "#F87B7B",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
   }
 });
 

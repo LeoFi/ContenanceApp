@@ -51,7 +51,8 @@ export default class Exercice_16_Intro extends React.Component {
             isBottom={true}
             style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
             onPress={() => {
-              this.props.navigation.navigate("Exercice_16_1");
+              //this.props.navigation.navigate("Exercice_16_1");
+              this.props.navigation.navigate("CE_Screen_PM4");
             }}
           />
         </View>

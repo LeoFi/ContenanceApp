@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ContenanceTest",
-    "slug": "contenance",
+    "name": "Contenance For Tina",
+    "slug": "contenance-for-tina",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
@@ -31,6 +31,6 @@
         ]
       }
     },
-    "description": "First try"
+    "description": ""
   }
 }
