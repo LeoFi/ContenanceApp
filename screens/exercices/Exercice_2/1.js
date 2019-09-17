@@ -53,6 +53,10 @@ export default class Exercice_2_1 extends Component {
     this._loadNewPlaybackInstance(false);
   }
 
+  componentWillUnmount() {
+    this.playbackInstance.unloadAsync();
+  }
+
   async _loadNewPlaybackInstance(playing) {
     if (this.playbackInstance != null) {
       await this.playbackInstance.unloadAsync();
@@ -259,6 +263,22 @@ export default class Exercice_2_1 extends Component {
         >
           <View style={{ flex: 1 }}>
             <Text style={styles.sub_header_audio}>Notice your Impulses</Text>
+
+            {this.state.isLoading ? (
+              <Text
+                style={{
+                  color: "#2C3B51",
+                  fontSize: 19,
+                  lineHeight: 25,
+                  textAlign: "center",
+                  fontFamily: "roboto-regular",
+                  marginBottom: -70
+                }}
+              >
+                {"\n"}Wait for a few seconds while we're getting your audio.
+              </Text>
+            ) : null}
+
             <View style={{ flex: 1, justifyContent: "center" }}>
               <View
                 style={{
@@ -269,7 +289,7 @@ export default class Exercice_2_1 extends Component {
               >
                 <TouchableOpacity
                   onPress={this._onBackPressed}
-                  style={{ alignSelf: "center"}}
+                  style={{ alignSelf: "center" }}
                   disabled={this.state.isPlaying === "Done"}
                 >
                   <Svg width="43" height="45" viewBox="0 0 43 45" fill="none">
@@ -292,7 +312,7 @@ export default class Exercice_2_1 extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={this._onForwardPressed}
-                  style={{ alignSelf: "center"}}
+                  style={{ alignSelf: "center" }}
                   disabled={this.state.isPlaying === "Done"}
                 >
                   <Svg width="45" height="46" viewBox="0 0 45 46" fill="none">

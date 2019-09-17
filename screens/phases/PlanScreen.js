@@ -32,7 +32,7 @@ class PlanScreen extends React.Component {
       exercice_state_14: this.props.exercices.exercice_state_14 || "",
       exercice_state_15: this.props.exercices.exercice_state_15 || "",
       exercice_state_16: this.props.exercices.exercice_state_16 || "",
-      reflection_state_4: this.props.exercices.reflection_state_4 || ""
+      exercice_state_PM4: this.props.exercices.exercice_state_PM4 || ""
     };
   }
 
@@ -167,7 +167,7 @@ class PlanScreen extends React.Component {
     let ReflectionTextStyle_4 = "";
     let ReflectionStyle_4 = "";
 
-    switch (this.props.exercices.reflection_state_4) {
+    switch (this.props.exercices.exercice_state_PM4) {
       case "completed":
         ReflectionTextStyle_4 = styles.text_completed;
         ReflectionStyle_4 = styles.completed;
@@ -228,11 +228,12 @@ class PlanScreen extends React.Component {
       },
       {
         id: 17,
-        path: "Reflection_4_Intro",
+        path: "Intro_Screen_PM4",
         label: "Module Reflection",
         styleButton: ReflectionStyle_4,
         styleText: ReflectionTextStyle_4,
-        IconSource: IconsReflection_4
+        IconSource: IconsReflection_4,
+        state: this.props.exercices.exercice_state_PM4
       }
     ];
 

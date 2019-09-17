@@ -28,7 +28,8 @@ class SupportScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nickname: this.props.user.nickname || ""
+      nickname: this.props.user.nickname || "",
+      exercice_state_PM5: this.props.exercices.exercice_state_PM5 || ""
     };
   }
 
@@ -189,7 +190,7 @@ class SupportScreen extends React.Component {
     let ReflectionTextStyle_4 = "";
     let ReflectionStyle_4 = "";
 
-    switch (this.props.exercices.reflection_state_4) {
+    switch (this.props.exercices.exercice_state_PM5) {
       case "completed":
         ReflectionTextStyle_4 = styles.text_completed;
         ReflectionStyle_4 = styles.completed;
@@ -250,8 +251,8 @@ class SupportScreen extends React.Component {
       },
       {
         id: 21,
-        path: "Exercice_20_Intro",
-        label: "Day 21 - Brain Reset",
+        path: "Exercice_21_Intro",
+        label: "Day 21 - Closing",
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
         IconSource: IconsExercice_21,
@@ -259,11 +260,12 @@ class SupportScreen extends React.Component {
       },
       {
         id: 22,
-        path: "Reflection_4_Intro",
+        path: "Intro_Screen_PM5",
         label: "Module Reflection",
         styleButton: ReflectionStyle_4,
         styleText: ReflectionTextStyle_4,
-        IconSource: IconsReflection_4
+        IconSource: IconsReflection_4,
+        state: this.props.exercices.exercice_state_PM5
       }
     ];
 

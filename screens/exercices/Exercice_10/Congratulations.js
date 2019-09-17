@@ -30,16 +30,22 @@ class Exercice_10_Congratulations extends React.Component {
   }
 
   handleSubmit = () => {
-    const { exercice_state_10 } = this.state;
-    this.setState({ exercice_state_10: exercice_state_10 });
-    this.props.dispatch(updateState_Ex10(this.state.exercice_state_10));
+    if (
+      this.props.exercices.exercice_state_10 === "DONE" ||
+      this.props.exercices.exercice_state_10 === "completed"
+    ) {
+    } else {
+      const { exercice_state_10 } = this.state;
+      this.setState({ exercice_state_10: exercice_state_10 });
+      this.props.dispatch(updateState_Ex10(this.state.exercice_state_10));
+    }
 
     if (this.props.exercices.exercice_state_11 === undefined) {
-    const { exercice_state_11 } = this.state;
-    this.setState({ exercice_state_11: exercice_state_11 });
-    this.props.dispatch(updateState_Ex11(this.state.exercice_state_11));
+      const { exercice_state_11 } = this.state;
+      this.setState({ exercice_state_11: exercice_state_11 });
+      this.props.dispatch(updateState_Ex11(this.state.exercice_state_11));
     } else {
-    //
+      //
     }
     this.props.navigation.push("Home");
   };
@@ -58,7 +64,8 @@ class Exercice_10_Congratulations extends React.Component {
             <View style={styles.middle}>
               <Text style={styles.header_light}>Congratulations!</Text>
               <Text style={styles.text_light}>
-                {"\n"}Today, you discovered how your smartphone can be a tool to put your values into practice!
+                {"\n"}Today, you discovered how your smartphone can be a tool to
+                put your values into practice!
               </Text>
             </View>
           </View>

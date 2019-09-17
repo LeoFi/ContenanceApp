@@ -103,7 +103,7 @@ class Exercice_13_2 extends React.Component {
               Step 1: Choose three triggers
             </Text>
             <Text style={styles.intro_text_bold}>
-              {"\n"}For which situations - or feelings - do you want to define a
+              {"\n"}For which of your situations - or feelings - do you want to define a
               new response?
             </Text>
             <LinkText

@@ -53,6 +53,10 @@ export default class Exercice_9_1 extends Component {
     this._loadNewPlaybackInstance(false);
   }
 
+  componentWillUnmount() {
+    this.playbackInstance.unloadAsync();
+  }
+
   async _loadNewPlaybackInstance(playing) {
     if (this.playbackInstance != null) {
       await this.playbackInstance.unloadAsync();
@@ -252,13 +256,30 @@ export default class Exercice_9_1 extends Component {
         <TouchableWithoutFeedback
           onPress={() => {
             this.state.isPlaying === "Done"
-              ? this.props.navigation.navigate("Exercice_9_Aha_1")
+              ? this.props.navigation.navigate("Exercice_9_2")
               : null;
           }}
           //{this.renderPlayerIcon()}
         >
           <View style={{ flex: 1 }}>
             <Text style={styles.sub_header_audio}>Exploring Values</Text>
+
+            {this.state.isLoading ? (
+              <Text
+                style={{
+                  color: "#2C3B51",
+                  fontSize: 19,
+                  lineHeight: 25,
+                  textAlign: "center",
+                  fontFamily: "roboto-regular",
+                  marginBottom: -70
+                }}
+              >
+                {"\n"}Wait for a few seconds while we're getting your audio.
+              </Text>
+            ) : null}
+
+
             <View style={{ flex: 1, justifyContent: "center" }}>
               <View
                 style={{

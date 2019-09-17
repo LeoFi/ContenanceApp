@@ -27,13 +27,16 @@ import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
-export default class Extra_3_Screen_T1 extends React.Component {
+import { connect } from "react-redux";
+import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
+
+class Extra_3_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 68/79,
       buttonIsActive: false,
-      userNationality: ""
+      userNationality: "",
+      progressValueT1: undefined
     };
   }
 
@@ -41,12 +44,14 @@ export default class Extra_3_Screen_T1 extends React.Component {
     const { userNationality } = this.state;
     console.log(userNationality);
     const uid = firebase.auth().currentUser.uid;
+    const progressValueT1 = this.state.progressValueT1
     firebase
       .database()
       .ref("questionnaires")
       .child(uid)
       .update({ Nationality: userNationality });
-      this.setState({ progressValue: 69 / 79 });
+    this.setState({ progressValueT1: 69 });
+    this.props.dispatch(Update_Progress_T1(progressValueT1));
     this.props.navigation.navigate("SU1_Screen_T1");
   };
 
@@ -250,83 +255,70 @@ export default class Extra_3_Screen_T1 extends React.Component {
 
     return (
       <>
-      <StatusBar hidden />
-        <View
-          style={{
-            flex: 1,
-            width: Dimensions.get("window").width,
-            position: "absolute",
-            left: 0,
-            right: 0,
-            zIndex: 100,
-            backgroundColor: "#F4F1DE"
-          }}
-        >
-          <Progress.Bar
-            progress={this.state.progressValue}
-            borderWidth={0}
-            borderRadius={0}
-            width={null}
-            height={10}
-            color={"#2C3B51"}
-            unfilledColor={"rgba(255, 255, 255, 1)"}
-            animated={true}
-          />
-        </View>
+        <StatusBar hidden />
+
         <View style={styles.container}>
-        <ScrollView style={{ alignSelf: "stretch" }}>
-          <TouchableOpacity
-            onPress={() => {
-              this.setState({ progressValue: 69 / 79 });
-              this.props.navigation.navigate("SU1_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-          <KeyboardAvoidingView
-            behavior="padding"
-            keyboardVerticalOffset="15"
-            style={styles.keyboard_view}
-          >
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-              <>
-                <Text style={styles.text_bold_center}>What is your nationality?</Text>
+          <ScrollView style={{ alignSelf: "stretch" }}>
+            <TouchableOpacity
+              onPress={() => {
+                const progressValueT1 = this.state.progressValueT1
+                this.setState({ progressValueT1: 69 });
+                this.props.dispatch(Update_Progress_T1(progressValueT1));
+                this.props.navigation.navigate("SU1_Screen_T1");
+              }}
+              style={styles.skip}
+            >
+              <Text style={styles.skip_text}>Skip</Text>
+            </TouchableOpacity>
+            <KeyboardAvoidingView
+              behavior="padding"
+              keyboardVerticalOffset="15"
+              style={styles.keyboard_view}
+            >
+              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <>
+                  <Text style={styles.text_bold_center}>
+                    What is your nationality?
+                  </Text>
 
-                <View>
-                  <Picker
-                    mode="dropdown"
-                    selectedValue={this.state.userNationality}
-                    onValueChange={itemValue =>
-                      this.setState({ userNationality: itemValue })
-                    }
-                  >
-                    {options.map((item, key) => {
-                      return (
-                        <Picker.Item
-                          label={item.key}
-                          value={item.key}
-                          key={item.key}
-                        />
-                      );
-                    })}
-                  </Picker>
-                </View>
-              </>
-            </TouchableWithoutFeedback>
-          </KeyboardAvoidingView>
-        </ScrollView>
+                  <View>
+                    <Picker
+                      mode="dropdown"
+                      selectedValue={this.state.userNationality}
+                      onValueChange={itemValue =>
+                        this.setState({ userNationality: itemValue })
+                      }
+                    >
+                      {options.map((item, key) => {
+                        return (
+                          <Picker.Item
+                            label={item.key}
+                            value={item.key}
+                            key={item.key}
+                          />
+                        );
+                      })}
+                    </Picker>
+                  </View>
+                </>
+              </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
+          </ScrollView>
 
-        <View style={styles.bottom}>
-          <PrimaryButton
-            label="Continue"
-            isBottom={true}
-            disabled={!this.state.userNationality}
-            onPress={this.handleSubmit}
-          />
+          <View style={styles.bottom}>
+            <PrimaryButton
+              label="Continue"
+              isBottom={true}
+              disabled={!this.state.userNationality}
+              onPress={this.handleSubmit}
+            />
+          </View>
         </View>
-      </View>
       </>
     );
   }
 }
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+export default connect(mapStateToProps)(Extra_3_Screen_T1);

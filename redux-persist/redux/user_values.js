@@ -42,6 +42,15 @@ export const UPDATE_SPGoSit1_D18 = "UPDATE_SPGoSit1_D18";
 export const UPDATE_SPGoSit2_D18 = "UPDATE_SPGoSit2_D18";
 export const UPDATE_SPGoSit3_D18 = "UPDATE_SPGoSit3_D18";
 
+export const UPDATE_Progress_T1 = "UPDATE_Progress_T1";
+export const UPDATE_Progress_PM1 = "UPDATE_Progress_PM1";
+export const UPDATE_Progress_PM2 = "UPDATE_Progress_PM2";
+export const UPDATE_Progress_PM3 = "UPDATE_Progress_PM3";
+export const UPDATE_Progress_PM4 = "UPDATE_Progress_PM4";
+export const UPDATE_Progress_PM5 = "UPDATE_Progress_PM5";
+export const UPDATE_Progress_T2 = "UPDATE_Progress_T2";
+
+
 export const Update_SitTrigger1_D5 = SitTrigger1_D5 => ({
   type: UPDATE_SitTrigger1_D5,
   SitTrigger1_D5
@@ -257,6 +266,41 @@ export const Update_SPGoSit3_D18 = SPGoSit3_D18 => ({
     SPGoSit3_D18
 });
 
+export const Update_Progress_T1 = progressValueT1 => ({
+  type: UPDATE_Progress_T1,
+  progressValueT1
+});
+
+export const Update_Progress_PM1 = progressValuePM1 => ({
+  type: UPDATE_Progress_PM1,
+  progressValuePM1
+});
+
+export const Update_Progress_PM2 = progressValuePM2 => ({
+  type: UPDATE_Progress_PM2,
+  progressValuePM2
+});
+
+export const Update_Progress_PM3 = progressValuePM3 => ({
+  type: UPDATE_Progress_PM3,
+  progressValuePM3
+});
+
+export const Update_Progress_PM4 = progressValuePM4 => ({
+  type: UPDATE_Progress_PM4,
+  progressValuePM4
+});
+
+export const Update_Progress_PM5 = progressValuePM5 => ({
+  type: UPDATE_Progress_PM5,
+  progressValuePM5
+});
+
+export const Update_Progress_T2 = progressValueT2 => ({
+  type: UPDATE_Progress_T2,
+  progressValueT2
+});
+
 const initialState = {
     SitTrigger1_D5: undefined,
     SitTrigger2_D5: undefined,
@@ -300,7 +344,14 @@ const initialState = {
     SPNoGoSit3_D18: undefined,  
     SPGoSit1_D18: undefined,
     SPGoSit2_D18: undefined,  
-    SPGoSit3_D18: undefined
+    SPGoSit3_D18: undefined,
+    progressValueT1: 0,
+    progressValuePM1: 0,
+    progressValuePM2: 0,
+    progressValuePM3: 0,
+    progressValuePM4: 0,
+    progressValuePM5: 0,
+    progressValueT2: 0,
 };
 
 export default (state = initialState, action) => {
@@ -519,6 +570,41 @@ export default (state = initialState, action) => {
       return {
         ...state,
         SPGoSit3_D18: action.SPGoSit3_D18
+      };
+      case UPDATE_Progress_T1:
+      return {
+        ...state,
+        progressValueT1: action.progressValueT1
+      };
+      case UPDATE_Progress_PM1:
+      return {
+        ...state,
+        progressValuePM1: action.progressValuePM1
+      };
+      case UPDATE_Progress_PM2:
+      return {
+        ...state,
+        progressValuePM2: action.progressValuePM2
+      };
+      case UPDATE_Progress_PM3:
+      return {
+        ...state,
+        progressValuePM3: action.progressValuePM3
+      };
+      case UPDATE_Progress_PM4:
+      return {
+        ...state,
+        progressValuePM4: action.progressValuePM4
+      };
+      case UPDATE_Progress_PM5:
+      return {
+        ...state,
+        progressValuePM5: action.progressValuePM5
+      };
+      case UPDATE_Progress_T2:
+      return {
+        ...state,
+        progressValueT2: action.progressValueT2
       };
 
     default:

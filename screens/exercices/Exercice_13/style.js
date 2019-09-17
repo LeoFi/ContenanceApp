@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     //position: "absolute",
     width: Dimensions.get("window").width,
     top: 0,
-    marginBottom: 0
+    marginBottom: -20
   },
   image_absolute: {
     flex: 1,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     alignSelf: "stretch",
     fontFamily: "roboto-black",
-    paddingBottom: 10
+    //paddingBottom: 10
   },
   header_light: {
     color: "#F4F1DE",
@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
     marginLeft: 0
   },
   styleButtonNextRed: {
-    backgroundColor: "transparent",
+    backgroundColor: "#F87B7B",
     borderWidth: 2,
     borderColor: "#F87B7B",
     borderRadius: 12,

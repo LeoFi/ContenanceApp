@@ -16,21 +16,48 @@ import {
 import { styles } from "./style";
 
 import { connect } from "react-redux";
-import { updateState_Ex20 } from "./../../../redux-persist/redux/exercices";
+import {
+  updateState_Ex20,
+  updateState_Ex21,
+  updateState_PM5
+} from "./../../../redux-persist/redux/exercices";
 
 class Exercice_20_Congratulations extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      exercice_state_20: "completed"
+      exercice_state_20: "completed",
+      exercice_state_21: "locked",
+      exercice_state_PM5: "new"
     };
   }
 
   handleSubmit = () => {
-    const { exercice_state_20 } = this.state;
-    this.setState({ exercice_state_20: exercice_state_20 });
-    this.props.dispatch(updateState_Ex20(this.state.exercice_state_20));
+    if (
+      this.props.exercices.exercice_state_20 === "DONE" ||
+      this.props.exercices.exercice_state_20 === "completed"
+    ) {
+    } else {
+      const { exercice_state_20 } = this.state;
+      this.setState({ exercice_state_20: exercice_state_20 });
+      this.props.dispatch(updateState_Ex20(this.state.exercice_state_20));
+    }
+
+    if (this.props.exercices.exercice_state_21 === undefined) {
+      const exercice_state_21 = this.state.exercice_state_21;
+      this.setState({ exercice_state_21: exercice_state_21 });
+      this.props.dispatch(updateState_Ex21(this.state.exercice_state_21));
+    } else {
+      //
+    }
+
+    if (this.props.exercices.exercice_state_PM5 === "completed") {
+    } else {
+      const exercice_state_PM5 = this.state.exercice_state_PM5;
+      this.setState({ exercice_state_PM5: exercice_state_PM5 });
+      this.props.dispatch(updateState_PM5(this.state.exercice_state_PM5));
+    }
 
     this.props.navigation.push("Intro_Screen_PM5");
   };

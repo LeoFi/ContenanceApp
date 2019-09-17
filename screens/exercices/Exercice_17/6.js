@@ -56,6 +56,8 @@ export default class Exercice_17_6 extends React.Component {
                 })
               }
               isActive={this.state.iphone}
+              mainColor={"#6A97D8"}
+              mainColorReduced={"#E0DFD0"}
             />
             <GreyInputButton
               label="I use Android"
@@ -67,6 +69,8 @@ export default class Exercice_17_6 extends React.Component {
                 })
               }
               isActive={this.state.android}
+              mainColor={"#6A97D8"}
+              mainColorReduced={"#E0DFD0"}
             />
           </View>
         </ScrollView>

@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     //position: "absolute",
     width: Dimensions.get("window").width,
     top: 0,
-    marginBottom: 0
+    marginBottom: -20
   },
   image_height_relative: {
     flex: 1,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     alignSelf: "stretch",
     fontFamily: "roboto-black",
-    paddingBottom: 10
+    //paddingBottom: 10
   },
   header_light: {
     color: "#F4F1DE",
@@ -235,6 +235,14 @@ const styles = StyleSheet.create({
   },
   sub_header: {
     color: "#2C3B51",
+    fontSize: 24,
+    lineHeight: 28,
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 10
+  },
+  sub_header_colored: {
+    color: "#F87B7B",
     fontSize: 24,
     lineHeight: 28,
     textAlign: "center",

@@ -15,6 +15,8 @@ export default class GreyInputButton extends Component {
       isBottom: this.props.isBottom,
       style: this.props.style,
       isActive: this.props.isActive,
+      mainColor: this.props.mainColor,
+      mainColorReduced: this.props.mainColorReduced,
     };
 
     return (
@@ -24,8 +26,8 @@ export default class GreyInputButton extends Component {
           styles.button_grey_input,
           {
             backgroundColor: buttonProps.isActive
-              ? "#A28AD4"
-              : "rgba(44, 59, 81, 0.1)",
+              ? buttonProps.mainColor
+              : buttonProps.mainColorReduced,
             marginBottom: buttonProps.isBottom ? 0 : 15
           },
           buttonProps.style

@@ -49,43 +49,50 @@ export default class Exercice_3_2 extends React.Component {
           What strategies have you tried out so far to improve your smartphone
           use?
         </Text>
-        <View style={{ flex: 1 }}>
-          <DeckSwiper
-            looping={false}
-            dataSource={cards}
-            onSwipeLeft={this.countLeftTry}
-            onSwipeRight={this.countRightTry}
-            renderEmpty={this.renderEmpty}
-            elevation={3}
-            renderItem={item => (
-              <Card
-                style={{
-                  position: "relative",
-                  height: 200,
-                  backgroundColor: "#CAC0DE",
-                  justifyContent: "center",
-                  paddingLeft: 30,
-                  paddingRight: 30,
-                  justifyContent: "center",
-                  width: Dimensions.get("window").width - 160,
-                  alignSelf: "center",
-                  zIndex: 20
-                }}
-              >
-                <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-                  <Text style={styles.intro_text_center}>{item}</Text>
-                </CardItem>
-              </Card>
-            )}
-          />
+        <View
+          style={{
+            flex: 1
+          }}
+        >
+          <View
+            style={{ position: "relative", zIndex: 20, alignSelf: "center" }}
+          >
+            <DeckSwiper
+              looping={false}
+              dataSource={cards}
+              onSwipeLeft={this.countLeftTry}
+              onSwipeRight={this.countRightTry}
+              renderEmpty={this.renderEmpty}
+              elevation={3}
+              renderItem={item => (
+                <Card
+                  style={{
+                    height: 200,
+                    backgroundColor: "#CAC0DE",
+                    justifyContent: "center",
+                    paddingLeft: 30,
+                    paddingRight: 30,
+                    justifyContent: "center",
+                    width: Dimensions.get("window").width - 160,
+                    alignSelf: "center"
+                  }}
+                >
+                  <CardItem style={{ backgroundColor: "#CAC0DE" }}>
+                    <Text style={styles.intro_text_center}>{item}</Text>
+                  </CardItem>
+                </Card>
+              )}
+            />
+          </View>
 
-          {this.state.result? (null) : (
+          {this.state.result ? null : (
             <View
               style={{
                 top: 80,
                 flexDirection: "row",
                 justifyContent: "space-between",
-                zIndex: 1
+                position: "relative",
+                zIndex: 0
               }}
             >
               <Image
@@ -100,7 +107,7 @@ export default class Exercice_3_2 extends React.Component {
             </View>
           )}
         </View>
-        <View style={{flex:1}}/>
+        <View style={{ flex: 1 }} />
         <View style={{ justifyContent: "flex-end" }}>
           <Text style={styles.tap_text}>DRAG THE CARD LEFT OR RIGHT</Text>
         </View>
@@ -116,7 +123,7 @@ export default class Exercice_3_2 extends React.Component {
     this.state.countLeft += 1;
     this.state.result += 1;
     if (this.state.result === 8) {
-      this.setState({result: true})
+      this.setState({ result: true });
     }
   };
 
@@ -124,7 +131,7 @@ export default class Exercice_3_2 extends React.Component {
     this.state.countRight += 1;
     this.state.result += 1;
     if (this.state.result === 8) {
-      this.setState({result: true})
+      this.setState({ result: true });
     }
   };
 
@@ -142,10 +149,8 @@ export default class Exercice_3_2 extends React.Component {
   };
 
   renderEmpty = () => {
-    return (
-      this.state.countLeft + this.state.countRight === 8 ? (
-        <PrimaryButton label="See Results" onPress={this.goToNext} />
-      ) : null
-    );
+    return this.state.countLeft + this.state.countRight === 8 ? (
+      <PrimaryButton label="See Results" onPress={this.goToNext} />
+    ) : null;
   };
 }

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Contenance For Tina",
-    "slug": "contenance-for-tina",
+    "name": "Contenance Test Tina",
+    "slug": "contenance-test-tina",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [

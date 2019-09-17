@@ -54,7 +54,7 @@ class Exercice_10_5 extends React.Component {
             <TouchableWithoutFeedback style={styles.scroll}>
               <View style={styles.container_top}>
                 <Text style={styles.sub_header}>
-                  Bringing values to life with your smartphone
+                  Bringing values to life <Text style={styles.sub_header_colored}>with your smartphone</Text>
                 </Text>
                 <Text style={styles.intro_text_bold}>
                   {"\n"}What could an activity on your smartphone look like that

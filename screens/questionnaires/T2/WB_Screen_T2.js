@@ -1081,7 +1081,7 @@ export default class WB_Screen_T2 extends React.Component {
 
             <View style={styles.bottom}>
               <PrimaryButton
-                label="Continue"
+                label="Keep Going"
                 isBottom={true}
                 disabled={!this.state.buttonIsActive}
                 onPress={() => {

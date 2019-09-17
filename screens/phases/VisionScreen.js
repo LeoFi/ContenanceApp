@@ -32,7 +32,7 @@ class VisionScreen extends React.Component {
       exercice_state_10: this.props.exercices.exercice_state_10 || "",
       exercice_state_11: this.props.exercices.exercice_state_11 || "",
       exercice_state_12: this.props.exercices.exercice_state_12 || "",
-      reflection_state_3: this.props.exercices.reflection_state_3 || ""
+      exercice_state_PM3: this.props.exercices.exercice_state_PM3 || ""
     };
   }
 
@@ -167,7 +167,7 @@ class VisionScreen extends React.Component {
     let ReflectionTextStyle_3 = "";
     let ReflectionStyle_3 = "";
 
-    switch (this.props.exercices.reflection_state_3) {
+    switch (this.props.exercices.exercice_state_PM3) {
       case "completed":
         ReflectionTextStyle_3 = styles.text_completed;
         ReflectionStyle_3 = styles.completed;
@@ -228,11 +228,12 @@ class VisionScreen extends React.Component {
       },
       {
         id: 13,
-        path: "Reflection_3_Intro",
+        path: "Intro_Screen_PM3",
         label: "Module Reflection",
         styleButton: ReflectionStyle_3,
         styleText: ReflectionTextStyle_3,
-        IconSource: IconsReflection_3
+        IconSource: IconsReflection_3,
+        state: this.props.exercices.exercice_state_PM3
       }
     ];
 

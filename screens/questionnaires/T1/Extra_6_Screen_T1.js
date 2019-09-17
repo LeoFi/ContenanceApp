@@ -30,11 +30,13 @@ import * as firebase from "firebase";
 
 //this.props.navigation.navigate("Closing_Screen_T1");
 
-export default class Extra_6_Screen_T1 extends React.Component {
+import { connect } from "react-redux";
+import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
+
+class Extra_6_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 72 / 79,
       show_1: true,
       show_2: false,
       show_3: false,
@@ -43,7 +45,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
       show_6: false,
       show_7: false,
       buttonIsActive: false,
-      expectation: ""
+      expectation: "",
+      progressValueT1: undefined
     };
   }
 
@@ -55,6 +58,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
     const uid = firebase.auth().currentUser.uid;
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
+    const progressValueT1 = this.state.progressValueT1
     console.log(KEY, KEY_Value);
     firebase
       .database()
@@ -67,25 +71,29 @@ export default class Extra_6_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 73 / 79 });
+        this.setState({ progressValueT1: 73 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 74 / 79 });
+        this.setState({ progressValueT1: 74 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 75 / 79 });
+        this.setState({ progressValueT1: 75 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 76 / 79 });
+        this.setState({ progressValueT1: 76 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -93,7 +101,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 77 / 79 });
+        this.setState({ progressValueT1: 77 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -102,38 +111,45 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 78 / 79 });
+        this.setState({ progressValueT1: 78 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
-        this.setState({ progressValue: 79 / 79 });
+        this.setState({ progressValueT1: 79 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
 
   skipQuestion = () => {
+    const progressValueT1 = this.state.progressValueT1
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 73 / 79 });
+        this.setState({ progressValueT1: 73 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 74 / 79 });
+        this.setState({ progressValueT1: 74 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 75 / 79 });
+        this.setState({ progressValueT1: 75 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 76 / 79 });
+        this.setState({ progressValueT1: 76 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -141,7 +157,8 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 77 / 79 });
+        this.setState({ progressValueT1: 77 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -150,9 +167,11 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 78 / 79 });
+        this.setState({ progressValueT1: 78 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
-        this.setState({ progressValue: 79 / 79 });
+        this.setState({ progressValueT1: 79 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.props.navigation.navigate("Closing_Screen_T1");
       }
     }, 400);
@@ -172,7 +191,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 74 / 79 });
+        this.setState({ progressValueT1: 74 / 79 });
       }
     }, 400);
   };
@@ -181,28 +200,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-        <View
-          style={{
-            flex: 1,
-            width: Dimensions.get("window").width,
-            position: "absolute",
-            left: 0,
-            right: 0,
-            zIndex: 100,
-            backgroundColor: "#F4F1DE"
-          }}
-        >
-          <Progress.Bar
-            progress={this.state.progressValue}
-            borderWidth={0}
-            borderRadius={0}
-            width={null}
-            height={10}
-            color={"#2C3B51"}
-            unfilledColor={"rgba(255, 255, 255, 1)"}
-            animated={true}
-          />
-        </View>
+
         <View style={styles.container}>
           <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
             <Text style={styles.skip_text}>Skip</Text>
@@ -259,7 +257,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
                   style={styles.keyboard_view}
                 >
                   <Text style={styles.text_bold_center}>
-                    Why did you sign-up for the 21-day program
+                    Why did you sign-up for the 21-day program?
                   </Text>
 
                   <View style={styles.question}>
@@ -426,6 +424,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
             <>
               <Text style={styles.text_bold_center}>
                 If yes, for which purpose do you use this additional smartphone?
+                If no, please skip this question.
               </Text>
 
               <View style={styles.question}>
@@ -524,3 +523,7 @@ export default class Extra_6_Screen_T1 extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+export default connect(mapStateToProps)(Extra_6_Screen_T1);

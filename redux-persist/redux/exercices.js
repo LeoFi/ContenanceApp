@@ -20,6 +20,12 @@ export const UPDATE_State_Exe19 = "UPDATE_State_Exe19";
 export const UPDATE_State_Exe20 = "UPDATE_State_Exe20";
 export const UPDATE_State_Exe21 = "UPDATE_State_Exe21";
 
+export const UPDATE_State_PM1 = "UPDATE_State_PM1";
+export const UPDATE_State_PM2 = "UPDATE_State_PM2";
+export const UPDATE_State_PM3 = "UPDATE_State_PM3";
+export const UPDATE_State_PM4 = "UPDATE_State_PM4";
+export const UPDATE_State_PM5 = "UPDATE_State_PM5";
+
 export const updateState_Ex1 = exercice_state_1 => ({
   type: UPDATE_State_Exe1,
   exercice_state_1
@@ -125,6 +131,31 @@ export const updateState_Ex21 = exercice_state_21 => ({
   exercice_state_21
 });
 
+export const updateState_PM1 = exercice_state_PM1 => ({
+  type: UPDATE_State_PM1,
+  exercice_state_PM1
+});
+
+export const updateState_PM2 = exercice_state_PM2 => ({
+  type: UPDATE_State_PM2,
+  exercice_state_PM2
+});
+
+export const updateState_PM3 = exercice_state_PM3 => ({
+  type: UPDATE_State_PM3,
+  exercice_state_PM3
+});
+
+export const updateState_PM4 = exercice_state_PM4 => ({
+  type: UPDATE_State_PM4,
+  exercice_state_PM4
+});
+
+export const updateState_PM5 = exercice_state_PM5 => ({
+  type: UPDATE_State_PM5,
+  exercice_state_PM5
+});
+
 const initialState = {
   exercice_state_1: "next",
   exercice_state_2: undefined,
@@ -145,6 +176,11 @@ const initialState = {
   exercice_state_19: undefined,
   exercice_state_20: undefined,
   exercice_state_21: undefined,
+  exercice_state_PM1: undefined,
+  exercice_state_PM2: undefined,
+  exercice_state_PM3: undefined,
+  exercice_state_PM4: undefined,
+  exercice_state_PM5: undefined,
 };
 
 export default (state = initialState, action) => {
@@ -253,6 +289,31 @@ export default (state = initialState, action) => {
       return {
         ...state,
         exercice_state_21: action.exercice_state_21
+      };
+      case UPDATE_State_PM1:
+      return {
+        ...state,
+        exercice_state_PM1: action.exercice_state_PM1
+      };
+      case UPDATE_State_PM2:
+      return {
+        ...state,
+        exercice_state_PM2: action.exercice_state_PM2
+      };
+      case UPDATE_State_PM3:
+      return {
+        ...state,
+        exercice_state_PM3: action.exercice_state_PM3
+      };
+      case UPDATE_State_PM4:
+      return {
+        ...state,
+        exercice_state_PM4: action.exercice_state_PM4
+      };
+      case UPDATE_State_PM5:
+      return {
+        ...state,
+        exercice_state_PM5: action.exercice_state_PM5
       };
     default:
       return state;

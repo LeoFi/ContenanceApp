@@ -146,9 +146,9 @@ class Exercice_13_3 extends React.Component {
                   </Defs>
                 </Svg>
                 <Text style={styles.intro_text_grey}>
-                  E.g. ... then I will listen to a TED talk on my smartphone.
+                  E.g. If I am in the metro, then I will listen to a TED talk on my smartphone.
                   {"\n"}
-                  {"\n"}...then I will send my best friend a thoughful message.
+                  {"\n"}If I am lonely, then I will send my best friend a thoughful message.
                 </Text>
               </View>
             </Modal>

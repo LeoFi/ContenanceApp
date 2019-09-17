@@ -312,7 +312,7 @@ export default class SE_Screen_PM4 extends React.Component {
 
               <View style={styles.bottom}>
                 <PrimaryButton
-                  label="Continue"
+                  label="Keep Going"
                   isBottom={true}
                   disabled={!this.state.AltNoAvail_D16}
                   onPress={this.handleClick}

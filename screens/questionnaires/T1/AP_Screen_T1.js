@@ -24,7 +24,10 @@ import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
-export default class AP_Screen_T1 extends React.Component {
+import { connect } from "react-redux";
+import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
+
+class AP_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,8 +36,8 @@ export default class AP_Screen_T1 extends React.Component {
       show_3: false,
       show_4: false,
       show_5: false,
-      progressValue: 52 / 79,
-      buttonIsActive: false
+      buttonIsActive: false,
+      progressValueT1: undefined
     };
   }
 
@@ -42,6 +45,7 @@ export default class AP_Screen_T1 extends React.Component {
     const uid = firebase.auth().currentUser.uid;
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
+    const progressValueT1 = this.state.progressValueT1
     console.log(KEY, KEY_Value);
     firebase
       .database()
@@ -54,58 +58,71 @@ export default class AP_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 53 / 79 });
+        this.setState({ progressValueT1: 53 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 54 / 79 });
+        this.setState({ progressValueT1: 54 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 55 / 79 });
+        this.setState({ progressValueT1: 55 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 56 / 79 });
+        this.setState({ progressValueT1: 56 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
-        this.setState({ progressValue: 57 / 79 });
+        this.setState({ progressValueT1: 57 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
+
         this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
 
   skipQuestion = () => {
+    const progressValueT1 = this.state.progressValueT1
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 53 / 79 });
+        this.setState({ progressValueT1: 53 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 54 / 79 });
+        this.setState({ progressValueT1: 54 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 55 / 79 });
+        this.setState({ progressValueT1: 55 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 56 / 79 });
+        this.setState({ progressValueT1: 56 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
-        this.setState({ progressValue: 57 / 79 });
+        this.setState({ progressValueT1: 57 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
+
         this.props.navigation.navigate("AC_Screen_T1");
       }
     }, 400);
@@ -114,167 +131,151 @@ export default class AP_Screen_T1 extends React.Component {
   render() {
     return (
       <>
-      <StatusBar hidden />
-        <View
-          style={{
-            flex: 1,
-            width: Dimensions.get("window").width,
-            position: "absolute",
-            left: 0,
-            right: 0,
-            zIndex: 100,
-            backgroundColor: "#F4F1DE"
-          }}
-        >
-          <Progress.Bar
-            progress={this.state.progressValue}
-            borderWidth={0}
-            borderRadius={0}
-            width={null}
-            height={10}
-            color={"#2C3B51"}
-            unfilledColor={"rgba(255, 255, 255, 1)"}
-            animated={true}
-          />
-        </View>
+        <StatusBar hidden />
+
         <View style={styles.container}>
-        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-          <Text style={styles.skip_text}>Skip</Text>
-        </TouchableOpacity>
-        <Text style={styles.header_left_padding}>
-          In the last 7 days, I have made a detailed plan regarding...
-        </Text>
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
+          <Text style={styles.header_left_padding}>
+            In the last 7 days, I have made a detailed plan regarding...
+          </Text>
 
-        {this.state.show_1 ? (
-          <>
-            <Text style={styles.text_left}>
-              ... when to use my smartphone consciously (e.g., on the way to
-              work).
-            </Text>
+          {this.state.show_1 ? (
+            <>
+              <Text style={styles.text_left}>
+                ... <Text style={styles.text_bold}>when</Text> to use my
+                smartphone consciously (e.g., on the way to work).
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"AP01_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP01_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP01_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP01_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP01_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP01_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"AP01_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"AP01_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"AP01_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"AP01_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"AP01_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"AP01_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_2 ? (
-          <>
-            <Text style={styles.text_left}>
-              ... where to use my smartphone consciously (e.g., in the train)
-            </Text>
+          {this.state.show_2 ? (
+            <>
+              <Text style={styles.text_left}>
+                ... <Text style={styles.text_bold}>where</Text> to use my
+                smartphone consciously (e.g., in the train)
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"AP02_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP02_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP02_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP02_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP02_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP02_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"AP02_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"AP02_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"AP02_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"AP02_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"AP02_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"AP02_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_3 ? (
-          <>
-            <Text style={styles.text_left}>
-              ... what to do on my smartphone to use it consciously (e.g.,
-              listen to a TED talk on the smartphone)
-            </Text>
+          {this.state.show_3 ? (
+            <>
+              <Text style={styles.text_left}>
+                ... what to do on my smartphone to use it consciously (e.g.,
+                listen to a TED talk on the smartphone)
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"AP03_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP03_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP03_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP03_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP03_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP03_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"AP03_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"AP03_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"AP03_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"AP03_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"AP03_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"AP03_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_4 ? (
-          <>
-            <Text style={styles.text_left}>
-              ... what I can do in difficult situations to stay true to my
-              plans.
-            </Text>
+          {this.state.show_4 ? (
+            <>
+              <Text style={styles.text_left}>
+                ... what I can do in difficult situations to stay true to my
+                plans.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"AP04_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP04_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP04_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP04_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP04_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP04_D1/6"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"AP04_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"AP04_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"AP04_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"AP04_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"AP04_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"AP04_D1/6"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_5 ? (
-          <>
-            <Text style={styles.text_left}>
-              ... how to deal with it once I’ve failed doing it.
-            </Text>
+          {this.state.show_5 ? (
+            <>
+              <Text style={styles.text_left}>
+                ... how to deal with it once I’ve failed doing it.
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                labelLeft="Not at all true"
-                labelRight="Exactly true"
-              >
-                <Radio iconName={"lens"} label={"1"} value={"AP05_D1/1"} />
-                <Radio iconName={"lens"} label={"2"} value={"AP05_D1/2"} />
-                <Radio iconName={"lens"} label={"3"} value={"AP05_D1/3"} />
-                <Radio iconName={"lens"} label={"4"} value={"AP05_D1/4"} />
-                <Radio iconName={"lens"} label={"5"} value={"AP05_D1/5"} />
-                <Radio iconName={"lens"} label={"6"} value={"AP05_D1/6"} />
-              </RadioGroup>
-            </View>
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  labelLeft="Not at all true"
+                  labelRight="Exactly true"
+                >
+                  <Radio iconName={"lens"} label={"1"} value={"AP05_D1/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"AP05_D1/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"AP05_D1/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"AP05_D1/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"AP05_D1/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"AP05_D1/6"} />
+                </RadioGroup>
+              </View>
 
-            <View style={styles.bottom}>
-              <PrimaryButton
-                label="Continue"
-                isBottom={true}
-                disabled={!this.state.buttonIsActive}
-                onPress={() => {
-                  this.props.navigation.navigate("AC_Screen_T1");
-                }}
-              />
-            </View>
-          </>
-        ) : null}
-      </View>
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="Continue"
+                  isBottom={true}
+                  disabled={!this.state.buttonIsActive}
+                  onPress={() => {
+                    this.props.navigation.navigate("AC_Screen_T1");
+                  }}
+                />
+              </View>
+            </>
+          ) : null}
+        </View>
       </>
     );
   }
 }
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+export default connect(mapStateToProps)(AP_Screen_T1);

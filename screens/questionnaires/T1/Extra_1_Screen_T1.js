@@ -24,13 +24,16 @@ import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
-export default class Extra_1_Screen_T1 extends React.Component {
+import { connect } from "react-redux";
+import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
+
+class Extra_1_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 63 / 79,
       buttonIsActive: false,
-      userAge: ""
+      userAge: "",
+      progressValueT1: undefined
     };
   }
 
@@ -40,6 +43,7 @@ export default class Extra_1_Screen_T1 extends React.Component {
 
   handleSubmit = () => {
     const { userAge } = this.state;
+    const progressValueT1 = this.state.progressValueT1
     console.log(userAge);
     const uid = firebase.auth().currentUser.uid;
     firebase
@@ -47,7 +51,8 @@ export default class Extra_1_Screen_T1 extends React.Component {
       .ref("questionnaires")
       .child(uid)
       .update({ Age: userAge });
-    this.setState({ progressValue: 64 / 79 });
+    this.setState({ progressValueT1: 64 });
+    this.props.dispatch(Update_Progress_T1(progressValueT1));
     this.props.navigation.navigate("Extra_2_Screen_T1");
   };
 
@@ -55,34 +60,15 @@ export default class Extra_1_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-        <View
-          style={{
-            flex: 1,
-            width: Dimensions.get("window").width,
-            position: "absolute",
-            left: 0,
-            right: 0,
-            zIndex: 100,
-            backgroundColor: "#F4F1DE"
-          }}
-        >
-          <Progress.Bar
-            progress={this.state.progressValue}
-            borderWidth={0}
-            borderRadius={0}
-            width={null}
-            height={10}
-            color={"#2C3B51"}
-            unfilledColor={"rgba(255, 255, 255, 1)"}
-            animated={true}
-          />
-        </View>
+
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
             <>
               <TouchableOpacity
                 onPress={() => {
-                  this.setState({ progressValue: 64 / 79 });
+                  const progressValueT1 = this.state.progressValueT1
+                  this.setState({ progressValueT1: 64 });
+                  this.props.dispatch(Update_Progress_T1(progressValueT1));
                   this.props.navigation.navigate("Extra_2_Screen_T1");
                 }}
                 style={styles.skip}
@@ -124,3 +110,7 @@ export default class Extra_1_Screen_T1 extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+export default connect(mapStateToProps)(Extra_1_Screen_T1);

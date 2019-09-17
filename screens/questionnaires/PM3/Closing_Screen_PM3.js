@@ -14,25 +14,21 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 import { connect } from "react-redux";
-import { updateState_Ex13 } from "./../../../redux-persist/redux/exercices";
+import { updateState_PM3 } from "./../../../redux-persist/redux/exercices";
 
 class Closing_Screen_PM3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       nickname: this.props.nickname,
-      exercice_state_13: "locked"
+      exercice_state_PM3: "completed"
     };
   }
 
   handleSubmit = () => {
-    if (this.props.exercices.exercice_state_13 === undefined) {
-      const exercice_state_13 = this.state.exercice_state_13;
-      this.setState({ exercice_state_13: exercice_state_13 });
-      this.props.dispatch(updateState_Ex13(this.state.exercice_state_13));
-    } else {
-      //
-    }
+    const exercice_state_PM3 = this.state.exercice_state_PM3;
+    this.setState({ exercice_state_PM3: exercice_state_PM3 });
+    this.props.dispatch(updateState_PM3(this.state.exercice_state_PM3));
     this.props.navigation.push("Home");
   };
 
@@ -70,8 +66,7 @@ class Closing_Screen_PM3 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
-  exercices: state.exercices
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Closing_Screen_PM3);

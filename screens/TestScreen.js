@@ -92,6 +92,24 @@ class TestScreen extends React.Component {
 
   setPhases = () => {
     if (
+      this.state.observeStarted === true &&
+      this.state.reflectStarted === true &&
+      this.state.visionStarted === true &&
+      this.state.planStarted === true &&
+      this.state.supportStarted === true
+    ) {
+      this.setState(
+        {
+          welcomeSubTitle:
+            "You’re done with the 21-day program. We will email you with the next steps in the study."
+        },
+        function() {
+          this.props.dispatch(
+            updateWelcomeSubTitle(this.state.welcomeSubTitle)
+          );
+        }
+      );
+    } else if (
       (this.props.exercices.exercice_state_13 === "completed" ||
         this.props.exercices.exercice_state_13 === "DONE") &&
       (this.props.exercices.exercice_state_14 === "completed" ||
@@ -172,27 +190,7 @@ class TestScreen extends React.Component {
     this.compareDates();
     this.timeLogic();
     this.setPhases();
-
-    // const uid = firebase.auth().currentUser.uid;
-
-    // firebase
-    //   .database()
-    //   .ref()
-    //   .child("accounts")
-    //   .child(uid)
-    //   .update({
-    //     DaysMissedTotal: Days_Missed_TotalValue,
-    //     DaysMissedLastEx: Days_Missed_LastExValue
-    //   });
   }
-
-  goToTop = () => {
-    this.scroll.scrollTo({
-      x: -Dimensions.get("window").height,
-      y: 0,
-      animated: true
-    });
-  };
 
   compareDates = () => {
     diff_days = (dt2, dt1) => {
@@ -212,7 +210,7 @@ class TestScreen extends React.Component {
   timeLogic = () => {
     const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    dt2 = new Date("October 21 2019 16:44:30");
+    dt2 = new Date("November 14, 2019 23:15:30");
     //dt2 = new Date();
     var x = diff_days(dt1, dt2);
     //Alert.alert(x);
@@ -510,6 +508,18 @@ class TestScreen extends React.Component {
 
         // DAYS MISSED SINCE LAST COMPLETED EXERCISE
         const Days_Missed_LastExValue = myOrderedArray.pop();
+
+        // const uid = firebase.auth().currentUser.uid;
+
+        // firebase
+        //   .database()
+        //   .ref()
+        //   .child("accounts")
+        //   .child(uid)
+        //   .update({
+        //     DaysMissedTotal: Days_Missed_TotalValue,
+        //     DaysMissedLastEx: Days_Missed_LastExValue
+        //   });
       } else {
         //
       }
@@ -1128,12 +1138,12 @@ class TestScreen extends React.Component {
         break;
       case "next":
         ExerciceTextStyle_21 = styles.text_next;
-        ExerciceStyle_21 = styles.next;
+        ExerciceStyle_21 = styles.next_support;
         IconsExercice_21 = require("./../assets/images/nextmark.png");
         break;
       case "new":
-        ExerciceTextStyle_21 = styles.text_new;
-        ExerciceStyle_21 = styles.new;
+        ExerciceTextStyle_21 = styles.text_new_support;
+        ExerciceStyle_21 = styles.new_support;
         IconsExercice_21 = require("./../assets/images/newmark_support.png");
         break;
       case "locked":
@@ -1192,8 +1202,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 3,
-        //path: "Exercice_3_Intro",
-        path: "Exercice_3_3",
+        path: "Exercice_3_Intro",
+        //path: "Exercice_3_3",
         label: "Day 3 - Solution Triangle",
         styleButton: ExerciceStyle_3,
         styleText: ExerciceTextStyle_3,
@@ -1372,20 +1382,19 @@ class TestScreen extends React.Component {
         title: <Text style={styles.header_challenge}>54321 Trick</Text>,
         text_content: (
           <Text style={styles.text_challenge}>
-            The next time you are using
-            {this.state.AppsRed1_D7 == undefined
+            The next time you are using{" "}
+            {this.props.user_values.AppsRed1_D7 == undefined
               ? null
               : this.props.user_values.AppsRed1_D7}
-            ,
-            {this.state.AppsRed2_D7 == undefined
+            ,{" "}
+            {this.props.user_values.AppsRed2_D7 == undefined
               ? null
               : this.props.user_values.AppsRed2_D7}{" "}
-            and
-            {this.state.AppsRed3_D7 == undefined
+            and{" "}
+            {this.props.user_values.AppsRed3_D7 == undefined
               ? null
               : this.props.user_values.AppsRed3_D7}
-            , give it a try and do the trick to find: Give it a try and do the
-            54321 trick and find:{"\n"}
+            , give it a try and do the 54321 trick and find:{"\n"}
             {"\n"}5 things you can see, 4 things you can touch, 3 things you can
             hear, 2 things you can smell, 1 thing you can taste!
           </Text>
@@ -1429,7 +1438,9 @@ class TestScreen extends React.Component {
           <Text style={styles.text_challenge}>
             Let’s walk the walk. Do a first run of your new activity:{"\n"}
             {"\n"}
-            {/* {this.props.user_values.NewHabitCommit_D13} */}
+            {this.props.user_values.NewHabitCommit_D13 == undefined
+              ? null
+              : this.props.user_values.NewHabitCommit_D13}
           </Text>
         )
       },
@@ -1451,17 +1462,38 @@ class TestScreen extends React.Component {
           <Text style={styles.text_challenge}>
             Do a test-run of one of your newly defined coping plans!{"\n"}
             {"\n"}There might be challenges to realize my plan:{" "}
-            {/* {this.props.user_values.NewHabitCommit_D13 === undefined
+            {this.props.user_values.NewHabitCommit_D13 === undefined
               ? null
               : this.props.user_values.NewHabitCommit_D13}
             . But I am prepared.
             {"\n"}
-            {"\n"}If {this.props.user_values.Obstacle1_D14}, then{" "}
-            {this.props.user_values.CopingStrategy1_D14}.{"\n"}
-            {"\n"}If {this.props.user_values.Obstacle2_D14}, then{" "}
-            {this.props.user_values.CopingStrategy2_D14}.{"\n"}
-            {"\n"}If {this.props.user_values.Obstacle3_D14}, then{" "}
-            {this.props.user_values.CopingStrategy3_D14}. */}
+            {"\n"}If{" "}
+            {this.props.user_values.Obstacle1_D14 == undefined
+              ? null
+              : this.props.user_values.Obstacle1_D14}
+            , then{" "}
+            {this.props.user_values.CopingStrategy1_D14 == undefined
+              ? null
+              : this.props.user_values.CopingStrategy1_D14}
+            .{"\n"}
+            {"\n"}If{" "}
+            {this.props.user_values.Obstacle2_D14 == undefined
+              ? null
+              : this.props.user_values.Obstacle2_D14}
+            , then{" "}
+            {this.props.user_values.CopingStrategy2_D14 == undefined
+              ? null
+              : this.props.user_values.CopingStrategy2_D14}
+            .{"\n"}
+            {"\n"}If{" "}
+            {this.props.user_values.Obstacle3_D14 == undefined
+              ? null
+              : this.props.user_values.Obstacle3_D14}
+            , then{" "}
+            {this.props.user_values.CopingStrategy3_D14 == undefined
+              ? null
+              : this.props.user_values.CopingStrategy3_D14}
+            .
           </Text>
         )
       },
@@ -1591,9 +1623,8 @@ class TestScreen extends React.Component {
       },
       {
         id: 21,
-        // path: "Intro_Screen_T2",
-        path: "QQ_Screen_T2",
-        label: "Closing",
+        path: "Exercice_21_Intro",
+        label: "Day 21 - Closing",
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
         IconSource: IconsExercice_21,
@@ -1601,7 +1632,6 @@ class TestScreen extends React.Component {
         function: updateState_Ex21
       }
     ];
-    //this.state.visible ? 70 : 0
     return (
       <>
         <BlurView
@@ -2241,7 +2271,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   text_new_observe: {
-    color: "#9B51E0",
+    color: "#A28AD4",
     fontSize: 17,
     lineHeight: 23,
     textAlign: "left",
@@ -2391,7 +2421,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   user: state.user,
-  exercices: state.exercices
+  exercices: state.exercices,
+  user_values: state.user_values
 });
 
 export default connect(mapStateToProps)(TestScreen);

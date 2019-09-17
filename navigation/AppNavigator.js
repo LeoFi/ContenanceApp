@@ -3,7 +3,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import { fromRight } from "react-navigation-transitions";
 import MainTabNavigator from "./MainTabNavigator";
 import { connect } from "react-redux";
-
+import { HeaderComponent } from "../components/AppComponents";
 
 import StartScreen from "../screens/auth/StartScreen";
 import AccountAccessScreen from "../screens/auth/SignUpScreens/AccountAccessScreen";
@@ -39,15 +39,95 @@ import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
 const IntroStack = createStackNavigator(
   {
-    Start: { screen: StartScreen },
-    AccountAccess: { screen: AccountAccessScreen },
-    IntroOnboarding: { screen: IntroOnboardingScreen },
-    Onboarding: { screen: OnboardingScreen },
-    Conclusion: { screen: ConclusionScreen },
-    Intro_Screen_T1: { screen: Intro_Screen_T1 },
-    PSU_Screen_T1: { screen: PSU_Screen_T1 },
-    SUE_Screen_T1: { screen: SUE_Screen_T1 },
-    WB_Screen_T1: { screen: WB_Screen_T1 },
+    Start: {
+      screen: StartScreen,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    AccountAccess: {
+      screen: AccountAccessScreen,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    IntroOnboarding: {
+      screen: IntroOnboardingScreen,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    Onboarding: {
+      screen: OnboardingScreen,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    Conclusion: {
+      screen: ConclusionScreen,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    Intro_Screen_T1: {
+      screen: Intro_Screen_T1,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    PSU_Screen_T1: {
+      screen: PSU_Screen_T1,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={this.props.user_values.progressValueT1 / 79}
+            disabledProgress={false}
+            colorProgress={"#2C3B51"}
+            disabledClose={false}
+            {...props}
+          />
+        )
+      }
+    },
+    SUE_Screen_T1: {
+      screen: SUE_Screen_T1,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={this.props.user_values.progressValueT1 / 79}
+            disabledProgress={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            disabledClose={false}
+            {...props}
+          />
+        )
+      }
+    },
+    WB_Screen_T1: {
+      screen: WB_Screen_T1,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={this.props.user_values.progressValueT1 / 79}
+            disabledProgress={false}
+            colorIcons={"#A28AD4"}
+            colorProgress={"#A28AD4"}
+            disabledClose={false}
+            {...props}
+          />
+        )
+      }
+    },
     MFSU_Screen_T1: { screen: MFSU_Screen_T1 },
     PSF_Screen_T1: { screen: PSF_Screen_T1 },
     TRP_Screen_T1: { screen: TRP_Screen_T1 },
@@ -69,10 +149,9 @@ const IntroStack = createStackNavigator(
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
-    headerMode: 'none',
+    //headerMode: "none"
   }
 );
-
 
 const MainStack = createStackNavigator(
   {
@@ -82,20 +161,28 @@ const MainStack = createStackNavigator(
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
-    headerMode: "none",
+    headerMode: "none"
   }
 );
 
 const AppContainer = createAppContainer(MainStack);
 
 class RootNavigation extends React.Component {
+  
   render() {
-    { return this.props.user.onboardingDone ? <MainTabNavigator /> : <AppContainer />}
+    {
+      return this.props.user.onboardingDone ? (
+        <MainTabNavigator />
+      ) : (
+        <AppContainer />
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  user_values: state.user_values
 });
 
 export default connect(mapStateToProps)(RootNavigation);

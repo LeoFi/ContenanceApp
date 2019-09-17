@@ -324,7 +324,7 @@ export default class MFSU_Screen_PM4 extends React.Component {
        
             <View style={styles.bottom}>
               <PrimaryButton
-                label="Continue"
+                label="Keep Going"
                 isBottom={true}
                 disabled={ !this.state.buttonIsActive }
                 onPress={() => {

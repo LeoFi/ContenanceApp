@@ -28,7 +28,10 @@ import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-export default class PSU_Screen_T1 extends React.Component {
+import { connect } from "react-redux";
+import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
+
+class PSU_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,9 +44,9 @@ export default class PSU_Screen_T1 extends React.Component {
       show_7: false,
       show_8: false,
       show_9: false,
-      progressValue: 0,
       modalVisible: false,
-      buttonIsActive: false
+      buttonIsActive: false,
+      progressValueT1: 0
     };
   }
 
@@ -51,6 +54,7 @@ export default class PSU_Screen_T1 extends React.Component {
     const uid = firebase.auth().currentUser.uid;
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
+    const progressValueT1 = this.state.progressValueT1
     console.log(KEY, KEY_Value);
     firebase
       .database()
@@ -63,25 +67,29 @@ export default class PSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 1 / 79 });
+        this.setState({ progressValueT1: 1 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 2 / 79 });
+        this.setState({ progressValueT1: 2 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 3 / 79 });
+        this.setState({ progressValueT1: 3 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 4 / 79 });
+        this.setState({ progressValueT1: 4 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -89,7 +97,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 5 / 79 });
+        this.setState({ progressValueT1: 5 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -98,7 +107,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 6 / 79 });
+        this.setState({ progressValueT1: 6 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -108,7 +118,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValue: 7 / 79 });
+        this.setState({ progressValueT1: 7 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -119,38 +130,46 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValue: 8 / 79 });
+        this.setState({ progressValueT1: 8 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_9 == true) {
-        this.setState({ progressValue: 9 / 79 });
+        this.setState({ progressValueT1: 9 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.setState({ buttonIsActive: true });
       }
     }, 400);
   };
 
   skipQuestion = () => {
+    const progressValueT1 = this.state.progressValueT1
+
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValue: 1 / 79 });
+        this.setState({ progressValueT1: 1 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValue: 2 / 79 });
+        this.setState({ progressValueT1: 2 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValue: 3 / 79 });
+        this.setState({ progressValueT1: 3 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValue: 4 / 79 });
+        this.setState({ progressValueT1: 4 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -158,7 +177,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValue: 5 / 79 });
+        this.setState({ progressValueT1: 5 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -167,7 +187,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValue: 6 / 79 });
+        this.setState({ progressValueT1: 6 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -177,7 +198,8 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValue: 7 / 79 });
+        this.setState({ progressValueT1: 7 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
@@ -188,9 +210,11 @@ export default class PSU_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValue: 8 / 79 });
+        this.setState({ progressValueT1: 8 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_9 == true) {
-        this.setState({ progressValue: 9 / 79 });
+        this.setState({ progressValueT1: 9 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.props.navigation.navigate("SUE_Screen_T1");
       }
     }, 400);
@@ -204,28 +228,7 @@ export default class PSU_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-        <View
-          style={{
-            flex: 1,
-            width: Dimensions.get("window").width,
-            position: "absolute",
-            left: 0,
-            right: 0,
-            zIndex: 100,
-            backgroundColor: "#F4F1DE"
-          }}
-        >
-          <Progress.Bar
-            progress={this.state.progressValue}
-            borderWidth={0}
-            borderRadius={0}
-            width={null}
-            height={10}
-            color={"#2C3B51"}
-            unfilledColor={"rgba(255, 255, 255, 1)"}
-            animated={true}
-          />
-        </View>
+
         <View style={styles.container}>
           <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
             <Text style={styles.skip_text}>Skip</Text>
@@ -505,7 +508,7 @@ export default class PSU_Screen_T1 extends React.Component {
                         width: Dimensions.get("window").width,
                         height: Dimensions.get("window").height,
                         backgroundColor: "#F4F1DE",
-                        position: 'relative',
+                        position: "relative",
                         zIndex: 10
                       }}
                     >
@@ -528,3 +531,8 @@ export default class PSU_Screen_T1 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+export default connect(mapStateToProps)(PSU_Screen_T1);

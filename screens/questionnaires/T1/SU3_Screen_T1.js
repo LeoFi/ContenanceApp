@@ -24,13 +24,16 @@ import * as Progress from "react-native-progress";
 
 import * as firebase from "firebase";
 
-export default class SU3_Screen_T1 extends React.Component {
+import { connect } from "react-redux";
+import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
+
+class SU3_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressValue: 71 / 79,
       show_1: true,
-      buttonIsActive: false
+      buttonIsActive: false,
+      progressValueT1: undefined
     };
   }
 
@@ -38,6 +41,7 @@ export default class SU3_Screen_T1 extends React.Component {
     const uid = firebase.auth().currentUser.uid;
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
+    const progressValueT1 = this.state.progressValueT1
     console.log(KEY, KEY_Value);
     firebase
       .database()
@@ -54,9 +58,11 @@ export default class SU3_Screen_T1 extends React.Component {
   };
 
   handleClick = () => {
+    const progressValueT1 = this.state.progressValueT1
     setTimeout(() => {
       if (this.state.show_1 == true) {
-        this.setState({ progressValue: 72 / 79 });
+        this.setState({ progressValueT1: 72 });
+        this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.props.navigation.navigate("Extra_6_Screen_T1");
       }
     }, 400);
@@ -66,28 +72,7 @@ export default class SU3_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-        <View
-          style={{
-            flex: 1,
-            width: Dimensions.get("window").width,
-            position: "absolute",
-            left: 0,
-            right: 0,
-            zIndex: 100,
-            backgroundColor: "#F4F1DE"
-          }}
-        >
-          <Progress.Bar
-            progress={this.state.progressValue}
-            borderWidth={0}
-            borderRadius={0}
-            width={null}
-            height={10}
-            color={"#2C3B51"}
-            unfilledColor={"rgba(255, 255, 255, 1)"}
-            animated={true}
-          />
-        </View>
+
         <View style={styles.container}>
           <ScrollView
             style={{ alignSelf: "stretch" }}
@@ -95,7 +80,9 @@ export default class SU3_Screen_T1 extends React.Component {
           >
             <TouchableOpacity
               onPress={() => {
-                this.setState({ progressValue: 72 / 79 });
+                const progressValueT1 = this.state.progressValueT1
+                this.setState({ progressValueT1: 72 });
+                this.props.dispatch(Update_Progress_T1(progressValueT1));
                 this.props.navigation.navigate("Extra_6_Screen_T1");
               }}
               style={styles.skip}
@@ -173,18 +160,22 @@ export default class SU3_Screen_T1 extends React.Component {
             ) : null}
 
             {this.state.show_1 ? (
-            <View style={styles.bottom}>
-              <PrimaryButton
-                label="Continue"
-                isBottom={true}
-                disabled={!this.state.buttonIsActive}
-                onPress={this.handleClick}
-              />
-            </View>
-          ) : null}
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="Continue"
+                  isBottom={true}
+                  disabled={!this.state.buttonIsActive}
+                  onPress={this.handleClick}
+                />
+              </View>
+            ) : null}
           </ScrollView>
         </View>
       </>
     );
   }
 }
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+export default connect(mapStateToProps)(SU3_Screen_T1);

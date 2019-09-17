@@ -496,7 +496,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ1}
                       onPress={this.handleSubmit}
@@ -526,7 +526,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ2}
                       onPress={this.handleSubmit}
@@ -556,7 +556,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ3}
                       onPress={this.handleSubmit}
@@ -585,7 +585,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ4}
                       onPress={this.handleSubmit}
@@ -615,7 +615,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ5}
                       onPress={this.handleSubmit}
@@ -719,7 +719,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ7}
                       onPress={this.handleSubmit}
@@ -749,7 +749,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ8}
                       onPress={this.handleSubmit}
@@ -779,7 +779,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ9}
                       onPress={this.handleSubmit}
@@ -814,7 +814,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ10}
                       onPress={this.handleSubmit}
@@ -844,7 +844,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ11}
                       onPress={this.handleSubmit}
@@ -873,7 +873,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ12}
                       onPress={this.handleSubmit}
@@ -902,7 +902,7 @@ export default class QQ_Screen_T2 extends React.Component {
 
                   <View style={styles.bottom}>
                     <PrimaryButton
-                      label="Continue"
+                      label="Keep Going"
                       isBottom={true}
                       disabled={!this.state.QQ13}
                       onPress={this.handleSubmit}

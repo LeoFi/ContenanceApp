@@ -39,7 +39,7 @@ export default class Exercice_14_5 extends React.Component {
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.intro_text}>
-                Have a peak into what Leo came up with.
+                Have a peek into what Leo came up with.
                 </Text>
                 <Text style={styles.intro_text_grey}>
                   {"\n"}What could happen in Leo’s case? If I am in the metro,

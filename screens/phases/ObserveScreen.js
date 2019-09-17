@@ -33,7 +33,7 @@ class ObserveScreen extends React.Component {
       exercice_state_2: this.props.exercices.exercice_state_2 || "",
       exercice_state_3: this.props.exercices.exercice_state_3 || "",
       exercice_state_4: this.props.exercices.exercice_state_4 || "",
-      reflection_state_1: this.props.exercices.reflection_state_1 || ""
+      exercice_state_PM1: this.props.exercices.exercice_state_PM1 || ""
     };
   }
 
@@ -164,7 +164,7 @@ class ObserveScreen extends React.Component {
     let ReflectionTextStyle_1 = "";
     let ReflectionStyle_1 = "";
 
-    switch (this.props.exercices.reflection_state_1) {
+    switch (this.props.exercices.exercice_state_PM1) {
       case "completed":
         ReflectionTextStyle_1 = styles.text_completed;
         ReflectionStyle_1 = styles.completed;
@@ -226,11 +226,12 @@ class ObserveScreen extends React.Component {
       },
       {
         id: 5,
-        path: "Reflection_1_Intro",
+        path: "Intro_Screen_PM1",
         label: "Module Reflection",
         styleButton: ReflectionStyle_1,
         styleText: ReflectionTextStyle_1,
-        IconSource: IconsReflection_1
+        IconSource: IconsReflection_1,
+        state: this.props.exercices.exercice_state_PM1
       }
     ];
 
@@ -720,7 +721,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   text_new: {
-    color: "#9B51E0",
+    color: "#A28AD4",
     fontSize: 17,
     lineHeight: 23,
     textAlign: "left",

@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     //position: "absolute",
     width: Dimensions.get("window").width,
     top: 0,
-    marginBottom: 0
+    marginBottom: -20
   },
   image_height_iphone5: {
     width: Dimensions.get("window").width - 100,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     alignSelf: "stretch",
     fontFamily: "roboto-black",
-    paddingBottom: 10
+    //paddingBottom: 10
   },
   intro_header_day_light: {
     color: "#F4F1DE",

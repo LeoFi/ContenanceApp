@@ -53,12 +53,21 @@ class Exercice_10_7 extends React.Component {
           <View>
             <TouchableWithoutFeedback style={styles.scroll}>
               <View style={styles.container_top}>
-                <Text style={styles.sub_header}>Bringing values to life with your smartphone</Text>
-                <Text style={styles.intro_text_bold}>
-                {"\n"}What could an activity on your smartphone look like that helps you bring {this.props.user_values.Value2_D9} to life?
+                <Text style={styles.sub_header}>
+                  Bringing values to life{" "}
+                  <Text style={styles.sub_header_colored}>
+                    with your smartphone
+                  </Text>
                 </Text>
-                <Text style={styles.intro_text_grey}>{"\n"}{"\n"}E.g. Relatedness → Sending his best friend a thoughtful message</Text>
-                
+                <Text style={styles.intro_text_bold}>
+                  {"\n"}What could an activity on your smartphone look like that
+                  helps you bring {this.props.user_values.Value2_D9} to life?
+                </Text>
+                <Text style={styles.intro_text_grey}>
+                  {"\n"}
+                  {"\n"}E.g. Relatedness → Sending his best friend a thoughtful
+                  message
+                </Text>
 
                 <View>
                   <TextInput

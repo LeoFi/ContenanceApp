@@ -31,9 +31,15 @@ class Exercice_17_Congratulations extends React.Component {
   }
 
   handleSubmit = () => {
-    const exercice_state_17 = this.state.exercice_state_17;
-    this.setState({ exercice_state_17: exercice_state_17 });
-    this.props.dispatch(updateState_Ex17(this.state.exercice_state_17));
+    if (
+      this.props.exercices.exercice_state_17 === "DONE" ||
+      this.props.exercices.exercice_state_17 === "completed"
+    ) {
+    } else {
+      const exercice_state_17 = this.state.exercice_state_17;
+      this.setState({ exercice_state_17: exercice_state_17 });
+      this.props.dispatch(updateState_Ex17(this.state.exercice_state_17));
+    }
 
     if (this.props.exercices.exercice_state_18 === undefined) {
       const exercice_state_18 = this.state.exercice_state_18;

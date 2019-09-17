@@ -32,7 +32,7 @@ class ReflectScreen extends React.Component {
       exercice_state_6: this.props.exercices.exercice_state_6 || "",
       exercice_state_7: this.props.exercices.exercice_state_7 || "",
       exercice_state_8: this.props.exercices.exercice_state_8 || "",
-      reflection_state_2: this.props.exercices.reflection_state_2 || ""
+      exercice_state_PM2: this.props.exercices.exercice_state_PM2 || ""
     };
   }
 
@@ -167,7 +167,7 @@ class ReflectScreen extends React.Component {
     let ReflectionTextStyle_2 = "";
     let ReflectionStyle_2 = "";
 
-    switch (this.props.exercices.reflection_state_2) {
+    switch (this.props.exercices.exercice_state_PM2) {
       case "completed":
         ReflectionTextStyle_2 = styles.text_completed;
         ReflectionStyle_2 = styles.completed;
@@ -229,11 +229,12 @@ class ReflectScreen extends React.Component {
       },
       {
         id: 9,
-        path: "Reflection_2_Intro",
+        path: "Intro_Screen_PM2",
         label: "Module Reflection",
         styleButton: ReflectionStyle_2,
         styleText: ReflectionTextStyle_2,
-        IconSource: IconsReflection_2
+        IconSource: IconsReflection_2,
+        state: this.props.exercices.exercice_state_PM2
       }
     ];
 

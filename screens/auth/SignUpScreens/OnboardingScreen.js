@@ -129,7 +129,7 @@ class OnboardingScreen extends React.Component {
                   You can probably relate to my situation,{" "}
                   {this.props.user.nickname}: I love my smartphone. It opens up
                   a whole new world right at my fingertips, just like a big
-                  ocean full of great possibilities."
+                  ocean full of great possibilities.
                 </Text>
               </View>
             ),

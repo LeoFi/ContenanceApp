@@ -49,8 +49,8 @@ export default class Exercice_3_8 extends React.Component {
                   </Text>
                   <Text style={styles.intro_text}>
                     We believe that sustainable change will happen by combining
-                    solutions from all three factors, but focusing on YOU as a
-                    person.
+                    solutions from all the three factors, but we will focus on
+                    you as a person by building mental skills.
                   </Text>
                 </View>
               </View>

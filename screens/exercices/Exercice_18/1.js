@@ -43,7 +43,7 @@ export default class Exercice_18_1 extends React.Component {
                   resizeMode="contain"
                 />
                 <Text style={styles.intro_text}>
-                  Yes, it’s the triangle again. Now, it it’s time to bring in
+                  Yes, it’s the triangle again. Now, it’s time to bring in
                   the{" "}
                   <Text style={styles.intro_text_bold}>
                     last factor: the environment

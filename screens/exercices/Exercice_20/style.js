@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import Constants from "expo-constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     //position: "absolute",
     width: Dimensions.get("window").width,
     top: 0,
-    marginBottom: 0
+    marginBottom: -20
   },
   image_absolute: {
     flex: 1,
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     alignSelf: "stretch",
     fontFamily: "roboto-black",
-    paddingBottom: 10
+    //paddingBottom: 10
   },
   header_light: {
     color: "#F4F1DE",
@@ -276,6 +277,64 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     textAlign: "left",
     fontFamily: "roboto-bold-italic"
+  },
+  notBlurred: {
+    ...StyleSheet.absoluteFill,
+    top: Constants.statusBarHeight
+  },
+  notBlurredIndex: {
+    ...StyleSheet.absoluteFill,
+    top: Constants.statusBarHeight,
+    zIndex: 2
+  },
+  header_modal: {
+    color: "#2C3B51",
+    fontSize: 24,
+    lineHeight: 28,
+    textAlign: "center",
+    fontFamily: "roboto-black",
+    paddingBottom: 25,
+    paddingTop: 30
+  },
+  text_modal: {
+    color: "#2C3B51",
+    fontSize: 19,
+    lineHeight: 25,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    paddingBottom: 25,
+  },
+  exercice_button_icon: {
+    alignSelf: "flex-end",
+    top: "50%",
+    marginTop: 6,
+    right: 20,
+    position: "absolute"
+  },
+  styleText: {
+    color: "#FFFFFF",
+    fontSize: 17,
+    lineHeight: 23,
+    textAlign: "left",
+    fontFamily: "roboto-medium",
+    textTransform: "capitalize",
+    alignSelf: "stretch",
+    letterSpacing: 1,
+    paddingRight: 40,
+    paddingLeft: 5,
+    marginLeft: 0
+  },
+  styleButton: {
+    backgroundColor: "#F6B563",
+    borderWidth: 2,
+    borderColor: "#F6B563",
+    borderRadius: 12,
+    overflow: "hidden",
+    padding: 15,
+    flexDirection: "row",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 15
   }
 });
 

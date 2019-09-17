@@ -27,7 +27,7 @@ export default class Exercice_3_3 extends React.Component {
     const screenHeight = Dimensions.get("window").height;
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <StatusBar hidden />
         <ScrollView
           style={styles.container_scrollview}
@@ -42,8 +42,9 @@ export default class Exercice_3_3 extends React.Component {
             }}
           >
             <Text style={styles.sub_header}>
-              How do you evaluate the long-term success you have achieved so far
-              in changing your smartphone use?
+              How do you evaluate the long-term success in changing your
+              smartphone use with the help of all these strategies you have
+              tried so far?
             </Text>
 
             <View style={{ flex: 1, justifyContent: "center" }}>
@@ -58,6 +59,8 @@ export default class Exercice_3_3 extends React.Component {
                   })
                 }
                 isActive={this.state.active1}
+                mainColor={"#A28AD4"}
+                mainColorReduced={"#E0DFD0"}
               />
               <GreyInputButton
                 label="I was successful"
@@ -70,6 +73,8 @@ export default class Exercice_3_3 extends React.Component {
                   })
                 }
                 isActive={this.state.active2}
+                mainColor={"#A28AD4"}
+                mainColorReduced={"#E0DFD0"}
               />
               <GreyInputButton
                 label="No, I was not very successful"
@@ -82,6 +87,8 @@ export default class Exercice_3_3 extends React.Component {
                   })
                 }
                 isActive={this.state.active3}
+                mainColor={"#A28AD4"}
+                mainColorReduced={"#E0DFD0"}
               />
             </View>
 

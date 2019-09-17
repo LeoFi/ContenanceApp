@@ -255,7 +255,7 @@ export default class AP_Screen_PM2 extends React.Component {
        
             <View style={styles.bottom}>
               <PrimaryButton
-                label="Continue"
+                label="Keep Going"
                 isBottom={true}
                 disabled={ !this.state.buttonIsActive }
                 onPress={() => {

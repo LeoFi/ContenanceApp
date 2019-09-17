@@ -187,24 +187,31 @@ class Exercice_13_Intro extends React.Component {
                     This secret recipe for meaningful smartphone habits needs
                     some ingredients.
                   </Text>
-                  <ExerciceButton
-                    onPress={() => {
-                      {
-                        this.setState({
-                          visible: false
-                        });
-                        this.props.navigation.navigate("Exercice_5_Intro");
-                      }
-                    }}
-                    style={styles.styleButton}
-                  >
-                    <Text style={styles.styleText}>day 5 - The Habit Loop</Text>
-                    <Image
-                      style={styles.exercice_button_icon}
-                      source={require("./../../../assets/images/nextmark.png")}
-                    />
-                  </ExerciceButton>
+                  {this.props.exercices.exercice_state_5 === "completed" ||
+                  this.props.exercices.exercice_state_5 === "DONE" ? null : (
+                    <ExerciceButton
+                      onPress={() => {
+                        {
+                          this.setState({
+                            visible: false
+                          });
+                          this.props.navigation.navigate("Exercice_5_Intro");
+                        }
+                      }}
+                      style={styles.styleButton}
+                    >
+                      <Text style={styles.styleText}>
+                        day 5 - The Habit Loop
+                      </Text>
+                      <Image
+                        style={styles.exercice_button_icon}
+                        source={require("./../../../assets/images/nextmark.png")}
+                      />
+                    </ExerciceButton>
+                  )}
 
+                  {this.props.exercices.exercice_state_6 === "completed" ||
+                  this.props.exercices.exercice_state_6 === "DONE" ? null : (
                   <ExerciceButton
                     onPress={() => {
                       {
@@ -214,17 +221,20 @@ class Exercice_13_Intro extends React.Component {
                         this.props.navigation.navigate("Exercice_6_Intro");
                       }
                     }}
-                    style={styles.styleButtonNextYellow}
+                    style={styles.styleButton}
                   >
-                    <Text style={styles.styleTextNextYellow}>
+                    <Text style={styles.styleText}>
                       day 6 - Exploring Emotional Triggers
                     </Text>
                     <Image
                       style={styles.exercice_button_icon}
-                      source={require("./../../../assets/images/checkmark_reflect.png")}
+                      source={require("./../../../assets/images/nextmark.png")}
                     />
                   </ExerciceButton>
+                  )}
 
+                  {this.props.exercices.exercice_state_10 === "completed" ||
+                  this.props.exercices.exercice_state_10 === "DONE" ? null : (
                   <ExerciceButton
                     onPress={() => {
                       {
@@ -236,14 +246,15 @@ class Exercice_13_Intro extends React.Component {
                     }}
                     style={styles.styleButtonNextRed}
                   >
-                    <Text style={styles.styleTextNextRed}>
+                    <Text style={styles.styleText}>
                       day 10 - Meaningful Smartphone Activities
                     </Text>
                     <Image
                       style={styles.exercice_button_icon}
-                      source={require("./../../../assets/images/checkmark_vision.png")}
+                      source={require("./../../../assets/images/nextmark.png")}
                     />
                   </ExerciceButton>
+                  )}
                 </View>
               </View>
             </View>
