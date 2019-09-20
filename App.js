@@ -20,35 +20,30 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux-persist/store";
 
 import RootNavigation from "./navigation/AppNavigator";
-import MainTabNavigator from "./navigation/MainTabNavigator";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoadingComplete: false
+      isLoadingComplete: false,
+      isAuthenticationReady: false,
+      isAuthenticated: false
     };
 
-    // Initialize firebase...
     if (!firebase.apps.length) {
       firebase.initializeApp(ApiKeys.FirebaseConfig);
     }
+  }
 
-    firebase.auth().signInAnonymously()
-
-    firebase.auth().onAuthStateChanged = user => {
-      if (user) {
-        // User is signed in.
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-
-        // ...
-      } else {
-        // User is signed out.
-        // ...
-      }
-      // ...
-    };
+  componentDidMount() {
+    firebase
+      .auth()
+      .signInAnonymously()
+      .then(() => {
+        this.setState({
+          isAuthenticated: true
+        });
+      });
   }
 
   renderLoading = () => (
@@ -68,7 +63,7 @@ export default class App extends React.Component {
       );
     } else {
       return (
-      //Alert.alert(firebase.auth().currentUser.uid),
+        //Alert.alert("Hello"),
         <Provider store={store}>
           <PersistGate persistor={persistor} loading={this.renderLoading()}>
             <View style={styles.container}>

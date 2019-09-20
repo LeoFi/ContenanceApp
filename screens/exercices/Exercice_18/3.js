@@ -61,6 +61,9 @@ class Exercice_18_2 extends React.Component {
     var NewValue = this.state.newSelect;
     data.push(NewValue);
     this.setState({ newSelect: undefined });
+    setTimeout(() => {
+      this.refs._scrollView.scrollToEnd();
+    }, 50);
   };
 
   handleSubmit = () => {
@@ -69,11 +72,10 @@ class Exercice_18_2 extends React.Component {
       SPGoSit.push(this.tag.itemsSelected[prop]);
     }
 
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         SPGoSit1_D18: SPGoSit[0],
         SPGoSit2_D18: SPGoSit[1],
@@ -92,104 +94,111 @@ class Exercice_18_2 extends React.Component {
           flex: 1,
           paddingLeft: 30,
           paddingRight: 30,
-          backgroundColor: "#F4F1DE"
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
         }}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.container_scrollview_content}
-            keyboardShouldPersistTaps="handled"
-          >
-            <KeyboardAvoidingView
-              behavior="position"
-              keyboardVerticalOffset="100"
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              //style={styles.container_scrollview}
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
             >
               <View
                 style={{
-                  flex: 1,
-                  justifyContent: "flex-start",
                   width: Dimensions.get("window").width - 60
                 }}
-              ><Text style={styles.sub_header}>
-                  Step 2: Now, select three specific situations in which you’re happy to have your smartphone around.
-                  </Text>
-                  <Text style={styles.intro_text}>
-                  {"\n"}Tip: you can also set times of the day when you want to have it around, e.g. between 8am-10pm, I am fine with having my smartphone with me.
-                  </Text>
+              >
+                <Text style={styles.sub_header}>
+                  Step 2: Now, select three specific situations in which you’re
+                  happy to have your smartphone around.
+                </Text>
+                <Text style={styles.intro_text}>
+                  {"\n"}Tip: you can also set times of the day when you want to
+                  have it around, e.g. between 8am-10pm, I am fine with having
+                  my smartphone with me.
+                </Text>
 
-                  <TagSelect
-                      data={data}
-                      max={3}
-                      ref={tag => {
-                        this.tag = tag;
-                      }}
-                      onMaxError={() => {
-                        //Alert.alert("Ops", "Max reached");
-                      }}
-                      onItemPress={() => {
-                        if (this.tag.totalSelected === 3) {
-                          let SPGoSit = [];
-                          for (const prop in this.tag.itemsSelected) {
-                            SPGoSit.push(this.tag.itemsSelected[prop]);
-                          }
-                          this.setState({ allSelected: true });
-                          this.setState({ SPGoSit1_D18: SPGoSit[0] });
-                          this.setState({ SPGoSit2_D18: SPGoSit[1] });
-                          this.setState({ SPGoSit3_D18: SPGoSit[2] });
-                        } else {
-                          this.setState({ allSelected: false });
-                        }
-                      }}
-                      containerStyle={{
-                        flexDirection: "column",
-                        alignItems: "stretch",
-                        paddingTop: 40,
-                        width: Dimensions.get("window").width - 50
-                      }}
-                      itemLabelStyle={styles.button_grey_input_text}
-                      itemStyle={{
-                        borderRadius: 99,
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        backgroundColor: "#E2DFD1",
-                        borderWidth: 0,
-                        height: 50,
-                        width: "100%"
-                      }}
-                      itemStyleSelected={{
-                        backgroundColor: "#6A97D8"
-                      }}
-                      itemLabelStyleSelected={{
-                        fontFamily: "roboto-bold"
-                      }}
-                    />
+                <TagSelect
+                  data={data}
+                  max={3}
+                  ref={tag => {
+                    this.tag = tag;
+                  }}
+                  onMaxError={() => {
+                    //Alert.alert("Ops", "Max reached");
+                  }}
+                  onItemPress={() => {
+                    if (this.tag.totalSelected === 3) {
+                      let SPGoSit = [];
+                      for (const prop in this.tag.itemsSelected) {
+                        SPGoSit.push(this.tag.itemsSelected[prop]);
+                      }
+                      this.setState({ allSelected: true });
+                      this.setState({ SPGoSit1_D18: SPGoSit[0] });
+                      this.setState({ SPGoSit2_D18: SPGoSit[1] });
+                      this.setState({ SPGoSit3_D18: SPGoSit[2] });
+                    } else {
+                      this.setState({ allSelected: false });
+                    }
+                  }}
+                  containerStyle={{
+                    flexDirection: "column",
+                    alignItems: "stretch",
+                    paddingTop: 40,
+                    width: Dimensions.get("window").width - 50
+                  }}
+                  itemLabelStyle={styles.button_grey_input_text}
+                  itemStyle={{
+                    borderRadius: 99,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    backgroundColor: "#E2DFD1",
+                    borderWidth: 0,
+                    height: 50,
+                    width: "100%"
+                  }}
+                  itemStyleSelected={{
+                    backgroundColor: "#6A97D8"
+                  }}
+                  itemLabelStyleSelected={{
+                    fontFamily: "roboto-bold"
+                  }}
+                />
 
-                    <View style={styles.searchSection}>
-                      <TextInput
-                        style={styles.text_input_button}
-                        value={this.state.newSelect}
-                        onChangeText={newSelect => this.setState({ newSelect })}
-                        onSubmitEditing={this.onSubmitEditing}
-                        blurOnSubmit={true}
-                        multiline={true}
-                        numberOfLines={1}
-                        placeholder="Write a new one"
-                        autoCapitalize="none"
-                        editable={!this.state.allSelected}
-                        autoCorrect={false}
+                <View style={styles.searchSection}>
+                  <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
+                    style={styles.text_input_button}
+                    value={this.state.newSelect}
+                    onChangeText={newSelect => this.setState({ newSelect })}
+                    onSubmitEditing={this.onSubmitEditing}
+                    blurOnSubmit={true}
+                    multiline={true}
+                    numberOfLines={1}
+                    placeholder="Write a new one"
+                    autoCapitalize="none"
+                    editable={!this.state.allSelected}
+                    autoCorrect={false}
+                  />
+                  <TouchableOpacity
+                    style={styles.inputIcon}
+                    onPress={this.state.newSelect ? this.onSubmitEditing : null}
+                  >
+                    <Svg height="32" width="32">
+                      <Circle cx="16" cy="16" r="16" fill="#2C3B51" />
+                      <Path
+                        d="M10.946 14.332H14.51V10.614H17.084V14.332H20.67V16.796H17.084V20.558H14.51V16.796H10.946V14.332Z"
+                        fill="#F4F1DE"
                       />
-                      <TouchableOpacity
-                        style={styles.inputIcon}
-                        onPress={this.state.newSelect ? this.onSubmitEditing : null }
-                      >
-                        <Svg height="32" width="32">
-                          <Circle cx="16" cy="16" r="16" fill="#2C3B51" />
-                          <Path
-                            d="M10.946 14.332H14.51V10.614H17.084V14.332H20.67V16.796H17.084V20.558H14.51V16.796H10.946V14.332Z"
-                            fill="#F4F1DE"
-                          />
-                        </Svg>
+                    </Svg>
                   </TouchableOpacity>
                 </View>
 
@@ -202,8 +211,8 @@ class Exercice_18_2 extends React.Component {
                   />
                 </View>
               </View>
-            </KeyboardAvoidingView>
-          </ScrollView>
+            </ScrollView>
+          </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
       </View>
     );
@@ -211,7 +220,8 @@ class Exercice_18_2 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_18_2);

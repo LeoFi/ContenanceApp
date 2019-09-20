@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 40
   },
-  container_scrollview_content: {
-    paddingTop: 50,
-    paddingBottom: 40,
+  container_scrollview_content_questionnaire: {
+    //paddingTop: 50,
+    //paddingBottom: 40,
     flexGrow: 1,
     alignItems: "flex-start",
     alignSelf: "stretch",
@@ -85,10 +85,13 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   bottom: {
+    flex: 1,
     justifyContent: "flex-end",
     alignSelf: "stretch",
     width: "100%",
-    textAlign: "center"
+    textAlign: "center",
+    paddingTop: 20,
+    //paddingBottom: 40
   },
   keyboard_view: {
     flex: 1,
@@ -162,7 +165,6 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     alignSelf: "stretch"
   },
-
   text_left_small_center: {
     flex: 1,
     color: "#B8BAB4",
@@ -172,6 +174,15 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
     paddingTop: 10
+  },
+  text_small_QQ: {
+    color: "#B8BAB4",
+    fontSize: 15,
+    lineHeight: 16,
+    textAlign: "center",
+    fontFamily: "roboto-regular",
+    alignSelf: "stretch",
+    paddingTop: 30
   },
   text_scroll: {
     color: "#2C3B51",
@@ -241,7 +252,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   },
   question: {
-    flex: 1,
+    //flex: 1,
     alignSelf: "stretch",
     width: "100%"
   },
@@ -291,6 +302,15 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
     paddingBottom: 10
+  },
+  codeInput_QQ: {
+    marginTop: 40,
+    //marginBottom: 20,
+    backgroundColor: "#E2DFD1",
+    borderRadius: 7,
+    textAlign: "center",
+    height: 180,
+    fontSize: 19
   }
 });
 

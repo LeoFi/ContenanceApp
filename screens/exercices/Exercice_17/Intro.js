@@ -40,7 +40,7 @@ export default class Exercice_17_Intro extends React.Component {
               <Text style={styles.intro_header_light}>Taking Control on the Smartphone</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}4 MIN{"\n"}In this exercise, you will discover how your smartphone settings can be your ally in protecting you from distractions.
+                {"\n"}4 MIN{"\n"}Today, you will discover how the settings can be your ally in protecting you from distractions.
               </Text>
             </View>
           </View>

@@ -57,11 +57,10 @@ class Exercice_13_4 extends React.Component {
       NewHabitActivity.push(this.tag.itemsSelected[prop]);
     }
 
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         NewHabitActivity2_D13: NewHabitActivity[0]
       });
@@ -215,7 +214,8 @@ class Exercice_13_4 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_13_4);

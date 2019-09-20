@@ -6,14 +6,12 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  TouchableOpacity
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyInputButton,
-  HeaderComponent
+  GreyInputButton
 } from "../../../components/AppComponents";
 import CountDown from "react-native-countdown-component";
 import { styles } from "./style";
@@ -69,7 +67,7 @@ export default class Exercice_11_2 extends React.Component {
       shouldPlay: playing
     };
 
-    const source = require("../../../assets/sounds/Alarm.mp3");
+    const source = require("../../../assets/sounds/Alarm_3min.mp3");
 
     try {
       const { sound, status } = await Audio.Sound.createAsync(
@@ -133,7 +131,6 @@ export default class Exercice_11_2 extends React.Component {
   };
 
   handler = () => {
-    this.playbackInstance.playAsync();
     this.setState({ show_button: true });
   };
 
@@ -197,6 +194,7 @@ export default class Exercice_11_2 extends React.Component {
             <PrimaryButton
               label="START AND ENJOY"
               onPress={() => {
+                this.playbackInstance.playAsync();
                 this.setState({ coutdown_running: true });
               }}
             />

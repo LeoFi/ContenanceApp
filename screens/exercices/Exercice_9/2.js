@@ -6,7 +6,10 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Keyboard,
+  KeyboardAvoidingView,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +19,11 @@ import {
 import { styles } from "./style";
 import * as firebase from "firebase";
 import { connect } from "react-redux";
-import { Update_Advice1_D9, Update_Advice2_D9, Update_Advice3_D9 } from "./../../../redux-persist/redux/user_values";
+import {
+  Update_Advice1_D9,
+  Update_Advice2_D9,
+  Update_Advice3_D9
+} from "./../../../redux-persist/redux/user_values";
 
 class Exercice_9_2 extends React.Component {
   constructor(props) {
@@ -45,30 +52,48 @@ class Exercice_9_2 extends React.Component {
     const { Advice1_D9 } = this.state;
     const { Advice2_D9 } = this.state;
     const { Advice3_D9 } = this.state;
-    const uid = firebase.auth().currentUser.uid;
+
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         Advice1_D9: Advice1_D9,
         Advice2_D9: Advice2_D9,
         Advice3_D9: Advice3_D9
       });
-      this.props.dispatch(Update_Advice1_D9(this.state.Advice1_D9));
-      this.props.dispatch(Update_Advice2_D9(this.state.Advice2_D9));
-      this.props.dispatch(Update_Advice3_D9(this.state.Advice3_D9));
-      this.props.navigation.navigate("Exercice_9_3");
+    this.props.dispatch(Update_Advice1_D9(this.state.Advice1_D9));
+    this.props.dispatch(Update_Advice2_D9(this.state.Advice2_D9));
+    this.props.dispatch(Update_Advice3_D9(this.state.Advice3_D9));
+    this.props.navigation.navigate("Exercice_9_3");
   };
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
-        <StatusBar hidden />
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View>
-            <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
+            >
+              <View
+                style={{
+                  flex: 1,
+                  width: Dimensions.get("window").width - 60,
+                  height: Dimensions.get("window").height - 110
+                }}
+              >
                 <Text style={styles.sub_header}>
                   Let’s reflect on your values!
                 </Text>
@@ -78,8 +103,13 @@ class Exercice_9_2 extends React.Component {
                   might advice you to value in this life:
                 </Text>
 
-                <View style={{justifyContent: "flex-start", paddingTop: 20}}>
+                <View style={{ paddingTop: 20 }}>
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
                     value={this.state.Advice1_D9}
@@ -89,7 +119,12 @@ class Exercice_9_2 extends React.Component {
                     autoCorrect={false}
                     keyboardType="default"
                   />
-                   <TextInput
+                  <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice2}
                     value={this.state.Advice2_D9}
@@ -99,7 +134,12 @@ class Exercice_9_2 extends React.Component {
                     autoCorrect={false}
                     keyboardType="default"
                   />
-                   <TextInput
+                  <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice3}
                     value={this.state.Advice3_D9}
@@ -110,11 +150,10 @@ class Exercice_9_2 extends React.Component {
                     keyboardType="default"
                   />
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-          </ScrollView>
-          <View style={styles.bottom_button}>
+
+                <View style={{ flex: 1 }} />
+
+                <View style={styles.bottom}>
                   <PrimaryButton
                     label="Continue"
                     disabled={
@@ -125,14 +164,18 @@ class Exercice_9_2 extends React.Component {
                     onPress={this.handleSubmit}
                   />
                 </View>
-        
+              </View>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_9_2);

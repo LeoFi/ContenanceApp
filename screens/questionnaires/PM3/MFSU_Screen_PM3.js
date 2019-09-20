@@ -18,10 +18,10 @@ import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup"
 import { styles } from "./style";
 
 import * as firebase from "firebase";
-
+import { connect } from "react-redux";
 import * as Progress from "react-native-progress";
 
-export default class MFSU_Screen_PM3 extends React.Component {
+class MFSU_Screen_PM3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -339,3 +339,8 @@ export default class MFSU_Screen_PM3 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+export default connect(mapStateToProps)(MFSU_Screen_PM3);

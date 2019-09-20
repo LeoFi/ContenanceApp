@@ -39,13 +39,12 @@ export default class Exercice_17_7_android extends React.Component {
             >
               <View style={styles.container_top}>
                 <Text style={styles.sub_header_left}>
-                  Turning off notifications in Android.
+                Great!
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}Visit Settings > Apps and Notifications > Notifications.
-                  {"\n"}
-                  {"\n"}Turn off all notifications, banners, and badges, except from apps where real people want your attention.{"\n"}
-                  {"\n"}This can be messaging apps like WhatsApp, FB Messenger, Telegram, WeChat etc.
+                {"\n"}Removing the pings and dings that don’t serve us is an important step to get the best out of tech without letting it get the best of us! 
+                {"\n"}{"\n"} You’re ready to move on to tip number 2, which is more advanced...
+                  
                 </Text>
               </View>
             </TouchableWithoutFeedback>

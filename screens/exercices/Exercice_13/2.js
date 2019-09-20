@@ -63,11 +63,10 @@ class Exercice_13_2 extends React.Component {
       NewHabitTrigger.push(this.tag.itemsSelected[prop]);
     }
 
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         NewHabitTrigger1_D13: NewHabitTrigger[0],
         NewHabitTrigger2_D13: NewHabitTrigger[1],
@@ -238,7 +237,8 @@ class Exercice_13_2 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_13_2);

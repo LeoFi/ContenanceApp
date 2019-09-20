@@ -19,12 +19,12 @@ import RadioGroup, {
 } from "../../../components/AppComponents/RadioGroup";
 
 import * as Progress from "react-native-progress";
-
+import { connect } from "react-redux";
 import { styles } from "./style";
 
 import * as firebase from "firebase";
 
-export default class AC_Screen_PM4 extends React.Component {
+class AC_Screen_PM4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,14 +37,14 @@ export default class AC_Screen_PM4 extends React.Component {
   }
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
+     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     console.log(KEY, KEY_Value);
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -201,3 +201,9 @@ export default class AC_Screen_PM4 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+export default connect(mapStateToProps)(AC_Screen_PM4);
+

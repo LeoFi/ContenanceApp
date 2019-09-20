@@ -92,6 +92,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#4CBB92"
   },
+  container_scrollview_content: {
+    paddingTop: 80,
+    paddingBottom: 30,
+    flexGrow: 1,
+    alignItems: "flex-start",
+    alignSelf: "stretch",
+    flexWrap: "wrap"
+  },
   scroll: {
     flex: 1,
     alignSelf: "stretch"

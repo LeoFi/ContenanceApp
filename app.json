@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Contenance Test Tina",
-    "slug": "contenance-test-tina",
+    "name": "Contenance Study",
+    "slug": "contenance-study",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
@@ -9,7 +9,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -24,12 +24,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
+      "bundleIdentifier": "com.notlessbutbetter.ios.study",
+      "supportsTablet": false,
       "infoPlist": {
         "UIBackgroundModes": [
           "audio"
         ]
+      },
+      "config": {
+        "usesNonExemptEncryption": false
       }
+    },
+    "android": {
+      "package": "com.notlessbutbetter.android.study"
     },
     "description": ""
   }

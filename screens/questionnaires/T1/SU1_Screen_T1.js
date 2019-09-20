@@ -64,13 +64,12 @@ class SU1_Screen_T1 extends React.Component {
   handleSubmit = () => {
     const { screenTimeHours } = this.state;
     const { screenTimeMinutes } = this.state;
-    const progressValueT1 = this.state.progressValueT1
+    const progressValueT1 = this.state.progressValueT1;
 
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         Screen_Time_Hours_D1: screenTimeHours,
         Screen_Time_Minutes_D1: screenTimeMinutes
@@ -84,36 +83,31 @@ class SU1_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-
-        <View style={styles.container}>
-          <ScrollView style={{ alignSelf: "stretch" }}>
-            <TouchableOpacity
-              onPress={() => {
-                const progressValueT1 = this.state.progressValueT1
-                this.setState({ progressValueT1: 70 });
-                this.props.dispatch(Update_Progress_T1(progressValueT1));
-                this.props.navigation.navigate("SU2_Screen_T1");
-              }}
-              style={styles.skip}
-            >
-              <Text style={styles.skip_text}>Skip</Text>
-            </TouchableOpacity>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
             <KeyboardAvoidingView
               behavior="padding"
               keyboardVerticalOffset="15"
               style={styles.keyboard_view}
             >
-              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <ScrollView style={{ alignSelf: "stretch" }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    const progressValueT1 = this.state.progressValueT1;
+                    this.setState({ progressValueT1: 70 });
+                    this.props.dispatch(Update_Progress_T1(progressValueT1));
+                    this.props.navigation.navigate("SU2_Screen_T1");
+                  }}
+                  style={styles.skip}
+                >
+                  <Text style={styles.skip_text}>Skip</Text>
+                </TouchableOpacity>
+
                 <>
                   <Text style={styles.text_bold_center}>
                     What is your average screen time per day of the last 7 days?
                   </Text>
-
-                  <Text style={styles.text_left_small_center}>
-                    If you do not have a screen time tracker, please skip this
-                    question.
-                  </Text>
-
+                  
                   <View style={styles.inline}>
                     <TextInput
                       style={styles.codeInputLeft}
@@ -150,7 +144,7 @@ class SU1_Screen_T1 extends React.Component {
                     <LinkText
                       style={styles.link_text}
                       textLabel=""
-                      linkLabel="Where do I find this in Android?"
+                      linkLabel="If you haven’t used screentime yet, click here."
                       linkOnPress={() => {
                         this.setModalVisibleAndroid(true);
                       }}
@@ -185,22 +179,11 @@ class SU1_Screen_T1 extends React.Component {
                           {"\n"}
                           {"\n"}
                           <Text style={styles.text_bold}>
-                            Activating Screen Time
-                          </Text>
-                          {"\n"}On your iPhone, go to “Settings” > “Screen Time.
-                          Tap “Turn on Screen Time”. Tap “Continue”. Select
-                          “This is My iPhone.
-                          {"\n"}
-                          {"\n"}You can now get a report about how you use your
-                          device, apps, and websites,
-                          {"\n"}
-                          {"\n"}
-                          <Text style={styles.text_bold}>
                             Average Screen Time and pick-ups of the last 7 days
                           </Text>
-                          {"\n"}On your iPhone, go to “Settings”, choose “Your
-                          Name’s iPhone” and tap on “Choose Last 7 Days”. Find
-                          Screen Time on top.
+                          {"\n"}On your iPhone, go to “Settings”, find "Screen Time" there. Now, choose “Your
+                          Name’s iPhone” in the first line on top. Then, tap on  "Last 7 Days” on the top right. Find average 
+                          Screen Time per day of the last 7 days on top. Et voilà!
                         </Text>
                       </ScrollView>
                     </View>
@@ -232,44 +215,40 @@ class SU1_Screen_T1 extends React.Component {
                     <View style={styles.top_security_agreements}>
                       <ScrollView style={styles.container_scroll}>
                         <Text style={styles.text_scroll}>
-                          {"\n"}Where do I find this in Android?
+                          {"\n"}Please activate the screen time feature.
                           {"\n"}
-                          {"\n"}Not all Android devices support the screentime
-                          feature. You need the Android version Pie (9.0) or
-                          newer.
+                          {"\n"}To get the screen time feature (“Bildschirmzeit”), make sure your OS is updated to iOS 12. This is possible for devices starting from iPhone 5S.
                           {"\n"}
-                          {"\n"}On your Android phone, go to “Settings” >
-                          “Digital Well-Being”.
+                          {"\n"}On your iPhone, go to “Settings” > “Screen Time. Tap “Turn on Screen Time”. Tap “Continue”. Select “This is My iPhone.
                           {"\n"}
-                          {"\n"}Unfortunately, it gets a little complicated now.
-                          Take the daily screen use time per day from the last 7
-                          days and calculate the average by adding them up and
-                          then dividing by 7.
+                          {"\n"}You can now get a report about how you use your device, apps, and websites.
+                          Great, Thank you for activating it. We will ask you again about your screen time later in the study.
                         </Text>
                       </ScrollView>
                     </View>
                   </Modal>
                 </>
-              </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
-          </ScrollView>
+              </ScrollView>
 
-          <View style={styles.bottom}>
-            <PrimaryButton
-              label="Save Number"
-              isBottom={true}
-              disabled={
-                !this.state.screenTimeHours || !this.state.screenTimeMinutes
-              }
-              onPress={this.handleSubmit}
-            />
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="Save Number"
+                  isBottom={true}
+                  disabled={
+                    !this.state.screenTimeHours || !this.state.screenTimeMinutes
+                  }
+                  onPress={this.handleSubmit}
+                />
+              </View>
+            </KeyboardAvoidingView>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
       </>
     );
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(SU1_Screen_T1);

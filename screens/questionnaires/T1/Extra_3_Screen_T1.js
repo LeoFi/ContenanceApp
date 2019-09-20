@@ -43,12 +43,12 @@ class Extra_3_Screen_T1 extends React.Component {
   handleSubmit = () => {
     const { userNationality } = this.state;
     console.log(userNationality);
-    const uid = firebase.auth().currentUser.uid;
+     
     const progressValueT1 = this.state.progressValueT1
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ Nationality: userNationality });
     this.setState({ progressValueT1: 69 });
     this.props.dispatch(Update_Progress_T1(progressValueT1));
@@ -319,6 +319,7 @@ class Extra_3_Screen_T1 extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(Extra_3_Screen_T1);

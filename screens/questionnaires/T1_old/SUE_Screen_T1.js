@@ -39,14 +39,14 @@ class SUE_Screen_T1 extends React.Component {
   }
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
+     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     console.log(KEY, KEY_Value);
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -156,6 +156,7 @@ class SUE_Screen_T1 extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(SUE_Screen_T1);

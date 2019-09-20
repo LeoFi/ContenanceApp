@@ -15,17 +15,46 @@ import {
 } from "./../../components/AppComponents";
 import { Svg, Path } from "react-native-svg";
 
-export default class StartScreen extends React.Component {
+import { connect } from "react-redux";
+import {
+  updateUID
+} from "./../../redux-persist/redux/user"
+import * as firebase from "firebase";
+
+class StartScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      userUID: undefined
+    };
   }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user != null) {
+        var that = this;
+        const uid = firebase.auth().currentUser.uid;
+        const uidString = uid.toString();
+
+        that.setState({ userUID: uidString });
+        that.props.dispatch(updateUID(that.state.userUID));
+      } else {
+        //Alert.alert("User not logged");
+      }
+    });
+  }
+
+  onStartPress = () => {
+    this.props.navigation.navigate("AccountAccess");
+    //this.props.navigation.navigate("SU1_Screen_T1");
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.logo_top}>
-          not less{"\n"}<Text style={styles.logo_bottom}>but better</Text>
+          not less{"\n"}
+          <Text style={styles.logo_bottom}>but better</Text>
         </Text>
 
         <Svg width="375" height="167" viewBox="0 0 375 167" fill="none">
@@ -562,21 +591,26 @@ export default class StartScreen extends React.Component {
         <PrimaryButton
           label="ACCESS YOUR ACCOUNT"
           isBottom={true}
-          onPress={() => {
-            this.props.navigation.navigate("AccountAccess");
-          }}
+          onPress={this.onStartPress}
         />
       </View>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(StartScreen);
+
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: 80,
     paddingLeft: 30,
     paddingRight: 30,
-    paddingBottom: 40,
+    paddingBottom: 50,
     flex: 1,
     alignItems: "center",
     alignSelf: "stretch",

@@ -92,11 +92,48 @@ class TestScreen extends React.Component {
 
   setPhases = () => {
     if (
-      this.state.observeStarted === true &&
-      this.state.reflectStarted === true &&
-      this.state.visionStarted === true &&
-      this.state.planStarted === true &&
-      this.state.supportStarted === true
+      (this.props.exercices.exercice_state_21 === "completed" ||
+        this.props.exercices.exercice_state_21 === "DONE") &&
+      (this.props.exercices.exercice_state_20 === "completed" ||
+        this.props.exercices.exercice_state_20 === "DONE") &&
+      (this.props.exercices.exercice_state_19 === "completed" ||
+        this.props.exercices.exercice_state_19 === "DONE") &&
+      (this.props.exercices.exercice_state_18 === "completed" ||
+        this.props.exercices.exercice_state_18 === "DONE") &&
+      (this.props.exercices.exercice_state_17 === "completed" ||
+        this.props.exercices.exercice_state_17 === "DONE") &&
+      (this.props.exercices.exercice_state_13 === "completed" ||
+        this.props.exercices.exercice_state_13 === "DONE") &&
+      (this.props.exercices.exercice_state_14 === "completed" ||
+        this.props.exercices.exercice_state_14 === "DONE") &&
+      (this.props.exercices.exercice_state_15 === "completed" ||
+        this.props.exercices.exercice_state_15 === "DONE") &&
+      (this.props.exercices.exercice_state_16 === "completed" ||
+        this.props.exercices.exercice_state_16 === "DONE") &&
+      (this.props.exercices.exercice_state_9 === "completed" ||
+        this.props.exercices.exercice_state_9 === "DONE") &&
+      (this.props.exercices.exercice_state_10 === "completed" ||
+        this.props.exercices.exercice_state_10 === "DONE") &&
+      (this.props.exercices.exercice_state_11 === "completed" ||
+        this.props.exercices.exercice_state_11 === "DONE") &&
+      (this.props.exercices.exercice_state_12 === "completed" ||
+        this.props.exercices.exercice_state_12 === "DONE") &&
+      (this.props.exercices.exercice_state_5 === "completed" ||
+        this.props.exercices.exercice_state_5 === "DONE") &&
+      (this.props.exercices.exercice_state_6 === "completed" ||
+        this.props.exercices.exercice_state_6 === "DONE") &&
+      (this.props.exercices.exercice_state_7 === "completed" ||
+        this.props.exercices.exercice_state_7 === "DONE") &&
+      (this.props.exercices.exercice_state_8 === "completed" ||
+        this.props.exercices.exercice_state_8 === "DONE") &&
+      (this.props.exercices.exercice_state_1 === "completed" ||
+        this.props.exercices.exercice_state_1 === "DONE") &&
+      (this.props.exercices.exercice_state_2 === "completed" ||
+        this.props.exercices.exercice_state_2 === "DONE") &&
+      (this.props.exercices.exercice_state_3 === "completed" ||
+        this.props.exercices.exercice_state_3 === "DONE") &&
+      (this.props.exercices.exercice_state_4 === "completed" ||
+        this.props.exercices.exercice_state_4 === "DONE")
     ) {
       this.setState(
         {
@@ -210,8 +247,8 @@ class TestScreen extends React.Component {
   timeLogic = () => {
     const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    dt2 = new Date("November 14, 2019 23:15:30");
-    //dt2 = new Date();
+    //dt2 = new Date("October 23, 2019 23:15:30");
+    dt2 = new Date();
     var x = diff_days(dt1, dt2);
     //Alert.alert(x);
     console.log(this.props.exercices);
@@ -509,17 +546,23 @@ class TestScreen extends React.Component {
         // DAYS MISSED SINCE LAST COMPLETED EXERCISE
         const Days_Missed_LastExValue = myOrderedArray.pop();
 
-        // const uid = firebase.auth().currentUser.uid;
+        // NUMBER OF EXERCISES MISSED SINCE LAST COMPLETION
+        const ExMissedSinceLastCompletion = x + 1 - Days_Missed_LastExValue;
 
-        // firebase
-        //   .database()
-        //   .ref()
-        //   .child("accounts")
-        //   .child(uid)
-        //   .update({
-        //     DaysMissedTotal: Days_Missed_TotalValue,
-        //     DaysMissedLastEx: Days_Missed_LastExValue
-        //   });
+        if (this.props.user.UID === undefined) {
+          //
+        } else {
+          firebase
+            .database()
+            .ref()
+            .child("accounts")
+            .child(this.props.user.UID)
+            .update({
+              TotalExMissed: Days_Missed_TotalValue,
+              LastExDone: Days_Missed_LastExValue,
+              ExMissedSinceLastComple: ExMissedSinceLastCompletion
+            });
+        }
       } else {
         //
       }
@@ -1203,7 +1246,7 @@ class TestScreen extends React.Component {
       {
         id: 3,
         path: "Exercice_3_Intro",
-        //path: "Exercice_3_3",
+        //path: "Exercice_3_6",
         label: "Day 3 - Solution Triangle",
         styleButton: ExerciceStyle_3,
         styleText: ExerciceTextStyle_3,
@@ -1624,6 +1667,7 @@ class TestScreen extends React.Component {
       {
         id: 21,
         path: "Exercice_21_Intro",
+        //path: "QQ_Screen_T2",
         label: "Day 21 - Closing",
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,

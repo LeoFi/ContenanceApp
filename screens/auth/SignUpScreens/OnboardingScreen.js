@@ -76,10 +76,6 @@ class OnboardingScreen extends React.Component {
     }
   };
 
-  onCreateAccountPress = () => {
-    this.props.navigation.navigate("T1");
-  };
-
   render() {
     return (
       <Onboarding

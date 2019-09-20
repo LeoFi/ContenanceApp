@@ -14,11 +14,7 @@ import {
   Image,
   Dimensions
 } from "react-native";
-import {
-  PrimaryButton,
-  SecondaryButton,
-  GreyInputButton
-} from "../../../components/AppComponents";
+import { PrimaryButton } from "../../../components/AppComponents";
 
 import { Svg, Circle, Path } from "react-native-svg";
 import { TagSelect } from "react-native-tag-select";
@@ -62,6 +58,9 @@ class Exercice_5_1 extends React.Component {
     var NewValue = this.state.newSelect;
     data.push(NewValue);
     this.setState({ newSelect: undefined });
+    setTimeout(() => {
+      this.refs._scrollView.scrollToEnd();
+    }, 50);
   };
 
   handleSubmit = () => {
@@ -70,11 +69,10 @@ class Exercice_5_1 extends React.Component {
       SitTrigger.push(this.tag.itemsSelected[prop]);
     }
 
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         SitTrigger1_D5: SitTrigger[0],
         SitTrigger2_D5: SitTrigger[1],
@@ -93,24 +91,21 @@ class Exercice_5_1 extends React.Component {
           flex: 1,
           paddingLeft: 30,
           paddingRight: 30,
-          backgroundColor: "#F4F1DE"
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
         }}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            //style={styles.container_scrollview}
-            contentContainerStyle={styles.container_scrollview_content}
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}
-          >
-            <KeyboardAvoidingView
-              behavior="position"
-              keyboardVerticalOffset="30"
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              //style={styles.container_scrollview}
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
             >
               <View
                 style={{
-                  flex: 1,
-                  justifyContent: "flex-start",
                   width: Dimensions.get("window").width - 60
                 }}
               >
@@ -162,12 +157,17 @@ class Exercice_5_1 extends React.Component {
                     backgroundColor: "#F6B563"
                   }}
                   itemLabelStyleSelected={{
-                    fontFamily: 'roboto-bold'
+                    fontFamily: "roboto-bold"
                   }}
                 />
 
                 <View style={styles.searchSection}>
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.text_input_button}
                     value={this.state.newSelect}
                     onChangeText={newSelect => this.setState({ newSelect })}
@@ -182,7 +182,7 @@ class Exercice_5_1 extends React.Component {
                   />
                   <TouchableOpacity
                     style={styles.inputIcon}
-                    onPress={this.state.newSelect ? this.onSubmitEditing : null }
+                    onPress={this.state.newSelect ? this.onSubmitEditing : null}
                   >
                     <Svg height="32" width="32">
                       <Circle cx="16" cy="16" r="16" fill="#2C3B51" />
@@ -202,8 +202,8 @@ class Exercice_5_1 extends React.Component {
                   />
                 </View>
               </View>
-            </KeyboardAvoidingView>
-          </ScrollView>
+            </ScrollView>
+          </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
       </View>
     );
@@ -211,7 +211,8 @@ class Exercice_5_1 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_5_1);

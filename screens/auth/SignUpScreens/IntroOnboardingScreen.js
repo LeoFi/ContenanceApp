@@ -23,7 +23,7 @@ import { styles } from "./style";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
-import { updateNickname, updateUID } from "./../../../redux-persist/redux/user";
+import { updateNickname } from "./../../../redux-persist/redux/user";
 
 class IntroOnboardingScreen extends React.Component {
   constructor(props) {
@@ -51,20 +51,18 @@ class IntroOnboardingScreen extends React.Component {
   handleSubmit = () => {
     const { nickname } = this.state;
     const { accessCode } = this.state;
-    const uid = firebase.auth().currentUser.uid;
 
     firebase
       .database()
       .ref()
       .child("accounts")
-      .child(uid)
+      .child(this.props.user.UID)
       .set({
         nickname,
         accessCode
       });
     this.props.dispatch(updateNickname(this.state.nickname));
     this.props.navigation.navigate("Onboarding");
-    //this.props.navigation.navigate("Closing_Screen_T1");
   };
 
   render() {
@@ -75,18 +73,17 @@ class IntroOnboardingScreen extends React.Component {
           paddingLeft: 30,
           paddingRight: 30,
           backgroundColor: "#F4F1DE",
-          width: Dimensions.get("window").width
+          justifyContent: "flex-start"
         }}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.container_scrollview_image}
-            keyboardShouldPersistTaps="handled"
-          >
-            <KeyboardAvoidingView
-              behavior="position"
-              keyboardVerticalOffset="30"
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              //style={styles.container_scrollview}
+              contentContainerStyle={styles.container_scrollview_content_intro}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
             >
               <View
                 style={{
@@ -107,6 +104,11 @@ class IntroOnboardingScreen extends React.Component {
                   </Text>
                   <View style={{ height: 40 }} />
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     value={this.state.nickname}
                     onChangeText={this.handleChange}
@@ -128,8 +130,8 @@ class IntroOnboardingScreen extends React.Component {
                   />
                 </View>
               </View>
-            </KeyboardAvoidingView>
-          </ScrollView>
+            </ScrollView>
+          </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
       </View>
     );

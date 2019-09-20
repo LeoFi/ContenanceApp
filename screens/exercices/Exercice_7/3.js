@@ -68,6 +68,9 @@ class Exercice_7_3 extends React.Component {
     var NewValue = this.state.newSelect;
     data.push(NewValue);
     this.setState({ newSelect: undefined });
+    setTimeout(() => {
+      this.refs._scrollView.scrollToEnd();
+    }, 50);
   };
 
   handleSubmit = () => {
@@ -76,11 +79,10 @@ class Exercice_7_3 extends React.Component {
       AppsGreen.push(this.tag.itemsSelected[prop]);
     }
 
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         AppsGreen1_D7: AppsGreen[0],
         AppsGreen2_D7: AppsGreen[1],
@@ -99,18 +101,18 @@ class Exercice_7_3 extends React.Component {
           flex: 1,
           paddingLeft: 30,
           paddingRight: 30,
-          backgroundColor: "#F4F1DE"
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
         }}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.container_scrollview_content}
-            keyboardShouldPersistTaps="handled"
-          >
-            <KeyboardAvoidingView
-              behavior="position"
-              keyboardVerticalOffset="100"
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              //style={styles.container_scrollview}
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
             >
               <View
                 style={{
@@ -120,7 +122,8 @@ class Exercice_7_3 extends React.Component {
                 }}
               >
                 <Text style={styles.sub_header}>
-                  Which three apps do you give a <Text style={{ color: "#52B856" }}>green</Text> light?
+                  Which three apps do you give a{" "}
+                  <Text style={{ color: "#52B856" }}>green</Text> light?
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}They are the ones you rarely or never spend more time on
@@ -178,6 +181,11 @@ class Exercice_7_3 extends React.Component {
 
                 <View style={styles.searchSection}>
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.text_input_button}
                     value={this.state.newSelect}
                     onChangeText={newSelect => this.setState({ newSelect })}
@@ -192,7 +200,7 @@ class Exercice_7_3 extends React.Component {
                   />
                   <TouchableOpacity
                     style={styles.inputIcon}
-                    onPress={this.state.newSelect ? this.onSubmitEditing : null }
+                    onPress={this.state.newSelect ? this.onSubmitEditing : null}
                   >
                     <Svg height="32" width="32">
                       <Circle cx="16" cy="16" r="16" fill="#2C3B51" />
@@ -213,8 +221,8 @@ class Exercice_7_3 extends React.Component {
                   />
                 </View>
               </View>
-            </KeyboardAvoidingView>
-          </ScrollView>
+            </ScrollView>
+          </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
       </View>
     );
@@ -222,7 +230,8 @@ class Exercice_7_3 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_7_3);

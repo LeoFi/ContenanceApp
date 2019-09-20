@@ -14,12 +14,15 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup";
+import RadioGroup, {
+  Radio
+} from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
 
+import { connect } from "react-redux";
 import * as firebase from "firebase";
 
-export default class CO_Screen_T2 extends React.Component {
+class CO_Screen_T2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,14 +35,14 @@ export default class CO_Screen_T2 extends React.Component {
   }
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
+     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     console.log(KEY, KEY_Value);
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -76,6 +79,8 @@ export default class CO_Screen_T2 extends React.Component {
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+      } else if (this.state.show_4 == true) {
+        this.props.navigation.navigate("QQ_Screen_T2");
       }
     }, 400);
   };
@@ -83,20 +88,9 @@ export default class CO_Screen_T2 extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      {!this.state.show_21 ? (
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate("MFSU_Screen_T1");
-            }}
-            style={styles.skip}
-          >
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+          <Text style={styles.skip_text}>Skip</Text>
+        </TouchableOpacity>
 
         {this.state.show_1 ? (
           <>
@@ -105,35 +99,27 @@ export default class CO_Screen_T2 extends React.Component {
             </Text>
 
             <View style={styles.question}>
-            <RadioGroup
-                  getChecked={this.getChecked}
-                  isScaleEnabled={false}
-                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                  RadioStyle={{
-                    width: "100%",
-                    height: 49,
-                    borderRadius: 30,
-                    marginBottom: 10,
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                  labelStyle={{
-                    fontSize: 14,
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                    alignItems: "stretch"
-                  }}
-                >
-                <Radio
-                  iconName={"lens"}
-                  label={"Yes"}
-                  value={"Holiday/Yes"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"No"}
-                  value={"Holiday/No"}
-                />
+              <RadioGroup
+                getChecked={this.getChecked}
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
+              >
+                <Radio iconName={"lens"} label={"Yes"} value={"Holiday/Yes"} />
+                <Radio iconName={"lens"} label={"No"} value={"Holiday/No"} />
               </RadioGroup>
             </View>
           </>
@@ -142,30 +128,30 @@ export default class CO_Screen_T2 extends React.Component {
         {this.state.show_2 ? (
           <>
             <Text style={styles.text_left}>
-            If yes, in which week have you been on holidays?{"\n"}
-            If no, please skip the question
+              If yes, in which week have you been on holidays?{"\n"}
+              If no, please skip the question
             </Text>
 
             <View style={styles.question}>
-            <RadioGroup
-                  getChecked={this.getChecked}
-                  isScaleEnabled={false}
-                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                  RadioStyle={{
-                    width: "100%",
-                    height: 49,
-                    borderRadius: 30,
-                    marginBottom: 10,
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                  labelStyle={{
-                    fontSize: 14,
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                    alignItems: "stretch"
-                  }}
-                >
+              <RadioGroup
+                getChecked={this.getChecked}
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
+              >
                 <Radio
                   iconName={"lens"}
                   label={"Week 1 (Day 1-7)"}
@@ -189,29 +175,30 @@ export default class CO_Screen_T2 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-              Have you used any additional strategies to change your smartphone use?
+              Have you used any additional strategies to change your smartphone
+              use?
             </Text>
 
             <View style={styles.question}>
-            <RadioGroup
-                  getChecked={this.getChecked}
-                  isScaleEnabled={false}
-                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                  RadioStyle={{
-                    width: "100%",
-                    height: 49,
-                    borderRadius: 30,
-                    marginBottom: 10,
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                  labelStyle={{
-                    fontSize: 14,
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                    alignItems: "stretch"
-                  }}
-                >
+              <RadioGroup
+                getChecked={this.getChecked}
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
+              >
                 <Radio
                   iconName={"lens"}
                   label={"Yes"}
@@ -230,30 +217,30 @@ export default class CO_Screen_T2 extends React.Component {
         {this.state.show_4 ? (
           <>
             <Text style={styles.text_left}>
-            If yes, what strategies have you used?{"\n"}
-            If no, please skip the question
+              If yes, what strategies have you used?{"\n"}
+              If no, please skip the question
             </Text>
 
             <View style={styles.question}>
-            <RadioGroup
-                  getChecked={this.getChecked}
-                  isScaleEnabled={false}
-                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                  RadioStyle={{
-                    width: "100%",
-                    height: 49,
-                    borderRadius: 30,
-                    marginBottom: 10,
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                  labelStyle={{
-                    fontSize: 14,
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                    alignItems: "stretch"
-                  }}
-                >
+              <RadioGroup
+                getChecked={this.getChecked}
+                isScaleEnabled={false}
+                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                RadioStyle={{
+                  width: "100%",
+                  height: 49,
+                  borderRadius: 30,
+                  marginBottom: 10,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                labelStyle={{
+                  fontSize: 14,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  alignItems: "stretch"
+                }}
+              >
                 <Radio
                   iconName={"lens"}
                   label={"Flightmode"}
@@ -288,15 +275,20 @@ export default class CO_Screen_T2 extends React.Component {
                 isBottom={true}
                 disabled={!this.state.buttonIsActive}
                 onPress={() => {
-                  this.props.navigation.navigate("PI_Screen_T2");
+                  this.props.navigation.navigate("QQ_Screen_T2");
                 }}
               />
             </View>
           </>
         ) : null}
-
-        
       </View>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(CO_Screen_T2);
+

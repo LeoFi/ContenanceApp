@@ -25,9 +25,10 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
+import { connect } from "react-redux";
 import * as firebase from "firebase";
 
-export default class SU2_Screen_T1 extends React.Component {
+class SU2_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,11 +54,11 @@ export default class SU2_Screen_T1 extends React.Component {
   handleSubmit = () => {
     const { pickupNumber } = this.state;
 
-    const uid = firebase.auth().currentUser.uid;
+     
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         Pickups_Number_D1: pickupNumber
       });
@@ -255,3 +256,10 @@ export default class SU2_Screen_T1 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(SU2_Screen_T1);
+

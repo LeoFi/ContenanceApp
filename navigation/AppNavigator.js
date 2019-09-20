@@ -39,95 +39,15 @@ import Closing_Screen_T1 from "../screens/questionnaires/T1/Closing_Screen_T1";
 
 const IntroStack = createStackNavigator(
   {
-    Start: {
-      screen: StartScreen,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: null
-      }
-    },
-    AccountAccess: {
-      screen: AccountAccessScreen,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: null
-      }
-    },
-    IntroOnboarding: {
-      screen: IntroOnboardingScreen,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: null
-      }
-    },
-    Onboarding: {
-      screen: OnboardingScreen,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: null
-      }
-    },
-    Conclusion: {
-      screen: ConclusionScreen,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: null
-      }
-    },
-    Intro_Screen_T1: {
-      screen: Intro_Screen_T1,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: null
-      }
-    },
-    PSU_Screen_T1: {
-      screen: PSU_Screen_T1,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: props => (
-          <HeaderComponent
-            progress={this.props.user_values.progressValueT1 / 79}
-            disabledProgress={false}
-            colorProgress={"#2C3B51"}
-            disabledClose={false}
-            {...props}
-          />
-        )
-      }
-    },
-    SUE_Screen_T1: {
-      screen: SUE_Screen_T1,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: props => (
-          <HeaderComponent
-            progress={this.props.user_values.progressValueT1 / 79}
-            disabledProgress={false}
-            colorIcons={"#A28AD4"}
-            colorProgress={"#A28AD4"}
-            disabledClose={false}
-            {...props}
-          />
-        )
-      }
-    },
-    WB_Screen_T1: {
-      screen: WB_Screen_T1,
-      navigationOptions: {
-        gesturesEnabled: false,
-        header: props => (
-          <HeaderComponent
-            progress={this.props.user_values.progressValueT1 / 79}
-            disabledProgress={false}
-            colorIcons={"#A28AD4"}
-            colorProgress={"#A28AD4"}
-            disabledClose={false}
-            {...props}
-          />
-        )
-      }
-    },
+    Start: { screen: StartScreen },
+    AccountAccess: { screen: AccountAccessScreen },
+    IntroOnboarding: { screen: IntroOnboardingScreen },
+    Onboarding: { screen: OnboardingScreen },
+    Conclusion: { screen: ConclusionScreen },
+    Intro_Screen_T1: { screen: Intro_Screen_T1 },
+    PSU_Screen_T1: { screen: PSU_Screen_T1 },
+    SUE_Screen_T1: { screen: SUE_Screen_T1 },
+    WB_Screen_T1: { screen: WB_Screen_T1 },
     MFSU_Screen_T1: { screen: MFSU_Screen_T1 },
     PSF_Screen_T1: { screen: PSF_Screen_T1 },
     TRP_Screen_T1: { screen: TRP_Screen_T1 },
@@ -143,20 +63,18 @@ const IntroStack = createStackNavigator(
     SU2_Screen_T1: { screen: SU2_Screen_T1 },
     SU3_Screen_T1: { screen: SU3_Screen_T1 },
     Extra_6_Screen_T1: { screen: Extra_6_Screen_T1 },
-    Closing_Screen_T1: { screen: Closing_Screen_T1 },
-    Home: { screen: MainTabNavigator }
+    Closing_Screen_T1: { screen: Closing_Screen_T1 }
   },
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
-    //headerMode: "none"
+    headerMode: "none"
   }
 );
 
 const MainStack = createStackNavigator(
   {
-    Intro: { screen: IntroStack },
-    Home: { screen: MainTabNavigator }
+    Intro: { screen: IntroStack }
   },
   {
     transitionConfig: () => fromRight(500),
@@ -168,7 +86,6 @@ const MainStack = createStackNavigator(
 const AppContainer = createAppContainer(MainStack);
 
 class RootNavigation extends React.Component {
-  
   render() {
     {
       return this.props.user.onboardingDone ? (
@@ -181,8 +98,7 @@ class RootNavigation extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
-  user_values: state.user_values
+  user: state.user
 });
 
 export default connect(mapStateToProps)(RootNavigation);

@@ -41,13 +41,13 @@ export default class Exercice_17_6 extends React.Component {
         <ScrollView>
           <View style={styles.container_top}>
             <Text style={styles.sub_header}>
-              Let’s check how to turn off notifications.
+              1. Turning off non-human notifications.
             </Text>
             <Text style={styles.intro_text_bold_center}>
-              {"\n"}Which smartphone do you use?{"\n"}{"\n"}
+              {"\n"}Do you want to learn how to turn off notifications?{"\n"}{"\n"}
             </Text>
             <GreyInputButton
-              label="I have an iPhone"
+              label="Yes, show me!"
               isBottom={false}
               onPress={() =>
                 this.setState({
@@ -60,7 +60,7 @@ export default class Exercice_17_6 extends React.Component {
               mainColorReduced={"#E0DFD0"}
             />
             <GreyInputButton
-              label="I use Android"
+              label="Thanks, I already know."
               isBottom={false}
               onPress={() =>
                 this.setState({

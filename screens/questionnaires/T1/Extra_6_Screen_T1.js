@@ -55,15 +55,14 @@ class Extra_6_Screen_T1 extends React.Component {
   };
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
-    const progressValueT1 = this.state.progressValueT1
+    const progressValueT1 = this.state.progressValueT1;
     console.log(KEY, KEY_Value);
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -122,7 +121,7 @@ class Extra_6_Screen_T1 extends React.Component {
   };
 
   skipQuestion = () => {
-    const progressValueT1 = this.state.progressValueT1
+    const progressValueT1 = this.state.progressValueT1;
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
@@ -178,11 +177,10 @@ class Extra_6_Screen_T1 extends React.Component {
   };
 
   handleClick = () => {
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ Expectation: this.state.expectation })
       .then(() => {});
 
@@ -208,7 +206,8 @@ class Extra_6_Screen_T1 extends React.Component {
           {this.state.show_1 ? (
             <>
               <Text style={styles.text_bold_center}>
-                What operating system does your smartphone run on?
+                Is this the longest questionnaire you have ever answered? It is
+                the longest of the whole study. Promised.
               </Text>
 
               <View style={styles.question}>
@@ -237,11 +236,15 @@ class Extra_6_Screen_T1 extends React.Component {
                     textAlign: "center"
                   }}
                 >
-                  <Radio iconName={"lens"} label={"iOS"} value={"System/iOS"} />
                   <Radio
                     iconName={"lens"}
-                    label={"Android"}
-                    value={"System/Android"}
+                    label={"Hell yeah"}
+                    value={"Joke/Yes"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"No, easy peasy"}
+                    value={"Joke/No"}
                   />
                 </RadioGroup>
               </View>
@@ -524,6 +527,7 @@ class Extra_6_Screen_T1 extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(Extra_6_Screen_T1);

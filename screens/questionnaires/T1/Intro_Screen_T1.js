@@ -44,11 +44,11 @@ class Intro_Screen_T1 extends React.Component {
 
   handleSubmit = () => {
     const EmptyResult = "999";
-    const uid = firebase.auth().currentUser.uid;
+     
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         AC01_D1 : EmptyResult,
         AC02_D1 : EmptyResult,
@@ -214,8 +214,7 @@ class Intro_Screen_T1 extends React.Component {
               {"\n"}Before you start the training, we have a few questions about
               your smartphone use, your smartphone habits and your well-being.
               {"\n"}
-              {"\n"}This is important for our study and will only take ten
-              minutes.
+              {"\n"}For the study, it’s important to get your honest answers, there is no right or wrong. Your data will be anonymized, so you’re safe. Please take ten minutes for the reflection.
             </Text>
             <View style={{ flex: 1, height: 30 }} />
 

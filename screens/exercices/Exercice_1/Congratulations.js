@@ -86,12 +86,11 @@ class Exercice_1_Congratulations extends React.Component {
         this.props.dispatch(updateStartingDate(this.state.initialDate));
       });
 
-      const uid = firebase.auth().currentUser.uid;
       firebase
         .database()
         .ref()
         .child("accounts")
-        .child(uid)
+        .child(this.props.user.UID)
         .update({
           Day_1_Done: initialDate
         });

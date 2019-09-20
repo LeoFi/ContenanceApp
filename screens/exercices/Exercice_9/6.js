@@ -72,6 +72,9 @@ class Exercice_9_6 extends React.Component {
     var NewValue = this.state.newSelect;
     data.push(NewValue);
     this.setState({ newSelect: undefined });
+    setTimeout(() => {
+      this.refs._scrollView.scrollToEnd();
+    }, 50);
   };
 
   handleSubmit = () => {
@@ -80,11 +83,11 @@ class Exercice_9_6 extends React.Component {
       Value2.push(this.tag.itemsSelected[prop]);
     }
 
-    const uid = firebase.auth().currentUser.uid;
+     
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         Value2_D9: Value2[0]
       });
@@ -99,23 +102,21 @@ class Exercice_9_6 extends React.Component {
           flex: 1,
           paddingLeft: 30,
           paddingRight: 30,
-          backgroundColor: "#F4F1DE"
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
         }}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.container_scrollview_content}
-            keyboardShouldPersistTaps="handled"
-          >
-            <KeyboardAvoidingView
-              behavior="position"
-              keyboardVerticalOffset="100"
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              //style={styles.container_scrollview}
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
             >
               <View
                 style={{
-                  flex: 1,
-                  justifyContent: "flex-start",
                   width: Dimensions.get("window").width - 60
                 }}
               >
@@ -179,6 +180,11 @@ class Exercice_9_6 extends React.Component {
 
                     <View style={styles.searchSection}>
                       <TextInput
+                      onFocus={() =>
+                        setTimeout(() => {
+                          this.refs._scrollView.scrollToEnd();
+                        }, 50)
+                      }
                         style={styles.text_input_button}
                         value={this.state.newSelect}
                         onChangeText={newSelect => this.setState({ newSelect })}
@@ -212,18 +218,19 @@ class Exercice_9_6 extends React.Component {
                     disabled={!this.state.allSelected}
                     onPress={this.handleSubmit}
                   />
+                  </View>
                 </View>
-              </View>
+              </ScrollView>
             </KeyboardAvoidingView>
-          </ScrollView>
-        </TouchableWithoutFeedback>
-      </View>
+          </TouchableWithoutFeedback>
+        </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_9_6);

@@ -4,6 +4,7 @@ import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../compon
 import { styles } from "./style";
 
 import { connect } from "react-redux";
+import * as firebase from "firebase";
 
 class Intro_Screen_PM5 extends React.Component {
 
@@ -13,6 +14,64 @@ class Intro_Screen_PM5 extends React.Component {
       nickname: this.props.user.nickname || ""
     };
   }
+
+  handleSubmit = () => {
+    const EmptyResult = "999";
+    
+   firebase
+     .database()
+     .ref("questionnaires")
+     .child(this.props.user.UID)
+     .update({
+       AC01_D20: EmptyResult,
+       AC02_D20: EmptyResult,
+       AC03_D20: EmptyResult,
+       AP01_D20: EmptyResult,
+       AP02_D20: EmptyResult,
+       AP03_D20: EmptyResult,
+       AP04_D20: EmptyResult,
+       AP05_D20: EmptyResult,
+       CE01_D20: EmptyResult,
+       CE02_D20: EmptyResult,
+       CE03_D20: EmptyResult,
+       HS01_D20: EmptyResult,
+       HS02_D20: EmptyResult,
+       HS03_D20: EmptyResult,
+       HSc_D20: EmptyResult,
+       IN01_D20: EmptyResult,
+       IN02_D20: EmptyResult,
+       IN03_D20: EmptyResult,
+       MFSU01_D20: EmptyResult,
+       MFSU02_D20: EmptyResult,
+       MFSU03_D20: EmptyResult,
+       MFSU04_D20: EmptyResult,
+       MFSU05_D20: EmptyResult,
+       MFSU06_D20: EmptyResult,
+       MFSU07_D20: EmptyResult,
+       PSF01_D20: EmptyResult,
+       PSF02_D20: EmptyResult,
+       PSU01_D20: EmptyResult,
+       PSU02_D20: EmptyResult,
+       PSU03_D20: EmptyResult,
+       PSU04_D20: EmptyResult,
+       PSU05_D20: EmptyResult,
+       PSU06_D20: EmptyResult,
+       PSU07_D20: EmptyResult,
+       PSU08_D20: EmptyResult,
+       PSUc_D20: EmptyResult,
+       SE01_D20: EmptyResult,
+       SE02_D20: EmptyResult,
+       SE03_D20: EmptyResult,
+       SUE01_D20: EmptyResult,
+       SUE02_D20: EmptyResult,
+       TRP01_D20: EmptyResult,
+       TRP02_D20: EmptyResult,
+       TRP03_D20: EmptyResult,
+       TRPc_D20: EmptyResult
+     });
+     this.props.navigation.navigate('PSU_Screen_PM5');
+  }
+
 
   render() {
     return (
@@ -32,9 +91,7 @@ class Intro_Screen_PM5 extends React.Component {
           <PrimaryButton
             label="Start Reflecting"
             isBottom={true}
-            onPress={() => {
-                this.props.navigation.navigate('PSU_Screen_PM5');
-            }}
+            onPress={this.handleSubmit}
           />
         </View>
       </View>

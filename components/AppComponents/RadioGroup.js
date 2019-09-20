@@ -52,14 +52,25 @@ class RadioGroup extends Component {
     const buttonProps = {
       labelLeft: this.props.labelLeft,
       labelRight: this.props.labelRight,
-      isScaleEnabled: this.props.isScaleEnabled
+      isScaleEnabled: this.props.isScaleEnabled,
+      QQLabel: this.props.QQLabel
     };
 
     return (
       <>
+        {buttonProps.QQLabel == true ? (
+          <Text style={[this.props.question_scale_text_center]}>
+            {buttonProps.labelLeft}
+          </Text>
+        ) : null}
         <View style={[this.props.RadioGroupStyle]}>
           {this.setChildrenProps()}
         </View>
+        {buttonProps.QQLabel == true ? (
+          <Text style={[this.props.question_scale_text_center]}>
+            {buttonProps.labelRight}
+          </Text>
+        ) : null}
         {buttonProps.isScaleEnabled == false ? null : (
           <View style={[this.props.questionDrop]}>
             <TouchableOpacity>
@@ -165,7 +176,7 @@ RadioGroup.defaultProps = {
     borderRadius: 99,
     color: "#B8EDE3",
     width: 35,
-    height: 35,
+    height: 35
     //margin: 5
   },
   labelStyle: {
@@ -211,6 +222,14 @@ RadioGroup.defaultProps = {
   },
   question_scale_text_right: {
     textAlign: "right",
+    color: "#2C3B51",
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: "roboto-regular",
+    paddingTop: 5
+  },
+  question_scale_text_center: {
+    textAlign: "center",
     color: "#2C3B51",
     fontSize: 14,
     lineHeight: 20,

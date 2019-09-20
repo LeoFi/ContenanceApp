@@ -340,8 +340,10 @@ import AU_Screen_T2 from "../screens/questionnaires/T2/AU_Screen_T2";
 import PI_Screen_T2 from "../screens/questionnaires/T2/PI_Screen_T2";
 import CO_Screen_T2 from "../screens/questionnaires/T2/CO_Screen_T2";
 import QQ_Screen_T2 from "../screens/questionnaires/T2/QQ_Screen_T2";
+import SU1_Screen_T2 from "../screens/questionnaires/T2/SU1_Screen_T2";
+import SU2_Screen_T2 from "../screens/questionnaires/T2/SU2_Screen_T2";
+import SU3_Screen_T2 from "../screens/questionnaires/T2/SU3_Screen_T2";
 import Closing_Screen_T2 from "../screens/questionnaires/T2/Closing_Screen_T2";
-
 
 const Exercice1 = createStackNavigator(
   {
@@ -513,8 +515,7 @@ const Exercice1 = createStackNavigator(
         gesturesEnabled: false,
         header: props => (
           <HeaderComponent
-            progress={8 / 8}
-            disabledProgress={false}
+            disabledProgress={true}
             disabledClose={true}
             colorProgress={"#A28AD4"}
             colorIcons={"#2C3B51"}
@@ -634,7 +635,7 @@ const Exercice2 = createStackNavigator(
         gesturesEnabled: false,
         header: props => (
           <HeaderComponent
-          progress={5 / 5}
+            progress={5 / 5}
             disabledProgress={true}
             disabledClose={true}
             colorIcons={"#2C3B51"}
@@ -925,8 +926,8 @@ const Exercice3 = createStackNavigator(
         gesturesEnabled: false,
         header: props => (
           <HeaderComponent
-          progress={12 / 12}
-          disabledProgress={true}
+            progress={12 / 12}
+            disabledProgress={true}
             disabledClose={true}
             {...props}
           />
@@ -3150,7 +3151,7 @@ const Exercice12 = createStackNavigator(
       }
     },
     PSU_Screen_PM3: {
-      screen: PSU_Screen_PM2,
+      screen: PSU_Screen_PM3,
       navigationOptions: {
         gesturesEnabled: false,
         header: null
@@ -5448,6 +5449,27 @@ const Exercice21 = createStackNavigator(
         header: null
       }
     },
+    SU1_Screen_T2: {
+      screen: SU1_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    SU2_Screen_T2: {
+      screen: SU2_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
+    SU3_Screen_T2: {
+      screen: SU3_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: null
+      }
+    },
     Closing_Screen_T2: {
       screen: Closing_Screen_T2,
       navigationOptions: {
@@ -5575,6 +5597,57 @@ const T2_Stack = createStackNavigator(
         )
       }
     },
+    SU1_Screen_T2: {
+      screen: SU1_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={5 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    SU2_Screen_T2: {
+      screen: SU2_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={5 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
+    SU3_Screen_T2: {
+      screen: SU3_Screen_T2,
+      navigationOptions: {
+        gesturesEnabled: false,
+        header: props => (
+          <HeaderComponent
+            progress={5 / 8}
+            disabledProgress={false}
+            disabledClose={false}
+            goBackLink={() => {
+              props.navigation.navigate("Exercice_1_Intro");
+            }}
+            {...props}
+          />
+        )
+      }
+    },
     Closing_Screen_T2: {
       screen: Closing_Screen_T2,
       navigationOptions: {
@@ -5604,7 +5677,6 @@ const T2_Stack = createStackNavigator(
     }
   }
 );
-
 
 const PM5_Stack = createStackNavigator(
   {
@@ -5787,14 +5859,15 @@ const HomeTab = createStackNavigator(
     Exercice18: { screen: Exercice18 },
     Exercice19: { screen: Exercice19 },
     Exercice20: { screen: Exercice20 },
-    Exercice21: { screen: Exercice21 },
+    Exercice21: { screen: Exercice21 }
   },
   {
     transitionConfig: () => fromRight(500),
     cardStyle: { backgroundColor: "#F4F1DE" },
     defaultNavigationOptions: {
       header: null,
-      gesturesEnabled: false
+      gesturesEnabled: false,
+      headerMode: "none"
     }
   }
 );
@@ -5998,7 +6071,8 @@ const MainStackTabs = createBottomTabNavigator(
   {
     tabBarComponent: props => <TabBar {...props} />,
     animationEnabled: true,
-    gesturesEnabled: false
+    gesturesEnabled: false,
+    headerMode: "none"
   }
 );
 

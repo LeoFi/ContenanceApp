@@ -25,9 +25,10 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
+import { connect } from "react-redux";
 import * as firebase from "firebase";
 
-export default class SU1_Screen_T1 extends React.Component {
+class SU1_Screen_T1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,11 +63,11 @@ export default class SU1_Screen_T1 extends React.Component {
     const { screenTimeHours } = this.state;
     const { screenTimeMinutes } = this.state;
 
-    const uid = firebase.auth().currentUser.uid;
+     
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         Screen_Time_Hours_D1: screenTimeHours,
         Screen_Time_Minutes_D1: screenTimeMinutes
@@ -284,3 +285,10 @@ export default class SU1_Screen_T1 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(SU1_Screen_T1);
+

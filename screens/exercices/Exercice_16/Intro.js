@@ -39,7 +39,7 @@ export default class Exercice_16_Intro extends React.Component {
               <Text style={styles.intro_header_light}>Brain Reset</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}10 MIN{"\n"}In this exercise you will discover how your brain can benefit from empty moments. Also, you’ll do your fourth reflection.
+                {"\n"}5 MIN{"\n"}In this exercise, you will discover how your brain can benefit from empty moments. Also, you’ll do your fourth reflection.
               </Text>
             </View>
           </View>

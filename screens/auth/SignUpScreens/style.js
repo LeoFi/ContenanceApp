@@ -24,6 +24,14 @@ const styles = StyleSheet.create({
         alignSelf: "stretch",
         flexWrap: "wrap"
     },
+    container_scrollview_content_intro: {
+        paddingTop: 50,
+        paddingBottom: 40,
+        flexGrow: 1,
+        alignItems: "flex-start",
+        alignSelf: "stretch",
+        flexWrap: "wrap"
+    },
     container_scrollview_image: {
         paddingTop: 60,
         paddingBottom: 40,
@@ -79,9 +87,13 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     bottom: {
-        justifyContent: 'flex-start',
-        alignSelf: 'stretch',
-    },
+        justifyContent: "flex-end",
+        alignSelf: "stretch",
+        width: "100%",
+        textAlign: "center",
+        paddingTop: 20,
+        //paddingBottom: 40
+      },
     keyboard_view: {
         flex: 1,
     },

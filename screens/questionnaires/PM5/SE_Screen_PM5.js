@@ -18,10 +18,10 @@ import RadioGroup, { Radio } from "../../../components/AppComponents/RadioGroup"
 import { styles } from "./style";
 
 import * as firebase from "firebase";
-
+import { connect } from "react-redux";
 import * as Progress from "react-native-progress";
 
-export default class SE_Screen_PM5 extends React.Component {
+class SE_Screen_PM5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,14 +34,14 @@ export default class SE_Screen_PM5 extends React.Component {
   }
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
+     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     console.log(KEY, KEY_Value);
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -114,7 +114,7 @@ export default class SE_Screen_PM5 extends React.Component {
         {this.state.show_1 ? (
           <>
             <Text style={styles.text_left}>
-            ...use my smartphone consciously even if I first have to find a way to integrate this into my daily routine.
+            ... use my smartphone consciously even if I first have to find a way to integrate this into my daily routine.
             </Text>
 
             <View style={styles.question}>
@@ -160,7 +160,7 @@ export default class SE_Screen_PM5 extends React.Component {
         {this.state.show_3 ? (
           <>
             <Text style={styles.text_left}>
-            ...that I can start using my smartphone consciously again, after several days of using it less consciously.
+            ... start using my smartphone consciously again, after several days of using it less consciously.
             </Text>
 
             <View style={styles.question}>
@@ -196,3 +196,9 @@ export default class SE_Screen_PM5 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(SE_Screen_PM5);

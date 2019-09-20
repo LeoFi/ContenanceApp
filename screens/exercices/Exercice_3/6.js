@@ -43,7 +43,7 @@ export default class Exercice_3_6 extends React.Component {
                     resizeMode="contain"
                   />
                 </View>
-                <View style={{ flex: 1 }}>
+                <View style={{ flexGrow: 1, flex: 1 }}>
                   <Text style={styles.intro_text}>
                     How often is your smartphone more than a hand-reach away
                     from you? Hacks like doing a detox for a day, or to

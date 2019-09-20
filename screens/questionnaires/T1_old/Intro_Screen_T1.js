@@ -44,11 +44,11 @@ class Intro_Screen_T1 extends React.Component {
 
   handleSubmit = () => {
     const EmptyResult = "999";
-    const uid = firebase.auth().currentUser.uid;
+     
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         AC01_D1 : EmptyResult,
         AC02_D1 : EmptyResult,

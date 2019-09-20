@@ -6,7 +6,10 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Keyboard,
+  KeyboardAvoidingView,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -33,11 +36,10 @@ class Exercice_10_8 extends React.Component {
 
   handleSubmit = () => {
     const { MeanAct3_D10 } = this.state;
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         MeanAct3_D10: MeanAct3_D10
       });
@@ -47,21 +49,47 @@ class Exercice_10_8 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
-        <StatusBar hidden />
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View>
-            <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_top}>
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
+            >
+              <View
+                style={{
+                  flex: 1,
+                  width: Dimensions.get("window").width - 60,
+                  height: Dimensions.get("window").height - 110
+                }}
+              >
                 <Text style={styles.sub_header}>Bringing values to life</Text>
                 <Text style={styles.intro_text_bold}>
-                {"\n"}What could an activity look like that helps you bring {this.props.user_values.Value3_D9} to life?
+                  {"\n"}What could an activity look like that helps you bring{" "}
+                  {this.props.user_values.Value3_D9} to life?
                 </Text>
-                <Text style={styles.intro_text_grey}>{"\n"}{"\n"}E.g. Relatedness → Having coffee with his best friends</Text>
-                
+                <Text style={styles.intro_text_grey}>
+                  {"\n"}
+                  {"\n"}E.g. Relatedness → Having coffee with his best friends
+                </Text>
 
                 <View>
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
                     value={this.state.MeanAct3_D10}
@@ -71,26 +99,29 @@ class Exercice_10_8 extends React.Component {
                     autoCorrect={false}
                     keyboardType="default"
                   />
-                  </View>
                 </View>
-              </TouchableWithoutFeedback>
-            </View>
-          </ScrollView>
-  
-          <View style={styles.bottom_button}>
-            <PrimaryButton
-              label="Continue"
-              disabled={!this.state.MeanAct3_D10}
-              onPress={this.handleSubmit}
-            />
-          </View>
-        </View>
+
+                <View style={{ flex: 1 }} />
+
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.MeanAct3_D10}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
+              </View>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_10_8);

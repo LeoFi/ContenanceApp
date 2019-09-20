@@ -4,6 +4,7 @@ import { PrimaryButton, SecondaryButton, GreyInputButton } from '../../../compon
 import { styles } from "./style";
 
 import { connect } from "react-redux";
+import * as firebase from "firebase";
 
 class Intro_Screen_PM3 extends React.Component {
 
@@ -12,6 +13,64 @@ class Intro_Screen_PM3 extends React.Component {
     this.state = {
       nickname: this.props.user.nickname || ""
     };
+  }
+
+  handleSubmit = () => {
+    const EmptyResult = "999";
+    
+   firebase
+     .database()
+     .ref("questionnaires")
+     .child(this.props.user.UID)
+     .update({
+       AC01_D12: EmptyResult,
+       AC02_D12: EmptyResult,
+       AC03_D12: EmptyResult,
+       AP01_D12: EmptyResult,
+       AP02_D12: EmptyResult,
+       AP03_D12: EmptyResult,
+       AP04_D12: EmptyResult,
+       AP05_D12: EmptyResult,
+       CE01_D12: EmptyResult,
+       CE02_D12: EmptyResult,
+       CE03_D12: EmptyResult,
+       HS01_D12: EmptyResult,
+       HS02_D12: EmptyResult,
+       HS03_D12: EmptyResult,
+       HSc_D12: EmptyResult,
+       IN01_D12: EmptyResult,
+       IN02_D12: EmptyResult,
+       IN03_D12: EmptyResult,
+       MFSU01_D12: EmptyResult,
+       MFSU02_D12: EmptyResult,
+       MFSU03_D12: EmptyResult,
+       MFSU04_D12: EmptyResult,
+       MFSU05_D12: EmptyResult,
+       MFSU06_D12: EmptyResult,
+       MFSU07_D12: EmptyResult,
+       PSF01_D12: EmptyResult,
+       PSF02_D12: EmptyResult,
+       PSU01_D12: EmptyResult,
+       PSU02_D12: EmptyResult,
+       PSU03_D12: EmptyResult,
+       PSU04_D12: EmptyResult,
+       PSU05_D12: EmptyResult,
+       PSU06_D12: EmptyResult,
+       PSU07_D12: EmptyResult,
+       PSU08_D12: EmptyResult,
+       PSUc_D12: EmptyResult,
+       SE01_D12: EmptyResult,
+       SE02_D12: EmptyResult,
+       SE03_D12: EmptyResult,
+       SUE01_D12: EmptyResult,
+       SUE02_D12: EmptyResult,
+       TRP01_D12: EmptyResult,
+       TRP02_D12: EmptyResult,
+       TRP03_D12: EmptyResult,
+       TRPc_D12: EmptyResult,
+       FeelNoUse_D12: EmptyResult
+     });
+     this.props.navigation.navigate('PSU_Screen_PM3');
   }
 
   render() {
@@ -32,9 +91,7 @@ class Intro_Screen_PM3 extends React.Component {
           <PrimaryButton
             label="Start Reflecting"
             isBottom={true}
-            onPress={() => {
-                this.props.navigation.navigate('PSU_Screen_PM3');
-            }}
+            onPress={this.handleSubmit}
           />
         </View>
       </View>

@@ -40,7 +40,7 @@ class SE_Screen_T1 extends React.Component {
   }
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
+     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     const progressValueT1 = this.state.progressValueT1
@@ -48,7 +48,7 @@ class SE_Screen_T1 extends React.Component {
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -110,7 +110,7 @@ class SE_Screen_T1 extends React.Component {
           {this.state.show_1 ? (
             <>
               <Text style={styles.text_left}>
-                ...use my smartphone consciously even if I first have to find a
+                ... use my smartphone consciously even if I first have to find a
                 way to integrate this into my daily routine.
               </Text>
 
@@ -158,7 +158,7 @@ class SE_Screen_T1 extends React.Component {
           {this.state.show_3 ? (
             <>
               <Text style={styles.text_left}>
-                ...that I can start using my smartphone consciously again, after
+                ... start using my smartphone consciously again, after
                 several days of using it less consciously.
               </Text>
 
@@ -195,6 +195,7 @@ class SE_Screen_T1 extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(SE_Screen_T1);

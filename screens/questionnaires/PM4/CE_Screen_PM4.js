@@ -21,10 +21,10 @@ import RadioGroup, {
 import { styles } from "./style";
 
 import * as Progress from "react-native-progress";
-
+import { connect } from "react-redux";
 import * as firebase from "firebase";
 
-export default class SE_Screen_PM4 extends React.Component {
+class CE_Screen_PM4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,14 +44,14 @@ export default class SE_Screen_PM4 extends React.Component {
   };
 
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
+     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     console.log(KEY, KEY_Value);
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -117,11 +117,11 @@ export default class SE_Screen_PM4 extends React.Component {
   };
 
   handleClick = () => {
-    const uid = firebase.auth().currentUser.uid;
+     
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ AltNoAvail_D16: this.state.AltNoAvail_D16 })
       .then(() => {});
 
@@ -180,12 +180,12 @@ export default class SE_Screen_PM4 extends React.Component {
                   labelLeft="Not at all true"
                   labelRight="Exactly true"
                 >
-                  <Radio iconName={"lens"} label={"1"} value={"SE01_D16/1"} />
-                  <Radio iconName={"lens"} label={"2"} value={"SE01_D16/2"} />
-                  <Radio iconName={"lens"} label={"3"} value={"SE01_D16/3"} />
-                  <Radio iconName={"lens"} label={"4"} value={"SE01_D16/4"} />
-                  <Radio iconName={"lens"} label={"5"} value={"SE01_D16/5"} />
-                  <Radio iconName={"lens"} label={"6"} value={"SE01_D16/6"} />
+                  <Radio iconName={"lens"} label={"1"} value={"CE01_D16/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"CE01_D16/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"CE01_D16/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"CE01_D16/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"CE01_D16/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"CE01_D16/6"} />
                 </RadioGroup>
               </View>
             </>
@@ -203,12 +203,12 @@ export default class SE_Screen_PM4 extends React.Component {
                   labelLeft="Not at all true"
                   labelRight="Exactly true"
                 >
-                  <Radio iconName={"lens"} label={"1"} value={"SE02_D16/1"} />
-                  <Radio iconName={"lens"} label={"2"} value={"SE02_D16/2"} />
-                  <Radio iconName={"lens"} label={"3"} value={"SE02_D16/3"} />
-                  <Radio iconName={"lens"} label={"4"} value={"SE02_D16/4"} />
-                  <Radio iconName={"lens"} label={"5"} value={"SE02_D16/5"} />
-                  <Radio iconName={"lens"} label={"6"} value={"SE02_D16/6"} />
+                  <Radio iconName={"lens"} label={"1"} value={"CE02_D16/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"CE02_D16/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"CE02_D16/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"CE02_D16/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"CE02_D16/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"CE02_D16/6"} />
                 </RadioGroup>
               </View>
             </>
@@ -226,12 +226,12 @@ export default class SE_Screen_PM4 extends React.Component {
                   labelLeft="Not at all true"
                   labelRight="Exactly true"
                 >
-                  <Radio iconName={"lens"} label={"1"} value={"SE03_D16/1"} />
-                  <Radio iconName={"lens"} label={"2"} value={"SE03_D16/2"} />
-                  <Radio iconName={"lens"} label={"3"} value={"SE03_D16/3"} />
-                  <Radio iconName={"lens"} label={"4"} value={"SE03_D16/4"} />
-                  <Radio iconName={"lens"} label={"5"} value={"SE03_D16/5"} />
-                  <Radio iconName={"lens"} label={"6"} value={"SE03_D16/6"} />
+                  <Radio iconName={"lens"} label={"1"} value={"CE03_D16/1"} />
+                  <Radio iconName={"lens"} label={"2"} value={"CE03_D16/2"} />
+                  <Radio iconName={"lens"} label={"3"} value={"CE03_D16/3"} />
+                  <Radio iconName={"lens"} label={"4"} value={"CE03_D16/4"} />
+                  <Radio iconName={"lens"} label={"5"} value={"CE03_D16/5"} />
+                  <Radio iconName={"lens"} label={"6"} value={"CE03_D16/6"} />
                 </RadioGroup>
               </View>
             </>
@@ -325,3 +325,10 @@ export default class SE_Screen_PM4 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(CE_Screen_PM4);
+

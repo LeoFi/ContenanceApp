@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingBottom: 30,
     flexGrow: 1,
-    alignItems: "flex-start",
+    justifyContent: "flex-start",
     alignSelf: "stretch",
     flexWrap: "wrap"
   },
@@ -151,6 +151,11 @@ const styles = StyleSheet.create({
     paddingRight: 30
   },
   bottom: {
+    justifyContent: "flex-start",
+    alignSelf: "stretch"
+  },
+  bottom_special: {
+    flex: 1,
     justifyContent: "flex-start",
     alignSelf: "stretch"
   },

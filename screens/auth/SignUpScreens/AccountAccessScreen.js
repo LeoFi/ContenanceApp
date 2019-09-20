@@ -63,7 +63,6 @@ class AccountAccessScreen extends React.Component {
       .once("value", snapshot => {
         if (snapshot.exists() && snapshot.val() === "AVAILABLE") {
           snapshot.ref.set("TAKEN");
-          // firebase.auth().signInAnonymously();
           this.setState({ accessCode: accessCode });
           this.props.dispatch(updateAccessCode(this.state.accessCode));
           this.props.navigation.navigate("IntroOnboarding");
@@ -85,77 +84,79 @@ class AccountAccessScreen extends React.Component {
           paddingLeft: 30,
           paddingRight: 30,
           backgroundColor: "#F4F1DE",
-          width: Dimensions.get("window").width
+          justifyContent: "flex-start"
         }}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-          showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.container_scrollview_content}
-            keyboardShouldPersistTaps="handled"
-          >
-            <KeyboardAvoidingView
-              behavior={this.state.iphone5 ? "position" : "padding"}
-              keyboardVerticalOffset="30"
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              //style={styles.container_scrollview}
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
             >
               <View
                 style={{
-                  flex: 1,
-                  width: Dimensions.get("window").width - 60,
-                  justifyContent: "space-between"
+                  width: Dimensions.get("window").width - 60
                 }}
               >
-                <View>
-                  <Text style={styles.header}>Access your account</Text>
+                <Text style={styles.header}>Access your account</Text>
 
-                  <Text style={styles.text}>
-                    {"\n"}Enter the code you received from us via email and
-                    accept the terms.
-                  </Text>
+                <Text style={styles.text}>
+                  {"\n"}Enter the code you received from us via email and accept
+                  the terms.
+                </Text>
 
-                  <TextInput
-                    style={styles.codeInputLeft}
-                    value={this.state.accessCode}
-                    onChangeText={accessCode => this.setState({ accessCode })}
-                    placeholder="Enter Code"
-                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                  />
+                <TextInput
+                  onFocus={() =>
+                    setTimeout(() => {
+                      this.refs._scrollView.scrollToEnd();
+                    }, 50)
+                  }
+                  style={styles.codeInputLeft}
+                  value={this.state.accessCode}
+                  onChangeText={accessCode => this.setState({ accessCode })}
+                  placeholder="Enter Code"
+                  placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                />
 
-                  <View style={styles.inline}>
-                    <Switch
-                      onValueChange={acceptedAgreement =>
-                        this.setState({ acceptedAgreement })
-                      }
-                      enabled={this.state.acceptedAgreement}
-                      value={this.state.acceptedAgreement}
-                      trackColor={{ true: "#2C3B51", false: "#E0DFD0" }}
-                      thumbColor={"#ffffff"}
-                      ios_backgroundColor={"#E0DFD0"}
-                      style={{ marginRight: 15 }}
-                    />
-
-                    <LinkText
-                      textLabel="Accept "
-                      linkLabel="security agreement"
-                      linkOnPress={() => {
-                        this.setModalVisible(true);
-                      }}
-                    />
-                  </View>
-                </View>
-
-                <View>
-                  <PrimaryButton
-                    label="ACCESS"
-                    isBottom={true}
-                    onPress={this.onLoginPress}
-                    disabled={
-                      !this.state.acceptedAgreement || !this.state.accessCode
+                <View style={styles.inline}>
+                  <Switch
+                    onValueChange={acceptedAgreement =>
+                      this.setState({ acceptedAgreement })
                     }
+                    enabled={this.state.acceptedAgreement}
+                    value={this.state.acceptedAgreement}
+                    trackColor={{ true: "#2C3B51", false: "#E0DFD0" }}
+                    thumbColor={"#ffffff"}
+                    ios_backgroundColor={"#E0DFD0"}
+                    style={{ marginRight: 15 }}
+                  />
+
+                  <LinkText
+                    textLabel="Accept "
+                    linkLabel="security agreement"
+                    linkOnPress={() => {
+                      this.setModalVisible(true);
+                    }}
                   />
                 </View>
+              </View>
+
+              <View style={{ flex: 1 }} />
+
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="ACCESS"
+                  isBottom={true}
+                  onPress={this.onLoginPress}
+                  disabled={
+                    !this.state.acceptedAgreement || !this.state.accessCode
+                  }
+                />
               </View>
 
               <Modal
@@ -378,8 +379,8 @@ class AccountAccessScreen extends React.Component {
                   </ScrollView>
                 </View>
               </Modal>
-            </KeyboardAvoidingView>
-          </ScrollView>
+            </ScrollView>
+          </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
       </View>
     );

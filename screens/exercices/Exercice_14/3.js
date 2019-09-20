@@ -6,7 +6,10 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Keyboard,
+  KeyboardAvoidingView,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -49,11 +52,10 @@ class Exercice_14_3 extends React.Component {
     const { Obstacle1_D14 } = this.state;
     const { Obstacle2_D14 } = this.state;
     const { Obstacle3_D14 } = this.state;
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         Obstacle1_D14: Obstacle1_D14,
         Obstacle2_D14: Obstacle2_D14,
@@ -67,22 +69,47 @@ class Exercice_14_3 extends React.Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
-        <StatusBar hidden />
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View>
-            <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_top}>
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
+            >
+              <View
+                style={{
+                  flex: 1,
+                  width: Dimensions.get("window").width - 60,
+                  height: Dimensions.get("window").height - 110
+                }}
+              >
                 <Text style={styles.sub_header}>It’s your turn!</Text>
                 <Text style={styles.text}>
                   Define your three own obstacles.
                   {"\n"}
                   {"\n"}
-                  <Text style={styles.text_bold_italic}>{this.props.user_values.NewHabitCommit_D13}</Text>
+                  <Text style={styles.text_bold_italic}>
+                    {this.props.user_values.NewHabitCommit_D13}
+                  </Text>
                 </Text>
 
-                <View style={{ justifyContent: "flex-start", paddingTop: 20 }}>
+                <View style={{ paddingTop: 20 }}>
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
                     value={this.state.Obstacle1_D14}
@@ -93,6 +120,11 @@ class Exercice_14_3 extends React.Component {
                     keyboardType="default"
                   />
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice2}
                     value={this.state.Obstacle2_D14}
@@ -103,6 +135,11 @@ class Exercice_14_3 extends React.Component {
                     keyboardType="default"
                   />
                   <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice3}
                     value={this.state.Obstacle3_D14}
@@ -113,11 +150,10 @@ class Exercice_14_3 extends React.Component {
                     keyboardType="default"
                   />
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </ScrollView>
-        <View style={styles.bottom_button}>
+
+                <View style={{ flex: 1 }} />
+
+                <View style={styles.bottom}>
                   <PrimaryButton
                     label="Continue"
                     disabled={
@@ -128,13 +164,18 @@ class Exercice_14_3 extends React.Component {
                     onPress={this.handleSubmit}
                   />
                 </View>
+              </View>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_14_3);

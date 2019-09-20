@@ -55,13 +55,12 @@ class SU2_Screen_T1 extends React.Component {
 
   handleSubmit = () => {
     const { pickupNumber } = this.state;
-    const progressValueT1 = this.state.progressValueT1
+    const progressValueT1 = this.state.progressValueT1;
 
-    const uid = firebase.auth().currentUser.uid;
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({
         Pickups_Number_D1: pickupNumber
       });
@@ -74,35 +73,30 @@ class SU2_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-
-        <View style={styles.container}>
-          <ScrollView style={{ alignSelf: "stretch" }}>
-            <TouchableOpacity
-              onPress={() => {
-                const progressValueT1 = this.state.progressValueT1
-                this.setState({ progressValueT1: 71 });
-                this.props.dispatch(Update_Progress_T1(progressValueT1));
-                this.props.navigation.navigate("SU3_Screen_T1");
-              }}
-              style={styles.skip}
-            >
-              <Text style={styles.skip_text}>Skip</Text>
-            </TouchableOpacity>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
             <KeyboardAvoidingView
               behavior="padding"
               keyboardVerticalOffset="15"
               style={styles.keyboard_view}
             >
-              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <ScrollView style={{ alignSelf: "stretch" }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    const progressValueT1 = this.state.progressValueT1;
+                    this.setState({ progressValueT1: 71 });
+                    this.props.dispatch(Update_Progress_T1(progressValueT1));
+                    this.props.navigation.navigate("SU3_Screen_T1");
+                  }}
+                  style={styles.skip}
+                >
+                  <Text style={styles.skip_text}>Skip</Text>
+                </TouchableOpacity>
+
                 <>
                   <Text style={styles.text_bold_center}>
                     What is your average number of pick-ups per day of the last
                     7 days?
-                  </Text>
-
-                  <Text style={styles.text_left_small_center}>
-                    If you do not have a screen time tracker, please skip this
-                    question.
                   </Text>
 
                   <View style={styles.inline}>
@@ -122,7 +116,7 @@ class SU2_Screen_T1 extends React.Component {
                     <LinkText
                       style={styles.link_text}
                       textLabel=""
-                      linkLabel="where do I find this in iOs?"
+                      linkLabel="Where do I find this in iOS?"
                       linkOnPress={() => {
                         this.setModalVisibleIos(true);
                       }}
@@ -130,7 +124,7 @@ class SU2_Screen_T1 extends React.Component {
                     <LinkText
                       style={styles.link_text}
                       textLabel=""
-                      linkLabel="where do I find this in android?"
+                      linkLabel="If you haven’t used screentime yet, click here."
                       linkOnPress={() => {
                         this.setModalVisibleAndroid(true);
                       }}
@@ -165,20 +159,9 @@ class SU2_Screen_T1 extends React.Component {
                           {"\n"}
                           {"\n"}
                           <Text style={styles.text_bold}>
-                            Activating Screen Time
+                            Pick-ups of the last 7 days
                           </Text>
-                          {"\n"}On your iPhone, go to Settings > Screen Time.
-                          Tap Turn On Screen Time. Tap Continue. Select This is
-                          My [device].
-                          {"\n"}
-                          {"\n"}You can now get a report about how you use your
-                          device, apps, and websites,
-                          {"\n"}
-                          {"\n"}
-                          <Text style={styles.text_bold}>
-                            Average Screen Time and pick-ups of the last 7 days
-                          </Text>
-                          {"\n"}go to Settings > Screen Time, choose Your Names
+                          {"\n"}Again, go to Settings > Screen Time, choose Your Names
                           iPhone > Choose Last 7 days. Find Screen Time on top,
                           scroll down for number of pick-ups per day. If your
                           phone operates in German, watch out for
@@ -214,38 +197,36 @@ class SU2_Screen_T1 extends React.Component {
                     <View style={styles.top_security_agreements}>
                       <ScrollView style={styles.container_scroll}>
                         <Text style={styles.text_scroll}>
-                          {"\n"}where do I find this in android?
+                          {"\n"}Please activate the screen time feature.
                           {"\n"}
-                          {"\n"}On your smartphone, go to Settings > Digital
-                          Well-Being. Unfortunately, not all Android devices
-                          support the screentime feature.
+                          {"\n"}To get the screen time feature (“Bildschirmzeit”), make sure your OS is updated to iOS 12. This is possible for devices starting from iPhone 5S.
                           {"\n"}
-                          {"\n"}Unfortunately, not all smartphones using android
-                          are eqipped with a screentime tracker yet. You need
-                          the Android version Pie (9.0) or newer.
+                          {"\n"}On your iPhone, go to “Settings” > “Screen Time. Tap “Turn on Screen Time”. Tap “Continue”. Select “This is My iPhone. You can now get a report about how you use your device, apps, and websites.
+                          Great, Thank you for activating it. We will ask you again about your screen time later in the study.
                         </Text>
                       </ScrollView>
                     </View>
                   </Modal>
                 </>
-              </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
-          </ScrollView>
+              </ScrollView>
 
-          <View style={styles.bottom}>
-            <PrimaryButton
-              label="Continue"
-              isBottom={true}
-              disabled={!this.state.pickupNumber}
-              onPress={this.handleSubmit}
-            />
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="Continue"
+                  isBottom={true}
+                  disabled={!this.state.pickupNumber}
+                  onPress={this.handleSubmit}
+                />
+              </View>
+            </KeyboardAvoidingView>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
       </>
     );
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(SU2_Screen_T1);

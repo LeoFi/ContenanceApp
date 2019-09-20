@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   container_scroll_start: {
     flex: 1,
     flexGrow: 1,
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    // width: Dimensions.get("window").width,
+    // height: Dimensions.get("window").height,
     alignItems: "center",
     justifyContent: "flex-start",
     alignSelf: "stretch",
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
     textAlign: "left"
   },
   intro_text_bold: {
-    flex: 1,
+    //flex: 1,
     color: "#2C3B51",
     fontSize: 19,
     lineHeight: 25,

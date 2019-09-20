@@ -45,11 +45,11 @@ class Extra_1_Screen_T1 extends React.Component {
     const { userAge } = this.state;
     const progressValueT1 = this.state.progressValueT1
     console.log(userAge);
-    const uid = firebase.auth().currentUser.uid;
+     
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ Age: userAge });
     this.setState({ progressValueT1: 64 });
     this.props.dispatch(Update_Progress_T1(progressValueT1));
@@ -111,6 +111,7 @@ class Extra_1_Screen_T1 extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(Extra_1_Screen_T1);

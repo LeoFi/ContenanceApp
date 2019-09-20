@@ -66,7 +66,8 @@ class Closing_Screen_PM3 extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  exercices: state.exercices
 });
 
 export default connect(mapStateToProps)(Closing_Screen_PM3);

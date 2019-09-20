@@ -31,7 +31,7 @@ export default class ConclusionScreen extends React.Component {
         <ScrollView
           //style={styles.container_scrollview}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.container_scrollview_content}
+          contentContainerStyle={styles.container_scrollview_content_intro}
         >
           <View
             style={{
@@ -58,7 +58,7 @@ export default class ConclusionScreen extends React.Component {
               {"\n"}around 5 min per exercise,
               {"\n"}6 reflections.
             </Text>
-            <View style={{ flex: 1, height: 30 }} />
+            <View style={{ flex: 1, height: 10 }} />
 
             <View style={styles.bottom}>
               <PrimaryButton

@@ -14,7 +14,8 @@ import {
 import {
   PrimaryButton,
   SecondaryButton,
-  GreyInputButton
+  GreyInputButton,
+  HeaderComponent
 } from "../../../components/AppComponents";
 import RadioGroup, {
   Radio
@@ -28,18 +29,38 @@ import { connect } from "react-redux";
 import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
 
 class SUE_Screen_T1 extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: props => (
+        <HeaderComponent
+          progress={70 / 79}
+          disabledProgress={false}
+          disabledClose={true}
+          colorProgress={"#2C3B51"}
+          {...props}
+        />
+      )
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       show_1: true,
       show_2: false,
       buttonIsActive: false,
-      progressValueT1: undefined
+      progressValueT1: 30
     };
   }
 
+  componentDidMount() {
+    this.props.navigation.setParams({
+      progressValueT1: this.props.user_values.progressValueT1
+    });
+  }
+
   getChecked = value => {
-    const uid = firebase.auth().currentUser.uid;
+     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     const progressValueT1 = this.state.progressValueT1
@@ -47,7 +68,7 @@ class SUE_Screen_T1 extends React.Component {
     firebase
       .database()
       .ref("questionnaires")
-      .child(uid)
+      .child(this.props.user.UID)
       .update({ [KEY]: KEY_Value })
       .then(() => {});
 
@@ -156,6 +177,7 @@ class SUE_Screen_T1 extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  user_values: state.user_values
+  user_values: state.user_values,
+  user: state.user
 });
 export default connect(mapStateToProps)(SUE_Screen_T1);
