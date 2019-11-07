@@ -37,6 +37,14 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 50
   },
+  container_scrollview_content: {
+    paddingTop: 80,
+    paddingBottom: 40,
+    flexGrow: 1,
+    alignItems: "flex-start",
+    alignSelf: "stretch",
+    flexWrap: "wrap"
+},
   container_scroll_img_absolute: {
     //width: Dimensions.get("window").width,
     //height: Dimensions.get("window").height,
@@ -120,10 +128,17 @@ const styles = StyleSheet.create({
     right: 0
   },
   top_security_agreements: {
-    flex: 1,
-    justifyContent: "flex-start",
-    paddingTop: 0
+    backgroundColor: "#F4F1DE",
+        justifyContent: 'flex-start',
+        alignSelf: "stretch",
+        height: Dimensions.get("window").height,
   },
+  close: {
+    position: "absolute",
+    right: 30,
+    top: 30,
+    zIndex: 1
+},
   middle: {
     position: "relative",
     flexDirection: "column",
@@ -134,6 +149,10 @@ const styles = StyleSheet.create({
   },
   bottom: {
     justifyContent: "flex-start",
+    alignSelf: "stretch"
+  },
+  bottom_fix: {
+    justifyContent: "flex-end",
     alignSelf: "stretch"
   },
   bottom_button: {

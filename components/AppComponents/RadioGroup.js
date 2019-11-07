@@ -67,7 +67,7 @@ class RadioGroup extends Component {
           {this.setChildrenProps()}
         </View>
         {buttonProps.QQLabel == true ? (
-          <Text style={[this.props.question_scale_text_center]}>
+          <Text style={[this.props.question_scale_text_center_bottom]}>
             {buttonProps.labelRight}
           </Text>
         ) : null}
@@ -234,7 +234,15 @@ RadioGroup.defaultProps = {
     fontSize: 14,
     lineHeight: 20,
     fontFamily: "roboto-regular",
-    paddingTop: 5
+    paddingTop: 0
+  },
+  question_scale_text_center_bottom: {
+    textAlign: "center",
+    color: "#2C3B51",
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: "roboto-regular",
+    marginTop: -10
   }
 };
 

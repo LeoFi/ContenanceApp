@@ -24,7 +24,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
-
+import { Svg, Path } from "react-native-svg";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
@@ -38,7 +38,7 @@ class SU2_Screen_T2 extends React.Component {
       pickupNumber: "",
       modalVisibleIos: false,
       modalVisibleAndroid: false,
-      progressValueT2: undefined
+      progressValueT2: 58 / 60
     };
   }
   handleChangePickups = pickupNumber => {
@@ -64,7 +64,7 @@ class SU2_Screen_T2 extends React.Component {
       .update({
         Pickups_Number_D21: pickupNumber
       });
-    this.setState({ progressValueT2: 71 });
+    this.setState({ progressValueT2: 59 / 60 });
     this.props.dispatch(Update_Progress_T2(progressValueT2));
     this.props.navigation.navigate("SU3_Screen_T2");
   };
@@ -72,6 +72,29 @@ class SU2_Screen_T2 extends React.Component {
   render() {
     return (
       <>
+        <StatusBar hidden />
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT2}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
         <StatusBar hidden />
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
@@ -84,7 +107,7 @@ class SU2_Screen_T2 extends React.Component {
                 <TouchableOpacity
                   onPress={() => {
                     const progressValueT2 = this.state.progressValueT2;
-                    this.setState({ progressValueT2: 71 });
+                    this.setState({ progressValueT2: 59 / 60 });
                     this.props.dispatch(Update_Progress_T2(progressValueT2));
                     this.props.navigation.navigate("SU3_Screen_T2");
                   }}
@@ -101,6 +124,8 @@ class SU2_Screen_T2 extends React.Component {
 
                   <View style={styles.inline}>
                     <TextInput
+                      numberOfLines={10}
+                      //multiline={true}
                       style={styles.codeInputSU}
                       onChangeText={this.handleChangePickups}
                       value={this.state.pickupNumber}
@@ -138,37 +163,58 @@ class SU2_Screen_T2 extends React.Component {
                     onRequestClose={() => {
                       Alert.alert("Modal has been closed.");
                     }}
+                    style={{
+                      flex: 1,
+                      justifyContent: "flex-start",
+                      alignItems: "flex-start"
+                    }}
                   >
-                    <TouchableHighlight
+                    <TouchableOpacity
                       style={styles.close}
                       onPress={() => {
                         this.setModalVisibleIos(!this.state.modalVisibleIos);
                       }}
                     >
-                      <Image
-                        style={{ marginTop: 20 }}
-                        source={require("./../../../assets/images/close.png")}
-                      />
-                    </TouchableHighlight>
-                    {/* <Icon name="close" /> */}
+                      <Svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <Path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M18 15.48L15.48 18L9 11.52L2.52 18L0 15.48L6.48 9L0 2.52L2.52 0L9 6.48L15.48 0L18 2.52L11.52 9L18 15.48Z"
+                          fill="#2C3B51"
+                        />
+                      </Svg>
+                    </TouchableOpacity>
 
                     <View style={styles.top_security_agreements}>
-                      <ScrollView style={styles.container_scroll}>
-                        <Text style={styles.text_scroll}>
-                          {"\n"}where do I find this in IOs?
-                          {"\n"}
-                          {"\n"}
-                        
-              
-                          <Text style={styles.text_bold}>
-                            Average pick-ups of the last 7 days
+                      <ScrollView>
+                        <View
+                          style={{
+                            paddingTop: 60,
+                            paddingLeft: 30,
+                            paddingRight: 30,
+                            width: Dimensions.get("window").width,
+                            alignItems: "center"
+                          }}
+                        >
+                          <Text style={styles.text_scroll}>
+                            {"\n"}where do I find this in IOs?
+                            {"\n"}
+                            {"\n"}
+                            <Text style={styles.text_bold}>
+                              Average pick-ups of the last 7 days
+                            </Text>
+                            {"\n"}Again, go to Settings > Screen Time, choose
+                            Your Names iPhone > Choose Last 7 days. Find Screen
+                            Time on top, scroll down for average number of
+                            pick-ups per day. If your phone operates in German,
+                            watch out for "Aktivierungen".
                           </Text>
-                          {"\n"}Again, go to Settings > Screen Time, choose Your Names
-                          iPhone > Choose Last 7 days. Find Screen Time on top,
-                          scroll down for average number of pick-ups per day. If your
-                          phone operates in German, watch out for
-                          "Aktivierungen".
-                        </Text>
+                        </View>
                       </ScrollView>
                     </View>
                   </Modal>
@@ -180,8 +226,13 @@ class SU2_Screen_T2 extends React.Component {
                     onRequestClose={() => {
                       Alert.alert("Modal has been closed.");
                     }}
+                    style={{
+                      flex: 1,
+                      justifyContent: "flex-start",
+                      alignItems: "flex-start"
+                    }}
                   >
-                    <TouchableHighlight
+                    <TouchableOpacity
                       style={styles.close}
                       onPress={() => {
                         this.setModalVisibleAndroid(
@@ -189,20 +240,41 @@ class SU2_Screen_T2 extends React.Component {
                         );
                       }}
                     >
-                      <Image
-                        style={{ marginTop: 20 }}
-                        source={require("./../../../assets/images/close.png")}
-                      />
-                    </TouchableHighlight>
-                    {/* <Icon name="close" /> */}
+                      <Svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <Path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M18 15.48L15.48 18L9 11.52L2.52 18L0 15.48L6.48 9L0 2.52L2.52 0L9 6.48L15.48 0L18 2.52L11.52 9L18 15.48Z"
+                          fill="#2C3B51"
+                        />
+                      </Svg>
+                    </TouchableOpacity>
 
                     <View style={styles.top_security_agreements}>
-                      <ScrollView style={styles.container_scroll}>
-                        <Text style={styles.text_scroll}>
-                        {"\n"}No worries, all good.
-                          {"\n"}
-                          {"\n"}We asked you to acticvate the screen time feature on your iPhone when you started the study. However, if you did not activate it, just skip this question.
-                        </Text>
+                      <ScrollView>
+                        <View
+                          style={{
+                            paddingTop: 60,
+                            paddingLeft: 30,
+                            paddingRight: 30,
+                            width: Dimensions.get("window").width,
+                            alignItems: "center"
+                          }}
+                        >
+                          <Text style={styles.text_scroll}>
+                            {"\n"}No worries, all good.
+                            {"\n"}
+                            {"\n"}We asked you to acticvate the screen time
+                            feature on your iPhone when you started the study.
+                            However, if you did not activate it, just skip this
+                            question.
+                          </Text>
+                        </View>
                       </ScrollView>
                     </View>
                   </Modal>

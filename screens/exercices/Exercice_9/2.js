@@ -9,7 +9,8 @@ import {
   ImageBackground,
   Keyboard,
   KeyboardAvoidingView,
-  Dimensions
+  Dimensions,
+  Alert
 } from "react-native";
 import {
   PrimaryButton,
@@ -49,18 +50,15 @@ class Exercice_9_2 extends React.Component {
   };
 
   handleSubmit = () => {
-    const { Advice1_D9 } = this.state;
-    const { Advice2_D9 } = this.state;
-    const { Advice3_D9 } = this.state;
 
     firebase
       .database()
       .ref("questionnaires")
       .child(this.props.user.UID)
       .update({
-        Advice1_D9: Advice1_D9,
-        Advice2_D9: Advice2_D9,
-        Advice3_D9: Advice3_D9
+        Advice1_D9: this.state.Advice1_D9,
+        Advice2_D9: this.state.Advice2_D9,
+        Advice3_D9: this.state.Advice3_D9
       });
     this.props.dispatch(Update_Advice1_D9(this.state.Advice1_D9));
     this.props.dispatch(Update_Advice2_D9(this.state.Advice2_D9));
@@ -110,6 +108,8 @@ class Exercice_9_2 extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
                     value={this.state.Advice1_D9}
@@ -125,6 +125,8 @@ class Exercice_9_2 extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice2}
                     value={this.state.Advice2_D9}
@@ -140,6 +142,8 @@ class Exercice_9_2 extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice3}
                     value={this.state.Advice3_D9}

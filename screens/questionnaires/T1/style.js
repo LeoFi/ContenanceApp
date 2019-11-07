@@ -252,19 +252,16 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   top_security_agreements: {
-    flex: 1,
+    backgroundColor: "#F4F1DE",
     justifyContent: "flex-start",
     alignSelf: "stretch",
-    marginTop: -40,
-    flexDirection: "row-reverse",
-    backgroundColor: "#F4F1DE"
+    height: Dimensions.get("window").height
   },
   close: {
-    justifyContent: "flex-start",
-    alignSelf: "stretch",
-    paddingTop: 20,
-    zIndex: 1,
-    left: 20
+    position: "absolute",
+    right: 30,
+    top: 30,
+    zIndex: 1
   },
   text_bold: {
     color: "#2C3B51",

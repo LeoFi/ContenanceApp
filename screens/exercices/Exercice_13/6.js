@@ -83,10 +83,27 @@ class Exercice_13_6 extends React.Component {
         ""
     ];
     return (
-      <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
-        <StatusBar hidden />
-        <ScrollView>
-          <View style={styles.container_top}>
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#F4F1DE",
+          justifyContent: "flex-start"
+        }}
+      >
+        <ScrollView
+          //style={styles.container_scrollview}
+          contentContainerStyle={styles.container_scrollview_content}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+          ref="_scrollView"
+        >
+          <View
+            style={{
+              width: Dimensions.get("window").width - 60
+            }}
+          >
             <Text style={styles.sub_header_left}>
               Step 3: Commit to a new habit
             </Text>
@@ -143,15 +160,13 @@ class Exercice_13_6 extends React.Component {
                 fontFamily: "roboto-bold"
               }}
             />
+            <PrimaryButton
+              label="Continue"
+              disabled={!this.state.allSelected}
+              onPress={this.handleSubmit}
+            />
           </View>
         </ScrollView>
-        <View style={styles.bottom_button}>
-          <PrimaryButton
-            label="Continue"
-            disabled={!this.state.allSelected}
-            onPress={this.handleSubmit}
-          />
-        </View>
       </View>
     );
   }

@@ -29,19 +29,19 @@ import { connect } from "react-redux";
 import { Update_Progress_T1 } from "./../../../redux-persist/redux/user_values";
 
 class SUE_Screen_T1 extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      header: props => (
-        <HeaderComponent
-          progress={70 / 79}
-          disabledProgress={false}
-          disabledClose={true}
-          colorProgress={"#2C3B51"}
-          {...props}
-        />
-      )
-    };
-  };
+  // static navigationOptions = ({ navigation }) => {
+  //   return {
+  //     header: props => (
+  //       <HeaderComponent
+  //         progress={70 / 79}
+  //         disabledProgress={false}
+  //         disabledClose={true}
+  //         colorProgress={"#2C3B51"}
+  //         {...props}
+  //       />
+  //     )
+  //   };
+  // };
 
   constructor(props) {
     super(props);
@@ -49,15 +49,15 @@ class SUE_Screen_T1 extends React.Component {
       show_1: true,
       show_2: false,
       buttonIsActive: false,
-      progressValueT1: 30
+      progressValueT1: 9 / 79
     };
   }
 
-  componentDidMount() {
-    this.props.navigation.setParams({
-      progressValueT1: this.props.user_values.progressValueT1
-    });
-  }
+  // componentDidMount() {
+  //   this.props.navigation.setParams({
+  //     progressValueT1: th / 79is.props.user_values.progressValueT1
+  //   });
+  // }
 
   getChecked = value => {
      
@@ -76,10 +76,10 @@ class SUE_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValueT1: 10 });
+        this.setState({ progressValueT1: 10 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
-        this.setState({ progressValueT1: 11 });
+        this.setState({ progressValueT1: 11 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.setState({ buttonIsActive: true });
       }
@@ -90,12 +90,12 @@ class SUE_Screen_T1 extends React.Component {
     const progressValueT1 = this.state.progressValueT1
     setTimeout(() => {
       if (this.state.show_1 == true) {
-        this.setState({ progressValueT1: 10 });
+        this.setState({ progressValueT1: 10 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.setState({ show_1: false });
         this.setState({ show_2: true });
       } else if (this.state.show_2 == true) {
-        this.setState({ progressValueT1: 11 });
+        this.setState({ progressValueT1: 11 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.props.navigation.navigate("WB_Screen_T1");
       }
@@ -106,7 +106,28 @@ class SUE_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT1}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
         <View style={styles.container}>
           <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
             <Text style={styles.skip_text}>Skip</Text>

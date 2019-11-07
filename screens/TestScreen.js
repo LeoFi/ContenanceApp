@@ -45,14 +45,20 @@ import {
   updateState_Ex18,
   updateState_Ex19,
   updateState_Ex20,
-  updateState_Ex21
+  updateState_Ex21,
+  updateState_PM1,
+  updateState_PM2,
+  updateState_PM3,
+  updateState_PM4,
+  updateState_PM5
 } from "./../redux-persist/redux/exercices";
 
 import {
   updateWelcomeTitle,
   updateWelcomeSubTitle,
   updateCompletedList,
-  updateTotalChallenge
+  updateTotalChallenge,
+  updateAllExercises
 } from "./../redux-persist/redux/user";
 
 import { BlurView } from "expo-blur";
@@ -92,61 +98,6 @@ class TestScreen extends React.Component {
 
   setPhases = () => {
     if (
-      (this.props.exercices.exercice_state_21 === "completed" ||
-        this.props.exercices.exercice_state_21 === "DONE") &&
-      (this.props.exercices.exercice_state_20 === "completed" ||
-        this.props.exercices.exercice_state_20 === "DONE") &&
-      (this.props.exercices.exercice_state_19 === "completed" ||
-        this.props.exercices.exercice_state_19 === "DONE") &&
-      (this.props.exercices.exercice_state_18 === "completed" ||
-        this.props.exercices.exercice_state_18 === "DONE") &&
-      (this.props.exercices.exercice_state_17 === "completed" ||
-        this.props.exercices.exercice_state_17 === "DONE") &&
-      (this.props.exercices.exercice_state_13 === "completed" ||
-        this.props.exercices.exercice_state_13 === "DONE") &&
-      (this.props.exercices.exercice_state_14 === "completed" ||
-        this.props.exercices.exercice_state_14 === "DONE") &&
-      (this.props.exercices.exercice_state_15 === "completed" ||
-        this.props.exercices.exercice_state_15 === "DONE") &&
-      (this.props.exercices.exercice_state_16 === "completed" ||
-        this.props.exercices.exercice_state_16 === "DONE") &&
-      (this.props.exercices.exercice_state_9 === "completed" ||
-        this.props.exercices.exercice_state_9 === "DONE") &&
-      (this.props.exercices.exercice_state_10 === "completed" ||
-        this.props.exercices.exercice_state_10 === "DONE") &&
-      (this.props.exercices.exercice_state_11 === "completed" ||
-        this.props.exercices.exercice_state_11 === "DONE") &&
-      (this.props.exercices.exercice_state_12 === "completed" ||
-        this.props.exercices.exercice_state_12 === "DONE") &&
-      (this.props.exercices.exercice_state_5 === "completed" ||
-        this.props.exercices.exercice_state_5 === "DONE") &&
-      (this.props.exercices.exercice_state_6 === "completed" ||
-        this.props.exercices.exercice_state_6 === "DONE") &&
-      (this.props.exercices.exercice_state_7 === "completed" ||
-        this.props.exercices.exercice_state_7 === "DONE") &&
-      (this.props.exercices.exercice_state_8 === "completed" ||
-        this.props.exercices.exercice_state_8 === "DONE") &&
-      (this.props.exercices.exercice_state_1 === "completed" ||
-        this.props.exercices.exercice_state_1 === "DONE") &&
-      (this.props.exercices.exercice_state_2 === "completed" ||
-        this.props.exercices.exercice_state_2 === "DONE") &&
-      (this.props.exercices.exercice_state_3 === "completed" ||
-        this.props.exercices.exercice_state_3 === "DONE") &&
-      (this.props.exercices.exercice_state_4 === "completed" ||
-        this.props.exercices.exercice_state_4 === "DONE")
-    ) {
-      this.setState(
-        {
-          welcomeSubTitle:
-            "You’re done with the 21-day program. We will email you with the next steps in the study."
-        },
-        function() {
-          this.props.dispatch(
-            updateWelcomeSubTitle(this.state.welcomeSubTitle)
-          );
-        }
-      );
-    } else if (
       (this.props.exercices.exercice_state_13 === "completed" ||
         this.props.exercices.exercice_state_13 === "DONE") &&
       (this.props.exercices.exercice_state_14 === "completed" ||
@@ -223,6 +174,209 @@ class TestScreen extends React.Component {
     }
   };
 
+  componentDidUpdate() {
+    if (
+      (this.props.exercices.exercice_state_4 === "new" ||
+        this.props.exercices.exercice_state_4 === "next") &&
+      this.props.exercices.exercice_state_PM1 == undefined
+    ) {
+      this.setState(
+        {
+          newstatePM1: "new"
+        },
+        function() {
+          this.props.dispatch(updateState_PM1(this.state.newstatePM1));
+        }
+      );
+    } else if (
+      this.props.exercices.exercice_state_4 == undefined &&
+      this.props.exercices.exercice_state_PM1 == "new"
+    ) {
+      this.setState(
+        {
+          newstatePM1: undefined
+        },
+        function() {
+          this.props.dispatch(updateState_PM1(this.state.newstatePM1));
+        }
+      );
+    }
+
+    if (
+      (this.props.exercices.exercice_state_8 === "new" ||
+        this.props.exercices.exercice_state_8 === "next") &&
+      this.props.exercices.exercice_state_PM2 == undefined
+    ) {
+      //Alert.alert("pm2")
+      this.setState(
+        {
+          newstatePM2: "new"
+        },
+        function() {
+          this.props.dispatch(updateState_PM2(this.state.newstatePM2));
+        }
+      );
+    } else if (
+      this.props.exercices.exercice_state_8 == undefined &&
+      this.props.exercices.exercice_state_PM2 == "new"
+    ) {
+      this.setState(
+        {
+          newstatePM2: undefined
+        },
+        function() {
+          this.props.dispatch(updateState_PM2(this.state.newstatePM2));
+        }
+      );
+    }
+
+    if (
+      (this.props.exercices.exercice_state_12 === "new" ||
+        this.props.exercices.exercice_state_12 === "next") &&
+      this.props.exercices.exercice_state_PM3 == undefined
+    ) {
+      //Alert.alert("pm3")
+      this.setState(
+        {
+          newstatePM3: "new"
+        },
+        function() {
+          this.props.dispatch(updateState_PM3(this.state.newstatePM3));
+        }
+      );
+    } else if (
+      this.props.exercices.exercice_state_12 == undefined &&
+      this.props.exercices.exercice_state_PM3 == "new"
+    ) {
+      this.setState(
+        {
+          newstatePM3: undefined
+        },
+        function() {
+          this.props.dispatch(updateState_PM3(this.state.newstatePM3));
+        }
+      );
+    }
+
+    if (
+      (this.props.exercices.exercice_state_16 === "new" ||
+        this.props.exercices.exercice_state_16 === "next") &&
+      this.props.exercices.exercice_state_PM4 == undefined
+    ) {
+      //Alert.alert("pm4")
+      this.setState(
+        {
+          newstatePM4: "new"
+        },
+        function() {
+          this.props.dispatch(updateState_PM4(this.state.newstatePM4));
+        }
+      );
+    } else if (
+      this.props.exercices.exercice_state_16 == undefined &&
+      this.props.exercices.exercice_state_PM4 == "new"
+    ) {
+      this.setState(
+        {
+          newstatePM4: undefined
+        },
+        function() {
+          this.props.dispatch(updateState_PM4(this.state.newstatePM4));
+        }
+      );
+    }
+
+    if (
+      (this.props.exercices.exercice_state_20 === "new" ||
+        this.props.exercices.exercice_state_20 === "next") &&
+      this.props.exercices.exercice_state_PM5 == undefined
+    ) {
+      //Alert.alert("pm5")
+      this.setState(
+        {
+          newstatePM5: "new"
+        },
+        function() {
+          this.props.dispatch(updateState_PM5(this.state.newstatePM5));
+        }
+      );
+    } else if (
+      this.props.exercices.exercice_state_20 == undefined &&
+      this.props.exercices.exercice_state_PM5 == "new"
+    ) {
+      this.setState(
+        {
+          newstatePM5: undefined
+        },
+        function() {
+          this.props.dispatch(updateState_PM5(this.state.newstatePM5));
+        }
+      );
+    }
+
+    if (
+      (this.props.exercices.exercice_state_21 === "completed" ||
+        this.props.exercices.exercice_state_21 === "DONE") &&
+      (this.props.exercices.exercice_state_20 === "completed" ||
+        this.props.exercices.exercice_state_20 === "DONE") &&
+      (this.props.exercices.exercice_state_19 === "completed" ||
+        this.props.exercices.exercice_state_19 === "DONE") &&
+      (this.props.exercices.exercice_state_18 === "completed" ||
+        this.props.exercices.exercice_state_18 === "DONE") &&
+      (this.props.exercices.exercice_state_17 === "completed" ||
+        this.props.exercices.exercice_state_17 === "DONE") &&
+      (this.props.exercices.exercice_state_13 === "completed" ||
+        this.props.exercices.exercice_state_13 === "DONE") &&
+      (this.props.exercices.exercice_state_14 === "completed" ||
+        this.props.exercices.exercice_state_14 === "DONE") &&
+      (this.props.exercices.exercice_state_15 === "completed" ||
+        this.props.exercices.exercice_state_15 === "DONE") &&
+      (this.props.exercices.exercice_state_16 === "completed" ||
+        this.props.exercices.exercice_state_16 === "DONE") &&
+      (this.props.exercices.exercice_state_9 === "completed" ||
+        this.props.exercices.exercice_state_9 === "DONE") &&
+      (this.props.exercices.exercice_state_10 === "completed" ||
+        this.props.exercices.exercice_state_10 === "DONE") &&
+      (this.props.exercices.exercice_state_11 === "completed" ||
+        this.props.exercices.exercice_state_11 === "DONE") &&
+      (this.props.exercices.exercice_state_12 === "completed" ||
+        this.props.exercices.exercice_state_12 === "DONE") &&
+      (this.props.exercices.exercice_state_5 === "completed" ||
+        this.props.exercices.exercice_state_5 === "DONE") &&
+      (this.props.exercices.exercice_state_6 === "completed" ||
+        this.props.exercices.exercice_state_6 === "DONE") &&
+      (this.props.exercices.exercice_state_7 === "completed" ||
+        this.props.exercices.exercice_state_7 === "DONE") &&
+      (this.props.exercices.exercice_state_8 === "completed" ||
+        this.props.exercices.exercice_state_8 === "DONE") &&
+      (this.props.exercices.exercice_state_1 === "completed" ||
+        this.props.exercices.exercice_state_1 === "DONE") &&
+      (this.props.exercices.exercice_state_2 === "completed" ||
+        this.props.exercices.exercice_state_2 === "DONE") &&
+      (this.props.exercices.exercice_state_3 === "completed" ||
+        this.props.exercices.exercice_state_3 === "DONE") &&
+      (this.props.exercices.exercice_state_4 === "completed" ||
+        this.props.exercices.exercice_state_4 === "DONE") &&
+      this.props.user.allExercises === false
+    ) {
+      this.setState(
+        {
+          welcomeSubTitle:
+            "You’re done with the 21-day program. We will email you with the next steps in the study.",
+          progressCircle: 22 / 22
+        },
+        function() {
+          this.props.dispatch(
+            updateWelcomeSubTitle(this.state.welcomeSubTitle)
+          );
+          this.props.dispatch(updateAllExercises(true));
+        }
+      );
+    } else {
+      return false;
+    }
+  }
+
   componentDidMount() {
     this.compareDates();
     this.timeLogic();
@@ -247,10 +401,24 @@ class TestScreen extends React.Component {
   timeLogic = () => {
     const initialDate = this.props.user.initialDate;
     dt1 = new Date(initialDate);
-    //dt2 = new Date("October 23, 2019 23:15:30");
-    dt2 = new Date();
+
+    defaultdate = new Date();
+    var locales = ["en-US"];
+    var options = {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit"
+    };
+    //dt2 = new Date("10/21/19");
+    dt2Prep = defaultdate.toLocaleString(locales, options);
+    dt2 = new Date(dt2Prep);
+
     var x = diff_days(dt1, dt2);
-    //Alert.alert(x);
+    console.log(
+      "Date first exercice " + dt1,
+      " / Date today " + dt2,
+      " / Difference " + x
+    );
     console.log(this.props.exercices);
     console.log(x);
 
@@ -384,6 +552,7 @@ class TestScreen extends React.Component {
           }, []);
 
         var myNextArray = data.filter(item => item.exercice == "next");
+        var myNewArray = data.filter(item => item.exercice == "new");
 
         // FIND ALL UNDEFINED PAST EXERCICES AND GET FIRST EXERCISE
         var LockedExercises = data.filter(item => item.exercice == "locked");
@@ -397,6 +566,37 @@ class TestScreen extends React.Component {
           // FUTURE DAY = SKIPPED DAYS
           programLength <= x
         ) {
+          // HOT FIX TIME LOGIC
+          var HotFixLogic = data.reduce((acc, item) => {
+            if (
+              (item.exercice === "new" ||
+                item.exercice === "next" ||
+                item.exercice === "completed" ||
+                item.exercice === "locked" ||
+                item.exercice === "DONE") &&
+              item.day > x + 2
+            ) {
+              return [
+                ...acc,
+                {
+                  ...item
+                },
+                this.setState(
+                  {
+                    newstate: undefined
+                  },
+                  function() {
+                    this.props.dispatch(item.function(this.state.newstate));
+                  }
+                )
+              ];
+            } else {
+              return [...acc];
+            }
+          }, []);
+
+          // END HOT FIX
+
           // FIND ALL UNDEFINED PAST EXERCICES AND CHANGE THEM INTO NEW EXERCISES
           var PastUndefined = data.reduce((acc, item) => {
             if (
@@ -409,6 +609,7 @@ class TestScreen extends React.Component {
                 {
                   ...item
                 },
+                //Alert.alert("Hello"),
                 this.setState(
                   {
                     newstate: "new",
@@ -491,7 +692,10 @@ class TestScreen extends React.Component {
       }
 
       // IF LOCKED = DOES EXIST THEN SET THE STATE
-      if (!this.isEmpty(LockedExercises)) {
+      if (
+        !this.isEmpty(LockedExercises) &&
+        (this.isEmpty(myNextArray) && this.isEmpty(myNewArray))
+      ) {
         this.setState({
           welcomeTitle: "Well done,",
           welcomeSubTitle: "Come back tomorrow to continue."
@@ -1214,7 +1418,7 @@ class TestScreen extends React.Component {
         title: <Text style={styles.header_challenge}>Contenance</Text>,
         text_content: (
           <Text style={styles.text_challenge}>
-            From now on, whenever you open Contencance, take on a good posture
+            From now on, whenever you open Contenance, take on a good posture
             first.
           </Text>
         )
@@ -1667,7 +1871,7 @@ class TestScreen extends React.Component {
       {
         id: 21,
         path: "Exercice_21_Intro",
-        //path: "QQ_Screen_T2",
+        //path: "Closing_Screen_T2",
         label: "Day 21 - Closing",
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
@@ -1700,7 +1904,11 @@ class TestScreen extends React.Component {
               }}
             >
               <Progress.Circle
-                progress={this.state.progressCircle}
+                progress={
+                  this.props.user.allExercises === true
+                    ? 1
+                    : this.state.progressCircle
+                }
                 size={Dimensions.get("window").width - 70}
                 height={Dimensions.get("window").width - 70}
                 thickness={12}
@@ -1752,7 +1960,6 @@ class TestScreen extends React.Component {
               {ExercicesArray.map((item, key) =>
                 item.state === "next" ||
                 item.state === "locked" ||
-                //item.state === "completed" ||
                 item.state === "new" ? (
                   <View key={key}>
                     <ExerciceButton

@@ -7,7 +7,9 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
-  Button
+  Button,
+  StatusBar,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -18,7 +20,7 @@ import RadioGroup, {
   Radio
 } from "../../../components/AppComponents/RadioGroup";
 import { styles } from "./style";
-
+import * as Progress from "react-native-progress";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 
@@ -30,12 +32,12 @@ class CO_Screen_T2 extends React.Component {
       show_2: false,
       show_3: false,
       show_4: false,
-      buttonIsActive: false
+      buttonIsActive: false,
+      progressValueT2: 40 / 60
     };
   }
 
   getChecked = value => {
-     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     console.log(KEY, KEY_Value);
@@ -50,17 +52,21 @@ class CO_Screen_T2 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValueT2: 41 / 60 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValueT2: 42 / 60 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValueT2: 43 / 60 });
       } else if (this.state.show_4 == true) {
         this.setState({ buttonIsActive: true });
+        this.setState({ progressValueT2: 44 / 60 });
       }
     }, 400);
   };
@@ -70,16 +76,20 @@ class CO_Screen_T2 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
+        this.setState({ progressValueT2: 41 / 60 });
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
+        this.setState({ progressValueT2: 42 / 60 });
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
+        this.setState({ progressValueT2: 43 / 60 });
       } else if (this.state.show_4 == true) {
+        this.setState({ progressValueT2: 44 / 60 });
         this.props.navigation.navigate("QQ_Screen_T2");
       }
     }, 400);
@@ -87,201 +97,238 @@ class CO_Screen_T2 extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-          <Text style={styles.skip_text}>Skip</Text>
-        </TouchableOpacity>
+      <>
+        <StatusBar hidden />
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT2}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
+        <View style={styles.container}>
+          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
+            <Text style={styles.skip_text}>Skip</Text>
+          </TouchableOpacity>
 
-        {this.state.show_1 ? (
-          <>
-            <Text style={styles.text_left}>
-              Have you been on holidays during the time of the program?
-            </Text>
+          {this.state.show_1 ? (
+            <>
+              <Text style={styles.text_left}>
+                Have you been on holidays during the time of the program?
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                isScaleEnabled={false}
-                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                RadioStyle={{
-                  width: "100%",
-                  height: 49,
-                  borderRadius: 30,
-                  marginBottom: 10,
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-                labelStyle={{
-                  fontSize: 14,
-                  paddingLeft: 20,
-                  paddingRight: 20,
-                  alignItems: "stretch"
-                }}
-              >
-                <Radio iconName={"lens"} label={"Yes"} value={"Holiday/Yes"} />
-                <Radio iconName={"lens"} label={"No"} value={"Holiday/No"} />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  isScaleEnabled={false}
+                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                  RadioStyle={{
+                    width: "100%",
+                    height: 49,
+                    borderRadius: 30,
+                    marginBottom: 10,
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                  labelStyle={{
+                    fontSize: 14,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    alignItems: "stretch",
+                    color: "#2C3B51",
+                    textAlign: "center"
+                  }}
+                >
+                  <Radio
+                    iconName={"lens"}
+                    label={"Yes"}
+                    value={"Holiday/Yes"}
+                  />
+                  <Radio iconName={"lens"} label={"No"} value={"Holiday/No"} />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_2 ? (
-          <>
-            <Text style={styles.text_left}>
-              If yes, in which week have you been on holidays?{"\n"}
-              If no, please skip the question
-            </Text>
+          {this.state.show_2 ? (
+            <>
+              <Text style={styles.text_left}>
+                If yes, in which week have you been on holidays?{"\n"}
+                If no, please skip the question
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                isScaleEnabled={false}
-                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                RadioStyle={{
-                  width: "100%",
-                  height: 49,
-                  borderRadius: 30,
-                  marginBottom: 10,
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-                labelStyle={{
-                  fontSize: 14,
-                  paddingLeft: 20,
-                  paddingRight: 20,
-                  alignItems: "stretch"
-                }}
-              >
-                <Radio
-                  iconName={"lens"}
-                  label={"Week 1 (Day 1-7)"}
-                  value={"HolidaysWeek/Week 1 (Day 1-7)"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"Week 2 (Day 7-14)"}
-                  value={"HolidaysWeek/Week 2 (Day 7-14)"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"Week 3 (Day 14-21)"}
-                  value={"HolidaysWeek/Week 3 (Day 14-21)"}
-                />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  isScaleEnabled={false}
+                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                  RadioStyle={{
+                    width: "100%",
+                    height: 49,
+                    borderRadius: 30,
+                    marginBottom: 10,
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                  labelStyle={{
+                    fontSize: 14,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    alignItems: "stretch",
+                    color: "#2C3B51",
+                    textAlign: "center"
+                  }}
+                >
+                  <Radio
+                    iconName={"lens"}
+                    label={"Week 1 (Day 1-7)"}
+                    value={"HolidaysWeek/Week 1 (Day 1-7)"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"Week 2 (Day 7-14)"}
+                    value={"HolidaysWeek/Week 2 (Day 7-14)"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"Week 3 (Day 14-21)"}
+                    value={"HolidaysWeek/Week 3 (Day 14-21)"}
+                  />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_3 ? (
-          <>
-            <Text style={styles.text_left}>
-              Have you used any additional strategies to change your smartphone
-              use?
-            </Text>
+          {this.state.show_3 ? (
+            <>
+              <Text style={styles.text_left}>
+                Have you used any additional strategies to change your
+                smartphone use?
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                isScaleEnabled={false}
-                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                RadioStyle={{
-                  width: "100%",
-                  height: 49,
-                  borderRadius: 30,
-                  marginBottom: 10,
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-                labelStyle={{
-                  fontSize: 14,
-                  paddingLeft: 20,
-                  paddingRight: 20,
-                  alignItems: "stretch"
-                }}
-              >
-                <Radio
-                  iconName={"lens"}
-                  label={"Yes"}
-                  value={"AddStratYN_D21//Yes"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"No"}
-                  value={"AddStratYN_D21/No"}
-                />
-              </RadioGroup>
-            </View>
-          </>
-        ) : null}
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  isScaleEnabled={false}
+                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                  RadioStyle={{
+                    width: "100%",
+                    height: 49,
+                    borderRadius: 30,
+                    marginBottom: 10,
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                  labelStyle={{
+                    fontSize: 14,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    alignItems: "stretch",
+                    color: "#2C3B51",
+                    textAlign: "center"
+                  }}
+                >
+                  <Radio
+                    iconName={"lens"}
+                    label={"Yes"}
+                    value={"AddStratYN_D21//Yes"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"No"}
+                    value={"AddStratYN_D21/No"}
+                  />
+                </RadioGroup>
+              </View>
+            </>
+          ) : null}
 
-        {this.state.show_4 ? (
-          <>
-            <Text style={styles.text_left}>
-              If yes, what strategies have you used?{"\n"}
-              If no, please skip the question
-            </Text>
+          {this.state.show_4 ? (
+            <>
+              <Text style={styles.text_left}>
+                If yes, what strategies have you used?{"\n"}
+                If no, please skip the question
+              </Text>
 
-            <View style={styles.question}>
-              <RadioGroup
-                getChecked={this.getChecked}
-                isScaleEnabled={false}
-                RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
-                RadioStyle={{
-                  width: "100%",
-                  height: 49,
-                  borderRadius: 30,
-                  marginBottom: 10,
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-                labelStyle={{
-                  fontSize: 14,
-                  paddingLeft: 20,
-                  paddingRight: 20,
-                  alignItems: "stretch"
-                }}
-              >
-                <Radio
-                  iconName={"lens"}
-                  label={"Flightmode"}
-                  value={"AddStrat_D21/Flightmode"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"App Use Limits"}
-                  value={"AddStrat_D21/App Use Limits"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"Downtime"}
-                  value={"AddStrat_D21/Downtime"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"Alarm as Reminder"}
-                  value={"AddStrat_D21/Alarm as Reminder"}
-                />
-                <Radio
-                  iconName={"lens"}
-                  label={"Other"}
-                  value={"AddStrat_D21/Other"}
-                />
-              </RadioGroup>
-            </View>
+              <View style={styles.question}>
+                <RadioGroup
+                  getChecked={this.getChecked}
+                  isScaleEnabled={false}
+                  RadioGroupStyle={{ flexDirection: "column", paddingTop: 20 }}
+                  RadioStyle={{
+                    width: "100%",
+                    height: 49,
+                    borderRadius: 30,
+                    marginBottom: 10,
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                  labelStyle={{
+                    fontSize: 14,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    alignItems: "stretch",
+                    color: "#2C3B51",
+                    textAlign: "center"
+                  }}
+                >
+                  <Radio
+                    iconName={"lens"}
+                    label={"Flightmode"}
+                    value={"AddStrat_D21/Flightmode"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"App Use Limits"}
+                    value={"AddStrat_D21/App Use Limits"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"Downtime"}
+                    value={"AddStrat_D21/Downtime"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"Alarm as Reminder"}
+                    value={"AddStrat_D21/Alarm as Reminder"}
+                  />
+                  <Radio
+                    iconName={"lens"}
+                    label={"Other"}
+                    value={"AddStrat_D21/Other"}
+                  />
+                </RadioGroup>
+              </View>
 
-            <View style={styles.bottom}>
-              <PrimaryButton
-                label="Keep Going"
-                isBottom={true}
-                disabled={!this.state.buttonIsActive}
-                onPress={() => {
-                  this.props.navigation.navigate("QQ_Screen_T2");
-                }}
-              />
-            </View>
-          </>
-        ) : null}
-      </View>
+              <View style={styles.bottom}>
+                <PrimaryButton
+                  label="Keep Going"
+                  isBottom={true}
+                  disabled={!this.state.buttonIsActive}
+                  onPress={() => {
+                    this.props.navigation.navigate("QQ_Screen_T2");
+                  }}
+                />
+              </View>
+            </>
+          ) : null}
+        </View>
+      </>
     );
   }
 }
@@ -291,4 +338,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(CO_Screen_T2);
-

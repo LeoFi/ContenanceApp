@@ -39,7 +39,7 @@ class MFSU_Screen_T1 extends React.Component {
       show_6: false,
       show_7: false,
       buttonIsActive: false,
-      progressValueT1: undefined
+      progressValueT1: 32 / 79
     };
   }
 
@@ -60,20 +60,20 @@ class MFSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValueT1: 33 });
+        this.setState({ progressValueT1: 33 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValueT1: 34 });
+        this.setState({ progressValueT1: 34 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValueT1: 35 });
+        this.setState({ progressValueT1: 35 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
@@ -81,7 +81,7 @@ class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValueT1: 36 });
+        this.setState({ progressValueT1: 36 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
@@ -90,7 +90,7 @@ class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValueT1: 37 });
+        this.setState({ progressValueT1: 37 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
@@ -100,10 +100,10 @@ class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValueT1: 38 });
+        this.setState({ progressValueT1: 38 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
-        this.setState({ progressValueT1: 39 });
+        this.setState({ progressValueT1: 39 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.setState({ buttonIsActive: true });
       }
@@ -116,20 +116,20 @@ class MFSU_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValueT1: 33 });
+        this.setState({ progressValueT1: 33 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValueT1: 34 });
+        this.setState({ progressValueT1: 34 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValueT1: 35 });
+        this.setState({ progressValueT1: 35 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
@@ -137,7 +137,7 @@ class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValueT1: 36 });
+        this.setState({ progressValueT1: 36 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
@@ -146,7 +146,7 @@ class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValueT1: 37 });
+        this.setState({ progressValueT1: 37 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
@@ -156,10 +156,10 @@ class MFSU_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValueT1: 38 });
+        this.setState({ progressValueT1: 38 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
-        this.setState({ progressValueT1: 39 });
+        this.setState({ progressValueT1: 39 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.props.navigation.navigate("PSF_Screen_T1");
       }
@@ -170,7 +170,28 @@ class MFSU_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT1}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
         <View style={styles.container}>
           <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
             <Text style={styles.skip_text}>Skip</Text>

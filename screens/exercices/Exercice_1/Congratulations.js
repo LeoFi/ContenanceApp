@@ -6,7 +6,8 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  Image
+  Image,
+  Alert
 } from "react-native";
 import {
   PrimaryButton,
@@ -79,7 +80,21 @@ class Exercice_1_Congratulations extends React.Component {
   }
 
   getDate = () => {
-    var initialDate = new Date().toString();
+    var date = new Date();
+    var locales = ["en-US"];
+    var options = {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit"
+    }
+    var optionsExercise = {
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    }
+    var initialDate = date.toLocaleString( locales, options )
+    var Exercise_1_Done = date.toLocaleString( locales, optionsExercise )
 
     if (this.props.user.initialDate.length === 0) {
       this.setState({ initialDate: initialDate }, function() {
@@ -92,7 +107,8 @@ class Exercice_1_Congratulations extends React.Component {
         .child("accounts")
         .child(this.props.user.UID)
         .update({
-          Day_1_Done: initialDate
+          Day_1_Done: initialDate,
+          Exercise_1_Done: Exercise_1_Done,
         });
     } else {
       return;

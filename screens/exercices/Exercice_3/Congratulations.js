@@ -14,7 +14,7 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-
+import * as firebase from "firebase";
 import { connect } from "react-redux";
 import { updateState_Ex3 } from "./../../../redux-persist/redux/exercices";
 import { updateState_Ex4 } from "./../../../redux-persist/redux/exercices";
@@ -38,6 +38,24 @@ class Exercice_3_Congratulations extends React.Component {
       const { exercice_state_3 } = this.state;
       this.setState({ exercice_state_3: exercice_state_3 });
       this.props.dispatch(updateState_Ex3(this.state.exercice_state_3));
+
+      var date = new Date();
+      var locales = ["en-US"];
+      var options = {
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      };
+      var Exercise_3_Done = date.toLocaleString(locales, options);
+      firebase
+        .database()
+        .ref()
+        .child("accounts")
+        .child(this.props.user.UID)
+        .update({
+          Exercise_3_Done: Exercise_3_Done
+        });
     }
 
     if (this.props.exercices.exercice_state_4 === undefined) {
@@ -88,7 +106,8 @@ class Exercice_3_Congratulations extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  exercices: state.exercices
+  exercices: state.exercices,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_3_Congratulations);

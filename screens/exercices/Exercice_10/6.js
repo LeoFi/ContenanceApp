@@ -90,6 +90,8 @@ class Exercice_10_4 extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
                     value={this.state.MeanAct2_D10}

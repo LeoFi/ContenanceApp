@@ -60,6 +60,14 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     textAlign: "right"
   },
+  container_scrollview_content_questionnaire: {
+    //paddingTop: 50,
+    //paddingBottom: 40,
+    flexGrow: 1,
+    alignItems: "flex-start",
+    alignSelf: "stretch",
+    flexWrap: "wrap"
+  },
   container_scroll: {
     paddingTop: 80,
     paddingLeft: 30,

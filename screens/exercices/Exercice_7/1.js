@@ -50,9 +50,6 @@ class Exercice_7_1 extends React.Component {
                   {"\n"}For iOS: Settings > Screen Time >{" "}
                   {this.props.user.nickname}'s iPhone > Last 7 day > scroll down
                   to MOST USED
-                  {"\n"}
-                  {"\n"}For Android: Settings > Digital Well-Being > Dashboard >
-                  scroll down
                 </Text>
                 <Text style={styles.intro_text}>
                   {"\n"}If you do not use a screen time tracker, just reflect on

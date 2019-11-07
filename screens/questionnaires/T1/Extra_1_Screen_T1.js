@@ -33,7 +33,7 @@ class Extra_1_Screen_T1 extends React.Component {
     this.state = {
       buttonIsActive: false,
       userAge: "",
-      progressValueT1: undefined
+      progressValueT1: 63 / 79
     };
   }
 
@@ -51,7 +51,7 @@ class Extra_1_Screen_T1 extends React.Component {
       .ref("questionnaires")
       .child(this.props.user.UID)
       .update({ Age: userAge });
-    this.setState({ progressValueT1: 64 });
+    this.setState({ progressValueT1: 64 /79 });
     this.props.dispatch(Update_Progress_T1(progressValueT1));
     this.props.navigation.navigate("Extra_2_Screen_T1");
   };
@@ -60,14 +60,35 @@ class Extra_1_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT1}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
             <>
               <TouchableOpacity
                 onPress={() => {
                   const progressValueT1 = this.state.progressValueT1
-                  this.setState({ progressValueT1: 64 });
+                  this.setState({ progressValueT1: 64 /79 });
                   this.props.dispatch(Update_Progress_T1(progressValueT1));
                   this.props.navigation.navigate("Extra_2_Screen_T1");
                 }}
@@ -83,6 +104,8 @@ class Extra_1_Screen_T1 extends React.Component {
                 <View style={styles.question_center}>
                   <Text style={styles.text_bold_center}>What is your age?</Text>
                   <TextInput
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange}
                     value={this.state.userAge}

@@ -53,7 +53,7 @@ class WB_Screen_T1 extends React.Component {
       show_20: false,
       show_21: false,
       buttonIsActive: false,
-      progressValueT1: undefined
+      progressValueT1: 11 / 79
     };
   }
 
@@ -74,20 +74,20 @@ class WB_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValueT1: 12 });
+        this.setState({ progressValueT1: 12 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValueT1: 13 });
+        this.setState({ progressValueT1: 13 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValueT1: 14 });
+        this.setState({ progressValueT1: 14 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
@@ -95,7 +95,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValueT1: 15 });
+        this.setState({ progressValueT1: 15 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
@@ -104,7 +104,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValueT1: 16 });
+        this.setState({ progressValueT1: 16 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
@@ -114,7 +114,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValueT1: 17 });
+        this.setState({ progressValueT1: 17 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
@@ -125,7 +125,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValueT1: 18 });
+        this.setState({ progressValueT1: 18 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
@@ -137,7 +137,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValueT1: 19 });
+        this.setState({ progressValueT1: 19 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_9 == true) {
         this.setState({ show_1: false });
@@ -150,7 +150,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_8: false });
         this.setState({ show_9: false });
         this.setState({ show_10: true });
-        this.setState({ progressValueT1: 20 });
+        this.setState({ progressValueT1: 20 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_10 == true) {
         this.setState({ show_1: false });
@@ -164,7 +164,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_9: false });
         this.setState({ show_10: false });
         this.setState({ show_11: true });
-        this.setState({ progressValueT1: 21 });
+        this.setState({ progressValueT1: 21 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_11 == true) {
         this.setState({ show_1: false });
@@ -179,7 +179,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_10: false });
         this.setState({ show_11: false });
         this.setState({ show_12: true });
-        this.setState({ progressValueT1: 22 });
+        this.setState({ progressValueT1: 22 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_12 == true) {
         this.setState({ show_1: false });
@@ -195,7 +195,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_11: false });
         this.setState({ show_12: false });
         this.setState({ show_13: true });
-        this.setState({ progressValueT1: 23 });
+        this.setState({ progressValueT1: 23 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_13 == true) {
         this.setState({ show_1: false });
@@ -212,7 +212,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_12: false });
         this.setState({ show_13: false });
         this.setState({ show_14: true });
-        this.setState({ progressValueT1: 24 });
+        this.setState({ progressValueT1: 24 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_14 == true) {
         this.setState({ show_1: false });
@@ -230,7 +230,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_13: false });
         this.setState({ show_14: false });
         this.setState({ show_15: true });
-        this.setState({ progressValueT1: 25 });
+        this.setState({ progressValueT1: 25 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_15 == true) {
         this.setState({ show_1: false });
@@ -249,7 +249,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_14: false });
         this.setState({ show_15: false });
         this.setState({ show_16: true });
-        this.setState({ progressValueT1: 26 });
+        this.setState({ progressValueT1: 26 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_16 == true) {
         this.setState({ show_1: false });
@@ -269,7 +269,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_15: false });
         this.setState({ show_16: false });
         this.setState({ show_17: true });
-        this.setState({ progressValueT1: 27 });
+        this.setState({ progressValueT1: 27 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_17 == true) {
         this.setState({ show_1: false });
@@ -290,7 +290,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_16: false });
         this.setState({ show_17: false });
         this.setState({ show_18: true });
-        this.setState({ progressValueT1: 28 });
+        this.setState({ progressValueT1: 28 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_18 == true) {
         this.setState({ show_1: false });
@@ -312,7 +312,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_17: false });
         this.setState({ show_18: false });
         this.setState({ show_19: true });
-        this.setState({ progressValueT1: 29 });
+        this.setState({ progressValueT1: 29 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_19 == true) {
         this.setState({ show_1: false });
@@ -335,7 +335,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_18: false });
         this.setState({ show_19: false });
         this.setState({ show_20: true });
-        this.setState({ progressValueT1: 30 });
+        this.setState({ progressValueT1: 30 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_20 == true) {
         this.setState({ show_1: false });
@@ -359,10 +359,10 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_19: false });
         this.setState({ show_20: false });
         this.setState({ show_21: true });
-        this.setState({ progressValueT1: 31 });
+        this.setState({ progressValueT1: 31 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_21 == true) {
-        this.setState({ progressValueT1: 32 });
+        this.setState({ progressValueT1: 32 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.setState({ buttonIsActive: true });
       }
@@ -375,20 +375,20 @@ class WB_Screen_T1 extends React.Component {
       if (this.state.show_1 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: true });
-        this.setState({ progressValueT1: 12 });
+        this.setState({ progressValueT1: 12 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_2 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: true });
-        this.setState({ progressValueT1: 13 });
+        this.setState({ progressValueT1: 13 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_3 == true) {
         this.setState({ show_1: false });
         this.setState({ show_2: false });
         this.setState({ show_3: false });
         this.setState({ show_4: true });
-        this.setState({ progressValueT1: 14 });
+        this.setState({ progressValueT1: 14 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_4 == true) {
         this.setState({ show_1: false });
@@ -396,7 +396,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_3: false });
         this.setState({ show_4: false });
         this.setState({ show_5: true });
-        this.setState({ progressValueT1: 15 });
+        this.setState({ progressValueT1: 15 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_5 == true) {
         this.setState({ show_1: false });
@@ -405,7 +405,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_4: false });
         this.setState({ show_5: false });
         this.setState({ show_6: true });
-        this.setState({ progressValueT1: 16 });
+        this.setState({ progressValueT1: 16 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_6 == true) {
         this.setState({ show_1: false });
@@ -415,7 +415,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_5: false });
         this.setState({ show_6: false });
         this.setState({ show_7: true });
-        this.setState({ progressValueT1: 17 });
+        this.setState({ progressValueT1: 17 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_7 == true) {
         this.setState({ show_1: false });
@@ -426,7 +426,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_6: false });
         this.setState({ show_7: false });
         this.setState({ show_8: true });
-        this.setState({ progressValueT1: 18 });
+        this.setState({ progressValueT1: 18 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_8 == true) {
         this.setState({ show_1: false });
@@ -438,7 +438,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_7: false });
         this.setState({ show_8: false });
         this.setState({ show_9: true });
-        this.setState({ progressValueT1: 19 });
+        this.setState({ progressValueT1: 19 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_9 == true) {
         this.setState({ show_1: false });
@@ -451,7 +451,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_8: false });
         this.setState({ show_9: false });
         this.setState({ show_10: true });
-        this.setState({ progressValueT1: 20 });
+        this.setState({ progressValueT1: 20 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_10 == true) {
         this.setState({ show_1: false });
@@ -465,7 +465,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_9: false });
         this.setState({ show_10: false });
         this.setState({ show_11: true });
-        this.setState({ progressValueT1: 21 });
+        this.setState({ progressValueT1: 21 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_11 == true) {
         this.setState({ show_1: false });
@@ -480,7 +480,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_10: false });
         this.setState({ show_11: false });
         this.setState({ show_12: true });
-        this.setState({ progressValueT1: 22 });
+        this.setState({ progressValueT1: 22 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_12 == true) {
         this.setState({ show_1: false });
@@ -496,7 +496,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_11: false });
         this.setState({ show_12: false });
         this.setState({ show_13: true });
-        this.setState({ progressValueT1: 23 });
+        this.setState({ progressValueT1: 23 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_13 == true) {
         this.setState({ show_1: false });
@@ -513,7 +513,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_12: false });
         this.setState({ show_13: false });
         this.setState({ show_14: true });
-        this.setState({ progressValueT1: 24 });
+        this.setState({ progressValueT1: 24 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_14 == true) {
         this.setState({ show_1: false });
@@ -531,7 +531,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_13: false });
         this.setState({ show_14: false });
         this.setState({ show_15: true });
-        this.setState({ progressValueT1: 25 });
+        this.setState({ progressValueT1: 25 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_15 == true) {
         this.setState({ show_1: false });
@@ -550,7 +550,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_14: false });
         this.setState({ show_15: false });
         this.setState({ show_16: true });
-        this.setState({ progressValueT1: 26 });
+        this.setState({ progressValueT1: 26 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_16 == true) {
         this.setState({ show_1: false });
@@ -570,7 +570,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_15: false });
         this.setState({ show_16: false });
         this.setState({ show_17: true });
-        this.setState({ progressValueT1: 27 });
+        this.setState({ progressValueT1: 27 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_17 == true) {
         this.setState({ show_1: false });
@@ -591,7 +591,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_16: false });
         this.setState({ show_17: false });
         this.setState({ show_18: true });
-        this.setState({ progressValueT1: 28 });
+        this.setState({ progressValueT1: 28 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_18 == true) {
         this.setState({ show_1: false });
@@ -613,7 +613,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_17: false });
         this.setState({ show_18: false });
         this.setState({ show_19: true });
-        this.setState({ progressValueT1: 29 });
+        this.setState({ progressValueT1: 29 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_19 == true) {
         this.setState({ show_1: false });
@@ -636,7 +636,7 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_18: false });
         this.setState({ show_19: false });
         this.setState({ show_20: true });
-        this.setState({ progressValueT1: 30 });
+        this.setState({ progressValueT1: 30 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_20 == true) {
         this.setState({ show_1: false });
@@ -660,10 +660,10 @@ class WB_Screen_T1 extends React.Component {
         this.setState({ show_19: false });
         this.setState({ show_20: false });
         this.setState({ show_21: true });
-        this.setState({ progressValueT1: 31 });
+        this.setState({ progressValueT1: 31 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
       } else if (this.state.show_21 == true) {
-        this.setState({ progressValueT1: 32 });
+        this.setState({ progressValueT1: 32 / 79 });
         this.props.dispatch(Update_Progress_T1(progressValueT1));
         this.props.navigation.navigate("MFSU_Screen_T1");
       }
@@ -674,7 +674,28 @@ class WB_Screen_T1 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT1}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
         <View style={styles.container}>
           <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
             <Text style={styles.skip_text}>Skip</Text>

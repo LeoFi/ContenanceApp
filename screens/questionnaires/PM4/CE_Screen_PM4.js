@@ -128,7 +128,7 @@ class CE_Screen_PM4 extends React.Component {
     setTimeout(() => {
       if (this.state.show_5 == true) {
         this.setState({ progressValue: 48 / 48 });
-        this.props.navigation.navigate("Closing_Screen_PM3");
+        this.props.navigation.navigate("Closing_Screen_PM4");
       }
     }, 400);
   };
@@ -299,6 +299,8 @@ class CE_Screen_PM4 extends React.Component {
 
               <View style={styles.question}>
                 <TextInput
+                  numberOfLines={10}
+                  //multiline={true}
                   style={styles.codeInputBig}
                   onChangeText={this.handleChange}
                   value={this.state.AltNoAvail_D16}

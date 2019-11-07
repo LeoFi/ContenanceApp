@@ -109,6 +109,8 @@ class IntroOnboardingScreen extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    ////multiline={true}
                     style={styles.codeInput}
                     value={this.state.nickname}
                     onChangeText={this.handleChange}

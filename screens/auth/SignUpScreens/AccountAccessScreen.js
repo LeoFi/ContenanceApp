@@ -14,9 +14,9 @@ import {
   TouchableHighlight,
   ScrollView,
   Icon,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import {
   PrimaryButton,
   SecondaryButton,
@@ -25,6 +25,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 import * as firebase from "firebase";
+import { Svg, Path } from "react-native-svg";
 
 import { connect } from "react-redux";
 import { updateAccessCode } from "./../../../redux-persist/redux/user";
@@ -66,6 +67,7 @@ class AccountAccessScreen extends React.Component {
           this.setState({ accessCode: accessCode });
           this.props.dispatch(updateAccessCode(this.state.accessCode));
           this.props.navigation.navigate("IntroOnboarding");
+          //this.props.navigation.navigate("Closing_Screen_T1");
         } else {
           Alert.alert("The code you're entering is not available");
         }
@@ -78,86 +80,55 @@ class AccountAccessScreen extends React.Component {
 
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          paddingLeft: 30,
-          paddingRight: 30,
-          backgroundColor: "#F4F1DE",
-          justifyContent: "flex-start"
-        }}
-      >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
-            <ScrollView
-              //style={styles.container_scrollview}
-              contentContainerStyle={styles.container_scrollview_content}
-              keyboardShouldPersistTaps="handled"
-              showsVerticalScrollIndicator={false}
-              ref="_scrollView"
-            >
-              <View
-                style={{
-                  width: Dimensions.get("window").width - 60
-                }}
-              >
-                <Text style={styles.header}>Access your account</Text>
+      <View style={styles.container}>
+        <KeyboardAvoidingView
+          behavior="padding"
+          keyboardVerticalOffset="30"
+          style={styles.keyboard_view}
+        >
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={{flex: 1, width: Dimensions.get("window").width - 60}}>
+              <Text style={styles.header}>Access your account</Text>
 
-                <Text style={styles.text}>
-                  {"\n"}Enter the code you received from us via email and accept
-                  the terms.
-                </Text>
+              <Text style={styles.text}>
+                {"\n"}Enter the code you received from us via email and accept
+                the terms.
+              </Text>
 
-                <TextInput
-                  onFocus={() =>
-                    setTimeout(() => {
-                      this.refs._scrollView.scrollToEnd();
-                    }, 50)
+              <TextInput
+                style={styles.codeInputLeft}
+                value={this.state.accessCode}
+                numberOfLines={10}
+                ////multiline={true}
+                onChangeText={accessCode => this.setState({ accessCode })}
+                placeholder="Enter Code"
+                placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+
+              <View style={styles.inline}>
+                <Switch
+                  onValueChange={acceptedAgreement =>
+                    this.setState({ acceptedAgreement })
                   }
-                  style={styles.codeInputLeft}
-                  value={this.state.accessCode}
-                  onChangeText={accessCode => this.setState({ accessCode })}
-                  placeholder="Enter Code"
-                  placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                  autoCapitalize="none"
-                  autoCorrect={false}
+                  enabled={this.state.acceptedAgreement}
+                  value={this.state.acceptedAgreement}
+                  trackColor={{ true: "#2C3B51", false: "#E0DFD0" }}
+                  thumbColor={"#ffffff"}
+                  ios_backgroundColor={"#E0DFD0"}
+                  style={{ marginRight: 15 }}
                 />
 
-                <View style={styles.inline}>
-                  <Switch
-                    onValueChange={acceptedAgreement =>
-                      this.setState({ acceptedAgreement })
-                    }
-                    enabled={this.state.acceptedAgreement}
-                    value={this.state.acceptedAgreement}
-                    trackColor={{ true: "#2C3B51", false: "#E0DFD0" }}
-                    thumbColor={"#ffffff"}
-                    ios_backgroundColor={"#E0DFD0"}
-                    style={{ marginRight: 15 }}
-                  />
-
-                  <LinkText
-                    textLabel="Accept "
-                    linkLabel="security agreement"
-                    linkOnPress={() => {
-                      this.setModalVisible(true);
-                    }}
-                  />
-                </View>
-              </View>
-
-              <View style={{ flex: 1 }} />
-
-              <View style={styles.bottom}>
-                <PrimaryButton
-                  label="ACCESS"
-                  isBottom={true}
-                  onPress={this.onLoginPress}
-                  disabled={
-                    !this.state.acceptedAgreement || !this.state.accessCode
-                  }
+                <LinkText
+                  textLabel="Accept "
+                  linkLabel="security agreement"
+                  linkOnPress={() => {
+                    this.setModalVisible(true);
+                  }}
                 />
               </View>
+              {/* </View> */}
 
               <Modal
                 animationType="slide"
@@ -172,23 +143,27 @@ class AccountAccessScreen extends React.Component {
                   alignItems: "flex-start"
                 }}
               >
-                <TouchableHighlight
+                <TouchableOpacity
                   style={styles.close}
                   onPress={() => {
                     this.setModalVisible(!this.state.modalVisible);
                   }}
                 >
-                  <Image
-                    style={{ marginTop: 20 }}
-                    source={require("./../../../assets/images/close.png")}
-                  />
-                </TouchableHighlight>
+                  <Svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <Path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M18 15.48L15.48 18L9 11.52L2.52 18L0 15.48L6.48 9L0 2.52L2.52 0L9 6.48L15.48 0L18 2.52L11.52 9L18 15.48Z"
+                      fill="#2C3B51"
+                    />
+                  </Svg>
+                </TouchableOpacity>
 
                 <View style={styles.top_security_agreements}>
                   <ScrollView>
                     <View
                       style={{
-                        paddingTop: 80,
+                        paddingTop: 60,
                         paddingLeft: 30,
                         paddingRight: 30,
                         width: Dimensions.get("window").width
@@ -379,9 +354,20 @@ class AccountAccessScreen extends React.Component {
                   </ScrollView>
                 </View>
               </Modal>
-            </ScrollView>
-          </KeyboardAvoidingView>
-        </TouchableWithoutFeedback>
+              <View style={{ flex: 1 }} />
+              <View style={styles.bottom_fix}>
+                <PrimaryButton
+                  label="ACCESS"
+                  isBottom={true}
+                  onPress={this.onLoginPress}
+                  disabled={
+                    !this.state.acceptedAgreement || !this.state.accessCode
+                  }
+                />
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
       </View>
     );
   }

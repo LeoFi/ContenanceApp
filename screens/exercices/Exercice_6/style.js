@@ -294,6 +294,7 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
     fontWeight: "normal",
+    //width: "50%",
     paddingTop: 4
   },
   searchSection: {

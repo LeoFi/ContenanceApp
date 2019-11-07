@@ -8,7 +8,10 @@ import {
   FlatList,
   TouchableOpacity,
   Button,
-  TextInput
+  TextInput,
+  TouchableWithoutFeedback,
+  KeyboardAvoidingView,
+  Keyboard
 } from "react-native";
 import {
   PrimaryButton,
@@ -44,7 +47,6 @@ class CE_Screen_PM3 extends React.Component {
   };
 
   getChecked = value => {
-     
     const KEY = value.split("/")[0];
     const KEY_Value = value.split("/")[1];
     console.log(KEY, KEY_Value);
@@ -117,7 +119,6 @@ class CE_Screen_PM3 extends React.Component {
   };
 
   handleClick = () => {
-     
     firebase
       .database()
       .ref("questionnaires")
@@ -158,169 +159,266 @@ class CE_Screen_PM3 extends React.Component {
             animated={true}
           />
         </View>
-        <View style={styles.container}>
-          <TouchableOpacity onPress={this.skipQuestion} style={styles.skip}>
-            <Text style={styles.skip_text}>Skip</Text>
-          </TouchableOpacity>
-          {this.state.show_4 || this.state.show_5 ? null : (
-            <Text style={styles.header_left_padding}>
-              Please refer to today and the past 3 days.
-            </Text>
-          )}
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={
+                styles.container_scrollview_content_questionnaire
+              }
+              keyboardShouldPersistTaps="handled"
+              ref="_scrollView"
+            >
+              <KeyboardAvoidingView
+                behavior="padding"
+                keyboardVerticalOffset="60"
+              >
+                <View style={{ flex: 1 }}>
+                  <TouchableOpacity
+                    onPress={this.skipQuestion}
+                    style={styles.skip}
+                  >
+                    <Text style={styles.skip_text}>Skip</Text>
+                  </TouchableOpacity>
+                  {this.state.show_4 || this.state.show_5 ? null : (
+                    <Text style={styles.header_left_padding}>
+                      Please refer to today and the past 3 days.
+                    </Text>
+                  )}
 
-          {this.state.show_1 ? (
-            <>
-              <Text style={styles.text_left}>
-                I have done the activities as instructed.
-              </Text>
+                  {this.state.show_1 ? (
+                    <>
+                      <Text style={styles.text_left}>
+                        I have done the activities as instructed.
+                      </Text>
 
-              <View style={styles.question}>
-                <RadioGroup
-                  getChecked={this.getChecked}
-                  labelLeft="Not at all true"
-                  labelRight="Exactly true"
-                >
-                  <Radio iconName={"lens"} label={"1"} value={"CE01_D12/1"} />
-                  <Radio iconName={"lens"} label={"2"} value={"CE01_D12/2"} />
-                  <Radio iconName={"lens"} label={"3"} value={"CE01_D12/3"} />
-                  <Radio iconName={"lens"} label={"4"} value={"CE01_D12/4"} />
-                  <Radio iconName={"lens"} label={"5"} value={"CE01_D12/5"} />
-                  <Radio iconName={"lens"} label={"6"} value={"CE01_D12/6"} />
-                </RadioGroup>
-              </View>
-            </>
-          ) : null}
+                      <View style={styles.question}>
+                        <RadioGroup
+                          getChecked={this.getChecked}
+                          labelLeft="Not at all true"
+                          labelRight="Exactly true"
+                        >
+                          <Radio
+                            iconName={"lens"}
+                            label={"1"}
+                            value={"CE01_D12/1"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"2"}
+                            value={"CE01_D12/2"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"3"}
+                            value={"CE01_D12/3"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"4"}
+                            value={"CE01_D12/4"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"5"}
+                            value={"CE01_D12/5"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"6"}
+                            value={"CE01_D12/6"}
+                          />
+                        </RadioGroup>
+                      </View>
+                    </>
+                  ) : null}
 
-          {this.state.show_2 ? (
-            <>
-              <Text style={styles.text_left}>
-                I have done the daily challenge.
-              </Text>
+                  {this.state.show_2 ? (
+                    <>
+                      <Text style={styles.text_left}>
+                        I have done the daily challenge.
+                      </Text>
 
-              <View style={styles.question}>
-                <RadioGroup
-                  getChecked={this.getChecked}
-                  labelLeft="Not at all true"
-                  labelRight="Exactly true"
-                >
-                  <Radio iconName={"lens"} label={"1"} value={"CE02_D12/1"} />
-                  <Radio iconName={"lens"} label={"2"} value={"CE02_D12/2"} />
-                  <Radio iconName={"lens"} label={"3"} value={"CE02_D12/3"} />
-                  <Radio iconName={"lens"} label={"4"} value={"CE02_D12/4"} />
-                  <Radio iconName={"lens"} label={"5"} value={"CE02_D12/5"} />
-                  <Radio iconName={"lens"} label={"6"} value={"CE02_D12/6"} />
-                </RadioGroup>
-              </View>
-            </>
-          ) : null}
+                      <View style={styles.question}>
+                        <RadioGroup
+                          getChecked={this.getChecked}
+                          labelLeft="Not at all true"
+                          labelRight="Exactly true"
+                        >
+                          <Radio
+                            iconName={"lens"}
+                            label={"1"}
+                            value={"CE02_D12/1"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"2"}
+                            value={"CE02_D12/2"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"3"}
+                            value={"CE02_D12/3"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"4"}
+                            value={"CE02_D12/4"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"5"}
+                            value={"CE02_D12/5"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"6"}
+                            value={"CE02_D12/6"}
+                          />
+                        </RadioGroup>
+                      </View>
+                    </>
+                  ) : null}
 
-          {this.state.show_3 ? (
-            <>
-              <Text style={styles.text_left}>
-                I have enjoyed doing the program.
-              </Text>
+                  {this.state.show_3 ? (
+                    <>
+                      <Text style={styles.text_left}>
+                        I have enjoyed doing the program.
+                      </Text>
 
-              <View style={styles.question}>
-                <RadioGroup
-                  getChecked={this.getChecked}
-                  labelLeft="Not at all true"
-                  labelRight="Exactly true"
-                >
-                  <Radio iconName={"lens"} label={"1"} value={"CE03_D12/1"} />
-                  <Radio iconName={"lens"} label={"2"} value={"CE03_D12/2"} />
-                  <Radio iconName={"lens"} label={"3"} value={"CE03_D12/3"} />
-                  <Radio iconName={"lens"} label={"4"} value={"CE03_D12/4"} />
-                  <Radio iconName={"lens"} label={"5"} value={"CE03_D12/5"} />
-                  <Radio iconName={"lens"} label={"6"} value={"CE03_D12/6"} />
-                </RadioGroup>
-              </View>
-            </>
-          ) : null}
+                      <View style={styles.question}>
+                        <RadioGroup
+                          getChecked={this.getChecked}
+                          labelLeft="Not at all true"
+                          labelRight="Exactly true"
+                        >
+                          <Radio
+                            iconName={"lens"}
+                            label={"1"}
+                            value={"CE03_D12/1"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"2"}
+                            value={"CE03_D12/2"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"3"}
+                            value={"CE03_D12/3"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"4"}
+                            value={"CE03_D12/4"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"5"}
+                            value={"CE03_D12/5"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"6"}
+                            value={"CE03_D12/6"}
+                          />
+                        </RadioGroup>
+                      </View>
+                    </>
+                  ) : null}
 
-          {this.state.show_4 ? (
-            <>
-              <Text style={styles.text_bold_center}>
-                How would you feel if you could no longer use the 21-day
-                program?
-              </Text>
+                  {this.state.show_4 ? (
+                    <>
+                      <Text style={styles.text_bold_center}>
+                        How would you feel if you could no longer use the 21-day
+                        program?
+                      </Text>
 
-              <View style={styles.question}>
-                <RadioGroup
-                  getChecked={this.getChecked}
-                  isScaleEnabled={false}
-                  RadioGroupStyle={{
-                    flexDirection: "column",
-                    paddingTop: 20,
-                    paddingBottom: 20
-                  }}
-                  RadioStyle={{
-                    width: "100%",
-                    height: 49,
-                    borderRadius: 30,
-                    marginBottom: 10,
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                  labelStyle={{
-                    fontSize: 14,
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                    alignItems: "stretch",
-                    color: "#2C3B51",
-                    textAlign: "center"
-                  }}
-                >
-                  <Radio
-                    iconName={"lens"}
-                    label={"Very disappointed"}
-                    value={"FeelNoUse_D12/Very_Disappointed"}
-                  />
-                  <Radio
-                    iconName={"lens"}
-                    label={"Somewhat disappointed"}
-                    value={"FeelNoUse_D12/Somewhat_Disappointed"}
-                  />
-                  <Radio
-                    iconName={"lens"}
-                    label={"Not disappointed (it really isn’t that useful)"}
-                    value={"FeelNoUse_D12/Not_Disappointed"}
-                  />
-                </RadioGroup>
-              </View>
-            </>
-          ) : null}
+                      <View style={styles.question}>
+                        <RadioGroup
+                          getChecked={this.getChecked}
+                          isScaleEnabled={false}
+                          RadioGroupStyle={{
+                            flexDirection: "column",
+                            paddingTop: 20,
+                            paddingBottom: 20
+                          }}
+                          RadioStyle={{
+                            width: "100%",
+                            height: 49,
+                            borderRadius: 30,
+                            marginBottom: 10,
+                            alignItems: "center",
+                            justifyContent: "center"
+                          }}
+                          labelStyle={{
+                            fontSize: 14,
+                            paddingLeft: 20,
+                            paddingRight: 20,
+                            alignItems: "stretch",
+                            color: "#2C3B51",
+                            textAlign: "center"
+                          }}
+                        >
+                          <Radio
+                            iconName={"lens"}
+                            label={"Very disappointed"}
+                            value={"FeelNoUse_D12/Very_Disappointed"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={"Somewhat disappointed"}
+                            value={"FeelNoUse_D12/Somewhat_Disappointed"}
+                          />
+                          <Radio
+                            iconName={"lens"}
+                            label={
+                              "Not disappointed (it really isn’t that useful)"
+                            }
+                            value={"FeelNoUse_D12/Not_Disappointed"}
+                          />
+                        </RadioGroup>
+                      </View>
+                    </>
+                  ) : null}
 
-          {this.state.show_5 ? (
-            <>
-              <Text style={styles.text_bold_center}>
-                What would you likely use as an alternative if the 21-day
-                program were no longer available?
-              </Text>
+                  {this.state.show_5 ? (
+                    <>
+                      <Text style={styles.text_bold_center}>
+                        What would you likely use as an alternative if the
+                        21-day program were no longer available?
+                      </Text>
 
-              <View style={styles.question}>
-                <TextInput
-                  style={styles.codeInputBig}
-                  onChangeText={this.handleChange}
-                  value={this.state.AltNoAvail_D12}
-                  placeholder="Your Answer"
-                  placeholderTextColor="rgba(44, 59, 81, 0.3)"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  keyboardType="default"
-                />
-              </View>
+                      <View style={styles.question}>
+                        <TextInput
+                          numberOfLines={10}
+                          style={styles.codeInputBig}
+                          onChangeText={this.handleChange}
+                          value={this.state.AltNoAvail_D12}
+                          placeholder="Your Answer"
+                          placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                          autoCapitalize="none"
+                          autoCorrect={false}
+                          keyboardType="default"
+                        />
+                      </View>
 
-              <View style={styles.bottom}>
-                <PrimaryButton
-                  label="Keep Going"
-                  isBottom={true}
-                  disabled={!this.state.AltNoAvail_D12}
-                  onPress={this.handleClick}
-                />
-              </View>
-            </>
-          ) : null}
-        </View>
+                      <View style={{ flex: 1 }} />
+                      <View style={styles.bottom}>
+                        <PrimaryButton
+                          label="Keep Going"
+                          isBottom={true}
+                          disabled={!this.state.AltNoAvail_D12}
+                          onPress={this.handleClick}
+                        />
+                      </View>
+                    </>
+                  ) : null}
+                </View>
+              </KeyboardAvoidingView>
+            </ScrollView>
+          </View>
+        </TouchableWithoutFeedback>
       </>
     );
   }
@@ -331,4 +429,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(CE_Screen_PM3);
-

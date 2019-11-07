@@ -155,9 +155,16 @@ const styles = StyleSheet.create({
     right: 0
   },
   top_security_agreements: {
-    flex: 1,
+    backgroundColor: "#F4F1DE",
     justifyContent: "flex-start",
-    paddingTop: 0
+    alignSelf: "stretch",
+    height: Dimensions.get("window").height
+  },
+  close: {
+    position: "absolute",
+    right: 30,
+    top: 30,
+    zIndex: 1
   },
   middle: {
     position: "relative",
@@ -199,7 +206,7 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     textAlign: "left",
     alignSelf: "stretch",
-    fontFamily: "roboto-black",
+    fontFamily: "roboto-black"
     //paddingBottom: 10
   },
   header_light: {

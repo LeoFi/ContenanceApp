@@ -24,7 +24,10 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
-
+import {
+  Svg,
+  Path
+} from "react-native-svg";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
@@ -41,7 +44,7 @@ class SU1_Screen_T2 extends React.Component {
       pickupNumber: "",
       modalVisibleIos: false,
       modalVisibleAndroid: false,
-      progressValueT2: undefined
+      progressValueT2: 57 / 60
     };
   }
 
@@ -74,7 +77,7 @@ class SU1_Screen_T2 extends React.Component {
         Screen_Time_Hours_D21: screenTimeHours,
         Screen_Time_Minutes_D21: screenTimeMinutes
       });
-    this.setState({ progressValueT2: 70 });
+    this.setState({ progressValueT2: 58 / 60 });
     this.props.dispatch(Update_Progress_T2(progressValueT2));
     this.props.navigation.navigate("SU2_Screen_T2");
   };
@@ -82,6 +85,29 @@ class SU1_Screen_T2 extends React.Component {
   render() {
     return (
       <>
+        <StatusBar hidden />
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT2}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
         <StatusBar hidden />
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
@@ -94,7 +120,7 @@ class SU1_Screen_T2 extends React.Component {
                 <TouchableOpacity
                   onPress={() => {
                     const progressValueT2 = this.state.progressValueT2;
-                    this.setState({ progressValueT2: 70 });
+                    this.setState({ progressValueT2: 58 / 60 });
                     this.props.dispatch(Update_Progress_T2(progressValueT2));
                     this.props.navigation.navigate("SU2_Screen_T2");
                   }}
@@ -110,6 +136,8 @@ class SU1_Screen_T2 extends React.Component {
 
                   <View style={styles.inline}>
                     <TextInput
+                      numberOfLines={10}
+                      //multiline={true}
                       style={styles.codeInputLeft}
                       onChangeText={this.handleChangeHours}
                       value={this.state.screenTimeHours}
@@ -121,6 +149,8 @@ class SU1_Screen_T2 extends React.Component {
                     />
 
                     <TextInput
+                      numberOfLines={10}
+                      //multiline={true}
                       style={styles.codeInputRight}
                       onChangeText={this.handleChangeMinutes}
                       value={this.state.screenTimeMinutes}
@@ -158,33 +188,58 @@ class SU1_Screen_T2 extends React.Component {
                     onRequestClose={() => {
                       Alert.alert("Modal has been closed.");
                     }}
+                    style={{
+                      flex: 1,
+                      justifyContent: "flex-start",
+                      alignItems: "flex-start"
+                    }}
                   >
-                    <TouchableHighlight
+                    <TouchableOpacity
                       style={styles.close}
                       onPress={() => {
                         this.setModalVisibleIos(!this.state.modalVisibleIos);
                       }}
                     >
-                      <Image
-                        style={{ marginTop: 20 }}
-                        source={require("./../../../assets/images/close.png")}
-                      />
-                    </TouchableHighlight>
-                    {/* <Icon name="close" /> */}
+                      <Svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <Path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M18 15.48L15.48 18L9 11.52L2.52 18L0 15.48L6.48 9L0 2.52L2.52 0L9 6.48L15.48 0L18 2.52L11.52 9L18 15.48Z"
+                          fill="#2C3B51"
+                        />
+                      </Svg>
+                    </TouchableOpacity>
 
                     <View style={styles.top_security_agreements}>
-                      <ScrollView style={styles.container_scroll}>
-                        <Text style={styles.text_scroll}>
-                          {"\n"}Where do I find this in iOS?
-                          {"\n"}
-                       
-                          <Text style={styles.text_bold}>
-                            Average Screen Time and pick-ups of the last 7 days
+                      <ScrollView>
+                        <View
+                          style={{
+                            paddingTop: 60,
+                            paddingLeft: 30,
+                            paddingRight: 30,
+                            width: Dimensions.get("window").width,
+                            alignItems: "center"
+                          }}
+                        >
+                          <Text style={styles.text_scroll}>
+                            {"\n"}Where do I find this in iOS?
+                            {"\n"}
+                            <Text style={styles.text_bold}>
+                              Average Screen Time and pick-ups of the last 7
+                              days
+                            </Text>
+                            {"\n"}On your iPhone, go to “Settings”, find "Screen
+                            Time" there. Now, choose “Your Name’s iPhone” in the
+                            first line on top. Then, tap on "Last 7 Days” on the
+                            top right. Find average Screen Time per day of the
+                            last 7 days on top. Et voilà!
                           </Text>
-                          {"\n"}On your iPhone, go to “Settings”, find "Screen Time" there. Now, choose “Your
-                          Name’s iPhone” in the first line on top. Then, tap on  "Last 7 Days” on the top right. Find average 
-                          Screen Time per day of the last 7 days on top. Et voilà!
-                        </Text>
+                        </View>
                       </ScrollView>
                     </View>
                   </Modal>
@@ -196,8 +251,13 @@ class SU1_Screen_T2 extends React.Component {
                     onRequestClose={() => {
                       Alert.alert("Modal has been closed.");
                     }}
+                    style={{
+                      flex: 1,
+                      justifyContent: "flex-start",
+                      alignItems: "flex-start"
+                    }}
                   >
-                    <TouchableHighlight
+                    <TouchableOpacity
                       style={styles.close}
                       onPress={() => {
                         this.setModalVisibleAndroid(
@@ -205,21 +265,41 @@ class SU1_Screen_T2 extends React.Component {
                         );
                       }}
                     >
-                      <Image
-                        style={{ marginTop: 20 }}
-                        source={require("./../../../assets/images/close.png")}
-                      />
-                    </TouchableHighlight>
-                    {/* <Icon name="close" /> */}
+                      <Svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <Path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M18 15.48L15.48 18L9 11.52L2.52 18L0 15.48L6.48 9L0 2.52L2.52 0L9 6.48L15.48 0L18 2.52L11.52 9L18 15.48Z"
+                          fill="#2C3B51"
+                        />
+                      </Svg>
+                    </TouchableOpacity>
 
                     <View style={styles.top_security_agreements}>
-                      <ScrollView style={styles.container_scroll}>
-                        <Text style={styles.text_scroll}>
-                          {"\n"}No worries, all good.
-                          {"\n"}
-                          {"\n"}We asked you to acticvate the screen time feature on your iPhone when you started the study. However, if you did not activate it, just skip this question and the next one.
-                         
-                        </Text>
+                      <ScrollView>
+                        <View
+                          style={{
+                            paddingTop: 60,
+                            paddingLeft: 30,
+                            paddingRight: 30,
+                            width: Dimensions.get("window").width,
+                            alignItems: "center"
+                          }}
+                        >
+                          <Text style={styles.text_scroll}>
+                            {"\n"}No worries, all good.
+                            {"\n"}
+                            {"\n"}We asked you to acticvate the screen time
+                            feature on your iPhone when you started the study.
+                            However, if you did not activate it, just skip this
+                            question and the next one.
+                          </Text>
+                        </View>
                       </ScrollView>
                     </View>
                   </Modal>

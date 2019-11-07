@@ -291,6 +291,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "space-between"
   },
+  intro_text_center_red: {
+    color: "#DB1111",
+    fontSize: 19,
+    lineHeight: 25,
+    fontFamily: "roboto-bold",
+    alignSelf: "stretch",
+    textAlign: "center",
+    justifyContent: "space-between"
+  },
   intro_text_light: {
     color: "#F4F1DE",
     fontSize: 19,

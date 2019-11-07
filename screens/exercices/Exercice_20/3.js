@@ -68,6 +68,8 @@ export default class Exercice_20_2 extends React.Component {
     };
 
     const source = require("../../../assets/sounds/Alarm_5min.mp3");
+    //const source = require("../../../assets/sounds/ExploringValues_DAY_9.mp3");
+    
 
     try {
       const { sound, status } = await Audio.Sound.createAsync(
@@ -77,7 +79,7 @@ export default class Exercice_20_2 extends React.Component {
       );
       this.playbackInstance = sound;
       this._updateScreenForLoading(false);
-      console.log("IT'S WORKING" + status.durationMillis);
+      console.log("IT'S WORKING");
     } catch (e) {
       console.log("Problem creating sound object: ", e);
     }
@@ -134,6 +136,16 @@ export default class Exercice_20_2 extends React.Component {
     this.setState({ show_button: true });
   };
 
+  onPress = () => {
+    this.playbackInstance.playAsync();
+            this.setState({coutdown_running: true})
+  };
+
+  unload = () => {
+    this.playbackInstance.unloadAsync();
+                this.props.navigation.navigate("Exercice_20_4");
+  };
+
   render() {
     return (
       <View style={{flex: 1}}>
@@ -161,11 +173,19 @@ export default class Exercice_20_2 extends React.Component {
                 showSeparator={true}
                 size={30}
               />
-              {!this.state.show_button ? (
-                <Text style={styles.intro_text_center}>
-                  We’ll let you know when it’s time to come back.
-                </Text>
-              ) : null}
+              {this.state.isLoading ? (
+              <Text style={styles.intro_text_center}>
+                Wait for a few seconds while we're getting your screen.
+              </Text>
+            ) : !this.state.show_button ? (
+              <Text style={styles.intro_text_center}>
+                Enjoy daddeln!{"\n"}
+                {"\n"}We’ll let you know when it’s time to come back.{"\n"}
+                {"\n"}
+                <Text style={styles.intro_text_center_red}>Make sure your sound volume is up.</Text>
+              </Text>
+            ) : null}
+
               {this.state.show_button ? (
                 <>
                   <Text style={styles.intro_text_center}>
@@ -180,10 +200,7 @@ export default class Exercice_20_2 extends React.Component {
           <View style={styles.bottom_button}>
             <PrimaryButton
               label="Continue"
-              onPress={() => {
-                this.playbackInstance.unloadAsync();
-                this.props.navigation.navigate("Exercice_20_4");
-              }}
+              onPress={this.unload}
             />
           </View>
         ) : null}
@@ -192,10 +209,8 @@ export default class Exercice_20_2 extends React.Component {
         <View style={styles.bottom_button}>
         <PrimaryButton
           label="START AND ENJOY"
-          onPress={() => {
-            this.playbackInstance.playAsync();
-            this.setState({coutdown_running: true})
-          }}
+          onPress={this.onPress}
+          disabled={this.state.isLoading}
         />
       </View>
       ) : null}

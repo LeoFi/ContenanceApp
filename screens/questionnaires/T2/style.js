@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     width: "100%",
     textAlign: "center",
-    paddingTop: 20,
+    paddingTop: 20
     //paddingBottom: 40
   },
   keyboard_view: {
@@ -256,6 +256,12 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     width: "100%"
   },
+  question_padding: {
+    //flex: 1,
+    alignSelf: "stretch",
+    width: "100%",
+    paddingTop: 30
+  },
   question_center: {
     flex: 1,
     alignSelf: "stretch",
@@ -263,19 +269,16 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   top_security_agreements: {
-    flex: 1,
+    backgroundColor: "#F4F1DE",
     justifyContent: "flex-start",
     alignSelf: "stretch",
-    marginTop: -40,
-    flexDirection: "row-reverse",
-    backgroundColor: "#F4F1DE"
+    height: Dimensions.get("window").height
   },
   close: {
-    justifyContent: "flex-start",
-    alignSelf: "stretch",
-    paddingTop: 20,
-    zIndex: 1,
-    left: 20
+    position: "absolute",
+    right: 30,
+    top: 30,
+    zIndex: 1
   },
   text_bold: {
     color: "#2C3B51",

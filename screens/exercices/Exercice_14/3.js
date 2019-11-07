@@ -110,6 +110,8 @@ class Exercice_14_3 extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice1}
                     value={this.state.Obstacle1_D14}
@@ -125,6 +127,8 @@ class Exercice_14_3 extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice2}
                     value={this.state.Obstacle2_D14}
@@ -140,6 +144,8 @@ class Exercice_14_3 extends React.Component {
                         this.refs._scrollView.scrollToEnd();
                       }, 50)
                     }
+                    numberOfLines={10}
+                    //multiline={true}
                     style={styles.codeInput}
                     onChangeText={this.handleChange_Advice3}
                     value={this.state.Obstacle3_D14}

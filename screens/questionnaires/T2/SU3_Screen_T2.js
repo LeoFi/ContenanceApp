@@ -33,7 +33,7 @@ class SU3_Screen_T2 extends React.Component {
     this.state = {
       show_1: true,
       buttonIsActive: false,
-      progressValueT2: undefined
+      progressValueT2: 59 / 60
     };
   }
 
@@ -53,6 +53,7 @@ class SU3_Screen_T2 extends React.Component {
     setTimeout(() => {
       if (this.state.show_1 == true) {
         this.setState({ buttonIsActive: true });
+        this.setState({ progressValueT2: 60 / 60 });
       }
     }, 400);
   };
@@ -61,7 +62,6 @@ class SU3_Screen_T2 extends React.Component {
     const progressValueT2 = this.state.progressValueT2
     setTimeout(() => {
       if (this.state.show_1 == true) {
-        this.setState({ progressValueT2: 72 });
         this.props.dispatch(Update_Progress_T2(progressValueT2));
         this.props.navigation.navigate("Closing_Screen_T2");
       }
@@ -72,7 +72,28 @@ class SU3_Screen_T2 extends React.Component {
     return (
       <>
         <StatusBar hidden />
-
+        <View
+          style={{
+            flex: 1,
+            width: Dimensions.get("window").width,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            backgroundColor: "#F4F1DE"
+          }}
+        >
+          <Progress.Bar
+            progress={this.state.progressValueT2}
+            borderWidth={0}
+            borderRadius={0}
+            width={null}
+            height={10}
+            color={"#2C3B51"}
+            unfilledColor={"rgba(255, 255, 255, 1)"}
+            animated={true}
+          />
+        </View>
         <View style={styles.container}>
           <ScrollView
             style={{ alignSelf: "stretch" }}
@@ -81,7 +102,7 @@ class SU3_Screen_T2 extends React.Component {
             <TouchableOpacity
               onPress={() => {
                 const progressValueT2 = this.state.progressValueT2
-                this.setState({ progressValueT2: 72 });
+                this.setState({ progressValueT2: 60 / 60 });
                 this.props.dispatch(Update_Progress_T2(progressValueT2));
                 this.props.navigation.navigate("Closing_Screen_T2");
               }}

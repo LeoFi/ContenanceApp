@@ -105,7 +105,7 @@ class Exercice_7_2 extends React.Component {
           justifyContent: "flex-start"
         }}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
           <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
             <ScrollView
               contentContainerStyle={styles.container_scrollview_content}
@@ -166,7 +166,7 @@ class Exercice_7_2 extends React.Component {
                     backgroundColor: "#E2DFD1",
                     borderWidth: 0,
                     height: 50,
-                    width: "100%"
+                    width: Dimensions.get("window").width / 2 - 35
                   }}
                   itemStyleSelected={{
                     backgroundColor: "#F6B563"
@@ -188,8 +188,9 @@ class Exercice_7_2 extends React.Component {
                     onChangeText={newSelect => this.setState({ newSelect })}
                     onSubmitEditing={this.onSubmitEditing}
                     blurOnSubmit={true}
-                    multiline={true}
-                    numberOfLines={1}
+                    //multiline={true}
+                    numberOfLines={10}
+                    //multiline={true}
                     placeholder="Write a new one"
                     autoCapitalize="none"
                     editable={!this.state.allSelected}
@@ -220,7 +221,7 @@ class Exercice_7_2 extends React.Component {
               </View>
             </ScrollView>
           </KeyboardAvoidingView>
-        </TouchableWithoutFeedback>
+        {/* </TouchableWithoutFeedback> */}
       </View>
     );
   }

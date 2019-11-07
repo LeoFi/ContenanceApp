@@ -134,6 +134,16 @@ export default class Exercice_11_2 extends React.Component {
     this.setState({ show_button: true });
   };
 
+  onPress = () => {
+    this.playbackInstance.playAsync();
+    this.setState({ coutdown_running: true });
+  };
+
+  unload = () => {
+    this.playbackInstance.unloadAsync();
+    this.props.navigation.navigate("Exercice_11_3");
+  };
+
   render() {
     return (
       <ImageBackground
@@ -163,9 +173,17 @@ export default class Exercice_11_2 extends React.Component {
               showSeparator={true}
               size={30}
             />
-            {!this.state.show_button ? (
+
+            {this.state.isLoading ? (
               <Text style={styles.intro_text_center}>
-                We’ll let you know when it’s time to come back.
+                Wait for a few seconds while we're getting your screen.
+              </Text>
+            ) : !this.state.show_button ? (
+              <Text style={styles.intro_text_center}>
+                Enjoy!{"\n"}
+                {"\n"}We’ll let you know when it’s time to come back.{"\n"}
+                {"\n"}
+                <Text style={styles.intro_text_center_red}>Make sure your sound volume is up.</Text>
               </Text>
             ) : null}
 
@@ -180,23 +198,15 @@ export default class Exercice_11_2 extends React.Component {
         </ScrollView>
         {this.state.show_button ? (
           <View style={styles.bottom_button}>
-            <PrimaryButton
-              label="Continue"
-              onPress={() => {
-                this.playbackInstance.unloadAsync();
-                this.props.navigation.navigate("Exercice_11_3");
-              }}
-            />
+            <PrimaryButton label="Continue" onPress={this.unload} />
           </View>
         ) : null}
         {!this.state.coutdown_running ? (
           <View style={styles.bottom_button}>
             <PrimaryButton
               label="START AND ENJOY"
-              onPress={() => {
-                this.playbackInstance.playAsync();
-                this.setState({ coutdown_running: true });
-              }}
+              onPress={this.onPress}
+              disabled={this.state.isLoading}
             />
           </View>
         ) : null}
