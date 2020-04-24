@@ -1,5 +1,6 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "name": "notlessbutbetter",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -15,7 +16,7 @@
     "@expo/samples": "~3.0.0",
     "@expo/vector-icons": "^10.0.1",
     "braces": "^3.0.2",
-    "expo": "^35.0.0",
+    "expo": "^36.0.0",
     "expo-asset": "^7.0.0",
     "expo-av": "~7.0.0",
     "expo-blur": "~7.0.0",
@@ -29,10 +30,10 @@
     "native-base": "2.13.8",
     "native-base-shoutem-theme": "^0.3.1",
     "prettier": "^1.18.2",
-    "react": "^16.8.6",
+    "react": "16.9.0",
     "react-dom": "^16.8.6",
     "react-highlighter": "^0.4.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native": "0.61.0-rc.0",
     "react-native-countdown-component": "^2.5.2",
     "react-native-elements": "^1.1.0",
     "react-native-gesture-handler": "^1.6.1",
