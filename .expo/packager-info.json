@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1190,
-  "expoServerNgrokUrl": "https://db-g5x.eleonorefilhol.contenanceapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.db-g5x.eleonorefilhol.contenanceapp.exp.direct",
-  "ngrokPid": 1199,
+  "packagerPid": 24991,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002
 }
