@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_4 extends React.Component {
+export default class Exercice_19_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,36 +25,28 @@ export default class Exercice_3_4 extends React.Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground
+        source={require("../../../assets/images/blue_shape.png")}
+        style={styles.image_background}
+      >
         <StatusBar hidden />
         <ScrollView>
-          <TouchableWithoutFeedback
-            style={styles.scroll}
-            onPress={() => {
-              this.props.navigation.navigate("Exercice_3_5");
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <Image
-                style={styles.image_height_relative}
-                source={require("../../../assets/images/Exercice3_1.png")}
-                resizeMode="contain"
-              />
-              <View style={styles.container_scroll_img}>
-                <Text style={styles.sub_header_left}>
-                  The Solution Triangle
-                </Text>
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback
+              style={styles.scroll}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_19_5");
+              }}
+            >
+              <View style={styles.container_scroll}>
                 <Text style={styles.intro_text}>
-                  {"\n"}We asked you to reflect on these hacks to introduce the
-                  so-called Solution Triangle. It consists of three crucial
-                  factors: your smartphone, your environment and you as a
-                  person.
+                When people are on their smartphones, they could be reading the news, but also be shopping, gaming, dating, watching a cat video, researching or texting their parents.{"\n"}{"\n"}You simply can’t know. Your smartphone is a black box to others.
                 </Text>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
+            </TouchableWithoutFeedback>
+          </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }

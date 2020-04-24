@@ -1,12 +1,14 @@
 export const tabBarIcons = {
   active: {
     Home: require("./HomeIconActive.png"),
-    Journey: require("./JourneyIconActive.png"),
+    Challenge: require("./ChallengeIconActive.png"),
+    Journey: require("./ProgramIconActive.png"),
     Settings: require("./SettingsIconActive.png")
   },
   inactive: {
     Home: require("./HomeIconInactive.png"),
-    Journey: require("./JourneyIconInactive.png"),
+    Challenge: require("./ChallengeIconInactive.png"),
+    Journey: require("./ProgramIconInactive.png"),
     Settings: require("./SettingsIconInactive.png")
   }
 };

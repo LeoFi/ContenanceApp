@@ -6,7 +6,8 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Image
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,12 +15,10 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
-
+import * as firebase from "firebase";
 import { connect } from "react-redux";
-import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices"
-import { updateState_Ex6 } from "./../../../redux-persist/redux/exercices"
-
+import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices";
+import { updateState_Ex6 } from "./../../../redux-persist/redux/exercices";
 
 class Exercice_5_Congratulations extends React.Component {
   constructor(props) {
@@ -30,55 +29,89 @@ class Exercice_5_Congratulations extends React.Component {
       exercice_state_6: "locked"
     };
   }
- 
+
   handleSubmit = () => {
-    const exercice_state_5 = this.state;
-    this.setState({ exercice_state_5: exercice_state_5 });
-    this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
+    if (
+      this.props.exercices.exercice_state_5 === "DONE" ||
+      this.props.exercices.exercice_state_5 === "completed"
+    ) {
+    } else {
+      const exercice_state_5 = this.state;
+      this.setState({ exercice_state_5: exercice_state_5 });
+      this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
 
-    const exercice_state_6 = this.state;
-    this.setState({ exercice_state_6: exercice_state_6 });
-    this.props.dispatch(updateState_Ex6(this.state.exercice_state_6));
+      var date = new Date();
+      var locales = ["en-US"];
+      var options = {
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      };
+      var Exercise_5_Done = date.toLocaleString(locales, options);
+      firebase
+        .database()
+        .ref()
+        .child("accounts")
+        .child(this.props.user.UID)
+        .update({
+          Exercise_5_Done: Exercise_5_Done
+        });
+    }
 
+    if (this.props.exercices.exercice_state_6 === undefined) {
+      const exercice_state_6 = this.state;
+      this.setState({ exercice_state_6: exercice_state_6 });
+      this.props.dispatch(updateState_Ex6(this.state.exercice_state_6));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 
   render() {
-
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={styles.container_background_inverted}>
+        <StatusBar hidden />
+
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback style={styles.scroll}>
-              <View style={styles.container_scroll}>
-                <Text style={styles.header}>Congratulations!</Text>
-                <Text style={styles.text}>
-                  {"\n"}You finished your first exercise. Now you know why this
-                  training is called Contenance!
-                </Text>
-
-                <View style={styles.bottom}>
-                  <PrimaryButton
-                    label="Done"
-                    onPress={this.handleSubmit}
-                  />
-                </View>
-              </View>
-            </TouchableWithoutFeedback>
+          <View style={styles.container_scroll_img_absolute}>
+            <Image
+              style={styles.image_height}
+              source={require("../../../assets/images/Day5_Intro.png")}
+              resizeMode="stretch"
+            />
+            <View style={styles.middle}>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"}You just completed the first step to change your habits:
+                identifying your situational triggers. We will build on them
+                later on in the program!
+              </Text>
+            </View>
           </View>
         </ScrollView>
-      </ImageBackground>
+
+        <View style={styles.bottom_button}>
+          <PrimaryButton
+            label="Done"
+            style={{
+              backgroundColor: "#FDFDF7",
+              borderColor: "#FDFDF7",
+              color: "#2C3B51"
+            }}
+            onPress={this.handleSubmit}
+          />
+        </View>
+      </View>
     );
   }
 }
 
-
 const mapStateToProps = state => ({
-  exercices: state.exercices
+  exercices: state.exercices,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_5_Congratulations);

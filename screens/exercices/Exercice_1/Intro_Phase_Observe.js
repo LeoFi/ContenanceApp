@@ -30,7 +30,7 @@ export default class Exercice_1_Intro_Phase extends React.Component {
     return (
       <View style={styles.container_background}>
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <TouchableWithoutFeedback
             onPress={() => {
               this.props.navigation.navigate("Exercice_1_Intro");
@@ -50,7 +50,7 @@ export default class Exercice_1_Intro_Phase extends React.Component {
                   the smartphone can feel like with all its’ great
                   opportunities. But sometimes, it’s hard to navigate. There are
                   impulse waves pulling you underwater when you’re hit by them.
-                  {"\n"}Leo explores how being in the digital ocean feels.
+                  {"\n"}{"\n"}Leo explores how being in the digital ocean feels.
                 </Text>
                 <Text style={styles.intro_text_bold}>
                   {"\n"}This module is all about observing yourself while you’re
@@ -60,7 +60,7 @@ export default class Exercice_1_Intro_Phase extends React.Component {
               </View>
 
               <View style={styles.tap_pos_relative}>
-                <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
+                <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
               </View>
             </View>
           </TouchableWithoutFeedback>

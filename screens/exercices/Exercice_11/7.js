@@ -6,8 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +15,9 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_7 extends React.Component {
+import { Svg, Path, Circle, Ellipse } from "react-native-svg";
+
+export default class Exercice_11_7 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,30 +26,52 @@ export default class Exercice_3_7 extends React.Component {
 
   render() {
     return (
-      <View>
+      <>
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_3_8");
+          <View style={styles.container_scroll}>
+            <View style={{ flex: 1, justifyContent: "center" }}>
+              <Svg width="79" height="79" viewBox="0 0 79 79" fill="none">
+                <Circle
+                  cx="39.5"
+                  cy="39.5"
+                  r="37.5"
+                  stroke="#F87B7B"
+                  stroke-width="4"
+                />
+                <Path
+                  d="M43.1094 56H38.75V27.1016L30.0078 30.3125V26.375L42.4297 21.7109H43.1094V56Z"
+                  fill="#F87B7B"
+                />
+              </Svg>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "column",
+                alignSelf: "flex-start"
               }}
             >
-              <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_4.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.intro_text}>
-                  {"\n"}Interestingly,  most of the strategies and hacks you can find on blogs or in books are mainly focusing on the smartphone and the environment. Although they are highly valuable, we believe in the power of the <Text style={styles.intro_text_bold}>person</Text> to take control. It is you who is in control! You have the power to consciously use the phone, not less but better, for your own benefit.
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
+              <Text style={styles.intro_text_bold}>
+                Name 1 thing you can taste.
+              </Text>
+              <Text style={styles.intro_text}>
+                {"\n"}What does the inside of your mouth taste like right now?
+                {"\n"}
+                {"\n"}Maybe a bit like gum, coffee, or the sandwich from lunch?
+              </Text>
+            </View>
           </View>
         </ScrollView>
-      </View>
+        <View style={styles.bottom_button}>
+          <PrimaryButton
+            label="YUMMY"
+            onPress={() => {
+              this.props.navigation.navigate("Exercice_11_Aha_1");
+            }}
+          />
+        </View>
+      </>
     );
   }
 }

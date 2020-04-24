@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,8 +14,9 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import { connect } from "react-redux";
 
-export default class Exercice_3_1 extends React.Component {
+class Exercice_7_1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,7 +26,7 @@ export default class Exercice_3_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/yellow_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -34,17 +35,30 @@ export default class Exercice_3_1 extends React.Component {
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_3_2");
+                this.props.navigation.navigate("Exercice_7_2");
               }}
             >
               <View style={styles.container_scroll}>
                 <Text style={styles.sub_header_left}>
-                Welcome back! 
+                  Which apps are your personal danger zones that pull you in?
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}Today, we will explore what it takes to have a more balanced relationship with your smartphone. 
+                  {"\n"}In order to find out, check your most used apps in your
+                  settings.
                 </Text>
-
+                <Text style={styles.intro_text_grey}>
+                  {"\n"}For iOS: Settings > Screen Time >{" "}
+                  {this.props.user.nickname}'s iPhone > Last 7 day > scroll down
+                  to MOST USED
+                </Text>
+                <Text style={styles.intro_text}>
+                  {"\n"}If you do not use a screen time tracker, just reflect on
+                  this for a moment.
+                </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -53,3 +67,9 @@ export default class Exercice_3_1 extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(Exercice_7_1);

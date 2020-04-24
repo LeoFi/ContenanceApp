@@ -16,7 +16,9 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_5_Aha_2 extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_5_Aha_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +28,7 @@ export default class Exercice_5_Aha_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+      source={require("../../../assets/images/beige_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -42,17 +44,15 @@ export default class Exercice_5_Aha_2 extends React.Component {
                 <Text style={styles.header}>
                 Aha!
                 </Text>
-                <Text style={styles.sub_header}>
-                Not less, but better.
-                </Text>
                 <Text style={styles.text}>
-                  {"\n"}Research shows: What we do on our smartphones and how we see our relationship to it is more important to our wellbeing than the mere amount of time we spent on it. 
-                  {"\n"}{"\n"}Make your smartphone the great tool it can be.
+                  {"\n"}Leo's situational trigger is entering the metro.
+                  {"\n"}{"\n"}For you, it is:
                 </Text>
-
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
+                <Text style={styles.text_bold_italic}>
+                  {"\n"}{this.props.user_values.SitTrigger1_D5}
+                  {"\n"}{this.props.user_values.SitTrigger2_D5}
+                  {"\n"}{this.props.user_values.SitTrigger3_D5}
+                </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -62,16 +62,9 @@ export default class Exercice_5_Aha_2 extends React.Component {
   }
 }
 
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
 
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
-}
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_5_Aha_2);

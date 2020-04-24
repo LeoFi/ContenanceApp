@@ -125,6 +125,7 @@ export const updateState_Ex21 = exercice_state_21 => ({
   exercice_state_21
 });
 
+
 const initialState = {
   exercice_state_1: "next",
   exercice_state_2: undefined,

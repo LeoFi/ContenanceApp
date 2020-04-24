@@ -31,7 +31,7 @@ export default class Exercice_7_Intro extends React.Component {
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
-              source={require("../../../assets/images/Day3_Intro.png")}
+              source={require("../../../assets/images/Day7_Intro.png")}
               resizeMode="stretch"
             />
             <View style={styles.middle}>
@@ -39,17 +39,17 @@ export default class Exercice_7_Intro extends React.Component {
               <Text style={styles.intro_header_light}>Getting Lost</Text>
 
               <Text style={styles.intro_text_light}>
-                {"\n"}5 MIN{"\n"}In this exercise, you will discover why you sometimes get lost while using your smartphone. 
+                {"\n"}4 MIN{"\n"}In this exercise, you will discover why you sometimes get lost while using your smartphone. 
               </Text>
             </View>
           </View>
         </ScrollView>
 
-        <View style={styles.bottom}>
+        <View style={styles.bottom_button}>
           <PrimaryButton
             label="Start"
             isBottom={true}
-            style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
+            style={{backgroundColor: "#FDFDF7", borderColor: "#FDFDF7", color: "#2C3B51"}}
             onPress={() => {
               this.props.navigation.navigate("Exercice_7_1");
             }}

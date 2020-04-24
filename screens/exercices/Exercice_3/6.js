@@ -35,15 +35,26 @@ export default class Exercice_3_6 extends React.Component {
                 this.props.navigation.navigate("Exercice_3_7");
               }}
             >
-              <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_3.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.intro_text}>
-                  {"\n"}How often is your smartphone more than a hand-reach away from you? Hacks like doing a detox for a day, or to intentionally not use the phone in certain occasions come from the second factor: designing a better <Text style={styles.intro_text_bold}>environment</Text>, when the smartphone is around us. Deciding on situations where it has to be around and situations where it is not really needed.
-                </Text>
+              <View style={styles.container_scroll_start}>
+                <View style={{ flex: 1 }}>
+                  <Image
+                    style={styles.image_height}
+                    source={require("../../../assets/images/Exercice3_3.png")}
+                    resizeMode="contain"
+                  />
+                </View>
+                <View style={{ flexGrow: 1, flex: 1 }}>
+                  <Text style={styles.intro_text}>
+                    How often is your smartphone more than a hand-reach away
+                    from you? Hacks like doing a detox for a day, or to
+                    intentionally not use the phone in certain occasions come
+                    from the second factor: designing a better{" "}
+                    <Text style={styles.intro_text_bold}>environment</Text>,
+                    when the smartphone is around us. Deciding on situations
+                    where it has to be around and situations where it is not
+                    really needed.
+                  </Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

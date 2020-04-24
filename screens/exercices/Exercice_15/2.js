@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,9 +14,10 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_2 extends React.Component {
+import { Svg, Path, Circle, Ellipse } from "react-native-svg";
+
+export default class Exercice_15_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,43 +27,67 @@ export default class Exercice_1_2 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/green_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_1_3");
+          <View style={styles.container_scroll}>
+            <View style={{ flex: 1, justifyContent: "center" }}>
+              <Svg width="66" height="113" viewBox="0 0 66 113" fill="none">
+                <Path
+                  d="M60.3324 62.0177C56.4765 57.221 50.9887 54.2671 44.8808 53.6999C41.5541 53.3895 38.2114 53.8115 35.046 54.923V52.7204C37.2767 52.6111 40.5142 52.0146 42.8084 49.7201C46.4233 46.1026 45.8239 40.1456 45.7437 39.4782C45.6217 38.4645 44.823 37.6656 43.8095 37.5433C43.1416 37.4627 37.1816 36.8606 33.5667 40.4782C30.1413 43.9035 30.4996 49.4301 30.615 50.5694V54.9621C27.4159 53.8206 24.0323 53.3856 20.6666 53.6999C14.5584 54.2668 9.07082 57.221 5.21492 62.0177C1.15111 67.0725 -0.630184 73.5197 0.198777 80.171C1.0092 86.6861 4.6369 95.0991 9.44028 101.604C14.8998 108.998 21.0084 113.001 26.771 113C27.1513 113 27.5307 112.983 27.9076 112.948C29.5752 112.792 31.2069 112.292 32.7739 111.458C34.3409 112.293 35.9723 112.792 37.6404 112.948C38.0176 112.983 38.3963 113 38.777 113C44.5391 113 50.6482 108.997 56.1075 101.604C60.9109 95.0993 64.5386 86.6861 65.3492 80.1714C66.1775 73.5197 64.3962 67.0725 60.3324 62.0177ZM36.7004 43.6113C37.8713 42.4394 39.8196 42.0271 41.3634 41.9218C41.2562 43.4579 40.8437 45.4169 39.6746 46.5873C38.5034 47.7585 36.555 48.171 35.0109 48.2767C35.1182 46.7398 35.5305 44.7806 36.7004 43.6113ZM60.9511 79.6236C60.2272 85.4396 56.9265 93.0338 52.5421 98.9718C47.7508 105.46 42.4676 108.946 38.0505 108.535C36.6773 108.408 35.312 107.902 33.9928 107.032C33.6229 106.789 33.1983 106.667 32.7737 106.667C32.349 106.667 31.9242 106.789 31.5543 107.032C30.2354 107.902 28.8701 108.407 27.4967 108.535C23.0777 108.948 17.7961 105.461 13.0049 98.9718C8.62037 93.034 5.31931 85.4394 4.59562 79.6232C3.91608 74.1725 5.36235 68.9059 8.6676 64.7944C11.7656 60.9407 16.1722 58.5677 21.0769 58.1124C24.7262 57.772 28.4113 58.524 31.735 60.2874C32.0692 60.4648 32.4373 60.5494 32.8048 60.5441C32.8134 60.5441 32.8218 60.5454 32.8304 60.5454C33.3084 60.5454 33.7498 60.3925 34.112 60.1351C37.3568 58.4832 40.9295 57.782 44.4701 58.1124H44.4712C49.3745 58.5677 53.7813 60.9407 56.8793 64.7942C60.1841 68.9059 61.6304 74.1723 60.9511 79.6236Z"
+                  fill="#2C3B51"
+                />
+                <Path
+                  d="M56.2031 73.1452C55.6754 71.0822 54.7412 69.2065 53.426 67.5691C51.0863 64.6583 47.7604 62.8657 44.0609 62.5214C42.8429 62.408 41.7627 63.3038 41.6493 64.5223C41.5361 65.7406 42.4319 66.8203 43.6502 66.9337C46.1452 67.1659 48.3905 68.3773 49.9716 70.3449C50.8877 71.4853 51.5399 72.7969 51.9096 74.2434C52.1658 75.2449 53.0665 75.9104 54.0548 75.9104C54.2362 75.9104 54.421 75.8878 54.6052 75.8408C55.7911 75.5378 56.5064 74.3308 56.2031 73.1452Z"
+                  fill="#2C3B51"
+                />
+                <Path
+                  d="M43.3875 7.75781C42.1639 7.75781 41.1719 8.74987 41.1719 9.97345V26.307C41.1719 27.5308 42.1639 28.5227 43.3875 28.5227C44.6111 28.5227 45.6032 27.5306 45.6032 26.307V9.97345C45.6032 8.74965 44.6111 7.75781 43.3875 7.75781Z"
+                  fill="#2C3B51"
+                />
+                <Path
+                  d="M32.7632 0C31.5397 0 30.5476 0.99206 30.5476 2.21564V28.5199C30.5476 29.7437 31.5397 30.7356 32.7632 30.7356C33.9868 30.7356 34.9789 29.7435 34.9789 28.5199V2.21564C34.9789 0.99206 33.9868 0 32.7632 0Z"
+                  fill="#2C3B51"
+                />
+                <Path
+                  d="M22.1395 7.75781C20.9159 7.75781 19.9238 8.74987 19.9238 9.97345V32.9539C19.9238 34.1777 20.9159 35.1696 22.1395 35.1696C23.363 35.1696 24.3551 34.1775 24.3551 32.9539V9.97345C24.3551 8.74965 23.3628 7.75781 22.1395 7.75781Z"
+                  fill="#2C3B51"
+                />
+                <Path
+                  d="M54.5418 78.1016C51.6905 78.1016 51.6859 82.5328 54.5418 82.5328C57.3931 82.5328 57.3979 78.1016 54.5418 78.1016Z"
+                  fill="#2C3B51"
+                />
+              </Svg>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "column",
+                alignSelf: "flex-start"
               }}
             >
-              <View style={styles.container_scroll}>
-                <Text style={styles.intro_text}>
-                  {"\n"}Now, stop focusing your attention on the screen and start - without changing anything - to notice your posture (body position).
-                  {"\n"}{"\n"}Just observe it for a moment.
-                </Text>
-
-              </View>
-            </TouchableWithoutFeedback>
+              <Text style={styles.sub_header_left}>
+                What would happen, if there was no gravity right now?
+              </Text>
+              <Text style={styles.intro_text_grey}>
+                {"\n"}
+                {"\n"}
+                Spend a moment imagining this scenario.
+              </Text>
+            </View>
           </View>
         </ScrollView>
+        <View style={styles.bottom_button}>
+              <PrimaryButton
+                label="Done"
+                onPress={() => {
+                  this.props.navigation.navigate("Exercice_15_3");
+                }}
+              />
+            </View>
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

@@ -13,79 +13,51 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import { DeckSwiper, Card, CardItem } from "native-base";
 import { styles } from "./style";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
-const cards = [
-  "Screen-Time Tracker to keep track of your time on your mobile phone",
-  "Switch off notifications",
-  "Use flight mode",
-  "Install blocking apps",
-  "Set use limits",
-  "Define smartphone free times and locations",
-  "Do a digital detox",
-  "Buy an alarm clock"
-];
+export default class Exercice_14_2 extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default class Exercice_3_2 extends React.Component {
-  countLeft = 0;
+    this.state = {};
+  }
 
   render() {
     return (
-      <View style={styles.container_deck}>
-        <Text style={styles.sub_header_deck}>
-          What strategies have you tried out so far to improve your smartphone
-          use?
-        </Text>
-        <View style={{ flex: 1 }}>
-          <DeckSwiper
-            looping={false}
-            dataSource={cards}
-            onSwipeLeft={this.countLeftTry}
-            renderEmpty={this.renderEmpty}
-            renderItem={item => (
-              <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-                <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-                  <Text style={styles.intro_text_center}>{item}</Text>
-                </CardItem>
-              </Card>
-            )}
-          />
-        </View>
-        <View style={{ flex: 1, justifyContent: "flex-end" }}>
-          <Text style={styles.tap_text_deck}>DRAG THE CARD LEFT OR RIGHT</Text>
-        </View>
-      </View>
+      <ImageBackground
+        source={require("../../../assets/images/green_shape_full.png")}
+        style={styles.image_background}
+      >
+        <StatusBar hidden />
+        <ScrollView>
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback
+              style={styles.scroll}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_14_3");
+              }}
+            >
+              <View style={styles.container_scroll}>
+                <Text style={styles.intro_text}>
+                  Visualize{" "}
+                  <Text style={styles.intro_text_bold}>three scenarios </Text>in
+                  which it’s going to be a challenge to stick to your newly
+                  defined plan.
+                </Text>
+                <Text style={styles.intro_text_grey}>
+                  {"\n"}What could happen in Leo’s case? If I am in the metro,
+                  then I will to listen to a TED talk, but:
+                </Text>
+                <Text style={styles.intro_text_grey_padding}>
+                  {"\n"}1. I don’t have enough data to stream it on the go.{"\n"}
+                  {"\n"}2. I don’t have my earphones with me.{"\n"}
+                  {"\n"}3. I feel overwhelmed by the number of talks and can’t decide.
+                </Text>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </ScrollView>
+      </ImageBackground>
     );
   }
-
-  countLeftTry = () => {
-    this.countLeft += 1;
-  };
-
-  goToNext = () => {
-    if (this.countLeft > 5) {
-      console.log("More than 5");
-      this.props.navigation.navigate("Exercice_3_2_More5");
-    } else if (this.countLeft >= 2 && this.countLeft <= 5) {
-      console.log("Between 2 and 5");
-      this.props.navigation.navigate("Exercice_3_2_2to5");
-    } else if (this.countLeft < 2) {
-      console.log("Less than 2");
-      this.props.navigation.navigate("Exercice_3_2_Less2");
-    }
-  };
-
-  renderEmpty = () => {
-    return (
-      <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-        <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-          <TouchableOpacity onPress={this.goToNext}>
-            <Text style={styles.intro_text_center}>See results</Text>
-          </TouchableOpacity>
-        </CardItem>
-      </Card>
-    );
-  };
 }

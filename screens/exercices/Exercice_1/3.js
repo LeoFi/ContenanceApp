@@ -30,7 +30,8 @@ export default class Exercice_1_3 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}
+        >
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
@@ -42,7 +43,7 @@ export default class Exercice_1_3 extends React.Component {
                 <Text style={styles.sub_header_left}>
                 Ask yourself:
                 </Text>
-                <Text style={styles.intro_text_bold}>
+                <Text style={styles.intro_text}>
                   {"\n"}How is your back positioned?
                   {"\n"}{"\n"}How does your neck feel?
                   {"\n"}{"\n"}What does your body look like while you are using your smartphone? 

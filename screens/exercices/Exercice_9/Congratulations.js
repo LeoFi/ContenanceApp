@@ -14,8 +14,7 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
-
+import * as firebase from "firebase";
 import { connect } from "react-redux";
 import { updateState_Ex9 } from "./../../../redux-persist/redux/exercices";
 import { updateState_Ex10 } from "./../../../redux-persist/redux/exercices";
@@ -31,14 +30,41 @@ class Exercice_9_Congratulations extends React.Component {
   }
 
   handleSubmit = () => {
-    const exercice_state_9 = this.state.exercice_state_9;
-    this.setState({ exercice_state_9: exercice_state_9 });
-    this.props.dispatch(updateState_Ex9(this.state.exercice_state_9));
+    if (
+      this.props.exercices.exercice_state_9 === "DONE" ||
+      this.props.exercices.exercice_state_9 === "completed"
+    ) {
+    } else {
+      const exercice_state_9 = this.state.exercice_state_9;
+      this.setState({ exercice_state_9: exercice_state_9 });
+      this.props.dispatch(updateState_Ex9(this.state.exercice_state_9));
 
-    const exercice_state_10 = this.state.exercice_state_10;
-    this.setState({ exercice_state_10: exercice_state_10 });
-    this.props.dispatch(updateState_Ex10(this.state.exercice_state_10));
+      var date = new Date();
+      var locales = ["en-US"];
+      var options = {
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      };
+      var Exercise_9_Done = date.toLocaleString(locales, options);
+      firebase
+        .database()
+        .ref()
+        .child("accounts")
+        .child(this.props.user.UID)
+        .update({
+          Exercise_9_Done: Exercise_9_Done
+        });
+    }
 
+    if (this.props.exercices.exercice_state_10 === undefined) {
+      const exercice_state_10 = this.state.exercice_state_10;
+      this.setState({ exercice_state_10: exercice_state_10 });
+      this.props.dispatch(updateState_Ex10(this.state.exercice_state_10));
+    } else {
+      //
+    }
     this.props.navigation.push("Home");
   };
 
@@ -50,28 +76,37 @@ class Exercice_9_Congratulations extends React.Component {
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
-              source={require("../../../assets/images/Day1_Intro.png")}
+              source={require("../../../assets/images/Day9_Intro.png")}
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.header}>Congratulations!</Text>
-              <Text style={styles.text}>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
                 {"\n"}Today, you went on a journey to define your values!
               </Text>
-
-              <View style={styles.tap_pos_relative}>
-                <PrimaryButton label="Done" onPress={this.handleSubmit} />
-              </View>
             </View>
           </View>
         </ScrollView>
+
+        <View style={styles.bottom_button}>
+          <PrimaryButton
+            label="Done"
+            style={{
+              backgroundColor: "#FDFDF7",
+              borderColor: "#FDFDF7",
+              color: "#2C3B51"
+            }}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  exercices: state.exercices
+  exercices: state.exercices,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_9_Congratulations);

@@ -26,11 +26,11 @@ export default class Exercice_1_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape_inverted.png")}
+        source={require("../../../assets/images/purple_shape_inverted.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
@@ -43,13 +43,11 @@ export default class Exercice_1_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}From now on, whenever you open Contencance, take on a good posture first.
+                  {"\n"}From now on, whenever you open Contenance, take on a good posture first.
                   {"\n"}{"\n"}Your body speaks to your brain. Improving your posture physically sets the stage for improving it mentally.
                 </Text>
 
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
+      
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -57,18 +55,4 @@ export default class Exercice_1_Challenge extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

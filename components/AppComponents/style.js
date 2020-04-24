@@ -27,7 +27,7 @@ const defaultStyle = StyleSheet.create({
         justifyContent: 'center',
     },
     button_text_primary: {
-        color: '#F4F1DE',
+        color: '#FDFDF7',
         fontSize: 17,
         textAlign: 'center',
         fontFamily: 'roboto-black',
@@ -35,7 +35,7 @@ const defaultStyle = StyleSheet.create({
         letterSpacing: 2,
     },
     button_text_exercice: {
-        color: '#F4F1DE',
+        color: '#FDFDF7',
         fontSize: 17,
         textAlign: 'left',
         fontFamily: 'roboto-black',

@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +16,9 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_3 extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_9_3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,28 +28,30 @@ export default class Exercice_1_3 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/red_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
+          <View>
             <TouchableWithoutFeedback
-              style={styles.scroll}
+              style={{backgroundColor: "#000000", flex: 1}}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_4");
+                this.props.navigation.navigate("Exercice_9_4");
               }}
             >
-              <View style={styles.container_scroll}>
+              <View style={styles.container_center}>
                 <Text style={styles.sub_header_left}>
-                Ask yourself:
+                Great!
                 </Text>
-                <Text style={styles.intro_text_bold}>
-                  {"\n"}How is your back positioned?
-                  {"\n"}{"\n"}How does your neck feel?
-                  {"\n"}{"\n"}What does your body look like while you are using your smartphone? 
+                <Text style={styles.intro_text}>
+                  {"\n"}The three things your older version suggested you to value in order to be happier in life are:
                 </Text>
-
+                <Text style={styles.text_bold_italic_left}>
+                  {"\n"}{this.props.user_values.Advice1_D9}
+                  {"\n"}{this.props.user_values.Advice2_D9}
+                  {"\n"}{this.props.user_values.Advice3_D9}
+                </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -57,16 +61,8 @@ export default class Exercice_1_3 extends React.Component {
   }
 }
 
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
 
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
-}
+export default connect(mapStateToProps)(Exercice_9_3);

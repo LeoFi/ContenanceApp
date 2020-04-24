@@ -26,11 +26,11 @@ export default class Exercice_1_Aha_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape.png")}
+        source={require("../../../assets/images/purple_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}

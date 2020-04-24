@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +16,9 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_6_Aha_2 extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_6_Aha_3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -39,16 +41,18 @@ export default class Exercice_6_Aha_2 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.header}>
-                Aha!
-                </Text>
+                <Text style={styles.header}>Aha!</Text>
                 <Text style={styles.text}>
                   {"\n"}Your emotional triggers to use the smartphone are:
-                  {"\n"}{"\n"}Doubt
-                  {"\n"}{"\n"}Anxiety
-                  {"\n"}{"\n"}Joy
+                  <Text style={styles.text_bold_italic}>
+                    {"\n"}{"\n"}
+                    {this.props.user_values.EmTrigger1_D6}
+                    {"\n"}
+                    {this.props.user_values.EmTrigger2_D6}
+                    {"\n"}
+                    {this.props.user_values.EmTrigger3_D6}
+                  </Text>
                 </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -58,16 +62,9 @@ export default class Exercice_6_Aha_2 extends React.Component {
   }
 }
 
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
 
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
-}
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_6_Aha_3);

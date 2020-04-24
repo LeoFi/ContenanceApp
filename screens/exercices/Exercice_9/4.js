@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +16,9 @@ import {
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
 
-export default class Exercice_1_4 extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_9_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,28 +28,30 @@ export default class Exercice_1_4 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/red_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
         <ScrollView>
-          <View style={{ flex: 1 }}>
+          <View>
             <TouchableWithoutFeedback
-              style={styles.scroll}
+              style={{backgroundColor: "#000000", flex: 1}}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_Aha_1");
+                this.props.navigation.navigate("Exercice_9_5");
               }}
             >
-              <View style={styles.container_scroll}>
+              <View style={styles.container_center}>
                 <Text style={styles.sub_header_left}>
-                Now, change your posture. 
+                Defining values.
                 </Text>
                 <Text style={styles.intro_text}>
-                  {"\n"}Try to straighten your back, relax your neck, soften your shoulders.
-                  {"\n"}{"\n"}Try to take on a good posture, whatever this might mean for you.
-                  {"\n"}{"\n"}Continue when you’re ready.
+                  {"\n"}In the following, assign a value that is most aligned to
+                  these advices.{"\n"}
+                  {"\n"}Tip: Values are the things that you believe are
+                  important in the way you live and work.{"\n"}
+                  {"\n"}Even if the mediation did not work out for you this
+                  time, you can still choose 3 values, no problem.
                 </Text>
-                
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -57,16 +61,8 @@ export default class Exercice_1_4 extends React.Component {
   }
 }
 
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
 
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
-}
+export default connect(mapStateToProps)(Exercice_9_4);

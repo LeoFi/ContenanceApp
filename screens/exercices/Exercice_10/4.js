@@ -7,7 +7,9 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
   ImageBackground,
-  Image
+  Keyboard,
+  KeyboardAvoidingView,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,46 +17,113 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as firebase from "firebase";
+import { connect } from "react-redux";
+import { Update_MeanAct1_D10 } from "./../../../redux-persist/redux/user_values";
 
-export default class Exercice_3_4 extends React.Component {
+class Exercice_10_4 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      MeanAct1_D10: this.props.user_values.MeanAct1_D10 || ""
+    };
   }
+
+  handleChange_Advice1 = MeanAct1_D10 => {
+    this.setState({ MeanAct1_D10 });
+  };
+
+  handleSubmit = () => {
+    const { MeanAct1_D10 } = this.state;
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(this.props.user.UID)
+      .update({
+        MeanAct1_D10: MeanAct1_D10
+      });
+    this.props.dispatch(Update_MeanAct1_D10(this.state.MeanAct1_D10));
+    this.props.navigation.navigate("Exercice_10_5");
+  };
 
   render() {
     return (
-      <View>
-        <StatusBar hidden />
-        <ScrollView>
-          <TouchableWithoutFeedback
-            style={styles.scroll}
-            onPress={() => {
-              this.props.navigation.navigate("Exercice_3_5");
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <Image
-                style={styles.image_height_relative}
-                source={require("../../../assets/images/Exercice3_1.png")}
-                resizeMode="contain"
-              />
-              <View style={styles.container_scroll_img}>
-                <Text style={styles.sub_header_left}>
-                  The Solution Triangle
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#FDFDF7",
+          justifyContent: "flex-start"
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
+            >
+              <View
+                style={{
+                  flex: 1,
+                  width: Dimensions.get("window").width - 60,
+                  height: Dimensions.get("window").height - 110
+                }}
+              >
+                <Text style={styles.sub_header}>Bringing values to life</Text>
+                <Text style={styles.intro_text_bold}>
+                  {"\n"}What could an activity look like that helps you bring{" "}
+                  {this.props.user_values.Value1_D9} to life?
                 </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}We asked you to reflect on these hacks to introduce the
-                  so-called Solution Triangle. It consists of three crucial
-                  factors: your smartphone, your environment and you as a
-                  person.
+                <Text style={styles.intro_text_grey}>
+                  {"\n"}
+                  {"\n"}E.g. Learning → Reading a science magazin
                 </Text>
+
+                <View>
+                  <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
+                    numberOfLines={10}
+                    //multiline={true}
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice1}
+                    value={this.state.MeanAct1_D10}
+                    placeholder="Write down your activity"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="default"
+                  />
+                </View>
+
+                <View style={{flex: 1}}/>
+
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.MeanAct1_D10}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
-        </ScrollView>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
       </View>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values,
+  user: state.user
+});
+
+export default connect(mapStateToProps)(Exercice_10_4);

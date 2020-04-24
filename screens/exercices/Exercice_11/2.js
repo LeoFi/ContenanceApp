@@ -13,79 +13,204 @@ import {
   SecondaryButton,
   GreyInputButton
 } from "../../../components/AppComponents";
-import { DeckSwiper, Card, CardItem } from "native-base";
+import CountDown from "react-native-countdown-component";
 import { styles } from "./style";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
-const cards = [
-  "Screen-Time Tracker to keep track of your time on your mobile phone",
-  "Switch off notifications",
-  "Use flight mode",
-  "Install blocking apps",
-  "Set use limits",
-  "Define smartphone free times and locations",
-  "Do a digital detox",
-  "Buy an alarm clock"
-];
+import { Audio } from "expo-av";
 
-export default class Exercice_3_2 extends React.Component {
-  countLeft = 0;
+export default class Exercice_11_2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.playbackInstance = null;
+    this.isSeeking = false;
+    this.shouldPlayAtEndOfSeek = false;
 
-  render() {
-    return (
-      <View style={styles.container_deck}>
-        <Text style={styles.sub_header_deck}>
-          What strategies have you tried out so far to improve your smartphone
-          use?
-        </Text>
-        <View style={{ flex: 1 }}>
-          <DeckSwiper
-            looping={false}
-            dataSource={cards}
-            onSwipeLeft={this.countLeftTry}
-            renderEmpty={this.renderEmpty}
-            renderItem={item => (
-              <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-                <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-                  <Text style={styles.intro_text_center}>{item}</Text>
-                </CardItem>
-              </Card>
-            )}
-          />
-        </View>
-        <View style={{ flex: 1, justifyContent: "flex-end" }}>
-          <Text style={styles.tap_text_deck}>DRAG THE CARD LEFT OR RIGHT</Text>
-        </View>
-      </View>
-    );
+    this.state = {
+      progressPercentageWidth: 0,
+      playbackInstancePosition: null,
+      playbackInstanceDuration: null,
+      result: null,
+      shouldPlay: false,
+      isPlaying: false,
+      isLoading: true,
+      show_button: false,
+      coutdown_running: false
+    };
   }
 
-  countLeftTry = () => {
-    this.countLeft += 1;
-  };
+  componentDidMount() {
+    Audio.setAudioModeAsync({
+      allowsRecordingIOS: false,
+      staysActiveInBackground: true,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      playsInSilentModeIOS: true,
+      shouldDuckAndroid: false,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: false
+    });
 
-  goToNext = () => {
-    if (this.countLeft > 5) {
-      console.log("More than 5");
-      this.props.navigation.navigate("Exercice_3_2_More5");
-    } else if (this.countLeft >= 2 && this.countLeft <= 5) {
-      console.log("Between 2 and 5");
-      this.props.navigation.navigate("Exercice_3_2_2to5");
-    } else if (this.countLeft < 2) {
-      console.log("Less than 2");
-      this.props.navigation.navigate("Exercice_3_2_Less2");
+    this._loadNewPlaybackInstance(false);
+  }
+
+  componentWillUnmount() {
+    this.playbackInstance.unloadAsync();
+  }
+
+  async _loadNewPlaybackInstance(playing) {
+    if (this.playbackInstance != null) {
+      await this.playbackInstance.unloadAsync();
+      this.playbackInstance.setOnPlaybackStatusUpdate(null);
+      this.playbackInstance = null;
+    }
+
+    const initialStatus = {
+      shouldPlay: playing
+    };
+
+    const source = require("../../../assets/sounds/Alarm_3min.mp3");
+
+    try {
+      const { sound, status } = await Audio.Sound.createAsync(
+        source,
+        initialStatus,
+        this._onPlaybackStatusUpdate
+      );
+      this.playbackInstance = sound;
+      this._updateScreenForLoading(false);
+      console.log("IT'S WORKING" + status.durationMillis);
+    } catch (e) {
+      console.log("Problem creating sound object: ", e);
+    }
+  }
+
+  _updateScreenForLoading(isLoading) {
+    if (isLoading) {
+      this.setState({
+        isPlaying: false,
+        playbackInstanceDuration: null,
+        playbackInstancePosition: null,
+        isLoading: true
+      });
+    } else {
+      this.setState({
+        isLoading: false
+      });
+    }
+  }
+
+  _onPlaybackStatusUpdate = status => {
+    if (!status.isLoaded) {
+      // Update your UI for the unloaded state
+      if (status.error) {
+        console.log(
+          `Encountered a fatal error during playback: ${status.error}`
+        );
+        // Send Expo team the error on Slack or the forums so we can help you debug!
+      }
+    } else {
+      if (status.isLoaded) {
+        this.setState({
+          playbackInstancePosition: status.positionMillis,
+          playbackInstanceDuration: status.durationMillis,
+          result: status.positionMillis / status.durationMillis,
+          shouldPlay: status.shouldPlay,
+          isPlaying: status.isPlaying
+        });
+        if (status.didJustFinish) {
+          this.playbackInstance.unloadAsync();
+          this.setState({
+            isPlaying: "Done"
+          });
+        }
+      } else {
+        if (status.error) {
+          console.log(`FATAL PLAYER ERROR: ${status.error}`);
+        }
+      }
     }
   };
 
-  renderEmpty = () => {
-    return (
-      <Card style={{ height: 200, backgroundColor: "#CAC0DE" }}>
-        <CardItem style={{ backgroundColor: "#CAC0DE" }}>
-          <TouchableOpacity onPress={this.goToNext}>
-            <Text style={styles.intro_text_center}>See results</Text>
-          </TouchableOpacity>
-        </CardItem>
-      </Card>
-    );
+  handler = () => {
+    this.setState({ show_button: true });
   };
+
+  onPress = () => {
+    this.playbackInstance.playAsync();
+    this.setState({ coutdown_running: true });
+  };
+
+  unload = () => {
+    this.playbackInstance.unloadAsync();
+    this.props.navigation.navigate("Exercice_11_3");
+  };
+
+  render() {
+    return (
+      <ImageBackground
+        source={require("../../../assets/images/red_shape.png")}
+        style={styles.image_background}
+      >
+        <StatusBar hidden />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.container_scroll}>
+            <CountDown
+              running={this.state.coutdown_running}
+              until={180}
+              onFinish={this.handler}
+              timeToShow={["M", "S"]}
+              timeLabels={{ d: null, h: null, m: null, s: null }}
+              digitStyle={{ backgroundColor: "unset" }}
+              digitTxtStyle={{
+                fontFamily: "roboto-black",
+                color: "#2C3B51",
+                fontSize: 50
+              }}
+              separatorStyle={{
+                fontFamily: "roboto-black",
+                color: "#2C3B51",
+                fontSize: 50
+              }}
+              showSeparator={true}
+              size={30}
+            />
+
+            {this.state.isLoading ? (
+              <Text style={styles.intro_text_center}>
+                Wait for a few seconds while we're getting your screen.
+              </Text>
+            ) : !this.state.show_button ? (
+              <Text style={styles.intro_text_center}>
+                Enjoy!{"\n"}
+                {"\n"}We’ll let you know when it’s time to come back.{"\n"}
+                {"\n"}
+                <Text style={styles.intro_text_center_red}>Make sure your sound volume is up.</Text>
+              </Text>
+            ) : null}
+
+            {this.state.show_button ? (
+              <>
+                <Text style={styles.intro_text_center}>
+                  Time is up. Continue the exercise.
+                </Text>
+              </>
+            ) : null}
+          </View>
+        </ScrollView>
+        {this.state.show_button ? (
+          <View style={styles.bottom_button}>
+            <PrimaryButton label="Continue" onPress={this.unload} />
+          </View>
+        ) : null}
+        {!this.state.coutdown_running ? (
+          <View style={styles.bottom_button}>
+            <PrimaryButton
+              label="START AND ENJOY"
+              onPress={this.onPress}
+              disabled={this.state.isLoading}
+            />
+          </View>
+        ) : null}
+      </ImageBackground>
+    );
+  }
 }

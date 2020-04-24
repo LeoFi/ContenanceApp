@@ -15,6 +15,8 @@ export default class GreyInputButton extends Component {
       isBottom: this.props.isBottom,
       style: this.props.style,
       isActive: this.props.isActive,
+      mainColor: this.props.mainColor,
+      mainColorReduced: this.props.mainColorReduced,
     };
 
     return (
@@ -24,8 +26,8 @@ export default class GreyInputButton extends Component {
           styles.button_grey_input,
           {
             backgroundColor: buttonProps.isActive
-              ? "#A28AD4"
-              : "rgba(44, 59, 81, 0.1)",
+              ? buttonProps.mainColor
+              : buttonProps.mainColorReduced,
             marginBottom: buttonProps.isBottom ? 0 : 15
           },
           buttonProps.style
@@ -39,9 +41,9 @@ export default class GreyInputButton extends Component {
               color: buttonProps.isActive
                 ? "#FFFFFF"
                 : "#2C3B51",
-              fontWeight: buttonProps.isActive ? "normal" : "bold",
+              fontWeight: buttonProps.isActive ? "bold" : "normal",
               fontFamily: buttonProps.isActive
-                ? "roboto-medium"
+                ? "roboto-bold"
                 : "roboto-regular"
             },
             buttonProps.style
@@ -75,12 +77,11 @@ const styles = StyleSheet.create({
   },
   button_grey_input_text: {
     color: "#2C3B51",
-    fontSize: 17,
+    fontSize: 14,
     lineHeight: 23,
     textAlign: "center",
     fontFamily: "roboto-regular",
     alignSelf: "stretch",
-    letterSpacing: 2,
     fontWeight: "normal"
   }
 });

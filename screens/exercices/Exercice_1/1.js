@@ -30,7 +30,7 @@ export default class Exercice_1_1 extends React.Component {
         style={styles.image_background}
       >
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
@@ -39,6 +39,7 @@ export default class Exercice_1_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
+                <View style={{ flex: 1 }} />
                 <Text style={styles.sub_header_left}>
                   Welcome to day 1 of Contenance!
                 </Text>
@@ -46,6 +47,10 @@ export default class Exercice_1_1 extends React.Component {
                   {"\n"}While reading this, you probably have your smartphone in
                   your hand.
                 </Text>
+                <View style={{ flex: 1 }} />
+                <View style={styles.tap_pos_relative_exercice}>
+                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE</Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -53,18 +58,4 @@ export default class Exercice_1_1 extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

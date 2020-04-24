@@ -6,7 +6,8 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  Image
+  Image,
+  Alert
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,11 +16,18 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 import * as Progress from "react-native-progress";
+import * as firebase from "firebase";
 
 import { connect } from "react-redux";
 import { updateState_Ex1 } from "./../../../redux-persist/redux/exercices";
 import { updateState_Ex2 } from "./../../../redux-persist/redux/exercices";
-import { updateStartingDate } from "./../../../redux-persist/redux/user";
+import {
+  updateStartingDate,
+  updateWelcomeTitle,
+  updateWelcomeSubTitle
+} from "./../../../redux-persist/redux/user";
+
+import * as Amplitude from "expo-analytics-amplitude";
 
 class Exercice_1_Congratulations extends React.Component {
   constructor(props) {
@@ -27,7 +35,9 @@ class Exercice_1_Congratulations extends React.Component {
 
     this.state = {
       exercice_state_1: "completed",
-      exercice_state_2: "locked"
+      exercice_state_2: "locked",
+      welcomeTitle: "Well done,",
+      welcomeSubTitle: "Come back tomorrow to continue."
     };
   }
 
@@ -35,7 +45,7 @@ class Exercice_1_Congratulations extends React.Component {
     return (
       <View style={styles.container_background_inverted}>
         <StatusBar hidden />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
@@ -43,18 +53,26 @@ class Exercice_1_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-              <Text style={styles.header}>Congratulations!</Text>
-              <Text style={styles.text}>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
                 {"\n"}You finished your first exercise. Now you know why this
                 training is called Contenance!
               </Text>
-
-              <View style={styles.tap_pos_relative}>
-                <PrimaryButton label="Done" onPress={this.handleSubmit} />
-              </View>
             </View>
           </View>
         </ScrollView>
+
+        <View style={styles.bottom}>
+          <PrimaryButton
+            label="Done"
+            style={{
+              backgroundColor: "#FDFDF7",
+              borderColor: "#FDFDF7",
+              color: "#2C3B51"
+            }}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }
@@ -64,29 +82,67 @@ class Exercice_1_Congratulations extends React.Component {
   }
 
   getDate = () => {
-    var initialDate = new Date().toString();
-
-    console.log(initialDate);
+    var date = new Date();
+    var locales = ["en-US"];
+    var options = {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit"
+    }
+    var optionsExercise = {
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    }
+    var initialDate = date.toLocaleString( locales, options )
+    var Exercise_1_Done = date.toLocaleString( locales, optionsExercise )
 
     if (this.props.user.initialDate.length === 0) {
-    //if (this.props.user.initialDate.length > 0) {
       this.setState({ initialDate: initialDate }, function() {
-      //this.setState({ initialDate: "" }, function() {
-        //console.log(this.state.initialDate);
         this.props.dispatch(updateStartingDate(this.state.initialDate));
       });
+
+      firebase
+        .database()
+        .ref()
+        .child("accounts")
+        .child(this.props.user.UID)
+        .update({
+          Day_1_Done: initialDate,
+          Exercise_1_Done: Exercise_1_Done,
+        });
     } else {
       return;
     }
   };
 
   handleSubmit = () => {
-    const exercice_state_1 = this.state.exercice_state_1;
-    this.setState({ exercice_state_1: exercice_state_1 });
-    this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
-    const exercice_state_2 = this.state.exercice_state_2;
-    this.setState({ exercice_state_2: exercice_state_2 });
-    this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    if (
+      this.props.exercices.exercice_state_1 === "DONE" ||
+      this.props.exercices.exercice_state_1 === "completed"
+    ) {
+    } else {
+      const exercice_state_1 = this.state.exercice_state_1;
+      this.setState({ exercice_state_1: exercice_state_1 });
+      this.props.dispatch(updateState_Ex1(this.state.exercice_state_1));
+    }
+
+    if (this.props.exercices.exercice_state_2 === undefined) {
+      const exercice_state_2 = this.state.exercice_state_2;
+      this.setState({ exercice_state_2: exercice_state_2 });
+      this.props.dispatch(updateState_Ex2(this.state.exercice_state_2));
+    } else {
+      //
+    }
+    const welcomeTitle = this.state.welcomeTitle;
+    const welcomeSubTitle = this.state.welcomeSubTitle;
+    this.setState({ welcomeTitle: welcomeTitle });
+    this.setState({ welcomeSubTitle: welcomeSubTitle });
+    this.props.dispatch(updateWelcomeTitle(this.state.welcomeTitle));
+    this.props.dispatch(updateWelcomeSubTitle(this.state.welcomeSubTitle));
+
+    Amplitude.logEvent("Exercise 1 Finished");
     this.props.navigation.push("Home");
   };
 }

@@ -26,7 +26,7 @@ export default class Exercice_15_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape_inverted.png")}
+        source={require("../../../assets/images/green_challenge.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -43,13 +43,9 @@ export default class Exercice_15_Challenge extends React.Component {
                 The Challenge
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}Next time you find yourself in an empty moment today, try another one of these thought experiments. Or come up with your own! 
+                  {"\n"}Next time you find yourself in an empty moment today, instead of using your smartphone, try another one of these thought experiments. Or come up with your own! 
                   {"\n"}{"\n"}This might be a bit challenging in the beginning, but once you start practicing, they will come naturally!
                 </Text>
-
-                {/* <View style={styles.bottom}>
-                  <Text style={styles.tap_text}>TAP ANYWHERE TO CONTINUE.</Text>
-                </View> */}
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -57,18 +53,4 @@ export default class Exercice_15_Challenge extends React.Component {
       </ImageBackground>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_15_Congratulations");
-  }}
-/> */
 }

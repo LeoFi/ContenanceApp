@@ -26,7 +26,7 @@ export default class Exercice_16_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape_inverted.png")}
+        source={require("../../../assets/images/green_challenge.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />

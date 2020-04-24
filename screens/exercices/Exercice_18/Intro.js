@@ -31,7 +31,7 @@ export default class Exercice_18_Intro extends React.Component {
           <View style={styles.container_scroll_img_absolute}>
             <Image
               style={styles.image_height}
-              source={require("../../../assets/images/Day3_Intro.png")}
+              source={require("../../../assets/images/Day18_Intro.png")}
               resizeMode="stretch"
             />
             <View style={styles.middle}>
@@ -45,11 +45,11 @@ export default class Exercice_18_Intro extends React.Component {
           </View>
         </ScrollView>
 
-        <View style={styles.bottom}>
+        <View style={styles.bottom_button}>
           <PrimaryButton
             label="Start"
             isBottom={true}
-            style={{backgroundColor: "#F4F1DE", borderColor: "#F4F1DE", color: "#2C3B51"}}
+            style={{backgroundColor: "#FDFDF7", borderColor: "#FDFDF7", color: "#2C3B51"}}
             onPress={() => {
               this.props.navigation.navigate("Exercice_18_1");
             }}

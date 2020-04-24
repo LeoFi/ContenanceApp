@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import PropTypes from "prop-types";
 
 import { Svg, Path } from "react-native-svg";
@@ -52,14 +52,25 @@ class RadioGroup extends Component {
     const buttonProps = {
       labelLeft: this.props.labelLeft,
       labelRight: this.props.labelRight,
-      isScaleEnabled: this.props.isScaleEnabled
+      isScaleEnabled: this.props.isScaleEnabled,
+      QQLabel: this.props.QQLabel
     };
 
     return (
       <>
+        {buttonProps.QQLabel == true ? (
+          <Text style={[this.props.question_scale_text_center]}>
+            {buttonProps.labelLeft}
+          </Text>
+        ) : null}
         <View style={[this.props.RadioGroupStyle]}>
           {this.setChildrenProps()}
         </View>
+        {buttonProps.QQLabel == true ? (
+          <Text style={[this.props.question_scale_text_center_bottom]}>
+            {buttonProps.labelRight}
+          </Text>
+        ) : null}
         {buttonProps.isScaleEnabled == false ? null : (
           <View style={[this.props.questionDrop]}>
             <TouchableOpacity>
@@ -165,8 +176,8 @@ RadioGroup.defaultProps = {
     borderRadius: 99,
     color: "#B8EDE3",
     width: 35,
-    height: 35,
-    margin: 5
+    height: 35
+    //margin: 5
   },
   labelStyle: {
     color: "#2C3B51",
@@ -193,10 +204,9 @@ RadioGroup.defaultProps = {
   questionDrop: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginLeft: 5,
-    marginRight: 5,
-    top: -40,
-    zIndex: 0
+    top: -35,
+    zIndex: 0,
+    width: Dimensions.get("window").width - 60
   },
   question_icon_left: {},
   question_icon_right: {
@@ -217,6 +227,22 @@ RadioGroup.defaultProps = {
     lineHeight: 20,
     fontFamily: "roboto-regular",
     paddingTop: 5
+  },
+  question_scale_text_center: {
+    textAlign: "center",
+    color: "#2C3B51",
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: "roboto-regular",
+    paddingTop: 0
+  },
+  question_scale_text_center_bottom: {
+    textAlign: "center",
+    color: "#2C3B51",
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: "roboto-regular",
+    marginTop: -10
   }
 };
 

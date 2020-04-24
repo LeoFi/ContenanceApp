@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   tab_bar: {
     //bottom: Dimensions.get("window").height/2,
     height: 50,
-    backgroundColor: "#F4F1DE",
+    backgroundColor: "#FDFDF7",
     flexDirection: "row"
   }
 });

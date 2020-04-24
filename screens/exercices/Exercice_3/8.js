@@ -35,18 +35,24 @@ export default class Exercice_3_8 extends React.Component {
                 this.props.navigation.navigate("Exercice_3_Aha_1");
               }}
             >
-              <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_5.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.sub_header_left}>
-                Putting people first
-                </Text>
-                <Text style={styles.intro_text}>
-                  {"\n"}We believe that sustainable change will happen by combining solutions from all three factors, but focusing on YOU as a person. 
-                </Text>
+              <View style={styles.container_scroll_start}>
+                <View style={{ flex: 1 }}>
+                  <Image
+                    style={styles.image_height}
+                    source={require("../../../assets/images/Exercice3_5.png")}
+                    resizeMode="contain"
+                  />
+                </View>
+                <View style={{ flex: 1, justifyContent: "center" }}>
+                  <Text style={styles.sub_header_left}>
+                    Putting people first
+                  </Text>
+                  <Text style={styles.intro_text}>
+                    We believe that sustainable change will happen by combining
+                    solutions from all the three factors, but we will focus on
+                    you as a person by building mental skills.
+                  </Text>
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>

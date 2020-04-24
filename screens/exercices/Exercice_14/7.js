@@ -7,7 +7,9 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
   ImageBackground,
-  Image
+  Keyboard,
+  KeyboardAvoidingView,
+  Dimensions
 } from "react-native";
 import {
   PrimaryButton,
@@ -15,40 +17,118 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as firebase from "firebase";
+import { connect } from "react-redux";
+import { Update_CopingStrategy2_D14 } from "../../../redux-persist/redux/user_values";
 
-export default class Exercice_3_7 extends React.Component {
+class Exercice_14_7 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      CopingStrategy2_D14: this.props.user_values.CopingStrategy2_D14 || ""
+    };
   }
+
+  handleChange_Advice1 = CopingStrategy2_D14 => {
+    this.setState({ CopingStrategy2_D14 });
+  };
+
+  handleSubmit = () => {
+    const { CopingStrategy2_D14 } = this.state;
+
+    firebase
+      .database()
+      .ref("questionnaires")
+      .child(this.props.user.UID)
+      .update({
+        CopingStrategy2_D14: CopingStrategy2_D14
+      });
+    this.props.dispatch(
+      Update_CopingStrategy2_D14(this.state.CopingStrategy2_D14)
+    );
+    this.props.navigation.navigate("Exercice_14_8");
+  };
 
   render() {
     return (
-      <View>
-        <StatusBar hidden />
-        <ScrollView>
-          <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback
-              style={styles.scroll}
-              onPress={() => {
-                this.props.navigation.navigate("Exercice_3_8");
-              }}
+      <View
+        style={{
+          flex: 1,
+          paddingLeft: 30,
+          paddingRight: 30,
+          backgroundColor: "#FDFDF7",
+          justifyContent: "flex-start"
+        }}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset="0">
+            <ScrollView
+              contentContainerStyle={styles.container_scrollview_content}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+              ref="_scrollView"
             >
-              <View style={styles.container_scroll}>
-                <Image
-                  style={styles.image_height}
-                  source={require("../../../assets/images/Exercice3_4.png")}
-                  resizeMode="contain"
-                />
-                <Text style={styles.intro_text}>
-                  {"\n"}Interestingly,  most of the strategies and hacks you can find on blogs or in books are mainly focusing on the smartphone and the environment. Although they are highly valuable, we believe in the power of the <Text style={styles.intro_text_bold}>person</Text> to take control. It is you who is in control! You have the power to consciously use the phone, not less but better, for your own benefit.
+              <View
+                style={{
+                  flex: 1,
+                  width: Dimensions.get("window").width - 60,
+                  height: Dimensions.get("window").height - 110
+                }}
+              >
+                <Text style={styles.sub_header}>It’s your turn!</Text>
+                <Text style={styles.text}>
+                  Define your own strategies to still realize your plan.
                 </Text>
+
+                <View style={{ flex: 1, justifyContent: "center" }}>
+                  <Text style={styles.text}>
+                    If{" "}
+                    <Text style={styles.text_bold_italic}>
+                      {this.props.user_values.Obstacle2_D14}
+                    </Text>
+                    , then:{"\n"}
+                  </Text>
+                  <TextInput
+                    onFocus={() =>
+                      setTimeout(() => {
+                        this.refs._scrollView.scrollToEnd();
+                      }, 50)
+                    }
+                    numberOfLines={10}
+                    //multiline={true}
+                    style={styles.codeInput}
+                    onChangeText={this.handleChange_Advice1}
+                    value={this.state.CopingStrategy2_D14}
+                    placeholder="What can be your second strategy?"
+                    placeholderTextColor="rgba(44, 59, 81, 0.3)"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    keyboardType="default"
+                  />
+                </View>
+
+                <View style={{ flex: 1 }} />
+
+                <View style={styles.bottom}>
+                  <PrimaryButton
+                    label="Continue"
+                    disabled={!this.state.CopingStrategy2_D14}
+                    onPress={this.handleSubmit}
+                  />
+                </View>
               </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </ScrollView>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
       </View>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values,
+  user: state.user
+});
+
+export default connect(mapStateToProps)(Exercice_14_7);

@@ -7,7 +7,6 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
   ImageBackground,
-  Image
 } from "react-native";
 import {
   PrimaryButton,
@@ -16,7 +15,7 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_3_4 extends React.Component {
+export default class Exercice_14_4 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,36 +24,29 @@ export default class Exercice_3_4 extends React.Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground
+        source={require("../../../assets/images/green_shape_full.png")}
+        style={styles.image_background}
+      >
         <StatusBar hidden />
         <ScrollView>
-          <TouchableWithoutFeedback
-            style={styles.scroll}
-            onPress={() => {
-              this.props.navigation.navigate("Exercice_3_5");
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <Image
-                style={styles.image_height_relative}
-                source={require("../../../assets/images/Exercice3_1.png")}
-                resizeMode="contain"
-              />
-              <View style={styles.container_scroll_img}>
-                <Text style={styles.sub_header_left}>
-                  The Solution Triangle
-                </Text>
+          <View style={{ flex: 1 }}>
+            <TouchableWithoutFeedback
+              style={styles.scroll}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_14_5");
+              }}
+            >
+              <View style={styles.container_scroll}>
                 <Text style={styles.intro_text}>
-                  {"\n"}We asked you to reflect on these hacks to introduce the
-                  so-called Solution Triangle. It consists of three crucial
-                  factors: your smartphone, your environment and you as a
-                  person.
+                  {"\n"}Now, it’s about finding a strategy for reacting to these challenges.{"\n"}{"\n"}This might be a little hard in the beginning. But let your creativity be the driver.
                 </Text>
+
               </View>
-            </View>
-          </TouchableWithoutFeedback>
+            </TouchableWithoutFeedback>
+          </View>
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }

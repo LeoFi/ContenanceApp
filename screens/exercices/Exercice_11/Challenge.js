@@ -15,7 +15,9 @@ import {
 } from "../../../components/AppComponents";
 import { styles } from "./style";
 
-export default class Exercice_11_Challenge extends React.Component {
+import { connect } from "react-redux";
+
+class Exercice_11_Challenge extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,7 +27,7 @@ export default class Exercice_11_Challenge extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape_inverted.png")}
+        source={require("../../../assets/images/salmon_shape_inverted.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -43,11 +45,11 @@ export default class Exercice_11_Challenge extends React.Component {
                 </Text>
                 <Text style={styles.text}>
                   {"\n"}The next time you are using
-                  {"\n"}{"\n"}{AppsRed1_D7}
-                  {"\n"}{"\n"}{AppsRed2_D7}
-                  {"\n"}{"\n"}{AppsRed3_D7}
+                  <Text style={styles.text_bold_italic}>{"\n"}{"\n"}{this.props.user_values.AppsRed1_D7}
+                  {"\n"}{this.props.user_values.AppsRed2_D7}
+                  {"\n"}{this.props.user_values.AppsRed3_D7}</Text>
                   {"\n"}{"\n"}give it a try and do the trick to find:
-                  {"\n"}5 things you can see
+                  {"\n"}{"\n"}5 things you can see
                   {"\n"}4 things you can touch
                   {"\n"}3 things you can hear
                   {"\n"}2 things you can smell
@@ -62,3 +64,9 @@ export default class Exercice_11_Challenge extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user_values: state.user_values
+});
+
+export default connect(mapStateToProps)(Exercice_11_Challenge);

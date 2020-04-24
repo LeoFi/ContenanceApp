@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     button_text_primary: {
-        color: '#F4F1DE',
+        color: '#FDFDF7',
         fontSize: 17,
         textAlign: 'center',
         fontFamily: 'roboto-black',

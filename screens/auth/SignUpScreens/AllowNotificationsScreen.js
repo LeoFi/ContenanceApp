@@ -6,8 +6,9 @@ import * as firebase from 'firebase';
 import { Notifications } from 'expo'
 import * as Permissions from 'expo-permissions'
 import { styles } from './style'
+import { connect } from "react-redux";
 
-export default class AllowNotificationsScreen extends React.Component {
+class AllowNotificationsScreen extends React.Component {
 
     constructor(props) {
         super(props);
@@ -40,7 +41,7 @@ export default class AllowNotificationsScreen extends React.Component {
 
         let uid = firebase.auth.currentUser.uid;
         console.log(uid)
-        firebase.database.ref("users").child(uid).update({
+        firebase.database.ref("users").child(this.props.user.UID).update({
             expoPushToken: token
         })
     }
@@ -72,3 +73,9 @@ export default class AllowNotificationsScreen extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(AllowNotificationsScreen);

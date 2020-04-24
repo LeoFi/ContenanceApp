@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
   ImageBackground,
+  Image
 } from "react-native";
 import {
   PrimaryButton,
@@ -14,9 +15,8 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-import * as Progress from "react-native-progress";
 
-export default class Exercice_1_2 extends React.Component {
+export default class Exercice_17_2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,44 +25,30 @@ export default class Exercice_1_2 extends React.Component {
 
   render() {
     return (
-      <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
-        style={styles.image_background}
-      >
+      <View style={{backgroundColor: "#FDFDF7"}}>
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
             <TouchableWithoutFeedback
               style={styles.scroll}
               onPress={() => {
-                this.props.navigation.navigate("Exercice_1_3");
+                this.props.navigation.navigate("Exercice_17_3");
               }}
             >
               <View style={styles.container_scroll}>
+                <Image
+                  style={styles.image_height}
+                  source={require("../../../assets/images/Exercice17_2.png")}
+                  resizeMode="contain"
+                />
                 <Text style={styles.intro_text}>
-                  {"\n"}Now, stop focusing your attention on the screen and start - without changing anything - to notice your posture (body position).
-                  {"\n"}{"\n"}Just observe it for a moment.
+                <Text style={styles.intro_text_bold}>Sustainable change </Text>will happen by combining solutions from three factors: the person, the smartphone and the environment.{"\n"}{"\n"}You learned a number of tools on the side of the person in the last days. Now, you’re ready to bring in <Text style={styles.intro_text_bold}>the smartphone </Text> itself!
                 </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
-}
-
-{
-  /* <View style={styles.middle}>
-  <GreyInputButton label="Email" isBottom={false} />
-  <GreyInputButton label="App Notifications" isBottom={true} />
-</View>
-
-<PrimaryButton
-  label="Sign Up"
-  onPress={() => {
-    this.props.navigation.navigate("Exercice_1_2");
-  }}
-/> */
 }

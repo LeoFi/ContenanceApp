@@ -6,7 +6,7 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   ScrollView,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import {
   PrimaryButton,
@@ -26,7 +26,7 @@ export default class Exercice_15_Aha_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape.png")}
+        source={require("../../../assets/images/green_aha.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -39,16 +39,14 @@ export default class Exercice_15_Aha_1 extends React.Component {
               }}
             >
               <View style={styles.container_scroll}>
-                <Text style={styles.header}>
-                Aha!
-                </Text>
-                <Text style={styles.sub_header}>
-                Often, we use our smartphone to fill what we call empty moments.
-                </Text>
+                <Text style={styles.header}>Aha!</Text>
                 <Text style={styles.text}>
-                  {"\n"}{"\n"}We all experience those moments, usually when waiting somewhere in line, for a train or anything else to happen. 
+                  {"\n"}Often, we use our smartphone to fill what we call empty
+                  moments.
+                  {"\n"}
+                  {"\n"}We all experience those moments, usually when waiting
+                  somewhere in line, for a train or anything else to happen.
                 </Text>
-
               </View>
             </TouchableWithoutFeedback>
           </View>

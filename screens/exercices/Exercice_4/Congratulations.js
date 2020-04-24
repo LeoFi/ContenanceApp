@@ -14,10 +14,13 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
-
+import * as firebase from "firebase";
 import { connect } from "react-redux";
-import { updateState_Ex4 } from "./../../../redux-persist/redux/exercices"
-import { updateState_Ex5 } from "./../../../redux-persist/redux/exercices"
+import {
+  updateState_Ex4,
+  updateState_Ex5,
+  updateState_PM1
+} from "./../../../redux-persist/redux/exercices";
 
 class Exercice_4_Congratulations extends React.Component {
   constructor(props) {
@@ -25,19 +28,54 @@ class Exercice_4_Congratulations extends React.Component {
 
     this.state = {
       exercice_state_4: "completed",
-      exercice_state_5: "locked"
+      exercice_state_5: "locked",
+      exercice_state_PM1: "new"
     };
   }
 
- 
   handleSubmit = () => {
-    const { exercice_state_4 } = this.state;
-    this.setState({ exercice_state_4: exercice_state_4 });
-    this.props.dispatch(updateState_Ex4(this.state.exercice_state_4));
+    if (
+      this.props.exercices.exercice_state_4 === "DONE" ||
+      this.props.exercices.exercice_state_4 === "completed"
+    ) {
+    } else {
+      const { exercice_state_4 } = this.state;
+      this.setState({ exercice_state_4: exercice_state_4 });
+      this.props.dispatch(updateState_Ex4(this.state.exercice_state_4));
 
-    const { exercice_state_5 } = this.state;
-    this.setState({ exercice_state_5: exercice_state_5 });
-    this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
+      var date = new Date();
+      var locales = ["en-US"];
+      var options = {
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      };
+      var Exercise_4_Done = date.toLocaleString(locales, options);
+      firebase
+        .database()
+        .ref()
+        .child("accounts")
+        .child(this.props.user.UID)
+        .update({
+          Exercise_4_Done: Exercise_4_Done
+        });
+    }
+
+    if (this.props.exercices.exercice_state_5 === undefined) {
+      const exercice_state_5 = this.state.exercice_state_5;
+      this.setState({ exercice_state_5: exercice_state_5 });
+      this.props.dispatch(updateState_Ex5(this.state.exercice_state_5));
+    } else {
+      //
+    }
+
+    if (this.props.exercices.exercice_state_PM1 === "completed") {
+    } else {
+      const exercice_state_PM1 = this.state.exercice_state_PM1;
+      this.setState({ exercice_state_PM1: exercice_state_PM1 });
+      this.props.dispatch(updateState_PM1(this.state.exercice_state_PM1));
+    }
 
     this.props.navigation.push("Intro_Screen_PM1");
   };
@@ -54,28 +92,36 @@ class Exercice_4_Congratulations extends React.Component {
               resizeMode="stretch"
             />
             <View style={styles.middle}>
-                <Text style={styles.header}>Congratulations!</Text>
-                <Text style={styles.text}>
-                  {"\n"}Today, you discovered why you might feel stressed after being on the smartphone.
-                  {"\n"}{"\n"}Continue with your first reflection.
-                </Text>
-
-                <View style={styles.tap_pos_relative}>
-                  <PrimaryButton
-                    label="Continue"
-                    onPress={this.handleSubmit}
-                  />
-                </View>
+              <Text style={styles.header_light}>Congratulations!</Text>
+              <Text style={styles.text_light}>
+                {"\n"}Today, you discovered why you might feel stressed after
+                being on the smartphone.
+                {"\n"}
+                {"\n"}Continue with your first reflection.
+              </Text>
             </View>
           </View>
         </ScrollView>
+
+        <View style={styles.bottom}>
+          <PrimaryButton
+            label="Continue"
+            style={{
+              backgroundColor: "#FDFDF7",
+              borderColor: "#FDFDF7",
+              color: "#2C3B51"
+            }}
+            onPress={this.handleSubmit}
+          />
+        </View>
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  exercices: state.exercices
+  exercices: state.exercices,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Exercice_4_Congratulations);

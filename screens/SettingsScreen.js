@@ -1,20 +1,31 @@
 import React from "react";
 import { ScrollView, StyleSheet, View, Image, Alert, Text } from "react-native";
-import { ExpoLinksView } from "@expo/samples";
-import { PrimaryButton, SecondaryButton } from "./../components/AppComponents";
-import SettingsList from "react-native-settings-list";
+import SettingsList, { Item } from "react-native-settings-list";
+import PrimaryButton from "./../components/AppComponents/PrimaryButton"
+
+import * as firebase from "firebase";
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     headerStyle: {
-      backgroundColor: "#F4F1DE",
+      backgroundColor: "#FDFDF7",
       shadowOpacity: 0,
       elevation: 0,
       borderBottomWidth: 0
     },
     headerBackTitle: null,
     headerTitle: "Settings",
-    headerTintColor: "#2C3B51"
+    headerTintColor: "#2C3B51",
+    headerTitleStyle: {
+      color: "#2C3B51",
+      fontSize: 30,
+      lineHeight: 37,
+      textAlign: "left",
+      fontFamily: "roboto-black",
+      paddingTop: 15,
+      paddingBottom: 80,
+      alignSelf: "stretch"
+    }
   };
   constructor() {
     super();
@@ -31,50 +42,43 @@ export default class SettingsScreen extends React.Component {
 
     return (
       <>
-        <View style={{ backgroundColor: "#EFEFF4", flex: 1 }}>
-          <View
-            style={{
-              borderBottomWidth: 1,
-              backgroundColor: "#F4F1DE",
-              borderColor: "#F4F1DE",
-              paddingTop: 40
-            }}
-          />
-          <View style={{ backgroundColor: "#F4F1DE", flex: 1 }}>
+        <View style={{ height: 50, backgroundColor: "#FDFDF7" }} />
+        <View style={{ flex: 1 }}>
+          <View style={{ backgroundColor: "#FDFDF7", flex: 1 }}>
             <SettingsList borderColor="#868D91" defaultItemSize={50}>
               <SettingsList.Item
                 titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Nickname"
-                onPress={() => Alert.alert("Nickname")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
-                title="Reminders"
-                onPress={() => Alert.alert("Reminders")}
-              />
-              <SettingsList.Item
-                titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
+                backgroundColor="#FDFDF7"
                 title="FAQ"
-                onPress={() => Alert.alert("FAQ")}
+                onPress={() => this.props.navigation.navigate("Faq")}
               />
               <SettingsList.Item
                 titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
+                backgroundColor="#FDFDF7"
                 title="Security Agreements"
-                onPress={() => Alert.alert("Security Agreements")}
+                onPress={() =>
+                  this.props.navigation.navigate("SecurityAgreements")
+                }
               />
               <SettingsList.Item
                 titleStyle={styles.text_left}
-                backgroundColor="#F4F1DE"
+                backgroundColor="#FDFDF7"
                 title="Contact us"
-                onPress={() => Alert.alert("Contact us")}
+                onPress={() => this.props.navigation.navigate("ContactUs")}
               />
             </SettingsList>
           </View>
         </View>
+
+        {/* <View style={styles.bottom}>
+          <PrimaryButton
+            label="LOG OUT"
+            isBottom={true}
+            onPress={() => {
+              firebase.auth().signOut();
+            }}
+          />
+        </View> */}
       </>
     );
   }
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 40,
     flex: 1,
-    backgroundColor: "#F4F1DE"
+    backgroundColor: "#FDFDF7"
   },
   container_scroll: {
     paddingTop: 80,
@@ -118,9 +122,12 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   bottom: {
-    flex: 1,
-    justifyContent: "flex-end",
-    alignSelf: "stretch"
+    position: "relative",
+    alignSelf: "stretch",
+    //paddingTop: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    bottom: 30
   },
   keyboard_view: {
     flex: 1
@@ -155,7 +162,7 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     textAlign: "left",
     fontFamily: "roboto-regular",
-    alignSelf: "stretch",
+    alignSelf: "stretch"
   },
   text_scroll: {
     color: "#2C3B51",

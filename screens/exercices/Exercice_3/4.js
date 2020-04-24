@@ -25,7 +25,7 @@ export default class Exercice_3_4 extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, backgroundColor: "#FDFDF7" }}>
         <StatusBar hidden />
         <ScrollView>
           <TouchableWithoutFeedback
@@ -34,13 +34,15 @@ export default class Exercice_3_4 extends React.Component {
               this.props.navigation.navigate("Exercice_3_5");
             }}
           >
-            <View style={{ flex: 1 }}>
-              <Image
-                style={styles.image_height_relative}
-                source={require("../../../assets/images/Exercice3_1.png")}
-                resizeMode="contain"
-              />
-              <View style={styles.container_scroll_img}>
+            <View style={styles.container_scroll_start}>
+              <View style={{ flex: 1 }}>
+                <Image
+                  style={styles.image_height}
+                  source={require("../../../assets/images/Exercice3_1.png")}
+                  resizeMode="contain"
+                />
+              </View>
+              <View style={{ flex: 1, justifyContent: "center" }}>
                 <Text style={styles.sub_header_left}>
                   The Solution Triangle
                 </Text>

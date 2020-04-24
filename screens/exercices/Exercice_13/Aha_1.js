@@ -26,7 +26,7 @@ export default class Exercice_13_Aha_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/beige_shape.png")}
+        source={require("../../../assets/images/green_aha.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -42,11 +42,8 @@ export default class Exercice_13_Aha_1 extends React.Component {
                 <Text style={styles.header}>
                 Aha!
                 </Text>
-                <Text style={styles.sub_header}>
-                About 90% of new year resolutions fail. Having a gap between knowing what you want to do and actually getting it done is very human.
-                </Text>
                 <Text style={styles.text}>
-          
+                {"\n"}About 90% of new year resolutions fail. Having a gap between knowing what you want to do and actually getting it done is very human.
                 </Text>
 
               </View>

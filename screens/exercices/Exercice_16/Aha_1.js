@@ -25,7 +25,7 @@ export default class Exercice_16_Aha_1 extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/green_aha.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
@@ -42,7 +42,7 @@ export default class Exercice_16_Aha_1 extends React.Component {
                 Aha!
                 </Text>
                 <Text style={styles.text}>
-                  {"\n"}„Mmmmmmmhhhhhh!“ This is your brain saying Thank you! Our brains need an empty moment from time to time to restore their capacity. 
+                  {"\n"}„Mmmmmmmhhhhhh!“ This is your brain saying <Text style={styles.intro_italic}>Thank you</Text>! Our brains need an empty moment from time to time to restore their capacity. 
                 </Text>
 
               </View>

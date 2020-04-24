@@ -38,7 +38,7 @@ export default class PrimaryButton extends Component {
                     style={[
                         styles.button_text_primary,
                         {
-                            color: buttonProps.disabled ? 'rgba(44, 59, 81, 0.3)' : '#F4F1DE',
+                            color: buttonProps.disabled ? 'rgba(44, 59, 81, 0.3)' : '#FDFDF7',
                         },
                         buttonProps.style
                     ]}
@@ -52,27 +52,21 @@ export default class PrimaryButton extends Component {
 
 
 const styles = StyleSheet.create({
-    bottom: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        flexDirection: 'column',
-        marginBottom: 56,
-        alignSelf: 'stretch',
-    },
     button_primary: {
         backgroundColor: '#2C3B51',
         borderWidth: 2,
         borderColor: '#2C3B51',
-        borderRadius: 99,
+        borderRadius: 10,
         overflow: 'hidden',
         padding: 15,
         flexDirection: 'row',
         justifyContent: 'center',
         alignSelf: 'stretch',
         marginBottom: 0,
+        height: 56
     },
     button_text_primary: {
-        color: '#F4F1DE',
+        color: '#FDFDF7',
         fontSize: 14,
         lineHeight: 23,
         textAlign: 'center',

@@ -14,61 +14,37 @@ import {
   GreyInputButton
 } from "../../../components/AppComponents";
 import { styles } from "./style";
+import * as Progress from "react-native-progress";
 
-export default class Exercice_3_3 extends React.Component {
+export default class Exercice_19_3 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <ImageBackground
-        source={require("../../../assets/images/pink_shape.png")}
+        source={require("../../../assets/images/blue_shape.png")}
         style={styles.image_background}
       >
         <StatusBar hidden />
         <ScrollView>
           <View style={{ flex: 1 }}>
-            <TouchableWithoutFeedback style={styles.scroll}>
+            <TouchableWithoutFeedback
+              style={styles.scroll}
+              onPress={() => {
+                this.props.navigation.navigate("Exercice_19_4");
+              }}
+            >
               <View style={styles.container_scroll}>
-                <Text style={styles.sub_header}>
-                  How do you evaluate the long-term success you have achieved so
-                  far?
+              <Text style={styles.sub_header_left}>
+              Here comes one possible explanation.
                 </Text>
-
-                <View style={styles.middle}>
-                  <GreyInputButton
-                    label="I was very succesful"
-                    isBottom={false}
-                    onPress={() => this.setState({ active1: !this.state.active1, active2: false, active3: false })}
-                    isActive={this.state.active1}
-                  />
-                  <GreyInputButton
-                    label="I was succesful"
-                    isBottom={false}
-                    onPress={() => this.setState({ active1: false, active2: !this.state.active2, active3: false })}
-                    isActive={this.state.active2}
-                  />
-                  <GreyInputButton
-                    label="No, I was not very succesful"
-                    isBottom={true}
-                    onPress={() => this.setState({ active1: false, active2: false, active3: !this.state.active3 })}
-                    isActive={this.state.active3}
-                  />
-                </View>
-
-                <View style={styles.tap_pos_relative}>
-                  <PrimaryButton
-                    label="Continue"
-                    disabled={ !this.state.active1 && !this.state.active2 && !this.state.active3 }
-                    onPress={() => {
-                      this.props.navigation.navigate("Exercice_3_4");
-                    }}
-                  />
-                </View>
+                <Text style={styles.intro_text}>
+                {"\n"}When reading the newspaper, you know what people are doing: reading the news.
+                </Text>
               </View>
             </TouchableWithoutFeedback>
           </View>
