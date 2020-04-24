@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Image,
   Platform,
@@ -13,16 +13,16 @@ import {
   Alert,
   Dimensions,
   Modal,
-  TouchableHighlight
-} from "react-native";
+  TouchableHighlight,
+} from 'react-native';
 import {
   PrimaryButton,
   SecondaryButton,
   ExerciceButton,
   HeaderComponent,
   HomeIllustration,
-  ChallengeModal
-} from "./../components/AppComponents";
+  ChallengeModal,
+} from './../components/AppComponents';
 
 import {
   updateState_Ex1,
@@ -50,62 +50,62 @@ import {
   updateState_PM2,
   updateState_PM3,
   updateState_PM4,
-  updateState_PM5
-} from "./../redux-persist/redux/exercices";
+  updateState_PM5,
+} from './../redux-persist/redux/exercices';
 
 import {
   updateWelcomeTitle,
   updateWelcomeSubTitle,
   updateCompletedList,
   updateTotalChallenge,
-  updateAllExercises
-} from "./../redux-persist/redux/user";
+  updateAllExercises,
+} from './../redux-persist/redux/user';
 
-import { BlurView } from "expo-blur";
-import Constants from "expo-constants";
+import {BlurView} from 'expo-blur';
+import Constants from 'expo-constants';
 
-import * as firebase from "firebase";
-import { Svg, Path, G, Defs, ClipPath, Rect } from "react-native-svg";
-import * as Progress from "react-native-progress";
+import * as firebase from 'firebase';
+import {Svg, Path, G, Defs, ClipPath, Rect} from 'react-native-svg';
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
-import { connect } from "react-redux";
+import {connect} from 'react-redux';
 
 class TestScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      progressCircle: 1 / 22,
-      welcomeTitle: this.props.user.welcomeTitle || "Welcome",
+      progressCircle: 1 / 22 * 100,
+      welcomeTitle: this.props.user.welcomeTitle || 'Welcome',
       welcomeSubTitle:
-        this.props.user.welcomeSubTitle || "Start your journey now.",
-      welcomeTitleContinue: "Hey",
-      welcomeSubTitleContinue: "Continue with your next session.",
+        this.props.user.welcomeSubTitle || 'Start your journey now.',
+      welcomeTitleContinue: 'Hey',
+      welcomeSubTitleContinue: 'Continue with your next session.',
       observeStarted: true,
       reflectStarted: false,
       visionStarted: false,
       planStarted: false,
       supportStarted: false,
-      colorProgress: "#A28AD4",
+      colorProgress: '#A28AD4',
       count: 1,
       modalVisible: false,
       completedExercices: false,
       leftItemArray: 0,
       rightItemArray: 0,
       lastItemArray: false,
-      visible: false
+      visible: false,
     };
   }
 
   setPhases = () => {
     if (
-      (this.props.exercices.exercice_state_13 === "completed" ||
-        this.props.exercices.exercice_state_13 === "DONE") &&
-      (this.props.exercices.exercice_state_14 === "completed" ||
-        this.props.exercices.exercice_state_14 === "DONE") &&
-      (this.props.exercices.exercice_state_15 === "completed" ||
-        this.props.exercices.exercice_state_15 === "DONE") &&
-      (this.props.exercices.exercice_state_16 === "completed" ||
-        this.props.exercices.exercice_state_16 === "DONE")
+      (this.props.exercices.exercice_state_13 === 'completed' ||
+        this.props.exercices.exercice_state_13 === 'DONE') &&
+      (this.props.exercices.exercice_state_14 === 'completed' ||
+        this.props.exercices.exercice_state_14 === 'DONE') &&
+      (this.props.exercices.exercice_state_15 === 'completed' ||
+        this.props.exercices.exercice_state_15 === 'DONE') &&
+      (this.props.exercices.exercice_state_16 === 'completed' ||
+        this.props.exercices.exercice_state_16 === 'DONE')
     ) {
       this.setState({
         observeStarted: true,
@@ -113,17 +113,17 @@ class TestScreen extends React.Component {
         visionStarted: true,
         planStarted: true,
         supportStarted: true,
-        colorProgress: "#6A97D8"
+        colorProgress: '#6A97D8',
       });
     } else if (
-      (this.props.exercices.exercice_state_9 === "completed" ||
-        this.props.exercices.exercice_state_9 === "DONE") &&
-      (this.props.exercices.exercice_state_10 === "completed" ||
-        this.props.exercices.exercice_state_10 === "DONE") &&
-      (this.props.exercices.exercice_state_11 === "completed" ||
-        this.props.exercices.exercice_state_11 === "DONE") &&
-      (this.props.exercices.exercice_state_12 === "completed" ||
-        this.props.exercices.exercice_state_12 === "DONE")
+      (this.props.exercices.exercice_state_9 === 'completed' ||
+        this.props.exercices.exercice_state_9 === 'DONE') &&
+      (this.props.exercices.exercice_state_10 === 'completed' ||
+        this.props.exercices.exercice_state_10 === 'DONE') &&
+      (this.props.exercices.exercice_state_11 === 'completed' ||
+        this.props.exercices.exercice_state_11 === 'DONE') &&
+      (this.props.exercices.exercice_state_12 === 'completed' ||
+        this.props.exercices.exercice_state_12 === 'DONE')
     ) {
       this.setState({
         observeStarted: true,
@@ -131,17 +131,17 @@ class TestScreen extends React.Component {
         visionStarted: true,
         planStarted: true,
         supportStarted: false,
-        colorProgress: "#4CBB92"
+        colorProgress: '#4CBB92',
       });
     } else if (
-      (this.props.exercices.exercice_state_5 === "completed" ||
-        this.props.exercices.exercice_state_5 === "DONE") &&
-      (this.props.exercices.exercice_state_6 === "completed" ||
-        this.props.exercices.exercice_state_6 === "DONE") &&
-      (this.props.exercices.exercice_state_7 === "completed" ||
-        this.props.exercices.exercice_state_7 === "DONE") &&
-      (this.props.exercices.exercice_state_8 === "completed" ||
-        this.props.exercices.exercice_state_8 === "DONE")
+      (this.props.exercices.exercice_state_5 === 'completed' ||
+        this.props.exercices.exercice_state_5 === 'DONE') &&
+      (this.props.exercices.exercice_state_6 === 'completed' ||
+        this.props.exercices.exercice_state_6 === 'DONE') &&
+      (this.props.exercices.exercice_state_7 === 'completed' ||
+        this.props.exercices.exercice_state_7 === 'DONE') &&
+      (this.props.exercices.exercice_state_8 === 'completed' ||
+        this.props.exercices.exercice_state_8 === 'DONE')
     ) {
       this.setState({
         observeStarted: true,
@@ -149,17 +149,17 @@ class TestScreen extends React.Component {
         visionStarted: true,
         planStarted: false,
         supportStarted: false,
-        colorProgress: "#F87B7B"
+        colorProgress: '#F87B7B',
       });
     } else if (
-      (this.props.exercices.exercice_state_1 === "completed" ||
-        this.props.exercices.exercice_state_1 === "DONE") &&
-      (this.props.exercices.exercice_state_2 === "completed" ||
-        this.props.exercices.exercice_state_2 === "DONE") &&
-      (this.props.exercices.exercice_state_3 === "completed" ||
-        this.props.exercices.exercice_state_3 === "DONE") &&
-      (this.props.exercices.exercice_state_4 === "completed" ||
-        this.props.exercices.exercice_state_4 === "DONE")
+      (this.props.exercices.exercice_state_1 === 'completed' ||
+        this.props.exercices.exercice_state_1 === 'DONE') &&
+      (this.props.exercices.exercice_state_2 === 'completed' ||
+        this.props.exercices.exercice_state_2 === 'DONE') &&
+      (this.props.exercices.exercice_state_3 === 'completed' ||
+        this.props.exercices.exercice_state_3 === 'DONE') &&
+      (this.props.exercices.exercice_state_4 === 'completed' ||
+        this.props.exercices.exercice_state_4 === 'DONE')
     ) {
       this.setState({
         observeStarted: true,
@@ -167,7 +167,7 @@ class TestScreen extends React.Component {
         visionStarted: false,
         planStarted: false,
         supportStarted: false,
-        colorProgress: "#F6B563"
+        colorProgress: '#F6B563',
       });
     } else {
       null;
@@ -176,201 +176,201 @@ class TestScreen extends React.Component {
 
   componentDidUpdate() {
     if (
-      (this.props.exercices.exercice_state_4 === "new" ||
-        this.props.exercices.exercice_state_4 === "next") &&
+      (this.props.exercices.exercice_state_4 === 'new' ||
+        this.props.exercices.exercice_state_4 === 'next') &&
       this.props.exercices.exercice_state_PM1 == undefined
     ) {
       this.setState(
         {
-          newstatePM1: "new"
+          newstatePM1: 'new',
         },
         function() {
           this.props.dispatch(updateState_PM1(this.state.newstatePM1));
-        }
+        },
       );
     } else if (
       this.props.exercices.exercice_state_4 == undefined &&
-      this.props.exercices.exercice_state_PM1 == "new"
+      this.props.exercices.exercice_state_PM1 == 'new'
     ) {
       this.setState(
         {
-          newstatePM1: undefined
+          newstatePM1: undefined,
         },
         function() {
           this.props.dispatch(updateState_PM1(this.state.newstatePM1));
-        }
+        },
       );
     }
 
     if (
-      (this.props.exercices.exercice_state_8 === "new" ||
-        this.props.exercices.exercice_state_8 === "next") &&
+      (this.props.exercices.exercice_state_8 === 'new' ||
+        this.props.exercices.exercice_state_8 === 'next') &&
       this.props.exercices.exercice_state_PM2 == undefined
     ) {
       //Alert.alert("pm2")
       this.setState(
         {
-          newstatePM2: "new"
+          newstatePM2: 'new',
         },
         function() {
           this.props.dispatch(updateState_PM2(this.state.newstatePM2));
-        }
+        },
       );
     } else if (
       this.props.exercices.exercice_state_8 == undefined &&
-      this.props.exercices.exercice_state_PM2 == "new"
+      this.props.exercices.exercice_state_PM2 == 'new'
     ) {
       this.setState(
         {
-          newstatePM2: undefined
+          newstatePM2: undefined,
         },
         function() {
           this.props.dispatch(updateState_PM2(this.state.newstatePM2));
-        }
+        },
       );
     }
 
     if (
-      (this.props.exercices.exercice_state_12 === "new" ||
-        this.props.exercices.exercice_state_12 === "next") &&
+      (this.props.exercices.exercice_state_12 === 'new' ||
+        this.props.exercices.exercice_state_12 === 'next') &&
       this.props.exercices.exercice_state_PM3 == undefined
     ) {
       //Alert.alert("pm3")
       this.setState(
         {
-          newstatePM3: "new"
+          newstatePM3: 'new',
         },
         function() {
           this.props.dispatch(updateState_PM3(this.state.newstatePM3));
-        }
+        },
       );
     } else if (
       this.props.exercices.exercice_state_12 == undefined &&
-      this.props.exercices.exercice_state_PM3 == "new"
+      this.props.exercices.exercice_state_PM3 == 'new'
     ) {
       this.setState(
         {
-          newstatePM3: undefined
+          newstatePM3: undefined,
         },
         function() {
           this.props.dispatch(updateState_PM3(this.state.newstatePM3));
-        }
+        },
       );
     }
 
     if (
-      (this.props.exercices.exercice_state_16 === "new" ||
-        this.props.exercices.exercice_state_16 === "next") &&
+      (this.props.exercices.exercice_state_16 === 'new' ||
+        this.props.exercices.exercice_state_16 === 'next') &&
       this.props.exercices.exercice_state_PM4 == undefined
     ) {
       //Alert.alert("pm4")
       this.setState(
         {
-          newstatePM4: "new"
+          newstatePM4: 'new',
         },
         function() {
           this.props.dispatch(updateState_PM4(this.state.newstatePM4));
-        }
+        },
       );
     } else if (
       this.props.exercices.exercice_state_16 == undefined &&
-      this.props.exercices.exercice_state_PM4 == "new"
+      this.props.exercices.exercice_state_PM4 == 'new'
     ) {
       this.setState(
         {
-          newstatePM4: undefined
+          newstatePM4: undefined,
         },
         function() {
           this.props.dispatch(updateState_PM4(this.state.newstatePM4));
-        }
+        },
       );
     }
 
     if (
-      (this.props.exercices.exercice_state_20 === "new" ||
-        this.props.exercices.exercice_state_20 === "next") &&
+      (this.props.exercices.exercice_state_20 === 'new' ||
+        this.props.exercices.exercice_state_20 === 'next') &&
       this.props.exercices.exercice_state_PM5 == undefined
     ) {
       //Alert.alert("pm5")
       this.setState(
         {
-          newstatePM5: "new"
+          newstatePM5: 'new',
         },
         function() {
           this.props.dispatch(updateState_PM5(this.state.newstatePM5));
-        }
+        },
       );
     } else if (
       this.props.exercices.exercice_state_20 == undefined &&
-      this.props.exercices.exercice_state_PM5 == "new"
+      this.props.exercices.exercice_state_PM5 == 'new'
     ) {
       this.setState(
         {
-          newstatePM5: undefined
+          newstatePM5: undefined,
         },
         function() {
           this.props.dispatch(updateState_PM5(this.state.newstatePM5));
-        }
+        },
       );
     }
 
     if (
-      (this.props.exercices.exercice_state_21 === "completed" ||
-        this.props.exercices.exercice_state_21 === "DONE") &&
-      (this.props.exercices.exercice_state_20 === "completed" ||
-        this.props.exercices.exercice_state_20 === "DONE") &&
-      (this.props.exercices.exercice_state_19 === "completed" ||
-        this.props.exercices.exercice_state_19 === "DONE") &&
-      (this.props.exercices.exercice_state_18 === "completed" ||
-        this.props.exercices.exercice_state_18 === "DONE") &&
-      (this.props.exercices.exercice_state_17 === "completed" ||
-        this.props.exercices.exercice_state_17 === "DONE") &&
-      (this.props.exercices.exercice_state_13 === "completed" ||
-        this.props.exercices.exercice_state_13 === "DONE") &&
-      (this.props.exercices.exercice_state_14 === "completed" ||
-        this.props.exercices.exercice_state_14 === "DONE") &&
-      (this.props.exercices.exercice_state_15 === "completed" ||
-        this.props.exercices.exercice_state_15 === "DONE") &&
-      (this.props.exercices.exercice_state_16 === "completed" ||
-        this.props.exercices.exercice_state_16 === "DONE") &&
-      (this.props.exercices.exercice_state_9 === "completed" ||
-        this.props.exercices.exercice_state_9 === "DONE") &&
-      (this.props.exercices.exercice_state_10 === "completed" ||
-        this.props.exercices.exercice_state_10 === "DONE") &&
-      (this.props.exercices.exercice_state_11 === "completed" ||
-        this.props.exercices.exercice_state_11 === "DONE") &&
-      (this.props.exercices.exercice_state_12 === "completed" ||
-        this.props.exercices.exercice_state_12 === "DONE") &&
-      (this.props.exercices.exercice_state_5 === "completed" ||
-        this.props.exercices.exercice_state_5 === "DONE") &&
-      (this.props.exercices.exercice_state_6 === "completed" ||
-        this.props.exercices.exercice_state_6 === "DONE") &&
-      (this.props.exercices.exercice_state_7 === "completed" ||
-        this.props.exercices.exercice_state_7 === "DONE") &&
-      (this.props.exercices.exercice_state_8 === "completed" ||
-        this.props.exercices.exercice_state_8 === "DONE") &&
-      (this.props.exercices.exercice_state_1 === "completed" ||
-        this.props.exercices.exercice_state_1 === "DONE") &&
-      (this.props.exercices.exercice_state_2 === "completed" ||
-        this.props.exercices.exercice_state_2 === "DONE") &&
-      (this.props.exercices.exercice_state_3 === "completed" ||
-        this.props.exercices.exercice_state_3 === "DONE") &&
-      (this.props.exercices.exercice_state_4 === "completed" ||
-        this.props.exercices.exercice_state_4 === "DONE") &&
+      (this.props.exercices.exercice_state_21 === 'completed' ||
+        this.props.exercices.exercice_state_21 === 'DONE') &&
+      (this.props.exercices.exercice_state_20 === 'completed' ||
+        this.props.exercices.exercice_state_20 === 'DONE') &&
+      (this.props.exercices.exercice_state_19 === 'completed' ||
+        this.props.exercices.exercice_state_19 === 'DONE') &&
+      (this.props.exercices.exercice_state_18 === 'completed' ||
+        this.props.exercices.exercice_state_18 === 'DONE') &&
+      (this.props.exercices.exercice_state_17 === 'completed' ||
+        this.props.exercices.exercice_state_17 === 'DONE') &&
+      (this.props.exercices.exercice_state_13 === 'completed' ||
+        this.props.exercices.exercice_state_13 === 'DONE') &&
+      (this.props.exercices.exercice_state_14 === 'completed' ||
+        this.props.exercices.exercice_state_14 === 'DONE') &&
+      (this.props.exercices.exercice_state_15 === 'completed' ||
+        this.props.exercices.exercice_state_15 === 'DONE') &&
+      (this.props.exercices.exercice_state_16 === 'completed' ||
+        this.props.exercices.exercice_state_16 === 'DONE') &&
+      (this.props.exercices.exercice_state_9 === 'completed' ||
+        this.props.exercices.exercice_state_9 === 'DONE') &&
+      (this.props.exercices.exercice_state_10 === 'completed' ||
+        this.props.exercices.exercice_state_10 === 'DONE') &&
+      (this.props.exercices.exercice_state_11 === 'completed' ||
+        this.props.exercices.exercice_state_11 === 'DONE') &&
+      (this.props.exercices.exercice_state_12 === 'completed' ||
+        this.props.exercices.exercice_state_12 === 'DONE') &&
+      (this.props.exercices.exercice_state_5 === 'completed' ||
+        this.props.exercices.exercice_state_5 === 'DONE') &&
+      (this.props.exercices.exercice_state_6 === 'completed' ||
+        this.props.exercices.exercice_state_6 === 'DONE') &&
+      (this.props.exercices.exercice_state_7 === 'completed' ||
+        this.props.exercices.exercice_state_7 === 'DONE') &&
+      (this.props.exercices.exercice_state_8 === 'completed' ||
+        this.props.exercices.exercice_state_8 === 'DONE') &&
+      (this.props.exercices.exercice_state_1 === 'completed' ||
+        this.props.exercices.exercice_state_1 === 'DONE') &&
+      (this.props.exercices.exercice_state_2 === 'completed' ||
+        this.props.exercices.exercice_state_2 === 'DONE') &&
+      (this.props.exercices.exercice_state_3 === 'completed' ||
+        this.props.exercices.exercice_state_3 === 'DONE') &&
+      (this.props.exercices.exercice_state_4 === 'completed' ||
+        this.props.exercices.exercice_state_4 === 'DONE') &&
       this.props.user.allExercises === false
     ) {
       this.setState(
         {
           welcomeSubTitle:
-            "You’re done with the 21-day program. We will email you with the next steps in the study.",
-          progressCircle: 22 / 22
+            'You’re done with the 21-day program. We will email you with the next steps in the study.',
+          progressCircle: 22 / 22 * 100,
         },
         function() {
           this.props.dispatch(
-            updateWelcomeSubTitle(this.state.welcomeSubTitle)
+            updateWelcomeSubTitle(this.state.welcomeSubTitle),
           );
           this.props.dispatch(updateAllExercises(true));
-        }
+        },
       );
     } else {
       return false;
@@ -403,11 +403,11 @@ class TestScreen extends React.Component {
     dt1 = new Date(initialDate);
 
     defaultdate = new Date();
-    var locales = ["en-US"];
+    var locales = ['en-US'];
     var options = {
-      year: "2-digit",
-      month: "2-digit",
-      day: "2-digit"
+      year: '2-digit',
+      month: '2-digit',
+      day: '2-digit',
     };
     //dt2 = new Date("10/21/19");
     dt2Prep = defaultdate.toLocaleString(locales, options);
@@ -415,9 +415,9 @@ class TestScreen extends React.Component {
 
     var x = diff_days(dt1, dt2);
     console.log(
-      "Date first exercice " + dt1,
-      " / Date today " + dt2,
-      " / Difference " + x
+      'Date first exercice ' + dt1,
+      ' / Date today ' + dt2,
+      ' / Difference ' + x,
     );
     console.log(this.props.exercices);
     console.log(x);
@@ -426,108 +426,108 @@ class TestScreen extends React.Component {
       {
         day: 1,
         function: updateState_Ex1,
-        exercice: this.props.exercices.exercice_state_1
+        exercice: this.props.exercices.exercice_state_1,
       },
       {
         day: 2,
         function: updateState_Ex2,
-        exercice: this.props.exercices.exercice_state_2
+        exercice: this.props.exercices.exercice_state_2,
       },
       {
         day: 3,
         function: updateState_Ex3,
-        exercice: this.props.exercices.exercice_state_3
+        exercice: this.props.exercices.exercice_state_3,
       },
       {
         day: 4,
         function: updateState_Ex4,
-        exercice: this.props.exercices.exercice_state_4
+        exercice: this.props.exercices.exercice_state_4,
       },
       {
         day: 5,
         function: updateState_Ex5,
-        exercice: this.props.exercices.exercice_state_5
+        exercice: this.props.exercices.exercice_state_5,
       },
       {
         day: 6,
         function: updateState_Ex6,
-        exercice: this.props.exercices.exercice_state_6
+        exercice: this.props.exercices.exercice_state_6,
       },
       {
         day: 7,
         function: updateState_Ex7,
-        exercice: this.props.exercices.exercice_state_7
+        exercice: this.props.exercices.exercice_state_7,
       },
       {
         day: 8,
         function: updateState_Ex8,
-        exercice: this.props.exercices.exercice_state_8
+        exercice: this.props.exercices.exercice_state_8,
       },
       {
         day: 9,
         function: updateState_Ex9,
-        exercice: this.props.exercices.exercice_state_9
+        exercice: this.props.exercices.exercice_state_9,
       },
       {
         day: 10,
         function: updateState_Ex10,
-        exercice: this.props.exercices.exercice_state_10
+        exercice: this.props.exercices.exercice_state_10,
       },
       {
         day: 11,
         function: updateState_Ex11,
-        exercice: this.props.exercices.exercice_state_11
+        exercice: this.props.exercices.exercice_state_11,
       },
       {
         day: 12,
         function: updateState_Ex12,
-        exercice: this.props.exercices.exercice_state_12
+        exercice: this.props.exercices.exercice_state_12,
       },
       {
         day: 13,
         function: updateState_Ex13,
-        exercice: this.props.exercices.exercice_state_13
+        exercice: this.props.exercices.exercice_state_13,
       },
       {
         day: 14,
         function: updateState_Ex14,
-        exercice: this.props.exercices.exercice_state_14
+        exercice: this.props.exercices.exercice_state_14,
       },
       {
         day: 15,
         function: updateState_Ex15,
-        exercice: this.props.exercices.exercice_state_15
+        exercice: this.props.exercices.exercice_state_15,
       },
       {
         day: 16,
         function: updateState_Ex16,
-        exercice: this.props.exercices.exercice_state_16
+        exercice: this.props.exercices.exercice_state_16,
       },
       {
         day: 17,
         function: updateState_Ex17,
-        exercice: this.props.exercices.exercice_state_17
+        exercice: this.props.exercices.exercice_state_17,
       },
       {
         day: 18,
         function: updateState_Ex18,
-        exercice: this.props.exercices.exercice_state_18
+        exercice: this.props.exercices.exercice_state_18,
       },
       {
         day: 19,
         function: updateState_Ex19,
-        exercice: this.props.exercices.exercice_state_19
+        exercice: this.props.exercices.exercice_state_19,
       },
       {
         day: 20,
         function: updateState_Ex20,
-        exercice: this.props.exercices.exercice_state_20
+        exercice: this.props.exercices.exercice_state_20,
       },
       {
         day: 21,
         function: updateState_Ex21,
-        exercice: this.props.exercices.exercice_state_21
-      }
+        exercice: this.props.exercices.exercice_state_21,
+      },
     ];
 
     if (isNaN(x)) {
@@ -537,7 +537,7 @@ class TestScreen extends React.Component {
         // GET ALL COMPLETED EXERCISES
         var myOrderedArray = data
           .filter(
-            item => item.exercice == "completed" || item.exercice == "DONE"
+            item => item.exercice == 'completed' || item.exercice == 'DONE',
           )
           // GET AN ARRAY OF ALL ITEM.DAY COMPLETED EXERCISES
           .map(item => {
@@ -551,15 +551,15 @@ class TestScreen extends React.Component {
             return accumulator;
           }, []);
 
-        var myNextArray = data.filter(item => item.exercice == "next");
-        var myNewArray = data.filter(item => item.exercice == "new");
+        var myNextArray = data.filter(item => item.exercice == 'next');
+        var myNewArray = data.filter(item => item.exercice == 'new');
 
         // FIND ALL UNDEFINED PAST EXERCICES AND GET FIRST EXERCISE
-        var LockedExercises = data.filter(item => item.exercice == "locked");
+        var LockedExercises = data.filter(item => item.exercice == 'locked');
 
         // FIND ALL UNDEFICOMPLETEDNED PAST EXERCICES AND GET FIRST EXERCISE
         var CompletedExercises = data.filter(
-          item => item.exercice == "completed" || item.exercice == "DONE"
+          item => item.exercice == 'completed' || item.exercice == 'DONE',
         );
 
         if (
@@ -569,26 +569,26 @@ class TestScreen extends React.Component {
           // HOT FIX TIME LOGIC
           var HotFixLogic = data.reduce((acc, item) => {
             if (
-              (item.exercice === "new" ||
-                item.exercice === "next" ||
-                item.exercice === "completed" ||
-                item.exercice === "locked" ||
-                item.exercice === "DONE") &&
+              (item.exercice === 'new' ||
+                item.exercice === 'next' ||
+                item.exercice === 'completed' ||
+                item.exercice === 'locked' ||
+                item.exercice === 'DONE') &&
               item.day > x + 2
             ) {
               return [
                 ...acc,
                 {
-                  ...item
+                  ...item,
                 },
                 this.setState(
                   {
-                    newstate: undefined
+                    newstate: undefined,
                   },
                   function() {
                     this.props.dispatch(item.function(this.state.newstate));
-                  }
-                )
+                  },
+                ),
               ];
             } else {
               return [...acc];
@@ -600,32 +600,32 @@ class TestScreen extends React.Component {
           // FIND ALL UNDEFINED PAST EXERCICES AND CHANGE THEM INTO NEW EXERCISES
           var PastUndefined = data.reduce((acc, item) => {
             if (
-              (item.exercice === undefined || item.exercice === "locked") &&
+              (item.exercice === undefined || item.exercice === 'locked') &&
               // item.exercice === "new" &&
               item.day <= x + 1
             ) {
               return [
                 ...acc,
                 {
-                  ...item
+                  ...item,
                 },
                 //Alert.alert("Hello"),
                 this.setState(
                   {
-                    newstate: "new",
-                    welcomeTitle: "Hey",
-                    welcomeSubTitle: "Continue with your next session."
+                    newstate: 'new',
+                    welcomeTitle: 'Hey',
+                    welcomeSubTitle: 'Continue with your next session.',
                   },
                   function() {
                     this.props.dispatch(item.function(this.state.newstate));
                     this.props.dispatch(
-                      updateWelcomeTitle(this.state.welcomeTitle)
+                      updateWelcomeTitle(this.state.welcomeTitle),
                     );
                     this.props.dispatch(
-                      updateWelcomeSubTitle(this.state.welcomeSubTitle)
+                      updateWelcomeSubTitle(this.state.welcomeSubTitle),
                     );
-                  }
-                )
+                  },
+                ),
               ];
             } else {
               return [...acc];
@@ -637,15 +637,15 @@ class TestScreen extends React.Component {
             .filter(
               item =>
                 (item.exercice === undefined ||
-                  item.exercice === "locked" ||
-                  item.exercice === "new") &&
-                item.day <= x + 1
+                  item.exercice === 'locked' ||
+                  item.exercice === 'new') &&
+                item.day <= x + 1,
             )
             .shift();
 
           // FIND ALL COMPLETED PAST EXERCICES
           var PastCompleted = data.filter(
-            item => item.exercice === "completed"
+            item => item.exercice === 'completed',
           );
 
           if (this.isEmpty(PastCompleted)) {
@@ -659,14 +659,14 @@ class TestScreen extends React.Component {
               {
                 visible: false,
                 isCompletedList: x,
-                totalChallenge: PastCompleted.length
+                totalChallenge: PastCompleted.length,
               },
               function() {
                 this.props.dispatch(
-                  updateCompletedList(this.state.isCompletedList)
+                  updateCompletedList(this.state.isCompletedList),
                   //updateTotalChallenge(this.state.totalChallenge)
                 );
-              }
+              },
             );
             //Alert.alert(PastCompleted);
           } else if (
@@ -678,14 +678,14 @@ class TestScreen extends React.Component {
               {
                 visible: true,
                 isCompletedList: x,
-                totalChallenge: PastCompleted.length
+                totalChallenge: PastCompleted.length,
               },
               function() {
                 this.props.dispatch(
-                  updateCompletedList(this.state.isCompletedList)
+                  updateCompletedList(this.state.isCompletedList),
                   //updateTotalChallenge(this.state.totalChallenge)
                 );
-              }
+              },
             );
           }
         }
@@ -694,11 +694,11 @@ class TestScreen extends React.Component {
       // IF LOCKED = DOES EXIST THEN SET THE STATE
       if (
         !this.isEmpty(LockedExercises) &&
-        (this.isEmpty(myNextArray) && this.isEmpty(myNewArray))
+        this.isEmpty(myNextArray) && this.isEmpty(myNewArray)
       ) {
         this.setState({
-          welcomeTitle: "Well done,",
-          welcomeSubTitle: "Come back tomorrow to continue."
+          welcomeTitle: 'Well done,',
+          welcomeSubTitle: 'Come back tomorrow to continue.',
         });
         this.props.dispatch(updateWelcomeTitle(this.state.welcomeTitle));
         this.props.dispatch(updateWelcomeSubTitle(this.state.welcomeSubTitle));
@@ -709,22 +709,22 @@ class TestScreen extends React.Component {
       // IF NEXT = DOES NOT EXIST THEN SET THE STATE
       if (this.isEmpty(myNextArray) && !this.isEmpty(PastUndefinedNext)) {
         resultFunction = PastUndefinedNext.function;
-        resultDay = "exercice_state_" + PastUndefinedNext.day;
+        resultDay = 'exercice_state_' + PastUndefinedNext.day;
         //Alert.alert(this.state.welcomeSubTitleContinue);
         this.setState(
           {
-            resultDay: "next"
+            resultDay: 'next',
           },
           function() {
             this.props.dispatch(resultFunction(this.state.resultDay));
-          }
+          },
         );
         // UDATE WELCOME TEXT
         const welcomeTitleContinue = this.state.welcomeTitleContinue;
-        this.setState({ welcomeTitle: welcomeTitleContinue });
+        this.setState({welcomeTitle: welcomeTitleContinue});
         this.props.dispatch(updateWelcomeTitle(this.state.welcomeTitle));
         const welcomeSubTitleContinue = this.state.welcomeSubTitleContinue;
-        this.setState({ welcomeSubTitle: welcomeSubTitleContinue });
+        this.setState({welcomeSubTitle: welcomeSubTitleContinue});
         this.props.dispatch(updateWelcomeSubTitle(this.state.welcomeSubTitle));
       } else {
         //
@@ -744,8 +744,8 @@ class TestScreen extends React.Component {
           chunks[chunks.length - 1].push(current);
           prev = current;
         });
-        const progressCircleCompleted = chunks[0].length / 21;
-        this.setState({ progressCircle: progressCircleCompleted });
+        const progressCircleCompleted = chunks[0].length / 22 * 100;
+        this.setState({progressCircle: progressCircleCompleted});
 
         // DAYS MISSED SINCE LAST COMPLETED EXERCISE
         const Days_Missed_LastExValue = myOrderedArray.pop();
@@ -759,12 +759,12 @@ class TestScreen extends React.Component {
           firebase
             .database()
             .ref()
-            .child("accounts")
+            .child('accounts')
             .child(this.props.user.UID)
             .update({
               TotalExMissed: Days_Missed_TotalValue,
               LastExDone: Days_Missed_LastExValue,
-              ExMissedSinceLastComple: ExMissedSinceLastCompletion
+              ExMissedSinceLastComple: ExMissedSinceLastCompletion,
             });
         }
       } else {
@@ -774,642 +774,642 @@ class TestScreen extends React.Component {
   };
 
   render() {
-    let ExerciceTextStyle_1 = "";
-    let ExerciceStyle_1 = "";
+    let ExerciceTextStyle_1 = '';
+    let ExerciceStyle_1 = '';
 
     switch (this.props.exercices.exercice_state_1) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_1 = styles.text_completed;
         ExerciceStyle_1 = styles.completed;
-        IconsExercice_1 = require("./../assets/images/checkmark_observe.png");
+        IconsExercice_1 = require('./../assets/images/checkmark_observe.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_1 = styles.text_next;
         ExerciceStyle_1 = styles.next_observe;
-        IconsExercice_1 = require("./../assets/images/nextmark.png");
+        IconsExercice_1 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_1 = styles.text_new_observe;
         ExerciceStyle_1 = styles.new_observe;
-        IconsExercice_1 = require("./../assets/images/newmark_observe.png");
+        IconsExercice_1 = require('./../assets/images/newmark_observe.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_1 = styles.text_locked;
         ExerciceStyle_1 = styles.locked;
-        IconsExercice_1 = require("./../assets/images/lockmark.png");
+        IconsExercice_1 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_1 = styles.text_locked;
         ExerciceStyle_1 = styles.locked;
-        IconsExercice_1 = require("./../assets/images/lockmark.png");
+        IconsExercice_1 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_2 = "";
-    let ExerciceStyle_2 = "";
+    let ExerciceTextStyle_2 = '';
+    let ExerciceStyle_2 = '';
 
     switch (this.props.exercices.exercice_state_2) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_2 = styles.text_completed;
         ExerciceStyle_2 = styles.completed;
-        IconsExercice_2 = require("./../assets/images/checkmark_observe.png");
+        IconsExercice_2 = require('./../assets/images/checkmark_observe.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_2 = styles.text_next;
         ExerciceStyle_2 = styles.next_observe;
-        IconsExercice_2 = require("./../assets/images/nextmark.png");
+        IconsExercice_2 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_2 = styles.text_new_observe;
         ExerciceStyle_2 = styles.new_observe;
-        IconsExercice_2 = require("./../assets/images/newmark_observe.png");
+        IconsExercice_2 = require('./../assets/images/newmark_observe.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_2 = styles.text_locked;
         ExerciceStyle_2 = styles.locked;
-        IconsExercice_2 = require("./../assets/images/lockmark.png");
+        IconsExercice_2 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_2 = styles.text_locked;
         ExerciceStyle_2 = styles.locked;
-        IconsExercice_2 = require("./../assets/images/lockmark.png");
+        IconsExercice_2 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_3 = "";
-    let ExerciceStyle_3 = "";
+    let ExerciceTextStyle_3 = '';
+    let ExerciceStyle_3 = '';
 
     switch (this.props.exercices.exercice_state_3) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_3 = styles.text_completed;
         ExerciceStyle_3 = styles.completed;
-        IconsExercice_3 = require("./../assets/images/checkmark_observe.png");
+        IconsExercice_3 = require('./../assets/images/checkmark_observe.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_3 = styles.text_next;
         ExerciceStyle_3 = styles.next_observe;
-        IconsExercice_3 = require("./../assets/images/nextmark.png");
+        IconsExercice_3 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_3 = styles.text_new_observe;
         ExerciceStyle_3 = styles.new_observe;
-        IconsExercice_3 = require("./../assets/images/newmark_observe.png");
+        IconsExercice_3 = require('./../assets/images/newmark_observe.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_3 = styles.text_locked;
         ExerciceStyle_3 = styles.locked;
-        IconsExercice_3 = require("./../assets/images/lockmark.png");
+        IconsExercice_3 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_3 = styles.text_locked;
         ExerciceStyle_3 = styles.locked;
-        IconsExercice_3 = require("./../assets/images/lockmark.png");
+        IconsExercice_3 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_4 = "";
-    let ExerciceStyle_4 = "";
+    let ExerciceTextStyle_4 = '';
+    let ExerciceStyle_4 = '';
 
     switch (this.props.exercices.exercice_state_4) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_4 = styles.text_completed;
         ExerciceStyle_4 = styles.completed;
-        IconsExercice_4 = require("./../assets/images/checkmark_observe.png");
+        IconsExercice_4 = require('./../assets/images/checkmark_observe.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_4 = styles.text_next;
         ExerciceStyle_4 = styles.next_observe;
-        IconsExercice_4 = require("./../assets/images/nextmark.png");
+        IconsExercice_4 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_4 = styles.text_new_observe;
         ExerciceStyle_4 = styles.new_observe;
-        IconsExercice_4 = require("./../assets/images/newmark_observe.png");
+        IconsExercice_4 = require('./../assets/images/newmark_observe.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_4 = styles.text_locked;
         ExerciceStyle_4 = styles.locked;
-        IconsExercice_4 = require("./../assets/images/lockmark.png");
+        IconsExercice_4 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_4 = styles.text_locked;
         ExerciceStyle_4 = styles.locked;
-        IconsExercice_4 = require("./../assets/images/lockmark.png");
+        IconsExercice_4 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_5 = "";
-    let ExerciceStyle_5 = "";
+    let ExerciceTextStyle_5 = '';
+    let ExerciceStyle_5 = '';
 
     switch (this.props.exercices.exercice_state_5) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_5 = styles.text_completed;
         ExerciceStyle_5 = styles.completed;
-        IconsExercice_5 = require("./../assets/images/checkmark_reflect.png");
+        IconsExercice_5 = require('./../assets/images/checkmark_reflect.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_5 = styles.text_next;
         ExerciceStyle_5 = styles.next_reflect;
-        IconsExercice_5 = require("./../assets/images/nextmark.png");
+        IconsExercice_5 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_5 = styles.text_new_reflect;
         ExerciceStyle_5 = styles.new_reflect;
-        IconsExercice_5 = require("./../assets/images/newmark_reflect.png");
+        IconsExercice_5 = require('./../assets/images/newmark_reflect.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_5 = styles.text_locked;
         ExerciceStyle_5 = styles.locked;
-        IconsExercice_5 = require("./../assets/images/lockmark.png");
+        IconsExercice_5 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_5 = styles.text_locked;
         ExerciceStyle_5 = styles.locked;
-        IconsExercice_5 = require("./../assets/images/lockmark.png");
+        IconsExercice_5 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_6 = "";
-    let ExerciceStyle_6 = "";
+    let ExerciceTextStyle_6 = '';
+    let ExerciceStyle_6 = '';
 
     switch (this.props.exercices.exercice_state_6) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_6 = styles.text_completed;
         ExerciceStyle_6 = styles.completed;
-        IconsExercice_6 = require("./../assets/images/checkmark_reflect.png");
+        IconsExercice_6 = require('./../assets/images/checkmark_reflect.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_6 = styles.text_next;
         ExerciceStyle_6 = styles.next_reflect;
-        IconsExercice_6 = require("./../assets/images/nextmark.png");
+        IconsExercice_6 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_6 = styles.text_new_reflect;
         ExerciceStyle_6 = styles.new_reflect;
-        IconsExercice_6 = require("./../assets/images/newmark_reflect.png");
+        IconsExercice_6 = require('./../assets/images/newmark_reflect.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_6 = styles.text_locked;
         ExerciceStyle_6 = styles.locked;
-        IconsExercice_6 = require("./../assets/images/lockmark.png");
+        IconsExercice_6 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_6 = styles.text_locked;
         ExerciceStyle_6 = styles.locked;
-        IconsExercice_6 = require("./../assets/images/lockmark.png");
+        IconsExercice_6 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_7 = "";
-    let ExerciceStyle_7 = "";
+    let ExerciceTextStyle_7 = '';
+    let ExerciceStyle_7 = '';
 
     switch (this.props.exercices.exercice_state_7) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_7 = styles.text_completed;
         ExerciceStyle_7 = styles.completed;
-        IconsExercice_7 = require("./../assets/images/checkmark_reflect.png");
+        IconsExercice_7 = require('./../assets/images/checkmark_reflect.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_7 = styles.text_next;
         ExerciceStyle_7 = styles.next_reflect;
-        IconsExercice_7 = require("./../assets/images/nextmark.png");
+        IconsExercice_7 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_7 = styles.text_new_reflect;
         ExerciceStyle_7 = styles.new_reflect;
-        IconsExercice_7 = require("./../assets/images/newmark_reflect.png");
+        IconsExercice_7 = require('./../assets/images/newmark_reflect.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_7 = styles.text_locked;
         ExerciceStyle_7 = styles.locked;
-        IconsExercice_7 = require("./../assets/images/lockmark.png");
+        IconsExercice_7 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_7 = styles.text_locked;
         ExerciceStyle_7 = styles.locked;
-        IconsExercice_7 = require("./../assets/images/lockmark.png");
+        IconsExercice_7 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_8 = "";
-    let ExerciceStyle_8 = "";
+    let ExerciceTextStyle_8 = '';
+    let ExerciceStyle_8 = '';
 
     switch (this.props.exercices.exercice_state_8) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_8 = styles.text_completed;
         ExerciceStyle_8 = styles.completed;
-        IconsExercice_8 = require("./../assets/images/checkmark_reflect.png");
+        IconsExercice_8 = require('./../assets/images/checkmark_reflect.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_8 = styles.text_next;
         ExerciceStyle_8 = styles.next_reflect;
-        IconsExercice_8 = require("./../assets/images/nextmark.png");
+        IconsExercice_8 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_8 = styles.text_new_reflect;
         ExerciceStyle_8 = styles.new_reflect;
-        IconsExercice_8 = require("./../assets/images/newmark_reflect.png");
+        IconsExercice_8 = require('./../assets/images/newmark_reflect.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_8 = styles.text_locked;
         ExerciceStyle_8 = styles.locked;
-        IconsExercice_8 = require("./../assets/images/lockmark.png");
+        IconsExercice_8 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_8 = styles.text_locked;
         ExerciceStyle_8 = styles.locked;
-        IconsExercice_8 = require("./../assets/images/lockmark.png");
+        IconsExercice_8 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_9 = "";
-    let ExerciceStyle_9 = "";
+    let ExerciceTextStyle_9 = '';
+    let ExerciceStyle_9 = '';
 
     switch (this.props.exercices.exercice_state_9) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_9 = styles.text_completed;
         ExerciceStyle_9 = styles.completed;
-        IconsExercice_9 = require("./../assets/images/checkmark_vision.png");
+        IconsExercice_9 = require('./../assets/images/checkmark_vision.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_9 = styles.text_next;
         ExerciceStyle_9 = styles.next_vision;
-        IconsExercice_9 = require("./../assets/images/nextmark.png");
+        IconsExercice_9 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_9 = styles.text_new_vision;
         ExerciceStyle_9 = styles.new_vision;
-        IconsExercice_9 = require("./../assets/images/newmark_vision.png");
+        IconsExercice_9 = require('./../assets/images/newmark_vision.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_9 = styles.text_locked;
         ExerciceStyle_9 = styles.locked;
-        IconsExercice_9 = require("./../assets/images/lockmark.png");
+        IconsExercice_9 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_9 = styles.text_locked;
         ExerciceStyle_9 = styles.locked;
-        IconsExercice_9 = require("./../assets/images/lockmark.png");
+        IconsExercice_9 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_10 = "";
-    let ExerciceStyle_10 = "";
+    let ExerciceTextStyle_10 = '';
+    let ExerciceStyle_10 = '';
 
     switch (this.props.exercices.exercice_state_10) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_10 = styles.text_completed;
         ExerciceStyle_10 = styles.completed;
-        IconsExercice_10 = require("./../assets/images/checkmark_vision.png");
+        IconsExercice_10 = require('./../assets/images/checkmark_vision.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_10 = styles.text_next;
         ExerciceStyle_10 = styles.next_vision;
-        IconsExercice_10 = require("./../assets/images/nextmark.png");
+        IconsExercice_10 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_10 = styles.text_new_vision;
         ExerciceStyle_10 = styles.new_vision;
-        IconsExercice_10 = require("./../assets/images/newmark_vision.png");
+        IconsExercice_10 = require('./../assets/images/newmark_vision.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_10 = styles.text_locked;
         ExerciceStyle_10 = styles.locked;
-        IconsExercice_10 = require("./../assets/images/lockmark.png");
+        IconsExercice_10 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_10 = styles.text_locked;
         ExerciceStyle_10 = styles.locked;
-        IconsExercice_10 = require("./../assets/images/lockmark.png");
+        IconsExercice_10 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_11 = "";
-    let ExerciceStyle_11 = "";
+    let ExerciceTextStyle_11 = '';
+    let ExerciceStyle_11 = '';
 
     switch (this.props.exercices.exercice_state_11) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_11 = styles.text_completed;
         ExerciceStyle_11 = styles.completed;
-        IconsExercice_11 = require("./../assets/images/checkmark_vision.png");
+        IconsExercice_11 = require('./../assets/images/checkmark_vision.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_11 = styles.text_next;
         ExerciceStyle_11 = styles.next_vision;
-        IconsExercice_11 = require("./../assets/images/nextmark.png");
+        IconsExercice_11 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_11 = styles.text_new_vision;
         ExerciceStyle_11 = styles.new_vision;
-        IconsExercice_11 = require("./../assets/images/newmark_vision.png");
+        IconsExercice_11 = require('./../assets/images/newmark_vision.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_11 = styles.text_locked;
         ExerciceStyle_11 = styles.locked;
-        IconsExercice_11 = require("./../assets/images/lockmark.png");
+        IconsExercice_11 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_11 = styles.text_locked;
         ExerciceStyle_11 = styles.locked;
-        IconsExercice_11 = require("./../assets/images/lockmark.png");
+        IconsExercice_11 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_12 = "";
-    let ExerciceStyle_12 = "";
+    let ExerciceTextStyle_12 = '';
+    let ExerciceStyle_12 = '';
 
     switch (this.props.exercices.exercice_state_12) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_12 = styles.text_completed;
         ExerciceStyle_12 = styles.completed;
-        IconsExercice_12 = require("./../assets/images/checkmark_vision.png");
+        IconsExercice_12 = require('./../assets/images/checkmark_vision.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_12 = styles.text_next;
         ExerciceStyle_12 = styles.next_vision;
-        IconsExercice_12 = require("./../assets/images/nextmark.png");
+        IconsExercice_12 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_12 = styles.text_new_vision;
         ExerciceStyle_12 = styles.new_vision;
-        IconsExercice_12 = require("./../assets/images/newmark_vision.png");
+        IconsExercice_12 = require('./../assets/images/newmark_vision.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_12 = styles.text_locked;
         ExerciceStyle_12 = styles.locked;
-        IconsExercice_12 = require("./../assets/images/lockmark.png");
+        IconsExercice_12 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_12 = styles.text_locked;
         ExerciceStyle_12 = styles.locked;
-        IconsExercice_12 = require("./../assets/images/lockmark.png");
+        IconsExercice_12 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_13 = "";
-    let ExerciceStyle_13 = "";
+    let ExerciceTextStyle_13 = '';
+    let ExerciceStyle_13 = '';
 
     switch (this.props.exercices.exercice_state_13) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_13 = styles.text_completed;
         ExerciceStyle_13 = styles.completed;
-        IconsExercice_13 = require("./../assets/images/checkmark_plan.png");
+        IconsExercice_13 = require('./../assets/images/checkmark_plan.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_13 = styles.text_next;
         ExerciceStyle_13 = styles.next_plan;
-        IconsExercice_13 = require("./../assets/images/nextmark.png");
+        IconsExercice_13 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_13 = styles.text_new_plan;
         ExerciceStyle_13 = styles.new_plan;
-        IconsExercice_13 = require("./../assets/images/newmark_plan.png");
+        IconsExercice_13 = require('./../assets/images/newmark_plan.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_13 = styles.text_locked;
         ExerciceStyle_13 = styles.locked;
-        IconsExercice_13 = require("./../assets/images/lockmark.png");
+        IconsExercice_13 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_13 = styles.text_locked;
         ExerciceStyle_13 = styles.locked;
-        IconsExercice_13 = require("./../assets/images/lockmark.png");
+        IconsExercice_13 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_14 = "";
-    let ExerciceStyle_14 = "";
+    let ExerciceTextStyle_14 = '';
+    let ExerciceStyle_14 = '';
 
     switch (this.props.exercices.exercice_state_14) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_14 = styles.text_completed;
         ExerciceStyle_14 = styles.completed;
-        IconsExercice_14 = require("./../assets/images/checkmark_plan.png");
+        IconsExercice_14 = require('./../assets/images/checkmark_plan.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_14 = styles.text_next;
         ExerciceStyle_14 = styles.next_plan;
-        IconsExercice_14 = require("./../assets/images/nextmark.png");
+        IconsExercice_14 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_14 = styles.text_new_plan;
         ExerciceStyle_14 = styles.new_plan;
-        IconsExercice_14 = require("./../assets/images/newmark_plan.png");
+        IconsExercice_14 = require('./../assets/images/newmark_plan.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_14 = styles.text_locked;
         ExerciceStyle_14 = styles.locked;
-        IconsExercice_14 = require("./../assets/images/lockmark.png");
+        IconsExercice_14 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_14 = styles.text_locked;
         ExerciceStyle_14 = styles.locked;
-        IconsExercice_14 = require("./../assets/images/lockmark.png");
+        IconsExercice_14 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_15 = "";
-    let ExerciceStyle_15 = "";
+    let ExerciceTextStyle_15 = '';
+    let ExerciceStyle_15 = '';
 
     switch (this.props.exercices.exercice_state_15) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_15 = styles.text_completed;
         ExerciceStyle_15 = styles.completed;
-        IconsExercice_15 = require("./../assets/images/checkmark_plan.png");
+        IconsExercice_15 = require('./../assets/images/checkmark_plan.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_15 = styles.text_next;
         ExerciceStyle_15 = styles.next_plan;
-        IconsExercice_15 = require("./../assets/images/nextmark.png");
+        IconsExercice_15 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_15 = styles.text_new_plan;
         ExerciceStyle_15 = styles.new_plan;
-        IconsExercice_15 = require("./../assets/images/newmark_plan.png");
+        IconsExercice_15 = require('./../assets/images/newmark_plan.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_15 = styles.text_locked;
         ExerciceStyle_15 = styles.locked;
-        IconsExercice_15 = require("./../assets/images/lockmark.png");
+        IconsExercice_15 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_15 = styles.text_locked;
         ExerciceStyle_15 = styles.locked;
-        IconsExercice_15 = require("./../assets/images/lockmark.png");
+        IconsExercice_15 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_16 = "";
-    let ExerciceStyle_16 = "";
+    let ExerciceTextStyle_16 = '';
+    let ExerciceStyle_16 = '';
 
     switch (this.props.exercices.exercice_state_16) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_16 = styles.text_completed;
         ExerciceStyle_16 = styles.completed;
-        IconsExercice_16 = require("./../assets/images/checkmark_plan.png");
+        IconsExercice_16 = require('./../assets/images/checkmark_plan.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_16 = styles.text_next;
         ExerciceStyle_16 = styles.next_plan;
-        IconsExercice_16 = require("./../assets/images/nextmark.png");
+        IconsExercice_16 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_16 = styles.text_new_plan;
         ExerciceStyle_16 = styles.new_plan;
-        IconsExercice_16 = require("./../assets/images/newmark_plan.png");
+        IconsExercice_16 = require('./../assets/images/newmark_plan.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_16 = styles.text_locked;
         ExerciceStyle_16 = styles.locked;
-        IconsExercice_16 = require("./../assets/images/lockmark.png");
+        IconsExercice_16 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_16 = styles.text_locked;
         ExerciceStyle_16 = styles.locked;
-        IconsExercice_16 = require("./../assets/images/lockmark.png");
+        IconsExercice_16 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_17 = "";
-    let ExerciceStyle_17 = "";
+    let ExerciceTextStyle_17 = '';
+    let ExerciceStyle_17 = '';
 
     switch (this.props.exercices.exercice_state_17) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_17 = styles.text_completed;
         ExerciceStyle_17 = styles.completed;
-        IconsExercice_17 = require("./../assets/images/checkmark_support.png");
+        IconsExercice_17 = require('./../assets/images/checkmark_support.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_17 = styles.text_next;
         ExerciceStyle_17 = styles.next_support;
-        IconsExercice_17 = require("./../assets/images/nextmark.png");
+        IconsExercice_17 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_17 = styles.text_new_support;
         ExerciceStyle_17 = styles.new_support;
-        IconsExercice_17 = require("./../assets/images/newmark_support.png");
+        IconsExercice_17 = require('./../assets/images/newmark_support.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_17 = styles.text_locked;
         ExerciceStyle_17 = styles.locked;
-        IconsExercice_17 = require("./../assets/images/lockmark.png");
+        IconsExercice_17 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_17 = styles.text_locked;
         ExerciceStyle_17 = styles.locked;
-        IconsExercice_17 = require("./../assets/images/lockmark.png");
+        IconsExercice_17 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_18 = "";
-    let ExerciceStyle_18 = "";
+    let ExerciceTextStyle_18 = '';
+    let ExerciceStyle_18 = '';
 
     switch (this.props.exercices.exercice_state_18) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_18 = styles.text_completed;
         ExerciceStyle_18 = styles.completed;
-        IconsExercice_18 = require("./../assets/images/checkmark_support.png");
+        IconsExercice_18 = require('./../assets/images/checkmark_support.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_18 = styles.text_next;
         ExerciceStyle_18 = styles.next_support;
-        IconsExercice_18 = require("./../assets/images/nextmark.png");
+        IconsExercice_18 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_18 = styles.text_new_support;
         ExerciceStyle_18 = styles.new_support;
-        IconsExercice_18 = require("./../assets/images/newmark_support.png");
+        IconsExercice_18 = require('./../assets/images/newmark_support.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_18 = styles.text_locked;
         ExerciceStyle_18 = styles.locked;
-        IconsExercice_18 = require("./../assets/images/lockmark.png");
+        IconsExercice_18 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_18 = styles.text_locked;
         ExerciceStyle_18 = styles.locked;
-        IconsExercice_18 = require("./../assets/images/lockmark.png");
+        IconsExercice_18 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_19 = "";
-    let ExerciceStyle_19 = "";
+    let ExerciceTextStyle_19 = '';
+    let ExerciceStyle_19 = '';
 
     switch (this.props.exercices.exercice_state_19) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_19 = styles.text_completed;
         ExerciceStyle_19 = styles.completed;
-        IconsExercice_19 = require("./../assets/images/checkmark_support.png");
+        IconsExercice_19 = require('./../assets/images/checkmark_support.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_19 = styles.text_next;
         ExerciceStyle_19 = styles.next_support;
-        IconsExercice_19 = require("./../assets/images/nextmark.png");
+        IconsExercice_19 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_19 = styles.text_new_support;
         ExerciceStyle_19 = styles.new_support;
-        IconsExercice_19 = require("./../assets/images/newmark_support.png");
+        IconsExercice_19 = require('./../assets/images/newmark_support.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_19 = styles.text_locked;
         ExerciceStyle_19 = styles.locked;
-        IconsExercice_19 = require("./../assets/images/lockmark.png");
+        IconsExercice_19 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_19 = styles.text_locked;
         ExerciceStyle_19 = styles.locked;
-        IconsExercice_19 = require("./../assets/images/lockmark.png");
+        IconsExercice_19 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_20 = "";
-    let ExerciceStyle_20 = "";
+    let ExerciceTextStyle_20 = '';
+    let ExerciceStyle_20 = '';
 
     switch (this.props.exercices.exercice_state_20) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_20 = styles.text_completed;
         ExerciceStyle_20 = styles.completed;
-        IconsExercice_20 = require("./../assets/images/checkmark_support.png");
+        IconsExercice_20 = require('./../assets/images/checkmark_support.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_20 = styles.text_next;
         ExerciceStyle_20 = styles.next_support;
-        IconsExercice_20 = require("./../assets/images/nextmark.png");
+        IconsExercice_20 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_20 = styles.text_new_support;
         ExerciceStyle_20 = styles.new_support;
-        IconsExercice_20 = require("./../assets/images/newmark_support.png");
+        IconsExercice_20 = require('./../assets/images/newmark_support.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_20 = styles.text_locked;
         ExerciceStyle_20 = styles.locked;
-        IconsExercice_20 = require("./../assets/images/lockmark.png");
+        IconsExercice_20 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_20 = styles.text_locked;
         ExerciceStyle_20 = styles.locked;
-        IconsExercice_20 = require("./../assets/images/lockmark.png");
+        IconsExercice_20 = require('./../assets/images/lockmark.png');
     }
 
-    let ExerciceTextStyle_21 = "";
-    let ExerciceStyle_21 = "";
+    let ExerciceTextStyle_21 = '';
+    let ExerciceStyle_21 = '';
 
     switch (this.props.exercices.exercice_state_21) {
-      case "completed":
+      case 'completed':
         ExerciceTextStyle_21 = styles.text_completed;
         ExerciceStyle_21 = styles.completed;
-        IconsExercice_21 = require("./../assets/images/checkmark_support.png");
+        IconsExercice_21 = require('./../assets/images/checkmark_support.png');
         break;
-      case "next":
+      case 'next':
         ExerciceTextStyle_21 = styles.text_next;
         ExerciceStyle_21 = styles.next_support;
-        IconsExercice_21 = require("./../assets/images/nextmark.png");
+        IconsExercice_21 = require('./../assets/images/nextmark.png');
         break;
-      case "new":
+      case 'new':
         ExerciceTextStyle_21 = styles.text_new_support;
         ExerciceStyle_21 = styles.new_support;
-        IconsExercice_21 = require("./../assets/images/newmark_support.png");
+        IconsExercice_21 = require('./../assets/images/newmark_support.png');
         break;
-      case "locked":
+      case 'locked':
         ExerciceTextStyle_21 = styles.text_locked;
         ExerciceStyle_21 = styles.locked;
-        IconsExercice_21 = require("./../assets/images/lockmark.png");
+        IconsExercice_21 = require('./../assets/images/lockmark.png');
         break;
       default:
         ExerciceTextStyle_21 = styles.text_locked;
         ExerciceStyle_21 = styles.locked;
-        IconsExercice_21 = require("./../assets/images/lockmark.png");
+        IconsExercice_21 = require('./../assets/images/lockmark.png');
     }
 
     var ExercicesArray = [
       {
         id: 1,
-        path: "Intro_Phase_Observe",
+        path: 'Intro_Phase_Observe',
         //path: "Exercice_1_Congratulations",
-        label: "Day 1 - Contenance",
+        label: 'Day 1 - Contenance',
         styleButton: ExerciceStyle_1,
         styleText: ExerciceTextStyle_1,
         IconSource: IconsExercice_1,
@@ -1421,13 +1421,13 @@ class TestScreen extends React.Component {
             From now on, whenever you open Contenance, take on a good posture
             first.
           </Text>
-        )
+        ),
       },
       {
         id: 2,
-        path: "Exercice_2_Intro",
+        path: 'Exercice_2_Intro',
         //path: "Exercice_2_Congratulations",
-        label: "Day 2 - Notice Your Impulses",
+        label: 'Day 2 - Notice Your Impulses',
         styleButton: ExerciceStyle_2,
         styleText: ExerciceTextStyle_2,
         IconSource: IconsExercice_2,
@@ -1440,18 +1440,18 @@ class TestScreen extends React.Component {
           <Text style={styles.text_challenge}>
             Whenever you catch yourself grabbing your smartphone, stop for a
             moment and try to see if you can identify the impulse. Notice it
-            with curiosity and without judging it.{"\n"}
-            {"\n"}Try to let the impulse come over you, like a wave, without
+            with curiosity and without judging it.{'\n'}
+            {'\n'}Try to let the impulse come over you, like a wave, without
             reacting to it immediately. And then decide consciously if you want
             to follow your impulse right now - or not.
           </Text>
-        )
+        ),
       },
       {
         id: 3,
-        path: "Exercice_3_Intro",
+        path: 'Exercice_3_Intro',
         //path: "Exercice_3_6",
-        label: "Day 3 - Solution Triangle",
+        label: 'Day 3 - Solution Triangle',
         styleButton: ExerciceStyle_3,
         styleText: ExerciceTextStyle_3,
         IconSource: IconsExercice_3,
@@ -1463,19 +1463,19 @@ class TestScreen extends React.Component {
         text_content: (
           <Text style={styles.text_challenge}>
             Look around you today: what are other people doing to take control
-            of their smartphone use?{"\n"}
-            {"\n"}
-            What factor do they belong to?{"\n"}
-            {"\n"}
+            of their smartphone use?{'\n'}
+            {'\n'}
+            What factor do they belong to?{'\n'}
+            {'\n'}
             The smartphone, the environment or the person?
           </Text>
-        )
+        ),
       },
       {
         id: 4,
-        path: "Exercice_4_Intro",
+        path: 'Exercice_4_Intro',
         //path: "Exercice_4_Congratulations",
-        label: "Day 4 - Keep Breathing",
+        label: 'Day 4 - Keep Breathing',
         styleButton: ExerciceStyle_4,
         styleText: ExerciceTextStyle_4,
         IconSource: IconsExercice_4,
@@ -1485,17 +1485,17 @@ class TestScreen extends React.Component {
         text_content: (
           <Text style={styles.text_challenge}>
             Whenever you use your smartphone until tomorrow, be aware of your
-            breathing.{"\n"}
-            {"\n"}
+            breathing.{'\n'}
+            {'\n'}
             Follow one breath all the way through.
           </Text>
-        )
+        ),
       },
       {
         id: 5,
-        path: "Intro_Phase_Reflect",
+        path: 'Intro_Phase_Reflect',
         //path: "Exercice_5_Congratulations",
-        label: "Day 5 - Habit Loop",
+        label: 'Day 5 - Habit Loop',
         styleButton: ExerciceStyle_5,
         styleText: ExerciceTextStyle_5,
         IconSource: IconsExercice_5,
@@ -1508,13 +1508,13 @@ class TestScreen extends React.Component {
             to check if the decision to grab your smartphone happens
             automatically or if you consciously decide to do so.
           </Text>
-        )
+        ),
       },
       {
         id: 6,
-        path: "Exercice_6_Intro",
+        path: 'Exercice_6_Intro',
         //path: "Exercice_6_Congratulations",
-        label: "Day 6 - Exploring Emotional Triggers",
+        label: 'Day 6 - Exploring Emotional Triggers',
         styleButton: ExerciceStyle_6,
         styleText: ExerciceTextStyle_6,
         IconSource: IconsExercice_6,
@@ -1529,17 +1529,17 @@ class TestScreen extends React.Component {
           <Text style={styles.text_challenge}>
             Next time when you catch yourself grabbing the smartphone, stop for
             a moment and check your inner state of mind. Ask yourself: How am I
-            feeling at this moment?{"\n"}
-            {"\n"}Notice the feeling, and then consciously decide if you want to
+            feeling at this moment?{'\n'}
+            {'\n'}Notice the feeling, and then consciously decide if you want to
             use your smartphone as a reaction to it.
           </Text>
-        )
+        ),
       },
       {
         id: 7,
-        path: "Exercice_7_Intro",
+        path: 'Exercice_7_Intro',
         //path: "Exercice_7_Congratulations",
-        label: "Day 7 - Getting Lost",
+        label: 'Day 7 - Getting Lost',
         styleButton: ExerciceStyle_7,
         styleText: ExerciceTextStyle_7,
         IconSource: IconsExercice_7,
@@ -1550,16 +1550,16 @@ class TestScreen extends React.Component {
           <Text style={styles.text_challenge}>
             When you continue using your smartphone today, think of the traffic
             light and the apps you use. How does their design add to the
-            experience of losing yourself in the app?{"\n"}
-            {"\n"}Become aware of that.
+            experience of losing yourself in the app?{'\n'}
+            {'\n'}Become aware of that.
           </Text>
-        )
+        ),
       },
       {
         id: 8,
-        path: "Exercice_8_Intro",
+        path: 'Exercice_8_Intro',
         //path: "Exercice_8_Congratulations",
-        label: "Day 8 - Mindful Social Media Use",
+        label: 'Day 8 - Mindful Social Media Use',
         styleButton: ExerciceStyle_8,
         styleText: ExerciceTextStyle_8,
         IconSource: IconsExercice_8,
@@ -1574,13 +1574,13 @@ class TestScreen extends React.Component {
             longer than usual, asking yourself: What do I actually see in front
             of me?
           </Text>
-        )
+        ),
       },
       {
         id: 9,
-        path: "Intro_Phase_Vision",
+        path: 'Intro_Phase_Vision',
         //path: "Exercice_9_Congratulations",
-        label: "Day 9 - Exploring Values",
+        label: 'Day 9 - Exploring Values',
         styleButton: ExerciceStyle_9,
         styleText: ExerciceTextStyle_9,
         IconSource: IconsExercice_9,
@@ -1592,13 +1592,13 @@ class TestScreen extends React.Component {
             Until tomorrow, observe your actions and ask yourself how they might
             be connected to your values.
           </Text>
-        )
+        ),
       },
       {
         id: 10,
-        path: "Exercice_10_Intro",
+        path: 'Exercice_10_Intro',
         //path: "Exercice_10_Congratulations",
-        label: "Day 10 - Meaningful Smartphone Activities",
+        label: 'Day 10 - Meaningful Smartphone Activities',
         styleButton: ExerciceStyle_10,
         styleText: ExerciceTextStyle_10,
         IconSource: IconsExercice_10,
@@ -1614,13 +1614,13 @@ class TestScreen extends React.Component {
             Until tomorrow, do a test run of the meaningful smartphone activity
             you defined today!
           </Text>
-        )
+        ),
       },
       {
         id: 11,
-        path: "Exercice_11_Intro",
+        path: 'Exercice_11_Intro',
         //path: "Exercice_11_Congratulations",
-        label: "Day 11 - 54321 Trick",
+        label: 'Day 11 - 54321 Trick',
         styleButton: ExerciceStyle_11,
         styleText: ExerciceTextStyle_11,
         IconSource: IconsExercice_11,
@@ -1629,29 +1629,29 @@ class TestScreen extends React.Component {
         title: <Text style={styles.header_challenge}>54321 Trick</Text>,
         text_content: (
           <Text style={styles.text_challenge}>
-            The next time you are using{" "}
+            The next time you are using{' '}
             {this.props.user_values.AppsRed1_D7 == undefined
               ? null
               : this.props.user_values.AppsRed1_D7}
-            ,{" "}
+            ,{' '}
             {this.props.user_values.AppsRed2_D7 == undefined
               ? null
-              : this.props.user_values.AppsRed2_D7}{" "}
-            and{" "}
+              : this.props.user_values.AppsRed2_D7}{' '}
+            and{' '}
             {this.props.user_values.AppsRed3_D7 == undefined
               ? null
               : this.props.user_values.AppsRed3_D7}
-            , give it a try and do the 54321 trick and find:{"\n"}
-            {"\n"}5 things you can see, 4 things you can touch, 3 things you can
+            , give it a try and do the 54321 trick and find:{'\n'}
+            {'\n'}5 things you can see, 4 things you can touch, 3 things you can
             hear, 2 things you can smell, 1 thing you can taste!
           </Text>
-        )
+        ),
       },
       {
         id: 12,
-        path: "Exercice_12_Intro",
+        path: 'Exercice_12_Intro',
         //path: "Exercice_12_Congratulations",
-        label: "Day 12 - Inner Scientist",
+        label: 'Day 12 - Inner Scientist',
         styleButton: ExerciceStyle_12,
         styleText: ExerciceTextStyle_12,
         IconSource: IconsExercice_12,
@@ -1660,17 +1660,17 @@ class TestScreen extends React.Component {
         title: <Text style={styles.header_challenge}>Inner Scientist</Text>,
         text_content: (
           <Text style={styles.text_challenge}>
-            Next time you notice any emotional trigger or impulse:{"\n"}
-            {"\n"}Stop, notice it, most importantly accept it and then decide
+            Next time you notice any emotional trigger or impulse:{'\n'}
+            {'\n'}Stop, notice it, most importantly accept it and then decide
             what to do!
           </Text>
-        )
+        ),
       },
       {
         id: 13,
-        path: "Intro_Phase_Plan",
+        path: 'Intro_Phase_Plan',
         //path: "Exercice_13_Congratulations",
-        label: "Day 13 - Meaningful Smartphone Habits",
+        label: 'Day 13 - Meaningful Smartphone Habits',
         styleButton: ExerciceStyle_13,
         styleText: ExerciceTextStyle_13,
         IconSource: IconsExercice_13,
@@ -1683,18 +1683,18 @@ class TestScreen extends React.Component {
         ),
         text_content: (
           <Text style={styles.text_challenge}>
-            Let’s walk the walk. Do a first run of your new activity:{"\n"}
-            {"\n"}
+            Let’s walk the walk. Do a first run of your new activity:{'\n'}
+            {'\n'}
             {this.props.user_values.NewHabitCommit_D13 == undefined
               ? null
               : this.props.user_values.NewHabitCommit_D13}
           </Text>
-        )
+        ),
       },
       {
         id: 14,
-        path: "Exercice_14_Intro",
-        label: "Day 14 - Being Prepared for Challenges",
+        path: 'Exercice_14_Intro',
+        label: 'Day 14 - Being Prepared for Challenges',
         styleButton: ExerciceStyle_14,
         styleText: ExerciceTextStyle_14,
         IconSource: IconsExercice_14,
@@ -1707,47 +1707,47 @@ class TestScreen extends React.Component {
         ),
         text_content: (
           <Text style={styles.text_challenge}>
-            Do a test-run of one of your newly defined coping plans!{"\n"}
-            {"\n"}There might be challenges to realize my plan:{" "}
+            Do a test-run of one of your newly defined coping plans!{'\n'}
+            {'\n'}There might be challenges to realize my plan:{' '}
             {this.props.user_values.NewHabitCommit_D13 === undefined
               ? null
               : this.props.user_values.NewHabitCommit_D13}
             . But I am prepared.
-            {"\n"}
-            {"\n"}If{" "}
+            {'\n'}
+            {'\n'}If{' '}
             {this.props.user_values.Obstacle1_D14 == undefined
               ? null
               : this.props.user_values.Obstacle1_D14}
-            , then{" "}
+            , then{' '}
             {this.props.user_values.CopingStrategy1_D14 == undefined
               ? null
               : this.props.user_values.CopingStrategy1_D14}
-            .{"\n"}
-            {"\n"}If{" "}
+            .{'\n'}
+            {'\n'}If{' '}
             {this.props.user_values.Obstacle2_D14 == undefined
               ? null
               : this.props.user_values.Obstacle2_D14}
-            , then{" "}
+            , then{' '}
             {this.props.user_values.CopingStrategy2_D14 == undefined
               ? null
               : this.props.user_values.CopingStrategy2_D14}
-            .{"\n"}
-            {"\n"}If{" "}
+            .{'\n'}
+            {'\n'}If{' '}
             {this.props.user_values.Obstacle3_D14 == undefined
               ? null
               : this.props.user_values.Obstacle3_D14}
-            , then{" "}
+            , then{' '}
             {this.props.user_values.CopingStrategy3_D14 == undefined
               ? null
               : this.props.user_values.CopingStrategy3_D14}
             .
           </Text>
-        )
+        ),
       },
       {
         id: 15,
-        path: "Exercice_15_Intro",
-        label: "Day 15 - Beauty of Imagination",
+        path: 'Exercice_15_Intro',
+        label: 'Day 15 - Beauty of Imagination',
         styleButton: ExerciceStyle_15,
         styleText: ExerciceTextStyle_15,
         IconSource: IconsExercice_15,
@@ -1761,12 +1761,12 @@ class TestScreen extends React.Component {
             Next time you find yourself in an empty moment today, try another
             one of these thought experiments. Or come up with your own!
           </Text>
-        )
+        ),
       },
       {
         id: 16,
-        path: "Exercice_16_Intro",
-        label: "Day 16 - Brain Reset",
+        path: 'Exercice_16_Intro',
+        label: 'Day 16 - Brain Reset',
         styleButton: ExerciceStyle_16,
         styleText: ExerciceTextStyle_16,
         IconSource: IconsExercice_16,
@@ -1776,16 +1776,16 @@ class TestScreen extends React.Component {
         text_content: (
           <Text style={styles.text_challenge}>
             Give your brain the chance to have a moment without any guided input
-            in an empty moment.{"\n"}
-            {"\n"}Treat yourself with another micro-break today, lasting 3 - 10
+            in an empty moment.{'\n'}
+            {'\n'}Treat yourself with another micro-break today, lasting 3 - 10
             minutes instead of using your smartphone.
           </Text>
-        )
+        ),
       },
       {
         id: 17,
-        path: "Intro_Phase_Support",
-        label: "Day 17 - Taking Control on the Smartphone",
+        path: 'Intro_Phase_Support',
+        label: 'Day 17 - Taking Control on the Smartphone',
         styleButton: ExerciceStyle_17,
         styleText: ExerciceTextStyle_17,
         IconSource: IconsExercice_17,
@@ -1798,17 +1798,17 @@ class TestScreen extends React.Component {
         ),
         text_content: (
           <Text style={styles.text_challenge}>
-            Choose your favorite option:{"\n"}
-            {"\n"}1. Turn-off non-human notifications{"\n"}
-            {"\n"}2. Design a home screen that feels like home{"\n"}
-            {"\n"}3. Free yourself from social media apps
+            Choose your favorite option:{'\n'}
+            {'\n'}1. Turn-off non-human notifications{'\n'}
+            {'\n'}2. Design a home screen that feels like home{'\n'}
+            {'\n'}3. Free yourself from social media apps
           </Text>
-        )
+        ),
       },
       {
         id: 18,
-        path: "Exercice_18_Intro",
-        label: "Day 18 - Taking Control of the Environment",
+        path: 'Exercice_18_Intro',
+        label: 'Day 18 - Taking Control of the Environment',
         styleButton: ExerciceStyle_18,
         styleText: ExerciceTextStyle_18,
         IconSource: IconsExercice_18,
@@ -1822,16 +1822,16 @@ class TestScreen extends React.Component {
         text_content: (
           <Text style={styles.text_challenge}>
             From now on, stick to these situations in which you will have your
-            smartphone around - or not.{"\n"}
-            {"\n"}This might be quite a radical change. Here comes a little tip:
+            smartphone around - or not.{'\n'}
+            {'\n'}This might be quite a radical change. Here comes a little tip:
             You can start with implementing one GO and one NO GO per day.
           </Text>
-        )
+        ),
       },
       {
         id: 19,
-        path: "Exercice_19_Intro",
-        label: "Day 19 - Me, the Smartphone and Others",
+        path: 'Exercice_19_Intro',
+        label: 'Day 19 - Me, the Smartphone and Others',
         styleButton: ExerciceStyle_19,
         styleText: ExerciceTextStyle_19,
         IconSource: IconsExercice_19,
@@ -1845,16 +1845,16 @@ class TestScreen extends React.Component {
         text_content: (
           <Text style={styles.text_challenge}>
             From now on, share with the people around you what you are doing on
-            the smartphone if you are using it around them.{"\n"}
-            {"\n"}If you don’t feel comfortable sharing your activity, think
+            the smartphone if you are using it around them.{'\n'}
+            {'\n'}If you don’t feel comfortable sharing your activity, think
             about if it is even necessary doing that right that second.
           </Text>
-        )
+        ),
       },
       {
         id: 20,
-        path: "Exercice_20_Intro",
-        label: "Day 20 - Daddeln is Okay",
+        path: 'Exercice_20_Intro',
+        label: 'Day 20 - Daddeln is Okay',
         styleButton: ExerciceStyle_20,
         styleText: ExerciceTextStyle_20,
         IconSource: IconsExercice_20,
@@ -1866,19 +1866,19 @@ class TestScreen extends React.Component {
             Do one more Daddeln session until tomorrow. Lose yourself and have
             fun!
           </Text>
-        )
+        ),
       },
       {
         id: 21,
-        path: "Exercice_21_Intro",
+        path: 'Exercice_21_Intro',
         //path: "Closing_Screen_T2",
-        label: "Day 21 - Closing",
+        label: 'Day 21 - Closing',
         styleButton: ExerciceStyle_21,
         styleText: ExerciceTextStyle_21,
         IconSource: IconsExercice_21,
         state: this.props.exercices.exercice_state_21,
-        function: updateState_Ex21
-      }
+        function: updateState_Ex21,
+      },
     ];
     return (
       <>
@@ -1891,45 +1891,40 @@ class TestScreen extends React.Component {
         />
         <View
           style={{
-            alignItems: "stretch"
-          }}
-        >
+            alignItems: 'stretch',
+          }}>
           <StatusBar hidden />
           <ScrollView showsVerticalScrollIndicator={false}>
             <View
               style={{
                 flex: 1,
                 paddingTop: 50,
-                justifyContent: "flex-start"
-              }}
-            >
-              <Progress.Circle
-                progress={
+                justifyContent: 'flex-start',
+              }}>
+
+              <AnimatedCircularProgress
+                size={Dimensions.get('window').width - 70}
+                width={12}
+                fill={
                   this.props.user.allExercises === true
                     ? 1
                     : this.state.progressCircle
                 }
-                size={Dimensions.get("window").width - 70}
-                height={Dimensions.get("window").width - 70}
-                thickness={12}
-                strokeCap={"round"}
-                borderWidth={0}
-                borderRadius={0}
-                color={this.state.colorProgress}
-                unfilledColor={"#E2DFD1"}
-                animated={true}
-                style={{ alignSelf: "center" }}
+                tintColor={this.state.colorProgress}
+                lineCap={'round'}
+                backgroundColor={'#E2DFD1'}
+                style={{alignSelf: 'center', height: Dimensions.get('window').width - 70}}
+                rotation={0}
               />
 
               <View
                 style={{
-                  position: "relative",
+                  position: 'relative',
                   left: 0,
-                  top: -Dimensions.get("window").width + 45,
-                  marginBottom: -Dimensions.get("window").width + 45,
-                  alignItems: "center"
-                }}
-              >
+                  top: -Dimensions.get('window').width + 45,
+                  marginBottom: -Dimensions.get('window').width + 45,
+                  alignItems: 'center',
+                }}>
                 <HomeIllustration
                   observeStarted={true}
                   reflectStarted={this.state.reflectStarted}
@@ -1945,22 +1940,21 @@ class TestScreen extends React.Component {
                 flex: 1,
                 paddingRight: 30,
                 paddingLeft: 30,
-                justifyContent: "flex-start"
-              }}
-            >
+                justifyContent: 'flex-start',
+              }}>
               <Text style={styles.header_left}>
                 {this.state.welcomeTitle} {this.props.user.nickname}!
               </Text>
 
               <Text style={styles.text_left}>
-                {"\n"}
+                {'\n'}
                 {this.state.welcomeSubTitle}
               </Text>
 
               {ExercicesArray.map((item, key) =>
-                item.state === "next" ||
-                item.state === "locked" ||
-                item.state === "new" ? (
+                item.state === 'next' ||
+                item.state === 'locked' ||
+                item.state === 'new' ? (
                   <View key={key}>
                     <ExerciceButton
                       onPress={() => {
@@ -1970,8 +1964,7 @@ class TestScreen extends React.Component {
                       }}
                       style={item.styleButton}
                       state={item.state}
-                      disabled={item.state === "locked" ? true : false}
-                    >
+                      disabled={item.state === 'locked' ? true : false}>
                       <Text style={item.styleText}>{item.label}</Text>
                       <Image
                         style={styles.exercice_button_icon}
@@ -1979,27 +1972,25 @@ class TestScreen extends React.Component {
                       />
                     </ExerciceButton>
                   </View>
-                ) : null
+                ) : null,
               )}
 
               <Modal
                 visible={this.state.visible}
                 animationType="slide"
-                transparent={true}
-              >
+                transparent={true}>
                 <View
                   style={{
                     padding: 30,
-                    flexDirection: "column",
-                    backgroundColor: "#F4F1DE",
-                    height: Dimensions.get("window").height,
-                    justifyContent: "space-between",
+                    flexDirection: 'column',
+                    backgroundColor: '#F4F1DE',
+                    height: Dimensions.get('window').height,
+                    justifyContent: 'space-between',
                     paddingBottom: 30,
                     top: 50,
-                    borderRadius: 10
-                  }}
-                >
-                  {ExercicesArray.filter(item => item.state == "completed").map(
+                    borderRadius: 10,
+                  }}>
+                  {ExercicesArray.filter(item => item.state == 'completed').map(
                     (item, key) =>
                       key == this.state.rightItemArray ? (
                         <View key={key}>
@@ -2025,106 +2016,100 @@ class TestScreen extends React.Component {
                             onPressLeft={() => {
                               this.setState(
                                 {
-                                  newstate: "DONE",
-                                  leftItemArray: this.state.leftItemArray + 1
+                                  newstate: 'DONE',
+                                  leftItemArray: this.state.leftItemArray + 1,
                                 },
                                 function() {
                                   this.props.dispatch(
-                                    item.function(this.state.newstate)
+                                    item.function(this.state.newstate),
                                   );
-                                }
+                                },
                               );
                             }}
                             onPressRight={() => {
                               this.setState(
                                 {
-                                  newstate: "completed",
-                                  rightItemArray: this.state.rightItemArray + 1
+                                  newstate: 'completed',
+                                  rightItemArray: this.state.rightItemArray + 1,
                                 },
                                 function() {
                                   this.props.dispatch(
-                                    item.function(this.state.newstate)
+                                    item.function(this.state.newstate),
                                   );
-                                }
+                                },
                               );
                             }}
                             onPressLeftLast={() => {
                               //const newstate = "DONE";
                               this.setState(
                                 {
-                                  newstate: "DONE",
+                                  newstate: 'DONE',
                                   leftItemArray: this.state.leftItemArray + 1,
-                                  lastItemArray: true
+                                  lastItemArray: true,
                                 },
                                 function() {
                                   this.props.dispatch(
-                                    item.function(this.state.newstate)
+                                    item.function(this.state.newstate),
                                   );
-                                }
+                                },
                               );
                             }}
                             onPressRightLast={() => {
                               this.setState(
                                 {
-                                  newstate: "completed",
+                                  newstate: 'completed',
                                   rightItemArray: this.state.rightItemArray + 1,
-                                  lastItemArray: true
+                                  lastItemArray: true,
                                 },
                                 function() {
                                   this.props.dispatch(
-                                    item.function(this.state.newstate)
+                                    item.function(this.state.newstate),
                                   );
-                                }
+                                },
                               );
-                            }}
-                          ></ChallengeModal>
+                            }}></ChallengeModal>
                         </View>
-                      ) : null
+                      ) : null,
                   )}
 
                   {this.state.lastItemArray ? (
                     <View
                       style={{
                         padding: 30,
-                        flexDirection: "column",
-                        backgroundColor: "#F4F1DE",
-                        height: Dimensions.get("window").height,
-                        justifyContent: "space-between",
-                        paddingBottom: 50
-                      }}
-                    >
+                        flexDirection: 'column',
+                        backgroundColor: '#F4F1DE',
+                        height: Dimensions.get('window').height,
+                        justifyContent: 'space-between',
+                        paddingBottom: 50,
+                      }}>
                       {this.state.leftItemArray / this.state.totalChallenge >=
                       1 ? (
                         <View
                           style={{
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            height: Dimensions.get("window").height - 110,
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            height: Dimensions.get('window').height - 110,
                             paddingLeft: 15,
-                            paddingRight: 15
-                          }}
-                        >
+                            paddingRight: 15,
+                          }}>
                           <View
                             style={{
                               paddingTop: 5,
-                              position: "absolute",
+                              position: 'absolute',
                               right: 0,
-                              top: 0
-                            }}
-                          >
+                              top: 0,
+                            }}>
                             <TouchableOpacity
                               onPress={() => {
                                 this.setState({
-                                  visible: false
+                                  visible: false,
                                 });
-                              }}
-                            >
+                              }}>
                               <Svg
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
-                                fill="none"
-                              >
+                                fill="none">
                                 <Path
                                   fill-rule="evenodd"
                                   clip-rule="evenodd"
@@ -2136,17 +2121,15 @@ class TestScreen extends React.Component {
                           </View>
                           <View
                             style={{
-                              flexDirection: "row",
-                              justifyContent: "center",
-                              paddingBottom: 20
-                            }}
-                          >
+                              flexDirection: 'row',
+                              justifyContent: 'center',
+                              paddingBottom: 20,
+                            }}>
                             <Svg
                               width="72"
                               height="71"
                               viewBox="0 0 72 71"
-                              fill="none"
-                            >
+                              fill="none">
                               <Path
                                 d="M66.1324 27.8582C67.4307 26.5861 67.8891 24.7191 67.3289 22.9858C66.7686 21.2525 65.3059 20.0131 63.5116 19.7511L47.8219 17.4595C47.5139 17.4146 47.2477 17.2202 47.1099 16.9395L40.0933 2.64953C39.2909 1.01522 37.6661 0 35.8529 0C34.0396 0 32.4148 1.01522 31.6124 2.64953L24.5958 16.9397C24.4579 17.2202 24.1918 17.4146 23.8837 17.4597L8.19424 19.7511C6.39993 20.0131 4.9374 21.2525 4.37692 22.9858C3.81644 24.7191 4.27496 26.5861 5.5735 27.8582L16.9266 38.9815C17.1494 39.1999 17.2512 39.5146 17.1986 39.823L14.5184 55.5293C14.212 57.3256 14.9327 59.1067 16.3996 60.178C17.8665 61.2495 19.7751 61.3879 21.3797 60.54L35.4128 53.1245C35.6884 52.9788 36.0174 52.9788 36.2932 53.1245L50.3264 60.54C51.0244 60.9088 51.7797 61.0911 52.5313 61.091C53.5075 61.091 54.4774 60.7835 55.3061 60.1778C56.773 59.1064 57.4938 57.3252 57.1873 55.5291L54.5071 39.8228C54.4546 39.5144 54.5563 39.1998 54.7791 38.9813L66.1324 27.8582ZM50.7789 40.4659L53.459 56.1724C53.5486 56.698 53.2258 56.9977 53.0828 57.1021C52.9397 57.2062 52.5563 57.4226 52.0868 57.1743L38.0536 49.7588C37.3647 49.3949 36.609 49.2127 35.8531 49.2127C35.0973 49.2127 34.3414 49.3949 33.6527 49.7586L19.6196 57.174C19.1499 57.4222 18.7666 57.2061 18.6236 57.1018C18.4806 56.9975 18.1576 56.6978 18.2474 56.1721L20.9275 40.4659C21.1907 38.9238 20.6824 37.3511 19.5675 36.2589L8.21441 25.1356C7.83446 24.7631 7.92045 24.33 7.9752 24.161C8.02968 23.992 8.21357 23.5907 8.73861 23.5141L24.4279 21.2225C25.9683 20.9976 27.2995 20.0257 27.9885 18.6224L35.0051 4.33226C35.24 3.85407 35.6764 3.80241 35.8533 3.80241C36.0299 3.80241 36.4663 3.85393 36.7013 4.33226V4.3324L43.7179 18.6226C44.4068 20.0259 45.7378 20.9977 47.2782 21.2227L62.9678 23.5142C63.4928 23.5908 63.6766 23.9921 63.7312 24.1612C63.7858 24.3303 63.872 24.7635 63.4919 25.1357L52.1388 36.259C51.024 37.3511 50.5157 38.9238 50.7789 40.4659Z"
                                 fill="#2C3B51"
@@ -2181,34 +2164,30 @@ class TestScreen extends React.Component {
                       ) : (
                         <View
                           style={{
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            height: Dimensions.get("window").height - 140,
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            height: Dimensions.get('window').height - 140,
                             paddingLeft: 15,
-                            paddingRight: 15
-                          }}
-                        >
+                            paddingRight: 15,
+                          }}>
                           <View
                             style={{
                               paddingTop: 5,
-                              position: "absolute",
+                              position: 'absolute',
                               right: 0,
-                              top: 0
-                            }}
-                          >
+                              top: 0,
+                            }}>
                             <TouchableOpacity
                               onPress={() => {
                                 this.setState({
-                                  visible: false
+                                  visible: false,
                                 });
-                              }}
-                            >
+                              }}>
                               <Svg
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
-                                fill="none"
-                              >
+                                fill="none">
                                 <Path
                                   fill-rule="evenodd"
                                   clip-rule="evenodd"
@@ -2220,17 +2199,15 @@ class TestScreen extends React.Component {
                           </View>
                           <View
                             style={{
-                              flexDirection: "row",
-                              justifyContent: "center",
-                              paddingBottom: 20
-                            }}
-                          >
+                              flexDirection: 'row',
+                              justifyContent: 'center',
+                              paddingBottom: 20,
+                            }}>
                             <Svg
                               width="65"
                               height="65"
                               viewBox="0 0 65 65"
-                              fill="none"
-                            >
+                              fill="none">
                               <G clip-path="url(#clip0)">
                                 <Path
                                   d="M32.5 65C26.1077 65 19.945 63.1532 14.6363 59.6521L3.46592 63.123C3.01563 63.2628 2.52468 63.1418 2.19143 62.8086C1.85818 62.4748 1.73718 61.9844 1.87702 61.5341L5.3479 50.3637C1.84677 45.055 0 38.8923 0 32.5C0 23.8191 3.38062 15.6574 9.519 9.519C15.6574 3.38062 23.8191 0 32.5 0C41.1809 0 49.3426 3.38062 55.481 9.519C61.6194 15.6574 65 23.8191 65 32.5C65 41.1809 61.6194 49.3426 55.481 55.481C49.3426 61.6194 41.1809 65 32.5 65ZM14.8406 56.9896C15.094 56.9896 15.3455 57.0659 15.5592 57.2127C20.5575 60.6464 26.4157 62.4609 32.5 62.4609C49.0208 62.4609 62.4609 49.0208 62.4609 32.5C62.4609 15.9792 49.0208 2.53906 32.5 2.53906C15.9792 2.53906 2.53906 15.9792 2.53906 32.5C2.53906 38.5843 4.3536 44.4425 7.78728 49.4408C8.00697 49.7612 8.06847 50.1648 7.95292 50.5363L5.01762 59.9819L14.4637 57.0471C14.5872 57.0089 14.7142 56.9896 14.8406 56.9896Z"
@@ -2281,8 +2258,8 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 40,
     flex: 1,
-    alignItems: "center",
-    alignSelf: "stretch"
+    alignItems: 'center',
+    alignSelf: 'stretch',
   },
   container_scroll: {
     paddingTop: 80,
@@ -2290,390 +2267,390 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 40,
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: 'stretch',
   },
   center: {
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header_modal: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 24,
     lineHeight: 28,
-    textAlign: "center",
-    fontFamily: "roboto-black",
+    textAlign: 'center',
+    fontFamily: 'roboto-black',
     paddingBottom: 25,
-    paddingTop: 30
+    paddingTop: 30,
   },
   text_modal: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 19,
     lineHeight: 25,
-    textAlign: "center",
-    fontFamily: "roboto-regular"
+    textAlign: 'center',
+    fontFamily: 'roboto-regular',
   },
   counter_modal: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 19,
     lineHeight: 25,
-    textAlign: "center",
-    fontFamily: "roboto-regular",
-    paddingTop: 30
+    textAlign: 'center',
+    fontFamily: 'roboto-regular',
+    paddingTop: 30,
   },
   top: {
     flex: 1,
-    justifyContent: "flex-start",
-    alignSelf: "stretch"
+    justifyContent: 'flex-start',
+    alignSelf: 'stretch',
   },
   middle: {
-    justifyContent: "center",
-    alignSelf: "stretch"
+    justifyContent: 'center',
+    alignSelf: 'stretch',
   },
   inline: {
     flex: 1,
-    flexDirection: "row-reverse",
-    justifyContent: "flex-end",
-    alignSelf: "stretch",
-    paddingTop: 20
+    flexDirection: 'row-reverse',
+    justifyContent: 'flex-end',
+    alignSelf: 'stretch',
+    paddingTop: 20,
   },
   bottom: {
     flex: 1,
-    justifyContent: "flex-end",
-    alignSelf: "stretch"
+    justifyContent: 'flex-end',
+    alignSelf: 'stretch',
   },
   keyboard_view: {
-    flex: 1
+    flex: 1,
   },
   header: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 30,
     lineHeight: 37,
-    textAlign: "center",
-    fontFamily: "roboto-black",
-    paddingBottom: 10
+    textAlign: 'center',
+    fontFamily: 'roboto-black',
+    paddingBottom: 10,
   },
   header_left: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 30,
     lineHeight: 37,
-    textAlign: "left",
-    fontFamily: "roboto-black",
+    textAlign: 'left',
+    fontFamily: 'roboto-black',
     paddingTop: 30,
-    alignSelf: "stretch"
+    alignSelf: 'stretch',
   },
   text: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 19,
     lineHeight: 25,
-    textAlign: "center",
-    fontFamily: "roboto-regular"
+    textAlign: 'center',
+    fontFamily: 'roboto-regular',
   },
   text_left: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 19,
     //lineHeight: 25,
-    textAlign: "left",
-    fontFamily: "roboto-regular",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-regular',
+    alignSelf: 'stretch',
     marginTop: -15,
-    paddingBottom: 30
+    paddingBottom: 30,
   },
   text_scroll: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 19,
     lineHeight: 25,
-    textAlign: "left",
-    fontFamily: "roboto-regular"
+    textAlign: 'left',
+    fontFamily: 'roboto-regular',
   },
   codeInput: {
     marginTop: 43,
-    alignSelf: "stretch",
-    textAlign: "center",
+    alignSelf: 'stretch',
+    textAlign: 'center',
     height: 40,
     fontSize: 19,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
   },
   usernameInput: {
     marginTop: 43,
     marginBottom: 43,
-    alignSelf: "stretch",
-    textAlign: "center",
+    alignSelf: 'stretch',
+    textAlign: 'center',
     height: 40,
     fontSize: 19,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
   },
   exercice_button_icon: {
-    alignSelf: "flex-end",
-    top: "50%",
+    alignSelf: 'flex-end',
+    top: '50%',
     marginTop: 6,
     right: 20,
-    position: "absolute"
+    position: 'absolute',
   },
   completed: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: "transparent",
+    borderColor: 'transparent',
     borderRadius: 12,
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
     marginBottom: 15,
     paddingTop: 0,
-    paddingBottom: 0
+    paddingBottom: 0,
   },
   text_completed: {
-    color: "#2C3B51",
+    color: '#2C3B51',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-regular",
-    textTransform: "capitalize",
+    textAlign: 'left',
+    fontFamily: 'roboto-regular',
+    textTransform: 'capitalize',
     letterSpacing: 1,
-    alignSelf: "stretch",
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   next_observe: {
-    backgroundColor: "#A28AD4",
+    backgroundColor: '#A28AD4',
     borderWidth: 2,
-    borderColor: "#A28AD4",
+    borderColor: '#A28AD4',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   next_reflect: {
-    backgroundColor: "#F6B563",
+    backgroundColor: '#F6B563',
     borderWidth: 2,
-    borderColor: "#F6B563",
+    borderColor: '#F6B563',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   next_vision: {
-    backgroundColor: "#F87B7B",
+    backgroundColor: '#F87B7B',
     borderWidth: 2,
-    borderColor: "#F87B7B",
+    borderColor: '#F87B7B',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   next_plan: {
-    backgroundColor: "#4CBB92",
+    backgroundColor: '#4CBB92',
     borderWidth: 2,
-    borderColor: "#4CBB92",
+    borderColor: '#4CBB92',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   next_support: {
-    backgroundColor: "#6A97D8",
+    backgroundColor: '#6A97D8',
     borderWidth: 2,
-    borderColor: "#6A97D8",
+    borderColor: '#6A97D8',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   text_next: {
-    color: "#FFFFFF",
+    color: '#FFFFFF',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-medium",
-    textTransform: "capitalize",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-medium',
+    textTransform: 'capitalize',
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   new_observe: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: "#A28AD4",
+    borderColor: '#A28AD4',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   text_new_observe: {
-    color: "#A28AD4",
+    color: '#A28AD4',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-medium",
-    textTransform: "capitalize",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-medium',
+    textTransform: 'capitalize',
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   new_reflect: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: "#F6B563",
+    borderColor: '#F6B563',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   text_new_reflect: {
-    color: "#F6B563",
+    color: '#F6B563',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-medium",
-    textTransform: "capitalize",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-medium',
+    textTransform: 'capitalize',
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   new_vision: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: "#F87B7B",
+    borderColor: '#F87B7B',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   text_new_vision: {
-    color: "#F87B7B",
+    color: '#F87B7B',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-medium",
-    textTransform: "capitalize",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-medium',
+    textTransform: 'capitalize',
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   new_plan: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: "#4CBB92",
+    borderColor: '#4CBB92',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   text_new_plan: {
-    color: "#4CBB92",
+    color: '#4CBB92',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-medium",
-    textTransform: "capitalize",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-medium',
+    textTransform: 'capitalize',
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   new_support: {
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: "#6A97D8",
+    borderColor: '#6A97D8',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   text_new_support: {
-    color: "#6A97D8",
+    color: '#6A97D8',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-medium",
-    textTransform: "capitalize",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-medium',
+    textTransform: 'capitalize',
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   locked: {
-    backgroundColor: "#E2DFD1",
+    backgroundColor: '#E2DFD1',
     borderWidth: 2,
-    borderColor: "#E2DFD1",
+    borderColor: '#E2DFD1',
     borderRadius: 12,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 15,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    justifyContent: "space-between",
-    marginBottom: 15
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    marginBottom: 15,
   },
   text_locked: {
-    color: "rgba(44, 59, 81, 0.3)",
+    color: 'rgba(44, 59, 81, 0.3)',
     fontSize: 17,
     lineHeight: 23,
-    textAlign: "left",
-    fontFamily: "roboto-regular",
-    textTransform: "capitalize",
-    alignSelf: "stretch",
+    textAlign: 'left',
+    fontFamily: 'roboto-regular',
+    textTransform: 'capitalize',
+    alignSelf: 'stretch',
     letterSpacing: 1,
     paddingRight: 40,
     paddingLeft: 5,
-    marginLeft: 0
+    marginLeft: 0,
   },
   notBlurred: {
     ...StyleSheet.absoluteFill,
-    top: Constants.statusBarHeight
+    top: Constants.statusBarHeight,
   },
   notBlurredIndex: {
     ...StyleSheet.absoluteFill,
     top: Constants.statusBarHeight,
-    zIndex: 2
-  }
+    zIndex: 2,
+  },
 });
 
 const mapStateToProps = state => ({
   user: state.user,
   exercices: state.exercices,
-  user_values: state.user_values
+  user_values: state.user_values,
 });
 
 export default connect(mapStateToProps)(TestScreen);
